@@ -4,20 +4,24 @@ import java.util.*;
 
 public class PerfectNo {
         public static void PerfectNumber(int Num){
-            int sum =1;
-            for(int i=1 ;i*i<Num;i++){
+            int sum =0;
+            for(int i=1 ;i<=Num;i++){
                 if(Num % i ==0) {
-                    if (Num % i == i) {
-                        sum = sum +i+(Num%i);
+                    sum +=i;
+                    if(i*i !=Num){
+                        sum +=Num%i;
                     }
-                    else{
-                        sum = sum + i;
-                    }
+//                    if (Num % i == i) {
+//                        sum = sum +i+(Num%i);
+//                    }
+//                    else{
+//                        sum = sum + i;
+//                    }
 
                 }
 
             }
-            if(sum == Num){
+            if(sum -Num == Num){
                 System.out.println("YES");
             }
             else
@@ -46,3 +50,14 @@ public class PerfectNo {
 
 
 
+//10
+//        81
+//        84
+//        94
+//        50
+//        39
+//        6
+//        39
+//        83
+//        8
+//        73
