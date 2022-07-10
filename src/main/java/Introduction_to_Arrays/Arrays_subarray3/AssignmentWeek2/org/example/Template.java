@@ -1,4 +1,4 @@
-package org.example;
+package Introduction_to_Arrays.Arrays_subarray3.AssignmentWeek2.org.example;
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;
@@ -6,7 +6,6 @@ import static java.lang.Math.abs;
 import static java.lang.System.out;
 import java.util.*;
 import java.io.*;
-import java.math.*;
 
 public class Template
 {

@@ -13,17 +13,13 @@ public class ArmstrongNumber {
         ArrayList<Integer> arrli
                 = new ArrayList<Integer>();
 
-        if (Num==1){
-            arrli.add(Num);
-
-        }
-        else {
-            for (int i = 2; i <= Num; i++) {
+            for (int i = 1; i <= Num; i++) {
                 int sum =0;
-                while (i != 0) {
-                    int remender = i % 10;
+                int original = i;
+                while (original != 0) {
+                    int remender = original % 10;
                     sum = sum + remender * remender * remender;
-                    i = i / 10;
+                    original = original / 10;
                 }
                 if (sum == i) {
                     arrli.add(i);
@@ -31,7 +27,6 @@ public class ArmstrongNumber {
 
 
             }
-        }
         return arrli ;
     }
 

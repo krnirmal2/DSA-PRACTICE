@@ -1,4 +1,4 @@
-package AssignmentWeek2.Day4;
+package Introduction_to_Arrays.Arrays_subarray3.AssignmentWeek2.Day4;
 
 import java.util.Scanner;
 
