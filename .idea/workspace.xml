@@ -4,25 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="77987ea3-190f-463f-93a5-64ed859b9de2" name="Changes" comment="week 3 code">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Introduction_to_Arrays/Arrays_subarray3/AssignmentWeek2/Day4/IsPrimeNo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Introduction_to_Arrays/Arrays_subarray3/AssignmentWeek2/Day4/PerfectNo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_carray_forward/ClosestMaxMin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_prefix_sum/EquilibriumIndex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_prefix_sum/RangeQuerySum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/SumOfAllSubarray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/ArrayRotatedByKTimes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/CountTheNoOfElementGreaterThanItSelf.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/GoodPair_givenSumFindPairFromArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/IsPairOfSumPresent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/MaxAndMinOfAnArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/SearchElement.java" afterDir="false" />
+    <list default="true" id="77987ea3-190f-463f-93a5-64ed859b9de2" name="Changes" comment="Till subarray">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays2D14/Add2Matrix.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays2D14/AntiDiagonal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays2D14/Subtract2Matrix.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_carray_forward/AGPairCount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_carray_forward/LeastAverageSubarrayOfSizeB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AssignmentWeek2/Day4/IsPrimeNo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AssignmentWeek2/Day4/PerfectNo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AssignmentWeek2/Day4/SumOfNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Introduction_to_Arrays/Arrays_subarray3/AssignmentWeek2/Day4/SumOfNumber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Week2/Day4/ArmstrongNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Week2/Day4/ArmstrongNumber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Template.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Introduction_to_Arrays/Arrays_subarray3/AssignmentWeek2/org/example/Template.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/ArrayRotatedByKTimes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/ArrayRotatedByKTimes.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,9 +57,35 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.SumOfAllSubarray">
-    <configuration name="CountTheNoOfElementGreaterThanItSelf" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Programming_constructs.Introduction_to_array.CountTheNoOfElementGreaterThanItSelf" />
+  <component name="RunManager" selected="Application.MatrixMultiply">
+    <configuration name="AGPairCount" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Programming_constructs.Arrays_carray_forward.AGPairCount" />
+      <module name="Scalar" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Programming_constructs.Arrays_carray_forward.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Add2Matrix" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Programming_constructs.Arrays2D14.Add2Matrix" />
+      <module name="Scalar" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Programming_constructs.Arrays2D14.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ArrayRotatedByKTimes" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Programming_constructs.Introduction_to_array.ArrayRotatedByKTimes" />
       <module name="Scalar" />
       <extension name="coverage">
         <pattern>
@@ -82,12 +97,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EquilibriumIndex" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Programming_constructs.Arrays_prefix_sum.EquilibriumIndex" />
+    <configuration name="MatrixMultiply" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Programming_constructs.Arrays2D14.MatrixMultiply" />
       <module name="Scalar" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Programming_constructs.Arrays_prefix_sum.*" />
+          <option name="PATTERN" value="Programming_constructs.Arrays2D14.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -95,38 +110,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GoodPair_givenSumFindPairFromArray" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Programming_constructs.Introduction_to_array.GoodPair_givenSumFindPairFromArray" />
+    <configuration name="Subtract2Matrix" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Programming_constructs.Arrays2D14.Subtract2Matrix" />
       <module name="Scalar" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Programming_constructs.Introduction_to_array.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RangeQuerySum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Programming_constructs.Arrays_prefix_sum.RangeQuerySum" />
-      <module name="Scalar" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Programming_constructs.Arrays_prefix_sum.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SumOfAllSubarray" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Programming_constructs.Arrays_subarray3.SumOfAllSubarray" />
-      <module name="Scalar" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Programming_constructs.Arrays_subarray3.*" />
+          <option name="PATTERN" value="Programming_constructs.Arrays2D14.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -136,11 +125,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SumOfAllSubarray" />
-        <item itemvalue="Application.RangeQuerySum" />
-        <item itemvalue="Application.EquilibriumIndex" />
-        <item itemvalue="Application.GoodPair_givenSumFindPairFromArray" />
-        <item itemvalue="Application.CountTheNoOfElementGreaterThanItSelf" />
+        <item itemvalue="Application.MatrixMultiply" />
+        <item itemvalue="Application.Subtract2Matrix" />
+        <item itemvalue="Application.Add2Matrix" />
+        <item itemvalue="Application.AGPairCount" />
+        <item itemvalue="Application.ArrayRotatedByKTimes" />
       </list>
     </recent_temporary>
   </component>
@@ -160,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656354530004</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Till subarray">
+      <created>1657481260800</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1657481260800</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -176,7 +172,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="week 3 code" />
-    <option name="LAST_COMMIT_MESSAGE" value="week 3 code" />
+    <MESSAGE value="Till subarray" />
+    <option name="LAST_COMMIT_MESSAGE" value="Till subarray" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -361,6 +358,11 @@
           <line>11</line>
           <option name="timeStamp" value="59" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/ArrayRotatedByKTimes.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="52" />
@@ -382,11 +384,11 @@
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_prefix_sum/EquilibriumIndex.java" line="78">
         <watch expression="arr[size-1]" />
       </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/SumOfAllSubarray.java" line="15">
-        <watch expression="result" />
-      </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/SumOfAllSubarray.java" line="11">
         <watch expression=" sum" />
+      </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/SumOfAllSubarray.java" line="15">
+        <watch expression="result" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_prefix_sum/RangeQuerySum.java" line="17">
         <watch expression="[b.length" />
