@@ -1,0 +1,143 @@
+Index: src/main/java/Programming_constructs/Arrays2D14/hollowDiamondPattern.java
+===================================================================
+diff --git a/src/main/java/Programming_constructs/Arrays2D14/hollowDiamondPattern.java b/src/main/java/Programming_constructs/Arrays2D14/hollowDiamondPattern.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/Programming_constructs/Arrays2D14/hollowDiamondPattern.java	
+@@ -0,0 +1,43 @@
++package Programming_constructs.Arrays2D14;
++
++import java.util.Scanner;
++
++public class hollowDiamondPattern {
++// add this command in demo branch for merging
++
++    public static void main(String[] args) {
++        // take custom input
++        Scanner sc = new Scanner(System.in);
++        int input = sc.nextInt();
++//logic to print the first half pattern
++        for (int i = 1; i <=input; i++) {
++            for (int j = 1; j <=input - i + 1; j++) {
++                System.out.print("*");
++            }
++//loop calculates space
++            for (int k = 1; k <= 2 * i - 2; k++) {
++                System.out.print(" ");
++            }
++            for (int j = 1; j <= input - i + 1; j++) {
++                System.out.print("*");
++            }
++            System.out.println();
++        }
++//logic to print the second half pattern
++        for (int i = input-1; i >= 1; i--) {
++            for (int j = i; j <= input; j++) {
++                System.out.print("*");
++            }
++//loop calculates space
++            for (int k = 1; k <= (2 * i) - 2; k++) {
++                System.out.print(" ");
++            }
++            for (int j = i; j <= input; j++) {
++                System.out.print("*");
++            }
++            System.out.println();
++        }
++    }
++
++
++}
+Index: src/main/java/Programming_constructs/Arrays_subarray3/FirstNegativeNumber.java
+===================================================================
+diff --git a/src/main/java/Programming_constructs/Arrays_subarray3/FirstNegativeNumber.java b/src/main/java/Programming_constructs/Arrays_subarray3/FirstNegativeNumber.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/Programming_constructs/Arrays_subarray3/FirstNegativeNumber.java	
+@@ -0,0 +1,36 @@
++//package Programming_constructs.Arrays_subarray3;
++//
++//import java.util.ArrayList;
++//
++//public class FirstNegativeNumber {
++//
++//
++//    public static void main(String[] args) {
++//        int[] arr = {1,2,3,4,5,6,7,8,9,10};
++//        System.out.println(findNegativeNumber(arr,3));
++//    }
++//
++//    private static ArrayList<Integer> findNegativeNumber(int[] arr, int windowSize) {
++//
++//        ArrayList<Integer> result = new ArrayList<>();
++//
++//        int i =0, j=0;
++//        int n = arr.length;
++//        while( j<n){
++//            if(arr[j]<0){
++//                result.add(arr[j]);
++//
++//            }
++//            if(j-i+1 < windowSize){
++//                j++;
++//            } else if (j-i+1 == windowSize) {
++//
++//
++//            }
++//        }
++//
++//
++//    }
++//
++//
++//}
+Index: src/main/java/Week2/Day4/CountFactorOfNumber.java
+===================================================================
+diff --git a/src/main/java/Week2/Day4/CountFactorOfNumber.java b/src/main/java/Week2/Day4/CountFactorOfNumber.java
+--- a/src/main/java/Week2/Day4/CountFactorOfNumber.java	
++++ b/src/main/java/Week2/Day4/CountFactorOfNumber.java	
+@@ -1,11 +1,11 @@
+ package Week2.Day4;
+ 
+ public class CountFactorOfNumber {
+-    static int CountFactorNumber1(int number){
++    static int CountFactorNumber1(){
+         int count =0;
+-        for(int i =1;i<=number;i++)
++        for(int i = 1; i<= 10; i++)
+         {
+-            if(number % i == 0){
++            if(10 % i == 0){
+                 count++;
+             }
+         }
+@@ -15,14 +15,14 @@
+ 
+     // optimise the code by considering the i and (number % i )
+     // and we considering both them as factor
+-    static int CountFactorNumber2(int number){
++    static int CountFactorNumber2(){
+         int count =0;
+ 
+-        for(int i =1;i*i<=number;i++)
++        for(int i = 1; i*i<= 10; i++)
+         {
+ 
+-            if(number % i == 0){
+-                if(i==number%i )
++            if(10 % i == 0){
++                if(i== 10 %i )
+                 { // if the i and number%i is same then count only one ohter wise count both i and number%i
+                     count = count+1;
+                 }
+@@ -34,8 +34,8 @@
+     }
+ 
+     public static void main(String[] args) {
+-        System.out.println(CountFactorNumber1(10));
+-        System.out.println(CountFactorNumber2(10));
++        System.out.println(CountFactorNumber1());
++        System.out.println(CountFactorNumber2());
+ 
+     }
+ }
