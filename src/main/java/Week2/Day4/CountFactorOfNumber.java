@@ -1,11 +1,11 @@
 package Week2.Day4;
 
 public class CountFactorOfNumber {
-    static int CountFactorNumber1(int number){
+    static int CountFactorNumber1(){
         int count =0;
-        for(int i =1;i<=number;i++)
+        for(int i = 1; i<= 10; i++)
         {
-            if(number % i == 0){
+            if(10 % i == 0){
                 count++;
             }
         }
@@ -15,14 +15,14 @@ public class CountFactorOfNumber {
 
     // optimise the code by considering the i and (number % i )
     // and we considering both them as factor
-    static int CountFactorNumber2(int number){
+    static int CountFactorNumber2(){
         int count =0;
 
-        for(int i =1;i*i<=number;i++)
+        for(int i = 1; i*i<= 10; i++)
         {
 
-            if(number % i == 0){
-                if(i==number%i )
+            if(10 % i == 0){
+                if(i== 10 %i )
                 { // if the i and number%i is same then count only one ohter wise count both i and number%i
                     count = count+1;
                 }
@@ -34,8 +34,8 @@ public class CountFactorOfNumber {
     }
 
     public static void main(String[] args) {
-        System.out.println(CountFactorNumber1(10));
-        System.out.println(CountFactorNumber2(10));
+        System.out.println(CountFactorNumber1());
+        System.out.println(CountFactorNumber2());
 
     }
 }
