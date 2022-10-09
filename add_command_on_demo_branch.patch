@@ -1,0 +1,653 @@
+Index: src/main/java/Programming_constructs/Arrays2D14/hollowDiamondPattern.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Programming_constructs/Arrays2D14/hollowDiamondPattern.java b/src/main/java/Programming_constructs/Arrays2D14/hollowDiamondPattern.java
+new file mode 100644
+--- /dev/null	(date 1665334989517)
++++ b/src/main/java/Programming_constructs/Arrays2D14/hollowDiamondPattern.java	(date 1665334989517)
+@@ -0,0 +1,43 @@
++package Programming_constructs.Arrays2D14;
++
++import java.util.Scanner;
++
++public class hollowDiamondPattern {
++// add this command in demo branch for merging
++
++    public static void main(String[] args) {
++        // take custom input
++        Scanner sc = new Scanner(System.in);
++        int input = sc.nextInt();
++//logic to print the first half pattern
++        for (int i = 1; i <=input; i++) {
++            for (int j = 1; j <=input - i + 1; j++) {
++                System.out.print("*");
++            }
++//loop calculates space
++            for (int k = 1; k <= 2 * i - 2; k++) {
++                System.out.print(" ");
++            }
++            for (int j = 1; j <= input - i + 1; j++) {
++                System.out.print("*");
++            }
++            System.out.println();
++        }
++//logic to print the second half pattern
++        for (int i = input-1; i >= 1; i--) {
++            for (int j = i; j <= input; j++) {
++                System.out.print("*");
++            }
++//loop calculates space
++            for (int k = 1; k <= (2 * i) - 2; k++) {
++                System.out.print(" ");
++            }
++            for (int j = i; j <= input; j++) {
++                System.out.print("*");
++            }
++            System.out.println();
++        }
++    }
++
++
++}
+Index: src/main/java/Week2/Day4/CountFactorOfNumber.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Week2/Day4/CountFactorOfNumber.java b/src/main/java/Week2/Day4/CountFactorOfNumber.java
+--- a/src/main/java/Week2/Day4/CountFactorOfNumber.java	(revision b298c48c7ff372aa732f13337ca79b9086d9621c)
++++ b/src/main/java/Week2/Day4/CountFactorOfNumber.java	(date 1664861424571)
+@@ -1,11 +1,11 @@
+ package Week2.Day4;
+ 
+ public class CountFactorOfNumber {
+-    static int CountFactorNumber1(int number){
++    static int CountFactorNumber1(){
+         int count =0;
+-        for(int i =1;i<=number;i++)
++        for(int i = 1; i<= 10; i++)
+         {
+-            if(number % i == 0){
++            if(10 % i == 0){
+                 count++;
+             }
+         }
+@@ -15,14 +15,14 @@
+ 
+     // optimise the code by considering the i and (number % i )
+     // and we considering both them as factor
+-    static int CountFactorNumber2(int number){
++    static int CountFactorNumber2(){
+         int count =0;
+ 
+-        for(int i =1;i*i<=number;i++)
++        for(int i = 1; i*i<= 10; i++)
+         {
+ 
+-            if(number % i == 0){
+-                if(i==number%i )
++            if(10 % i == 0){
++                if(i== 10 %i )
+                 { // if the i and number%i is same then count only one ohter wise count both i and number%i
+                     count = count+1;
+                 }
+@@ -34,8 +34,8 @@
+     }
+ 
+     public static void main(String[] args) {
+-        System.out.println(CountFactorNumber1(10));
+-        System.out.println(CountFactorNumber2(10));
++        System.out.println(CountFactorNumber1());
++        System.out.println(CountFactorNumber2());
+ 
+     }
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision b298c48c7ff372aa732f13337ca79b9086d9621c)
++++ b/.idea/workspace.xml	(date 1665335008346)
+@@ -4,24 +4,13 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="77987ea3-190f-463f-93a5-64ed859b9de2" name="Changes" comment="before the advanced module start">
+-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/TwoDArrays/SearchSortedMatrix.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/TwoDArrays/SumOfParticularSubmatrix.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/TwoDArrays/sumOfAllSubMatrixes.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/begger.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/rainWaterTrap.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_carray_forward/Bulbs.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/ShaggyDistance.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/largestWindowForSumK.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/Sum2.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/LinkedList/InorderWithoutRecursion.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/LinkedList/PreOrderWithOutRecursion.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/arraylist" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/twoD.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/utility2" afterDir="false" />
++    <list default="true" id="77987ea3-190f-463f-93a5-64ed859b9de2" name="Changes" comment="Armstrong">
++      <change afterPath="$PROJECT_DIR$/.idea/leetcode/editor.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays2D14/hollowDiamondPattern.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/FirstNegativeNumber.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/UTILITY" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UTILITY" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/PrintSumOfAllSubarray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/PrintSumOfAllSubarray.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/Week2/Day4/CountFactorOfNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Week2/Day4/CountFactorOfNumber.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -61,13 +50,14 @@
+     </favorite-branches>
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="master" />
++        <entry key="$PROJECT_DIR$" value="ScalarPractice" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+     <option name="UPDATE_TYPE" value="REBASE" />
+   </component>
+   <component name="HighlightingSettingsPerFile">
++    <setting file="jar://C:/Program Files/Java/jdk-11.0.15.1/lib/src.zip!/java.base/java/lang/NumberFormatException.java" root0="SKIP_INSPECTION" />
+     <setting file="jar://C:/Program Files/Java/jdk-11.0.15.1/lib/src.zip!/java.base/java/lang/StrictMath.java" root0="SKIP_INSPECTION" />
+   </component>
+   <component name="MarkdownSettingsMigration">
+@@ -87,7 +77,11 @@
+     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+     &quot;last_opened_file_path&quot;: &quot;H:/JAVA WORKSPACE FOR WORK/gpx/MehulJava&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
++    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
++    &quot;settings.editor.splitter.proportion&quot;: &quot;0.1736795&quot;
+   }
+ }</component>
+   <component name="RecentsManager">
+@@ -95,13 +89,13 @@
+       <recent name="Programming_constructs.String" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="Application.SearchSortedMatrix">
+-    <configuration name="SearchSortedMatrix" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="AdvancedDSA.Arrays.one.TwoDArrays.SearchSortedMatrix" />
++  <component name="RunManager" selected="Application.hollowDiamondPattern">
++    <configuration name="CountFactorOfNumber" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="Week2.Day4.CountFactorOfNumber" />
+       <module name="Scalar" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="AdvancedDSA.Arrays.one.TwoDArrays.*" />
++          <option name="PATTERN" value="Week2.Day4.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
+@@ -109,12 +103,12 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="ShaggyDistance" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="Programming_constructs.Hasing1.ShaggyDistance" />
++    <configuration name="SearchSortedMatrix" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="AdvancedDSA.Arrays.one.TwoDArrays.SearchSortedMatrix" />
+       <module name="Scalar" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="Programming_constructs.Hasing1.*" />
++          <option name="PATTERN" value="AdvancedDSA.Arrays.one.TwoDArrays.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
+@@ -148,12 +142,12 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="sumOfAllSubMatrixes" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="AdvancedDSA.Arrays.one.TwoDArrays.sumOfAllSubMatrixes" />
++    <configuration name="hollowDiamondPattern" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="Programming_constructs.Arrays2D14.hollowDiamondPattern" />
+       <module name="Scalar" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="AdvancedDSA.Arrays.one.TwoDArrays.*" />
++          <option name="PATTERN" value="Programming_constructs.Arrays2D14.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
+@@ -163,11 +157,11 @@
+     </configuration>
+     <recent_temporary>
+       <list>
++        <item itemvalue="Application.hollowDiamondPattern" />
++        <item itemvalue="Application.CountFactorOfNumber" />
+         <item itemvalue="Application.SearchSortedMatrix" />
+         <item itemvalue="Application.SumOfParticularSubmatrix" />
+         <item itemvalue="Application.Sum2" />
+-        <item itemvalue="Application.ShaggyDistance" />
+-        <item itemvalue="Application.sumOfAllSubMatrixes" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -208,7 +202,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1661876482207</updated>
+     </task>
+-    <option name="localTasksCounter" value="5" />
++    <task id="LOCAL-00005" summary="Armstrong">
++      <created>1664859066179</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1664859066179</updated>
++    </task>
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -227,7 +228,8 @@
+     <MESSAGE value="Till subarray" />
+     <MESSAGE value="till 2D Array" />
+     <MESSAGE value="before the advanced module start" />
+-    <option name="LAST_COMMIT_MESSAGE" value="before the advanced module start" />
++    <MESSAGE value="Armstrong" />
++    <option name="LAST_COMMIT_MESSAGE" value="Armstrong" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
+@@ -283,21 +285,6 @@
+           <option name="timeStamp" value="16" />
+         </line-breakpoint>
+         <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/src/main/java/Week2/Day4/ArmstrongNumber.java</url>
+-          <line>37</line>
+-          <option name="timeStamp" value="19" />
+-        </line-breakpoint>
+-        <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/src/main/java/Week2/Day4/ArmstrongNumber.java</url>
+-          <line>29</line>
+-          <option name="timeStamp" value="22" />
+-        </line-breakpoint>
+-        <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/src/main/java/Week2/Day4/ArmstrongNumber.java</url>
+-          <line>43</line>
+-          <option name="timeStamp" value="25" />
+-        </line-breakpoint>
+-        <line-breakpoint enabled="true" type="java-line">
+           <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/IsPairOfSumPresent.java</url>
+           <line>18</line>
+           <option name="timeStamp" value="30" />
+@@ -837,38 +824,38 @@
+         <watch expression="A[i]" />
+         <watch expression="A.right" />
+       </configuration>
+-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/ThreeColorSorting.java" line="8">
+-        <watch expression="A[i]" />
+-      </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/ThreeColorSorting.java" line="4">
+         <watch expression="count" />
+       </inline-watch>
++      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/ThreeColorSorting.java" line="8">
++        <watch expression="A[i]" />
++      </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/MathsModularArithmetic/ExcelColumnNumber.java" line="30">
+-        <watch expression="asciiValue[j]" />
++        <watch expression="A.charAt(i)" />
+       </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/MathsModularArithmetic/ExcelColumnNumber.java" line="31">
+         <watch expression="sum" />
+       </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/MathsModularArithmetic/ExcelColumnNumber.java" line="30">
+-        <watch expression="A.charAt(i)" />
++        <watch expression="(int)A.charAt(i)" />
+       </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/MathsModularArithmetic/ExcelColumnNumber.java" line="30">
+-        <watch expression="(int)A.charAt(i)" />
++        <watch expression="asciiValue[j]" />
+       </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/UniqueElementINEachSubArrrayOfSizeB.java" line="43">
+         <watch expression="result" />
+       </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/UniqueElementINEachSubArrrayOfSizeB.java" line="38">
+-        <watch expression="uniqueKey" />
++        <watch expression="A.get(endWindow)" />
++      </inline-watch>
++      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/UniqueElementINEachSubArrrayOfSizeB.java" line="46">
++        <watch expression="startWindow" />
+       </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/UniqueElementINEachSubArrrayOfSizeB.java" line="37">
+         <watch expression="endWindow" />
+       </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/UniqueElementINEachSubArrrayOfSizeB.java" line="38">
+-        <watch expression="A.get(endWindow)" />
+-      </inline-watch>
+-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/UniqueElementINEachSubArrrayOfSizeB.java" line="46">
+-        <watch expression="startWindow" />
++        <watch expression="uniqueKey" />
+       </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/rainWaterTrap.java" line="14">
+         <watch expression="A.size()-1" />
+@@ -876,14 +863,11 @@
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/rainWaterTrap.java" line="14">
+         <watch expression="A.get(A.size()-1)" />
+       </inline-watch>
+-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays2D14/Rotate90DegreeMatrix.java" line="33">
+-        <watch expression="A[i][k]" />
+-      </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays2D14/Rotate90DegreeMatrix.java" line="32">
+         <watch expression="A[i][j]" />
+       </inline-watch>
+-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Tree/TreeNode.java" line="63">
+-        <watch expression="s" />
++      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays2D14/Rotate90DegreeMatrix.java" line="33">
++        <watch expression="A[i][k]" />
+       </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Tree/TreeNode.java" line="85">
+         <watch expression="preOrder" />
+@@ -891,14 +875,8 @@
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Tree/TreeNode.java" line="63">
+         <watch expression="s.push(A)" />
+       </inline-watch>
+-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java" line="23">
+-        <watch expression="mapA" />
+-      </inline-watch>
+-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java" line="42">
+-        <watch expression="mapA.get(A[i])" />
+-      </inline-watch>
+-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java" line="42">
+-        <watch expression=" mapB.get(A[i])" />
++      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Tree/TreeNode.java" line="63">
++        <watch expression="s" />
+       </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java" line="41">
+         <watch expression="A[i]" />
+@@ -906,39 +884,51 @@
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java" line="51">
+         <watch expression=" mapB.get(A[i])" />
+       </inline-watch>
++      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java" line="42">
++        <watch expression=" mapB.get(A[i])" />
++      </inline-watch>
++      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java" line="23">
++        <watch expression="mapA" />
++      </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java" line="41">
+         <watch expression="mapB" />
+       </inline-watch>
+-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/SumOfAllSubarray.java" line="15">
+-        <watch expression="result" />
++      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java" line="42">
++        <watch expression="mapA.get(A[i])" />
+       </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/SumOfAllSubarray.java" line="11">
+         <watch expression=" sum" />
+       </inline-watch>
++      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/SumOfAllSubarray.java" line="15">
++        <watch expression="result" />
++      </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/TwoDArrays/SearchSortedMatrix.java" line="6">
+         <watch expression="A.length" />
+       </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_prefix_sum/RangeQuerySum.java" line="17">
+-        <watch expression="[b.length" />
++        <watch expression="result" />
+       </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_prefix_sum/RangeQuerySum.java" line="17">
+-        <watch expression="result" />
++        <watch expression="[b.length" />
++      </inline-watch>
++      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/largestWindowForSumK.java" line="36">
++        <watch expression="end" />
+       </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/largestWindowForSumK.java" line="31">
+         <watch expression="a.get(start)" />
+       </inline-watch>
+-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/largestWindowForSumK.java" line="31">
+-        <watch expression="sum" />
+-      </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/largestWindowForSumK.java" line="32">
+         <watch expression="start" />
+       </inline-watch>
+-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/largestWindowForSumK.java" line="36">
+-        <watch expression="end" />
++      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/largestWindowForSumK.java" line="31">
++        <watch expression="sum" />
+       </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/GoodPair_givenSumFindPairFromArray.java" line="12">
+         <watch expression="B - A[i] " />
+       </inline-watch>
++      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Introduction_to_Arrays/Arrays_subarray3/AssignmentWeek2/Day4/MultipleTimeArrayRotations.java" line="54">
++        <watch expression="j" />
++      </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Introduction_to_Arrays/Arrays_subarray3/AssignmentWeek2/Day4/MultipleTimeArrayRotations.java" line="56">
+         <watch expression="result[i][j]" />
+       </inline-watch>
+@@ -951,8 +941,11 @@
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Introduction_to_Arrays/Arrays_subarray3/AssignmentWeek2/Day4/MultipleTimeArrayRotations.java" line="56">
+         <watch expression="temp[j]" />
+       </inline-watch>
+-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Introduction_to_Arrays/Arrays_subarray3/AssignmentWeek2/Day4/MultipleTimeArrayRotations.java" line="54">
+-        <watch expression="j" />
++      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/NobelInteger.java" line="22">
++        <watch expression="n-1-i " />
++      </inline-watch>
++      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/NobelInteger.java" line="11">
++        <watch expression="A[i]" />
+       </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/NobelInteger.java" line="11">
+         <watch expression="A[i+1]" />
+@@ -960,29 +953,23 @@
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/NobelInteger.java" line="10">
+         <watch expression="i" />
+       </inline-watch>
+-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/NobelInteger.java" line="22">
+-        <watch expression="n-1-i " />
+-      </inline-watch>
+-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/NobelInteger.java" line="11">
+-        <watch expression="A[i]" />
+-      </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/LinkedList/PreOrderWithOutRecursion.java" line="25">
+         <watch expression="preOrder" />
+       </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/LinkedList/PreOrderWithOutRecursion.java" line="22">
+         <watch expression="s" />
++      </inline-watch>
++      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/LinkedList/PreOrderWithOutRecursion.java" line="35">
++        <watch expression="preOrder" />
+       </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/LinkedList/PreOrderWithOutRecursion.java" line="25">
+         <watch expression="(temp.val" />
+       </inline-watch>
+-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/LinkedList/PreOrderWithOutRecursion.java" line="35">
+-        <watch expression="preOrder" />
++      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/reverseString.java" line="38">
++        <watch expression="stringToCharArray" />
+       </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/reverseString.java" line="39">
+         <watch expression="stringToCharArray[i]" />
+-      </inline-watch>
+-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/reverseString.java" line="40">
+-        <watch expression="k-1" />
+       </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/reverseString.java" line="40">
+         <watch expression="temp+1" />
+@@ -990,8 +977,8 @@
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/reverseString.java" line="41">
+         <watch expression="temp" />
+       </inline-watch>
+-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/reverseString.java" line="38">
+-        <watch expression="stringToCharArray" />
++      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/reverseString.java" line="40">
++        <watch expression="k-1" />
+       </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/ArrayOfEvenOdd.java" line="88">
+         <watch expression="sc.nextInt()" />
+@@ -1002,15 +989,6 @@
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_prefix_sum/EquilibriumIndex.java" line="78">
+         <watch expression="arr[j]" />
+       </inline-watch>
+-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/BinaryString.java" line="22">
+-        <watch expression="a - i" />
+-      </inline-watch>
+-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/BinaryString.java" line="23">
+-        <watch expression="B.charAt(b - i)" />
+-      </inline-watch>
+-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/BinaryString.java" line="23">
+-        <watch expression="b - i" />
+-      </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/BinaryString.java" line="12">
+         <watch expression="A.charAt(i)" />
+       </inline-watch>
+@@ -1023,17 +1001,26 @@
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/BinaryString.java" line="12">
+         <watch expression="B.charAt(i)" />
+       </inline-watch>
++      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/BinaryString.java" line="22">
++        <watch expression="a - i" />
++      </inline-watch>
++      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/BinaryString.java" line="23">
++        <watch expression="b - i" />
++      </inline-watch>
++      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/BinaryString.java" line="23">
++        <watch expression="B.charAt(b - i)" />
++      </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/StringPlay.java" line="6">
+         <watch expression="A" />
+       </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/NoOfGoodDays.java" line="25">
+-        <watch expression="(A&amp;(1&lt;&lt;i)" />
++        <watch expression="(1&lt;&lt;i)" />
+       </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/NoOfGoodDays.java" line="25">
+-        <watch expression="(1&lt;&lt;i)" />
++        <watch expression="(A&amp;(1&lt;&lt;i)) == 1" />
+       </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/NoOfGoodDays.java" line="25">
+-        <watch expression="(A&amp;(1&lt;&lt;i)) == 1" />
++        <watch expression="(A&amp;(1&lt;&lt;i)" />
+       </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/Sum2.java" line="0">
+         <watch expression="target - numbers[i]" />
+@@ -1044,17 +1031,17 @@
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/Sum2.java" line="0">
+         <watch expression="minIndex" />
+       </inline-watch>
+-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/LongestConsecutiveOnesWithSwapping.java" line="55">
+-        <watch expression="A.charAt(i)" />
+-      </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/LongestConsecutiveOnesWithSwapping.java" line="59">
+         <watch expression="left[i]" />
+       </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/LongestConsecutiveOnesWithSwapping.java" line="55">
+-        <watch expression="A.charAt(i)/48" />
++        <watch expression="A.charAt(i)" />
+       </inline-watch>
+       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/LongestConsecutiveOnesWithSwapping.java" line="55">
+         <watch expression="A.charAt(i)" />
++      </inline-watch>
++      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/LongestConsecutiveOnesWithSwapping.java" line="55">
++        <watch expression="A.charAt(i)/48" />
+       </inline-watch>
+     </watches-manager>
+   </component>
+Index: src/main/java/Programming_constructs/Arrays_subarray3/PrintSumOfAllSubarray.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Programming_constructs/Arrays_subarray3/PrintSumOfAllSubarray.java b/src/main/java/Programming_constructs/Arrays_subarray3/PrintSumOfAllSubarray.java
+--- a/src/main/java/Programming_constructs/Arrays_subarray3/PrintSumOfAllSubarray.java	(revision b298c48c7ff372aa732f13337ca79b9086d9621c)
++++ b/src/main/java/Programming_constructs/Arrays_subarray3/PrintSumOfAllSubarray.java	(date 1665037280251)
+@@ -21,7 +21,7 @@
+ 
+ 
+     public static void main(String[] args) {
+-        int A[] ={1, 2, 3};
++        int[] A ={1, 2, 3};
+         subarraySum(A);
+ //        System.out.println(subarraySum(A));
+     }
+Index: .idea/leetcode/editor.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/leetcode/editor.xml b/.idea/leetcode/editor.xml
+new file mode 100644
+--- /dev/null	(date 1664951862489)
++++ b/.idea/leetcode/editor.xml	(date 1664951862489)
+@@ -0,0 +1,20 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="LeetcodeEditor">
++    <option name="projectConfig">
++      <map>
++        <entry key="$PROJECT_DIR$/../leetcode/editor/en/[1]Two Sum.java">
++          <value>
++            <LeetcodeEditor>
++              <option name="contentPath" value="$PROJECT_DIR$/../leetcode/editor/en/doc/content/[1]Two Sum.md" />
++              <option name="frontendQuestionId" value="leetcode.com1" />
++              <option name="host" value="leetcode.com" />
++              <option name="path" value="$PROJECT_DIR$/../leetcode/editor/en/[1]Two Sum.java" />
++              <option name="titleSlug" value="two-sum" />
++            </LeetcodeEditor>
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: src/main/java/Programming_constructs/Arrays_subarray3/FirstNegativeNumber.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Programming_constructs/Arrays_subarray3/FirstNegativeNumber.java b/src/main/java/Programming_constructs/Arrays_subarray3/FirstNegativeNumber.java
+new file mode 100644
+--- /dev/null	(date 1665303944287)
++++ b/src/main/java/Programming_constructs/Arrays_subarray3/FirstNegativeNumber.java	(date 1665303944287)
+@@ -0,0 +1,36 @@
++//package Programming_constructs.Arrays_subarray3;
++//
++//import java.util.ArrayList;
++//
++//public class FirstNegativeNumber {
++//
++//
++//    public static void main(String[] args) {
++//        int[] arr = {1,2,3,4,5,6,7,8,9,10};
++//        System.out.println(findNegativeNumber(arr,3));
++//    }
++//
++//    private static ArrayList<Integer> findNegativeNumber(int[] arr, int windowSize) {
++//
++//        ArrayList<Integer> result = new ArrayList<>();
++//
++//        int i =0, j=0;
++//        int n = arr.length;
++//        while( j<n){
++//            if(arr[j]<0){
++//                result.add(arr[j]);
++//
++//            }
++//            if(j-i+1 < windowSize){
++//                j++;
++//            } else if (j-i+1 == windowSize) {
++//
++//
++//            }
++//        }
++//
++//
++//    }
++//
++//
++//}
