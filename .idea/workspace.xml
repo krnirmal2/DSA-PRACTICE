@@ -5,25 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="77987ea3-190f-463f-93a5-64ed859b9de2" name="Changes" comment="add  commands to demo">
-      <change afterPath="$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/Array/Interval.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/Array/Solution.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/LinkedList/LinkedListImplementation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/LinkedList/PalindromeLL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/LinkedList/linkedlist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/Queue/ReversingElementsOfQueue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/Queue/Solution.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/SlidingWidowUsingWhileLoop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/StringPatternMatching/LongestUniqueSubstring.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/MaximumSubarrayEasy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/CheckPalindromeII.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/K_Occurrences.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Recursion/KthSymbol.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/UniqueElement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SlidingWindow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DP/UniquePathWithConstraint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/InsertIntoSortedPosition.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/MagicalNoBorCdivisibleNo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/MinWindowSizeForASum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/SqrtOfANo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/largestNoFromAllArrayElementCanBeFormed.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/StacksAndQueue/sortingUsingTwoStacks.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/TwoPointer/minIndexOfGivenSumSubarray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/package-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/TEST/NearestMultiple.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/TEST/PeriodCycleOfString.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/TEST/minMaxAvg.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays2D14/spiralMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays2D14/spiralMatrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_carray_forward/LeastAverageSubarrayOfSizeB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_carray_forward/LeastAverageSubarrayOfSizeB.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +27,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="package-info" />
         <option value="Class" />
+        <option value="grazie_rule" />
       </list>
     </option>
   </component>
@@ -102,13 +98,13 @@
       <recent name="Programming_constructs.String" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MaximumSubarrayEasy">
-    <configuration name="K_Occurrences" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Programming_constructs.Hasing1.K_Occurrences" />
+  <component name="RunManager" selected="Application.sortingUsingTwoStacks">
+    <configuration name="MagicalNoBorCdivisibleNo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Programming_constructs.BinarySearch.MagicalNoBorCdivisibleNo" />
       <module name="Scalar" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Programming_constructs.Hasing1.*" />
+          <option name="PATTERN" value="Programming_constructs.BinarySearch.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -116,12 +112,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="KthSymbol" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Programming_constructs.Recursion.KthSymbol" />
+    <configuration name="MinWindowSizeForASum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Programming_constructs.BinarySearch.MinWindowSizeForASum" />
       <module name="Scalar" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Programming_constructs.Recursion.*" />
+          <option name="PATTERN" value="Programming_constructs.BinarySearch.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -129,12 +125,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MaximumSubarrayEasy" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Programming_constructs.Arrays_subarray3.MaximumSubarrayEasy" />
+    <configuration name="SqrtOfANo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Programming_constructs.BinarySearch.SqrtOfANo" />
       <module name="Scalar" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Programming_constructs.Arrays_subarray3.*" />
+          <option name="PATTERN" value="Programming_constructs.BinarySearch.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -142,12 +138,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReversingElementsOfQueue" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AdvancedDSA.Arrays.one.Queue.ReversingElementsOfQueue" />
+    <configuration name="minIndexOfGivenSumSubarray" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Programming_constructs.TwoPointer.minIndexOfGivenSumSubarray" />
       <module name="Scalar" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="AdvancedDSA.Arrays.one.Queue.*" />
+          <option name="PATTERN" value="Programming_constructs.TwoPointer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -155,12 +151,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="linkedlist" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AdvancedDSA.Arrays.one.LinkedList.linkedlist" />
+    <configuration name="sortingUsingTwoStacks" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Programming_constructs.StacksAndQueue.sortingUsingTwoStacks" />
       <module name="Scalar" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="AdvancedDSA.Arrays.one.LinkedList.*" />
+          <option name="PATTERN" value="Programming_constructs.StacksAndQueue.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -169,19 +165,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.MaximumSubarrayEasy" />
-      <item itemvalue="Application.K_Occurrences" />
-      <item itemvalue="Application.KthSymbol" />
-      <item itemvalue="Application.ReversingElementsOfQueue" />
-      <item itemvalue="Application.linkedlist" />
+      <item itemvalue="Application.MagicalNoBorCdivisibleNo" />
+      <item itemvalue="Application.MinWindowSizeForASum" />
+      <item itemvalue="Application.SqrtOfANo" />
+      <item itemvalue="Application.minIndexOfGivenSumSubarray" />
+      <item itemvalue="Application.sortingUsingTwoStacks" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MaximumSubarrayEasy" />
-        <item itemvalue="Application.KthSymbol" />
-        <item itemvalue="Application.K_Occurrences" />
-        <item itemvalue="Application.ReversingElementsOfQueue" />
-        <item itemvalue="Application.linkedlist" />
+        <item itemvalue="Application.sortingUsingTwoStacks" />
+        <item itemvalue="Application.minIndexOfGivenSumSubarray" />
+        <item itemvalue="Application.MagicalNoBorCdivisibleNo" />
+        <item itemvalue="Application.MinWindowSizeForASum" />
+        <item itemvalue="Application.SqrtOfANo" />
       </list>
     </recent_temporary>
   </component>
@@ -229,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664859066179</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add  commands to demo">
+      <created>1674662215904</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1674662215904</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -249,7 +252,8 @@
     <MESSAGE value="till 2D Array" />
     <MESSAGE value="before the advanced module start" />
     <MESSAGE value="Armstrong" />
-    <option name="LAST_COMMIT_MESSAGE" value="Armstrong" />
+    <MESSAGE value="add  commands to demo" />
+    <option name="LAST_COMMIT_MESSAGE" value="add  commands to demo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -849,6 +853,151 @@
           <line>25</line>
           <option name="timeStamp" value="270" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/MaximumSubarrayEasy.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="273" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/TEST/NearestMultiple.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="276" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/TEST/NearestMultiple.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="277" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/TEST/NearestMultiple.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="278" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/TEST/NearestMultiple.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="279" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/TEST/minMaxAvg.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="281" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/TEST/minMaxAvg.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="282" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/TEST/minMaxAvg.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="283" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/TEST/minMaxAvg.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="284" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/TEST/minMaxAvg.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="285" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/InsertIntoSortedPosition.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="286" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/InsertIntoSortedPosition.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="287" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/InsertIntoSortedPosition.java</url>
+          <line>7</line>
+          <option name="timeStamp" value="288" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/SqrtOfANo.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="289" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/SqrtOfANo.java</url>
+          <line>5</line>
+          <option name="timeStamp" value="291" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/SqrtOfANo.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="292" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/MinWindowSizeForASum.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="293" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/MinWindowSizeForASum.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="294" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/MinWindowSizeForASum.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="295" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/MinWindowSizeForASum.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="296" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/MinWindowSizeForASum.java</url>
+          <line>8</line>
+          <option name="timeStamp" value="297" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/MinWindowSizeForASum.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="298" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/MagicalNoBorCdivisibleNo.java</url>
+          <line>7</line>
+          <option name="timeStamp" value="300" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/MagicalNoBorCdivisibleNo.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="301" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/MagicalNoBorCdivisibleNo.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="304" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/MagicalNoBorCdivisibleNo.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="305" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/StacksAndQueue/sortingUsingTwoStacks.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="313" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/StacksAndQueue/sortingUsingTwoStacks.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="314" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/StacksAndQueue/sortingUsingTwoStacks.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="315" />
+        </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.StringIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="64" />
@@ -873,18 +1022,29 @@
         <watch expression="result" />
         <watch expression="A[i]" />
         <watch expression="A.right" />
+        <watch expression="mid" />
+        <watch expression="r.size()" />
       </configuration>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/MathsModularArithmetic/ExcelColumnNumber.java" line="31">
-        <watch expression="sum" />
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/TEST/minMaxAvg.java" line="15">
+        <watch expression="min" />
       </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/MathsModularArithmetic/ExcelColumnNumber.java" line="30">
-        <watch expression="asciiValue[j]" />
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/TEST/minMaxAvg.java" line="13">
+        <watch expression="A" />
+      </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/TEST/minMaxAvg.java" line="9">
+        <watch expression="size" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/MathsModularArithmetic/ExcelColumnNumber.java" line="30">
         <watch expression="A.charAt(i)" />
       </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/MathsModularArithmetic/ExcelColumnNumber.java" line="31">
+        <watch expression="sum" />
+      </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/MathsModularArithmetic/ExcelColumnNumber.java" line="30">
         <watch expression="(int)A.charAt(i)" />
+      </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/MathsModularArithmetic/ExcelColumnNumber.java" line="30">
+        <watch expression="asciiValue[j]" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays2D14/Rotate90DegreeMatrix.java" line="33">
         <watch expression="A[i][k]" />
@@ -892,17 +1052,29 @@
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays2D14/Rotate90DegreeMatrix.java" line="32">
         <watch expression="A[i][j]" />
       </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/SumOfAllSubarray.java" line="11">
-        <watch expression=" sum" />
-      </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/SumOfAllSubarray.java" line="15">
         <watch expression="result" />
       </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_prefix_sum/RangeQuerySum.java" line="17">
-        <watch expression="result" />
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/SumOfAllSubarray.java" line="11">
+        <watch expression=" sum" />
+      </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/InsertIntoSortedPosition.java" line="18">
+        <watch expression="A[mid]" />
+      </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/InsertIntoSortedPosition.java" line="23">
+        <watch expression="mid+1" />
+      </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/InsertIntoSortedPosition.java" line="24">
+        <watch expression="left" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_prefix_sum/RangeQuerySum.java" line="17">
         <watch expression="[b.length" />
+      </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_prefix_sum/RangeQuerySum.java" line="17">
+        <watch expression="result" />
+      </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/largestWindowForSumK.java" line="36">
+        <watch expression="end" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/largestWindowForSumK.java" line="31">
         <watch expression="a.get(start)" />
@@ -913,23 +1085,23 @@
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/largestWindowForSumK.java" line="31">
         <watch expression="sum" />
       </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/largestWindowForSumK.java" line="36">
-        <watch expression="end" />
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/MagicalNoBorCdivisibleNo.java" line="14">
+        <watch expression="r.size()" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/GoodPair_givenSumFindPairFromArray.java" line="12">
         <watch expression="B - A[i] " />
       </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Introduction_to_Arrays/Arrays_subarray3/AssignmentWeek2/Day4/MultipleTimeArrayRotations.java" line="56">
-        <watch expression="temp[j]" />
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Introduction_to_Arrays/Arrays_subarray3/AssignmentWeek2/Day4/MultipleTimeArrayRotations.java" line="51">
+        <watch expression="i" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Introduction_to_Arrays/Arrays_subarray3/AssignmentWeek2/Day4/MultipleTimeArrayRotations.java" line="54">
         <watch expression="j" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Introduction_to_Arrays/Arrays_subarray3/AssignmentWeek2/Day4/MultipleTimeArrayRotations.java" line="56">
-        <watch expression="result[i][j]" />
+        <watch expression="temp[j]" />
       </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Introduction_to_Arrays/Arrays_subarray3/AssignmentWeek2/Day4/MultipleTimeArrayRotations.java" line="51">
-        <watch expression="i" />
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Introduction_to_Arrays/Arrays_subarray3/AssignmentWeek2/Day4/MultipleTimeArrayRotations.java" line="56">
+        <watch expression="result[i][j]" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Introduction_to_Arrays/Arrays_subarray3/AssignmentWeek2/Day4/MultipleTimeArrayRotations.java" line="56">
         <watch expression="result" />
@@ -937,14 +1109,17 @@
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/NobelInteger.java" line="11">
         <watch expression="A[i]" />
       </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/NobelInteger.java" line="22">
-        <watch expression="n-1-i " />
-      </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/NobelInteger.java" line="11">
         <watch expression="A[i+1]" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/NobelInteger.java" line="10">
         <watch expression="i" />
+      </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/NobelInteger.java" line="22">
+        <watch expression="n-1-i " />
+      </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/LinkedList/PreOrderWithOutRecursion.java" line="25">
+        <watch expression="(temp.val" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/LinkedList/PreOrderWithOutRecursion.java" line="25">
         <watch expression="preOrder" />
@@ -952,23 +1127,20 @@
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/LinkedList/PreOrderWithOutRecursion.java" line="35">
         <watch expression="preOrder" />
       </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/LinkedList/PreOrderWithOutRecursion.java" line="25">
-        <watch expression="(temp.val" />
-      </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/LinkedList/PreOrderWithOutRecursion.java" line="22">
         <watch expression="s" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/reverseString.java" line="39">
         <watch expression="stringToCharArray[i]" />
       </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/reverseString.java" line="38">
-        <watch expression="stringToCharArray" />
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/reverseString.java" line="40">
+        <watch expression="temp+1" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/reverseString.java" line="40">
         <watch expression="k-1" />
       </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/reverseString.java" line="40">
-        <watch expression="temp+1" />
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/reverseString.java" line="38">
+        <watch expression="stringToCharArray" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/reverseString.java" line="41">
         <watch expression="temp" />
@@ -982,11 +1154,20 @@
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/LongestConsecutiveOnesWithSwapping.java" line="55">
         <watch expression="A.charAt(i)" />
       </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/LongestConsecutiveOnesWithSwapping.java" line="55">
+        <watch expression="A.charAt(i)" />
+      </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/LongestConsecutiveOnesWithSwapping.java" line="59">
         <watch expression="left[i]" />
       </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/LongestConsecutiveOnesWithSwapping.java" line="55">
-        <watch expression="A.charAt(i)" />
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/SqrtOfANo.java" line="15">
+        <watch expression="right" />
+      </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/SqrtOfANo.java" line="11">
+        <watch expression="mid" />
+      </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/SqrtOfANo.java" line="15">
+        <watch expression="left" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/MaximumSubarrayEasy.java" line="30">
         <watch expression=" maxSubarray(5, 12,a);" />
@@ -997,32 +1178,47 @@
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/MaximumSubarrayEasy.java" line="16">
         <watch expression="end" />
       </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/ThreeColorSorting.java" line="8">
-        <watch expression="A[i]" />
-      </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/ThreeColorSorting.java" line="4">
         <watch expression="count" />
+      </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/ThreeColorSorting.java" line="8">
+        <watch expression="A[i]" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/UniqueElementINEachSubArrrayOfSizeB.java" line="43">
         <watch expression="result" />
       </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/UniqueElementINEachSubArrrayOfSizeB.java" line="37">
-        <watch expression="endWindow" />
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/UniqueElementINEachSubArrrayOfSizeB.java" line="38">
+        <watch expression="A.get(endWindow)" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/UniqueElementINEachSubArrrayOfSizeB.java" line="38">
         <watch expression="uniqueKey" />
       </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/UniqueElementINEachSubArrrayOfSizeB.java" line="37">
+        <watch expression="endWindow" />
+      </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/UniqueElementINEachSubArrrayOfSizeB.java" line="46">
         <watch expression="startWindow" />
       </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/UniqueElementINEachSubArrrayOfSizeB.java" line="38">
-        <watch expression="A.get(endWindow)" />
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/rainWaterTrap.java" line="14">
+        <watch expression="A.get(A.size()-1)" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/rainWaterTrap.java" line="14">
         <watch expression="A.size()-1" />
       </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/rainWaterTrap.java" line="14">
-        <watch expression="A.get(A.size()-1)" />
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/TEST/NearestMultiple.java" line="18">
+        <watch expression="temp.val" />
+      </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/TEST/NearestMultiple.java" line="18">
+        <watch expression="temp" />
+      </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/TEST/NearestMultiple.java" line="17">
+        <watch expression="B*i" />
+      </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/TEST/NearestMultiple.java" line="17">
+        <watch expression="temp.val" />
+      </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Tree/TreeNode.java" line="85">
+        <watch expression="preOrder" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Tree/TreeNode.java" line="63">
         <watch expression="s" />
@@ -1030,26 +1226,23 @@
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Tree/TreeNode.java" line="63">
         <watch expression="s.push(A)" />
       </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Tree/TreeNode.java" line="85">
-        <watch expression="preOrder" />
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java" line="41">
+        <watch expression="A[i]" />
+      </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java" line="42">
+        <watch expression="mapA.get(A[i])" />
+      </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java" line="41">
+        <watch expression="mapB" />
+      </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java" line="51">
+        <watch expression=" mapB.get(A[i])" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java" line="23">
         <watch expression="mapA" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java" line="42">
         <watch expression=" mapB.get(A[i])" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java" line="41">
-        <watch expression="mapB" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java" line="41">
-        <watch expression="A[i]" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java" line="51">
-        <watch expression=" mapB.get(A[i])" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java" line="42">
-        <watch expression="mapA.get(A[i])" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/TwoDArrays/SearchSortedMatrix.java" line="6">
         <watch expression="A.length" />
@@ -1063,17 +1256,20 @@
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_prefix_sum/EquilibriumIndex.java" line="78">
         <watch expression="arr[j]" />
       </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/BinaryString.java" line="22">
-        <watch expression="A.charAt(a - i)" />
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/BinaryString.java" line="23">
+        <watch expression="b - i" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/BinaryString.java" line="12">
         <watch expression="A.charAt(i)" />
       </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/BinaryString.java" line="23">
-        <watch expression="B.charAt(b - i)" />
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/BinaryString.java" line="22">
+        <watch expression="A.charAt(a - i)" />
+      </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/BinaryString.java" line="12">
+        <watch expression="B.charAt(i)" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/BinaryString.java" line="23">
-        <watch expression="b - i" />
+        <watch expression="B.charAt(b - i)" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/BinaryString.java" line="22">
         <watch expression="c1" />
@@ -1081,14 +1277,8 @@
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/BinaryString.java" line="22">
         <watch expression="a - i" />
       </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/BinaryString.java" line="12">
-        <watch expression="B.charAt(i)" />
-      </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/StringPlay.java" line="6">
         <watch expression="A" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/NoOfGoodDays.java" line="25">
-        <watch expression="(A&amp;(1&lt;&lt;i)" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/NoOfGoodDays.java" line="25">
         <watch expression="(1&lt;&lt;i)" />
@@ -1096,22 +1286,32 @@
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/NoOfGoodDays.java" line="25">
         <watch expression="(A&amp;(1&lt;&lt;i)) == 1" />
       </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/NoOfGoodDays.java" line="25">
+        <watch expression="(A&amp;(1&lt;&lt;i)" />
+      </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/Sum2.java" line="0">
+        <watch expression="target - numbers[i]" />
+      </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/Sum2.java" line="0">
         <watch expression="target - numbers[i]" />
       </inline-watch>
       <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/Sum2.java" line="0">
         <watch expression="minIndex" />
       </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/Sum2.java" line="0">
-        <watch expression="target - numbers[i]" />
-      </inline-watch>
     </watches-manager>
+  </component>
+  <component name="XPathView.XPathProjectComponent">
+    <history />
+    <find-history />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Scalar$MaximumSubarrayEasy.ic" NAME="MaximumSubarrayEasy Coverage Results" MODIFIED="1674662278077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Programming_constructs.Arrays_subarray3.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/Scalar$MultipleTimeArrayRotations.ic" NAME="MultipleTimeArrayRotations Coverage Results" MODIFIED="1659029126572" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Introduction_to_Arrays.Arrays_subarray3.AssignmentWeek2.Day4.*</FILTER>
     </SUITE>
