@@ -1,35 +1,19 @@
 /*
 Multidimensional Collections in Java
 
-        Difficulty Level : Easy
-        Last Updated : 22 Nov, 2021
-        Read
-        Discuss
-
-        In Java, we have a Collection framework that provides functionality to store a group of objects. This is called a single-dimensional ArrayList where we can have only one element in a row. Geek but what if we want to make a multidimensional ArrayList, for this functionality for which we do have Multidimensional Collections (or Nested Collections) in Java.
-
-        Multidimensional Collections (or Nested Collections) is a collection of groups of objects where each group can have any number of objects dynamically. Hence, here we can store any number of elements in a group whenever we want.
-
-        Multidimensional_Collections_in_Java
-
-        Illustration:
-
         Single dimensional ArrayList :
         [121, 432, 12, 56, 456, 3, 1023]
         [Apple, Orange, Pear, Mango]
-        Syntax:
+        Syntax: ArrayList <Object> x = new ArrayList <Object>();
 
-        ArrayList <Object> x = new ArrayList <Object>();
         Need for Multidimensional Collections
         Unlike Arrays, we are not bound with the size of any row in Multidimensional collections. Therefore, if we want to use a Multidimensional architecture where we can create any number of objects dynamically in a row, then we should go for Multidimensional collections in java.
 
-        Syntax: Multidimensional Collections
+        Syntax: Multidimensional Collections   ArrayList<ArrayList<Object>> a = new ArrayList<ArrayList<Object>>();
 
-        ArrayList<ArrayList<Object>> a = new ArrayList<ArrayList<Object>>();
         Illustration:
 
         Multidimensional ArrayList: [[3, 4], [12, 13, 14, 15], [22, 23, 24], [33]]
-        Let us quickly peek onto add() method for multidimensional ArrayList which are as follows:
 
         boolean add( ArrayList<Object> e): It is used to insert elements in the specified collection.
         void add( int index, ArrayList<Object> e): It is used to insert the elements at the specified position in a Collection.
@@ -63,8 +47,7 @@ class GFG {
         // Creating R1 and adding values
         // Note: Another way for adding values in 2D
         // collections
-        x.add(
-                new ArrayList<Integer>(Arrays.asList(3, 4, 6)));
+        x.add(new ArrayList<Integer>(Arrays.asList(3, 4, 6)));
 
         // Adding 366 to x(R1, C0)
         x.get(1).add(0, 366);
@@ -94,6 +77,7 @@ class GFG {
     }
 
     // Method 2
+
     // Main driver method
     public static void main(String args[])
     {

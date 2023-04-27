@@ -1,4 +1,4 @@
-package Introduction_to_Arrays.Arrays_subarray3.AssignmentWeek2.Day4;
+package LanguageMODULE.AssignmentWeek2.Day4;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;

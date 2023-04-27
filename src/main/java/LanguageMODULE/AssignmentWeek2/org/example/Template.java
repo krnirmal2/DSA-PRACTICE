@@ -1,4 +1,4 @@
-package Introduction_to_Arrays.Arrays_subarray3.AssignmentWeek2.org.example;
+package LanguageMODULE.AssignmentWeek2.org.example;
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;

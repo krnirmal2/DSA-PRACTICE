@@ -6,7 +6,8 @@ import java.util.Stack;
 public class TreeNode
 {
     int val;
-    TreeNode left, right;
+    TreeNode left;
+    TreeNode right;
 
     // Function to create a new binary tree node having a given key
     public TreeNode(int key)
