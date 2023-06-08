@@ -22,14 +22,14 @@ public class AddTwoBinaryStrings {
         int sum =0, carry =0;
 
         while(i>=0 || j>=0 || carry !=0){
-            sum = carry;
+            sum = carry; //before sum take the previous carry value in sum
             if(i>= 0){
                 sum+= (num1.charAt(i) -'0');
             }if(j>= 0){
                 sum+= (num2.charAt(i) -'0');
             }
-            res[maxlengthString] = (char) ((sum %2)+'0');
-            carry = sum/2;
+            res[maxlengthString] = (char) ((sum %2)+'0'); // add result 0 or 1
+            carry = sum/2; // now check if the carry is 1 or 0
             i--;
             j--;
             maxlengthString--;
