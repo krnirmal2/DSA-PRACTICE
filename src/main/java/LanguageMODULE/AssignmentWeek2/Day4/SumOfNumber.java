@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class SumOfNumber {
 
-    static int SumOfNaturalNumber(int Num){
+    static int SumOfNaturalNumber(int Num) {
 
-        return (((Num+1)*Num)/2);
+        return (((Num + 1) * Num) / 2);
     }
 
     public static void main(String[] args) {

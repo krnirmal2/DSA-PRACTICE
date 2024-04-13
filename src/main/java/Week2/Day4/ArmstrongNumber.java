@@ -1,33 +1,32 @@
 package Week2.Day4;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ArmstrongNumber {
 
 
-    static ArrayList<Integer> ArmstrongNoRange(int Num){
+    static ArrayList<Integer> ArmstrongNoRange(int Num) {
 
 
         ArrayList<Integer> arrli
                 = new ArrayList<Integer>();
 
-            for (int i = 1; i <= Num; i++) {
-                int sum =0;
-                int original = i;
-                while (original != 0) {
-                    int remender = original % 10;
-                    sum = sum + remender * remender * remender;
-                    original = original / 10;
-                }
-                if (sum == i) {
-                    arrli.add(i);
-                }
-
-
+        for (int i = 1; i <= Num; i++) {
+            int sum = 0;
+            int original = i;
+            while (original != 0) {
+                int remender = original % 10;
+                sum = sum + remender * remender * remender;
+                original = original / 10;
             }
-        return arrli ;
+            if (sum == i) {
+                arrli.add(i);
+            }
+
+
+        }
+        return arrli;
     }
 
     public static void main(String[] args) {

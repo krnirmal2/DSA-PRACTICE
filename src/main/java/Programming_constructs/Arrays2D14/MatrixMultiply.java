@@ -2,8 +2,8 @@ package Programming_constructs.Arrays2D14;
 
 import java.util.Scanner;
 
-public class MatrixMultiply{
-    public static void main(String args[]){
+public class MatrixMultiply {
+    public static void main(String[] args) {
 
         int row1, col1, row2, col2;
         Scanner s = new Scanner(System.in);
@@ -18,11 +18,10 @@ public class MatrixMultiply{
 
         if (col1 != row2) {
             System.out.println("Matrix multiplication is not possible");
-        }
-        else {
-            int a[][] = new int[row1][col1];
-            int b[][] = new int[row2][col2];
-            int c[][] = new int[row1][col2];
+        } else {
+            int[][] a = new int[row1][col1];
+            int[][] b = new int[row2][col2];
+            int[][] c = new int[row1][col2];
 
             System.out.println("Enter values for matrix A : \n");
             for (int i = 0; i < row1; i++) {
@@ -36,10 +35,10 @@ public class MatrixMultiply{
             }
 
             System.out.println("Matrix multiplication is : \n");
-            for(int i = 0; i < row1; i++) {
-                for(int j = 0; j < col2; j++){
-                    c[i][j]=0;
-                    for(int k = 0; k < col1; k++){
+            for (int i = 0; i < row1; i++) {
+                for (int j = 0; j < col2; j++) {
+                    c[i][j] = 0;
+                    for (int k = 0; k < col1; k++) {
                         c[i][j] += a[i][k] * b[k][j];
                     }
                     System.out.print(c[i][j] + " ");

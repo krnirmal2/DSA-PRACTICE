@@ -3,8 +3,7 @@ package LanguageMODULE;
 import java.util.ArrayList;
 
 public class Four {
-    public static void main(String args[])
-    {
+    public static void main(String[] args) {
         ArrayList obj = new ArrayList();
         obj.add("A");
         obj.add(0, "B");

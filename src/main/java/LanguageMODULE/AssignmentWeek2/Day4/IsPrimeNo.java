@@ -1,7 +1,7 @@
 package LanguageMODULE.AssignmentWeek2.Day4;
-import java.lang.*;
-import java.util.*;
-import java.lang.Math;
+
+import java.util.Scanner;
+
 public class IsPrimeNo {
     public static void PrimeNo(int A) {
         int flag = 0;
@@ -36,4 +36,4 @@ public class IsPrimeNo {
         PrimeNo(A);
 
     }
-    }
+}

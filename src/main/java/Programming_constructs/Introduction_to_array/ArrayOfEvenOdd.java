@@ -1,7 +1,4 @@
 package Programming_constructs.Introduction_to_array;
-import java.lang.*;
-import java.util.*;
-
 
 /*public class ArrayOfEvenOdd {
 
@@ -105,8 +102,6 @@ import java.util.*;
 3
 4 3 2
 */
-
-
 
 
 //public class Main /*{

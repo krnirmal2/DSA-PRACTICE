@@ -8,7 +8,7 @@ public class Solution {
         Queue<String> q = new LinkedList();
         q.add("1");
         q.add("2");
-        for(int i=0; i<A-1; i++){
+        for (int i = 0; i < A - 1; i++) {
             String str = q.peek();
             q.remove();
             q.add(str + "1");
@@ -17,11 +17,10 @@ public class Solution {
         String p = q.peek();
         StringBuilder sb = new StringBuilder(p);
         String t = sb.reverse().toString();
-        return p+t;
+        return p + t;
     }
 
-    public static void main(String args[])
-    {
+    public static void main(String[] args) {
         System.out.println(solve(4));
     }
 }

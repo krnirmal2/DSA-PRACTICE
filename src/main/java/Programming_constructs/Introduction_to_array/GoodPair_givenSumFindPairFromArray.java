@@ -6,7 +6,7 @@ public class GoodPair_givenSumFindPairFromArray {
         int n = A.length;
 
         int result = 0;
-        for(int i=0 ;i<n ;i++) {
+        for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
                 if (i == j) {
                     continue;
@@ -15,14 +15,14 @@ public class GoodPair_givenSumFindPairFromArray {
                 }
             }
         }
-        return  result;
+        return result;
     }
 
 
     public static void main(String[] args) {
-        int A[] ={1,2,3,4};
+        int[] A = {1, 2, 3, 4};
 
-        System.out.println( solve(A,7));
+        System.out.println(solve(A, 7));
     }
 }
 

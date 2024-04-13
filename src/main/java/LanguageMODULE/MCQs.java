@@ -1,10 +1,9 @@
 package LanguageMODULE;
 
-class Book{
-
-    int price;
+class Book {
 
     static int count;
+    int price;
 
 
     public Book(int price) {

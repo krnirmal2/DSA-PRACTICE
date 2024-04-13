@@ -4,35 +4,32 @@ import java.util.ArrayList;
 
 public class largestWindowForSumK {
 
-    public  static ArrayList<Integer> solve(ArrayList<Integer> a){
+    public static ArrayList<Integer> solve(ArrayList<Integer> a) {
         int size = a.size();
-        ArrayList<Integer> result= new ArrayList<>();
+        ArrayList<Integer> result = new ArrayList<>();
 
-        Integer start =0;
-        Integer end =0;
+        Integer start = 0;
+        Integer end = 0;
         int sum = 0;
         int maxWindow = 0;
 
-        while(end<size){
+        while (end < size) {
             sum += a.get(end);
 
-            if(sum<0){
+            if (sum < 0) {
                 end++;
-            }
-            else if (sum == 0){
-                maxWindow = Math.max(maxWindow, end-start+1);
+            } else if (sum == 0) {
+                maxWindow = Math.max(maxWindow, end - start + 1);
                 end++;
 
 
-            }
-
-            else if(sum>0){
-                while(sum>0)
-                {
-                    sum-=a.get(start);
-                    start++;}
-                if(sum ==0){
-                    maxWindow = Math.max(maxWindow, end-start+1);
+            } else if (sum > 0) {
+                while (sum > 0) {
+                    sum -= a.get(start);
+                    start++;
+                }
+                if (sum == 0) {
+                    maxWindow = Math.max(maxWindow, end - start + 1);
                 }
                 end++;
 
@@ -40,7 +37,7 @@ public class largestWindowForSumK {
 
         }
 
-        for(int i=start;i<end;i++){
+        for (int i = start; i < end; i++) {
             result.add(i);
         }
 
@@ -60,8 +57,8 @@ public class largestWindowForSumK {
         a.add(-2);
         a.add(4);
         a.add(-4);
-        re=solve(a);
-        for(int i=0;i<re.size();i++){
+        re = solve(a);
+        for (int i = 0; i < re.size(); i++) {
             System.out.println(a.get(i));
         }
     }

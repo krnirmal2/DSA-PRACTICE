@@ -1,6 +1,7 @@
 package Graph;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.PriorityQueue;
 
 class Prim {
     public static void main(String[] args) {
@@ -86,7 +87,6 @@ class Prim {
 }
 
 
-
 //public class PrimsAlgorithm {
 //
 //    public static List<Edge> findMinimumSpanningTree(Graph graph) {
@@ -165,16 +165,6 @@ class Prim {
 //}
 //
 //
-
-
-
-
-
-
-
-
-
-
 
 
 //public class Prims {

@@ -1,7 +1,6 @@
 package Graph;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class GraphUtil {
 //    private static int numNodes;
@@ -86,8 +85,7 @@ public class GraphUtil {
     // A utility function to add an edge in an
     // undirected graph
     static void addEdge(ArrayList<ArrayList<Integer>> adj,
-                        int u, int v)
-    {
+                        int u, int v) {
         adj.get(u).add(v);
         adj.get(v).add(u);
         // for a directed graph with an edge pointing from u to v,
@@ -97,8 +95,7 @@ public class GraphUtil {
     // A utility function to print the adjacency list
     // representation of graph
     static void
-    printGraph(ArrayList<ArrayList<Integer> > adj)
-    {
+    printGraph(ArrayList<ArrayList<Integer>> adj) {
         for (int i = 0; i < adj.size(); i++) {
             System.out.println("\nAdjacency list of vertex"
                     + i);
@@ -112,11 +109,10 @@ public class GraphUtil {
     }
 
     // Driver Code
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         // Creating a graph with 5 vertices
         int V = 5;
-        ArrayList<ArrayList<Integer> > adj
+        ArrayList<ArrayList<Integer>> adj
                 = new ArrayList<>(V);
 
         for (int i = 0; i < V; i++)
@@ -135,11 +131,6 @@ public class GraphUtil {
     }
 
 }
-
-
-
-
-
 
 
 //class Edge implements Comparable<Edge> {

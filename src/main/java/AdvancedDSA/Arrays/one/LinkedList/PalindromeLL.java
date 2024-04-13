@@ -1,19 +1,11 @@
 package AdvancedDSA.Arrays.one.LinkedList;
 
-import java.util.LinkedList;
-
 public class PalindromeLL {
-     static class ListNode {
-      public int val;
-      public ListNode next;
-      ListNode(int x) { val = x; next = null; }
-  }
-
     public static int lPalin(ListNode A) {
         /* splitting the list into 2 parts */
         ListNode S = A, F = A;
         // after slow and fast pointer is come to mid and end respectively
-        while(F.next != null && F.next.next != null){
+        while (F.next != null && F.next.next != null) {
             S = S.next;
             F = F.next.next;
         }
@@ -25,7 +17,7 @@ public class PalindromeLL {
         ListNode t = mh, rh = null;
 
         /* reversing the 2nd half */
-        while(mh != null){
+        while (mh != null) {
             t = mh;
             mh = mh.next;
             t.next = rh;
@@ -33,15 +25,15 @@ public class PalindromeLL {
         }
 
         /* comparing 1st half and reversed 2nd half */
-        while(A != null && rh != null){
-            if(A.val == rh.val){
+        while (A != null && rh != null) {
+            if (A.val == rh.val) {
                 A = A.next;
                 rh = rh.next;
-            }
-            else return 0;
+            } else return 0;
         }
         return 1;
     }
+
     public static void main(String[] args) {
 //        LinkedList llist = new LinkedList();
 //        char[] str = { 'a', 'b', 'a', 'c', 'a', 'b', 'a' };
@@ -55,7 +47,7 @@ public class PalindromeLL {
         ListNode three = new ListNode(3);
         ListNode four = new ListNode(4);
         ListNode five = new ListNode(3);
-        ListNode six = new  ListNode(2);
+        ListNode six = new ListNode(2);
         ListNode seven = new ListNode(1);
         one.next = two;
         two.next = three;
@@ -65,6 +57,16 @@ public class PalindromeLL {
         six.next = seven;
 
         System.out.println(lPalin(one));
+    }
+
+    static class ListNode {
+        public int val;
+        public ListNode next;
+
+        ListNode(int x) {
+            val = x;
+            next = null;
+        }
     }
 
 }

@@ -6,26 +6,26 @@ import java.util.List;
 import java.util.Queue;
 
 public class ReversingElementsOfQueue {
-        public static ArrayList<Integer> solve(ArrayList<Integer> A, int B) {
+    public static ArrayList<Integer> solve(ArrayList<Integer> A, int B) {
 
-            Queue<Integer> q = new LinkedList();
-            // first remove first B element from the arraylist
-            for(int i=0 ;i<B;i++){
-                q.add(A.get(i));
+        Queue<Integer> q = new LinkedList();
+        // first remove first B element from the arraylist
+        for (int i = 0; i < B; i++) {
+            q.add(A.get(i));
 
-            }
-            // now reverse the queue
-            reverseQueue(q);
-
-            //now traverse the queue and add the element to the arraylist
-            for(int i=0;i<B;i++){
-                int peek = q.remove();
-                A.set(i,peek);
-            }
-            return A;
         }
-    public static void reverseQueue(Queue<Integer> q)
-    {
+        // now reverse the queue
+        reverseQueue(q);
+
+        //now traverse the queue and add the element to the arraylist
+        for (int i = 0; i < B; i++) {
+            int peek = q.remove();
+            A.set(i, peek);
+        }
+        return A;
+    }
+
+    public static void reverseQueue(Queue<Integer> q) {
         // base case
         if (q.size() == 0)
             return;
@@ -45,7 +45,7 @@ public class ReversingElementsOfQueue {
     }
 
     public static void main(String[] args) {
-        solve(new ArrayList<>(List.of(1, 2, 3, 4, 5)),3);
+        solve(new ArrayList<>(List.of(1, 2, 3, 4, 5)), 3);
     }
 
 }

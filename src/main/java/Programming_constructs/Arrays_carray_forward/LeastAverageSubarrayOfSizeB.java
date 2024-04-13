@@ -70,10 +70,10 @@ public class LeastAverageSubarrayOfSizeB {
 
         public static void main(String[] args) {
 
-            int arr[] ={3,7,90,20,10,50,40} ;
-            int B =3;
+            int[] arr = {3, 7, 90, 20, 10, 50, 40};
+            int B = 3;
 //            for (int i = 0; i < n; i++) arr[i] = A[i];
-            System.out.println( findMinAvgSubarray(arr, B));
+            System.out.println(findMinAvgSubarray(arr, B));
 
         }
     }

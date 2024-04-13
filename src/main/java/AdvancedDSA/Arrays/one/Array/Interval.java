@@ -1,14 +1,20 @@
 package AdvancedDSA.Arrays.one.Array;
 
 
-import java.util.ArrayList;
-
 public class Interval {
-      int start;
-     int end;
-      Interval() { start = 0; end = 0; }
-     Interval(int s, int e) { start = s; end = e; }
-  }
+    int start;
+    int end;
+
+    Interval() {
+        start = 0;
+        end = 0;
+    }
+
+    Interval(int s, int e) {
+        start = s;
+        end = e;
+    }
+}
 /*     this problem has a lot of corner cases that need to be handled correctly.
 
         Let us first talk about the approach.

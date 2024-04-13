@@ -1,5 +1,6 @@
 package LanguageMODULE;
-class Student{
+
+class Student {
 
     String name;
 
@@ -8,7 +9,7 @@ class Student{
 
     // Constructor 1
 
-    Student(int num){
+    Student(int num) {
 
         rollNo = num;
 
@@ -19,7 +20,7 @@ class Student{
 
     // Constructor 2
 
-    Student(int num, String str){
+    Student(int num, String str) {
 
         rollNo = num;
 
@@ -28,9 +29,9 @@ class Student{
     }
 
 
-    public void print(){
+    public void print() {
 
-        System.out.print(name +" " + rollNo+" ");
+        System.out.print(name + " " + rollNo + " ");
 
     }
 

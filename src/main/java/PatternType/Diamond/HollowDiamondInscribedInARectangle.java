@@ -1,2 +1,4 @@
-package PatternType.Diamond;public class HollowDiamondInscribedInARectangle {
+package PatternType.Diamond;
+
+public class HollowDiamondInscribedInARectangle {
 }

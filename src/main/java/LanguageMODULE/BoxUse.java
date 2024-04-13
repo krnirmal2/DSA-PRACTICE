@@ -1,6 +1,6 @@
 package LanguageMODULE;
 
-class Box{
+class Box {
 
     int width;
 
@@ -8,7 +8,7 @@ class Box{
 
     int length;
 
-    void volume(){
+    void volume() {
 
         System.out.println(length * width * height);
 

@@ -1,11 +1,12 @@
 package Graph;
 
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
 
 class Graphs {
-    private int V;
-    private LinkedList<Integer>[] adj;
+    private final int V;
+    private final LinkedList<Integer>[] adj;
 
     Graphs(int v) {
         V = v;

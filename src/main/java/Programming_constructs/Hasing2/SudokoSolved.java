@@ -1,9 +1,6 @@
 package Programming_constructs.Hasing2;
 
-import javax.imageio.stream.ImageInputStream;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 
 public class SudokoSolved {
 //    public static int isValidSudoku(final String[] A) {
@@ -46,9 +43,9 @@ public class SudokoSolved {
 //}
 
     public static int isValidSudoku(final String[] A) {
-        HashSet<Character> row[] = new HashSet[9];
-        HashSet<Character> col[] = new HashSet[9];
-        HashSet<Character> box[][] = new HashSet[3][3];
+        HashSet<Character>[] row = new HashSet[9];
+        HashSet<Character>[] col = new HashSet[9];
+        HashSet<Character>[][] box = new HashSet[3][3];
         for (int i = 0; i < 9; i++) {
             row[i] = new HashSet<>();
             col[i] = new HashSet<>();

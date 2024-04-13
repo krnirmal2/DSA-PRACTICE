@@ -3,22 +3,19 @@ package Programming_constructs.Tree;
 import java.util.ArrayList;
 import java.util.Stack;
 
-public class TreeNode
-{
+public class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
 
     // Function to create a new binary tree node having a given key
-    public TreeNode(int key)
-    {
+    public TreeNode(int key) {
         val = key;
         left = right = null;
     }
 }
 
-class Main
-{
+class Main {
     // Iterative function to perform preorder traversal on the tree
     /*public static void preorderIterative(Node root)
     {
@@ -58,16 +55,16 @@ class Main
         ArrayList<Integer> preOrder = new ArrayList();
         Stack<TreeNode> s = new Stack();
 
-        if(A == null){
+        if (A == null) {
             preOrder.add(-1);
 
         }
         s.push(A);
 
-        while(!s.empty()){
+        while (!s.empty()) {
             TreeNode temp = s.pop();
 //            System.out.println(temp);
-            if(temp != null) {
+            if (temp != null) {
                 preOrder.add(temp.val);
 
 
@@ -77,17 +74,15 @@ class Main
                 if (A.left != null) {
                     s.push(temp.left);
                 }
+            } else {
+                preOrder.add(-1);
             }
-
-            else{
-            preOrder.add(-1);
-        }
 
         }
         return preOrder;
     }
-    public static void main(String[] args)
-    {
+
+    public static void main(String[] args) {
 
 
         TreeNode root = new TreeNode(1);
@@ -100,8 +95,8 @@ class Main
         root.right.left.right = new TreeNode(8);
 
         ArrayList<Integer> result = preorderTraversal(root);
-        for(int i =0;i<result.size();i++){
-            System.out.print(result.get(i)+ " ");
+        for (int i = 0; i < result.size(); i++) {
+            System.out.print(result.get(i) + " ");
         }
 
 

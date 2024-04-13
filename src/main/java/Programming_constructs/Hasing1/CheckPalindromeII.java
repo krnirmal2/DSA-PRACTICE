@@ -40,16 +40,16 @@ public class CheckPalindromeII {
         int[] freq = new int[26];
         int n = A.length();
 
-        for(int i = 0; i < n; i++){
+        for (int i = 0; i < n; i++) {
             char a = A.charAt(i);
-            freq[a-'a']++;
+            freq[a - 'a']++;
         }
 
         boolean oneOdd = false;
-        for(int i = 0; i < 26 ; i++){
-            if((freq[i] % 2) != 0 && oneOdd)
+        for (int i = 0; i < 26; i++) {
+            if ((freq[i] % 2) != 0 && oneOdd)
                 return 0;
-            else if((freq[i] % 2) != 0 && !oneOdd)
+            else if ((freq[i] % 2) != 0 && !oneOdd)
                 oneOdd = true;
         }
         return 1;

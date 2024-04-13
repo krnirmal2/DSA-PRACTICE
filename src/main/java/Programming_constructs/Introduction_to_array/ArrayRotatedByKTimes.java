@@ -1,10 +1,10 @@
 package Programming_constructs.Introduction_to_array;
 
-import java.lang.*;
-import java.util.*;
+import java.util.Scanner;
+
 public class ArrayRotatedByKTimes {
 
-    public static int[] solve(int A[], int B) {
+    public static int[] solve(int[] A, int B) {
         // first k element reverse
         // last n-k element and reverse
         // the full array  reverse
@@ -36,7 +36,7 @@ public class ArrayRotatedByKTimes {
         Scanner sc = new Scanner(System.in);
         int input = sc.nextInt();
 
-        int A[] = new int[input];
+        int[] A = new int[input];
         int i = 0;
         while (i < input) {
             int ele = sc.nextInt();
@@ -51,7 +51,6 @@ public class ArrayRotatedByKTimes {
         }
     }
 }
-
 
 
 //public class Main {

@@ -2,7 +2,7 @@ package Programming_constructs.MathsModularArithmetic;
 
 public class ModString {
     public static int findMod(String A, int B) {
-        int res=0;
+        int res = 0;
 
 // One by one process all digits of 'num'
 // xy (mod a) ≡ ((x (mod a) * 10) + (y (mod a))) mod a
@@ -15,7 +15,7 @@ public class ModString {
 
 // 625 % 5 = (((6 % 5)*10) + (25 % 5)) % 5 = 0
         for (int i = 0; i < A.length(); i++)
-            res = (res * 10 + (int)A.charAt(i) - '0') % B;
+            res = (res * 10 + (int) A.charAt(i) - '0') % B;
 
         return res;
 
@@ -56,10 +56,10 @@ public class ModString {
     }
 
     public static void main(String[] args) {
-            String A = "842554936302263";
-            int B =41;
-        System.out.println(findMod(A,B));
+        String A = "842554936302263";
+        int B = 41;
+        System.out.println(findMod(A, B));
 
     }
-    }
+}
 

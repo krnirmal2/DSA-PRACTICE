@@ -1,10 +1,10 @@
 package AdvancedDSA.Arrays.one;
 
-import static java.lang.Integer.*;
+import static java.lang.Integer.MAX_VALUE;
 
 public class SlidingWidowUsingWhileLoop {
 
-    public static int  minSubArrayLen(int []arr,int  target) {
+    public static int minSubArrayLen(int[] arr, int target) {
         int minLength = MAX_VALUE;
         int sum = 0;
         int left = 0;
@@ -33,7 +33,7 @@ public class SlidingWidowUsingWhileLoop {
 
 
     public static void main(String[] args) {
-        int arr[] ={2, 3, 1, 2, 4, 3};
+        int[] arr = {2, 3, 1, 2, 4, 3};
 
         System.out.println(minSubArrayLen(arr, 7));
 

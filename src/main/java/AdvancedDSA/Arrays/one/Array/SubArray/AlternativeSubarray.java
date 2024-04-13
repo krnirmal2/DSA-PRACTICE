@@ -5,30 +5,29 @@ import java.util.List;
 
 public class AlternativeSubarray {
     public static ArrayList<Integer> solve(ArrayList<Integer> A, int c) {
-        int B= 2*c+1;
+        int B = 2 * c + 1;
 
-        int i=0, k=0, j=0;
-        int sizeA= A.size();
+        int i = 0, k = 0, j = 0;
+        int sizeA = A.size();
         ArrayList<Integer> result = new ArrayList<>();
 
-        while(j<sizeA){
-            k=i;
-            if(j-i+1 <B){
+        while (j < sizeA) {
+            k = i;
+            if (j - i + 1 < B) {
                 j++;
-            }
-            else if(j-i+1 == B){
-                while(k<j){
-                    if(A.get(k) != A.get(j) ||A.get(k) == A.get(k+1) ) {
+            } else if (j - i + 1 == B) {
+                while (k < j) {
+                    if (A.get(k) != A.get(j) || A.get(k) == A.get(k + 1)) {
                         break;
                     }
-                        k++;
-                        j--;
-                        if(k==j){
-                            result.add(k);
-                        }
+                    k++;
+                    j--;
+                    if (k == j) {
+                        result.add(k);
+                    }
                 }
                 i++;
-                j=i;
+                j = i;
             }
 
         }
@@ -37,7 +36,7 @@ public class AlternativeSubarray {
     }
 
     public static void main(String[] args) {
-        System.out.println(solve(new ArrayList<>(List.of( 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)),1).size());
+        System.out.println(solve(new ArrayList<>(List.of(0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)), 1).size());
     }
 }
 

@@ -4,33 +4,33 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 public class InorderWithoutRecursion {
-    static  class TreeNode {
+    static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
+
         TreeNode(int x) {
             val = x;
-            left=null;
-            right=null;
+            left = null;
+            right = null;
         }
 
         public static ArrayList<Integer> InorderTraversal(TreeNode A) {
             ArrayList<Integer> inorder = new ArrayList();
             Stack<TreeNode> s = new Stack();
 
-            if(A == null){
+            if (A == null) {
                 inorder.add(-1);
 
             }
 
-            TreeNode temp =A;
-            while(!s.empty() || temp!=null){
+            TreeNode temp = A;
+            while (!s.empty() || temp != null) {
 
-                if(temp!= null){
+                if (temp != null) {
                     s.push(temp);
                     temp = temp.left;
-                }
-                else{
+                } else {
                     temp = s.pop();
                     inorder.add(temp.val);
                     temp = temp.right;
@@ -67,10 +67,26 @@ Method 1: Using one stack and the binary tree node will be changed. Easy ,not Pr
 /**
  * Definition for binary tree
  * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * int val;
+ * TreeNode *left;
+ * TreeNode *right;
+ * TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ * <p>
+ * Definition for binary tree
+ * struct TreeNode {
+ * int val;
+ * TreeNode *left;
+ * TreeNode *right;
+ * TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ * <p>
+ * Definition for binary tree
+ * struct TreeNode {
+ * int val;
+ * TreeNode *left;
+ * TreeNode *right;
+ * TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  *//*
 

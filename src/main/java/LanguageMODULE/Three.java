@@ -2,15 +2,14 @@ package LanguageMODULE;
 
 public class Three {
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         // Getting an integer value
 
         Integer i = Integer.valueOf(12);
 
         // Printing the same integer value
 
-        System.out.print(i+" ");
+        System.out.print(i + " ");
 
         // Calling method 2
 

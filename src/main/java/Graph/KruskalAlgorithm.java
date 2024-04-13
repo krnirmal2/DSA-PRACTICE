@@ -1,6 +1,6 @@
 package Graph;
 
-import java.util.*;
+import java.util.Arrays;
 //In this implementation, Kruskal is the main class that performs Kruskal's algorithm. The class has an inner class Edge to represent edges in the graph. The DisjointSet class is used to keep track of the disjoint sets of vertices in the graph.
 //
 //        The addEdge method is used to add edges to the graph. The kruskal method performs Kruskal's algorithm and returns the minimum spanning tree as a list of edges.
