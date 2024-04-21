@@ -29,7 +29,7 @@ public class InorderWithoutRecursion {
 
                 if (temp != null) {
                     s.push(temp);
-                    temp = temp.left;
+                    temp b= temp.left;
                 } else {
                     temp = s.pop();
                     inorder.add(temp.val);
