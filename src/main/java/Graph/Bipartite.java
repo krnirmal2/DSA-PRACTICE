@@ -74,6 +74,7 @@ public class Bipartite {
     static class Pairs {
         int vertex;
         int color;
+
         public Pairs(int vertex, int color) {
             this.vertex = vertex;
             this.color = color;

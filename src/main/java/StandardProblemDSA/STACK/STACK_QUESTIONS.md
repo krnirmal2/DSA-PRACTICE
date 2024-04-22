@@ -31,7 +31,9 @@ Output: 2 -1
 
 **Your Task:**
 
-Since this is a function problem, you don't need to take inputs. You are required to complete the two methods  **enqueue** **()** which takes an integer **'x'** as input denoting the element to be pushed into the queue and  **dequeue** **()** which returns the integer poped out from the queue.
+Since this is a function problem, you don't need to take inputs. You are required to complete the two methods  **enqueue
+** **()** which takes an integer **'x'** as input denoting the element to be pushed into the queue and  **dequeue** **()
+** which returns the integer poped out from the queue.
 
 **Expected Time Complexity: **O(1) for  **enqueue** **() **and O(n) for  **dequeue** **()**
 **Expected Auxiliary Space: **O(1) for both  **enqueue** **() **and  **dequeue** **()**

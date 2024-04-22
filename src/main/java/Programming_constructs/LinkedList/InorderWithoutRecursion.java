@@ -29,7 +29,7 @@ public class InorderWithoutRecursion {
 
                 if (temp != null) {
                     s.push(temp);
-                    temp b= temp.left;
+                    temp = temp.left;
                 } else {
                     temp = s.pop();
                     inorder.add(temp.val);
@@ -65,6 +65,22 @@ Method 1: Using one stack and the binary tree node will be changed. Easy ,not Pr
 
 */
 /**
+ * Definition for binary tree
+ * struct TreeNode {
+ * int val;
+ * TreeNode *left;
+ * TreeNode *right;
+ * TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ * <p>
+ * Definition for binary tree
+ * struct TreeNode {
+ * int val;
+ * TreeNode *left;
+ * TreeNode *right;
+ * TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ * <p>
  * Definition for binary tree
  * struct TreeNode {
  * int val;

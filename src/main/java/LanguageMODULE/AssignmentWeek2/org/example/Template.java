@@ -490,12 +490,12 @@ class SparseTable {
 }
 
 class LCA {
-    public int N, root;
-    public ArrayDeque<Integer>[] edges;
     private final int[] enter;
     private final int[] exit;
     private final int LOG = 17; //change this
     private final int[][] dp;
+    public int N, root;
+    public ArrayDeque<Integer>[] edges;
 
     public LCA(int n, ArrayDeque<Integer>[] edges, int r) {
         N = n;
@@ -542,9 +542,9 @@ class LCA {
 }
 
 class BitSet {
+    private final int CONS = 62; //safe
     public long[] sets;
     public int size;
-    private final int CONS = 62; //safe
 
     public BitSet(int N) {
         size = N;
@@ -578,10 +578,10 @@ class BitSet {
 }
 
 class MaxFlow {
+    private final int[] depth;
     //Dinic with optimizations (see magic array in dfs function)
     public int N, source, sink;
     public ArrayList<Edge>[] edges;
-    private final int[] depth;
 
     public MaxFlow(int n, int x, int y) {
         N = n;
