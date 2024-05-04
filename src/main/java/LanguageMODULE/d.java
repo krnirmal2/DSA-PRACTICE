@@ -16,14 +16,14 @@ class Derivd
 }
 
 
-public class Test extends Derivd
+public class QueueUsingLinkedList extends Derivd
 
 {
 
     protected final void getDetails(){
 
   TODO: GIVE COMPILATION ERROR
-        System.out.println("Test class");
+        System.out.println("QueueUsingLinkedList class");
 
     }
 

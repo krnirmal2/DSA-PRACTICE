@@ -14,7 +14,7 @@
 //}
 //
 ////    This is an example of run time polymorphism. At run time, it is decided that object of InterviewBit will be assigned to obj. Hence, InterviewBit’s getdata() will be executed.
-//public class Test{
+//public class QueueUsingLinkedList{
 //    public static void main(String[] args){
 //        ib obj = new InterviewBit();
 //        obj.getData();
