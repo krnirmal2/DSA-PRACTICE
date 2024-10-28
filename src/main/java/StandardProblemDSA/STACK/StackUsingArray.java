@@ -5,10 +5,10 @@ public class StackUsingArray {
 
     // store elements of stack
     private final int[] arr;
-    // represent top of stack
-    private int top;
     // total capacity of the stack
     private final int capacity;
+    // represent top of stack
+    private int top;
 
     // Creating a stack
     StackUsingArray(int size) {

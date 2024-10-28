@@ -59,9 +59,9 @@ public class TreeBasicOperation {
         }
 
         private int height(TreeNode node) {
-            if (node == null)
+            if (node == null) {
                 return 0;
-            else {
+            } else {
                 int leftHeight = height(node.left);
                 int rightHeight = height(node.right);
 

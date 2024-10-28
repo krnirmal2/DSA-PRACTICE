@@ -22,19 +22,17 @@ public class linkedlist {
     }
 
     public void add(int data) {
+        linkedlist newNode = new linkedlist(data);
         if (head == null) {
-            linkedlist newNode = new linkedlist(data);
             head = newNode;
             tail = newNode;
             head.prev = null;
-            tail.next = null;
         } else {
-            linkedlist newNode = new linkedlist(data);
             tail.next = newNode;
             newNode.prev = tail;
             tail = newNode;
-            tail.next = null;
         }
+        tail.next = null;
     }
 
     public void display() {

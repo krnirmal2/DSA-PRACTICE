@@ -20,10 +20,6 @@ public class patternMatching {
         if (b[sizeOfB - 1] != a[sizeOfA - 1]) return result;
 
         // now if the last character is ? which match exactly the one character of the string
-        if (b[sizeOfB - 1] == '?' && sizeOfA != 0)
-
-
-            return result;
         return result;
     }
 }
