@@ -7,18 +7,15 @@ import java.util.Queue;
 public class RemoveInvalidParanthesis {
     // method checks if character is parenthesis(open
 // or closed)
-    static boolean isParenthesis(char c)
-    {
+    static boolean isParenthesis(char c) {
         return ((c == '(') || (c == ')'));
     }
 
     // method returns true if string contains valid
 // parenthesis
-    static boolean isValidString(String str)
-    {
+    static boolean isValidString(String str) {
         int cnt = 0;
-        for (int i = 0; i < str.length(); i++)
-        {
+        for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) == '(')
                 cnt++;
             else if (str.charAt(i) == ')')
@@ -30,8 +27,7 @@ public class RemoveInvalidParanthesis {
     }
 
     // method to remove invalid parenthesis
-    static void removeInvalidParenthesis(String str)
-    {
+    static void removeInvalidParenthesis(String str) {
         if (str.isEmpty())
             return;
 
@@ -47,11 +43,10 @@ public class RemoveInvalidParanthesis {
         // starting node into queue
         q.add(str);
         visit.add(str);
-        while (!q.isEmpty())
-        {
-            str = q.peek(); q.remove();
-            if (isValidString(str))
-            {
+        while (!q.isEmpty()) {
+            str = q.peek();
+            q.remove();
+            if (isValidString(str)) {
                 System.out.println(str);
 
                 // If answer is found, make level true
@@ -61,16 +56,14 @@ public class RemoveInvalidParanthesis {
             }
             if (level)
                 continue;
-            for (int i = 0; i < str.length(); i++)
-            {
+            for (int i = 0; i < str.length(); i++) {
                 if (!isParenthesis(str.charAt(i)))
                     continue;
 
                 // Removing parenthesis from str and
                 // pushing into queue,if not visited already
                 temp = str.substring(0, i) + str.substring(i + 1);
-                if (!visit.contains(temp))
-                {
+                if (!visit.contains(temp)) {
                     q.add(temp);
                     visit.add(temp);
                 }
@@ -79,8 +72,7 @@ public class RemoveInvalidParanthesis {
     }
 
     // Driver Code
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         String expression = "()())()";
         removeInvalidParenthesis(expression);
 

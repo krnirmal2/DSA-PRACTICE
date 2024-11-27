@@ -11,13 +11,13 @@ public class NearestSmallerElement {
 //        ArrayList<Integer> arrayList = new ArrayList<>(List.of(4,7,9,5,8,5,2,7,6));
         ArrayList<Integer> arrayList = new ArrayList<>(List.of(1, 3, 0, 2, 5));
 
-        nearestLefSideSmallerElement(arrayList).forEach(i->{
+        nearestLefSideSmallerElement(arrayList).forEach(i -> {
             System.out.println(i);
         });
 
     }
 
-    private static ArrayList<Integer> nearestLefSideSmallerElement(ArrayList<Integer> arrayList)  {
+    private static ArrayList<Integer> nearestLefSideSmallerElement(ArrayList<Integer> arrayList) {
         //create a list where we save all the indexesA
         ArrayList<Integer> indexes = new ArrayList<>();
         // create a stack
@@ -26,7 +26,7 @@ public class NearestSmallerElement {
         // iterate over the array from left to right
         for (int i = 0; i < arrayList.size(); i++) {
             // Keep removing top element from S while the top
-                       // element is greater than or equal to arr[i]
+            // element is greater than or equal to arr[i]
             //check if the stack is not empty and if the element of the stack top index of arraylist is greater than the current element
             while (!stack.isEmpty() && arrayList.get(stack.peek()) > arrayList.get(i)) {
 //                System.out.println("Stack peek is "+ stack.peek());
@@ -36,11 +36,10 @@ public class NearestSmallerElement {
                 stack.pop();
             }
 
-            if(stack.isEmpty()){
-                indexes.add(i,-1);
-            }
-            else{
-                indexes.add(i,stack.peek());
+            if (stack.isEmpty()) {
+                indexes.add(i, -1);
+            } else {
+                indexes.add(i, stack.peek());
 
             }
 

@@ -1,0 +1,17 @@
+# 15 pattern for solving DSA
+
+1. [Sliding Window Cheatsheet Template](https://lnkd.in/gs7f8NZX)
+2. [Dynamic Programming Patterns](https://lnkd.in/gwEwm_eX)
+3. [10-line Template that can solve most 'substring' problems](https://lnkd.in/gd4pfVk5)
+4. [Two-pointer Problems](https://lnkd.in/gnQrQujs)
+5. [Binary Search Template](https://lnkd.in/gvRT724f)
+6. [Backtracking Pattern](https://lnkd.in/g3z6XVx2)
+7. [Dynamic Programming Patterns](https://lnkd.in/gY73zVv5)
+8. [Graph For Beginners](https://lnkd.in/gQFjCF5H)
+9. [Patterns for Bits Manipulations](https://lnkd.in/gyVp9Smd)
+10. [Backtracking Questions in Java](https://lnkd.in/ggGWqqWY)
+11. [DFS & BFS Tree Traversal](https://lnkd.in/gkphA22w)
+12. [Monotonic Stack Based Problems](https://lnkd.in/gHmdU4js)
+13. [Collections of Important String Questions Pattern](https://lnkd.in/g7AMxyRj)
+14. [BFS + DFS Problems - Part 1](https://lnkd.in/gSjFDr6c)
+15. [BFS + DFS Problems - Part 2](https://lnkd.in/gJJJrzJ5)

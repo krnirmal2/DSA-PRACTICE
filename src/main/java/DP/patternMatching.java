@@ -17,7 +17,9 @@ public class patternMatching {
         char[] b = B.toCharArray();
 
         // if the last character of both A and B not matched then return
-        if (b[sizeOfB - 1] != a[sizeOfA - 1]) return result;
+        if (b[sizeOfB - 1] != a[sizeOfA - 1]) {
+            return result;
+        }
 
         // now if the last character is ? which match exactly the one character of the string
         return result;

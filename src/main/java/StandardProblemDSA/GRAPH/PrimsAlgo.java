@@ -8,11 +8,22 @@ public class PrimsAlgo {
     private static final int V = 5;
     private static final char[] NODES = {'A', 'B', 'C', 'D', 'E'};
 
+    public static void main(String[] args) {
+        PrimsAlgo t = new PrimsAlgo();
+        int graph[][] = new int[][]{{0, 2, 0, 6, 0},
+                {2, 0, 3, 8, 5},
+                {0, 3, 0, 0, 7},
+                {6, 8, 0, 0, 9},
+                {0, 5, 7, 9, 0}};
+
+        // Print the solution
+        t.primMST(graph);
+    }
+
     // A utility function to find the vertex with minimum
     // key value, from the set of vertices not yet included
     // in MST
-    int minKey(int key[], Boolean mstSet[])
-    {
+    int minKey(int key[], Boolean mstSet[]) {
         // Initialize min value
         int min = Integer.MAX_VALUE, min_index = -1;
 
@@ -27,8 +38,7 @@ public class PrimsAlgo {
 
     // A utility function to print the constructed MST
     // stored in parent[]
-    void printMST(int parent[], int graph[][])
-    {
+    void printMST(int parent[], int graph[][]) {
         System.out.println("Edge \tWeight");
         for (int i = 1; i < V; i++) {
             System.out.println(NODES[parent[i]] + " - " + NODES[i] + "\t" + graph[i][parent[i]]);
@@ -37,8 +47,7 @@ public class PrimsAlgo {
 
     // Function to construct and print MST for a graph
     // represented using adjacency matrix representation
-    void primMST(int graph[][])
-    {
+    void primMST(int graph[][]) {
         // Array to store constructed MST
         int parent[] = new int[V];
 
@@ -93,19 +102,6 @@ public class PrimsAlgo {
 
         // Print the constructed MST
         printMST(parent, graph);
-    }
-
-    public static void main(String[] args)
-    {
-        PrimsAlgo t = new PrimsAlgo();
-        int graph[][] = new int[][] { { 0, 2, 0, 6, 0 },
-                { 2, 0, 3, 8, 5 },
-                { 0, 3, 0, 0, 7 },
-                { 6, 8, 0, 0, 9 },
-                { 0, 5, 7, 9, 0 } };
-
-        // Print the solution
-        t.primMST(graph);
     }
 }
 
