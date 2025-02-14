@@ -1,4 +1,4 @@
-package StandardProblemDSA.LINKEDLIST;
+package StandardProblemDSA.LINKEDLIST.TRAVERSAL_BASIC_OPERATION;
 
 // Java program to implement
 // a Singly Linked List

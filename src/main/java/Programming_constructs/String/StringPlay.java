@@ -26,6 +26,10 @@ public class StringPlay {
     }
 
     public static void main(String[] args) {
+        String s = "nirmal";
+        System.out.println("String Byte" + s.getBytes());
+//        System.out.println("String charSequence" + s.getChars());
+        System.out.println("String charSequence" + s.toUpperCase());
 
         System.out.println(solve("hgUe"));
     }

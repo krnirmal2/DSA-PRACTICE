@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 public class SetOfStacks {
-    private ArrayList<Stack<Integer>> stacks; // List to store the set of stacks
-    private int threshold; // The threshold limit for each stack
+    private final ArrayList<Stack<Integer>> stacks; // List to store the set of stacks
+    private final int threshold; // The threshold limit for each stack
 
     // Constructor to initialize the Set of Stacks
     public SetOfStacks(int threshold) {

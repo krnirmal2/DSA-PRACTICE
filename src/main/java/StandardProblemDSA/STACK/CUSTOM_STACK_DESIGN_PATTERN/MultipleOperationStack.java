@@ -58,9 +58,9 @@ public class MultipleOperationStack {
     public void push(int element) {
         // check if the minStack  has minimum value till each element entry or not
         if (minStack.isEmpty() || maxStack.isEmpty()) {
-            minStack.add(element);
-            maxStack.add(element);
-            stack.add(element);
+            minStack.push(element);
+            maxStack.push(element);
+            stack.push(element);
             return;
         }
         // if the element is small from the peak element of the minstack then add that element other wise
