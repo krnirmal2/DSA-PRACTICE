@@ -66,8 +66,6 @@ class Main {
 //            System.out.println(temp);
             if (temp != null) {
                 preOrder.add(temp.val);
-
-
                 if (A.right != null) {
                     s.push(temp.right);
                 }

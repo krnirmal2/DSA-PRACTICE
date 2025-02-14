@@ -14,7 +14,7 @@ class ShortestPath {
     public static void main(String[] args) {
         /* Let us create the example graph discussed above
          */
-        int graph[][]
+        int[][] graph
                 = new int[][]{{0, 4, 0, 0, 0, 0, 0, 8, 0},
                 {4, 0, 8, 0, 0, 0, 0, 11, 0},
                 {0, 8, 0, 7, 0, 4, 0, 0, 2},
@@ -30,12 +30,12 @@ class ShortestPath {
         t.dijkstra(graph, 0);
     }
 
-    int minDistance(int dist[], Boolean sptSet[]) {
+    int minDistance(int[] dist, Boolean[] sptSet) {
         // Initialize min value
         int min = Integer.MAX_VALUE, min_index = -1;
 
         for (int v = 0; v < V; v++)
-            if (sptSet[v] == false && dist[v] <= min) {
+            if (!sptSet[v] && dist[v] <= min) {
                 min = dist[v];
                 min_index = v;
             }
@@ -45,7 +45,7 @@ class ShortestPath {
 
     // A utility function to print the constructed distance
     // array
-    void printSolution(int dist[]) {
+    void printSolution(int[] dist) {
         System.out.println(
                 "Vertex \t\t Distance from Source");
         for (int i = 0; i < V; i++)
@@ -55,15 +55,15 @@ class ShortestPath {
     // Function that implements Dijkstra's single source
     // shortest path algorithm for a graph represented using
     // adjacency matrix representation
-    void dijkstra(int graph[][], int src) {
-        int dist[] = new int[V]; // The output array.
+    void dijkstra(int[][] graph, int src) {
+        int[] dist = new int[V]; // The output array.
         // dist[i] will hold
         // the shortest distance from src to i
 
         // sptSet[i] will true if vertex i is included in
         // shortest path tree or shortest distance from src
         // to i is finalized
-        Boolean sptSet[] = new Boolean[V];
+        Boolean[] sptSet = new Boolean[V];
 
         // Initialize all distances as INFINITE and stpSet[]
         // as false
