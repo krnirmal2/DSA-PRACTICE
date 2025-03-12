@@ -1,24 +1,22 @@
 package Programming_constructs.Arrays_carray_forward;
 
 
-import java.lang.Math;
 public class AGPairCount {
     public static int solve(String A) {
         int sizeS = A.length();
-        int count =0, result =0;
-        int psg[] = new int[sizeS];
+        int count = 0, result = 0;
+        int[] psg = new int[sizeS];
         int modulo = (int) Math.pow(10, 9) + 7;
-        for(int i=1;i<sizeS;i++)
-        {
-            if(A.charAt(i)== 'G')
-                psg[i]= psg[i-1]+1;
+        for (int i = 1; i < sizeS; i++) {
+            if (A.charAt(i) == 'G')
+                psg[i] = psg[i - 1] + 1;
             else
-                psg[i] = psg[i-1];
+                psg[i] = psg[i - 1];
         }
-        for(int j=0; j<sizeS; j++){
-            if(A.charAt(j) == 'A'){
-                count = psg[sizeS-1]-psg[j];
-                result = (result+count) % modulo;
+        for (int j = 0; j < sizeS; j++) {
+            if (A.charAt(j) == 'A') {
+                count = psg[sizeS - 1] - psg[j];
+                result = (result + count) % modulo;
             }
         }
 

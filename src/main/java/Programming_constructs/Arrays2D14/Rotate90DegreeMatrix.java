@@ -25,7 +25,7 @@ public class Rotate90DegreeMatrix {
         // now REVERSE each row of the MATRIX
 //        int k = A.length - 1;
         for (int i = 0; i < A.length; i++) {
-           int k = A.length - 1;
+            int k = A.length - 1;
             for (int j = 0; j < A[0].length; j++) {
                 while (j < k) {
 
@@ -47,7 +47,7 @@ public class Rotate90DegreeMatrix {
     }
 
     public static void main(String[] args) {
-        int[][] arr = { { 1, 2 }, { 3, 4 } };
+        int[][] arr = {{1, 2}, {3, 4}};
         arr = solve(arr);
 
         for (int i = 0; i < 2; i++)

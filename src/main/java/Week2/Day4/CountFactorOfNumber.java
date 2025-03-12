@@ -1,36 +1,34 @@
 package Week2.Day4;
 
 public class CountFactorOfNumber {
-    static int CountFactorNumber1(){
-        int count =0;
-        for(int i = 1; i<= 10; i++)
-        {
-            if(10 % i == 0){
+    static int CountFactorNumber1(int number) {
+        int count = 0;
+        for (int i = 1; i <= number; i++) {
+            if (number % i == 0) {
+
                 count++;
             }
         }
-        return  count;
+        return count;
     }
 
 
     // optimise the code by considering the i and (number % i )
     // and we considering both them as factor
-    static int CountFactorNumber2(){
-        int count =0;
+    static int CountFactorNumber2(int number) {
+        int count = 0;
 
-        for(int i = 1; i*i<= 10; i++)
-        {
+        for (int i = 1; i * i <= number; i++) {
 
-            if(10 % i == 0){
-                if(i== 10 %i )
-                { // if the i and number%i is same then count only one ohter wise count both i and number%i
-                    count = count+1;
-                }
-                else
-                    count=count+2 ;
+            if (number % i == 0) {
+                if (i == number % i) { // if the i and number%i is same then count only one ohter wise count both i and number%i
+                    count = count + 1;
+                } else
+                    count = count + 2;
+
             }
         }
-        return  count;
+        return count;
     }
 
     public static void main(String[] args) {

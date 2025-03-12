@@ -4,21 +4,20 @@ public class SearchSortedMatrix {
 
     public static int solve(int[][] A, int B) {
 
-        int i=0, j = A[0].length -1;
-        int index=-1;
+        int i = 0, j = A[0].length - 1;
+        int index = -1;
         int mid = A[i][j];
         // iterate over the loop
-        while(i<A.length && j>=0){
-            if(A[i][j] == B){
+        while (i < A.length && j >= 0) {
+            if (A[i][j] == B) {
 //                index = (i+1)*1009 + (j+1);
-                index=Math.min(index,(i+1)*1009+j+1);
+                index = Math.min(index, (i + 1) * 1009 + j + 1);
                 j--;
                 break;
             }
-            if(B <A[i][j]){
+            if (B < A[i][j]) {
                 j--;
-            }
-            else
+            } else
                 i++;
         }
 
@@ -30,11 +29,11 @@ public class SearchSortedMatrix {
         int[][] A = {
                 {1, 2, 3},
                 {4, 6, 7},
-                {10,15 ,20},
+                {10, 15, 20},
 
 
         };
-        System.out.println(solve(A,2) );
+        System.out.println(solve(A, 2));
     }
 
 

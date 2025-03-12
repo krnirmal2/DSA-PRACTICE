@@ -4,26 +4,27 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 public class PreOrderWithOutRecursion {
-    static  class TreeNode {
-    int val;
-      TreeNode left;
-     TreeNode right;
-      TreeNode(int x) {
-       val = x;
-      left=null;
-       right=null;
-     }
+    static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
 
-       public static ArrayList<Integer> preorderTraversal(TreeNode A) {
-        ArrayList<Integer> preOrder = new ArrayList();
-        Stack<TreeNode> s = new Stack();
-        if(A == null){
-            preOrder.add(-1);
+        TreeNode(int x) {
+            val = x;
+            left = null;
+            right = null;
         }
-        s.push(A);
-        while(!s.empty()){
-            TreeNode temp = s.pop();
-            preOrder.add(temp.val);
+
+        public static ArrayList<Integer> preorderTraversal(TreeNode A) {
+            ArrayList<Integer> preOrder = new ArrayList();
+            Stack<TreeNode> s = new Stack();
+            if (A == null) {
+                preOrder.add(-1);
+            }
+            s.push(A);
+            while (!s.empty()) {
+                TreeNode temp = s.pop();
+                preOrder.add(temp.val);
                 if (temp.right != null) {
                     s.push(temp.right);
                 }
@@ -33,8 +34,8 @@ public class PreOrderWithOutRecursion {
             }
 
 //        }
-        return preOrder;
-    }
+            return preOrder;
+        }
 
         public static void main(String[] args) {
 
@@ -51,5 +52,5 @@ public class PreOrderWithOutRecursion {
 
         }
 
-}
+    }
 }

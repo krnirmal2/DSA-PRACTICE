@@ -5,19 +5,13 @@ import java.util.Scanner;
 public class Rectangle {
     /* Function to print solid rectangle*/
 
-    static void solid_rectangle(int n, int m)
-
-    {
+    static void solid_rectangle(int n, int m) {
 
         int i, j;
 
-        for (i = 1; i <= n; i++)
+        for (i = 1; i <= n; i++) {
 
-        {
-
-            for (j = 1; j <= m; j++)
-
-            {
+            for (j = 1; j <= m; j++) {
 
                 System.out.println("*");
 
@@ -28,12 +22,9 @@ public class Rectangle {
         }
 
 
-
     }
 
-    public static void main (String args[])
-
-    {
+    public static void main(String[] args) {
 
         int rows, columns;
 
