@@ -5,6 +5,7 @@ public class CountFactorOfNumber {
         int count = 0;
         for (int i = 1; i <= number; i++) {
             if (number % i == 0) {
+
                 count++;
             }
         }
@@ -24,14 +25,15 @@ public class CountFactorOfNumber {
                     count = count + 1;
                 } else
                     count = count + 2;
+
             }
         }
         return count;
     }
 
     public static void main(String[] args) {
-        System.out.println(CountFactorNumber1(10));
-        System.out.println(CountFactorNumber2(10));
+        System.out.println(CountFactorNumber1());
+        System.out.println(CountFactorNumber2());
 
     }
 }

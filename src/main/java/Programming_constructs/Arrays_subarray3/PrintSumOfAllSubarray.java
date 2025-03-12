@@ -19,6 +19,8 @@ public class PrintSumOfAllSubarray {
 
     public static void main(String[] args) {
         int[] A = {1, 2, 3};
+
+
         subarraySum(A);
 //        System.out.println(subarraySum(A));
     }
