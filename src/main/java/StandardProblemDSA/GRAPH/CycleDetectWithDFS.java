@@ -1,75 +1,74 @@
 package StandardProblemDSA.GRAPH;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class CycleDetectWithDFS {
 
-    // A recursive function that uses visited[] and parent to detect
-    // a cycle in the subgraph reachable from vertex currentVertex.
-    static boolean isCyclicUtil(char currentVertex, Map<Character, List<Character>> adjacencyList,
-                                Map<Character, Boolean> visited, char parentVertex) {
+    // DFS to detect cycle in an undirected graph
+    public static boolean dfs(List<List<Integer>> graph, boolean[] visited, int s, int parent) {
+        visited[s] = true;
 
-        // Mark the current node as visited
-        visited.put(currentVertex, true);
-
-        // Recur for all the vertices adjacent to this vertex
-        for (char adjacentVertex : adjacencyList.get(currentVertex)) {
-
-            // If an adjacent vertex is not visited, recur for that adjacent vertex
-            if (!visited.getOrDefault(adjacentVertex, false)) {
-                if (isCyclicUtil(adjacentVertex, adjacencyList, visited, currentVertex))
-                    return true;
+        // Traverse all adjacent nodes
+        for (int i : graph.get(s)) {
+            if (!visited[i]) {
+                if (dfs(graph, visited, i, s)) {
+                    return true; // Cycle detected
+                }
             }
-            // If an adjacent vertex is visited and is not the parent of the current vertex,
-            // then there exists a cycle in the graph
-            else if (adjacentVertex != parentVertex) {
+            // If visited and not parent, it's a cycle
+            else if (i != parent) {
                 return true;
             }
         }
         return false;
     }
 
-    // Returns true if the graph contains a cycle, else false
-    static boolean hasCycle(Map<Character, List<Character>> adjacencyList) {
+    public static void addUndirectedEdge(List<List<Integer>> adjList, int src, int dest) {
+        adjList.get(src).add(dest);
+        adjList.get(dest).add(src); // Since it's an undirected graph
+    }
 
-        // Map to keep track of visited vertices
-        Map<Character, Boolean> visited = new HashMap<>();
+    public static void main(String[] args) {
+        int vertex = 5;
+        List<List<Integer>> graph = new ArrayList<>();
 
-        // Check for cycles in different DFS trees
-        for (char vertex : adjacencyList.keySet()) {
+        for (int i = 0; i < vertex; i++) {
+            graph.add(new ArrayList<>());
+        }
 
-            // Skip if the vertex is already visited
-            if (!visited.getOrDefault(vertex, false)) {
-                if (isCyclicUtil(vertex, adjacencyList, visited, '\0'))
+        int[][] edges = {
+                {0, 1}, {1, 2}, {2, 3}, {3, 4}, {4, 1} // Adding cycle (4 -> 1)
+        };
+
+        for (int[] e : edges) {
+            addUndirectedEdge(graph, e[0], e[1]);
+        }
+
+        System.out.println(dfsOnUndirectedGraph(graph, vertex) ? "Contains Cycle" : "No Cycle");
+    }
+
+    private static boolean dfsOnUndirectedGraph(List<List<Integer>> graph, int vertex) {
+        boolean[] visited = new boolean[vertex];
+
+        for (int i = 0; i < vertex; i++) {
+            if (!visited[i]) {
+                if (dfs(graph, visited, i, -1)) { // -1 as no parent for root
                     return true;
+                }
             }
         }
         return false;
     }
 
-    public static void main(String[] args) {
-
-        // Create an adjacency list with character vertices
-        Map<Character, List<Character>> adjacencyList = new HashMap<>();
-
-        // Initialize the adjacency list for vertices A, B, and C
-        adjacencyList.put('A', new ArrayList<>());
-        adjacencyList.put('B', new ArrayList<>());
-        adjacencyList.put('C', new ArrayList<>());
-
-        // Predefined edges: A-B, B-C, and C-A to create a cycle
-        adjacencyList.get('A').add('B');
-        adjacencyList.get('B').add('A');
-
-        adjacencyList.get('B').add('C');
-        adjacencyList.get('C').add('B');
-
-        adjacencyList.get('C').add('A');
-        adjacencyList.get('A').add('C');
-
-        System.out.println(hasCycle(adjacencyList) ? "Contains cycle" : "No Cycle");
+    private static void dfsOnDirectedGraph(List<List<Integer>> graph, int vertex) {
+        // create the boolean vistied
+        boolean[] visted = new boolean[vertex];
+        // loop through each vertex not on each adjacencey list
+        for (int i = 0; i < vertex; i++) {
+            if (!visted[i]) {
+                dfs(graph, visted, i, -1);
+            }
+        }
     }
 }
