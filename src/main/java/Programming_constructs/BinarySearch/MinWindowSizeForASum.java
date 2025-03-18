@@ -12,6 +12,7 @@ public class MinWindowSizeForASum {
         int sum = 0;
         // sort A and then check last sum
         Collections.sort(A);
+
         for (int i = n - 1; i >= 0; i--) {
             sum += A.get(i);
             if (sum <= B) {

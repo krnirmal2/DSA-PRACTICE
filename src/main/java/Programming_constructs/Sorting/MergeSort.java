@@ -15,7 +15,7 @@ public class MergeSort {
         int[] rightArray = new int[n2];
 
         // Copy data to temporary arrays
-        System.arraycopy(arr, left + 0, leftArray, 0, n1);
+        System.arraycopy(arr, left, leftArray, 0, n1);
         for (int i = 0; i < n2; i++) {
             rightArray[i] = arr[mid + 1 + i];
         }
