@@ -1,4 +1,4 @@
-package StandardProblemDSA.VIII_TREE;
+package StandardProblemDSA.VIII_TREE.II_CONSTRUCTION_PATTERNS;
 
 public class CreateTreeFromPreAndInorderTraversal {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package StandardProblemDSA.VIII_TREE;
+package StandardProblemDSA.VIII_TREE.I_TRAVERSAL_PATTERNS;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,7 +87,7 @@ public class VerticalTraversing {
 
 class Nodes {
     int data;
-    StandardProblemDSA.VIII_TREE.Nodes left, right;
+    Nodes left, right;
 
     Nodes(int x) {
         data = x;
