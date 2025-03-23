@@ -4,94 +4,94 @@ import java.util.ArrayList;
 import java.util.PriorityQueue;
 
 class Prim {
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        //TODO: step1 create the graph and add between them with weight
-        int V = 5; // Number of vertices
-        ArrayList<ArrayList<Pair>> adjList = new ArrayList<>();
-        for (int i = 0; i < V; i++) {
-            adjList.add(new ArrayList<Pair>());
-        }
-
-        // Adding edges to the adjacency list
-        addEdge(adjList, 0, 1, 2);
-        addEdge(adjList, 0, 3, 6);
-        addEdge(adjList, 1, 2, 3);
-        addEdge(adjList, 1, 3, 8);
-        addEdge(adjList, 1, 4, 5);
-        addEdge(adjList, 2, 4, 7);
-        addEdge(adjList, 3, 4, 9);
-
-        int[] parent = new int[V];
-        int[] key = new int[V];
-        boolean[] mstSet = new boolean[V];
-
-        //TODO step2 create a visited array and intialise with large value
-        for (int i = 0; i < V; i++) {
-            key[i] = Integer.MAX_VALUE;
-            mstSet[i] = false;
-        }
-
-        key[0] = 0;
-        parent[0] = -1;
-        // TODO : Step 3 create priority queue and insert the 1st node of graph
-        PriorityQueue<Pair> pq = new PriorityQueue<>();
-        pq.offer(new Pair(0, 0));
-
-        while (!pq.isEmpty()) {
-            Pair min = pq.poll();
-            int u = min.vertex;
-
-            if (mstSet[u])// if already visited
-                continue;
-
-            mstSet[u] = true;
-
-            ArrayList<Pair> neighbors = adjList.get(u);
-            for (Pair neighbor : neighbors) {
-                int v = neighbor.vertex;
-                int weight = neighbor.weight;
-
-                if (!mstSet[v] && weight < key[v]) {
-                    parent[v] = u;
-                    key[v] = weight;
-                    pq.offer(new Pair(v, weight));
-                }
-            }
-        }
-
-        System.out.println("Edge \tWeight");
-        for (int i = 1; i < V; i++) {
-            System.out.println(parent[i] + " - " + i + "\t" + key[i]);
-        }
+    // TODO: step1 create the graph and add between them with weight
+    int V = 5; // Number of vertices
+    ArrayList<ArrayList<Pair>> adjList = new ArrayList<>();
+    for (int i = 0; i < V; i++) {
+      adjList.add(new ArrayList<Pair>());
     }
 
-    public static void addEdge(ArrayList<ArrayList<Pair>> adjList, int u, int v, int w) {
-        adjList.get(u).add(new Pair(v, w));
-        adjList.get(v).add(new Pair(u, w));
+    // Adding edges to the adjacency list
+    addEdge(adjList, 0, 1, 2);
+    addEdge(adjList, 0, 3, 6);
+    addEdge(adjList, 1, 2, 3);
+    addEdge(adjList, 1, 3, 8);
+    addEdge(adjList, 1, 4, 5);
+    addEdge(adjList, 2, 4, 7);
+    addEdge(adjList, 3, 4, 9);
+
+    int[] parent = new int[V];
+    int[] key = new int[V];
+    boolean[] mstSet = new boolean[V];
+
+    // TODO step2 create a visited array and intialise with large value
+    for (int i = 0; i < V; i++) {
+      key[i] = Integer.MAX_VALUE;
+      mstSet[i] = false;
     }
 
-    static class Pair implements Comparable<Pair> {
-        int vertex;
-        int weight;
+    key[0] = 0;
+    parent[0] = -1;
+    // TODO : Step 3 create priority queue and insert the 1st node of graph
+    PriorityQueue<Pair> pq = new PriorityQueue<>();
+    pq.offer(new Pair(0, 0));
 
-        Pair(int v, int w) {
-            vertex = v;
-            weight = w;
-        }
+    while (!pq.isEmpty()) {
+      Pair min = pq.poll();
+      int u = min.vertex;
 
-        public int compareTo(Pair other) {
-            return Integer.compare(weight, other.weight);
+      if (mstSet[u]) // if already visited
+      continue;
+
+      mstSet[u] = true;
+
+      ArrayList<Pair> neighbors = adjList.get(u);
+      for (Pair neighbor : neighbors) {
+        int v = neighbor.vertex;
+        int weight = neighbor.weight;
+
+        if (!mstSet[v] && weight < key[v]) {
+          parent[v] = u;
+          key[v] = weight;
+          pq.offer(new Pair(v, weight));
         }
+      }
     }
+
+    System.out.println("Edge \tWeight");
+    for (int i = 1; i < V; i++) {
+      System.out.println(parent[i] + " - " + i + "\t" + key[i]);
+    }
+  }
+
+  public static void addEdge(ArrayList<ArrayList<Pair>> adjList, int u, int v, int w) {
+    adjList.get(u).add(new Pair(v, w));
+    adjList.get(v).add(new Pair(u, w));
+  }
+
+  static class Pair implements Comparable<Pair> {
+    int vertex;
+    int weight;
+
+    Pair(int v, int w) {
+      vertex = v;
+      weight = w;
+    }
+
+    public int compareTo(Pair other) {
+      return Integer.compare(weight, other.weight);
+    }
+  }
 }
 
-
-//public class PrimsAlgorithm {
+// public class PrimsAlgorithm {
 //
 //    public static List<Edge> findMinimumSpanningTree(Graph graph) {
 //        List<Edge> minimumSpanningTree = new ArrayList<>();
-//        PriorityQueue<Edge> edgeHeap = new PriorityQueue<>(Comparator.comparingInt(Edge::getWeight));
+//        PriorityQueue<Edge> edgeHeap = new
+// PriorityQueue<>(Comparator.comparingInt(Edge::getWeight));
 //        boolean[] visited = new boolean[graph.getNumVertices()];
 //        visited[0] = true;
 //        for (Edge edge : graph.getEdges(0)) {
@@ -112,9 +112,9 @@ class Prim {
 //        }
 //        return minimumSpanningTree;
 //    }
-//}
+// }
 //
-//class Graph {
+// class Graph {
 //    private final int numVertices;
 //    private final List<List<Edge>> adjacencyList;
 //
@@ -138,9 +138,9 @@ class Prim {
 //    public int getNumVertices() {
 //        return numVertices;
 //    }
-//}
+// }
 //
-//class Edge {
+// class Edge {
 //    private final int from;
 //    private final int to;
 //    private final int weight;
@@ -162,12 +162,11 @@ class Prim {
 //    public int getWeight() {
 //        return weight;
 //    }
-//}
+// }
 //
 //
 
-
-//public class Prims {
+// public class Prims {
 //    class Pair{
 //        int node;
 //        int weight;
@@ -219,11 +218,11 @@ class Prim {
 //        }
 //        return minCost;
 //    }
-//}
+// }
 
-//import java.util.*;
+// import java.util.*;
 
-//class Prim {
+// class Prim {
 //    public static void main(String[] args) {
 //        // tODO : STEP 1 CREATE THE GRAPH USING ADJACENCY LIST
 //        int V = 5; // Number of vertices
@@ -302,4 +301,4 @@ class Prim {
 //            weight = w;
 //        }
 //    }
-//}
+// }

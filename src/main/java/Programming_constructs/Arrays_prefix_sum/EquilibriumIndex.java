@@ -54,58 +54,50 @@ There is no such index.
 */
 public class EquilibriumIndex {
 
-    static int solve(int[] A) {
+  static int solve(int[] A) {
 
-        int sum = 0;
-        int size = A.length;
+    int sum = 0;
+    int size = A.length;
 
-        int[] arr = new int[size];
-        for (int i = 0; i < size; i++) {
-            sum = sum + A[i];
-            arr[i] = sum;
-        }
-        int result = -1;
-        int count = 0;
-        int minIndex = 0;
-
-        for (int j = 0; j < size; j++) {
-
-            int leftsum = 0;
-            int rightSum = 0;
-            if (j != 0) {
-                leftsum = arr[j - 1];
-
-            }
-            rightSum = arr[size - 1] - arr[j];
-
-            if (leftsum == rightSum) {
-
-                count = count + 1;
-                if (count == 1) {
-                    minIndex = j;
-                } else
-                    continue;
-
-            }
-        }
-        if (count >= 1) {
-            result = minIndex;
-        }
-        if (count == 0) {
-            result = -1;
-        }
-        return result;
+    int[] arr = new int[size];
+    for (int i = 0; i < size; i++) {
+      sum = sum + A[i];
+      arr[i] = sum;
     }
+    int result = -1;
+    int count = 0;
+    int minIndex = 0;
 
+    for (int j = 0; j < size; j++) {
 
-    public static void main(String[] args) {
+      int leftsum = 0;
+      int rightSum = 0;
+      if (j != 0) {
+        leftsum = arr[j - 1];
+      }
+      rightSum = arr[size - 1] - arr[j];
 
-        int[] A = {-7, 1, 5, 2, -4, 3, 0};
+      if (leftsum == rightSum) {
 
-        System.out.println(solve(A));
-
-
+        count = count + 1;
+        if (count == 1) {
+          minIndex = j;
+        } else continue;
+      }
     }
+    if (count >= 1) {
+      result = minIndex;
+    }
+    if (count == 0) {
+      result = -1;
+    }
+    return result;
+  }
 
+  public static void main(String[] args) {
 
+    int[] A = {-7, 1, 5, 2, -4, 3, 0};
+
+    System.out.println(solve(A));
+  }
 }

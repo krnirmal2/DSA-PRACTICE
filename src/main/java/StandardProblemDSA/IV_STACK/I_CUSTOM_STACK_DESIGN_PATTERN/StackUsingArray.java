@@ -1,89 +1,88 @@
 package StandardProblemDSA.IV_STACK.I_CUSTOM_STACK_DESIGN_PATTERN;
 
 public class StackUsingArray {
-// Stack implementation Using Array
+  // Stack implementation Using Array
 
-    // store elements of stack
-    private final int[] arr;
-    // total capacity of the stack
-    private final int capacity;
-    // represent top of stack
-    private int top;
+  // store elements of stack
+  private final int[] arr;
+  // total capacity of the stack
+  private final int capacity;
+  // represent top of stack
+  private int top;
 
-    // Creating a stack
-    StackUsingArray(int size) {
-        // initialize the array
-        // initialize the stack variables
-        arr = new int[size];
-        capacity = size;
-        top = -1;
+  // Creating a stack
+  StackUsingArray(int size) {
+    // initialize the array
+    // initialize the stack variables
+    arr = new int[size];
+    capacity = size;
+    top = -1;
+  }
+
+  public static void main(String[] args) {
+    StackUsingArray stack = new StackUsingArray(5);
+
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+
+    System.out.print("Stack: ");
+    stack.printStack();
+
+    // remove element from stack
+    stack.pop();
+    System.out.println("\nAfter popping out");
+    stack.printStack();
+  }
+
+  // push elements to the top of stack
+  public void push(int x) {
+    if (isFull()) {
+      System.out.println("Stack OverFlow");
+
+      // terminates the program
+      System.exit(1);
     }
 
-    public static void main(String[] args) {
-        StackUsingArray stack = new StackUsingArray(5);
+    // insert element on top of stack
+    System.out.println("Inserting " + x);
+    arr[++top] = x;
+  }
 
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
+  // pop elements from top of stack
+  public int pop() {
 
-        System.out.print("Stack: ");
-        stack.printStack();
-
-        // remove element from stack
-        stack.pop();
-        System.out.println("\nAfter popping out");
-        stack.printStack();
-
+    // if stack is empty
+    // no element to pop
+    if (isEmpty()) {
+      System.out.println("STACK EMPTY");
+      // terminates the program
+      System.exit(1);
     }
 
-    // push elements to the top of stack
-    public void push(int x) {
-        if (isFull()) {
-            System.out.println("Stack OverFlow");
+    // pop element from top of stack
+    return arr[top--];
+  }
 
-            // terminates the program
-            System.exit(1);
-        }
+  // return size of the stack
+  public int getSize() {
+    return top + 1;
+  }
 
-        // insert element on top of stack
-        System.out.println("Inserting " + x);
-        arr[++top] = x;
+  // check if the stack is empty
+  public Boolean isEmpty() {
+    return top == -1;
+  }
+
+  // check if the stack is full
+  public Boolean isFull() {
+    return top == capacity - 1;
+  }
+
+  // display elements of stack
+  public void printStack() {
+    for (int i = 0; i <= top; i++) {
+      System.out.print(arr[i] + ", ");
     }
-
-    // pop elements from top of stack
-    public int pop() {
-
-        // if stack is empty
-        // no element to pop
-        if (isEmpty()) {
-            System.out.println("STACK EMPTY");
-            // terminates the program
-            System.exit(1);
-        }
-
-        // pop element from top of stack
-        return arr[top--];
-    }
-
-    // return size of the stack
-    public int getSize() {
-        return top + 1;
-    }
-
-    // check if the stack is empty
-    public Boolean isEmpty() {
-        return top == -1;
-    }
-
-    // check if the stack is full
-    public Boolean isFull() {
-        return top == capacity - 1;
-    }
-
-    // display elements of stack
-    public void printStack() {
-        for (int i = 0; i <= top; i++) {
-            System.out.print(arr[i] + ", ");
-        }
-    }
+  }
 }

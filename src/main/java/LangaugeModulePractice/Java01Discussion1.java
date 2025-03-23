@@ -2,10 +2,8 @@ package LangaugeModulePractice;
 
 class Main {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        short sh = (short) 201000;
-
-    }
-
+    short sh = (short) 201000;
+  }
 }

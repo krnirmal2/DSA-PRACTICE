@@ -1,10 +1,10 @@
-//package Programming_constructs.TwoPointer;
+// package Programming_constructs.TwoPointer;
 //
-//import java.util.ArrayList;
-//import java.util.Arrays;
-//import java.util.List;
+// import java.util.ArrayList;
+// import java.util.Arrays;
+// import java.util.List;
 //
-//public class minIndexOfGivenSumSubarray {
+// public class minIndexOfGivenSumSubarray {
 //        public static int[] solve(ArrayList<Integer> A, int B) {
 ////
 ////            // using two pointer
@@ -69,7 +69,7 @@
 //        solve(new ArrayList<>(List.of(1, 2, 3, 4, 5)), 5);
 //    }
 //    }
-//public class Solution {
+// public class Solution {
 //    public int[] solve(int[] A, int B) {
 //        long n = A.length;
 //        int l = 0, r = 0;
@@ -98,4 +98,4 @@
 //        ans[0] = -1;
 //        return ans;
 //    }
-//}
+// }

@@ -1,56 +1,54 @@
 package StandardProblemDSA.X_GRAPH.BASIC_TRAVERSAL;
 
-
 import java.util.LinkedList;
 import java.util.Queue;
 
 class Graphs {
-    private final int V;
-    private final LinkedList<Integer>[] adj;
+  private final int V;
+  private final LinkedList<Integer>[] adj;
 
-    Graphs(int v) {
-        V = v;
-        adj = new LinkedList[v];
-        for (int i = 0; i < v; i++)
-            adj[i] = new LinkedList<Integer>();
-    }
+  Graphs(int v) {
+    V = v;
+    adj = new LinkedList[v];
+    for (int i = 0; i < v; i++) adj[i] = new LinkedList<Integer>();
+  }
 
-    void addEdge(int v, int w) {
-        adj[v].add(w);
-    }
+  void addEdge(int v, int w) {
+    adj[v].add(w);
+  }
 
-    void BFS(int s) {
-        boolean[] visited = new boolean[V];
-        Queue<Integer> queue = new LinkedList<Integer>();
+  void BFS(int s) {
+    boolean[] visited = new boolean[V];
+    Queue<Integer> queue = new LinkedList<Integer>();
 
-        visited[s] = true;
-        queue.add(s);
+    visited[s] = true;
+    queue.add(s);
 
-        while (!queue.isEmpty()) {
-            int u = queue.poll();
-            for (int v : adj[u]) {
-                if (!visited[v]) {
-                    visited[v] = true;
-                    queue.add(v);
-                }
-            }
+    while (!queue.isEmpty()) {
+      int u = queue.poll();
+      for (int v : adj[u]) {
+        if (!visited[v]) {
+          visited[v] = true;
+          queue.add(v);
         }
+      }
     }
+  }
 }
 
 class Main {
-    public static void main(String[] args) {
-        Graphs g = new Graphs(4);
+  public static void main(String[] args) {
+    Graphs g = new Graphs(4);
 
-        g.addEdge(0, 1);
-        g.addEdge(0, 2);
-        g.addEdge(1, 2);
-        g.addEdge(2, 0);
-        g.addEdge(2, 3);
-        g.addEdge(3, 3);
+    g.addEdge(0, 1);
+    g.addEdge(0, 2);
+    g.addEdge(1, 2);
+    g.addEdge(2, 0);
+    g.addEdge(2, 3);
+    g.addEdge(3, 3);
 
-        System.out.println("Following is Breadth First Traversal (starting from vertex 2)");
+    System.out.println("Following is Breadth First Traversal (starting from vertex 2)");
 
-        g.BFS(2);
-    }
+    g.BFS(2);
+  }
 }

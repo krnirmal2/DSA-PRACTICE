@@ -1,4 +1,3 @@
 package PatternType.Pyramid;
 
-public class PyramidUsingStar {
-}
+public class PyramidUsingStar {}

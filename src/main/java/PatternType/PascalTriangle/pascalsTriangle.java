@@ -1,4 +1,3 @@
 package PatternType.PascalTriangle;
 
-public class pascalsTriangle {
-}
+public class pascalsTriangle {}

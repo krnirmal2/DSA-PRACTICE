@@ -1,4 +1,3 @@
 package PatternType.FloyedsTriangle;
 
-public class FloyedsTrianglePattern {
-}
+public class FloyedsTrianglePattern {}

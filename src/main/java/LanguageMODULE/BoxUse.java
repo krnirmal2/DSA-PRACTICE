@@ -2,33 +2,28 @@ package LanguageMODULE;
 
 class Box {
 
-    int width;
+  int width;
 
-    int height;
+  int height;
 
-    int length;
+  int length;
 
-    void volume() {
+  void volume() {
 
-        System.out.println(length * width * height);
-
-    }
-
+    System.out.println(length * width * height);
+  }
 }
-
 
 public class BoxUse {
 
-    public static void main(String[] args) {
-//To solve this question, keep in mind that uninitialised data members are given default value.
-        Box b = new Box();
+  public static void main(String[] args) {
+    // To solve this question, keep in mind that uninitialised data members are given default value.
+    Box b = new Box();
 
-        b.height = 5;
+    b.height = 5;
 
-        b.width = 4;
+    b.width = 4;
 
-        b.volume();
-
-    }
-
+    b.volume();
+  }
 }

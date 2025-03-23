@@ -1,4 +1,3 @@
 package PatternType.Rectangle;
 
-public class DiagonalAndSidesRectangle {
-}
+public class DiagonalAndSidesRectangle {}

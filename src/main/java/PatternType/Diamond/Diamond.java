@@ -1,4 +1,3 @@
 package PatternType.Diamond;
 
-public class Diamond {
-}
+public class Diamond {}

@@ -2,45 +2,45 @@ package Programming_constructs.Introduction_to_array;
 
 /*public class ArrayOfEvenOdd {
 
-        public static void main(String[] args) {
-            Scanner sc = new Scanner (System.in);
+    public static void main(String[] args) {
+        Scanner sc = new Scanner (System.in);
 
-            int t = sc.nextInt ();
-            while(t>0){
-                int n = sc.nextInt ();
-                int[] arr = new int[n];
-                for(int i=0;i<n;i++){
-                    arr[i] = sc.nextInt ();
-                }
-                solve(arr,n);
-                t–-;
-            }
-        }
-        private static int solve(int[] arr, int n) {
-            int[] evenArr = new int[n];
-            int[] oddArr = new int[n];
-            int even = 0;
-            int odd = 0;
+        int t = sc.nextInt ();
+        while(t>0){
+            int n = sc.nextInt ();
+            int[] arr = new int[n];
             for(int i=0;i<n;i++){
-                if(arr[i] % 2 == 0){
-                    evenArr[even] = arr[i];
-                    even++;
-                } else {
-                    oddArr[odd] = arr[i];
-                    odd++;
-                }
+                arr[i] = sc.nextInt ();
             }
-            for(int i = 0; i < odd; i++){
-                System.out.print(oddArr[i] + " ");
-            }
-            System.out.println();
-            for(int i = 0; i < even; i++){
-                System.out.print(evenArr[i] + " ");
-            }
-            System.out.println();
-            return 1;
+            solve(arr,n);
+            t–-;
         }
-    }*/
+    }
+    private static int solve(int[] arr, int n) {
+        int[] evenArr = new int[n];
+        int[] oddArr = new int[n];
+        int even = 0;
+        int odd = 0;
+        for(int i=0;i<n;i++){
+            if(arr[i] % 2 == 0){
+                evenArr[even] = arr[i];
+                even++;
+            } else {
+                oddArr[odd] = arr[i];
+                odd++;
+            }
+        }
+        for(int i = 0; i < odd; i++){
+            System.out.print(oddArr[i] + " ");
+        }
+        System.out.println();
+        for(int i = 0; i < even; i++){
+            System.out.print(evenArr[i] + " ");
+        }
+        System.out.println();
+        return 1;
+    }
+}*/
 //        public static void solve(int A[]){
 //            int odd[] = new int[A.length];
 //            int even[] = new int[A.length];
@@ -103,8 +103,7 @@ package Programming_constructs.Introduction_to_array;
 4 3 2
 */
 
-
-//public class Main /*{
+// public class Main /*{
 //    public static void main(String[] args) {
 //        Scanner sc = new Scanner(System.in);
 //        int test_cases = sc.nextInt();
@@ -132,4 +131,4 @@ package Programming_constructs.Introduction_to_array;
 //        }
 //
 //    }
-//}*/
+// }*/

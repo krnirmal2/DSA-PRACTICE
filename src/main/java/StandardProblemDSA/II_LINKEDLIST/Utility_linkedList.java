@@ -1,182 +1,182 @@
 package StandardProblemDSA.II_LINKEDLIST;
 
 public class Utility_linkedList {
-    // Reverse a Linked List (Iterative)
-    public static ListNode reverseList(ListNode head) {
-        ListNode prev = null;
-        ListNode curr = head;
+  // Reverse a Linked List (Iterative)
+  public static ListNode reverseList(ListNode head) {
+    ListNode prev = null;
+    ListNode curr = head;
 
-        while (curr != null) {
-            ListNode nextNode = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = nextNode;
+    while (curr != null) {
+      ListNode nextNode = curr.next;
+      curr.next = prev;
+      prev = curr;
+      curr = nextNode;
+    }
+
+    return prev;
+  }
+
+  // Reverse a Linked List (Recursive)
+  public static ListNode reverseListRecursive(ListNode head) {
+    if (head == null || head.next == null) return head;
+
+    ListNode newHead = reverseListRecursive(head.next);
+    head.next.next = head;
+    head.next = null;
+
+    return newHead;
+  }
+
+  // Find the Middle Node (Slow & Fast Pointer)
+  public static ListNode findMiddle(ListNode head) {
+    ListNode slow = head, fast = head;
+
+    while (fast != null && fast.next != null) {
+      slow = slow.next;
+      fast = fast.next.next;
+    }
+
+    return slow;
+  }
+
+  // Detect Cycle in a Linked List
+  public static boolean hasCycle(ListNode head) {
+    ListNode slow = head, fast = head;
+
+    while (fast != null && fast.next != null) {
+      slow = slow.next;
+      fast = fast.next.next;
+      if (slow == fast) return true;
+    }
+
+    return false;
+  }
+
+  // Find the Start of a Cycle
+  public static ListNode detectCycleStart(ListNode head) {
+    ListNode slow = head, fast = head, entry = head;
+
+    while (fast != null && fast.next != null) {
+      slow = slow.next;
+      fast = fast.next.next;
+      if (slow == fast) {
+        while (entry != slow) {
+          entry = entry.next;
+          slow = slow.next;
         }
-
-        return prev;
+        return entry;
+      }
     }
 
-    // Reverse a Linked List (Recursive)
-    public static ListNode reverseListRecursive(ListNode head) {
-        if (head == null || head.next == null) return head;
+    return null;
+  }
 
-        ListNode newHead = reverseListRecursive(head.next);
-        head.next.next = head;
-        head.next = null;
+  // Merge Two Sorted Linked Lists
+  public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    if (l1 == null) return l2;
+    if (l2 == null) return l1;
 
-        return newHead;
+    if (l1.val < l2.val) {
+      l1.next = mergeTwoLists(l1.next, l2);
+      return l1;
+    } else {
+      l2.next = mergeTwoLists(l1, l2.next);
+      return l2;
+    }
+  }
+
+  // Remove N-th Node from End
+  public static ListNode removeNthFromEnd(ListNode head, int n) {
+    ListNode dummy = new ListNode(0);
+    dummy.next = head;
+    ListNode fast = dummy, slow = dummy;
+
+    for (int i = 0; i <= n; i++) {
+      fast = fast.next;
     }
 
-    // Find the Middle Node (Slow & Fast Pointer)
-    public static ListNode findMiddle(ListNode head) {
-        ListNode slow = head, fast = head;
-
-        while (fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-
-        return slow;
+    while (fast != null) {
+      slow = slow.next;
+      fast = fast.next;
     }
 
-    // Detect Cycle in a Linked List
-    public static boolean hasCycle(ListNode head) {
-        ListNode slow = head, fast = head;
+    slow.next = slow.next.next;
+    return dummy.next;
+  }
 
-        while (fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
-            if (slow == fast) return true;
-        }
+  // Check if a Linked List is Palindrome
+  public static boolean isPalindrome(ListNode head) {
+    if (head == null || head.next == null) return true;
 
-        return false;
+    ListNode middle = findMiddle(head);
+    ListNode secondHalf = reverseList(middle);
+    ListNode firstHalf = head;
+
+    while (secondHalf != null) {
+      if (firstHalf.val != secondHalf.val) return false;
+      firstHalf = firstHalf.next;
+      secondHalf = secondHalf.next;
     }
 
-    // Find the Start of a Cycle
-    public static ListNode detectCycleStart(ListNode head) {
-        ListNode slow = head, fast = head, entry = head;
+    return true;
+  }
 
-        while (fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
-            if (slow == fast) {
-                while (entry != slow) {
-                    entry = entry.next;
-                    slow = slow.next;
-                }
-                return entry;
-            }
-        }
+  // Find Intersection of Two Linked Lists
+  public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+    if (headA == null || headB == null) return null;
 
-        return null;
+    ListNode a = headA, b = headB;
+
+    while (a != b) {
+      a = (a == null) ? headB : a.next;
+      b = (b == null) ? headA : b.next;
     }
 
-    // Merge Two Sorted Linked Lists
-    public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        if (l1 == null) return l2;
-        if (l2 == null) return l1;
+    return a;
+  }
 
-        if (l1.val < l2.val) {
-            l1.next = mergeTwoLists(l1.next, l2);
-            return l1;
-        } else {
-            l2.next = mergeTwoLists(l1, l2.next);
-            return l2;
-        }
+  // Print Linked List
+  public static void printList(ListNode head) {
+    ListNode curr = head;
+    while (curr != null) {
+      System.out.print(curr.val + " -> ");
+      curr = curr.next;
+    }
+    System.out.println("NULL");
+  }
+
+  // Convert Array to Linked List
+  public static ListNode arrayToLinkedList(int[] arr) {
+    if (arr == null || arr.length == 0) return null;
+
+    ListNode head = new ListNode(arr[0]);
+    ListNode current = head;
+
+    for (int i = 1; i < arr.length; i++) {
+      current.next = new ListNode(arr[i]);
+      current = current.next;
     }
 
-    // Remove N-th Node from End
-    public static ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode dummy = new ListNode(0);
-        dummy.next = head;
-        ListNode fast = dummy, slow = dummy;
+    return head;
+  }
 
-        for (int i = 0; i <= n; i++) {
-            fast = fast.next;
-        }
+  public static void main(String[] args) {
+    int[] arr = {1, 2, 3, 4, 5};
+    ListNode head = Utility_linkedList.arrayToLinkedList(arr);
 
-        while (fast != null) {
-            slow = slow.next;
-            fast = fast.next;
-        }
+    System.out.println("Original List:");
+    Utility_linkedList.printList(head);
 
-        slow.next = slow.next.next;
-        return dummy.next;
-    }
+    // Reverse Linked List
+    head = Utility_linkedList.reverseList(head);
+    System.out.println("Reversed List:");
+    Utility_linkedList.printList(head);
 
-    // Check if a Linked List is Palindrome
-    public static boolean isPalindrome(ListNode head) {
-        if (head == null || head.next == null) return true;
+    // Find Middle Node
+    ListNode middle = Utility_linkedList.findMiddle(head);
+    System.out.println("Middle Node: " + middle.val);
 
-        ListNode middle = findMiddle(head);
-        ListNode secondHalf = reverseList(middle);
-        ListNode firstHalf = head;
-
-        while (secondHalf != null) {
-            if (firstHalf.val != secondHalf.val) return false;
-            firstHalf = firstHalf.next;
-            secondHalf = secondHalf.next;
-        }
-
-        return true;
-    }
-
-    // Find Intersection of Two Linked Lists
-    public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        if (headA == null || headB == null) return null;
-
-        ListNode a = headA, b = headB;
-
-        while (a != b) {
-            a = (a == null) ? headB : a.next;
-            b = (b == null) ? headA : b.next;
-        }
-
-        return a;
-    }
-
-    // Print Linked List
-    public static void printList(ListNode head) {
-        ListNode curr = head;
-        while (curr != null) {
-            System.out.print(curr.val + " -> ");
-            curr = curr.next;
-        }
-        System.out.println("NULL");
-    }
-
-    // Convert Array to Linked List
-    public static ListNode arrayToLinkedList(int[] arr) {
-        if (arr == null || arr.length == 0) return null;
-
-        ListNode head = new ListNode(arr[0]);
-        ListNode current = head;
-
-        for (int i = 1; i < arr.length; i++) {
-            current.next = new ListNode(arr[i]);
-            current = current.next;
-        }
-
-        return head;
-    }
-
-    public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5};
-        ListNode head = Utility_linkedList.arrayToLinkedList(arr);
-
-        System.out.println("Original List:");
-        Utility_linkedList.printList(head);
-
-        // Reverse Linked List
-        head = Utility_linkedList.reverseList(head);
-        System.out.println("Reversed List:");
-        Utility_linkedList.printList(head);
-
-        // Find Middle Node
-        ListNode middle = Utility_linkedList.findMiddle(head);
-        System.out.println("Middle Node: " + middle.val);
-
-        // Check for Cycle
-        System.out.println("Has Cycle? " + Utility_linkedList.hasCycle(head));
-    }
+    // Check for Cycle
+    System.out.println("Has Cycle? " + Utility_linkedList.hasCycle(head));
+  }
 }

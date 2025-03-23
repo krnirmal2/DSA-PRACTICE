@@ -1,7 +1,6 @@
 package StandardProblemDSA.II_STRING.III_STRING_MANIPULATION_PATTERN;
 
-public class StringManipulation {
-}
+public class StringManipulation {}
 /*Below are the problems and implementations for each task, along with explanations. The solutions are designed to build understanding of basic string manipulation concepts.
 
 ---
