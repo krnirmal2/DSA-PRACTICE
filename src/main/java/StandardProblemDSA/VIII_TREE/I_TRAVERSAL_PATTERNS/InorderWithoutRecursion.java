@@ -1,57 +1,67 @@
 package StandardProblemDSA.VIII_TREE.I_TRAVERSAL_PATTERNS;
 
-import java.util.ArrayList;
 import java.util.Stack;
 
 public class InorderWithoutRecursion {
+  /*
+    (Left → Root → Right)
+            🔹 Steps:
+    Push all left nodes to stack.
+    Process top node (print/store).
+    Move to right child and repeat.
+  */
+
   static class TreeNode {
     int val;
-    TreeNode left;
-    TreeNode right;
+    TreeNode left, right;
 
     TreeNode(int x) {
       val = x;
-      left = null;
-      right = null;
-    }
-
-    public static ArrayList<Integer> InorderTraversal(TreeNode A) {
-      ArrayList<Integer> inorder = new ArrayList();
-      Stack<TreeNode> s = new Stack();
-
-      if (A == null) {
-        inorder.add(-1);
-      }
-
-      TreeNode temp = A;
-      while (!s.empty() || temp != null) {
-
-        if (temp != null) {
-          s.push(temp);
-          temp = temp.left;
-        } else {
-          temp = s.pop();
-          inorder.add(temp.val);
-          temp = temp.right;
-        }
-      }
-      return inorder;
-    }
-
-    public static void main(String[] args) {
-
-      TreeNode a = new TreeNode(1);
-      a.left = new TreeNode(6);
-      a.left.left = new TreeNode(5);
-      a.right = new TreeNode(2);
-      a.right.right = new TreeNode(4);
-      a.right.left = new TreeNode(9);
-
-      ArrayList<Integer> result = InorderTraversal(a);
-      System.out.print(result);
     }
   }
-}
+
+  public static void inorderTraversal(TreeNode root) {
+    Stack<TreeNode> stack = new Stack<>();
+    TreeNode current = root;
+
+    while (current != null || !stack.isEmpty()) {
+      while (current != null) { // Push all left nodes
+        stack.push(current);
+        current = current.left;
+      }
+
+      current = stack.pop(); // Process node
+      System.out.print(current.val + " ");
+
+      current = current.right; // Move to right child
+    }
+  }
+
+  public static void main(String[] args) {
+    TreeNode root = new TreeNode(1);
+    root.left = new TreeNode(2);
+    root.right = new TreeNode(3);
+    root.left.left = new TreeNode(4);
+    root.left.right = new TreeNode(5);
+    root.right.right = new TreeNode(6);
+
+    inorderTraversal(root);
+  }
+} /*
+  🔹 Dry Run
+    Stack	Current Node	Output
+  [1]	2	-
+          [1, 2]	4	-
+          [1, 2, 4]	null	4
+          [1, 2]	null	2
+          [1]	5	5
+          [1]	null	1
+          []	3	3
+          [3]	null	6
+          🔹 Output
+            Copy
+    Edit
+  4 2 5 1 3 6*/
 
 /*
 Method 1: Using one stack and the binary tree node will be changed. Easy ,not Practical

@@ -62,7 +62,7 @@ public class MultipleOperationStack {
       return;
     }
     // if the element is small from the peak element of the minstack then add that element other
-    // wise
+    // wise it will add the current pick element of the min stack
     // continue the element which is already min
     boolean minValue =
         element <= minStack.peek() ? minStack.add(element) : minStack.add(minStack.peek());

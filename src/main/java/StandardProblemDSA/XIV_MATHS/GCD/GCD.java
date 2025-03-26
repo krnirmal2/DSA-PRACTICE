@@ -8,6 +8,7 @@ Here are some of the most commonly asked Greatest Common Divisor (GCD) questions
 👉 Approach: Use Euclidean Algorithm, which is based on the formula:
 GCD(a, b) = GCD(b, a % b)
 This method runs in O(log(min(a, b))) time complexity.
+
 public class GCD {
     public static int findGCD(int a, int b) {
         while (b != 0) {

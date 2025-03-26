@@ -29,7 +29,7 @@ public class MonotonicPattern {
 
   #### 1. **Next Greater Element (NGE)**
   - **Problem:** For each element in the array, find the next greater element to the right. If none, return `-1`.
-  - **Stack Type:** Monotonic **Decreasing** Stack.
+  - **Stack Type:** Monotonic **Decreasing** Stack from bottom to top
   - **Approach:**
     - Traverse the array from **right to left**.
     - Maintain a stack where the **top** contains the next greater element for upcoming elements.

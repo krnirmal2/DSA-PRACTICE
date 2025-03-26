@@ -51,10 +51,10 @@ public class AtoI {
   }
 
   public static void main(String[] args) {
-    System.out.println(myAtoi("42")); // Output: 42
-    System.out.println(myAtoi("   -42")); // Output: -42
-    System.out.println(myAtoi("4193 with words")); // Output: 4193
-    System.out.println(myAtoi("words and 987")); // Output: 0
+    //    System.out.println(myAtoi("42")); // Output: 42
+    //    System.out.println(myAtoi("   -42")); // Output: -42
+    //    System.out.println(myAtoi("4193 with words")); // Output: 4193
+    //    System.out.println(myAtoi("words and 987")); // Output: 0
     System.out.println(myAtoi("-91283472332")); // Output: -2147483648 (Integer.MIN_VALUE)
   }
 

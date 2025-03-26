@@ -1,53 +1,55 @@
 package StandardProblemDSA.VIII_TREE.I_TRAVERSAL_PATTERNS;
 
-import java.util.ArrayList;
 import java.util.Stack;
 
 public class PreOrderWithOutRecursion {
   static class TreeNode {
     int val;
-    TreeNode left;
-    TreeNode right;
+    TreeNode left, right;
 
     TreeNode(int x) {
       val = x;
-      left = null;
-      right = null;
-    }
-
-    public static ArrayList<Integer> preorderTraversal(TreeNode A) {
-      ArrayList<Integer> preOrder = new ArrayList();
-      Stack<TreeNode> s = new Stack();
-      if (A == null) {
-        preOrder.add(-1);
-      }
-      s.push(A);
-      while (!s.empty()) {
-        TreeNode temp = s.pop();
-        preOrder.add(temp.val);
-        if (temp.right != null) {
-          s.push(temp.right);
-        }
-        if (temp.left != null) {
-          s.push(temp.left);
-        }
-      }
-
-      //        }
-      return preOrder;
-    }
-
-    public static void main(String[] args) {
-
-      TreeNode a = new TreeNode(1);
-      a.left = new TreeNode(6);
-      a.left.left = new TreeNode(5);
-      a.right = new TreeNode(2);
-      a.right.right = new TreeNode(4);
-      a.right.left = new TreeNode(9);
-
-      ArrayList<Integer> result = preorderTraversal(a);
-      System.out.print(result);
     }
   }
+
+  /*(Root → Left → Right)
+          🔹 Steps:
+  Push root to stack.
+
+  Process node (print/store).
+
+  Push right, then left child.*/
+  public static void preorderTraversal(TreeNode root) {
+    if (root == null) return;
+
+    Stack<TreeNode> stack = new Stack<>();
+    stack.push(root);
+
+    while (!stack.isEmpty()) {
+      TreeNode node = stack.pop(); // Process node
+      System.out.print(node.val + " ");
+
+      if (node.right != null) stack.push(node.right); // Push right first
+      if (node.left != null) stack.push(node.left); // Then push left
+    }
+  }
+
+  public static void main(String[] args) {
+    TreeNode root = new TreeNode(1);
+    root.left = new TreeNode(2);
+    root.right = new TreeNode(3);
+    root.left.left = new TreeNode(4);
+    root.left.right = new TreeNode(5);
+    root.right.right = new TreeNode(6);
+
+    preorderTraversal(root);
+  }
+  /*🔹 Dry Run
+  Stack	Current Node	Output
+  [1]	1	1
+  [3, 2]	2	2
+  [3, 5, 4]	4	4
+  [3, 5]	5	5
+  [3]	3	3
+  [6]	6	6*/
 }
