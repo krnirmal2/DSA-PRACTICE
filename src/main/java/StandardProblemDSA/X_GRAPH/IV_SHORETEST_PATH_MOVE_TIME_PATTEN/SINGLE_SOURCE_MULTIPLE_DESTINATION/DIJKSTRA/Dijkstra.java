@@ -1,4 +1,4 @@
-package StandardProblemDSA.X_GRAPH;
+package StandardProblemDSA.X_GRAPH.IV_SHORETEST_PATH_MOVE_TIME_PATTEN.SINGLE_SOURCE_MULTIPLE_DESTINATION.DIJKSTRA;
 
 import java.util.*;
 

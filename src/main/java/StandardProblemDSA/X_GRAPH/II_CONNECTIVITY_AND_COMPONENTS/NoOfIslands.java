@@ -1,4 +1,4 @@
-package StandardProblemDSA.X_GRAPH.CONNECTIVITY_AND_COMPONENTS;
+package StandardProblemDSA.X_GRAPH.II_CONNECTIVITY_AND_COMPONENTS;
 
 public class NoOfIslands {
   /*Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands.
@@ -12,8 +12,8 @@ public class NoOfIslands {
           ]*/
   public static int numIslands(char[][] grid) {
     // Find the size of the grid
-    int row = grid.length;
-    int column = grid[0].length;
+    int row = grid.length; // calculate the row size
+    int column = grid[0].length; // calculate the column size
     boolean[][] visited = new boolean[row][column];
     int count = 0;
 
@@ -37,9 +37,10 @@ public class NoOfIslands {
     int[] dc = {0, 0, -1, 1}; // column movement
 
     // Explore all four directions
-    for (int d = 0; d < 4; d++) {
-      int nr = r + dr[d];
-      int nc = c + dc[d];
+    for (int d = 0; d < 4; d++) { // check all the four direction
+      int nr = r + dr[d]; // the new row caluclation using old row and add direction to it
+      int nc = c + dc[d]; // the for loop gives the index of the direction and add the value at
+      // that index and create new row and column
 
       // Check bounds and if the neighbor is land and not visited
       if (nr >= 0

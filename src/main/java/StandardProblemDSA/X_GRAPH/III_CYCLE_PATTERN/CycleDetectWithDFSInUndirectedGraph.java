@@ -1,9 +1,9 @@
-package StandardProblemDSA.X_GRAPH;
+package StandardProblemDSA.X_GRAPH.III_CYCLE_PATTERN;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CycleDetectWithDFS {
+public class CycleDetectWithDFSInUndirectedGraph {
 
   // DFS to detect cycle in an undirected graph
   public static boolean dfs(List<List<Integer>> graph, boolean[] visited, int s, int parent) {

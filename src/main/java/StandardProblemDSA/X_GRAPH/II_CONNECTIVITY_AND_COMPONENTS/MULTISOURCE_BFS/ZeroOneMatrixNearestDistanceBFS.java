@@ -1,4 +1,4 @@
-package StandardProblemDSA.X_GRAPH.CONNECTIVITY_AND_COMPONENTS.STRIVER;
+package StandardProblemDSA.X_GRAPH.II_CONNECTIVITY_AND_COMPONENTS.MULTISOURCE_BFS;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -12,18 +12,12 @@ The distance between two adjacent cells is always 1 (4-directionally: up, down, 
 Example Walkthrough
 Example 1:
 Input:
-plaintext
-Copy
-Edit
 mat = [
   [0,0,0],
   [0,1,0],
   [0,0,0]
 ]
 Output:
-plaintext
-Copy
-Edit
 [
   [0,0,0],
   [0,1,0],
@@ -36,18 +30,13 @@ All other 0s remain 0 because they are already 0.
 
 Example 2:
 Input:
-plaintext
-Copy
-Edit
+
 mat = [
   [0,0,0],
   [0,1,0],
   [1,1,1]
 ]
 Output:
-plaintext
-Copy
-Edit
 [
   [0,0,0],
   [0,1,0],
@@ -65,25 +54,15 @@ The 1 at (2,2) is one step away from (1,2), which is 0, so its value becomes 1.
 Approach to Solve the Problem
 1. BFS (Breadth-First Search) Approach - Optimal Solution
 Why BFS?
-
 Since we need the shortest path from 1 to 0, BFS is the best choice because it explores all nodes at the current distance level before moving to the next level.
-
 Steps:
-
 Initialize a queue (Queue<int[]>) and add all 0 positions to it.
-
 Set all 1 positions to a large value (infinity-like) to indicate they haven't been processed yet.
-
 Process the queue:
-
 Dequeue an element (x, y).
-
 Check its four neighbors (up, down, left, right).
-
 If a neighbor is a 1 (unprocessed), update its distance (current distance + 1) and add it to the queue.
-
 Continue until all 1s are processed.
-
 2. DP (Dynamic Programming) Approach - Another Alternative
 Why DP?
 

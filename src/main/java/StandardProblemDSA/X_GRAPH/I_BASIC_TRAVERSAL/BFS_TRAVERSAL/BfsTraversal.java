@@ -1,4 +1,4 @@
-package StandardProblemDSA.X_GRAPH.BASIC_TRAVERSAL;
+package StandardProblemDSA.X_GRAPH.I_BASIC_TRAVERSAL.BFS_TRAVERSAL;
 
 import java.util.LinkedList;
 import java.util.Queue;

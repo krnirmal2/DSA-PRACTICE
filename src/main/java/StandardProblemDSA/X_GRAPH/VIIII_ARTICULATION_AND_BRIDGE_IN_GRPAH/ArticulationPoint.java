@@ -1,4 +1,4 @@
-package StandardProblemDSA.X_GRAPH;
+package StandardProblemDSA.X_GRAPH.VIIII_ARTICULATION_AND_BRIDGE_IN_GRPAH;
 
 import java.util.ArrayList;
 

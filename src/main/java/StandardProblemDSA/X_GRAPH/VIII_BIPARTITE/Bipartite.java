@@ -1,4 +1,4 @@
-package StandardProblemDSA.X_GRAPH;
+package StandardProblemDSA.X_GRAPH.VIII_BIPARTITE;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,9 +1,9 @@
-package StandardProblemDSA.X_GRAPH.CONNECTIVITY_AND_COMPONENTS;
+package StandardProblemDSA.X_GRAPH.II_CONNECTIVITY_AND_COMPONENTS;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConnectedComponents {
+public class ConnectedComponentsUsingDFS {
   // create a graph class for constract graph
 
   public static void addUndirectedEdge(List<List<Integer>> adjList, int src, int dest) {
@@ -13,7 +13,6 @@ public class ConnectedComponents {
 
   public static void dfs(List<List<Integer>> graph, boolean[] visited, int s) {
     visited[s] = true;
-
     for (int i : graph.get(s)) {
       if (!visited[i]) {
         dfs(graph, visited, i);
@@ -22,11 +21,13 @@ public class ConnectedComponents {
   }
 
   private static int countConnectedComponents(List<List<Integer>> graph, int vertex) {
-
     boolean[] visited = new boolean[vertex];
     int count = 0;
-    //  if all the nodes are disconnected
-    // for each vertex
+    // as we need to apply dfs in each node beacuse we don't the graph is conected that is why
+    // we have to check each of the vertex other wise if we only one that there is noly one
+    // commponent
+    // then only we iterate over the neighbors of the src node
+    // it will give us everything
     for (int v = 0; v < vertex; v++) {
       if (!visited[v]) {
         // count here

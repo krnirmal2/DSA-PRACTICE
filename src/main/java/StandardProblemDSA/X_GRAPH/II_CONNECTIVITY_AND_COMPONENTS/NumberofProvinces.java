@@ -1,4 +1,4 @@
-package StandardProblemDSA.X_GRAPH.CONNECTIVITY_AND_COMPONENTS;
+package StandardProblemDSA.X_GRAPH.II_CONNECTIVITY_AND_COMPONENTS;
 
 /*There are n cities. Some of them are connected, while some are not. If city a is connected directly with city b, and city b is connected directly with city c, then city a is connected indirectly with city c.
 
@@ -31,23 +31,26 @@ isConnected[i][i] == 1
 isConnected[i][j] == isConnected[j][i]*/
 public class NumberofProvinces {
   public void dfs(int node, int[][] isConnected, boolean[] visit) {
-    visit[node] = true;
-    for (int i = 0; i < isConnected.length; i++) {
-      if (isConnected[node][i] == 1 && !visit[i]) {
+    visit[node] = true; // /  mark the node as visited
+    for (int i = 0; i < isConnected.length; i++) { // iterate over the each neighbor of the node
+      if (isConnected[node][i] == 1
+          && !visit[
+              i]) { // only the column value is change as its neightbou will be in the same node
+        // with same row value that it
         dfs(i, isConnected, visit);
       }
     }
   }
 
   public int findCircleNum(int[][] isConnected) {
-    int n = isConnected.length;
-    int numberOfComponents = 0;
-    boolean[] visit = new boolean[n];
+    int n = isConnected.length; // 1.find the no. of vertex or city
+    int numberOfComponents = 0; // 2. no. of components with intialise to zero
+    boolean[] visit = new boolean[n]; // 3. visited boolean array
 
-    for (int i = 0; i < n; i++) {
-      if (!visit[i]) {
+    for (int i = 0; i < n; i++) { // iterate over each vertex
+      if (!visit[i]) { // if not visiterd then increament the count of no of component
         numberOfComponents++;
-        dfs(i, isConnected, visit);
+        dfs(i, isConnected, visit); // call dfs of the each node
       }
     }
 

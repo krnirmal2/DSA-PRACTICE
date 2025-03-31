@@ -1,4 +1,4 @@
-package StandardProblemDSA.X_GRAPH.CONNECTIVITY_AND_COMPONENTS;
+package StandardProblemDSA.X_GRAPH.II_CONNECTIVITY_AND_COMPONENTS;
 
 public class MaxIsland {
 
