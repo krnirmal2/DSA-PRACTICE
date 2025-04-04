@@ -12,7 +12,9 @@ public class FirstLastOccurrenceBitonic {
     int lastOccurrence = findLastOccurrence(peakIndex, bitonicArr.length - 1, bitonicArr, target);
 
     // If the target exists in both halves, return first and last occurrence
-    if (firstOccurrence != -1 && lastOccurrence != -1) return firstOccurrence + lastOccurrence;
+    if (firstOccurrence != -1 && lastOccurrence != -1) {
+      return firstOccurrence + lastOccurrence;
+    }
 
     // If found only in one half, return that index
     return (firstOccurrence != -1) ? firstOccurrence : lastOccurrence;

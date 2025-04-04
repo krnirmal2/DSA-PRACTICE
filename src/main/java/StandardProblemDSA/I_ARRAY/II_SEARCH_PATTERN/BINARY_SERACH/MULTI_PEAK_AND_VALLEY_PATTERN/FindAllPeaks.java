@@ -8,10 +8,14 @@ public class FindAllPeaks {
     List<Integer> peaks = new ArrayList<>();
     int n = arr.length;
 
-    if (n == 0) return peaks;
+    if (n == 0) {
+      return peaks;
+    }
 
     // Check first element
-    if (n > 1 && arr[0] > arr[1]) peaks.add(0);
+    if (n > 1 && arr[0] > arr[1]) {
+      peaks.add(0);
+    }
 
     // Check middle elements
     for (int i = 1; i < n - 1; i++) {
@@ -21,7 +25,9 @@ public class FindAllPeaks {
     }
 
     // Check last element
-    if (n > 1 && arr[n - 1] > arr[n - 2]) peaks.add(n - 1);
+    if (n > 1 && arr[n - 1] > arr[n - 2]) {
+      peaks.add(n - 1);
+    }
 
     return peaks;
   }

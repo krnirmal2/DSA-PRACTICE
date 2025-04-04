@@ -1,4 +1,4 @@
-package StandardProblemDSA.VIIII_HEAP.VI_TASK_PRIORITIZATION;
+package StandardProblemDSA.VIIII_HEAP.VI_TASK_PRIORITIZATION.I_BASIC_HEAP_OPERATION;
 
 public class InsertInHeap {
 

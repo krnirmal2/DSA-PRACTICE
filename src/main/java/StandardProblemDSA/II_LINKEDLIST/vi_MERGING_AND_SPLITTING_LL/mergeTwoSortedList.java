@@ -1,4 +1,4 @@
-package StandardProblemDSA.II_LINKEDLIST.i_TRAVERSAL_BASIC_OPERATION;
+package StandardProblemDSA.II_LINKEDLIST.vi_MERGING_AND_SPLITTING_LL;
 
 public class mergeTwoSortedList {
 

@@ -1,4 +1,4 @@
-package StandardProblemDSA.VIIII_HEAP.VI_TASK_PRIORITIZATION;
+package StandardProblemDSA.VIIII_HEAP.VI_TASK_PRIORITIZATION.III_TOP_K_AND_BOTTOM_K_PATTERN;
 
 import java.util.ArrayList;
 import java.util.Collections;

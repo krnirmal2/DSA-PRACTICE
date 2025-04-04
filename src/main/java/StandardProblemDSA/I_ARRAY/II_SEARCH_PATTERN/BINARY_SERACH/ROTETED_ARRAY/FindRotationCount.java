@@ -27,9 +27,13 @@ public class FindRotationCount {
       // if mid element is greateer than next means mid+1 is the smallest so we just return that
       // element
       // index
-      if (mid < high && a[mid] > a[mid + 1]) return mid + 1;
+      if (mid < high && a[mid] > a[mid + 1]) {
+        return mid + 1;
+      }
       // IF mid element is smaller tthan previous element than mid is the smallest
-      if (mid > low && a[mid] < a[mid - 1]) return mid;
+      if (mid > low && a[mid] < a[mid - 1]) {
+        return mid;
+      }
 
       // The right half is not sorted.search in right half So
       // the minimum element must be in the

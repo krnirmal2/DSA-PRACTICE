@@ -1,5 +1,9 @@
 package StandardProblemDSA.I_ARRAY.XI_MERGE_INTERVAL_PATTERN;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Interval {
   int start;
   int end;
@@ -13,6 +17,55 @@ public class Interval {
     start = s;
     end = e;
   }
+
+  /* 1. Merge Overlapping Intervals (Core Concept)
+   Problem Statement
+   Given a list of intervals, merge all overlapping intervals and return a list of non-overlapping intervals covering all the intervals in the input.
+
+   Brute Force Approach
+   Idea:
+   Check every pair of intervals to see if they overlap and then merge them repeatedly until no overlaps remain.
+           Drawbacks:
+   Inefficient due to repeated comparisons and merging.
+
+           Optimal Approach
+   Idea:
+   First, sort the intervals by their start times. Then, iterate through the list and merge intervals that overlap.
+
+  */
+  public List<Interval> mergeIntervals(List<Interval> intervals) {
+    if (intervals.size() <= 1) {
+      return intervals;
+    }
+    // Sort intervals by start time
+    Collections.sort(intervals, (a, b) -> a.start - b.start);
+
+    List<Interval> merged = new ArrayList<>();
+    Interval current = intervals.get(0);
+    for (int i = 1; i < intervals.size(); i++) {
+      Interval next = intervals.get(i);
+      if (current.end >= next.start) {
+        // Merge overlapping intervals
+        current.end = Math.max(current.end, next.end);
+      } else {
+        merged.add(current);
+        current = next;
+      }
+    }
+    merged.add(current);
+    return merged;
+  }
+  /* Complexity:
+
+  Time: O(n log n) due to sorting
+
+  Space: O(n) for the merged list
+
+  Example:
+
+  Input: [[1,3], [2,6], [8,10], [15,18]]
+
+  Output: [[1,6], [8,10], [15,18]]*/
 }
 /*     this problem has a lot of corner cases that need to be handled correctly.
 

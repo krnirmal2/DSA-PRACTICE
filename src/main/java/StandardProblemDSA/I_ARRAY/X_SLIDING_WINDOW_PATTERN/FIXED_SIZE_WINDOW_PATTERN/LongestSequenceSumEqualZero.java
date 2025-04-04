@@ -65,15 +65,18 @@ public class LongestSequenceSumEqualZero {
   public static ArrayList<Integer> lszero(ArrayList<Integer> A) {
     ArrayList<Integer> rst = new ArrayList<Integer>();
     HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-    if (A == null) return rst;
+    if (A == null) {
+      return rst;
+    }
     int len = 0;
     int sum = 0;
     int l = -1, r = -1;
     map.put(0, -1);
     for (int i = 0; i < A.size(); i++) {
       sum += A.get(i);
-      if (!map.containsKey(sum)) map.put(sum, i);
-      else {
+      if (!map.containsKey(sum)) {
+        map.put(sum, i);
+      } else {
         if (i - map.get(sum) > len) {
           l = map.get(sum) + 1;
           r = i;
