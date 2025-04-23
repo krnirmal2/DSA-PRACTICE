@@ -45,6 +45,9 @@ public class KahnsAlgorithmUsingBFSandIndegree {
 
   // Function to return list containing vertices in Topological order.
   static int[] topoSort(int V, ArrayList<ArrayList<Integer>> adj) {
+    // create a indegree array to store all the indegree of each node
+    // by traverse the vertices and get therir neighber if have increase the
+    // indegree of that index to increase
     int indegree[] = new int[V];
     for (int i = 0; i < V; i++) {
       for (int it : adj.get(i)) {
@@ -53,7 +56,7 @@ public class KahnsAlgorithmUsingBFSandIndegree {
     }
 
     Queue<Integer> q = new LinkedList<Integer>();
-    ;
+    // insert the indegree= 0 nodes in the queue
     for (int i = 0; i < V; i++) {
       if (indegree[i] == 0) {
         q.add(i);
@@ -63,12 +66,13 @@ public class KahnsAlgorithmUsingBFSandIndegree {
     int topo[] = new int[V];
     int i = 0;
     while (!q.isEmpty()) {
-      int node = q.peek();
-      q.remove();
-      topo[i++] = node;
+      int node = q.poll();
+      topo[i++] = node; // add to the result list
       // node is in your topo sort
       // so please remove it from the indegree
 
+      // iterate through all of the indegre and reduce its value till zero,
+      // if it is become zero then we will insert it inthe queue;
       for (int it : adj.get(node)) {
         indegree[it]--;
         if (indegree[it] == 0) {

@@ -21,12 +21,6 @@ public class SplitListToParts {
     int baseSize = n / k;
     int extraNodeSize = n % k;
 
-    // Debugging Output (Remove in final version)
-    System.out.println("Total Nodes: " + n);
-    System.out.println("Base Size: " + baseSize);
-    System.out.println("Extra Nodes: " + extraNodeSize);
-    System.out.println("Parts: " + k);
-
     // 3. Initialize the result array
     ListNode[] result = new ListNode[k];
     ListNode current = head;

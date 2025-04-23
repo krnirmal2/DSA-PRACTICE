@@ -44,4 +44,22 @@ public class largestNoFromAllArrayElementCanBeFormed {
       return second.compareTo(first);
     }
   }
+  /*Easy and Optimal
+
+    public String largestNumber(List<Integer> nums) {
+      List<String> strNums = nums.stream()
+              .map(String::valueOf)
+              .collect(Collectors.toList());
+
+      // Sort using custom comparator
+      strNums.sort((a, b) -> (b + a).compareTo(a + b));
+
+      // Edge case: if the largest number is "0", return "0"
+      if (strNums.get(0).equals("0")) return "0";
+
+      // Join all strings
+      return String.join("", strNums);
+    }
+  */
+
 }

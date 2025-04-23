@@ -22,57 +22,63 @@ Explanation: (a+(b)/c) can reduced to (a+b/c) because b is surrounded by () whic
 */
 public class RedundantBrackets {
   /*
-      💡 Approach:
-  Use a stack to store characters.
-  If a closing bracket ) is encountered:
-  Pop elements until ( is found.
-  If only ( was found, it's redundant.
-  Return true if redundant brackets exist.
+        💡 Approach:
+  🧠 What It's Doing — In Simple Words:
+          Push everything (brackets, operands, operators) to the stack.
+          When a ) is found, pop elements until you find the corresponding '('.
+          While popping, check if there was an operator between those brackets.
+          If no operator is found (like in (a) or ((a+b))), it's redundant.
+          If at least one operator is found (like in (a+b)), it's valid.
+          🧪 Example Dry Run on "((a+b))+c":
+              Push: (
+              Push: (
+              Push: a
+              Push: +
+              Push: b
+              Encounter ):
+              Pop b, +, a → found operator + → ✅
+              Encounter next ):
+              Immediate pop hits '(' → ❌ redundant
 
-      Follow the steps mentioned below to implement the approach:
-  We iterate through the given expression and for each character in the expression
-  if the character is an open parenthesis ‘(‘ or any of the operators or operands, we push it to the stack.
-  If the character is close parenthesis ‘)’, then pop characters from the stack till matching open parenthesis ‘(‘ is found.
-  Now for redundancy two conditions will arise while popping.
-  If immediate pop hits an open parenthesis ‘(‘, then we have found a duplicate parenthesis. For example, (((a+b))+c) has duplicate brackets around a+b. When we reach the second “)” after a+b, we have “((” in the stack. Since the top of the stack is an opening bracket, we conclude that there are duplicate brackets.
-  If immediate pop doesn’t hit any operand(‘*’, ‘+’, ‘/’, ‘-‘) then it indicates the presence of unwanted brackets surrounded by expression. For instance, (a)+b contains unwanted () around a thus it is redundant. */
-  static boolean checkRedundancy(String s) {
-    // create a stack of characters
+  . */
+  public static boolean checkRedundancy(String s) {
+    // Stack to track characters
     Stack<Character> st = new Stack<>();
+
+    // Convert the string to a character array
     char[] str = s.toCharArray();
-    // Iterate through the given expression
+
+    // Traverse through each character in the expression
     for (char ch : str) {
 
-      // if current character is close parenthesis ')'
+      // If we encounter a closing parenthesis ')'
       if (ch == ')') {
-        char top = st.peek();
-        // top element of stack
-        st.pop();
+        // Pop the top element from the stack immediately
+        char top = st.pop();
 
-        // If immediate pop have open parenthesis '('
-        // duplicate brackets found
-        boolean flag = true;
+        // This flag checks if we find any operator between '(' and ')'
+        boolean operatorFound = false;
 
+        // Pop until we find the matching opening bracket '('
         while (top != '(') {
-
-          // Check for operators in expression
+          // If any operator is found inside, it's NOT redundant
           if (top == '+' || top == '-' || top == '*' || top == '/') {
-            flag = false;
+            operatorFound = true;
           }
-
-          // Fetch top element of stack
-          top = st.peek();
-          st.pop();
+          top = st.pop();
         }
 
-        // If operators not found
-        if (flag) {
+        // If no operator found between '(', ')' → it's redundant
+        if (!operatorFound) {
           return true;
         }
       } else {
-        st.push(ch); // push open parenthesis '(',
-      } // operators and operands to stack
+        // For all other characters including '(', operands, and operators → push to stack
+        st.push(ch);
+      }
     }
+
+    // If loop finishes and no redundant brackets were found
     return false;
   }
 
@@ -88,7 +94,7 @@ public class RedundantBrackets {
 
   // Driver code
   public static void main(String[] args) {
-    String str = "((a+b))";
+    String str = "(a)+b";
     findRedundant(str);
   }
 }

@@ -43,4 +43,29 @@ public class InplaceDuplicateRemove {
       System.out.print(nums[i] + " ");
     }
   }
+  /*public class InplaceDuplicateRemoveOptimizedSet {
+      public static int removeDuplicates(int[] nums) {
+        Set<Integer> seen = new HashSet<>();
+        int index = 0;
+
+        for (int num : nums) {
+          if (!seen.contains(num)) {
+            seen.add(num);
+            nums[index++] = num; // overwrite in place
+          }
+        }
+        return index;
+      }
+
+      public static void main(String[] args) {
+        int[] nums = {1, 1, 2, 2, 3, 3, 4};
+        int length = removeDuplicates(nums);
+
+        System.out.println("Number of unique elements: " + length);
+        for (int i = 0; i < length; i++) {
+          System.out.print(nums[i] + " ");
+        }
+      }
+    }
+  */
 }

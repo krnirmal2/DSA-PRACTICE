@@ -23,7 +23,7 @@ public class PerviousSmallerElement {
     int length = arr.length;
     int[] result = new int[length];
     Stack<Integer> s = new Stack<>();
-    // travers right to left
+    // travers
     for (int i = 0; i < length; i++) {
       //
       while (!s.isEmpty() && arr[i] <= s.peek()) {

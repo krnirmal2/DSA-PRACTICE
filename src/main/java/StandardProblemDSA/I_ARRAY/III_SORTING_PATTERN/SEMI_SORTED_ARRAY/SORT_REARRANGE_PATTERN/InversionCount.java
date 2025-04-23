@@ -6,13 +6,9 @@ public class InversionCount {
   /* 🔹 What is Inversion Count?
       An inversion in an array arr[] is a pair (i, j) such that:
       i < j and arr[i] > arr[j]
-
       It tells us how far the array is from being sorted.
-
       If the array is already sorted, the inversion count is 0.
-
       If the array is sorted in reverse order, the inversion count is maximum.
-
               🔹 Example
       Example 1
 
@@ -27,7 +23,8 @@ public class InversionCount {
       Step-by-Step Process
       Divide: Recursively divide the array into two halves.
               Conquer: Count inversions in the left half, the right half, and the merge step.
-              Combine: While merging, count how many times an element from the right half moves before elements from the left half.*/
+              Combine: While merging, count how many times an element from the right half
+               moves before elements from the left half.*/
   public static int mergeSortAndCount(int[] arr, int left, int right) {
     int count = 0;
     if (left < right) {
@@ -50,9 +47,12 @@ public class InversionCount {
     int[] rightArr = Arrays.copyOfRange(arr, mid + 1, right + 1);
     int i = 0, j = 0, k = left, swaps = 0;
     /*   🔹 Simple Explanation of Inversion Counting in Merge Sort
-            When merging two sorted halves, an inversion occurs when an element from the right subarray is smaller than an element from the left subarray.
+            When merging two sorted halves, an inversion occurs
+            when an element from the right subarray is smaller
+            than an element from the left subarray.
     📌 Key Idea:
-            If arr[i] > arr[j], then all elements after arr[i] in the left subarray are also greater than arr[j] (since the left half is sorted).
+            If arr[i] > arr[j], then all elements after arr[i] in the left subarray are also
+             greater than arr[j] (since the left half is sorted).
     🔹 Simple Understanding Without Formula
             If left element (arr[i]) is smaller → No inversion, move i forward.
             If right element (arr[j]) is smaller →

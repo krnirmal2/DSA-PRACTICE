@@ -1,47 +1,51 @@
 package StandardProblemDSA.II_LINKEDLIST.vii_PALINDROME_AND_REVERSAL_PATTERNS;
 
 public class PalindromeLL {
-  public static int lPalin(ListNode A) {
-    /* splitting the list into 2 parts */
-    ListNode S = A, F = A;
-    // after slow and fast pointer is come to mid and end respectively
-    while (F.next != null && F.next.next != null) {
-      S = S.next;
-      F = F.next.next;
+
+  public static int isPalindrome(ListNode head) {
+    if (head == null || head.next == null) return 1; // empty or single-node list is palindrome
+
+    // Step 1: Find the middle using slow and fast pointers
+    ListNode slow = head;
+    ListNode fast = head;
+
+    while (fast.next != null && fast.next.next != null) {
+      slow = slow.next;
+      fast = fast.next.next;
     }
 
-    // the middle node of the next node which is point by the slow pointer s
-    ListNode mh = S.next;
-    // break the linked list in the middle by point the next node of slow pointer by null
-    S.next = null;
-    ListNode t = mh, rh = null;
+    // Step 2: Split the list and reverse the second half
+    ListNode secondHalfStart = slow.next;
+    slow.next = null; // break the list into two halves
 
-    /* reversing the 2nd half */
-    while (mh != null) {
-      t = mh;
-      mh = mh.next;
-      t.next = rh;
-      rh = t;
+    ListNode prev = null;
+    ListNode current = secondHalfStart;
+    while (current != null) {
+      ListNode nextTemp = current.next;
+      current.next = prev;
+      prev = current;
+      current = nextTemp;
     }
 
-    /* comparing 1st half and reversed 2nd half */
-    while (A != null && rh != null) {
-      if (A.val == rh.val) {
-        A = A.next;
-        rh = rh.next;
-      } else return 0;
+    ListNode reversedSecondHalf = prev;
+
+    // Step 3: Compare both halves node-by-node
+    ListNode firstHalfPointer = head;
+    ListNode secondHalfPointer = reversedSecondHalf;
+
+    while (firstHalfPointer != null && secondHalfPointer != null) {
+      if (firstHalfPointer.val != secondHalfPointer.val) {
+        return 0; // not a palindrome
+      }
+      firstHalfPointer = firstHalfPointer.next;
+      secondHalfPointer = secondHalfPointer.next;
     }
-    return 1;
+
+    return 1; // list is a palindrome
   }
 
   public static void main(String[] args) {
-    //        LinkedList llist = new LinkedList();
-    //        char[] str = { 'a', 'b', 'a', 'c', 'a', 'b', 'a' };
-    //        for (int i = 0; i < 7; i++) {
-    //            llist.push(str[i]);
-    //        }
-    //
-
+    // Creating test case: 1 → 2 → 3 → 4 → 3 → 2 → 1
     ListNode one = new ListNode(1);
     ListNode two = new ListNode(2);
     ListNode three = new ListNode(3);
@@ -49,6 +53,7 @@ public class PalindromeLL {
     ListNode five = new ListNode(3);
     ListNode six = new ListNode(2);
     ListNode seven = new ListNode(1);
+
     one.next = two;
     two.next = three;
     three.next = four;
@@ -56,9 +61,10 @@ public class PalindromeLL {
     five.next = six;
     six.next = seven;
 
-    System.out.println(lPalin(one));
+    System.out.println("Is Palindrome? " + isPalindrome(one)); // Output: 1
   }
 
+  // Definition of singly linked list node
   static class ListNode {
     public int val;
     public ListNode next;

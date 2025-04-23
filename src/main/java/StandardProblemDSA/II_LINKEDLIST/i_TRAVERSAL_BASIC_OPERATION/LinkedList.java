@@ -19,13 +19,13 @@ public class LinkedList {
     } else {
       // Else traverse till the last node
       // and insert the new_node there
-      Node last = list.head;
-      while (last.next != null) {
-        last = last.next;
+      Node temp = list.head;
+      while (temp.next != null) {
+        temp = temp.next;
       }
 
       // Insert the new_node at last node
-      last.next = new_node;
+      temp.next = new_node;
     }
 
     // Return the list by head

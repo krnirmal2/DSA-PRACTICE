@@ -1,7 +1,5 @@
 package StandardProblemDSA.II_LINKEDLIST.xii_ARITHMETIC_PATTERN;
 
-import StandardProblemDSA.II_LINKEDLIST.viii_DUMMY_NODE_AND_SENTINAL_PATTERN.ListNode;
-
 public class AddTwoNumberInLL {
   public static Node addTwoLists(Node l1, Node l2) {
     Node dummy = new Node(0); // Dummy node to store result
@@ -54,21 +52,6 @@ public class AddTwoNumberInLL {
 
     Node sum = addTwoLists(num1, num2);
     printList(sum);
-  }
-
-  // Corrected reverse function
-  public ListNode reverse(ListNode list) {
-    ListNode prev = null;
-    ListNode next = null;
-    ListNode current = list;
-
-    while (current != null) {
-      next = current.next;
-      current.next = prev;
-      prev = current;
-      current = next;
-    }
-    return prev; // Return the new head after reversal
   }
 
   static class Node {

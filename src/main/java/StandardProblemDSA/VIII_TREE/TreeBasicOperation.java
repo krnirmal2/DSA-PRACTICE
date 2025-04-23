@@ -59,6 +59,9 @@ public class TreeBasicOperation {
     }
 
     private int height(TreeNode node) {
+      // if node is null then return 0
+      // Else go for left and right and find the maximum amount
+      // them with add extra 1 to
       if (node == null) {
         return 0;
       } else {
@@ -71,6 +74,12 @@ public class TreeBasicOperation {
 
     // Method to find the height of a specific node
     public int nodeHeight(int val) {
+      // find the specific noden
+      // set the height =1 and then use utility to
+      // if node value is matched then return height
+      // first go for left with height+1; if level set the
+      // second if not getting any thing from left go for  right and return
+      // the value level
       return nodeHeight(root, val, 1);
     }
 
@@ -87,6 +96,8 @@ public class TreeBasicOperation {
 
     // Method to find the level of a given node in the tree
     public int nodeLevel(int val) {
+      // for level of a node just find the height of node and just minus 1 to it
+
       return nodeHeight(val) - 1;
     }
 
@@ -125,13 +136,15 @@ public class TreeBasicOperation {
 
     private int diameter(TreeNode node) {
       if (node == null) return 0;
+      // find the height of the left and right
 
       int leftHeight = height(node.left);
       int rightHeight = height(node.right);
 
+      // then find the left and right diameter of the tree
       int leftDiameter = diameter(node.left);
       int rightDiameter = diameter(node.right);
-
+      // return the maximum of the ( height of tree , maximum of left and rightDiameter)
       return Math.max(leftHeight + rightHeight + 1, Math.max(leftDiameter, rightDiameter));
     }
 

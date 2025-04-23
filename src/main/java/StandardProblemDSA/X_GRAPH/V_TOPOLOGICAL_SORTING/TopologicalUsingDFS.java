@@ -33,8 +33,7 @@ public class TopologicalUsingDFS {
     int ans[] = new int[V];
     int i = 0;
     while (!st.isEmpty()) {
-      ans[i++] = st.peek();
-      st.pop();
+      ans[i++] = st.pop();
     }
     return ans;
   }
