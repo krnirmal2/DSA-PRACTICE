@@ -1,8 +1,10 @@
-package StandardProblemDSA.I_ARRAY.X_SLIDING_WINDOW_PATTERN.FIXED_SIZE_WINDOW_PATTERN;
+package StandardProblemDSA.I_ARRAY.X_SLIDING_WINDOW_PATTERN.VARIABLE_SIZE_WINDOW_PATTERN;
 
 public class MaxConsecutiveOnesAtmostOneZeroReplacing {
   /* Problem Statement
-      You are given a binary array (0s and 1s). You can replace at most one 0 with 1. Find the maximum consecutive 1s that can be obtained after performing this operation.
+      You are given a binary array (0s and 1s).
+      You can replace at most one 0 with 1.
+      Find the maximum consecutive 1s that can be obtained after performing this operation.
 
   Approach
      Brute Force (O(N²))

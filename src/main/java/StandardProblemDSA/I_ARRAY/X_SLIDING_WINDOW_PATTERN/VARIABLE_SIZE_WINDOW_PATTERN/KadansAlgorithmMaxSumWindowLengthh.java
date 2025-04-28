@@ -1,10 +1,10 @@
-package StandardProblemDSA.I_ARRAY.X_SLIDING_WINDOW_PATTERN.FIXED_SIZE_WINDOW_PATTERN;
+package StandardProblemDSA.I_ARRAY.X_SLIDING_WINDOW_PATTERN.VARIABLE_SIZE_WINDOW_PATTERN;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class KadansAlgorithm {
-
+public class KadansAlgorithmMaxSumWindowLengthh {
+  // Find the maximum sum of a contiguous subarray in an array.
   public static void main(String[] args) {
     ArrayList<Integer> a = new ArrayList<>(List.of(2, -1, 3, 4, -5));
     System.out.println(maxiMumSubArraySum(a));
@@ -23,8 +23,9 @@ public class KadansAlgorithm {
     for (int i = 1; i < a.size(); i++) {
       // if current sum is negative then the current element then set the sum to that
       // element and from here the start of the array is on
-      if (current + a.get(i) < a.get(i)) {
-        current = a.get(i);
+      if (current + a.get(i)
+          < a.get(i)) { // sum become less then current element then no benefit to take it
+        current = a.get(i); // resest the curren sum with current eleemnt
         tempStart = i; // New potential subarray start
       } else {
         // if no negative go on

@@ -44,35 +44,35 @@ public class Permutation {
     permute(s);
   }
   /*✅ Approach: Backtracking (Swap-based)
-This algorithm generates all permutations of a string by:
-Fixing one character at a time.
-Swapping characters at different positions.
-Recursively generating permutations of the remaining substring.
-Backtracking by swapping the characters back after the recursion ends, to restore the original configuration.
+  This algorithm generates all permutations of a string by:
+  Fixing one character at a time.
+  Swapping characters at different positions.
+  Recursively generating permutations of the remaining substring.
+  Backtracking by swapping the characters back after the recursion ends, to restore the original configuration.
 
-🔁 How It Works:
-For s = "ABC":
-Start at index 0:
-- Fix A → permute "BC"
-   - Fix B → permute "C" → ABC
-   - Fix C → permute "B" → ACB
-- Fix B → permute "AC"
-   - Fix A → permute "C" → BAC
-   - Fix C → permute "A" → BCA
-- Fix C → permute "AB"
-   - Fix A → permute "B" → CAB
-   - Fix B → permute "A" → CBA
-🧠 Time Complexity:
-Let’s say the length of the string is n.
-Each character can be placed at every position → n! permutations
-For each permutation, we’re doing O(n) operations in the worst case (due to character copying or swapping)
-🔹 Total Time Complexity:
-O(n × n!)
-n! for total permutations
-O(n) to print or handle each one (optional based on context)
+  🔁 How It Works:
+  For s = "ABC":
+  Start at index 0:
+  - Fix A → permute "BC"
+     - Fix B → permute "C" → ABC
+     - Fix C → permute "B" → ACB
+  - Fix B → permute "AC"
+     - Fix A → permute "C" → BAC
+     - Fix C → permute "A" → BCA
+  - Fix C → permute "AB"
+     - Fix A → permute "B" → CAB
+     - Fix B → permute "A" → CBA
+  🧠 Time Complexity:
+  Let’s say the length of the string is n.
+  Each character can be placed at every position → n! permutations
+  For each permutation, we’re doing O(n) operations in the worst case (due to character copying or swapping)
+  🔹 Total Time Complexity:
+  O(n × n!)
+  n! for total permutations
+  O(n) to print or handle each one (optional based on context)
 
-🧠 Space Complexity:
-Auxiliary space is mainly due to the recursive call stack.
+  🧠 Space Complexity:
+  Auxiliary space is mainly due to the recursive call stack.
 
-In worst-case, recursion depth = n.*/
+  In worst-case, recursion depth = n.*/
 }

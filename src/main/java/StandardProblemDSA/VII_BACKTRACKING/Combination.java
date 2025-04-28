@@ -8,14 +8,15 @@ public class Combination {
     int start = 0;
     backTrack(result, new ArrayList<Integer>(), element, r, start);
   }
-/*✅ Approach (Backtracking for Combinations)
-You're generating all combinations of size r (like nCr) from the given element[] array using backtracking:
-Start with an empty temp list (temp).
-At each step, add one element from the remaining elements (from index start onward).
-Recurse to build longer combinations.
-Once temp.size() == r, you’ve found a valid combination → add it to result.
 
-Then backtrack by removing the last element to explore new branches.*/
+  /*✅ Approach (Backtracking for Combinations)
+  You're generating all combinations of size r (like nCr) from the given element[] array using backtracking:
+  Start with an empty temp list (temp).
+  At each step, add one element from the remaining elements (from index start onward).
+  Recurse to build longer combinations.
+  Once temp.size() == r, you’ve found a valid combination → add it to result.
+
+  Then backtrack by removing the last element to explore new branches.*/
   public static void backTrack(
       ArrayList<ArrayList<Integer>> result,
       ArrayList<Integer> temp,

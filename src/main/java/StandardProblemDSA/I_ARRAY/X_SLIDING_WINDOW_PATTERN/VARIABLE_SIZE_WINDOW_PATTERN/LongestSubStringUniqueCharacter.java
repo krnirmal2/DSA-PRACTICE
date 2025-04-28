@@ -3,6 +3,26 @@ package StandardProblemDSA.I_ARRAY.X_SLIDING_WINDOW_PATTERN.VARIABLE_SIZE_WINDOW
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+3. Longest Substring Without Repeating Characters
+        Solved
+Medium
+Given a string s, find the length of the longest substring without duplicate characters.
+        Example 1:
+Input: s = "abcabcbb"
+Output: 3
+Explanation: The answer is "abc", with the length of 3.
+Example 2:
+
+Input: s = "bbbbb"
+Output: 1
+Explanation: The answer is "b", with the length of 1.
+Example 3:
+
+Input: s = "pwwkew"
+Output: 3
+Explanation: The answer is "wke", with the length of 3.
+Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.*/
 public class LongestSubStringUniqueCharacter {
   public static int lengthOfLongestSubstring(String s) {
     int longestSubString = 0;
@@ -40,45 +60,5 @@ public class LongestSubStringUniqueCharacter {
     //        System.out.println(sol.lengthOfLongestSubstring("bbbbb")); // Output: 1
     //        System.out.println(sol.lengthOfLongestSubstring("pwwkew")); // Output: 3
     //        System.out.println(sol.lengthOfLongestSubstring("dvdf")); // Output: 3
-  }
-
-  public static class MiniSubArrayLengthOfSumK {
-    /* Given an array of positive integers and a positive integer,
-    write a function that returns the minimal length of a contiguous subarray,
-    where the sum is greater than or equal to the integer being passed in.
-    If there isn’t one, return 0.*/
-
-    public static int minSubArrayLen(int[] arr, int target) {
-      int minLength = Integer.MAX_VALUE;
-      int sum = 0;
-      int left = 0;
-      int right = 0;
-
-      while (left < arr.length) {
-        if (sum >= target) {
-          // store the current minimal length
-          minLength = Math.min(minLength, (right - left));
-          // shrink the window:
-          // (1) subtract the value at left idx
-          // (2) move the left panel one index further to the right
-          sum -= arr[left];
-          left++;
-        } else if (sum < target && right < arr.length) {
-          // expand the window:
-          // (1) sum up the current value
-          // (2) move the right panel one index further to the right
-          sum += arr[right];
-          right++;
-        } else break;
-      }
-
-      return (minLength == Integer.MAX_VALUE ? 0 : minLength);
-    }
-
-    public static void main(String[] args) {
-      int[] arr = {2, 3, 1, 2, 4, 3};
-      int target = 1;
-      System.out.println(minSubArrayLen(arr, target));
-    }
   }
 }

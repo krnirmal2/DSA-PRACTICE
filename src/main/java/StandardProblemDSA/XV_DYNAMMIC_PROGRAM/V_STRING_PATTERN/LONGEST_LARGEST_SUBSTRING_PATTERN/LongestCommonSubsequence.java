@@ -30,14 +30,15 @@ public class LongestCommonSubsequence {
   private static int lcs(String s1, String s2, int i, int j, int[][] dp) {
     if (i < 0 || j < 0) return 0;
     if (dp[i][j] != -1) return dp[i][j];
-    //If matched reduce indexes of both
+    // If matched reduce indexes of both
     if (s1.charAt(i) == s2.charAt(j)) {
       return dp[i][j] = 1 + lcs(s1, s2, i - 1, j - 1, dp);
     } else {
-      //if not matched reduce index of any one and then find the max out of them
+      // if not matched reduce index of any one and then find the max out of them
       return dp[i][j] = Math.max(lcs(s1, s2, i - 1, j, dp), lcs(s1, s2, i, j - 1, dp));
     }
   }
+
   /*Recursive
       O(2^(n + m))
       O(n + m) (stack space)
