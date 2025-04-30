@@ -5,25 +5,30 @@ import java.util.List;
 
 // create the node of the trie
 class TrieNode {
-  TrieNode links[] = new TrieNode[26];
+  // Array of Trienode which contain all the 26 character in each trienode
+  TrieNode[] links = new TrieNode[26];
   boolean flag = false;
 
   boolean containsKey(char ch) {
     return (links[ch - 'a'] != null); //  check the end should nnot point to null character
   }
 
+  // get the character if present with character
   TrieNode get(char ch) {
     return links[ch - 'a'];
   }
 
+  // put the character and next node by assigning
   void put(char ch, TrieNode node) {
     links[ch - 'a'] = node;
   }
 
+  // if exist then set the end flag as true
   void setEnd() {
     flag = true;
   }
 
+  // if we reached to the end then return current status of flag
   boolean isEnd() {
     return flag;
   }
@@ -32,17 +37,20 @@ class TrieNode {
 public class Trie {
   private TrieNode root;
 
+  // create a trienode on declaration
   public Trie() {
     root = new TrieNode();
   }
 
   // insert a word in to the trie O(length of the Word)
   void insert(String word) {
-
+    // intialise the root node to the new trienode
     TrieNode newNode = root;
+    // iterate over the string character
     for (int ch = 0; ch < word.length(); ch++) {
       // we check if the trie node contain the character of the word or not
       // if not put new character to it
+      // newNode have linked of character
       if (!newNode.containsKey(word.charAt(ch))) {
         newNode.put(word.charAt(ch), new TrieNode()); // need to create new reference after insert
       }
@@ -86,20 +94,19 @@ public class Trie {
     return true;
   }
 
-  public int countWordsEqualTo(String word) {
+  public void countWordsEqualTo(String word) {
     // Write your code here.<
     int count = 0;
     TrieNode rootNode = root;
     for (int ch = 0; ch < word.length(); ch++) {
       if (!rootNode.containsKey(word.charAt(ch))) {
-        return count;
+        return;
       }
       rootNode = rootNode.get(word.charAt(ch));
     }
     if (rootNode.isEnd() || rootNode.links != null) {
       count++;
     }
-    return count;
   }
 
   public static void main(String[] args) {

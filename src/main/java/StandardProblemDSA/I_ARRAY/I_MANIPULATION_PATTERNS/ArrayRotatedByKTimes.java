@@ -1,5 +1,6 @@
 package StandardProblemDSA.I_ARRAY.I_MANIPULATION_PATTERNS;
 
+import StandardProblemDSA.Utility;
 import java.util.Scanner;
 
 public class ArrayRotatedByKTimes {
@@ -9,21 +10,14 @@ public class ArrayRotatedByKTimes {
     // last n-k element and reverse
     // the full array  reverse
     int n = A.length;
-    int temp;
     for (int i = n - B, j = n - 1; i < j; i++, j--) {
-      temp = A[i];
-      A[i] = A[j];
-      A[j] = temp;
+      Utility.swap(A, i, j);
     }
     for (int i = 0, j = n - B - 1; i < j; i++, j--) {
-      temp = A[i];
-      A[i] = A[j];
-      A[j] = temp;
+      Utility.swap(A, i, j);
     }
     for (int i = 0, j = n - 1; i < j; i++, j--) {
-      temp = A[i];
-      A[i] = A[j];
-      A[j] = temp;
+      Utility.swap(A, i, j);
     }
     return A;
   }

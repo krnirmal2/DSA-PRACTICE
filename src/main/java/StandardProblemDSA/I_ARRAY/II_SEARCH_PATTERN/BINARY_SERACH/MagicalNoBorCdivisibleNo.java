@@ -14,8 +14,6 @@ public class MagicalNoBorCdivisibleNo {
 
         if (count++ <= A) {
           result.add(i);
-
-          //                        return r.get(A-1)%(n+7);
         }
         if (count == A) {
           break;

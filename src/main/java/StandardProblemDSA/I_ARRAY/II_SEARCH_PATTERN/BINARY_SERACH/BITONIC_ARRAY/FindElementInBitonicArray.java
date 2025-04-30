@@ -1,5 +1,10 @@
 package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.BITONIC_ARRAY;
 
+import static StandardProblemDSA.Utility.findElementLeftAscendigArray;
+import static StandardProblemDSA.Utility.findElementRightDescendtingArray;
+
+import StandardProblemDSA.Utility;
+
 public class FindElementInBitonicArray {
   /*
       Algorithm
@@ -16,65 +21,14 @@ public class FindElementInBitonicArray {
   If the element is found, return its index.*/
   private static int searchBitonic(int[] bitonicArr, int target) {
     // step1 : find the peack element and return its index
-    int peakIndex = peakElement(bitonicArr);
-    // step2 now from 0 to peakIndex will be left part Ascending sort array
-    int leftPart = findElementLeftArray(0, peakIndex, bitonicArr, target);
+    //    int[] bitonicArr = {1, 3, 8, 12, 14, 11, 5, 2};
+    int peakIndex = Utility.peakElement(bitonicArr);
+
+    // step2 now from 0 to peakIndex 1, 3, 8, 12, 14 will be left part Ascending sort array
+    int leftPart = findElementLeftAscendigArray(0, peakIndex, bitonicArr, target);
     if (leftPart != -1) return leftPart;
-    // step3 now from peakElement to high
-    return findElementRightArray(peakIndex, bitonicArr.length - 1, bitonicArr, target);
-  }
-
-  private static int findElementLeftArray(int low, int high, int[] bitonicArr, int target) {
-    // use binary search on the left part of the peak element
-    int mid;
-    while (low < high) {
-      mid = low + (high - low) / 2;
-      if (bitonicArr[mid] == target) return mid;
-
-      if (bitonicArr[mid] > target) {
-        // element will be find in the left side
-        high = mid - 1;
-      } else {
-        //                elment will be found in right side
-        low = mid + 1;
-      }
-    }
-    return -1;
-  }
-
-  private static int findElementRightArray(int low, int high, int[] bitonicArr, int target) {
-    // use binary search on the right part of the peak element from Descending array
-    int mid;
-    while (low < high) {
-      mid = low + (high - low) / 2;
-      if (bitonicArr[mid] == target) return mid;
-
-      if (bitonicArr[mid] > target) {
-        // element will be find in the right  side
-        low = mid + 1;
-      } else {
-        //                elment will be found in right side
-        high = mid - 1;
-      }
-    }
-    return -1;
-  }
-
-  private static int peakElement(int[] bitonicArr) {
-    // peak element whose left and right have less element
-    int low = 0;
-    int high = bitonicArr.length - 1;
-    while (low < high) {
-      int mid = low + (high - low) / 2;
-      if (bitonicArr[mid] > bitonicArr[mid + 1]) {
-        // means peak element will be find in the left part
-        high = mid;
-      } else {
-        // the element present in right sid
-        low = mid + 1;
-      }
-    }
-    return low;
+    // step3 now from peakElement to high the descending Array  11, 5, 2
+    return findElementRightDescendtingArray(peakIndex, bitonicArr.length - 1, bitonicArr, target);
   }
 
   public static void main(String[] args) {

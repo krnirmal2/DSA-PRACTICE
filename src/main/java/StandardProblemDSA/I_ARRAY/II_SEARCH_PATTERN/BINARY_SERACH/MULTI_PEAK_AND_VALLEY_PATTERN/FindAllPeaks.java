@@ -18,13 +18,16 @@ public class FindAllPeaks {
     }
 
     // Check middle elements
+    // if it is greater than both left and right element
+    // then add those indexes
     for (int i = 1; i < n - 1; i++) {
-      if (arr[i] > arr[i - 1] && arr[i] > arr[i + 1]) {
+      if (arr[i - 1] < arr[i] && arr[i] > arr[i + 1]) {
         peaks.add(i);
       }
     }
 
-    // Check last element
+    // Check last element is greter then the second last
+    // if yes add the last element index also
     if (n > 1 && arr[n - 1] > arr[n - 2]) {
       peaks.add(n - 1);
     }

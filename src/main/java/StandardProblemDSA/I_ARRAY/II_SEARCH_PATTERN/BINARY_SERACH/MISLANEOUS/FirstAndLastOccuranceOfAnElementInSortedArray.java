@@ -30,22 +30,31 @@ public class FirstAndLastOccuranceOfAnElementInSortedArray {
     while (low <= high) {
       int mid = low + (high - low) / 2; // Avoid overflow
 
+      // Even if find the mid , then for first occurance go
+      // till  low<=high
       if (arr[mid] == target) {
         ans = mid; // Found target, record position
 
         // Check whether to go left or right
-        if (findFirst) {
+        if (findFirst) { // to shrink high to left
           // Move to left half to find earlier occurrence
           high = mid - 1;
         } else {
+
           // Move to right half to find later occurrence
           low = mid + 1;
         }
-      } else if (arr[mid] < target) {
+      }
+
+      // if target is greater than the elemnt then mid value
+      // means it is in the right part
+      else if (arr[mid] < target) {
         // If target is larger, move right
         low = mid + 1;
       } else {
-        // If target is smaller, move left
+        // if target is smaller than the element then mid value
+        // means it is in the left part
+        // update high with shirnk it
         high = mid - 1;
       }
     }

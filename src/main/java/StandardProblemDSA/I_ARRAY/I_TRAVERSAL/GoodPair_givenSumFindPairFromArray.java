@@ -1,7 +1,7 @@
 package StandardProblemDSA.I_ARRAY.I_TRAVERSAL;
 
 public class GoodPair_givenSumFindPairFromArray {
-
+  // NOTE: THIS NOT OPTIMISED  , WE HAVE TO USE MAP
   public static int solve(int[] A, int B) {
     int n = A.length;
 

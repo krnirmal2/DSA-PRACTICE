@@ -1,5 +1,10 @@
 package StandardProblemDSA.II_LINKEDLIST.vi_MERGING_AND_SPLITTING_LL;
 
+import StandardProblemDSA.II_LINKEDLIST.Node;
+
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
+
 public class ConcatenationTwoList {
   static Node concat(Node head1, Node head2) {
 
@@ -19,13 +24,6 @@ public class ConcatenationTwoList {
     return head1;
   }
 
-  static void printList(Node curr) {
-    while (curr != null) {
-      System.out.print(curr.data + " ");
-      curr = curr.next;
-    }
-    System.out.println();
-  }
 
   public static void main(String[] args) {
     // Create first linked list: 1 -> 2 -> 3

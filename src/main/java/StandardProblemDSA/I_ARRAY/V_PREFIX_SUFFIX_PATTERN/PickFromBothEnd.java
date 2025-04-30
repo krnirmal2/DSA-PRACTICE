@@ -6,6 +6,7 @@ public class PickFromBothEnd {
     int[] suff = new int[n + 1];
     suff[n] = 0;
     suff[n - 1] = A[n - 1];
+    // put suffix sum from back
     for (int i = n - 2; i >= 0; i--) {
       suff[i] = A[i] + suff[i + 1];
     }

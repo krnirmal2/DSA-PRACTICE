@@ -1,15 +1,8 @@
 package StandardProblemDSA.II_LINKEDLIST.v_FAST_AND_SLOW_POINTER_POINTER;
 
-public class CountCycleLength {
-  class ListNode {
-    int val;
-    ListNode next;
+import StandardProblemDSA.II_LINKEDLIST.ListNode;
 
-    ListNode(int val) {
-      this.val = val;
-      this.next = null;
-    }
-  }
+public class CountCycleLength {
 
   public class DetectCycleLength {
 

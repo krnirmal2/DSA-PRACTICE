@@ -1,6 +1,7 @@
 package StandardProblemDSA.I_ARRAY.I_TRAVERSAL;
 
 public class IsPairOfSumPresent {
+  // NOTE : this is alos not optimised
 
   static boolean solution(int[] arr, int k) {
     int n = arr.length;

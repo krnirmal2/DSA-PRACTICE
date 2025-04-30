@@ -3,7 +3,8 @@ package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.SEARCH_ON_ANS
 public class KthMissingPositiveNumb {
 
   /*
-  Problem Statement: You are given a strictly increasing array ‘vec’ and a positive integer 'k'. Find the 'kth' positive integer missing from 'vec'.
+  Problem Statement: You are given a strictly increasing array ‘vec’ and a positive integer 'k'.
+   Find the 'kth' positive integer missing from 'vec'.
 
   Examples
 
@@ -29,7 +30,9 @@ public class KthMissingPositiveNumb {
   If vec[i] <= k: we will simply increase the value of k by 1.
   Otherwise, we will break out of the loop.
   Finally, we will return the value of k.
-  Note: The main idea is to shift k by 1 step if the current element is smaller or equal to k. And whenever we get a number > k, we can conclude that k is the missing number.
+  Note: The main idea is to shift k by 1 step
+  if the current element is smaller or equal to k.
+  And whenever we get a number > k, we can conclude that k is the missing number.
 
           Dry-run: Please refer to the video for the dry-run.*/
 

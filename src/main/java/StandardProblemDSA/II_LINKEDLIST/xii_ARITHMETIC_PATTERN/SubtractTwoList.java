@@ -1,13 +1,7 @@
 package StandardProblemDSA.II_LINKEDLIST.xii_ARITHMETIC_PATTERN;
 
-class ListNode {
-  int val;
-  ListNode next;
 
-  ListNode(int val) {
-    this.val = val;
-  }
-}
+import StandardProblemDSA.II_LINKEDLIST.ListNode;
 
 /*Reverse Both Lists:
 Since the numbers are stored in reverse order (least significant digit at the head), we first reverse both linked lists to make subtraction easier.

@@ -1,5 +1,7 @@
 package StandardProblemDSA.II_LINKEDLIST.xii_ARITHMETIC_PATTERN;
 
+import StandardProblemDSA.II_LINKEDLIST.Node;
+
 public class AddTwoNumberInLL {
   public static Node addTwoLists(Node l1, Node l2) {
     Node dummy = new Node(0); // Dummy node to store result
@@ -10,12 +12,12 @@ public class AddTwoNumberInLL {
     while (l1 != null || l2 != null || carry > 0) {
       int sum = carry; // Start with carry
 
-      if (l1 != null) { // Add value from l1
-        sum += l1.val;
+      if (l1 != null) { // Add dataue from l1
+        sum += l1.data;
         l1 = l1.next;
       }
-      if (l2 != null) { // Add value from l2
-        sum += l2.val;
+      if (l2 != null) { // Add dataue from l2
+        sum += l2.data;
         l2 = l2.next;
       }
 
@@ -30,7 +32,7 @@ public class AddTwoNumberInLL {
   static void printList(Node head) {
     Node curr = head;
     while (curr != null) {
-      System.out.print(curr.val + " ");
+      System.out.print(curr.data + " ");
       curr = curr.next;
     }
     System.out.println();
@@ -54,19 +56,4 @@ public class AddTwoNumberInLL {
     printList(sum);
   }
 
-  static class Node {
-    int val;
-    Node next;
-
-    Node() {}
-
-    Node(int val) {
-      this.val = val;
-    }
-
-    Node(int val, Node next) {
-      this.val = val;
-      this.next = next;
-    }
-  }
 }

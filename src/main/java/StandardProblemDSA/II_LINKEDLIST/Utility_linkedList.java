@@ -160,6 +160,66 @@ public class Utility_linkedList {
     return head;
   }
 
+  // Utility: Partition list using last element as pivot.
+  // Returns array: {newHead, pivot, newTail}
+  public static ListNode[] partition(ListNode head, ListNode tail) {
+    ListNode pivot = tail;
+    ListNode prev = null, curr = head, end = pivot;
+    ListNode newHead = null;
+
+    // During partition, both head and tail might change.
+    while (curr != pivot) {
+      if (curr.val < pivot.val) {
+        if (newHead == null) {
+          newHead = curr;
+        }
+        prev = curr;
+        curr = curr.next;
+      } else { // Move node to end
+        if (prev != null) prev.next = curr.next;
+        ListNode temp = curr.next;
+        curr.next = null;
+        end.next = curr;
+        end = curr;
+        curr = temp;
+      }
+    }
+
+    if (newHead == null) {
+      newHead = pivot;
+    }
+    return new ListNode[] {newHead, pivot, end};
+  }
+
+  // Utility: Get tail of the list.
+  public static ListNode getTail(ListNode head) {
+    while (head != null && head.next != null) {
+      head = head.next;
+    }
+    return head;
+  }
+
+  public static void printList(Node curr) {
+    while (curr != null) {
+      System.out.print(curr.data + " ");
+      curr = curr.next;
+    }
+    System.out.println();
+  }
+
+
+  public static int length(StandardProblemDSA.II_LINKEDLIST.vi_MERGING_AND_SPLITTING_LL.ListNode head) {
+    if (head == null) {
+      return 0;
+    }
+    int count = 0;
+    while (head != null) {
+      count++;
+      head = head.next;
+    }
+    return count;
+  }
+
   public static void main(String[] args) {
     int[] arr = {1, 2, 3, 4, 5};
     ListNode head = Utility_linkedList.arrayToLinkedList(arr);

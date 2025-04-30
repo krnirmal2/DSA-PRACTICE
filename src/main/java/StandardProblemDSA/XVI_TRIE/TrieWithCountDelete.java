@@ -2,7 +2,7 @@ package StandardProblemDSA.XVI_TRIE;
 
 // create the node of the trie
 class TrieNod {
-  TrieNod links[] = new TrieNod[26];
+  TrieNod[] links = new TrieNod[26];
   // here for counting things we need
   // to strore end with and prefix count
   int cntEndWith = 0;

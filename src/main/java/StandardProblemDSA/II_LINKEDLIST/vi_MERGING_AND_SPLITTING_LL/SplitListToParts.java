@@ -1,21 +1,12 @@
 package StandardProblemDSA.II_LINKEDLIST.vi_MERGING_AND_SPLITTING_LL;
 
+import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
+
 public class SplitListToParts {
-  private static int length(ListNode head) {
-    if (head == null) {
-      return 0;
-    }
-    int count = 0;
-    while (head != null) {
-      count++;
-      head = head.next;
-    }
-    return count;
-  }
 
   public static ListNode[] splitListToParts(ListNode head, int k) {
     // 1. Calculate the length of the linked list
-    int n = length(head);
+    int n = Utility_linkedList.length(head);
 
     // 2. Calculate the base size and extra nodes
     int baseSize = n / k;

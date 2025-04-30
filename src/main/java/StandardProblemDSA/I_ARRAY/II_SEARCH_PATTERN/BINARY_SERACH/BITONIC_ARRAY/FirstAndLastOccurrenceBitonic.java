@@ -1,6 +1,6 @@
 package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.BITONIC_ARRAY;
 
-public class FirstLastOccurrenceBitonic {
+public class FirstAndLastOccurrenceBitonic {
 
   private static int searchBitonic(int[] bitonicArr, int target) {
     int peakIndex = peakElement(bitonicArr);

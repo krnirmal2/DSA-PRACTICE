@@ -1,5 +1,9 @@
 package StandardProblemDSA.II_LINKEDLIST.vi_MERGING_AND_SPLITTING_LL;
 
+import StandardProblemDSA.II_LINKEDLIST.Node;
+
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
 public class AlternatingSplitLL {
   // Function to split a linked list into two alternate lists
   static void AlternatingSplit(Node source, Node[] aRef, Node[] bRef) {
@@ -11,21 +15,9 @@ public class AlternatingSplitLL {
 
     while (current != null) {
       if (count % 2 == 0) { // Even index -> Goes to list 'a'
-        if (a == null) {
-          aRef[0] = current;
-          a = current;
-        } else {
-          a.next = current;
-          a = a.next;
-        }
+        a = setNode(aRef, a, current);
       } else { // Odd index -> Goes to list 'b'
-        if (b == null) {
-          bRef[0] = current;
-          b = current;
-        } else {
-          b.next = current;
-          b = b.next;
-        }
+        b = setNode(bRef, b, current);
       }
 
       current = current.next; // Move to the next node
@@ -37,14 +29,17 @@ public class AlternatingSplitLL {
     if (b != null) b.next = null;
   }
 
-  // Function to print nodes in a given linked list
-  static void printList(Node node) {
-    while (node != null) {
-      System.out.print(node.data + " -> ");
-      node = node.next;
+  private static Node setNode(Node[] bRef, Node lastNode, Node current) {
+    if (lastNode == null) {
+      bRef[0] = current;
+      lastNode = current;
+    } else {
+      lastNode.next = current;
+      lastNode = lastNode.next;
     }
-    System.out.println("NULL");
+    return lastNode;
   }
+
 
   // Driver code
   public static void main(String[] args) {
@@ -58,7 +53,7 @@ public class AlternatingSplitLL {
     }
 
     System.out.print("Original Linked List: ");
-    printList(head);
+   printList(head);
 
     Node[] aRef = new Node[1];
     Node[] bRef = new Node[1];
@@ -71,77 +66,5 @@ public class AlternatingSplitLL {
 
     System.out.print("Resultant Linked List 'b': ");
     printList(bRef[0]);
-  }
-}
-
-// Linked list node
-class Node {
-  int data;
-  Node next;
-
-  Node(int data) {
-    this.data = data;
-    next = null;
-  }
-}
-
-class AlternateSplitWithCopy {
-  public static Node[] splitAlternate(Node head) {
-    // Dummy heads to simplify edge case handling
-    Node dummyHead1 = new Node(-1);
-    Node dummyHead2 = new Node(-1);
-
-    Node tail1 = dummyHead1;
-    Node tail2 = dummyHead2;
-
-    Node current = head;
-    boolean turn = true;
-
-    while (current != null) {
-      // Create a new node (deep copy)
-      Node newNode = new Node(current.data);
-
-      if (turn) {
-        tail1.next = newNode;
-        tail1 = tail1.next;
-      } else {
-        tail2.next = newNode;
-        tail2 = tail2.next;
-      }
-
-      current = current.next;
-      turn = !turn;
-    }
-
-    // Return actual heads (skip dummy nodes)
-    return new Node[] {dummyHead1.next, dummyHead2.next};
-  }
-
-  // Utility to print a list
-  public static void printList(Node head) {
-    Node current = head;
-    while (current != null) {
-      System.out.print(current.data + " → ");
-      current = current.next;
-    }
-    System.out.println("null");
-  }
-
-  // Example usage
-  public static void main(String[] args) {
-    Node head = new Node(10);
-    head.next = new Node(20);
-    head.next.next = new Node(30);
-    head.next.next.next = new Node(40);
-    head.next.next.next.next = new Node(50);
-    head.next.next.next.next.next = new Node(60);
-
-    Node[] result = splitAlternate(head);
-
-    System.out.println("List 1:");
-    printList(result[0]);
-
-    System.out.println("List 2:");
-    printList(result[1]);
   }
 }

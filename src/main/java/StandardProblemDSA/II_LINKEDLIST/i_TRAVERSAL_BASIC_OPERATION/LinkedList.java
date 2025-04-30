@@ -4,7 +4,7 @@ package StandardProblemDSA.II_LINKEDLIST.i_TRAVERSAL_BASIC_OPERATION;
 // a Singly Linked List
 public class LinkedList {
 
-  public Node head; // head of list
+  public Node head; // head of list with out value and with out next;
 
   // Method to insert a new node
   public static LinkedList insert(LinkedList list, int data) {

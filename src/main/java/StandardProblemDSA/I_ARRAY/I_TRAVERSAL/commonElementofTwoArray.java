@@ -10,6 +10,8 @@ public class commonElementofTwoArray {
     int index = 0;
     int count = 0;
     // create two hashmap of A and B
+    // we used map because we can't use hash set as the
+    // array contain duplicate on this time hashset will failed
     HashMap<Integer, Integer> mapA = new HashMap();
     HashMap<Integer, Integer> mapB = new HashMap();
     HashMap<Integer, Boolean> visited = new HashMap();
@@ -30,10 +32,13 @@ public class commonElementofTwoArray {
         mapB.put(B[i], 1);
       }
     }
-
+    // iterate over each element of the A
     for (int i = 0; i < A.length; i++) {
+      // if the element at i of A is presnt in map
       if (mapA.containsKey(A[i])) {
+        // make that element as visited
         visited.put(A[i], true);
+        // if same element also present in B;s mamp
         if (mapB.containsKey(A[i]) && index < sizeOfResultArrray) {
           if (mapA.get(A[i]) < mapB.get(A[i])) {
             count = 0;
