@@ -1,16 +1,7 @@
 package StandardProblemDSA.VIII_TREE.I_TRAVERSAL_PATTERNS;
 
+import StandardProblemDSA.VIII_TREE.TreeNode;
 import java.util.*;
-
-class TreeNode {
-  int data;
-  TreeNode left, right;
-
-  TreeNode(int val) {
-    data = val;
-    left = right = null;
-  }
-}
 
 public class DiagonalTraversal {
 
@@ -37,7 +28,7 @@ public class DiagonalTraversal {
     if (node == null) return;
 
     // Add node to its corresponding diagonal level
-    map.computeIfAbsent(diagonalLevel, k -> new ArrayList<>()).add(node.data);
+    map.computeIfAbsent(diagonalLevel, k -> new ArrayList<>()).add(node.val);
 
     // Move to left child → diagonal level increases
     diagonalTraversalUtil(node.left, diagonalLevel + 1, map);

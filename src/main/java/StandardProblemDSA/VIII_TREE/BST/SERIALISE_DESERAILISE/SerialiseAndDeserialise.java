@@ -1,6 +1,6 @@
 package StandardProblemDSA.VIII_TREE.BST.SERIALISE_DESERAILISE;
 
-import StandardProblemDSA.VIII_TREE.BST.Kth_SMALLEST_LARGEST.KthSmallest;
+import StandardProblemDSA.VIII_TREE.TreeNode;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -12,12 +12,12 @@ public class SerialiseAndDeserialise {
   public class Codec {
 
     // Encodes a tree to a single string.
-    public String serialize(KthSmallest.TreeNode root) {
+    public String serialize(TreeNode root) {
       if (root == null) return "";
       // Approach
       // create a string and append each value as level order fashion using Queue
       // then and put comma or some delemiter and on null use some null or string key word
-      Queue<KthSmallest.TreeNode> queue = new LinkedList<>();
+      Queue<TreeNode> queue = new LinkedList<>();
 
       // insert the first node
       queue.add(root);
@@ -25,7 +25,7 @@ public class SerialiseAndDeserialise {
 
       // iterate ove rthe whole element and create the string
       while (!queue.isEmpty()) {
-        KthSmallest.TreeNode node = queue.poll(); // take the current node]
+        TreeNode node = queue.poll(); // take the current node]
 
         if (node == null) {
           s.append("n");
@@ -40,7 +40,7 @@ public class SerialiseAndDeserialise {
     }
 
     // Decodes your encoded data to tree.
-    public KthSmallest.TreeNode deserialize(String data) {
+    public TreeNode deserialize(String data) {
       // now  we have the serialise string
       // now make it array using toArray and iterate
       // over each and create a tree using level order traversal
@@ -50,10 +50,10 @@ public class SerialiseAndDeserialise {
       // first need to put the String data in to the sTring array
       String[] word = data.split("#");
       // create queue
-      Queue<KthSmallest.TreeNode> q = new LinkedList<>();
+      Queue<TreeNode> q = new LinkedList<>();
 
       // first need create the root from where we will start
-      KthSmallest.TreeNode root = new KthSmallest.TreeNode(Integer.parseInt(word[0]));
+      TreeNode root = new TreeNode(Integer.parseInt(word[0]));
       // also add the root node to queue
       q.add(root);
       // now iterate over the word array and deserialise eac
@@ -62,10 +62,10 @@ public class SerialiseAndDeserialise {
 
       for (int s = 0; s < word.length; s++) {
         // start from the parrent node
-        KthSmallest.TreeNode curr = q.poll();
+        TreeNode curr = q.poll();
         if (!word[s].equals("n")) {
           // create a a node and put it is current left
-          KthSmallest.TreeNode left = new KthSmallest.TreeNode(Integer.parseInt(word[s]));
+          TreeNode left = new TreeNode(Integer.parseInt(word[s]));
           curr.left = left;
 
           // also add the left
@@ -74,7 +74,7 @@ public class SerialiseAndDeserialise {
         // next elment is right node
         if (!word[++s].equals("n")) {
           // create a a node and put it is current left
-          KthSmallest.TreeNode right = new KthSmallest.TreeNode(Integer.parseInt(word[s]));
+          TreeNode right = new TreeNode(Integer.parseInt(word[s]));
           curr.right = right;
 
           // also add the left

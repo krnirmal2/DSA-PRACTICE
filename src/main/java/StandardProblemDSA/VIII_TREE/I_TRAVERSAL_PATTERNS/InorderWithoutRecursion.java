@@ -1,5 +1,6 @@
 package StandardProblemDSA.VIII_TREE.I_TRAVERSAL_PATTERNS;
 
+import StandardProblemDSA.VIII_TREE.TreeNode;
 import java.util.Stack;
 
 public class InorderWithoutRecursion {
@@ -10,15 +11,6 @@ public class InorderWithoutRecursion {
     Process top node (print/store).
     Move to right child and repeat.
   */
-
-  static class TreeNode {
-    int val;
-    TreeNode left, right;
-
-    TreeNode(int x) {
-      val = x;
-    }
-  }
 
   public static void inorderTraversal(TreeNode root) {
     Stack<TreeNode> stack = new Stack<>();

@@ -1,5 +1,6 @@
 package StandardProblemDSA.VIII_TREE.BST.PARENT_MAP;
 
+import StandardProblemDSA.VIII_TREE.TreeNode;
 import java.util.*;
 
 /*863. All Nodes Distance K in Binary Tree
@@ -27,16 +28,6 @@ target is the value of one of the nodes in the tree.
 public class NodeATDistanceKinUpAndDown {
 
   //    Definition for a binary tree node.
-  private class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode(int x) {
-      val = x;
-    }
-  }
-
   // Approach
   // 1. we will create parent map using BFS each node because from parent need to go all nodes
   // 2. create a visited Map to check if the node has been visited or not

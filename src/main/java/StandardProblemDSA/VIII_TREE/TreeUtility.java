@@ -3,7 +3,7 @@ package StandardProblemDSA.VIII_TREE;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TreeBasicOperation {
+public class TreeUtility {
   static class TreeNode {
     int val;
     TreeNode left;
@@ -17,7 +17,7 @@ public class TreeBasicOperation {
   }
 
   public static class BinaryTree {
-    private TreeNode root;
+    public static TreeNode root;
 
     public BinaryTree() {
       root = null;
@@ -25,10 +25,10 @@ public class TreeBasicOperation {
 
     public static void main(String[] args) {
       BinaryTree tree = new BinaryTree();
-      tree.root = new TreeNode(1);
-      tree.root.left = new TreeNode(2);
-      tree.root.right = new TreeNode(3);
-      tree.root.left.left = new TreeNode(4);
+      root = new TreeNode(1);
+      root.left = new TreeNode(2);
+      root.right = new TreeNode(3);
+      root.left.left = new TreeNode(4);
       tree.root.left.right = new TreeNode(5);
       tree.root.right.left = new TreeNode(6);
       tree.root.right.right = new TreeNode(7);
@@ -54,11 +54,11 @@ public class TreeBasicOperation {
     }
 
     // Method to find the height of the tree
-    public int height() {
+    public static int height() {
       return height(root);
     }
 
-    private int height(TreeNode node) {
+    public static int height(TreeNode node) {
       // if node is null then return 0
       // Else go for left and right and find the maximum amount
       // them with add extra 1 to
@@ -73,7 +73,7 @@ public class TreeBasicOperation {
     }
 
     // Method to find the height of a specific node
-    public int nodeHeight(int val) {
+    public static int nodeHeight(int val) {
       // find the specific noden
       // set the height =1 and then use utility to
       // if node value is matched then return height
@@ -83,7 +83,7 @@ public class TreeBasicOperation {
       return nodeHeight(root, val, 1);
     }
 
-    private int nodeHeight(TreeNode node, int val, int height) {
+    public static int nodeHeight(TreeNode node, int val, int height) {
       if (node == null) return 0;
       if (node.val == val) return height;
 
@@ -95,18 +95,18 @@ public class TreeBasicOperation {
     }
 
     // Method to find the level of a given node in the tree
-    public int nodeLevel(int val) {
+    public static int nodeLevel(int val) {
       // for level of a node just find the height of node and just minus 1 to it
 
       return nodeHeight(val) - 1;
     }
 
     // Method to search for a node in the tree
-    public boolean search(int val) {
+    public static boolean search(int val) {
       return search(root, val);
     }
 
-    private boolean search(TreeNode node, int val) {
+    public static boolean search(TreeNode node, int val) {
       if (node == null) return false;
       if (node.val == val) return true;
 
@@ -114,11 +114,11 @@ public class TreeBasicOperation {
     }
 
     // Method to find the parent of a node
-    private TreeNode findParent(int val) {
+    public static TreeNode findParent(int val) {
       return findParent(root, val);
     }
 
-    private TreeNode findParent(TreeNode node, int val) {
+    public static TreeNode findParent(TreeNode node, int val) {
       if (node == null
           || (node.left != null && node.left.val == val)
           || (node.right != null && node.right.val == val)) return node;
@@ -130,11 +130,11 @@ public class TreeBasicOperation {
     }
 
     // Method to find the diameter of the tree
-    public int diameter() {
+    public static int diameter() {
       return diameter(root);
     }
 
-    private int diameter(TreeNode node) {
+    public static int diameter(TreeNode node) {
       if (node == null) return 0;
       // find the height of the left and right
 
@@ -149,13 +149,13 @@ public class TreeBasicOperation {
     }
 
     // Method to find all leaf nodes
-    public List<Integer> findLeafNodes() {
+    public static List<Integer> findLeafNodes() {
       List<Integer> leafNodes = new ArrayList<>();
       findLeafNodes(root, leafNodes);
       return leafNodes;
     }
 
-    private void findLeafNodes(TreeNode node, List<Integer> leafNodes) {
+    public static void findLeafNodes(TreeNode node, List<Integer> leafNodes) {
       if (node == null) return;
 
       if (node.left == null && node.right == null) leafNodes.add(node.val);
@@ -165,7 +165,7 @@ public class TreeBasicOperation {
     }
 
     // Method to find siblings of a node
-    public List<Integer> findSiblings(int val) {
+    public static List<Integer> findSiblings(int val) {
       List<Integer> siblings = new ArrayList<>();
       TreeNode parent = findParent(val);
       if (parent != null) {
@@ -176,7 +176,7 @@ public class TreeBasicOperation {
     }
 
     // Method to find children of a node
-    public List<Integer> findChildren(int val) {
+    public static List<Integer> findChildren(int val) {
       List<Integer> children = new ArrayList<>();
       TreeNode node = findNode(root, val);
       if (node != null) {
@@ -186,7 +186,7 @@ public class TreeBasicOperation {
       return children;
     }
 
-    private TreeNode findNode(TreeNode node, int val) {
+    public static TreeNode findNode(TreeNode node, int val) {
       if (node == null) return null;
       if (node.val == val) return node;
       TreeNode left = findNode(node.left, val);
@@ -195,12 +195,12 @@ public class TreeBasicOperation {
     }
 
     // Tree Traversals: Inorder, Preorder and Postorder
-    public void inorderTraversal() {
+    public static void inorderTraversal() {
       inorderTraversal(root);
       System.out.println();
     }
 
-    private void inorderTraversal(TreeNode node) {
+    public static void inorderTraversal(TreeNode node) {
       if (node != null) {
         inorderTraversal(node.left);
         System.out.print(node.val + " ");
@@ -208,12 +208,12 @@ public class TreeBasicOperation {
       }
     }
 
-    public void preorderTraversal() {
+    public static void preorderTraversal() {
       preorderTraversal(root);
       System.out.println();
     }
 
-    private void preorderTraversal(TreeNode node) {
+    public static void preorderTraversal(TreeNode node) {
       if (node != null) {
         System.out.print(node.val + " ");
         preorderTraversal(node.left);
@@ -221,17 +221,47 @@ public class TreeBasicOperation {
       }
     }
 
-    public void postorderTraversal() {
+    public static void postorderTraversal() {
       postorderTraversal(root);
       System.out.println();
     }
 
-    private void postorderTraversal(TreeNode node) {
+    public static void postorderTraversal(TreeNode node) {
       if (node != null) {
         postorderTraversal(node.left);
         postorderTraversal(node.right);
         System.out.print(node.val + " ");
       }
     }
+  }
+
+  // ---------------------------------------------------
+  // 1. Check if Two Trees are Identical
+  // ---------------------------------------------------
+  /*
+    Problem Statement:
+       Determine whether two binary trees are identical (structure and node values are the same).
+
+    Brute Force Idea:
+       - Traverse both trees simultaneously (e.g., in preorder) and compare nodes.
+
+    Optimal Approach:
+       - Use recursion: if both nodes are null, they are identical; if one is null or values differ, they are not.
+
+    Time Complexity: O(n) where n is the number of nodes in the smaller tree.
+
+    Example:
+       Tree A:       1         Tree B:       1
+                   /   \                   /   \
+                  2     3                 2     3
+       They are identical.
+  */
+  public static boolean isIdentical(
+      StandardProblemDSA.VIII_TREE.TreeNode root1, StandardProblemDSA.VIII_TREE.TreeNode root2) {
+    if (root1 == null && root2 == null) return true;
+    if (root1 == null || root2 == null) return false;
+    return (root1.val == root2.val)
+        && isIdentical(root1.left, root2.left)
+        && isIdentical(root1.right, root2.right);
   }
 }

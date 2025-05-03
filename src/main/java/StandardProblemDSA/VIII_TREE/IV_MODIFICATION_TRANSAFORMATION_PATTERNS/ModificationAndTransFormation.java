@@ -1,20 +1,8 @@
 package StandardProblemDSA.VIII_TREE.IV_MODIFICATION_TRANSAFORMATION_PATTERNS;
 
+import StandardProblemDSA.VIII_TREE.TreeNode;
+
 class TreeOperations {
-
-  // ---------------------------------------------------
-  // Definition for a binary tree node.
-  // ---------------------------------------------------
-  class TreeNode {
-    int val;
-    TreeNode left, right;
-
-    TreeNode(int x) {
-      val = x;
-      left = right = null;
-    }
-  }
-
   // ---------------------------------------------------
   // 1. Flatten Tree to Linked List
   // ---------------------------------------------------
@@ -41,7 +29,7 @@ class TreeOperations {
              3   4   6
        Output (right chain): 1 -> 2 -> 3 -> 4 -> 5 -> 6
   */
-  public void flatten(TreeNode root) {
+  public static void flatten(TreeNode root) {
     if (root == null) return;
     flatten(root.left);
     flatten(root.right);
@@ -83,7 +71,7 @@ class TreeOperations {
               / \ / \
              9  6 3  1
   */
-  public TreeNode invertTree(TreeNode root) {
+  public static TreeNode invertTree(TreeNode root) {
     if (root == null) return null;
     TreeNode tmp = root.left;
     root.left = invertTree(root.right);
@@ -116,7 +104,7 @@ class TreeOperations {
        3   7                  7   15
   */
   // Right rotation (rotate around given root)
-  public TreeNode rotateRight(TreeNode root) {
+  public static TreeNode rotateRight(TreeNode root) {
     if (root == null || root.left == null) return root;
     TreeNode newRoot = root.left;
     root.left = newRoot.right;
@@ -160,9 +148,9 @@ class TreeOperations {
              3   7     30
        Output DLL (in-order): 3 <-> 5 <-> 7 <-> 10 <-> 20 <-> 30
   */
-  TreeNode prev = null; // Global pointer for DLL conversion
+  static TreeNode prev = null; // Global pointer for DLL conversion
 
-  public TreeNode convertToDoublyLinkedList(TreeNode root) {
+  public static TreeNode convertToDoublyLinkedList(TreeNode root) {
     if (root == null) return null;
     // Convert left subtree
     TreeNode head = convertToDoublyLinkedList(root.left);
@@ -214,7 +202,7 @@ class TreeOperations {
               /
              1
   */
-  public TreeNode trimBST(TreeNode root, int L, int R) {
+  public static TreeNode trimBST(TreeNode root, int L, int R) {
     if (root == null) return null;
     if (root.val < L) return trimBST(root.right, L, R);
     if (root.val > R) return trimBST(root.left, L, R);
@@ -235,16 +223,16 @@ class TreeOperations {
     //       5    20
     //      / \     \
     //     3   7     30
-    TreeNode root = ops.new TreeNode(10);
-    root.left = ops.new TreeNode(5);
-    root.right = ops.new TreeNode(20);
-    root.left.left = ops.new TreeNode(3);
-    root.left.right = ops.new TreeNode(7);
-    root.right.right = ops.new TreeNode(30);
+    TreeNode root = new TreeNode(10);
+    root.left = new TreeNode(5);
+    root.right = new TreeNode(20);
+    root.left.left = new TreeNode(3);
+    root.left.right = new TreeNode(7);
+    root.right.right = new TreeNode(30);
 
     // 1. Flatten Tree to Linked List
     System.out.println("Flatten Tree to Linked List (pre-order linked list using right pointers):");
-    ops.flatten(root);
+    flatten(root);
     TreeNode curr = root;
     while (curr != null) {
       System.out.print(curr.val + " ");
@@ -253,38 +241,38 @@ class TreeOperations {
     System.out.println("\n");
 
     // Rebuild tree for further operations.
-    root = ops.new TreeNode(10);
-    root.left = ops.new TreeNode(5);
-    root.right = ops.new TreeNode(20);
-    root.left.left = ops.new TreeNode(3);
-    root.left.right = ops.new TreeNode(7);
-    root.right.right = ops.new TreeNode(30);
+    root = new TreeNode(10);
+    root.left = new TreeNode(5);
+    root.right = new TreeNode(20);
+    root.left.left = new TreeNode(3);
+    root.left.right = new TreeNode(7);
+    root.right.right = new TreeNode(30);
 
     // 2. Mirror/Invert Binary Tree
     System.out.println("Mirror/Invert Binary Tree (preorder):");
-    TreeNode inverted = ops.invertTree(root);
+    TreeNode inverted = invertTree(root);
     printPreorder(inverted);
     System.out.println("\n");
 
     // 3. Rotate Tree: Perform a right rotation at root (if applicable)
     System.out.println("Right Rotation at Root:");
     // For right rotation, root must have a left child.
-    TreeNode rotatedRight = ops.rotateRight(inverted);
+    TreeNode rotatedRight = rotateRight(inverted);
     printPreorder(rotatedRight);
     System.out.println("\n");
 
     // 4. Convert Binary Tree to Doubly Linked List
     // Rebuild a simple tree.
-    root = ops.new TreeNode(10);
-    root.left = ops.new TreeNode(5);
-    root.right = ops.new TreeNode(20);
-    root.left.left = ops.new TreeNode(3);
-    root.left.right = ops.new TreeNode(7);
-    root.right.right = ops.new TreeNode(30);
+    root = new TreeNode(10);
+    root.left = new TreeNode(5);
+    root.right = new TreeNode(20);
+    root.left.left = new TreeNode(3);
+    root.left.right = new TreeNode(7);
+    root.right.right = new TreeNode(30);
     System.out.println("Convert Binary Tree to Doubly Linked List (In-Order):");
     // Reset the global pointer 'prev'
-    ops.prev = null;
-    TreeNode dllHead = ops.convertToDoublyLinkedList(root);
+    prev = null;
+    TreeNode dllHead = convertToDoublyLinkedList(root);
     TreeNode temp = dllHead;
     // Print DLL forward.
     while (temp != null) {
@@ -301,13 +289,13 @@ class TreeOperations {
     //       5    20
     //      / \     \
     //     3   7     30
-    root = ops.new TreeNode(10);
-    root.left = ops.new TreeNode(5);
-    root.right = ops.new TreeNode(20);
-    root.left.left = ops.new TreeNode(3);
-    root.left.right = ops.new TreeNode(7);
-    root.right.right = ops.new TreeNode(30);
-    TreeNode trimmed = ops.trimBST(root, 5, 20);
+    root = new TreeNode(10);
+    root.left = new TreeNode(5);
+    root.right = new TreeNode(20);
+    root.left.left = new TreeNode(3);
+    root.left.right = new TreeNode(7);
+    root.right.right = new TreeNode(30);
+    TreeNode trimmed = trimBST(root, 5, 20);
     printPreorder(trimmed);
     System.out.println();
   }

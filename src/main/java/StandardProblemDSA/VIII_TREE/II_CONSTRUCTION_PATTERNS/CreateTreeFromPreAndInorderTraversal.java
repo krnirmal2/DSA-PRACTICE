@@ -1,8 +1,10 @@
 package StandardProblemDSA.VIII_TREE.II_CONSTRUCTION_PATTERNS;
 
+import StandardProblemDSA.VIII_TREE.TreeNode;
+
 public class CreateTreeFromPreAndInorderTraversal {
   public static void main(String[] args) {
-    // array of PreNode
+    // array of PreTreeNode
     char[] preOrders = new char[] {'A', 'B', 'D', 'E', 'C', 'F'};
     char[] inOrders = new char[] {'A', 'B', 'D', 'E', 'C', 'F'};
     int lengthOfInorder = inOrders.length;
@@ -14,23 +16,23 @@ public class CreateTreeFromPreAndInorderTraversal {
     t.buildTree(inOrders, preOrders, firstIndexOfInOrders, lastIndexOfInOrders);
   }
 
-  private Node buildTree(
+  private TreeNode buildTree(
       char[] inOrders, char[] preOrders, int firstIndexOfInOrders, int lastIndexOfInOrders) {
 
     if (firstIndexOfInOrders > lastIndexOfInOrders) return null;
 
-    // create the node for initiation
-    Node tNode = new Node(preOrders[2]);
+    // create the TreeNode for initiation
+    TreeNode TreeNode = new TreeNode(preOrders[2]);
 
     // now find the index of the element of reorder
     int inOrderIndex =
-        SearchIndexInorder(inOrders, firstIndexOfInOrders, lastIndexOfInOrders, tNode.val);
+        SearchIndexInorder(inOrders, firstIndexOfInOrders, lastIndexOfInOrders, TreeNode.val);
 
     // set two  left and right subtree
-    tNode.left = buildTree(inOrders, preOrders, inOrderIndex - 1, lastIndexOfInOrders);
-    tNode.right = buildTree(inOrders, preOrders, inOrderIndex, lastIndexOfInOrders + 1);
+    TreeNode.left = buildTree(inOrders, preOrders, inOrderIndex - 1, lastIndexOfInOrders);
+    TreeNode.right = buildTree(inOrders, preOrders, inOrderIndex, lastIndexOfInOrders + 1);
 
-    return tNode;
+    return TreeNode;
   }
 
   private int SearchIndexInorder(
@@ -41,22 +43,7 @@ public class CreateTreeFromPreAndInorderTraversal {
       if (val == inOrders[i]) {
         return i;
       }
-      //
-
     }
     return firstIndexOfInOrders;
-  }
-
-  // class for Tree  node
-  public static class Node {
-    int val;
-    Node left;
-    Node right;
-
-    public Node(int val) {
-      this.val = val;
-      this.left = null;
-      this.right = null;
-    }
   }
 }

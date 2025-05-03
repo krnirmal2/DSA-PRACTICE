@@ -1,0 +1,109 @@
+package StandardProblemDSA.VIII_TREE.BST;
+
+import StandardProblemDSA.VIII_TREE.TreeNode;
+
+public class BSTutility {
+
+  public static void inorderRecursive(TreeNode root) {
+    if (root != null) {
+      inorderRecursive(root.left);
+      System.out.print(root.val + " ");
+      inorderRecursive(root.right);
+    }
+  }
+
+  public static boolean searchRecursiveBST(TreeNode root, int val) {
+    if (root == null) {
+      return false;
+    }
+
+    if (root.val == val) {
+      return true;
+    } else if (val < root.val) {
+      return searchRecursiveBST(root.left, val);
+    } else {
+      return searchRecursiveBST(root.right, val);
+    }
+  }
+
+  public static TreeNode insertRecursiveBST(TreeNode root, int val) {
+    if (root == null) {
+      return new TreeNode(val);
+    }
+
+    if (val < root.val) {
+      root.left = insertRecursiveBST(root.left, val);
+    } else if (val > root.val) {
+      root.right = insertRecursiveBST(root.right, val);
+    }
+
+    return root;
+  }
+
+  public static TreeNode deleteRecursiveBst(TreeNode root, int val) {
+    if (root == null) {
+      return null;
+    }
+
+    if (val < root.val) {
+      root.left = deleteRecursiveBst(root.left, val);
+    } else if (val > root.val) {
+      root.right = deleteRecursiveBst(root.right, val);
+    } else {
+      if (root.left == null) {
+        return root.right;
+      } else if (root.right == null) {
+        return root.left;
+      }
+
+      root.val = minValue(root.right);
+      root.right = deleteRecursiveBst(root.right, root.val);
+    }
+
+    return root;
+  }
+
+  public static int minValue(TreeNode root) {
+    int minValue = root.val;
+    while (root.left != null) {
+      minValue = root.left.val;
+      root = root.left;
+    }
+    return minValue;
+  }
+
+  public static TreeNode constructBSTUtil(int[] preOrder, int start, int end) {
+    if (start > end) {
+      return null;
+    }
+
+    TreeNode node = new TreeNode(preOrder[start]);
+    int i;
+    for (i = start; i <= end; i++) {
+      if (preOrder[i] > node.val) {
+        break;
+      }
+    }
+
+    node.left = constructBSTUtil(preOrder, start + 1, i - 1);
+    node.right = constructBSTUtil(preOrder, i, end);
+
+    return node;
+  }
+
+  public static boolean validateBST(TreeNode node, long lower, long upper) {
+    if (node == null) return true;
+    if (node.val <= lower || node.val >= upper) return false;
+    return validateBST(node.left, lower, node.val) && validateBST(node.right, node.val, upper);
+  }
+
+  public static int height(TreeNode node) {
+    if (node == null) return 0;
+    int leftHeight = height(node.left);
+    if (leftHeight == -1) return -1;
+    int rightHeight = height(node.right);
+    if (rightHeight == -1) return -1;
+    if (Math.abs(leftHeight - rightHeight) > 1) return -1;
+    return Math.max(leftHeight, rightHeight) + 1;
+  }
+}

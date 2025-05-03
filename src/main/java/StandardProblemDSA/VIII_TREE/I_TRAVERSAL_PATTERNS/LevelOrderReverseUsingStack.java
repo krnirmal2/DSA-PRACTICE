@@ -1,31 +1,9 @@
 package StandardProblemDSA.VIII_TREE.I_TRAVERSAL_PATTERNS;
 
+import StandardProblemDSA.VIII_TREE.TreeNode;
 import java.util.*;
 
-public class LevelOrderReverseUsingStack {}
-
-/*
-4️⃣ Level Order Traversal Using Stack (Reverse BFS)
-(Bottom-Up Level Order)
-        🔹 Steps:
-Use queue for BFS traversal.
-
-Use stack to store traversal order.
-
-Pop from stack to get bottom-up order.
-
-*/
-
-class LevelOrderReverse {
-  static class TreeNode {
-    int val;
-    TreeNode left, right;
-
-    TreeNode(int x) {
-      val = x;
-    }
-  }
-
+public class LevelOrderReverseUsingStack {
   public static void levelOrderReverse(TreeNode root) {
     if (root == null) return;
 
@@ -61,3 +39,13 @@ class LevelOrderReverse {
         Copy
 Edit
 4 5 6 2 3 1*/
+
+/*
+4️⃣ Level Order Traversal Using Stack (Reverse BFS)
+(Bottom-Up Level Order)
+        🔹 Steps:
+Use queue for BFS traversal.
+Use stack to store traversal order.
+Pop from stack to get bottom-up order.
+
+*/

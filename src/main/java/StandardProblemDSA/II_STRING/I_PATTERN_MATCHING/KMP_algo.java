@@ -10,14 +10,18 @@ public class KMP_algo {
   }
 
   private static int[] computePatternLps(String pat) {
+    // store the pattern length
     int m = pat.length();
+    // create the lps integer array for pattern legth
     int[] lps = new int[m];
 
     int j = 0, // length of the previous longest prefix suffix
         i = 1; // start comparing from index 1 )since LPS of index 0 is alwasy 0
 
-    // build the lps
+    // build the lps till pattern length end
     while (i < m) {
+      // if pattern at privious and current is equal then store the longest prefix which is also
+      // suffix
       if (pat.charAt(i) == pat.charAt(j)) {
         j++;
         lps[i] = j; // Store the length of the longest prefix which is also a suffix

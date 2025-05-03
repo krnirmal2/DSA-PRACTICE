@@ -1,26 +1,9 @@
 package StandardProblemDSA.VIII_TREE.BST.Kth_SMALLEST_LARGEST;
 
+import StandardProblemDSA.VIII_TREE.TreeNode;
 import java.util.Stack;
 
 public class KthSmallest {
-
-  public static class TreeNode {
-    public int val;
-    public TreeNode left;
-    public TreeNode right;
-
-    TreeNode() {}
-
-    public TreeNode(int val) {
-      this.val = val;
-    }
-
-    TreeNode(int val, TreeNode left, TreeNode right) {
-      this.val = val;
-      this.left = left;
-      this.right = right;
-    }
-  }
 
   class Solution {
     public int kthSmallest(TreeNode root, int k) {

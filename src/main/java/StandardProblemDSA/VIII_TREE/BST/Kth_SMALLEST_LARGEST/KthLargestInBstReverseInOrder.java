@@ -1,5 +1,7 @@
 package StandardProblemDSA.VIII_TREE.BST.Kth_SMALLEST_LARGEST;
 
+import StandardProblemDSA.VIII_TREE.TreeNode;
+
 public class KthLargestInBstReverseInOrder {
 
   // ---------------------------------------------------
@@ -27,16 +29,6 @@ public class KthLargestInBstReverseInOrder {
              2   4   8
        For k = 2, kth largest is 7.
   */
-  // BST Node definition (reuse TreeNode from previous section)
-  public static class TreeNode {
-    int val;
-    TreeNode left, right;
-
-    TreeNode(int x) {
-      val = x;
-      left = right = null;
-    }
-  }
 
   // Helper for kth largest in BST
   private int count = 0;

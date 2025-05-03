@@ -1,25 +1,15 @@
 package StandardProblemDSA.VIII_TREE.I_TRAVERSAL_PATTERNS;
 
+import StandardProblemDSA.VIII_TREE.TreeNode;
 import java.util.Stack;
 
 class PostorderTraversal {
-  static class TreeNode {
-    int val;
-    TreeNode left, right;
-
-    TreeNode(int x) {
-      val = x;
-    }
-  }
 
   /*(Left → Right → Root)
   🔹 Steps:
   Use two stacks:
-
   stack1 (process nodes like Preorder)
-
   stack2 (reverse order for Postorder)
-
   Pop from stack2 to print result.*/
   public static void postorderTraversal(TreeNode root) {
     if (root == null) return;

@@ -1,23 +1,13 @@
 package StandardProblemDSA.VIII_TREE.I_TRAVERSAL_PATTERNS;
 
+import StandardProblemDSA.VIII_TREE.TreeNode;
 import java.util.Stack;
 
 public class PreOrderWithOutRecursion {
-  static class TreeNode {
-    int val;
-    TreeNode left, right;
-
-    TreeNode(int x) {
-      val = x;
-    }
-  }
-
   /*(Root → Left → Right)
           🔹 Steps:
   Push root to stack.
-
   Process node (print/store).
-
   Push right, then left child.*/
   public static void preorderTraversal(TreeNode root) {
     if (root == null) return;

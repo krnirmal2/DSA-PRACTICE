@@ -1,48 +1,14 @@
 package StandardProblemDSA.VIII_TREE.V_VALIDATION_AND_PROPERTY_CHECKING_PATTERN;
 
+import static StandardProblemDSA.VIII_TREE.BST.BSTutility.height;
+import static StandardProblemDSA.VIII_TREE.BST.BSTutility.validateBST;
+import static StandardProblemDSA.VIII_TREE.TreeUtility.isIdentical;
+
+import StandardProblemDSA.VIII_TREE.TreeNode;
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class TreeCheckOperations {
-
-  // ---------------------------------------------------
-  // Definition for a binary tree node.
-  // ---------------------------------------------------
-  class TreeNode {
-    int val;
-    TreeNode left, right;
-
-    TreeNode(int x) {
-      val = x;
-      left = right = null;
-    }
-  }
-
-  // ---------------------------------------------------
-  // 1. Check if Two Trees are Identical
-  // ---------------------------------------------------
-  /*
-    Problem Statement:
-       Determine whether two binary trees are identical (structure and node values are the same).
-
-    Brute Force Idea:
-       - Traverse both trees simultaneously (e.g., in preorder) and compare nodes.
-
-    Optimal Approach:
-       - Use recursion: if both nodes are null, they are identical; if one is null or values differ, they are not.
-
-    Time Complexity: O(n) where n is the number of nodes in the smaller tree.
-
-    Example:
-       Tree A:       1         Tree B:       1
-                   /   \                   /   \
-                  2     3                 2     3
-       They are identical.
-  */
-  public boolean isIdentical(TreeNode root1, TreeNode root2) {
-    if (root1 == null && root2 == null) return true;
-    if (root1 == null || root2 == null) return false;
-    return (root1.val == root2.val)
-        && isIdentical(root1.left, root2.left)
-        && isIdentical(root1.right, root2.right);
-  }
 
   // ---------------------------------------------------
   // 2. Check if Tree is Symmetric
@@ -71,12 +37,12 @@ public class TreeCheckOperations {
        This tree is not symmetric because the left and right subtrees differ.
        A symmetric example would have both subtrees matching.
   */
-  public boolean isSymmetric(TreeNode root) {
+  public static boolean isSymmetric(TreeNode root) {
     if (root == null) return true;
     return isMirror(root.left, root.right);
   }
 
-  private boolean isMirror(TreeNode t1, TreeNode t2) {
+  private static boolean isMirror(TreeNode t1, TreeNode t2) {
     if (t1 == null && t2 == null) return true;
     if (t1 == null || t2 == null) return false;
     return (t1.val == t2.val) && isMirror(t1.left, t2.right) && isMirror(t1.right, t2.left);
@@ -105,14 +71,8 @@ public class TreeCheckOperations {
             3   7
        This tree is a valid BST.
   */
-  public boolean isValidBST(TreeNode root) {
+  public static boolean isValidBST(TreeNode root) {
     return validateBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
-  }
-
-  private boolean validateBST(TreeNode node, long lower, long upper) {
-    if (node == null) return true;
-    if (node.val <= lower || node.val >= upper) return false;
-    return validateBST(node.left, lower, node.val) && validateBST(node.right, node.val, upper);
   }
 
   // ---------------------------------------------------
@@ -139,7 +99,7 @@ public class TreeCheckOperations {
             1   2
        T is a subtree of S.
   */
-  public boolean isSubtree(TreeNode s, TreeNode t) {
+  public static boolean isSubtree(TreeNode s, TreeNode t) {
     if (s == null) return t == null;
     if (isIdentical(s, t)) return true;
     return isSubtree(s.left, t) || isSubtree(s.right, t);
@@ -169,18 +129,8 @@ public class TreeCheckOperations {
           4
        This tree is balanced if the height difference is ≤ 1 at every node.
   */
-  public boolean isBalanced(TreeNode root) {
+  public static boolean isBalanced(TreeNode root) {
     return height(root) != -1;
-  }
-
-  private int height(TreeNode node) {
-    if (node == null) return 0;
-    int leftHeight = height(node.left);
-    if (leftHeight == -1) return -1;
-    int rightHeight = height(node.right);
-    if (rightHeight == -1) return -1;
-    if (Math.abs(leftHeight - rightHeight) > 1) return -1;
-    return Math.max(leftHeight, rightHeight) + 1;
   }
 
   // ---------------------------------------------------
@@ -214,9 +164,9 @@ public class TreeCheckOperations {
            / \ / \
           4  5 6  7
   */
-  public boolean isComplete(TreeNode root) {
+  public static boolean isComplete(TreeNode root) {
     if (root == null) return true;
-    java.util.Queue<TreeNode> queue = new java.util.LinkedList<>();
+    Queue<TreeNode> queue = new LinkedList<>();
     queue.offer(root);
     boolean end = false;
     while (!queue.isEmpty()) {
@@ -232,7 +182,7 @@ public class TreeCheckOperations {
     return true;
   }
 
-  public boolean isFull(TreeNode root) {
+  public static boolean isFull(TreeNode root) {
     if (root == null) return true;
     if ((root.left == null && root.right != null) || (root.left != null && root.right == null))
       return false;
@@ -252,21 +202,21 @@ public class TreeCheckOperations {
     //      2   3
     //     / \
     //    4   5
-    TreeNode tree1 = ops.new TreeNode(1);
-    tree1.left = ops.new TreeNode(2);
-    tree1.right = ops.new TreeNode(3);
-    tree1.left.left = ops.new TreeNode(4);
-    tree1.left.right = ops.new TreeNode(5);
+    TreeNode tree1 = new TreeNode(1);
+    tree1.left = new TreeNode(2);
+    tree1.right = new TreeNode(3);
+    tree1.left.left = new TreeNode(4);
+    tree1.left.right = new TreeNode(5);
 
     // Clone tree1 for identical check.
-    TreeNode tree1Clone = ops.new TreeNode(1);
-    tree1Clone.left = ops.new TreeNode(2);
-    tree1Clone.right = ops.new TreeNode(3);
-    tree1Clone.left.left = ops.new TreeNode(4);
-    tree1Clone.left.right = ops.new TreeNode(5);
+    TreeNode tree1Clone = new TreeNode(1);
+    tree1Clone.left = new TreeNode(2);
+    tree1Clone.right = new TreeNode(3);
+    tree1Clone.left.left = new TreeNode(4);
+    tree1Clone.left.right = new TreeNode(5);
 
     // 1. Check if Two Trees are Identical
-    boolean identical = ops.isIdentical(tree1, tree1Clone);
+    boolean identical = isIdentical(tree1, tree1Clone);
     System.out.println("Tree1 and its clone are identical: " + identical);
 
     // 2. Check if Tree is Symmetric
@@ -276,12 +226,12 @@ public class TreeCheckOperations {
     //       2   2
     //      /     \
     //     3       3
-    TreeNode symmetricTree = ops.new TreeNode(1);
-    symmetricTree.left = ops.new TreeNode(2);
-    symmetricTree.right = ops.new TreeNode(2);
-    symmetricTree.left.left = ops.new TreeNode(3);
-    symmetricTree.right.right = ops.new TreeNode(3);
-    boolean symmetric = ops.isSymmetric(symmetricTree);
+    TreeNode symmetricTree = new TreeNode(1);
+    symmetricTree.left = new TreeNode(2);
+    symmetricTree.right = new TreeNode(2);
+    symmetricTree.left.left = new TreeNode(3);
+    symmetricTree.right.right = new TreeNode(3);
+    boolean symmetric = isSymmetric(symmetricTree);
     System.out.println("The tree is symmetric: " + symmetric);
 
     // 3. Validate Binary Search Tree (BST)
@@ -291,13 +241,13 @@ public class TreeCheckOperations {
     //       3   7
     //      / \   \
     //     2   4   8
-    TreeNode bst = ops.new TreeNode(5);
-    bst.left = ops.new TreeNode(3);
-    bst.right = ops.new TreeNode(7);
-    bst.left.left = ops.new TreeNode(2);
-    bst.left.right = ops.new TreeNode(4);
-    bst.right.right = ops.new TreeNode(8);
-    boolean validBST = ops.isValidBST(bst);
+    TreeNode bst = new TreeNode(5);
+    bst.left = new TreeNode(3);
+    bst.right = new TreeNode(7);
+    bst.left.left = new TreeNode(2);
+    bst.left.right = new TreeNode(4);
+    bst.right.right = new TreeNode(8);
+    boolean validBST = isValidBST(bst);
     System.out.println("The BST is valid: " + validBST);
 
     // 4. Subtree of Another Tree
@@ -306,14 +256,14 @@ public class TreeCheckOperations {
     //       3
     //      / \
     //     2   4
-    TreeNode t = ops.new TreeNode(3);
-    t.left = ops.new TreeNode(2);
-    t.right = ops.new TreeNode(4);
-    boolean isSub = ops.isSubtree(bst, t);
+    TreeNode t = new TreeNode(3);
+    t.left = new TreeNode(2);
+    t.right = new TreeNode(4);
+    boolean isSub = isSubtree(bst, t);
     System.out.println("t is a subtree of bst: " + isSub);
 
     // 5. Check if Tree is Balanced
-    boolean balanced = ops.isBalanced(tree1);
+    boolean balanced = isBalanced(tree1);
     System.out.println("Tree1 is balanced: " + balanced);
 
     // 6. Check if Tree is Complete or Full
@@ -323,13 +273,13 @@ public class TreeCheckOperations {
     //      2   3
     //     / \  /
     //    4  5 6
-    TreeNode completeTree = ops.new TreeNode(1);
-    completeTree.left = ops.new TreeNode(2);
-    completeTree.right = ops.new TreeNode(3);
-    completeTree.left.left = ops.new TreeNode(4);
-    completeTree.left.right = ops.new TreeNode(5);
-    completeTree.right.left = ops.new TreeNode(6);
-    boolean complete = ops.isComplete(completeTree);
+    TreeNode completeTree = new TreeNode(1);
+    completeTree.left = new TreeNode(2);
+    completeTree.right = new TreeNode(3);
+    completeTree.left.left = new TreeNode(4);
+    completeTree.left.right = new TreeNode(5);
+    completeTree.right.left = new TreeNode(6);
+    boolean complete = isComplete(completeTree);
     System.out.println("The tree is complete: " + complete);
 
     // Full Tree example:
@@ -338,14 +288,14 @@ public class TreeCheckOperations {
     //      2   3
     //     / \ / \
     //    4  5 6  7
-    TreeNode fullTree = ops.new TreeNode(1);
-    fullTree.left = ops.new TreeNode(2);
-    fullTree.right = ops.new TreeNode(3);
-    fullTree.left.left = ops.new TreeNode(4);
-    fullTree.left.right = ops.new TreeNode(5);
-    fullTree.right.left = ops.new TreeNode(6);
-    fullTree.right.right = ops.new TreeNode(7);
-    boolean full = ops.isFull(fullTree);
+    TreeNode fullTree = new TreeNode(1);
+    fullTree.left = new TreeNode(2);
+    fullTree.right = new TreeNode(3);
+    fullTree.left.left = new TreeNode(4);
+    fullTree.left.right = new TreeNode(5);
+    fullTree.right.left = new TreeNode(6);
+    fullTree.right.right = new TreeNode(7);
+    boolean full = isFull(fullTree);
     System.out.println("The tree is full: " + full);
   }
 }

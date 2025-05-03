@@ -1,5 +1,6 @@
 package StandardProblemDSA.VIII_TREE.I_TRAVERSAL_PATTERNS;
 
+import StandardProblemDSA.VIII_TREE.TreeNode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +8,7 @@ public class VerticalTraversing {
 
   // A utility function to find min and max
   // distances with respect to root.
-  static void findMinMax(Nodes node, int[] minMax, int hd) {
+  static void findMinMax(TreeNode node, int[] minMax, int hd) {
 
     // Base case
     if (node == null) return;
@@ -22,22 +23,22 @@ public class VerticalTraversing {
   }
 
   // A utility function to collect all
-  // nodes on a given vertical line_no.
-  static void collectVerticalLine(Nodes node, int lineNo, int hd, List<Integer> result) {
+  // TreeNode on a given vertical line_no.
+  static void collectVerticalLine(TreeNode node, int lineNo, int hd, List<Integer> result) {
     // Base case
     if (node == null) return;
 
     // If this node is on the given vertical line
-    if (hd == lineNo) result.add(node.data);
+    if (hd == lineNo) result.add(node.val);
 
     // Recur for left and right subtrees
     collectVerticalLine(node.left, lineNo, hd - 1, result);
     collectVerticalLine(node.right, lineNo, hd + 1, result);
   }
 
-  // The main function that returns a list of nodes
+  // The main function that returns a list of TreeNode
   // in vertical order
-  static List<Integer> verticalOrder(Nodes root) {
+  static List<Integer> verticalOrder(TreeNode root) {
     List<Integer> result = new ArrayList<>();
 
     // Find min and max distances with respect to root
@@ -64,15 +65,15 @@ public class VerticalTraversing {
     //              \   \
     //               8   9
 
-    Nodes root = new Nodes(1);
-    root.left = new Nodes(2);
-    root.right = new Nodes(3);
-    root.left.left = new Nodes(4);
-    root.left.right = new Nodes(5);
-    root.right.left = new Nodes(6);
-    root.right.right = new Nodes(7);
-    root.right.left.right = new Nodes(8);
-    root.right.right.right = new Nodes(9);
+    TreeNode root = new TreeNode(1);
+    root.left = new TreeNode(2);
+    root.right = new TreeNode(3);
+    root.left.left = new TreeNode(4);
+    root.left.right = new TreeNode(5);
+    root.right.left = new TreeNode(6);
+    root.right.right = new TreeNode(7);
+    root.right.left.right = new TreeNode(8);
+    root.right.right.right = new TreeNode(9);
 
     List<Integer> result = verticalOrder(root);
 
@@ -80,16 +81,5 @@ public class VerticalTraversing {
       System.out.print(val + " ");
     }
     System.out.println();
-  }
-}
-
-class Nodes {
-  int data;
-  Nodes left, right;
-
-  Nodes(int x) {
-    data = x;
-    left = null;
-    right = null;
   }
 }
