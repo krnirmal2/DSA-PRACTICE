@@ -1,5 +1,6 @@
 package StandardProblemDSA.II_STRING.II_SEARCH_AND_REPLACE;
 
+import StandardProblemDSA.II_STRING.StringUtility;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,30 +51,6 @@ public class StringSearchReplaceKMP {
    * @param pattern The pattern string.
    * @return The LPS array.
    */
-  private static int[] computeLPSArray(String pattern) {
-    int patternLength = pattern.length();
-    int[] lpsArray = new int[patternLength];
-
-    int prefixSuffixLength = 0; // Length of the previous longest prefix suffix
-    int currentIndex = 1; // Start comparing from index 1 (LPS of index 0 is always 0)
-
-    while (currentIndex < patternLength) {
-      if (pattern.charAt(currentIndex) == pattern.charAt(prefixSuffixLength)) {
-        prefixSuffixLength++;
-        lpsArray[currentIndex] = prefixSuffixLength;
-        currentIndex++;
-      } else {
-        if (prefixSuffixLength != 0) {
-          prefixSuffixLength =
-              lpsArray[prefixSuffixLength - 1]; // Move back to the previous LPS value
-        } else {
-          lpsArray[currentIndex] = 0; // No prefix suffix match, assign 0
-          currentIndex++;
-        }
-      }
-    }
-    return lpsArray;
-  }
 
   /**
    * Finds the first and last occurrence of a pattern in a text using KMP.
@@ -89,7 +66,8 @@ public class StringSearchReplaceKMP {
   private static void findFirstAndLastOccurrenceKMP(String patternToFind, String mainText) {
     int textLength = mainText.length();
     int patternLength = patternToFind.length();
-    int[] lpsArray = computeLPSArray(patternToFind);
+    // Step 1 : compute lps array
+    int[] lpsArray = StringUtility.computePatternLps(patternToFind);
     int textIndex = 0, patternIndex = 0;
     int firstOccurrenceIndex = -1, lastOccurrenceIndex = -1;
 
@@ -149,7 +127,7 @@ public class StringSearchReplaceKMP {
   private static int findOccurrenceKMP(String mainText, String patternToFind, boolean findFirst) {
     int textLength = mainText.length();
     int patternLength = patternToFind.length();
-    int[] lpsArray = computeLPSArray(patternToFind);
+    int[] lpsArray = StringUtility.computePatternLps(patternToFind);
     int textIndex = 0, patternIndex = 0;
     int occurrenceIndex = -1;
 
@@ -190,7 +168,8 @@ public class StringSearchReplaceKMP {
   public static List<Integer> findAllOccurrencesKMP(String mainText, String patternToFind) {
     int textLength = mainText.length();
     int patternLength = patternToFind.length();
-    int[] lpsArray = computeLPSArray(patternToFind);
+    // String compute lps array
+    int[] lpsArray = StringUtility.computePatternLps(patternToFind);
     int textIndex = 0, patternIndex = 0;
     List<Integer> occurrences = new ArrayList<>();
 

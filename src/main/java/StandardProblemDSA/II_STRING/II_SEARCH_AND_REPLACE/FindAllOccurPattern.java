@@ -1,41 +1,22 @@
 package StandardProblemDSA.II_STRING.II_SEARCH_AND_REPLACE;
 
+import StandardProblemDSA.II_STRING.StringUtility;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FindAllOccurPattern {
 
-  public static int[] computeLPS(String pattern) {
-    int m = pattern.length();
-    int[] lps = new int[m];
-    int j = 0;
-    int i = 1;
-
-    while (i < m) {
-      if (pattern.charAt(i) == pattern.charAt(j)) {
-        j++;
-        lps[i] = j;
-        i++;
-      } else {
-        if (j != 0) {
-          j = lps[j - 1];
-        } else {
-          lps[i] = 0;
-          i++;
-        }
-      }
-    }
-    return lps;
-  }
-
   public static List<Integer> findAllOccurrences(String text, String pattern) {
     int n = text.length();
     int m = pattern.length();
-    int[] lps = computeLPS(pattern);
+    // Step1 : find the lps of the string
+    int[] lps = StringUtility.computePatternLps(pattern);
 
     List<Integer> occurrences = new ArrayList<>();
     int i = 0, j = 0;
 
+    // Step ; match the pattern and text and add all the indexes
+    // during matchPatWithText same
     while (i < n) {
       if (text.charAt(i) == pattern.charAt(j)) {
         i++;
