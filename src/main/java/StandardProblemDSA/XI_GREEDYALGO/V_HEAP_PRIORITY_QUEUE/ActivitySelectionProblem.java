@@ -1,4 +1,4 @@
-package StandardProblemDSA.XI_GREEDYALGO;
+package StandardProblemDSA.XI_GREEDYALGO.V_HEAP_PRIORITY_QUEUE;
 
 import java.util.ArrayList;
 import java.util.PriorityQueue;

@@ -1,12 +1,14 @@
-package StandardProblemDSA.I_ARRAY.XI_MERGE_INTERVAL_PATTERN;
+package StandardProblemDSA.XI_GREEDYALGO.I_SORTING_GREEDY_SELECTION;
 
+import StandardProblemDSA.XI_GREEDYALGO.XI_MERGE_INTERVAL_PATTERN.MergeInterval;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
 public class MeetingRoomIIMinimumMeetingRoomsRequired {
   /* Meeting Rooms II (Tracking Multiple Overlaps with Min-Heap)
       Problem Statement
-      Given an array of meeting time intervals, determine the minimum number of meeting rooms required to hold all meetings simultaneously.
+      Given an array of meeting time intervals, determine the minimum number of meeting rooms
+      required to hold all meetings simultaneously.
 
       Brute Force Approach
       Idea:
@@ -25,7 +27,7 @@ public class MeetingRoomIIMinimumMeetingRoomsRequired {
 
       Simplified Code (Java/Pseudo-code using Min-Heap):
   */
-  public int minMeetingRooms(Interval[] intervals) {
+  public int minMeetingRooms(MergeInterval[] intervals) {
     // Sort intervals by start time.
     Arrays.sort(intervals, (a, b) -> a.start - b.start);
 

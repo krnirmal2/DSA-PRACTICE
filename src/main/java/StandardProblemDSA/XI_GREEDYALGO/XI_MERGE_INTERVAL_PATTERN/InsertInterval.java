@@ -1,11 +1,12 @@
-package StandardProblemDSA.I_ARRAY.XI_MERGE_INTERVAL_PATTERN;
+package StandardProblemDSA.XI_GREEDYALGO.XI_MERGE_INTERVAL_PATTERN;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class InsertInterval {
   /*  Problem Statement
-      Given a sorted list of non-overlapping intervals and a new interval, insert the new interval into the list and merge if necessary.
+      Given a sorted list of non-overlapping intervals and a new interval,
+      insert the new interval into the list and merge if necessary.
 
       Brute Force Approach
       Idea:
@@ -26,8 +27,9 @@ public class InsertInterval {
 
       Simplified Code (Java/Pseudo-code):
   */
-  public List<Interval> insertInterval(List<Interval> intervals, Interval newInterval) {
-    List<Interval> result = new ArrayList<>();
+  public List<MergeInterval> insertInterval(
+      List<MergeInterval> intervals, MergeInterval newInterval) {
+    List<MergeInterval> result = new ArrayList<>();
     int i = 0, n = intervals.size();
 
     // Add all intervals ending before newInterval starts.

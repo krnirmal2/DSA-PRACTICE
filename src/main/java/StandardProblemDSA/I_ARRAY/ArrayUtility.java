@@ -1,5 +1,9 @@
 package StandardProblemDSA.I_ARRAY;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class ArrayUtility {
 
   /**
@@ -117,5 +121,32 @@ public class ArrayUtility {
       if (num < min) min = num;
     }
     return min;
+  }
+
+  // ✅ Reusable twoSum with two pointers
+  public static List<List<Integer>> twoSum(int[] nums, int start, int target) {
+    List<List<Integer>> res = new ArrayList<>();
+    int left = start, right = nums.length - 1;
+
+    while (left < right) {
+      int sum = nums[left] + nums[right];
+
+      if (sum == target) {
+        res.add(Arrays.asList(nums[left], nums[right]));
+
+        // Skip duplicates
+        while (left < right && nums[left] == nums[left + 1]) left++;
+        while (left < right && nums[right] == nums[right - 1]) right--;
+
+        left++;
+        right--;
+      } else if (sum < target) {
+        left++;
+      } else {
+        right--;
+      }
+    }
+
+    return res;
   }
 }
