@@ -1,8 +1,7 @@
 package StandardProblemDSA.XI_GREEDYALGO.I_SORTING_GREEDY_SELECTION;
 
+import StandardProblemDSA.XI_GREEDYALGO.GreedyAlgoUtil;
 import StandardProblemDSA.XI_GREEDYALGO.XI_MERGE_INTERVAL_PATTERN.MergeInterval;
-import java.util.Arrays;
-import java.util.PriorityQueue;
 
 public class MeetingRoomIIMinimumMeetingRoomsRequired {
   /* Meeting Rooms II (Tracking Multiple Overlaps with Min-Heap)
@@ -28,7 +27,7 @@ public class MeetingRoomIIMinimumMeetingRoomsRequired {
       Simplified Code (Java/Pseudo-code using Min-Heap):
   */
   public int minMeetingRooms(MergeInterval[] intervals) {
-    // Sort intervals by start time.
+    /*   // Sort intervals by start time.
     Arrays.sort(intervals, (a, b) -> a.start - b.start);
 
     // Min-heap to track end times of ongoing meetings.
@@ -43,7 +42,12 @@ public class MeetingRoomIIMinimumMeetingRoomsRequired {
       // Allocate a new room.
       minHeap.add(intervals[i].end);
     }
-    return minHeap.size();
+    return minHeap.size();*/
+
+    if (intervals == null || intervals.length == 0) {
+      return 0;
+    }
+    return GreedyAlgoUtil.findMaxOverlappingIntervals(intervals);
   }
   /* Complexity:
 

@@ -1,8 +1,8 @@
 package StandardProblemDSA.XI_GREEDYALGO.I_SORTING_GREEDY_SELECTION;
 
+import StandardProblemDSA.XI_GREEDYALGO.GreedyAlgoUtil;
 import StandardProblemDSA.XI_GREEDYALGO.XI_MERGE_INTERVAL_PATTERN.MergeInterval;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class EmployeeFreeTime {
@@ -32,7 +32,7 @@ public class EmployeeFreeTime {
       allIntervals.addAll(employee);
     }
     // Sort intervals by start time.
-    Collections.sort(allIntervals, (a, b) -> a.start - b.start);
+    GreedyAlgoUtil.sortByStartTimeList(allIntervals);
 
     // Merge overlapping intervals.
     List<MergeInterval> merged = new ArrayList<>();
