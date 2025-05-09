@@ -1,5 +1,9 @@
 package StandardProblemDSA.II_LINKEDLIST.i_TRAVERSAL_BASIC_OPERATION;
 
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
+import StandardProblemDSA.II_LINKEDLIST.Node;
+
 // Java program to implement
 // a Singly Linked List
 public class LinkedList {
@@ -33,23 +37,6 @@ public class LinkedList {
   }
 
   // **************INSERTION**************
-
-  // Method to print the LinkedList.
-  public static void printList(LinkedList list) {
-    Node currNode = list.head;
-
-    System.out.print("\nLinkedList: ");
-
-    // Traverse through the LinkedList
-    while (currNode != null) {
-      // Print the data at current node
-      System.out.print(currNode.data + " ");
-
-      // Go to next node
-      currNode = currNode.next;
-    }
-    System.out.println("\n");
-  }
 
   // **************TRAVERSAL**************
 
@@ -261,18 +248,4 @@ public class LinkedList {
 
   // **************MAIN METHOD**************
 
-  // Linked list Node.
-  // Node is a static nested class
-  // so main() can access it
-  public static class Node {
-
-    public Node next;
-    int data;
-
-    // Constructor
-    Node(int d) {
-      data = d;
-      next = null;
-    }
-  }
 }

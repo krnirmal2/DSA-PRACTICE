@@ -1,5 +1,7 @@
 package Programming_constructs.LinkedList;
 
+import static Utility_linkedList.printList;
+
 class Node {
   int data;
   Node next;
@@ -74,16 +76,6 @@ public class LinkedListCycleRemoval {
     if (loopNode != null) {
       temp.next = loopNode;
     }
-  }
-
-  // Utility function to print the linked list
-  public static void printList(Node head) {
-    Node temp = head;
-    while (temp != null) {
-      System.out.print(temp.data + " -> ");
-      temp = temp.next;
-    }
-    System.out.println("null");
   }
 
   public static void main(String[] args) {

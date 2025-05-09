@@ -1,45 +1,18 @@
 package StandardProblemDSA.II_LINKEDLIST.xiv_CONVERSION_PATTERNS;
 
+import static StandardProblemDSA.II_LINKEDLIST.MultiLevelNode.printMultiLevelList;
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.countNodes;
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
+import StandardProblemDSA.II_LINKEDLIST.ListNode;
+import StandardProblemDSA.II_LINKEDLIST.MultiLevelNode;
+import StandardProblemDSA.VIII_TREE.TreeNode;
+
 public class ConversionOperations {
 
   // ---------------------------------------------------
   // Node and Tree Definitions
   // ---------------------------------------------------
-
-  // Definition for singly-linked list node.
-  class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-      val = x;
-      next = null;
-    }
-  }
-
-  // Definition for a binary tree node.
-  class TreeNode {
-    int val;
-    TreeNode left, right;
-
-    TreeNode(int x) {
-      val = x;
-      left = right = null;
-    }
-  }
-
-  // Definition for a multilevel linked list node.
-  // Each node may have a child pointer to another list.
-  class MultiLevelNode {
-    int val;
-    MultiLevelNode next, child;
-
-    MultiLevelNode(int x) {
-      val = x;
-      next = null;
-      child = null;
-    }
-  }
 
   // ---------------------------------------------------
   // 1. Convert Linked List to Binary Tree
@@ -61,24 +34,15 @@ public class ConversionOperations {
        Input: 1 -> 2 -> 3 -> 4 -> 5
        Output (BST Inorder): 1, 2, 3, 4, 5  (balanced BST with 3 as root)
   */
-  private ListNode globalListHead; // Used in conversion
+  private static ListNode globalListHead; // Used in conversion
 
-  public TreeNode sortedListToBST(ListNode head) {
+  public static TreeNode sortedListToBST(ListNode head) {
     int n = countNodes(head);
     globalListHead = head;
     return sortedListToBSTRec(n);
   }
 
-  private int countNodes(ListNode head) {
-    int count = 0;
-    while (head != null) {
-      count++;
-      head = head.next;
-    }
-    return count;
-  }
-
-  private TreeNode sortedListToBSTRec(int n) {
+  private static TreeNode sortedListToBSTRec(int n) {
     if (n <= 0) return null;
     // Recursively build left subtree
     TreeNode left = sortedListToBSTRec(n / 2);
@@ -114,7 +78,7 @@ public class ConversionOperations {
        Output Linked List: 1 -> 2 -> 3
   */
   // We'll create a new list while traversing.
-  public ListNode treeToLinkedList(TreeNode root) {
+  public static ListNode treeToLinkedList(TreeNode root) {
     // Dummy head for ease of building list
     ListNode dummy = new ListNode(0);
     treeToListHelper(root, dummy);
@@ -122,9 +86,9 @@ public class ConversionOperations {
   }
 
   // Use a tail pointer to maintain the end of the list.
-  private ListNode treeListTail = null;
+  private static ListNode treeListTail = null;
 
-  private void treeToListHelper(TreeNode root, ListNode dummy) {
+  private static void treeToListHelper(TreeNode root, ListNode dummy) {
     if (root == null) return;
     treeToListHelper(root.left, dummy);
     ListNode newNode = new ListNode(root.val);
@@ -153,7 +117,7 @@ public class ConversionOperations {
        Input: [1, 2, 3, 4]
        Output: 1 -> 2 -> 3 -> 4
   */
-  public ListNode arrayToLinkedList(int[] arr) {
+  public static ListNode arrayToLinkedList(int[] arr) {
     if (arr == null || arr.length == 0) return null;
     ListNode head = new ListNode(arr[0]);
     ListNode current = head;
@@ -179,7 +143,7 @@ public class ConversionOperations {
        Input: 1 -> 2 -> 3
        Output: [1, 2, 3]
   */
-  public int[] linkedListToArray(ListNode head) {
+  public static int[] linkedListToArray(ListNode head) {
     int count = 0;
     ListNode current = head;
     while (current != null) {
@@ -218,7 +182,7 @@ public class ConversionOperations {
               4 -> 5
        Output: 1 -> 2 -> 4 -> 5 -> 3
   */
-  public MultiLevelNode flattenMultiLevelList(MultiLevelNode head) {
+  public static MultiLevelNode flattenMultiLevelList(MultiLevelNode head) {
     if (head == null) return head;
     MultiLevelNode curr = head;
     while (curr != null) {
@@ -243,34 +207,12 @@ public class ConversionOperations {
   // Utility Methods for Demonstration
   // ---------------------------------------------------
 
-  // Print a singly-linked list.
-  public void printList(ListNode head) {
-    ListNode curr = head;
-    while (curr != null) {
-      System.out.print(curr.val);
-      if (curr.next != null) System.out.print(" -> ");
-      curr = curr.next;
-    }
-    System.out.println();
-  }
-
   // Print inorder traversal of a binary tree.
-  public void inorderPrint(TreeNode root) {
+  public static void inorderPrint(TreeNode root) {
     if (root == null) return;
     inorderPrint(root.left);
     System.out.print(root.val + " ");
     inorderPrint(root.right);
-  }
-
-  // Print a flattened multilevel linked list.
-  public void printMultiLevelList(MultiLevelNode head) {
-    MultiLevelNode curr = head;
-    while (curr != null) {
-      System.out.print(curr.val);
-      if (curr.next != null) System.out.print(" -> ");
-      curr = curr.next;
-    }
-    System.out.println();
   }
 
   // ---------------------------------------------------
@@ -281,12 +223,12 @@ public class ConversionOperations {
 
     // 3. Array to Linked List
     int[] arr = {1, 2, 3, 4, 5};
-    ListNode listFromArray = ops.arrayToLinkedList(arr);
+    ListNode listFromArray = arrayToLinkedList(arr);
     System.out.println("Linked List from Array:");
-    ops.printList(listFromArray);
+    printList(listFromArray);
 
     // 4. Linked List to Array
-    int[] convertedArr = ops.linkedListToArray(listFromArray);
+    int[] convertedArr = linkedListToArray(listFromArray);
     System.out.print("Array from Linked List: ");
     for (int num : convertedArr) {
       System.out.print(num + " ");
@@ -295,29 +237,29 @@ public class ConversionOperations {
 
     // 1. Linked List to Binary Tree (sorted list to BST)
     // Input: 1 -> 2 -> 3 -> 4 -> 5 (already sorted)
-    TreeNode bstRoot = ops.sortedListToBST(listFromArray);
+    TreeNode bstRoot = sortedListToBST(listFromArray);
     System.out.println("BST from Sorted Linked List (Inorder Traversal):");
-    ops.inorderPrint(bstRoot);
+    inorderPrint(bstRoot);
     System.out.println();
 
     // 2. Binary Tree to Linked List (inorder order)
-    ListNode listFromTree = ops.treeToLinkedList(bstRoot);
+    ListNode listFromTree = treeToLinkedList(bstRoot);
     System.out.println("Linked List from Binary Tree (Inorder):");
-    ops.printList(listFromTree);
+    printList(listFromTree);
 
     // 5. Flatten Multilevel List
     // Build a multilevel list: 1 -> 2 -> 3, where 2 has child 4 -> 5.
-    MultiLevelNode m1 = ops.new MultiLevelNode(1);
-    MultiLevelNode m2 = ops.new MultiLevelNode(2);
-    MultiLevelNode m3 = ops.new MultiLevelNode(3);
+    MultiLevelNode m1 = new MultiLevelNode(1);
+    MultiLevelNode m2 = new MultiLevelNode(2);
+    MultiLevelNode m3 = new MultiLevelNode(3);
     m1.next = m2;
     m2.next = m3;
-    MultiLevelNode m4 = ops.new MultiLevelNode(4);
-    MultiLevelNode m5 = ops.new MultiLevelNode(5);
+    MultiLevelNode m4 = new MultiLevelNode(4);
+    MultiLevelNode m5 = new MultiLevelNode(5);
     m4.next = m5;
     m2.child = m4;
-    MultiLevelNode flatHead = ops.flattenMultiLevelList(m1);
+    MultiLevelNode flatHead = flattenMultiLevelList(m1);
     System.out.println("Flattened Multilevel List:");
-    ops.printMultiLevelList(flatHead);
+    printMultiLevelList(flatHead);
   }
 }

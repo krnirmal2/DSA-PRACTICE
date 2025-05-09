@@ -1,14 +1,8 @@
 package StandardProblemDSA.II_LINKEDLIST.v_FAST_AND_SLOW_POINTER_POINTER;
 
-class Node {
-  int data;
-  Node next;
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
 
-  Node(int data) {
-    this.data = data;
-    this.next = null;
-  }
-}
+import StandardProblemDSA.II_LINKEDLIST.Node;
 
 public class LinkedListCycleRemoval {
 
@@ -74,16 +68,6 @@ public class LinkedListCycleRemoval {
     if (loopNode != null) {
       temp.next = loopNode;
     }
-  }
-
-  // Utility function to print the linked list
-  public static void printList(Node head) {
-    Node temp = head;
-    while (temp != null) {
-      System.out.print(temp.data + " -> ");
-      temp = temp.next;
-    }
-    System.out.println("null");
   }
 
   public static void main(String[] args) {

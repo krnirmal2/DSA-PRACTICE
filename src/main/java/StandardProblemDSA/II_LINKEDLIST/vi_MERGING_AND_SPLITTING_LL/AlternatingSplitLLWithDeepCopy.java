@@ -1,5 +1,7 @@
 package StandardProblemDSA.II_LINKEDLIST.vi_MERGING_AND_SPLITTING_LL;
 
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
 import StandardProblemDSA.II_LINKEDLIST.Node;
 
 public class AlternatingSplitLLWithDeepCopy {
@@ -32,16 +34,6 @@ public class AlternatingSplitLLWithDeepCopy {
 
     // Return actual heads (skip dummy nodes)
     return new Node[] {dummyHead1.next, dummyHead2.next};
-  }
-
-  // Utility to print a list
-  public static void printList(Node head) {
-    Node current = head;
-    while (current != null) {
-      System.out.print(current.data + " → ");
-      current = current.next;
-    }
-    System.out.println("null");
   }
 
   // Example usage

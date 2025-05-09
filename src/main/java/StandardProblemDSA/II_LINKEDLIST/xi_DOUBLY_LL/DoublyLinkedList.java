@@ -1,8 +1,10 @@
 package StandardProblemDSA.II_LINKEDLIST.xi_DOUBLY_LL;
 
-public class DoublyLinkedList { // Node class (inner class)
+import StandardProblemDSA.II_LINKEDLIST.DoubllyNode;
+
+public class DoublyLinkedList { // DoubllyNode class (inner class)
   // Head and tail pointers of the DLL
-  private Node head, tail;
+  private DoubllyNode head, tail;
 
   // Constructor for the DLL
   public DoublyLinkedList() {
@@ -31,12 +33,12 @@ public class DoublyLinkedList { // Node class (inner class)
     System.out.println("Traverse backward:");
     dll.traverseBackward();
 
-    // Test deleting a node
+    // Test deleting a DoubllyNode
     dll.delete(10);
     System.out.println("After deleting 10:");
     dll.traverseForward();
 
-    // Test deleting a node not in the list
+    // Test deleting a DoubllyNode not in the list
     dll.delete(50);
 
     // Test clearing the list
@@ -48,17 +50,17 @@ public class DoublyLinkedList { // Node class (inner class)
   /*How It Works
   Insertion at the Front:
 
-  Adds a new node as the first element.
+  Adds a new DoubllyNode as the first element.
   Updates head pointer and handles cases where the list is empty
 
   Insertion at the End:
-  Adds a new node as the last element.
+  Adds a new DoubllyNode as the last element.
   Updates tail pointer and handles cases where the list is empty.
 
   Deletion:
-  Searches for the node with the given value.
-  Deletes it by updating pointers of the previous and next nodes.
-  Handles cases where the node is the head, tail, or in between.
+  Searches for the DoubllyNode with the given value.
+  Deletes it by updating pointers of the previous and next DoubllyNodes.
+  Handles cases where the DoubllyNode is the head, tail, or in between.
 
   Traversal:
   Forward traversal starts from head.
@@ -68,48 +70,48 @@ public class DoublyLinkedList { // Node class (inner class)
   Resets both head and tail to null.*/
   // Insert at the front
   public void insertAtFront(int data) {
-    Node newNode = new Node(data);
+    DoubllyNode newDoubllyNode = new DoubllyNode(data);
     if (head == null) { // If list is empty
-      head = tail = newNode;
+      head = tail = newDoubllyNode;
     } else {
-      newNode.next = head;
-      head.prev = newNode;
-      head = newNode;
+      newDoubllyNode.next = head;
+      head.prev = newDoubllyNode;
+      head = newDoubllyNode;
     }
   }
 
   // Insert at the end
   public void insertAtEnd(int data) {
-    Node newNode = new Node(data);
+    DoubllyNode newDoubllyNode = new DoubllyNode(data);
     if (head == null) { // If list is empty
-      head = tail = newNode;
+      head = tail = newDoubllyNode;
     } else {
-      tail.next = newNode;
-      newNode.prev = tail;
-      tail = newNode;
+      tail.next = newDoubllyNode;
+      newDoubllyNode.prev = tail;
+      tail = newDoubllyNode;
     }
   }
 
-  // Delete a node with a given value
+  // Delete a DoubllyNode with a given value
   public void delete(int data) {
     if (head == null) { // If list is empty
       System.out.println("List is empty.");
       return;
     }
 
-    Node current = head;
+    DoubllyNode current = head;
 
-    // Search for the node to delete
+    // Search for the DoubllyNode to delete
     while (current != null && current.data != data) {
       current = current.next;
     }
 
-    if (current == null) { // Node not found
-      System.out.println("Node with data " + data + " not found.");
+    if (current == null) { // DoubllyNode not found
+      System.out.println("DoubllyNode with data " + data + " not found.");
       return;
     }
 
-    // If the node is the head
+    // If the DoubllyNode is the head
     if (current == head) {
       head = head.next;
       if (head != null) {
@@ -118,7 +120,7 @@ public class DoublyLinkedList { // Node class (inner class)
         tail = null; // List becomes empty
       }
     }
-    // If the node is the tail
+    // If the DoubllyNode is the tail
     else if (current == tail) {
       tail = tail.prev;
       if (tail != null) {
@@ -127,13 +129,13 @@ public class DoublyLinkedList { // Node class (inner class)
         head = null; // List becomes empty
       }
     }
-    // If the node is in the middle
+    // If the DoubllyNode is in the middle
     else {
       current.prev.next = current.next;
       current.next.prev = current.prev;
     }
 
-    System.out.println("Node with data " + data + " deleted.");
+    System.out.println("DoubllyNode with data " + data + " deleted.");
   }
 
   // Traverse forward
@@ -142,7 +144,7 @@ public class DoublyLinkedList { // Node class (inner class)
       System.out.println("List is empty.");
       return;
     }
-    Node current = head;
+    DoubllyNode current = head;
     while (current != null) {
       System.out.print(current.data + " ");
       current = current.next;
@@ -156,7 +158,7 @@ public class DoublyLinkedList { // Node class (inner class)
       System.out.println("List is empty.");
       return;
     }
-    Node current = tail;
+    DoubllyNode current = tail;
     while (current != null) {
       System.out.print(current.data + " ");
       current = current.prev;
@@ -174,16 +176,5 @@ public class DoublyLinkedList { // Node class (inner class)
     head = null;
     tail = null;
     System.out.println("List cleared.");
-  }
-
-  private class Node {
-    int data;
-    Node prev, next;
-
-    Node(int data) {
-      this.data = data;
-      this.prev = null;
-      this.next = null;
-    }
   }
 }

@@ -1,5 +1,7 @@
 package StandardProblemDSA.II_LINKEDLIST.viii_DUMMY_NODE_AND_SENTINAL_PATTERN;
 
+import StandardProblemDSA.II_LINKEDLIST.ListNode;
+
 public class RemoveEachSpecificValue {
   public ListNode removeElements(ListNode head, int val) {
     // Create a dummy node to handle edge cases for head removal

@@ -1,5 +1,9 @@
 package StandardProblemDSA.II_LINKEDLIST.ii_NSERTION_AND_DELETION_PATTERN;
 
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
+import StandardProblemDSA.II_LINKEDLIST.Node;
+
 public class DeleteWithoutHeadPointer {
   /*Approach
   Key Idea:
@@ -21,16 +25,6 @@ public class DeleteWithoutHeadPointer {
 
     // Bypass the next node
     node.next = node.next.next;
-  }
-
-  // Helper method to print the linked list
-  public static void printList(Node head) {
-    Node current = head;
-    while (current != null) {
-      System.out.print(current.data + " ");
-      current = current.next;
-    }
-    System.out.println();
   }
 
   // Main method to test the implementation
@@ -60,16 +54,5 @@ public class DeleteWithoutHeadPointer {
 
     System.out.println("Linked List after deleting node 3:");
     printList(head);
-  }
-
-  // Node class
-  static class Node {
-    int data;
-    Node next;
-
-    Node(int data) {
-      this.data = data;
-      this.next = null;
-    }
   }
 }

@@ -1,5 +1,7 @@
 package StandardProblemDSA.II_LINKEDLIST.xii_ARITHMETIC_PATTERN;
 
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+import static java.lang.reflect.Array.getLength;
 
 import StandardProblemDSA.II_LINKEDLIST.ListNode;
 
@@ -61,16 +63,6 @@ public class SubtractTwoList {
     return true; // They are equal
   }
 
-  // Function to get the length of a linked list
-  private static int getLength(ListNode head) {
-    int len = 0;
-    while (head != null) {
-      len++;
-      head = head.next;
-    }
-    return len;
-  }
-
   public static ListNode subtractLists(ListNode l1, ListNode l2) {
     // Reverse both lists
     l1 = reverse(l1);
@@ -114,15 +106,6 @@ public class SubtractTwoList {
     }
 
     return (result == null) ? new ListNode(0) : result;
-  }
-
-  // Utility function to print linked list
-  private static void printList(ListNode head) {
-    while (head != null) {
-      System.out.print(head.val + " -> ");
-      head = head.next;
-    }
-    System.out.println("null");
   }
 
   public static void main(String[] args) {

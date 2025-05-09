@@ -1,17 +1,10 @@
 package StandardProblemDSA.II_LINKEDLIST.xiii_CIRCULAR_LINKLIST;
 
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printCircularList;
+
+import StandardProblemDSA.II_LINKEDLIST.Node;
+
 public class CircularLinkedListOperations {
-
-  // Definition for a node in a circular linked list.
-  static class Node {
-    int data;
-    Node next;
-
-    Node(int d) {
-      data = d;
-      next = null;
-    }
-  }
 
   // Head pointer of the circular linked list.
   private Node head;
@@ -264,28 +257,14 @@ public class CircularLinkedListOperations {
     System.out.println("Splitting the Circular Linked List into two halves:");
     Node[] splitHeads = cllOps.splitList();
     System.out.print("First half: ");
-    cllOps.printCircularList(splitHeads[0]);
+    printCircularList(splitHeads[0]);
     System.out.print("Second half: ");
-    cllOps.printCircularList(splitHeads[1]);
+    printCircularList(splitHeads[1]);
 
     // Example for Josephus Problem:
     int n = 7, k = 3;
     int safePosition = cllOps.josephusProblem(n, k);
     System.out.println(
         "Josephus Problem: For n = " + n + ", k = " + k + ", safe position is " + safePosition);
-  }
-
-  // Utility method to print a circular linked list starting at a given node.
-  public void printCircularList(Node start) {
-    if (start == null) {
-      System.out.println("List is empty.");
-      return;
-    }
-    Node curr = start;
-    do {
-      System.out.print(curr.data + " ");
-      curr = curr.next;
-    } while (curr != start);
-    System.out.println();
   }
 }

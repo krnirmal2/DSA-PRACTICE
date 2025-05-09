@@ -1,17 +1,10 @@
 package StandardProblemDSA.II_LINKEDLIST.ii_NSERTION_AND_DELETION_PATTERN;
 
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
+import StandardProblemDSA.II_LINKEDLIST.ListNode;
+
 public class LinkedListOperations {
-
-  // Definition for singly-linked list node.
-  class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-      val = x;
-      next = null;
-    }
-  }
 
   // Head pointer of the linked list.
   private ListNode head;
@@ -99,17 +92,6 @@ public class LinkedListOperations {
     node.next = node.next.next;
   }
 
-  // Utility method to print the linked list.
-  public void printList() {
-    ListNode current = head;
-    while (current != null) {
-      System.out.print(current.val);
-      if (current.next != null) System.out.print(" -> ");
-      current = current.next;
-    }
-    System.out.println();
-  }
-
   // For demonstration purposes
   public static void main(String[] args) {
     LinkedListOperations listOps = new LinkedListOperations();
@@ -121,19 +103,18 @@ public class LinkedListOperations {
     listOps.insertAtPosition(4, 2); // Insert 4 at position 2
 
     System.out.println("Linked List after insertions:");
-    listOps
-        .printList(); // Expected: 3 -> 5 -> 4 -> 7 (if head inserted first, then end, then at pos
+    printList(); // Expected: 3 -> 5 -> 4 -> 7 (if head inserted first, then end, then at pos
     // 2)
 
     // Delete node with a given value.
     listOps.deleteNodeByValue(4);
     System.out.println("Linked List after deleting value 4:");
-    listOps.printList(); // Expected: 3 -> 5 -> 7
+    printList(); // Expected: 3 -> 5 -> 7
 
     // Demonstrate deletion without head pointer:
     // Let's delete the node with value 5. First, get a reference to it.
     // (For demonstration, we assume we know the node; in a real scenario, you would locate it.)
-    LinkedListOperations.ListNode current = listOps.head;
+    ListNode current = listOps.head;
     while (current != null && current.val != 5) {
       current = current.next;
     }
@@ -141,7 +122,7 @@ public class LinkedListOperations {
       listOps.deleteNodeWithoutHead(current);
       System.out.println(
           "Linked List after deleting node without head pointer (deleting value 5):");
-      listOps.printList(); // Expected: 3 -> 7
+      printList(); // Expected: 3 -> 7
     }
   }
 }

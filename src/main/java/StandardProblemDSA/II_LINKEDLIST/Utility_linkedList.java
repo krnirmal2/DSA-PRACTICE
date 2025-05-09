@@ -1,5 +1,7 @@
 package StandardProblemDSA.II_LINKEDLIST;
 
+import StandardProblemDSA.II_LINKEDLIST.i_TRAVERSAL_BASIC_OPERATION.LinkedList;
+
 public class Utility_linkedList {
   // Reverse a Linked List (Iterative)
   public static ListNode reverseList(ListNode head) {
@@ -191,6 +193,14 @@ public class Utility_linkedList {
     return new ListNode[] {newHead, pivot, end};
   }
 
+  // 2. Recursive Traversal (Print in Reverse Order)
+  // Prints the values of a linked list in reverse order using recursion.
+  public static void printReverse(ListNode head) {
+    if (head == null) return;
+    printReverse(head.next);
+    System.out.print(head.val + " ");
+  }
+
   // Utility: Get tail of the list.
   public static ListNode getTail(ListNode head) {
     while (head != null && head.next != null) {
@@ -207,8 +217,7 @@ public class Utility_linkedList {
     System.out.println();
   }
 
-
-  public static int length(StandardProblemDSA.II_LINKEDLIST.vi_MERGING_AND_SPLITTING_LL.ListNode head) {
+  public static int length(ListNode head) {
     if (head == null) {
       return 0;
     }
@@ -218,6 +227,86 @@ public class Utility_linkedList {
       head = head.next;
     }
     return count;
+  }
+
+  // Recursive Method
+  public static ListNode reverseRecursive(ListNode head) {
+    // Base case: If list is empty or has only one node
+    if (head == null || head.next == null) {
+      return head;
+    }
+
+    // Recursive call to reverse the rest of the list
+    ListNode newHead = reverseRecursive(head.next);
+
+    // Reverse the current node's link
+    head.next.next = head;
+    head.next = null;
+
+    return newHead; // Return new head
+  }
+
+  // Method to print the LinkedList.
+  public static void printList(LinkedList list) {
+    Node currNode = list.head;
+
+    System.out.print("\nLinkedList: ");
+
+    // Traverse through the LinkedList
+    while (currNode != null) {
+      // Print the data at current node
+      System.out.print(currNode.data + " ");
+
+      // Go to next node
+      currNode = currNode.next;
+    }
+    System.out.println("\n");
+  }
+
+  // Utility function to print the list parts
+  public static void printParts(ListNode[] parts) {
+    for (ListNode part : parts) {
+      ListNode temp = part;
+      while (temp != null) {
+        System.out.print(temp.val + " -> ");
+        temp = temp.next;
+      }
+      System.out.println("null");
+    }
+  }
+
+  public static int countNodes(ListNode head) {
+    int count = 0;
+    while (head != null) {
+      count++;
+      head = head.next;
+    }
+    return count;
+  }
+
+  // Print a flattened multilevel linked list.
+  public static void printMultiLevelList(MultiLevelNode head) {
+    MultiLevelNode curr = head;
+    while (curr != null) {
+      System.out.print(curr.val);
+      if (curr.next != null) System.out.print(" -> ");
+      curr = curr.next;
+    }
+    System.out.println();
+  }
+
+  // Utility method to print a circular linked list starting at a given node.
+  public static void printCircularList(Node start) {
+    if (start == null) {
+      System.out.println("List is empty.");
+      return;
+    }
+    Node curr = start;
+    do {
+      System.out.print(curr.data + " ");
+      curr = curr.next;
+    } while (curr != start);
+    System.out.println();
   }
 
   public static void main(String[] args) {

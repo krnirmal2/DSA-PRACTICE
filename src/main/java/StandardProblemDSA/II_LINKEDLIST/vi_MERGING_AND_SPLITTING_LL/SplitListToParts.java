@@ -1,5 +1,8 @@
 package StandardProblemDSA.II_LINKEDLIST.vi_MERGING_AND_SPLITTING_LL;
 
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printParts;
+
+import StandardProblemDSA.II_LINKEDLIST.ListNode;
 import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
 
 public class SplitListToParts {
@@ -38,18 +41,6 @@ public class SplitListToParts {
     }
 
     return result;
-  }
-
-  // Utility function to print the list parts
-  public static void printParts(ListNode[] parts) {
-    for (ListNode part : parts) {
-      ListNode temp = part;
-      while (temp != null) {
-        System.out.print(temp.val + " -> ");
-        temp = temp.next;
-      }
-      System.out.println("null");
-    }
   }
 
   public static void main(String[] args) {

@@ -1,15 +1,10 @@
 package StandardProblemDSA.II_LINKEDLIST.viii_DUMMY_NODE_AND_SENTINAL_PATTERN;
 
-public class TwoHalfOfCircle {
-  class Node {
-    int data;
-    Node next;
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
 
-    Node(int val) {
-      this.data = val;
-      this.next = null;
-    }
-  }
+import StandardProblemDSA.II_LINKEDLIST.Node;
+
+public class TwoHalfOfCircle {
 
   public class SplitCircularList {
     public static void splitList(Node head) {
@@ -40,14 +35,6 @@ public class TwoHalfOfCircle {
       printList(head1);
       System.out.println();
       printList(head2);
-    }
-
-    public static void printList(Node head) {
-      Node temp = head;
-      do {
-        System.out.print(temp.data + " ");
-        temp = temp.next;
-      } while (temp != head);
     }
 
     public void main(String[] args) {
