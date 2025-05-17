@@ -4,26 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TreeUtility {
-  static class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
+  // A utility function to find min and max
+  // distances with respect to root.
+  public static void findHorizontalDistance(StandardProblemDSA.VIII_TREE.TreeNode node, int[] minMax, int hd) {
 
-    TreeNode(int val) {
-      this.val = val;
-      left = null;
-      right = null;
-    }
+    // Base case
+    if (node == null) return;
+
+    // Update min and max
+    if (hd < minMax[0]) minMax[0] = hd;
+    else if (hd > minMax[1]) minMax[1] = hd;
+
+    // Recur for left and right subtrees
+    findHorizontalDistance(node.left, minMax, hd - 1);
+    findHorizontalDistance(node.right, minMax, hd + 1);
   }
-
-  public static class BinaryTree {
     public static TreeNode root;
 
-    public BinaryTree() {
-      root = null;
-    }
 
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
       BinaryTree tree = new BinaryTree();
       root = new TreeNode(1);
       root.left = new TreeNode(2);
@@ -52,7 +51,7 @@ public class TreeUtility {
       System.out.print("Postorder Traversal: ");
       tree.postorderTraversal();
     }
-
+*/
     // Method to find the height of the tree
     public static int height() {
       return height(root);
@@ -97,26 +96,18 @@ public class TreeUtility {
     // Method to find the level of a given node in the tree
     public static int nodeLevel(int val) {
       // for level of a node just find the height of node and just minus 1 to it
-
       return nodeHeight(val) - 1;
     }
 
     // Method to search for a node in the tree
-    public static boolean search(int val) {
-      return search(root, val);
-    }
 
     public static boolean search(TreeNode node, int val) {
       if (node == null) return false;
       if (node.val == val) return true;
-
       return search(node.left, val) || search(node.right, val);
     }
 
     // Method to find the parent of a node
-    public static TreeNode findParent(int val) {
-      return findParent(root, val);
-    }
 
     public static TreeNode findParent(TreeNode node, int val) {
       if (node == null
@@ -130,10 +121,6 @@ public class TreeUtility {
     }
 
     // Method to find the diameter of the tree
-    public static int diameter() {
-      return diameter(root);
-    }
-
     public static int diameter(TreeNode node) {
       if (node == null) return 0;
       // find the height of the left and right
@@ -154,12 +141,13 @@ public class TreeUtility {
       findLeafNodes(root, leafNodes);
       return leafNodes;
     }
+  public static boolean isLeaf(TreeNode node) {
+    return node.left == null && node.right == null;
+  }
 
     public static void findLeafNodes(TreeNode node, List<Integer> leafNodes) {
       if (node == null) return;
-
       if (node.left == null && node.right == null) leafNodes.add(node.val);
-
       findLeafNodes(node.left, leafNodes);
       findLeafNodes(node.right, leafNodes);
     }
@@ -167,7 +155,7 @@ public class TreeUtility {
     // Method to find siblings of a node
     public static List<Integer> findSiblings(int val) {
       List<Integer> siblings = new ArrayList<>();
-      TreeNode parent = findParent(val);
+      TreeNode parent = findParent(root,val);
       if (parent != null) {
         if (parent.left != null && parent.left.val != val) siblings.add(parent.left.val);
         if (parent.right != null && parent.right.val != val) siblings.add(parent.right.val);
@@ -195,11 +183,6 @@ public class TreeUtility {
     }
 
     // Tree Traversals: Inorder, Preorder and Postorder
-    public static void inorderTraversal() {
-      inorderTraversal(root);
-      System.out.println();
-    }
-
     public static void inorderTraversal(TreeNode node) {
       if (node != null) {
         inorderTraversal(node.left);
@@ -207,12 +190,6 @@ public class TreeUtility {
         inorderTraversal(node.right);
       }
     }
-
-    public static void preorderTraversal() {
-      preorderTraversal(root);
-      System.out.println();
-    }
-
     public static void preorderTraversal(TreeNode node) {
       if (node != null) {
         System.out.print(node.val + " ");
@@ -220,12 +197,6 @@ public class TreeUtility {
         preorderTraversal(node.right);
       }
     }
-
-    public static void postorderTraversal() {
-      postorderTraversal(root);
-      System.out.println();
-    }
-
     public static void postorderTraversal(TreeNode node) {
       if (node != null) {
         postorderTraversal(node.left);
@@ -233,6 +204,141 @@ public class TreeUtility {
         System.out.print(node.val + " ");
       }
     }
+
+
+  public static void preorderHelper(StandardProblemDSA.VIII_TREE.TreeNode node, List<Integer> result) {
+    if (node == null) return;
+    result.add(node.val); // Visit root
+    preorderHelper(node.left, result); // Traverse left subtree
+    preorderHelper(node.right, result); // Traverse right subtree
+  }
+
+  public static void rootToLeafHelper(StandardProblemDSA.VIII_TREE.TreeNode node, List<Integer> current, List<List<Integer>> paths) {
+    if (node == null) return;
+    current.add(node.val);
+    if (node.left == null && node.right == null) { // leaf
+      paths.add(new ArrayList<>(current));
+    } else {
+      rootToLeafHelper(node.left, current, paths);
+      rootToLeafHelper(node.right, current, paths);
+    }
+    current.remove(current.size() - 1); // backtrack
+  }
+
+  // (b) Check if there is a root-to-leaf path with a given sum.
+  public static boolean hasPathSum(StandardProblemDSA.VIII_TREE.TreeNode root, int targetSum) {
+    if (root == null) return false;
+    // If leaf, check if path sum equals targetSum.
+    if (root.left == null && root.right == null) {
+      return (root.val == targetSum);
+    }
+    // Otherwise, check in left or right subtree with reduced target.
+    return hasPathSum(root.left, targetSum - root.val)
+            || hasPathSum(root.right, targetSum - root.val);
+  }
+  public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p,TreeNode q) {
+    if (root == null || root == p || root == q) return root;
+    TreeNode left = lowestCommonAncestor(root.left, p, q);
+    TreeNode right = lowestCommonAncestor(root.right, p, q);
+    if (left != null && right != null) return root;
+    return (left != null) ? left : right;
+  }
+  // Helper: find distance from root to a given node value.
+  public static int findLevel(StandardProblemDSA.VIII_TREE.TreeNode root, int val, int level) {
+    if (root == null) return -1;
+    if (root.val == val) return level;
+    int left = findLevel(root.left, val, level + 1);
+    if (left != -1) return left;
+    return findLevel(root.right, val, level + 1);
+  }
+
+  public static boolean findAncestors(StandardProblemDSA.VIII_TREE.TreeNode root, int target, List<Integer> ancestors) {
+    if (root == null) return false;
+    if (root.val == target) return true;
+    if (findAncestors(root.left, target, ancestors)
+            || findAncestors(root.right, target, ancestors)) {
+      ancestors.add(root.val);
+      return true;
+    }
+    return false;
+  }
+  public static void findPathsMatching(
+          StandardProblemDSA.VIII_TREE.TreeNode node,
+          List<Integer> pattern,
+          int patternIndex,
+          List<Integer> current,
+          List<List<Integer>> matchingPaths) {
+    if (node == null) return;
+    current.add(node.val);
+    // Check pattern match so far.
+    if (patternIndex < pattern.size() && node.val == pattern.get(patternIndex)) {
+      patternIndex++;
+    }
+    // If leaf node, check if the pattern was matched as a prefix.
+    if (node.left == null && node.right == null) {
+      if (patternIndex == pattern.size()) {
+        matchingPaths.add(new ArrayList<>(current));
+      }
+    }
+    findPathsMatching(node.left, pattern, patternIndex, current, matchingPaths);
+    findPathsMatching(node.right, pattern, patternIndex, current, matchingPaths);
+    current.remove(current.size() - 1); // backtrack
+  }
+
+  // ---------------------------------------------------
+  // 3. Rotate Tree (Right Rotation and Left Rotation)
+  // ---------------------------------------------------
+  /*
+    Problem Statement:
+       Perform tree rotations at a given node. These rotations are basic operations
+       in self-balancing BSTs.
+
+    Brute Force Approach:
+       - Reconstruct tree via traversal; however, rotations are localized adjustments.
+
+    Optimal Approach:
+       - For a right rotation: Make left child the new root and reattach.
+       - For a left rotation: Make right child the new root and reattach.
+       - Time Complexity: O(1) per rotation.
+
+    Example:
+       Right Rotation at node 10:
+           10                 5
+          /  \      -->      / \
+         5    15           3   10
+        / \                    /  \
+       3   7                  7   15
+  */
+  // Right rotation (rotate around given root)
+  public static TreeNode rotateRight(TreeNode root) {
+    if (root == null || root.left == null) return root;
+    TreeNode newRoot = root.left;
+    root.left = newRoot.right;
+    newRoot.right = root;
+    return newRoot;
+  }
+
+  // Left rotation (rotate around given root)
+  public static TreeNode rotateLeft(TreeNode root) {
+    if (root == null || root.right == null) return root;
+    TreeNode newRoot = root.right;
+    root.right = newRoot.left;
+    newRoot.left = root;
+    return newRoot;
+  }
+
+  // Helper method to print a tree in pre-order.
+  public static void printPreorder(TreeNode root) {
+    if (root == null) return;
+    System.out.print(root.val + " ");
+    printPreorder(root.left);
+    printPreorder(root.right);
+  }
+
+  public static boolean isMirror(TreeNode t1, TreeNode t2) {
+    if (t1 == null && t2 == null) return true;
+    if (t1 == null || t2 == null) return false;
+    return (t1.val == t2.val) && isMirror(t1.left, t2.right) && isMirror(t1.right, t2.left);
   }
 
   // ---------------------------------------------------
@@ -257,11 +363,164 @@ public class TreeUtility {
        They are identical.
   */
   public static boolean isIdentical(
-      StandardProblemDSA.VIII_TREE.TreeNode root1, StandardProblemDSA.VIII_TREE.TreeNode root2) {
+          TreeNode root1,TreeNode root2) {
     if (root1 == null && root2 == null) return true;
     if (root1 == null || root2 == null) return false;
     return (root1.val == root2.val)
-        && isIdentical(root1.left, root2.left)
-        && isIdentical(root1.right, root2.right);
+            && isIdentical(root1.left, root2.left)
+            && isIdentical(root1.right, root2.right);
   }
+  // ---------------------------------------------------
+  // 1. Count Total Nodes
+  // ---------------------------------------------------
+  /*
+    Problem Statement:
+       Count the total number of nodes in a binary tree.
+
+    Brute Force Idea:
+       - Traverse all nodes (e.g., using recursion) and increment a counter.
+
+    Optimal Approach:
+       - Use recursion: count = 1 (current node) + count(left subtree) + count(right subtree).
+
+    Time Complexity: O(n), where n is the number of nodes.
+
+    Example:
+       For tree:
+               1
+              / \
+             2   3
+            /
+           4
+       Total nodes = 4.
+  */
+  public static int countNodes(TreeNode root) {
+    if (root == null) return 0;
+    return 1 + countNodes(root.left) + countNodes(root.right);
+  }
+
+  // ---------------------------------------------------
+  // 2. Count Leaf Nodes
+  // ---------------------------------------------------
+  /*
+    Problem Statement:
+       Count the number of leaf nodes (nodes with no children) in a binary tree.
+
+    Optimal Approach:
+       - Recursively check: if node is null, return 0; if both children are null, return 1;
+         otherwise, sum counts from left and right subtrees.
+
+    Time Complexity: O(n)
+
+    Example:
+       For tree:
+               1
+              / \
+             2   3
+              \
+               4
+       Leaf nodes: 4 and 3 → count = 2.
+  */
+  public static int countLeafNodes(TreeNode root) {
+    if (root == null) return 0;
+    if (root.left == null && root.right == null) return 1;
+    return countLeafNodes(root.left) + countLeafNodes(root.right);
+  }
+
+  public static void nodesAtKDistanceHelper(TreeNode node, int k, List<Integer> result) {
+    if (node == null) return;
+    if (k == 0) {
+      result.add(node.val);
+      return;
+    }
+    nodesAtKDistanceHelper(node.left, k - 1, result);
+    nodesAtKDistanceHelper(node.right, k - 1, result);
+  }
+
+
+  // ---------------------------------------------------
+  // 4. Sum of All Nodes
+  // ---------------------------------------------------
+  /*
+    Problem Statement:
+       Calculate the sum of all node values in a binary tree.
+
+    Optimal Approach:
+       - Recursively sum the current node’s value and the sums from the left and right subtrees.
+
+    Time Complexity: O(n)
+
+    Example:
+       For tree:
+               1
+              / \
+             2   3
+       Sum = 1 + 2 + 3 = 6.
+  */
+  public static int sumNodes(TreeNode root) {
+    if (root == null) return 0;
+    return root.val + sumNodes(root.left) + sumNodes(root.right);
+  }
+
+  // ---------------------------------------------------
+  // 1. Maximum Depth/Height of Binary Tree
+  // ---------------------------------------------------
+  /*
+    Problem Statement:
+       Compute the maximum depth (height) of a binary tree, defined as the number of nodes
+       along the longest path from the root down to the farthest leaf node.
+
+    Brute Force Idea:
+       - Traverse all paths from root to leaves and take the maximum.
+
+    Optimal Approach:
+       - Use recursion: height(root) = max(height(root.left), height(root.right)) + 1.
+
+    Time Complexity: O(n)
+
+    Example:
+       For tree:
+               1
+              / \
+             2   3
+            /
+           4
+       Maximum Depth: 3 (path: 1→2→4)
+  */
+  public static int maxDepth(TreeNode root) {
+    if (root == null) return 0;
+    return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
+  }
+
+  // ---------------------------------------------------
+  // 2. Minimum Depth/Height of Binary Tree
+  // ---------------------------------------------------
+  /*
+    Problem Statement:
+       Compute the minimum depth of a binary tree, defined as the number of nodes along the
+       shortest path from the root node down to the nearest leaf node.
+
+    Optimal Approach:
+       - Use recursion. Special care is needed when one subtree is null.
+         If a node has no left child, use the minimum depth from the right, and vice versa.
+
+    Time Complexity: O(n)
+
+    Example:
+       For tree:
+               1
+              /
+             2
+              \
+               3
+       Minimum Depth: 3 (path: 1→2→3, since 3 is a leaf)
+  */
+  public static int minDepth(TreeNode root) {
+    if (root == null) return 0;
+    // If one subtree is missing, we use the depth of the other subtree.
+    if (root.left == null) return minDepth(root.right) + 1;
+    if (root.right == null) return minDepth(root.left) + 1;
+    return Math.min(minDepth(root.left), minDepth(root.right)) + 1;
+  }
+
 }

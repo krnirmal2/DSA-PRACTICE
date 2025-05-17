@@ -1,21 +1,13 @@
 package StandardProblemDSA.I_ARRAY.VI_CYCLIC_SORT;
 
+import StandardProblemDSA.Utility;
+
+
 public class MissingNumber {
   public static int findMissingNumber(int[] nums) {
-    int i = 0;
-    while (i < nums.length) {
-      int correctIndex = nums[i]; // Correct index for nums[i]
-      if (nums[i] < nums.length && nums[i] != nums[correctIndex]) {
-        // Swap nums[i] with the number at its correct position
-        int temp = nums[i];
-        nums[i] = nums[correctIndex];
-        nums[correctIndex] = temp;
-      } else {
-        i++; // Move to the next element
-      }
-    }
+      Utility.cyclicSort(nums);
     // Check for the missing number
-    for (i = 0; i < nums.length; i++) {
+    for (int i = 0; i < nums.length; i++) {
       if (nums[i] != i) {
         return i;
       }

@@ -1,26 +1,19 @@
 package StandardProblemDSA.I_ARRAY.VI_CYCLIC_SORT;
 
+import StandardProblemDSA.Utility;
+
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class FindAllMissingNumbers {
   public static List<Integer> findMissingNumbers(int[] nums) {
-    int i = 0;
-    while (i < nums.length) {
-      int correctIndex = nums[i] - 1; // The correct index for nums[i]
-      if (nums[i] > 0 && nums[i] <= nums.length && nums[i] != nums[correctIndex]) {
-        // Swap nums[i] with nums[correctIndex]
-        int temp = nums[i];
-        nums[i] = nums[correctIndex];
-        nums[correctIndex] = temp;
-      } else {
-        i++; // Move to the next element
-      }
-    }
+    //cyclic sort
+    Utility.cyclicSort(nums);
 
     // Find missing numbers
     List<Integer> missingNumbers = new ArrayList<>();
-    for (i = 0; i < nums.length; i++) {
+    for (int i = 0; i < nums.length; i++) {
       if (nums[i] != i + 1) {
         missingNumbers.add(i + 1);
       }

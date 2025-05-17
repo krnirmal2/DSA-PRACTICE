@@ -1,5 +1,7 @@
 package StandardProblemDSA.VIII_TREE.I_TRAVERSAL_PATTERNS;
 
+import StandardProblemDSA.VIII_TREE.TreeNode;
+
 /**
  * Java implementation of Boundary Traversal of a binary tree. Boundary Traversal includes: 1. Left
  * boundary (excluding leaf nodes) 2. All leaf nodes (left subtree first, then right subtree) 3.
@@ -20,28 +22,18 @@ BoundaryTraversal(tree)
 
 
  ● If root is not null:
-        ○ Print root’s data
+        ○ Print root’s val
          ○ PrintLeftBoundary(root->left) // Print the left boundary nodes
         ○ PrintLeafNodes(root->left) // Print the leaf nodes of left subtree
         ○ PrintLeafNodes(root->right) // Print the leaf nodes of right subtree
         ○ PrintRightBoundary(root->right) // Print the right boundary nodes */
 public class BoundaryTraversal {
-  static class TreeNode {
-    int data;
-    TreeNode left, right;
-
-    TreeNode(int data) {
-      this.data = data;
-      left = right = null;
-    }
-  }
-
   // Main function to perform boundary traversal
   public void boundaryTraversal(TreeNode root) {
     if (root == null) return;
 
-    // Print root data
-    System.out.print(root.data + " ");
+    // Print root val
+    System.out.print(root.val + " ");
 
     // Print left boundary excluding leaf nodes
     printLeftBoundary(root.left);
@@ -59,10 +51,10 @@ public class BoundaryTraversal {
     if (node == null) return;
     if (node.left != null) {
       // to ensure top-down, print before recursion
-      System.out.print(node.data + " ");
+      System.out.print(node.val + " ");
       printLeftBoundary(node.left);
     } else if (node.right != null) {
-      System.out.print(node.data + " ");
+      System.out.print(node.val + " ");
       printLeftBoundary(node.right);
     }
     // Do nothing for leaf node, this way we avoid duplicates in leaves
@@ -73,7 +65,7 @@ public class BoundaryTraversal {
     if (node == null) return;
     printLeaves(node.left);
     if (node.left == null && node.right == null) {
-      System.out.print(node.data + " ");
+      System.out.print(node.val + " ");
     }
     printLeaves(node.right);
   }
@@ -84,10 +76,10 @@ public class BoundaryTraversal {
     if (node.right != null) {
       // recursion first for bottom-up
       printRightBoundary(node.right);
-      System.out.print(node.data + " ");
+      System.out.print(node.val + " ");
     } else if (node.left != null) {
       printRightBoundary(node.left);
-      System.out.print(node.data + " ");
+      System.out.print(node.val + " ");
     }
     // Do nothing for leaf node
   }

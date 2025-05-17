@@ -11,6 +11,7 @@ public class LeastAverageSubarrayOfSizeB {
     int resultIndex = -1; // To store the starting index of the subarray with the least average
 
     while (j < A.length) {
+      //CASE 1 : EXPANDING WINDOW
       // Add the current element to the sum (expanding the window)
       sum += A[j];
 
@@ -18,6 +19,7 @@ public class LeastAverageSubarrayOfSizeB {
       if (j - i + 1 < B) {
         j++; // Expand the window by moving the end pointer forward
       }
+      //CASE 2 :  WINDOW EQUAL TO SIZE
       // If the window size is exactly B, process the current window
       else if (j - i + 1 == B) {
         // Check if the current window's sum is less than the least average
@@ -26,6 +28,7 @@ public class LeastAverageSubarrayOfSizeB {
           leastAverage = sum;
           resultIndex = i; // Store the start index of the current window
         }
+        //CASE 3 : SHRINK THE WINDOW BY SUBSTRACT THE ELEMENT FROM SUM
         // Shrink the window by removing the first element
         sum -= A[i];
         // Move both pointers forward

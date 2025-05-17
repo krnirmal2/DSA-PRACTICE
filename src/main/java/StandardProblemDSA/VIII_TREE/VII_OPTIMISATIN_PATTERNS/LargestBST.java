@@ -1,27 +1,16 @@
 package StandardProblemDSA.VIII_TREE.VII_OPTIMISATIN_PATTERNS;
 
+import StandardProblemDSA.VIII_TREE.BST.BSTutility;
+import StandardProblemDSA.VIII_TREE.TreeNode;
+
 // Java Program to find Size of Largest
 // BST in a Binary Tree
 /*The idea is simple, we traverse through the Binary tree (starting from root). For every node, we check if it is BST.
 If yes, then we return size of the subtree rooted with current node. Else, we recursively call for left and right
 subtrees and return the maximum of two calls.*/
 public class LargestBST {
-
-  // Returns true if the given tree is
-  // BST, else false
-  static boolean isValidBst(Node root, int minValue, int maxValue) {
-    if (root == null) {
-      return true;
-    }
-    if (root.data >= maxValue || root.data <= minValue) {
-      return false;
-    }
-    return isValidBst(root.left, minValue, root.data)
-        && isValidBst(root.right, root.data, maxValue);
-  }
-
   // Returns size of a tree
-  static int size(Node root) {
+  static int size(TreeNode root) {
     if (root == null) {
       return 0;
     }
@@ -29,7 +18,7 @@ public class LargestBST {
   }
 
   // Finds the size of the largest BST
-  static int largestBst(Node root) {
+  static int largestBst(TreeNode root) {
 
     // If tree is empty
     if (root == null) {
@@ -37,7 +26,7 @@ public class LargestBST {
     }
 
     // If whole tree is BST
-    if (isValidBst(root, Integer.MIN_VALUE, Integer.MAX_VALUE)) {
+    if (BSTutility.validateBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE)) {
       return size(root);
     }
 
@@ -54,10 +43,10 @@ public class LargestBST {
     //    /
     //  40
 
-    Node root = new Node(50);
-    root.left = new Node(75);
-    root.right = new Node(45);
-    root.left.left = new Node(40);
+    TreeNode root = new TreeNode(50);
+    root.left = new TreeNode(75);
+    root.right = new TreeNode(45);
+    root.left.left = new TreeNode(40);
     System.out.println(largestBst(root));
   }
 }

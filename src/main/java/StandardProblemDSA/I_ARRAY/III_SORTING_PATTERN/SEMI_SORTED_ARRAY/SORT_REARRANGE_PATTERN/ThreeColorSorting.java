@@ -1,7 +1,9 @@
 package StandardProblemDSA.I_ARRAY.III_SORTING_PATTERN.SEMI_SORTED_ARRAY.SORT_REARRANGE_PATTERN;
 
+import StandardProblemDSA.Utility;
+
 public class ThreeColorSorting {
-  public static int[] sortColors(int[] A) {
+  public static int[] sortColors(int[] A) {// todo , remain two pointer
     int count = 0;
     int index = 0;
     int[] result = new int[A.length];
@@ -27,16 +29,12 @@ public class ThreeColorSorting {
   }
 
   public static void main(String[] args) {
-    int[] A = {
-      2, 0, 0, 1, 0, 0, 2, 2, 1, 1, 0, 0, 1, 0, 2, 1, 1, 0, 1, 0, 1, 2, 2, 2, 0, 0, 1, 0, 2, 1, 1,
-      2, 1, 2, 2, 1, 0, 2, 2, 1, 1, 1, 0, 1, 0, 1, 0, 2, 1, 2, 0, 2, 0, 1, 1, 0, 2, 2, 1, 2, 0, 2,
-      1, 1, 1, 2, 0, 1, 0, 2, 2, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 2, 1, 1, 0, 2, 1, 2, 0, 0, 0, 2, 2,
-      2, 2, 0, 0, 0, 1, 1, 0, 2, 1, 2, 2, 2, 1, 2, 2, 0, 1, 0, 1, 2, 1, 1, 0, 1, 2, 0, 1, 0, 2, 2,
-      1, 2, 1, 0, 2, 2, 1, 1, 0, 2, 1, 2
-    };
+    int[] A = Utility.onlyThreeValueArray();
     A = sortColors(A);
     for (int i = 0; i < A.length; i++) {
       System.out.print(A[i]);
     }
   }
+
+
 }

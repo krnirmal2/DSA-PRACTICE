@@ -4,7 +4,10 @@ import static StandardProblemDSA.VIII_TREE.BST.BSTutility.height;
 import static StandardProblemDSA.VIII_TREE.BST.BSTutility.validateBST;
 import static StandardProblemDSA.VIII_TREE.TreeUtility.isIdentical;
 
+import StandardProblemDSA.VIII_TREE.BST.BSTutility;
 import StandardProblemDSA.VIII_TREE.TreeNode;
+import StandardProblemDSA.VIII_TREE.TreeUtility;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -39,14 +42,9 @@ public class TreeCheckOperations {
   */
   public static boolean isSymmetric(TreeNode root) {
     if (root == null) return true;
-    return isMirror(root.left, root.right);
+    return TreeUtility.isMirror(root.left, root.right);
   }
 
-  private static boolean isMirror(TreeNode t1, TreeNode t2) {
-    if (t1 == null && t2 == null) return true;
-    if (t1 == null || t2 == null) return false;
-    return (t1.val == t2.val) && isMirror(t1.left, t2.right) && isMirror(t1.right, t2.left);
-  }
 
   // ---------------------------------------------------
   // 3. Validate Binary Search Tree (BST)
@@ -72,7 +70,7 @@ public class TreeCheckOperations {
        This tree is a valid BST.
   */
   public static boolean isValidBST(TreeNode root) {
-    return validateBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    return BSTutility.validateBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
   }
 
   // ---------------------------------------------------

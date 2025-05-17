@@ -53,6 +53,8 @@ Explanation 1:
 There is no such index.
 */
 
+import StandardProblemDSA.Utility;
+
 public class EquilibriumIndex {
 
   static int solve(int[] A) {
@@ -62,17 +64,8 @@ public class EquilibriumIndex {
     int[] prefixSum = new int[n];
     int[] suffixSum = new int[n];
 
-    // Compute prefix sum
-    prefixSum[0] = A[0];
-    for (int i = 1; i < n; i++) {
-      prefixSum[i] = prefixSum[i - 1] + A[i];
-    }
-
-    // Compute suffix sum
-    suffixSum[n - 1] = A[n - 1];
-    for (int i = n - 2; i >= 0; i--) {
-      suffixSum[i] = suffixSum[i + 1] + A[i];
-    }
+    Utility.prefixSum(A, prefixSum);
+    Utility.suffixSum(A, suffixSum);
 
     // Find equilibrium index
     for (int i = 0; i < n; i++) {
@@ -86,6 +79,8 @@ public class EquilibriumIndex {
 
     return -1; // No equilibrium index found
   }
+
+
 
   public static void main(String[] args) {
     int[] A = {-7, 1, 5, 2, -4, 3, 0};

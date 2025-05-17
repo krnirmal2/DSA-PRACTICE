@@ -1,6 +1,6 @@
 package StandardProblemDSA.VIII_TREE.BST.ITERATOR;
 
-import StandardProblemDSA.VIII_TREE.BstIteratorUsingStack;
+import StandardProblemDSA.VIII_TREE.BST.BstIteratorUsingStack;
 import StandardProblemDSA.VIII_TREE.TreeNode;
 
 public class TwoSumBstWithTargetUsingBst {

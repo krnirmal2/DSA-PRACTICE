@@ -1,11 +1,13 @@
 package StandardProblemDSA.I_ARRAY.I_TRAVERSAL;
 
+import StandardProblemDSA.Utility;
+
 import java.util.HashMap;
 
 public class commonElementofTwoArray {
   public static int[] solve(int[] A, int[] B) {
     int sizeOfResultArrray = Math.min(A.length, B.length);
-    int[] result = new int[sizeOfResultArrray];
+    int[] result = Utility.createNewArrayOfSizeN(sizeOfResultArrray);
 
     int index = 0;
     int count = 0;
@@ -16,22 +18,9 @@ public class commonElementofTwoArray {
     HashMap<Integer, Integer> mapB = new HashMap();
     HashMap<Integer, Boolean> visited = new HashMap();
 
-    // insert the element and count the frequency of each element in A and B
-    for (int i = 0; i < A.length; i++) {
-      if (mapA.containsKey(A[i])) {
-        mapA.put(A[i], mapA.get(A[i]) + 1);
-      } else {
-        mapA.put(A[i], 1);
-      }
-    }
+    Utility.countFrequencyEachElement(A, mapA);
+    Utility.countFrequencyEachElement(B, mapB);
 
-    for (int i = 0; i < B.length; i++) {
-      if (mapB.containsKey(B[i])) {
-        mapB.put(B[i], mapB.get(B[i]) + 1);
-      } else {
-        mapB.put(B[i], 1);
-      }
-    }
     // iterate over each element of the A
     for (int i = 0; i < A.length; i++) {
       // if the element at i of A is presnt in map
@@ -60,6 +49,9 @@ public class commonElementofTwoArray {
     }
     return result;
   }
+
+
+
 
   public static void main(String[] args) {
     int[] A = {1, 2, 2, 1};

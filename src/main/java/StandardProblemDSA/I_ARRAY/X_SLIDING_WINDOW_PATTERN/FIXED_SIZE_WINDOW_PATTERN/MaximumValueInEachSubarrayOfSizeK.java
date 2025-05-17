@@ -50,6 +50,7 @@ public class MaximumValueInEachSubarrayOfSizeK {
     Deque<Integer> deque = new LinkedList<>();
 
     for (int i = 0; i < n; i++) {
+      // CASE 1: EXPAND WINDOW
       // Remove indices that are out of this window.
       if (!deque.isEmpty() && deque.peekFirst() < i - k + 1) {
         deque.pollFirst();

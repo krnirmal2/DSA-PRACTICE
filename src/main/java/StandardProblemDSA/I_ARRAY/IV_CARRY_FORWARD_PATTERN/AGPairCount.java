@@ -1,11 +1,13 @@
 package StandardProblemDSA.I_ARRAY.IV_CARRY_FORWARD_PATTERN;
 
+import StandardProblemDSA.Utility;
+
 public class AGPairCount {
   public static int solve(String A) {
     int sizeS = A.length();
     int count = 0, result = 0;
     int[] psg = new int[sizeS];
-    int modulo = (int) Math.pow(10, 9) + 7;
+    int modulo = Utility.getModulo();
     for (int i = 1; i < sizeS; i++) {
       if (A.charAt(i) == 'G') psg[i] = psg[i - 1] + 1;
       else psg[i] = psg[i - 1];

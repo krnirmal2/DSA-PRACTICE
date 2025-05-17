@@ -1,9 +1,11 @@
-package StandardProblemDSA.VIII_TREE.II_CONSTRUCTION_PATTERNS;
+package StandardProblemDSA.VIII_TREE.BST;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
+import StandardProblemDSA.VIII_TREE.TreeUtility;
+
 import java.util.*;
 
-class BSTOperations {
+public class BSTCostructionArrayAndLinkedList {
 
   // ---------------------------------------------------
   // Node Definitions
@@ -47,16 +49,10 @@ class BSTOperations {
   */
   public List<Integer> preorderTraversal(TreeNode root) {
     List<Integer> result = new ArrayList<>();
-    preorderHelper(root, result);
+    TreeUtility.preorderHelper(root, result);
     return result;
   }
 
-  private void preorderHelper(TreeNode node, List<Integer> result) {
-    if (node == null) return;
-    result.add(node.val); // Visit root
-    preorderHelper(node.left, result); // Traverse left subtree
-    preorderHelper(node.right, result); // Traverse right subtree
-  }
 
   // ---------------------------------------------------
   // 3. Construct BST from Sorted Array
@@ -137,7 +133,7 @@ class BSTOperations {
   // Main method for demonstration of functionalities.
   // ---------------------------------------------------
   public static void main(String[] args) {
-    BSTOperations ops = new BSTOperations();
+    BSTCostructionArrayAndLinkedList ops = new BSTCostructionArrayAndLinkedList();
 
     // 1. Construct BST from Sorted Array
     int[] sortedArr = {1, 2, 3, 4, 5, 6, 7};

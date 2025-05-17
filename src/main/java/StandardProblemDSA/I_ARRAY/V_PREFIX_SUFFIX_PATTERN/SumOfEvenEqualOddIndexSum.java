@@ -1,5 +1,7 @@
 package StandardProblemDSA.I_ARRAY.V_PREFIX_SUFFIX_PATTERN;
 
+import StandardProblemDSA.Utility;
+
 public class SumOfEvenEqualOddIndexSum {
 
   /*Given an array A[], count the number of ways we can remove one element such that the sum of odd-indexed elements becomes equal to the sum of even-indexed elements in the remaining array.
@@ -69,19 +71,7 @@ public class SumOfEvenEqualOddIndexSum {
     // Step 1: Compute prefix sums
     int[] prefixEven = new int[n];
     int[] prefixOdd = new int[n];
-    prefixEven[0] = A[0];
-    prefixOdd[0] = 0;
-
-    for (int i = 1; i < n; i++) {
-      prefixEven[i] = prefixEven[i - 1];
-      prefixOdd[i] = prefixOdd[i - 1];
-
-      if (i % 2 == 0) {
-        prefixEven[i] += A[i];
-      } else {
-        prefixOdd[i] += A[i];
-      }
-    }
+    Utility.prefixEvenOddSum(A, prefixEven, prefixOdd, n);
 
     // Step 2: Check removals
     int totalEven = prefixEven[n - 1];
@@ -106,6 +96,8 @@ public class SumOfEvenEqualOddIndexSum {
 
     return count;
   }
+
+
 
   public static void main(String[] args) {
     int[] A = {2, 1, 6, 4, 5, 3};

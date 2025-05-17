@@ -1,5 +1,7 @@
 package StandardProblemDSA.I_ARRAY.X_SLIDING_WINDOW_PATTERN.FIXED_SIZE_WINDOW_PATTERN;
 
+import StandardProblemDSA.Utility;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,10 +17,7 @@ public class CountOfAnagramInText {
 
     // Approach
     // 1. create  Frequency map of pattern for put the character and its count
-    Map<Character, Integer> patternMap = new HashMap<>();
-    for (char ch : pattern.toCharArray()) {
-      patternMap.put(ch, patternMap.getOrDefault(ch, 0) + 1);
-    }
+    Map<Character, Integer> patternMap = Utility.getCharFrequencyOfString(pattern);
 
     // 2. create ann new  map for the each window of size k
     // and when it reaches the k length characters
@@ -30,17 +29,18 @@ public class CountOfAnagramInText {
     int i = 0, j = 0;
 
     while (j < text.length()) {
+      // CASE 1: Expand window by put character on by one
       // put the character and its count in the map
       char ch = text.charAt(j);
       windowMap.put(ch, windowMap.getOrDefault(ch, 0) + 1);
 
-      // When window size reaches k then we will check
+      //CASE 2: When window size reaches size k then we will check
       if (j - i + 1 == k) {
         // Check if both maps are equal (i.e., anagram found)
         if (windowMap.equals(patternMap)) {
           count++;
         }
-
+        // CASE 3: SHRINK WINDOW SIZE BY REMOVING THE CHARACTER FREQUNECY FROM THE MAP
         // Remove first character of the window
         char startChar = text.charAt(i);
         windowMap.put(startChar, windowMap.get(startChar) - 1);

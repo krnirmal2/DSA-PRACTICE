@@ -1,5 +1,7 @@
 package StandardProblemDSA.I_ARRAY.V_PREFIX_SUFFIX_PATTERN;
 
+import StandardProblemDSA.Utility;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,19 +16,8 @@ public class rainWaterTrap {
 
     int[] left_max = new int[A.size()];
     int[] right_max = new int[A.size()];
-    left_max[0] = A.get(0);
-    right_max[n - 1] = A.get(n - 1);
-    // first find the prefix max
-    for (int i = 1; i < A.size(); i++) {
-      left_max[i] = Math.max(left_max[i - 1], A.get(i));
-      //                left_max.add(i,Math.max(left_max.get(i-1), A.get(i))) ;
-    }
-    // suffix max
-    for (int i = A.size() - 2; i >= 0; i--) {
-      right_max[i] = Math.max(right_max[i + 1], A.get(i));
-
-      //                right_max.add(i,Math.max(right_max.get(i+1), A.get(i)));
-    }
+    Utility.prefixMaxValues(A, left_max);
+    Utility.suffixMaxValues(A, right_max, n);
 
     int totalUnitOfWater = 0;
     int left_closest_max, right_closest_max;
@@ -47,6 +38,8 @@ public class rainWaterTrap {
 
     return totalUnitOfWater;
   }
+
+
 
   public static void main(String[] args) {
     //        ArrayList<Integer> a = new ArrayList<>(List.of(0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1));
