@@ -1,7 +1,7 @@
 package StandardProblemDSA.VIII_TREE.BST;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
-import StandardProblemDSA.VIII_TREE.VII_OPTIMISATIN_PATTERNS.TreeMetricsOperations;
+
 
 public class BSTutility {
 
@@ -108,7 +108,7 @@ public class BSTutility {
     return Math.max(leftHeight, rightHeight) + 1;
   }
 
-  public static TreeMetricsOperations.BSTInfo postorderBST(TreeNode node) {
+ /* public static TreeMetricsOperations.BSTInfo postorderBST(TreeNode node) {
     if (node == null) return new TreeMetricsOperations.BSTInfo(true, 0, Integer.MAX_VALUE, Integer.MIN_VALUE);
 
     TreeMetricsOperations.BSTInfo leftInfo = postorderBST(node.left);
@@ -124,6 +124,6 @@ public class BSTutility {
       // Not a BST; size not needed here.
       return new TreeMetricsOperations.BSTInfo(false, 0, 0, 0);
     }
-  }
+  }*/
 
 }

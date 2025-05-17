@@ -3,6 +3,8 @@ package StandardProblemDSA.VIII_TREE.IV_MODIFICATION_TRANSAFORMATION_PATTERNS;
 import StandardProblemDSA.VIII_TREE.TreeNode;
 import StandardProblemDSA.VIII_TREE.TreeUtility;
 
+import static StandardProblemDSA.VIII_TREE.BST.TrimOrPruningBST.trimBST;
+
 public class ModificationAndTransFormation {
   // ---------------------------------------------------
   // 1. Flatten Tree to Linked List

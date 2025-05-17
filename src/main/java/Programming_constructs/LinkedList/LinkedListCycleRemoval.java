@@ -1,6 +1,8 @@
 package Programming_constructs.LinkedList;
 
-import static Utility_linkedList.printList;
+//import static Utility_linkedList.printList;
+
+import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
 
 class Node {
   int data;
@@ -92,6 +94,6 @@ public class LinkedListCycleRemoval {
     removeLoop(head);
 
     // Print the modified linked list
-    printList(head);
+//    Utility_linkedList.printList(head);
   }
 }

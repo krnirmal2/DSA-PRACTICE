@@ -168,13 +168,13 @@ public class TreeMetricsOperations {
              1   8
        Size: 3.
   */
-  static class BSTInfo {
-    boolean isBST;
-    int size;
+  public static class BSTInfo {
+    public boolean isBST;
+    public int size;
     int min;
     int max;
 
-    BSTInfo(boolean isBST, int size, int min, int max) {
+    public BSTInfo(boolean isBST, int size, int min, int max) {
       this.isBST = isBST;
       this.size = size;
       this.min = min;

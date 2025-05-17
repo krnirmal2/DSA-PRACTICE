@@ -1,8 +1,10 @@
+/*
 package StandardProblemDSA.II_LINKEDLIST.xi_DOUBLY_LL;
 
 import java.util.HashMap;
 import java.util.Map;
 
+*/
 /*
 * Execution Flow
 
@@ -31,21 +33,22 @@ Key Concepts:
 HashMap ensures O(1) time complexity for lookup.
 Doubly Linked List allows efficient removal and reordering of nodes.
 Eviction always removes the node at the tail of the list, which is the least recently used.
-* */
+* *//*
+
 
 class LRUCache {
 
   private final int capacity;
-  private final Map<Integer, Node> cache;
-  private final Node head, tail;
+  private final Map<Integer, DoublyLinkedList> cache;
+  private final DoublyLinkedList head, tail;
 
   public LRUCache(int capacity) {
     this.capacity = capacity;
     this.cache = new HashMap<>();
 
     // Initialize dummy head and tail nodes for the doubly linked list
-    this.head = new Node(0, 0);
-    this.tail = new Node(0, 0);
+    this.head = new DoublyLinkedList(0, 0);
+    this.tail = new DoublyLinkedList(0, 0);
     head.next = tail;
     tail.prev = head;
   }
@@ -82,7 +85,7 @@ class LRUCache {
     }
 
     // Move the accessed node to the front
-    Node node = cache.get(key);
+    DoublyLinkedList node = cache.get(key);
     removeNode(node);
     addNodeToFront(node);
 
@@ -93,7 +96,7 @@ class LRUCache {
   public void put(int key, int value) {
     if (cache.containsKey(key)) {
       // Update the existing node
-      Node node = cache.get(key);
+      DoublyLinkedList node = cache.get(key);
       node.value = value;
       removeNode(node);
       addNodeToFront(node);
@@ -101,24 +104,24 @@ class LRUCache {
       // Create a new node
       if (cache.size() >= capacity) {
         // Remove the least recently used node
-        Node lru = tail.prev;
+        DoublyLinkedList lru = tail.prev;
         removeNode(lru);
         cache.remove(lru.key);
       }
-      Node newNode = new Node(key, value);
+      DoublyLinkedList newNode = new DoublyLinkedList(key, value);
       addNodeToFront(newNode);
       cache.put(key, newNode);
     }
   }
 
   // Remove a node from the doubly linked list
-  private void removeNode(Node node) {
+  private void removeNode(DoublyLinkedList node) {
     node.prev.next = node.next;
     node.next.prev = node.prev;
   }
 
   // Add a node to the front (most recently used) of the doubly linked list
-  private void addNodeToFront(Node node) {
+  private void addNodeToFront(DoublyLinkedList node) {
     node.next = head.next;
     node.prev = head;
     head.next.prev = node;
@@ -127,7 +130,7 @@ class LRUCache {
 
   // Debug: Print the current state of the cache
   public void printCache() {
-    Node temp = head.next;
+    DoublyLinkedList temp = head.next;
     while (temp != tail) {
       System.out.print("(" + temp.key + ", " + temp.value + ") ");
       temp = temp.next;
@@ -135,3 +138,4 @@ class LRUCache {
     System.out.println();
   }
 }
+*/
