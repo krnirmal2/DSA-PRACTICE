@@ -3,19 +3,12 @@ package StandardProblemDSA.IV_STACK.II_EXPERSSION_BASED.BASIC;
 /*
 🔹 Problem Statement
 Given a string s containing '(', ')', and '*', return true if the string is valid.
-
         '(' and ')' are normal parentheses.
-
 '*' can be treated as:
-
         '('
-
         ')'
-
 or an empty string
-
 You need to check if it's possible to convert the string into a valid parentheses string by treating stars optimally.
-
 */
 
 public class ValidParenthesesII {
@@ -32,34 +25,37 @@ public class ValidParenthesesII {
               ✅ If high ever becomes negative → more ) than ( → invalid
   ✅ Clamp low = max(0, low)
   ✅ At the end, if low == 0, it's valid.*/
-  public boolean checkValidString(String s) {
-    int low = 0, high = 0;
-
-    for (char ch : s.toCharArray()) {
-      if (ch == '(') {
-        low++;
-        high++;
-      } else if (ch == ')') {
-        low--;
-        high--;
-      } else { // ch == '*'
-        low--; // treat as ')'
-        high++; // treat as '('
+  public static boolean checkValidString(String s) {
+      int low = 0, high = 0;
+  
+      for (char ch : s.toCharArray()) {
+        if (ch == '(') {
+          low++;
+          high++;
+        } else if (ch == ')') {
+          low--;
+          high--;
+        } else { // ch == '*'
+          low--; // treat as ')'
+          high++; // treat as '('
+        }
+  
+        if (high < 0) return false; // Too many ')'
+        low = Math.max(low, 0); // Clamp low to 0
       }
-
-      if (high < 0) return false; // Too many ')'
-      low = Math.max(low, 0); // Clamp low to 0
+  
+      return low == 0;
     }
-
-    return low == 0;
+    public static void main(String[] args) {
+      System.out.println(checkValidString("()"));       // true
+    System.out.println(checkValidString("(*)"));      // true
+  System.out.println(checkValidString("(*))"));     // true
+  System.out.println(checkValidString("(((**)"));   // true
+  System.out.println(checkValidString("((*)"));     // true
+  System.out.println(checkValidString("(()*"));     // true
+  System.out.println(checkValidString("(*)("));     // false
+  System.out.println(checkValidString("((())"));    // false
   }
-  // System.out.println(checkValidString("()"));       // true
-  // System.out.println(checkValidString("(*)"));      // true
-  // System.out.println(checkValidString("(*))"));     // true
-  // System.out.println(checkValidString("(((**)"));   // true
-  // System.out.println(checkValidString("((*)"));     // true
-  // System.out.println(checkValidString("(()*"));     // true
-  // System.out.println(checkValidString("(*)("));     // false
-  // System.out.println(checkValidString("((())"));    // false
+  
 
 }

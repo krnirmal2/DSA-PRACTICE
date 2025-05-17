@@ -351,4 +351,32 @@ public class Utility {
     }
     return true;
   }
+   // ✅ Helper method to check if a string is a valid integer
+   public static boolean isNumeric(String str) {
+    if (str.isEmpty()) return false;
+    if (str.charAt(0) == '-' && str.length() > 1)
+      str = str.substring(1); // Handle negative numbers
+    for (char c : str.toCharArray()) {
+      if (!Character.isDigit(c)) return false; // Return false if any non-digit character is found
+    }
+    return true;
+  }
+    // ✅ Returns precedence of operators
+  public static int precedence(char operator) {
+    switch (operator) {
+      case '+':
+      case '-':
+        return 1;
+
+      case '*':
+      case '/':
+        return 2;
+
+      case '^':
+        return 3; // Exponent has the highest precedence
+        
+      default:
+        return 0; // For non-operator characters
+    }
+  }
 }

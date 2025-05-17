@@ -38,23 +38,11 @@ Pop all elements until an open bracket ( is found.
 
 import java.util.Stack;
 
+import StandardProblemDSA.Utility;
+
 public class InfixToPostfix {
 
-  // ✅ Returns precedence of operators
-  private static int precedence(char operator) {
-    switch (operator) {
-      case '+':
-      case '-':
-        return 1;
-      case '*':
-      case '/':
-        return 2;
-      case '^':
-        return 3; // Exponent has the highest precedence
-      default:
-        return 0; // For non-operator characters
-    }
-  }
+
 
   // ✅ Converts infix expression to postfix
   public static String infixToPostfix(String expression) {
@@ -79,7 +67,7 @@ public class InfixToPostfix {
       }
       // 4️⃣ If it's an operator, handle precedence
       else {
-        while (!stack.isEmpty() && precedence(stack.peek()) >= precedence(ch)) {
+        while (!stack.isEmpty() && Utility.precedence(stack.peek()) >= Utility.precedence(ch)) {
           output.append(stack.pop());
         }
         stack.push(ch);

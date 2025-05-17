@@ -2,6 +2,8 @@ package StandardProblemDSA.IV_STACK.II_EXPERSSION_BASED.INTERMEDIATE;
 
 import java.util.Stack;
 
+import StandardProblemDSA.Utility;
+
 public class EvaluateReversePolisNotation {
   public static class EvaluteReversePolishNotation {
     /* Given a list of tokens representing a Reverse Polish Notation (RPN) expression, evaluate the result.
@@ -28,42 +30,37 @@ public class EvaluateReversePolisNotation {
 
       for (String token : tokens) {
         // Check if the token is a number using try-catch
-        if (isNumeric(token)) {
+        if (Utility.isNumeric(token)) {
           stack.push(Integer.parseInt(token)); // Convert to integer and push
         } else {
+          // take two top element from the stack
           int b = stack.pop(); // Second operand
           int a = stack.pop(); // First operand
-
-          // Perform the operation
-          switch (token) {
-            case "+":
-              stack.push(a + b);
-              break;
-            case "-":
-              stack.push(a - b);
-              break;
-            case "*":
-              stack.push(a * b);
-              break;
-            case "/":
-              stack.push(a / b);
-              break;
-          }
+          evaluate(stack, token, b, a);
         }
       }
       return stack.pop();
     }
 
-    // ✅ Helper method to check if a string is a valid integer
-    private static boolean isNumeric(String str) {
-      if (str.isEmpty()) return false;
-      if (str.charAt(0) == '-' && str.length() > 1)
-        str = str.substring(1); // Handle negative numbers
-      for (char c : str.toCharArray()) {
-        if (!Character.isDigit(c)) return false; // Return false if any non-digit character is found
+    private static void evaluate(Stack<Integer> stack, String token, int b, int a) {
+      // Perform the operation
+      switch (token) {
+        case "+":
+          stack.push(a + b);
+          break;
+        case "-":
+          stack.push(a - b);
+          break;
+        case "*":
+          stack.push(a * b);
+          break;
+        case "/":
+          stack.push(a / b);
+          break;
       }
-      return true;
     }
+
+   
 
     public static void main(String[] args) {
       System.out.println(evalRPN(new String[] {"2", "1", "+", "3", "*"})); // 9
