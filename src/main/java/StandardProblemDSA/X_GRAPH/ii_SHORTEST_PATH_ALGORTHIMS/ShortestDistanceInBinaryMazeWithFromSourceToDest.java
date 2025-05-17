@@ -1,16 +1,8 @@
 package StandardProblemDSA.X_GRAPH.ii_SHORTEST_PATH_ALGORTHIMS;
 
+import StandardProblemDSA.X_GRAPH.GraphUtility;
+import StandardProblemDSA.X_GRAPH.Tuple;
 import java.util.*;
-
-class tuple {
-  int first, second, third;
-
-  tuple(int _first, int _second, int _third) {
-    this.first = _first;
-    this.second = _second;
-    this.third = _third;
-  }
-}
 
 public class ShortestDistanceInBinaryMazeWithFromSourceToDest {
   /* Problem Statement:
@@ -59,20 +51,15 @@ public class ShortestDistanceInBinaryMazeWithFromSourceToDest {
 
     // Create a queue for storing cells with their distances from source
     // in the form {dist,{cell coordinates pair}}.
-    Queue<tuple> q = new LinkedList<>();
+    Queue<Tuple> q = new LinkedList<>();
     int n = grid.length;
     int m = grid[0].length;
 
     // Create a distance matrix with initially all the cells marked as
     // unvisited and the source cell as 0.
-    int[][] dist = new int[n][m];
-    for (int i = 0; i < n; i++) {
-      for (int j = 0; j < m; j++) {
-        dist[i][j] = (int) (1e9);
-      }
-    }
+    int[][] dist = GraphUtility.initaliseMatrixWithLargeValue(n, m);
     dist[source[0]][source[1]] = 0;
-    q.add(new tuple(0, source[0], source[1]));
+    q.add(new Tuple(0, source[0], source[1]));
 
     // The following delta rows and delts columns array are created such that
     // each index represents each adjacent node that a cell may have
@@ -83,11 +70,11 @@ public class ShortestDistanceInBinaryMazeWithFromSourceToDest {
     // Iterate through the maze by popping the elements out of the queue
     // and pushing whenever a shorter distance to a cell is found.
     while (!q.isEmpty()) {
-      tuple it = q.peek();
+      Tuple it = q.peek();
       q.remove();
-      int dis = it.first;
-      int r = it.second;
-      int c = it.third;
+      int dis = it.distance;
+      int r = it.row;
+      int c = it.col;
 
       // Through this loop, we check the 4 direction adjacent nodes
       // for a shorter path to destination.
@@ -96,18 +83,14 @@ public class ShortestDistanceInBinaryMazeWithFromSourceToDest {
         int newc = c + dc[i];
 
         // Checking the validity of the cell and updating if dist is shorter.
-        if (newr >= 0
-            && newr < n
-            && newc >= 0
-            && newc < m
-            && grid[newr][newc] == 1
+        if (GraphUtility.checkFourBoundaryOfMatrixWithOne(grid, newr, newc)
             && dis + 1 < dist[newr][newc]) {
           dist[newr][newc] = 1 + dis;
 
           // Return the distance until the point when
           // we encounter the destination cell.
           if (newr == destination[0] && newc == destination[1]) return dis + 1;
-          q.add(new tuple(1 + dis, newr, newc));
+          q.add(new Tuple(1 + dis, newr, newc));
         }
       }
     }

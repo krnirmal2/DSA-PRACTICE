@@ -14,7 +14,7 @@ public class ClosestMaxMin {
     // Step 2: Store the last seen positions of min and max
     int[] prefixMin = new int[n];
     int[] prefixMax = new int[n];
-     Utility.prefixMinMaxWithMinusOneIntialisationINDEX(A,min,max,prefixMin,prefixMax);
+    Utility.prefixMinMaxWithMinusOneIntialisationINDEX(A, min, max, prefixMin, prefixMax);
     // Step 3: Find the smallest subarray containing both min and max
     for (int i = 0; i < n; i++) {
       if (A[i] == min && prefixMax[i] != -1) {

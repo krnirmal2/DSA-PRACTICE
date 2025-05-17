@@ -6,7 +6,8 @@ import java.util.List;
 public class TreeUtility {
   // A utility function to find min and max
   // distances with respect to root.
-  public static void findHorizontalDistance(StandardProblemDSA.VIII_TREE.TreeNode node, int[] minMax, int hd) {
+  public static void findHorizontalDistance(
+      StandardProblemDSA.VIII_TREE.TreeNode node, int[] minMax, int hd) {
 
     // Base case
     if (node == null) return;
@@ -19,201 +20,207 @@ public class TreeUtility {
     findHorizontalDistance(node.left, minMax, hd - 1);
     findHorizontalDistance(node.right, minMax, hd + 1);
   }
-    public static TreeNode root;
 
+  public static TreeNode root;
 
-   /* public static void main(String[] args) {
-      BinaryTree tree = new BinaryTree();
-      root = new TreeNode(1);
-      root.left = new TreeNode(2);
-      root.right = new TreeNode(3);
-      root.left.left = new TreeNode(4);
-      tree.root.left.right = new TreeNode(5);
-      tree.root.right.left = new TreeNode(6);
-      tree.root.right.right = new TreeNode(7);
+  /* public static void main(String[] args) {
+        BinaryTree tree = new BinaryTree();
+        root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        tree.root.left.right = new TreeNode(5);
+        tree.root.right.left = new TreeNode(6);
+        tree.root.right.right = new TreeNode(7);
 
-      System.out.println("Height of the tree: " + tree.height());
-      System.out.println("Height of node with value 5: " + tree.nodeHeight(5));
-      System.out.println("Level of node with value 5: " + tree.nodeLevel(5));
-      System.out.println("Is value 3 present in the tree? " + tree.search(3));
-      System.out.println("Parent of node with value 5: " + tree.findParent(5).val);
-      System.out.println("Diameter of the tree: " + tree.diameter());
-      System.out.println("Leaf nodes: " + tree.findLeafNodes());
-      System.out.println("Siblings of node with value 5: " + tree.findSiblings(5));
-      System.out.println("Children of node with value 2: " + tree.findChildren(2));
+        System.out.println("Height of the tree: " + tree.height());
+        System.out.println("Height of node with value 5: " + tree.nodeHeight(5));
+        System.out.println("Level of node with value 5: " + tree.nodeLevel(5));
+        System.out.println("Is value 3 present in the tree? " + tree.search(3));
+        System.out.println("Parent of node with value 5: " + tree.findParent(5).val);
+        System.out.println("Diameter of the tree: " + tree.diameter());
+        System.out.println("Leaf nodes: " + tree.findLeafNodes());
+        System.out.println("Siblings of node with value 5: " + tree.findSiblings(5));
+        System.out.println("Children of node with value 2: " + tree.findChildren(2));
 
-      System.out.print("Inorder Traversal: ");
-      tree.inorderTraversal();
+        System.out.print("Inorder Traversal: ");
+        tree.inorderTraversal();
 
-      System.out.print("Preorder Traversal: ");
-      tree.preorderTraversal();
+        System.out.print("Preorder Traversal: ");
+        tree.preorderTraversal();
 
-      System.out.print("Postorder Traversal: ");
-      tree.postorderTraversal();
-    }
-*/
-    // Method to find the height of the tree
-    public static int height() {
-      return height(root);
-    }
-
-    public static int height(TreeNode node) {
-      // if node is null then return 0
-      // Else go for left and right and find the maximum amount
-      // them with add extra 1 to
-      if (node == null) {
-        return 0;
-      } else {
-        int leftHeight = height(node.left);
-        int rightHeight = height(node.right);
-
-        return Math.max(leftHeight, rightHeight) + 1;
+        System.out.print("Postorder Traversal: ");
+        tree.postorderTraversal();
       }
-    }
+  */
+  // Method to find the height of the tree
+  public static int height() {
+    return height(root);
+  }
 
-    // Method to find the height of a specific node
-    public static int nodeHeight(int val) {
-      // find the specific noden
-      // set the height =1 and then use utility to
-      // if node value is matched then return height
-      // first go for left with height+1; if level set the
-      // second if not getting any thing from left go for  right and return
-      // the value level
-      return nodeHeight(root, val, 1);
-    }
-
-    public static int nodeHeight(TreeNode node, int val, int height) {
-      if (node == null) return 0;
-      if (node.val == val) return height;
-
-      int level = nodeHeight(node.left, val, height + 1);
-      if (level != 0) return level;
-
-      level = nodeHeight(node.right, val, height + 1);
-      return level;
-    }
-
-    // Method to find the level of a given node in the tree
-    public static int nodeLevel(int val) {
-      // for level of a node just find the height of node and just minus 1 to it
-      return nodeHeight(val) - 1;
-    }
-
-    // Method to search for a node in the tree
-
-    public static boolean search(TreeNode node, int val) {
-      if (node == null) return false;
-      if (node.val == val) return true;
-      return search(node.left, val) || search(node.right, val);
-    }
-
-    // Method to find the parent of a node
-
-    public static TreeNode findParent(TreeNode node, int val) {
-      if (node == null
-          || (node.left != null && node.left.val == val)
-          || (node.right != null && node.right.val == val)) return node;
-
-      TreeNode parent = findParent(node.left, val);
-      if (parent == null) parent = findParent(node.right, val);
-
-      return parent;
-    }
-
-    // Method to find the diameter of the tree
-    public static int diameter(TreeNode node) {
-      if (node == null) return 0;
-      // find the height of the left and right
-
+  public static int height(TreeNode node) {
+    // if node is null then return 0
+    // Else go for left and right and find the maximum amount
+    // them with add extra 1 to
+    if (node == null) {
+      return 0;
+    } else {
       int leftHeight = height(node.left);
       int rightHeight = height(node.right);
 
-      // then find the left and right diameter of the tree
-      int leftDiameter = diameter(node.left);
-      int rightDiameter = diameter(node.right);
-      // return the maximum of the ( height of tree , maximum of left and rightDiameter)
-      return Math.max(leftHeight + rightHeight + 1, Math.max(leftDiameter, rightDiameter));
+      return Math.max(leftHeight, rightHeight) + 1;
     }
+  }
 
-    // Method to find all leaf nodes
-    public static List<Integer> findLeafNodes() {
-      List<Integer> leafNodes = new ArrayList<>();
-      findLeafNodes(root, leafNodes);
-      return leafNodes;
-    }
+  // Method to find the height of a specific node
+  public static int nodeHeight(int val) {
+    // find the specific noden
+    // set the height =1 and then use utility to
+    // if node value is matched then return height
+    // first go for left with height+1; if level set the
+    // second if not getting any thing from left go for  right and return
+    // the value level
+    return nodeHeight(root, val, 1);
+  }
+
+  public static int nodeHeight(TreeNode node, int val, int height) {
+    if (node == null) return 0;
+    if (node.val == val) return height;
+
+    int level = nodeHeight(node.left, val, height + 1);
+    if (level != 0) return level;
+
+    level = nodeHeight(node.right, val, height + 1);
+    return level;
+  }
+
+  // Method to find the level of a given node in the tree
+  public static int nodeLevel(int val) {
+    // for level of a node just find the height of node and just minus 1 to it
+    return nodeHeight(val) - 1;
+  }
+
+  // Method to search for a node in the tree
+
+  public static boolean search(TreeNode node, int val) {
+    if (node == null) return false;
+    if (node.val == val) return true;
+    return search(node.left, val) || search(node.right, val);
+  }
+
+  // Method to find the parent of a node
+
+  public static TreeNode findParent(TreeNode node, int val) {
+    if (node == null
+        || (node.left != null && node.left.val == val)
+        || (node.right != null && node.right.val == val)) return node;
+
+    TreeNode parent = findParent(node.left, val);
+    if (parent == null) parent = findParent(node.right, val);
+
+    return parent;
+  }
+
+  // Method to find the diameter of the tree
+  public static int diameter(TreeNode node) {
+    if (node == null) return 0;
+    // find the height of the left and right
+
+    int leftHeight = height(node.left);
+    int rightHeight = height(node.right);
+
+    // then find the left and right diameter of the tree
+    int leftDiameter = diameter(node.left);
+    int rightDiameter = diameter(node.right);
+    // return the maximum of the ( height of tree , maximum of left and rightDiameter)
+    return Math.max(leftHeight + rightHeight + 1, Math.max(leftDiameter, rightDiameter));
+  }
+
+  // Method to find all leaf nodes
+  public static List<Integer> findLeafNodes() {
+    List<Integer> leafNodes = new ArrayList<>();
+    findLeafNodes(root, leafNodes);
+    return leafNodes;
+  }
+
   public static boolean isLeaf(TreeNode node) {
     return node.left == null && node.right == null;
   }
 
-    public static void findLeafNodes(TreeNode node, List<Integer> leafNodes) {
-      if (node == null) return;
-      if (node.left == null && node.right == null) leafNodes.add(node.val);
-      findLeafNodes(node.left, leafNodes);
-      findLeafNodes(node.right, leafNodes);
-    }
+  public static void findLeafNodes(TreeNode node, List<Integer> leafNodes) {
+    if (node == null) return;
+    if (node.left == null && node.right == null) leafNodes.add(node.val);
+    findLeafNodes(node.left, leafNodes);
+    findLeafNodes(node.right, leafNodes);
+  }
 
-    // Method to find siblings of a node
-    public static List<Integer> findSiblings(int val) {
-      List<Integer> siblings = new ArrayList<>();
-      TreeNode parent = findParent(root,val);
-      if (parent != null) {
-        if (parent.left != null && parent.left.val != val) siblings.add(parent.left.val);
-        if (parent.right != null && parent.right.val != val) siblings.add(parent.right.val);
-      }
-      return siblings;
+  // Method to find siblings of a node
+  public static List<Integer> findSiblings(int val) {
+    List<Integer> siblings = new ArrayList<>();
+    TreeNode parent = findParent(root, val);
+    if (parent != null) {
+      if (parent.left != null && parent.left.val != val) siblings.add(parent.left.val);
+      if (parent.right != null && parent.right.val != val) siblings.add(parent.right.val);
     }
+    return siblings;
+  }
 
-    // Method to find children of a node
-    public static List<Integer> findChildren(int val) {
-      List<Integer> children = new ArrayList<>();
-      TreeNode node = findNode(root, val);
-      if (node != null) {
-        if (node.left != null) children.add(node.left.val);
-        if (node.right != null) children.add(node.right.val);
-      }
-      return children;
+  // Method to find children of a node
+  public static List<Integer> findChildren(int val) {
+    List<Integer> children = new ArrayList<>();
+    TreeNode node = findNode(root, val);
+    if (node != null) {
+      if (node.left != null) children.add(node.left.val);
+      if (node.right != null) children.add(node.right.val);
     }
+    return children;
+  }
 
-    public static TreeNode findNode(TreeNode node, int val) {
-      if (node == null) return null;
-      if (node.val == val) return node;
-      TreeNode left = findNode(node.left, val);
-      if (left != null) return left;
-      return findNode(node.right, val);
-    }
+  public static TreeNode findNode(TreeNode node, int val) {
+    if (node == null) return null;
+    if (node.val == val) return node;
+    TreeNode left = findNode(node.left, val);
+    if (left != null) return left;
+    return findNode(node.right, val);
+  }
 
-    // Tree Traversals: Inorder, Preorder and Postorder
-    public static void inorderTraversal(TreeNode node) {
-      if (node != null) {
-        inorderTraversal(node.left);
-        System.out.print(node.val + " ");
-        inorderTraversal(node.right);
-      }
+  // Tree Traversals: Inorder, Preorder and Postorder
+  public static void inorderTraversal(TreeNode node) {
+    if (node != null) {
+      inorderTraversal(node.left);
+      System.out.print(node.val + " ");
+      inorderTraversal(node.right);
     }
-    public static void preorderTraversal(TreeNode node) {
-      if (node != null) {
-        System.out.print(node.val + " ");
-        preorderTraversal(node.left);
-        preorderTraversal(node.right);
-      }
-    }
-    public static void postorderTraversal(TreeNode node) {
-      if (node != null) {
-        postorderTraversal(node.left);
-        postorderTraversal(node.right);
-        System.out.print(node.val + " ");
-      }
-    }
+  }
 
+  public static void preorderTraversal(TreeNode node) {
+    if (node != null) {
+      System.out.print(node.val + " ");
+      preorderTraversal(node.left);
+      preorderTraversal(node.right);
+    }
+  }
 
-  public static void preorderHelper(StandardProblemDSA.VIII_TREE.TreeNode node, List<Integer> result) {
+  public static void postorderTraversal(TreeNode node) {
+    if (node != null) {
+      postorderTraversal(node.left);
+      postorderTraversal(node.right);
+      System.out.print(node.val + " ");
+    }
+  }
+
+  public static void preorderHelper(
+      StandardProblemDSA.VIII_TREE.TreeNode node, List<Integer> result) {
     if (node == null) return;
     result.add(node.val); // Visit root
     preorderHelper(node.left, result); // Traverse left subtree
     preorderHelper(node.right, result); // Traverse right subtree
   }
 
-  public static void rootToLeafHelper(StandardProblemDSA.VIII_TREE.TreeNode node, List<Integer> current, List<List<Integer>> paths) {
+  public static void rootToLeafHelper(
+      StandardProblemDSA.VIII_TREE.TreeNode node,
+      List<Integer> current,
+      List<List<Integer>> paths) {
     if (node == null) return;
     current.add(node.val);
     if (node.left == null && node.right == null) { // leaf
@@ -234,15 +241,17 @@ public class TreeUtility {
     }
     // Otherwise, check in left or right subtree with reduced target.
     return hasPathSum(root.left, targetSum - root.val)
-            || hasPathSum(root.right, targetSum - root.val);
+        || hasPathSum(root.right, targetSum - root.val);
   }
-  public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p,TreeNode q) {
+
+  public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
     if (root == null || root == p || root == q) return root;
     TreeNode left = lowestCommonAncestor(root.left, p, q);
     TreeNode right = lowestCommonAncestor(root.right, p, q);
     if (left != null && right != null) return root;
     return (left != null) ? left : right;
   }
+
   // Helper: find distance from root to a given node value.
   public static int findLevel(StandardProblemDSA.VIII_TREE.TreeNode root, int val, int level) {
     if (root == null) return -1;
@@ -252,22 +261,24 @@ public class TreeUtility {
     return findLevel(root.right, val, level + 1);
   }
 
-  public static boolean findAncestors(StandardProblemDSA.VIII_TREE.TreeNode root, int target, List<Integer> ancestors) {
+  public static boolean findAncestors(
+      StandardProblemDSA.VIII_TREE.TreeNode root, int target, List<Integer> ancestors) {
     if (root == null) return false;
     if (root.val == target) return true;
     if (findAncestors(root.left, target, ancestors)
-            || findAncestors(root.right, target, ancestors)) {
+        || findAncestors(root.right, target, ancestors)) {
       ancestors.add(root.val);
       return true;
     }
     return false;
   }
+
   public static void findPathsMatching(
-          StandardProblemDSA.VIII_TREE.TreeNode node,
-          List<Integer> pattern,
-          int patternIndex,
-          List<Integer> current,
-          List<List<Integer>> matchingPaths) {
+      StandardProblemDSA.VIII_TREE.TreeNode node,
+      List<Integer> pattern,
+      int patternIndex,
+      List<Integer> current,
+      List<List<Integer>> matchingPaths) {
     if (node == null) return;
     current.add(node.val);
     // Check pattern match so far.
@@ -362,14 +373,14 @@ public class TreeUtility {
                   2     3                 2     3
        They are identical.
   */
-  public static boolean isIdentical(
-          TreeNode root1,TreeNode root2) {
+  public static boolean isIdentical(TreeNode root1, TreeNode root2) {
     if (root1 == null && root2 == null) return true;
     if (root1 == null || root2 == null) return false;
     return (root1.val == root2.val)
-            && isIdentical(root1.left, root2.left)
-            && isIdentical(root1.right, root2.right);
+        && isIdentical(root1.left, root2.left)
+        && isIdentical(root1.right, root2.right);
   }
+
   // ---------------------------------------------------
   // 1. Count Total Nodes
   // ---------------------------------------------------
@@ -436,7 +447,6 @@ public class TreeUtility {
     nodesAtKDistanceHelper(node.left, k - 1, result);
     nodesAtKDistanceHelper(node.right, k - 1, result);
   }
-
 
   // ---------------------------------------------------
   // 4. Sum of All Nodes
@@ -522,5 +532,4 @@ public class TreeUtility {
     if (root.right == null) return minDepth(root.left) + 1;
     return Math.min(minDepth(root.left), minDepth(root.right)) + 1;
   }
-
 }

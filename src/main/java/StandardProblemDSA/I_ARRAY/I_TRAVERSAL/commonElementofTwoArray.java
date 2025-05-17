@@ -1,7 +1,6 @@
 package StandardProblemDSA.I_ARRAY.I_TRAVERSAL;
 
 import StandardProblemDSA.Utility;
-
 import java.util.HashMap;
 
 public class commonElementofTwoArray {
@@ -49,9 +48,6 @@ public class commonElementofTwoArray {
     }
     return result;
   }
-
-
-
 
   public static void main(String[] args) {
     int[] A = {1, 2, 2, 1};

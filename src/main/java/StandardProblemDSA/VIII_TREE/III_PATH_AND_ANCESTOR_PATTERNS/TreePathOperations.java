@@ -2,7 +2,6 @@ package StandardProblemDSA.VIII_TREE.III_PATH_AND_ANCESTOR_PATTERNS;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
 import StandardProblemDSA.VIII_TREE.TreeUtility;
-
 import java.util.*;
 
 public class TreePathOperations {
@@ -132,7 +131,7 @@ public class TreePathOperations {
        LCA(6,2) = 5.
   */
   public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-    return TreeUtility.lowestCommonAncestor(root,p,q);
+    return TreeUtility.lowestCommonAncestor(root, p, q);
   }
 
   // ---------------------------------------------------
@@ -223,7 +222,6 @@ public class TreePathOperations {
     TreeUtility.findPathsMatching(root, pattern, 0, current, matchingPaths);
     return matchingPaths;
   }
-
 
   // ---------------------------------------------------
   // Main method for demonstration of functionalities.

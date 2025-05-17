@@ -41,7 +41,6 @@ public class COMPARATOR_UTILITY {
       this.x = x;
       this.y = y;
     }
-
   }
 
   // Sort by x, then y

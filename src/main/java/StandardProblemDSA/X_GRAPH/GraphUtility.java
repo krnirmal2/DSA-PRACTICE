@@ -76,6 +76,24 @@ public class GraphUtility {
     }
   }
 
+  public static void BFS(int s) {
+    boolean[] visited = new boolean[GraphWithLL.V];
+    Queue<Integer> queue = new LinkedList<Integer>();
+
+    visited[s] = true;
+    queue.add(s);
+
+    while (!queue.isEmpty()) {
+      int u = queue.poll();
+      for (int v : GraphWithLL.adj[u]) {
+        if (!visited[v]) {
+          visited[v] = true;
+          queue.add(v);
+        }
+      }
+    }
+  }
+
   /*Problems Using BFS (with small modifications):
   Number of Provinces (LeetCode) – Use BFS to count connected components.
   Rotten Oranges – Multi-source BFS to spread rot in a grid.
@@ -96,7 +114,7 @@ public class GraphUtility {
 
       Common Template:
   */
-  public void dfs(int node, List<List<Integer>> graph, boolean[] visited) {
+  public static void dfs(int node, List<List<Integer>> graph, boolean[] visited) {
     visited[node] = true;
     // Process node (e.g., add to component list)
     for (int neighbor : graph.get(node)) {
@@ -105,8 +123,21 @@ public class GraphUtility {
       }
     }
   }
+
   public static void addDirectedEdge(List<List<Integer>> adjList, int src, int dest) {
     adjList.get(src).add(dest);
+  }
+
+  public static void dfsWithMatrix(int node, int[][] graph, boolean[] visit) {
+    visit[node] = true; // /  mark the node as visited
+    for (int i = 0; i < graph.length; i++) { // iterate over the each neighbor of the node
+      if (graph[node][i] == 1
+          && !visit[
+              i]) { // only the column value is change as its neightbou will be in the same node
+        // with same row value that it
+        dfsWithMatrix(i, graph, visit);
+      }
+    }
   }
 
   /* Problems Using DFS (with small modifications):
@@ -480,25 +511,25 @@ public class GraphUtility {
   }
 
   /*    public void addEdge(int i, int j) {
-          matrix[i][j] = 1;
-          matrix[j][i] = 1;
-      }
+      matrix[i][j] = 1;
+      matrix[j][i] = 1;
+  }
 
-      public boolean hasEdge(int i, int j) {
-          return matrix[i][j] == 1;
-      }
+  public boolean hasEdge(int i, int j) {
+      return matrix[i][j] == 1;
+  }
 
-      public int getNumNodes() {
-          return numNodes;
-      }
-      public static void printMatrix() {
-          for (int i = 0; i < numNodes; i++) {
-              for (int j = 0; j < numNodes; j++) {
-                  System.out.print(matrix[i][j] + " ");
-              }
-              System.out.println();
+  public int getNumNodes() {
+      return numNodes;
+  }
+  public static void printMatrix() {
+      for (int i = 0; i < numNodes; i++) {
+          for (int j = 0; j < numNodes; j++) {
+              System.out.print(matrix[i][j] + " ");
           }
-      }*/
+          System.out.println();
+      }
+  }*/
   // A utility function to add an edge in an
   // undirected graph
   public static void addEdge(ArrayList<ArrayList<Integer>> adj, int u, int v) {
@@ -507,6 +538,7 @@ public class GraphUtility {
     // for a directed graph with an edge pointing from u to v,
     // adj.get(u).add(v);
   }
+
   // A utility function to print the adjacency list
   // representation of graph
   static void printGraph(ArrayList<ArrayList<Integer>> adj) {
@@ -520,4 +552,73 @@ public class GraphUtility {
     }
   }
 
+  public static int[][] getFourDirection() {
+    int[][] directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+    return directions;
+  }
+
+  public static boolean checkFourBoundaryOfMatrix(
+      int[][] mat, int newX, int newY, int rowSize, int colSize) {
+    return newX >= 0 && newY >= 0 && newX < rowSize && newY < colSize && mat[newX][newY] == -1;
+  }
+
+  public static int setNewY(int[] dir, int y) {
+    return y + dir[1];
+  }
+
+  public static int setNewX(int[] dir, int x) {
+    return x + dir[0];
+  }
+
+  public static boolean checkFourBoundaryOfMatrixWithOne(int[][] grid, int newRow, int newCol) {
+    return newRow >= 0
+        && newCol >= 0
+        && newRow < grid.length
+        && newCol < grid[0].length
+        && grid[newRow][newCol] == 1;
+  }
+
+  public static boolean onlyFourSideCheck(int newr, int newc, int n, int m) {
+    return newr >= 0 && newc >= 0 && newr < n && newc < m;
+  }
+
+  public static void addUndirectedEdge(List<List<Integer>> adjList, int src, int dest) {
+    adjList.get(src).add(dest);
+    adjList.get(dest).add(src); // Add reverse edge for undirected graph
+  }
+
+  public static int[][] initaliseMatrixWithLargeValue(int n, int m) {
+    // Create a distance matrix with initially all the cells marked as
+    // unvisited and the dist for source cell (0,0) as 0.
+    int[][] dist = new int[n][m];
+    for (int i = 0; i < n; i++) {
+      for (int j = 0; j < m; j++) {
+        dist[i][j] = (int) (1e9);
+      }
+    }
+    return dist;
+  }
+
+  public static boolean isCyclicInDirectedGraph(
+      List<List<Integer>> adj, int src, boolean[] visited, boolean[] recStack) {
+
+    // If already present in the recursion call
+    // stack, then there is a cycle
+    if (recStack[src]) return true;
+
+    recStack[src] = true;
+    visited[src] = true;
+
+    for (int next : adj.get(src)) {
+      if (!visited[next] && isCyclicInDirectedGraph(adj, next, visited, recStack)) return true;
+      else if (recStack[next]) return true;
+    }
+
+    recStack[src] = false;
+    return false;
+  }
+
+  public static int infiniteValue() {
+    return (int) (1e9);
+  }
 }

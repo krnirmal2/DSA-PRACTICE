@@ -1,5 +1,6 @@
 package StandardProblemDSA.X_GRAPH.II_CONNECTIVITY_AND_COMPONENTS.MULTISOURCE_BFS;
 
+import StandardProblemDSA.X_GRAPH.GraphUtility;
 import java.util.*;
 
 public class NumberOfEnclavesMultiSourceBFS {
@@ -44,18 +45,14 @@ public class NumberOfEnclavesMultiSourceBFS {
     queue.offer(new int[] {row, col});
     grid[row][col] = 0; // Mark as visited by converting to water
 
-    int[][] directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+    int[][] directions = GraphUtility.getFourDirection();
     while (!queue.isEmpty()) {
       int[] cell = queue.poll();
       for (int[] dir : directions) {
         int newRow = cell[0] + dir[0];
         int newCol = cell[1] + dir[1];
 
-        if (newRow >= 0
-            && newCol >= 0
-            && newRow < grid.length
-            && newCol < grid[0].length
-            && grid[newRow][newCol] == 1) {
+        if (GraphUtility.checkFourBoundaryOfMatrixWithOne(grid, newRow, newCol)) {
           queue.offer(new int[] {newRow, newCol});
           grid[newRow][newCol] = 0; // Mark as visited
         }

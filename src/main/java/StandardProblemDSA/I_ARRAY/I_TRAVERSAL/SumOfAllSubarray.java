@@ -8,7 +8,6 @@ public class SumOfAllSubarray {
     return Utility.getTotalSubArraySumOfArray(A);
   }
 
-
   // time o(n*n) space = o(1)
   public static void main(String[] args) {
     int[] A = {1, 2, 3};

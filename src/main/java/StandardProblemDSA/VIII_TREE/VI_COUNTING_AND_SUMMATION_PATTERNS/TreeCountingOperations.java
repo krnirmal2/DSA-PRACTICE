@@ -2,11 +2,9 @@ package StandardProblemDSA.VIII_TREE.VI_COUNTING_AND_SUMMATION_PATTERNS;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
 import StandardProblemDSA.VIII_TREE.TreeUtility;
-
 import java.util.List;
 
 public class TreeCountingOperations {
-
 
   // ---------------------------------------------------
   // 3. Count Good Nodes
@@ -107,7 +105,6 @@ public class TreeCountingOperations {
     return result;
   }
 
-
   // ---------------------------------------------------
   // Main method for demonstration of functionalities.
   // ---------------------------------------------------
@@ -152,7 +149,7 @@ public class TreeCountingOperations {
     System.out.println("Sum of leaf nodes: " + sumLeaves); // Expected: 4+7+6 = 17
 
     // 6. Nodes at K Distance from Root (k = 2)
-   List<Integer> nodesAtDistance2 = nodesAtKDistance(root, 2);
+    List<Integer> nodesAtDistance2 = nodesAtKDistance(root, 2);
     System.out.println("Nodes at distance 2 from root: " + nodesAtDistance2); // Expected: [4, 5, 6]
   }
 }

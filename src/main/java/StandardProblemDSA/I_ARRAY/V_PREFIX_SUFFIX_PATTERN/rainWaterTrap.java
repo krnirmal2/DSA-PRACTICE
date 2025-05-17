@@ -1,7 +1,6 @@
 package StandardProblemDSA.I_ARRAY.V_PREFIX_SUFFIX_PATTERN;
 
 import StandardProblemDSA.Utility;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,8 +37,6 @@ public class rainWaterTrap {
 
     return totalUnitOfWater;
   }
-
-
 
   public static void main(String[] args) {
     //        ArrayList<Integer> a = new ArrayList<>(List.of(0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1));

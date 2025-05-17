@@ -1,8 +1,7 @@
 package StandardProblemDSA.IV_STACK.II_EXPERSSION_BASED.INTERMEDIATE;
 
-import java.util.Stack;
-
 import StandardProblemDSA.Utility;
+import java.util.Stack;
 
 public class EvaluateReversePolisNotation {
   public static class EvaluteReversePolishNotation {
@@ -59,8 +58,6 @@ public class EvaluateReversePolisNotation {
           break;
       }
     }
-
-   
 
     public static void main(String[] args) {
       System.out.println(evalRPN(new String[] {"2", "1", "+", "3", "*"})); // 9

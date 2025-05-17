@@ -1,10 +1,11 @@
 package StandardProblemDSA.X_GRAPH.IV_SHORETEST_PATH_MOVE_TIME_PATTEN.SINGLE_SOURCE_MULTIPLE_DESTINATION.DIJKSTRA;
 
+import StandardProblemDSA.X_GRAPH.Pair;
 import java.util.*;
 
 class Dijekstra {
   private final int V;
-  private final List<List<iPair>> adj;
+  private final List<List<Pair>> adj;
 
   Dijekstra(int V) {
     this.V = V;
@@ -37,33 +38,32 @@ class Dijekstra {
   }
 
   void addEdge(int u, int v, int w) {
-    adj.get(u).add(new iPair(v, w));
-    adj.get(v).add(new iPair(u, w));
+    adj.get(u).add(new Pair(v, w));
+    adj.get(v).add(new Pair(u, w));
   }
 
   void shortestPath(int src) {
     // Priority queue to extract the minimum distance each time
-    PriorityQueue<iPair> pq = new PriorityQueue<>(V, Comparator.comparingInt(o -> o.vertex));
+    PriorityQueue<Pair> pq = new PriorityQueue<>(V, Comparator.comparingInt(o -> o.vertex));
     // Array for distances of each node
     int[] dist = new int[V];
     // Fill every node with infinite value
     Arrays.fill(dist, Integer.MAX_VALUE);
     // Insert source into priority queue with distance as 0
-    pq.add(new iPair(0, src));
+    pq.add(new Pair(0, src));
     // Set source distance to zero
     dist[src] = 0;
 
     while (!pq.isEmpty()) {
       int u = pq.poll().weight; // Remove the vertex with minimum distance
-
-      for (iPair v : adj.get(u)) { // Check the adjacent nodes of the current node
+      for (Pair v : adj.get(u)) { // Check the adjacent nodes of the current node
         if (dist[v.vertex]
             > dist[u]
                 + v.weight) { // If the distance of node v is greater than distance of node u +
           // distance of edge from u to v
           dist[v.vertex] = dist[u] + v.weight; // Update the distance of node v
           pq.add(
-              new iPair(
+              new Pair(
                   dist[v.vertex],
                   v.vertex)); // Add the updated distance of node v to the priority queue
         }
@@ -73,15 +73,6 @@ class Dijekstra {
     System.out.println("Vertex Distance from Source");
     for (int i = 0; i < V; i++) {
       System.out.println(i + "\t\t" + dist[i]);
-    }
-  }
-
-  static class iPair {
-    int vertex, weight;
-
-    iPair(int first, int second) {
-      this.vertex = first;
-      this.weight = second;
     }
   }
 }

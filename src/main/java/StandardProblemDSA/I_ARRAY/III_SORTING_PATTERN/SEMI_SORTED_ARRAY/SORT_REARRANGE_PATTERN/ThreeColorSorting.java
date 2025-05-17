@@ -3,7 +3,7 @@ package StandardProblemDSA.I_ARRAY.III_SORTING_PATTERN.SEMI_SORTED_ARRAY.SORT_RE
 import StandardProblemDSA.Utility;
 
 public class ThreeColorSorting {
-  public static int[] sortColors(int[] A) {// todo , remain two pointer
+  public static int[] sortColors(int[] A) { // todo , remain two pointer
     int count = 0;
     int index = 0;
     int[] result = new int[A.length];
@@ -35,6 +35,4 @@ public class ThreeColorSorting {
       System.out.print(A[i]);
     }
   }
-
-
 }

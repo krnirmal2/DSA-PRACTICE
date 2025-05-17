@@ -1,5 +1,7 @@
 package StandardProblemDSA.X_GRAPH.ii_SHORTEST_PATH_ALGORTHIMS;
 
+import StandardProblemDSA.X_GRAPH.GraphUtility;
+import StandardProblemDSA.X_GRAPH.Tuple;
 import java.util.*;
 
 public class PathWithMinimumEffort {
@@ -39,100 +41,72 @@ public class PathWithMinimumEffort {
   We repeat the above three steps until the queue becomes empty or until we encounter the destination node.
   Return the calculated difference and stop the algorithm from reaching the destination node. If the queue becomes empty and we don’t encounter the destination node, return ‘0’ indicating there’s no path from source to destination.
   Here’s a quick demonstration of the Algorithm’s 1st iteration ( all the further iterations would be done in a similar way ) :*/
-  class Tuple {
-    int distance;
-    int row;
-    int col;
 
-    public Tuple(int distance, int row, int col) {
-      this.row = row;
-      this.distance = distance;
-      this.col = col;
-    }
-  }
+  int MinimumEffort(int heights[][]) {
 
-  class Solution {
+    // Create a priority queue containing pairs of cells
+    // and their respective distance from the source cell in the
+    // form {diff, {row of cell, col of cell}}.
+    PriorityQueue<Tuple> pq = new PriorityQueue<Tuple>((x, y) -> x.distance - y.distance);
 
-    int MinimumEffort(int heights[][]) {
+    int n = heights.length;
+    int m = heights[0].length;
+    // Create a distance matrix with initially all the cells marked as
+    int[][] dist = GraphUtility.initaliseMatrixWithLargeValue(n, m);
 
-      // Create a priority queue containing pairs of cells
-      // and their respective distance from the source cell in the
-      // form {diff, {row of cell, col of cell}}.
-      PriorityQueue<Tuple> pq = new PriorityQueue<Tuple>((x, y) -> x.distance - y.distance);
+    dist[0][0] = 0;
+    pq.add(new Tuple(0, 0, 0));
 
-      int n = heights.length;
-      int m = heights[0].length;
+    // The following delta rows and delts columns array are created such that
+    // each index represents each adjacent node that a cell may have
+    // in a direction.
+    int dr[] = {-1, 0, 1, 0};
+    int dc[] = {0, 1, 0, -1};
 
-      // Create a distance matrix with initially all the cells marked as
-      // unvisited and the dist for source cell (0,0) as 0.
-      int[][] dist = new int[n][m];
-      for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-          dist[i][j] = (int) (1e9);
-        }
-      }
+    // Iterate through the matrix by popping the elements out of the queue
+    // and pushing whenever a shorter distance to a cell is found.
+    while (pq.size() != 0) {
+      Tuple it = pq.peek();
+      pq.remove();
+      int diff = it.distance;
+      int row = it.row;
+      int col = it.col;
 
-      dist[0][0] = 0;
-      pq.add(new Tuple(0, 0, 0));
+      // Check if we have reached the destination cell,
+      // return the current value of difference (which will be min).
+      if (row == n - 1 && col == m - 1) return diff;
+      // row - 1, col
+      // row, col + 1
+      // row - 1, col
+      // row, col - 1
+      for (int i = 0; i < 4; i++) {
+        int newr = row + dr[i];
+        int newc = col + dc[i];
 
-      // The following delta rows and delts columns array are created such that
-      // each index represents each adjacent node that a cell may have
-      // in a direction.
-      int dr[] = {-1, 0, 1, 0};
-      int dc[] = {0, 1, 0, -1};
+        // Checking validity of the cell.
+        if (GraphUtility.onlyFourSideCheck(newr, newc, n, m)) {
 
-      // Iterate through the matrix by popping the elements out of the queue
-      // and pushing whenever a shorter distance to a cell is found.
-      while (pq.size() != 0) {
-        Tuple it = pq.peek();
-        pq.remove();
-        int diff = it.distance;
-        int row = it.row;
-        int col = it.col;
+          // Effort can be calculated as the max value of differences
+          // between the heights of the node and its adjacent nodes.
+          int newEffort = Math.max(Math.abs(heights[row][col] - heights[newr][newc]), diff);
 
-        // Check if we have reached the destination cell,
-        // return the current value of difference (which will be min).
-        if (row == n - 1 && col == m - 1) return diff;
-        // row - 1, col
-        // row, col + 1
-        // row - 1, col
-        // row, col - 1
-        for (int i = 0; i < 4; i++) {
-          int newr = row + dr[i];
-          int newc = col + dc[i];
-
-          // Checking validity of the cell.
-          if (newr >= 0 && newc >= 0 && newr < n && newc < m) {
-
-            // Effort can be calculated as the max value of differences
-            // between the heights of the node and its adjacent nodes.
-            int newEffort = Math.max(Math.abs(heights[row][col] - heights[newr][newc]), diff);
-
-            // If the calculated effort is less than the prev value
-            // we update as we need the min effort.
-            if (newEffort < dist[newr][newc]) {
-              dist[newr][newc] = newEffort;
-              pq.add(new Tuple(newEffort, newr, newc));
-            }
+          // If the calculated effort is less than the prev value
+          // we update as we need the min effort.
+          if (newEffort < dist[newr][newc]) {
+            dist[newr][newc] = newEffort;
+            pq.add(new Tuple(newEffort, newr, newc));
           }
         }
       }
-      // If the destination is unreachable.
-      return 0;
     }
+    // If the destination is unreachable.
+    return 0;
   }
 
-  class tuf {
-
-    public void main(String[] args) {
-
-      int[][] heights = {{1, 2, 2}, {3, 8, 2}, {5, 3, 5}};
-
-      Solution obj = new Solution();
-      int ans = obj.MinimumEffort(heights);
-
-      System.out.print(ans);
-      System.out.println();
-    }
+  public void main(String[] args) {
+    int[][] heights = {{1, 2, 2}, {3, 8, 2}, {5, 3, 5}};
+    int ans = MinimumEffort(heights);
+    System.out.print(ans);
+    System.out.println();
   }
 }

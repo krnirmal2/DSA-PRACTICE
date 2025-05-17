@@ -47,6 +47,7 @@ public class Utility {
       end--;
     }
   }
+
   public static void reverseList(List<Integer> A, int start, int end) {
     while (start < end) {
       Collections.swap(A, start, end);
@@ -126,7 +127,6 @@ public class Utility {
     System.out.println();
   }
 
-
   /**
    * Swaps two elements in the array.
    *
@@ -139,6 +139,7 @@ public class Utility {
     arr[i] = arr[j];
     arr[j] = temp;
   }
+
   /**
    * Performs binary search on a sorted array.
    *
@@ -189,6 +190,7 @@ public class Utility {
     int[] result = new int[sizeOfResultArrray];
     return result;
   }
+
   public static void countFrequencyEachElement(int[] A, HashMap<Integer, Integer> mapA) {
     // insert the element and count the frequency of each element in A and B
     for (int i = 0; i < A.length; i++) {
@@ -218,6 +220,7 @@ public class Utility {
     int minIndex = Integer.MAX_VALUE;
     return minIndex;
   }
+
   public static int getMaxiMumValue() {
     int minIndex = Integer.MIN_VALUE;
     return minIndex;
@@ -226,10 +229,11 @@ public class Utility {
   public static int getArrayLength(int[] numbers) {
     return numbers.length;
   }
+
   public static int[] arrayWithPosiNegativeValue() {
     int[] a = {
-            4, 7, -4, 2, 2, 2, 3, -5, -3, 9, -4, 9, -7, 7, -1, 9, 9, 4, 1, -4, -2, 3, -3, -5, 4, -7, 7, 9,
-            -4, 4, -8
+      4, 7, -4, 2, 2, 2, 3, -5, -3, 9, -4, 9, -7, 7, -1, 9, 9, 4, 1, -4, -2, 3, -3, -5, 4, -7, 7, 9,
+      -4, 4, -8
     };
     return a;
   }
@@ -242,22 +246,25 @@ public class Utility {
   public static void sortArrayWithArrySort(int[] A) {
     Arrays.sort(A);
   }
+
   public static int[] onlyThreeValueArray() {
     int[] A = {
-            2, 0, 0, 1, 0, 0, 2, 2, 1, 1, 0, 0, 1, 0, 2, 1, 1, 0, 1, 0, 1, 2, 2, 2, 0, 0, 1, 0, 2, 1, 1,
-            2, 1, 2, 2, 1, 0, 2, 2, 1, 1, 1, 0, 1, 0, 1, 0, 2, 1, 2, 0, 2, 0, 1, 1, 0, 2, 2, 1, 2, 0, 2,
-            1, 1, 1, 2, 0, 1, 0, 2, 2, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 2, 1, 1, 0, 2, 1, 2, 0, 0, 0, 2, 2,
-            2, 2, 0, 0, 0, 1, 1, 0, 2, 1, 2, 2, 2, 1, 2, 2, 0, 1, 0, 1, 2, 1, 1, 0, 1, 2, 0, 1, 0, 2, 2,
-            1, 2, 1, 0, 2, 2, 1, 1, 0, 2, 1, 2
+      2, 0, 0, 1, 0, 0, 2, 2, 1, 1, 0, 0, 1, 0, 2, 1, 1, 0, 1, 0, 1, 2, 2, 2, 0, 0, 1, 0, 2, 1, 1,
+      2, 1, 2, 2, 1, 0, 2, 2, 1, 1, 1, 0, 1, 0, 1, 0, 2, 1, 2, 0, 2, 0, 1, 1, 0, 2, 2, 1, 2, 0, 2,
+      1, 1, 1, 2, 0, 1, 0, 2, 2, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 2, 1, 1, 0, 2, 1, 2, 0, 0, 0, 2, 2,
+      2, 2, 0, 0, 0, 1, 1, 0, 2, 1, 2, 2, 2, 1, 2, 2, 0, 1, 0, 1, 2, 1, 1, 0, 1, 2, 0, 1, 0, 2, 2,
+      1, 2, 1, 0, 2, 2, 1, 1, 0, 2, 1, 2
     };
     return A;
   }
+
   public static int getModulo() {
     int modulo = (int) Math.pow(10, 9) + 7;
     return modulo;
   }
 
-  public static void prefixMinMaxWithMinusOneIntialisationINDEX(int[] A, int min, int max, int[] prefixMin, int[] prefixMax) {
+  public static void prefixMinMaxWithMinusOneIntialisationINDEX(
+      int[] A, int min, int max, int[] prefixMin, int[] prefixMax) {
     int lastMinIndex = -1, lastMaxIndex = -1;
     for (int i = 0; i < A.length; i++) {
       if (A[i] == min) lastMinIndex = i;
@@ -267,10 +274,11 @@ public class Utility {
       prefixMax[i] = lastMaxIndex;
     }
   }
+
   public static void suffixSum(int[] A, int[] suffixSum) {
     // Compute suffix sum
-    suffixSum[ getArrayLength(A) - 1] = A[getArrayLength(A) - 1];
-    for (int i =  getArrayLength(A) - 2; i >= 0; i--) {
+    suffixSum[getArrayLength(A) - 1] = A[getArrayLength(A) - 1];
+    for (int i = getArrayLength(A) - 2; i >= 0; i--) {
       suffixSum[i] = suffixSum[i + 1] + A[i];
     }
   }
@@ -299,6 +307,7 @@ public class Utility {
       left_max[i] = Math.max(left_max[i - 1], A.get(i));
     }
   }
+
   public static void prefixEvenOddSum(int[] A, int[] prefixEven, int[] prefixOdd, int n) {
     prefixEven[0] = A[0];
     prefixOdd[0] = 0;
@@ -321,7 +330,7 @@ public class Utility {
       int correctIndex = nums[i] - 1; // Correct index for nums[i]
       if (nums[i] != nums[correctIndex]) {
         // Swap nums[i] with the number at its correct position
-        Utility.swap(nums,i,correctIndex);
+        Utility.swap(nums, i, correctIndex);
       } else {
         i++; // Move to the next element
       }
@@ -335,6 +344,7 @@ public class Utility {
     }
     return patternMap;
   }
+
   public static void createCharacterFrequencyArray(String pattern, int[] patFreq) {
     // Fill pattern frequency
     for (char ch : pattern.toCharArray()) {
@@ -351,17 +361,18 @@ public class Utility {
     }
     return true;
   }
-   // ✅ Helper method to check if a string is a valid integer
-   public static boolean isNumeric(String str) {
+
+  // ✅ Helper method to check if a string is a valid integer
+  public static boolean isNumeric(String str) {
     if (str.isEmpty()) return false;
-    if (str.charAt(0) == '-' && str.length() > 1)
-      str = str.substring(1); // Handle negative numbers
+    if (str.charAt(0) == '-' && str.length() > 1) str = str.substring(1); // Handle negative numbers
     for (char c : str.toCharArray()) {
       if (!Character.isDigit(c)) return false; // Return false if any non-digit character is found
     }
     return true;
   }
-    // ✅ Returns precedence of operators
+
+  // ✅ Returns precedence of operators
   public static int precedence(char operator) {
     switch (operator) {
       case '+':
@@ -374,7 +385,7 @@ public class Utility {
 
       case '^':
         return 3; // Exponent has the highest precedence
-        
+
       default:
         return 0; // For non-operator characters
     }

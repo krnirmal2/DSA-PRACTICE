@@ -1,5 +1,6 @@
 package StandardProblemDSA.X_GRAPH.III_CYCLE_PATTERN;
 
+import StandardProblemDSA.X_GRAPH.GraphUtility;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,24 +9,6 @@ public class CycleInDirectedGraphUingDFS {}
 class GfG {
 
   // Utility function to detect cycle in a directed graph
-  private static boolean isCyclicUtil(
-      List<List<Integer>> adj, int src, boolean[] visited, boolean[] recStack) {
-
-    // If already present in the recursion call
-    // stack, then there is a cycle
-    if (recStack[src] == true) return true;
-
-    recStack[src] = true;
-    visited[src] = true;
-
-    for (int next : adj.get(src)) {
-      if (!visited[next] && isCyclicUtil(adj, next, visited, recStack)) return true;
-      else if (recStack[next]) return true;
-    }
-
-    recStack[src] = false;
-    return false;
-  }
 
   // Function to detect cycle in a directed graph
   public static boolean isCyclic(List<List<Integer>> adj) {
@@ -36,7 +19,8 @@ class GfG {
 
     // Check each unvisited node to detect cycles
     for (int i = 0; i < V; i++) {
-      if (!visited[i] && isCyclicUtil(adj, i, visited, recStack)) return true;
+      if (!visited[i] && GraphUtility.isCyclicInDirectedGraph(adj, i, visited, recStack))
+        return true;
     }
 
     return false;

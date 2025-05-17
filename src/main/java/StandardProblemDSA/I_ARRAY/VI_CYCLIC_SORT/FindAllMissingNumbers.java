@@ -1,14 +1,12 @@
 package StandardProblemDSA.I_ARRAY.VI_CYCLIC_SORT;
 
 import StandardProblemDSA.Utility;
-
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class FindAllMissingNumbers {
   public static List<Integer> findMissingNumbers(int[] nums) {
-    //cyclic sort
+    // cyclic sort
     Utility.cyclicSort(nums);
 
     // Find missing numbers

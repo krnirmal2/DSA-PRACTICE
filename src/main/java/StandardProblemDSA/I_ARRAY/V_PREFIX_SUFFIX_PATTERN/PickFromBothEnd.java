@@ -7,7 +7,7 @@ public class PickFromBothEnd {
     int n = A.length;
     int[] suff = new int[n + 1];
     suff[n] = 0;
-    Utility.suffixSum(A,suff);
+    Utility.suffixSum(A, suff);
     int pref_sum = 0;
     int ans = suff[n - B];
     for (int i = 0; i < B; i++) {

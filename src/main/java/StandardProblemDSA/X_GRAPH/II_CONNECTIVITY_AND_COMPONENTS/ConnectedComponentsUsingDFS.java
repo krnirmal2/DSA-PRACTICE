@@ -1,24 +1,11 @@
 package StandardProblemDSA.X_GRAPH.II_CONNECTIVITY_AND_COMPONENTS;
 
+import StandardProblemDSA.X_GRAPH.GraphUtility;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ConnectedComponentsUsingDFS {
   // create a graph class for constract graph
-
-  public static void addUndirectedEdge(List<List<Integer>> adjList, int src, int dest) {
-    adjList.get(src).add(dest);
-    adjList.get(dest).add(src); // Add reverse edge for undirected graph
-  }
-
-  public static void dfs(List<List<Integer>> graph, boolean[] visited, int s) {
-    visited[s] = true;
-    for (int i : graph.get(s)) {
-      if (!visited[i]) {
-        dfs(graph, visited, i);
-      }
-    }
-  }
 
   private static int countConnectedComponents(List<List<Integer>> graph, int vertex) {
     boolean[] visited = new boolean[vertex];
@@ -32,7 +19,7 @@ public class ConnectedComponentsUsingDFS {
       if (!visited[v]) {
         // count here
         count++;
-        dfs(graph, visited, v);
+        GraphUtility.dfs(v, graph, visited);
       }
     }
     return count;
@@ -51,7 +38,7 @@ public class ConnectedComponentsUsingDFS {
     };
 
     for (int[] e : edges) {
-      addUndirectedEdge(graph, e[0], e[1]);
+      GraphUtility.addUndirectedEdge(graph, e[0], e[1]);
     }
 
     System.out.println(

@@ -2,8 +2,6 @@ package StandardProblemDSA.I_ARRAY.III_SORTING_PATTERN.SEMI_SORTED_ARRAY.SORT_RE
 
 import StandardProblemDSA.Utility;
 
-import java.util.Arrays;
-
 public class NobelInteger {
   public static int solve(int[] A) {
     Utility.sortArrayWithArrySort(A);

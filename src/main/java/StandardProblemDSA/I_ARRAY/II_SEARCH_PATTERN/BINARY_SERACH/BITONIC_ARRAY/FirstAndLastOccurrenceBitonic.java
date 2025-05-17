@@ -1,7 +1,6 @@
 package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.BITONIC_ARRAY;
 
 import StandardProblemDSA.Utility;
-import jdk.jshell.execution.Util;
 
 public class FirstAndLastOccurrenceBitonic {
 
@@ -54,7 +53,6 @@ public class FirstAndLastOccurrenceBitonic {
     }
     return result;
   }
-
 
   public static void main(String[] args) {
     int[] bitonicArr = {1, 3, 8, 12, 14, 11, 5, 5, 2};

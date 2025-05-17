@@ -37,7 +37,7 @@ public class ThreeSum {
 
   public static List<List<Integer>> threeSum(int[] nums) {
     List<List<Integer>> res = new ArrayList<>();
-//    Step1 . need to use sorting the array
+    //    Step1 . need to use sorting the array
     Arrays.sort(nums); // Sort array for two-pointer logic
     for (int i = 0; i < nums.length - 2; i++) {
       // avoid duplicate for the first number
