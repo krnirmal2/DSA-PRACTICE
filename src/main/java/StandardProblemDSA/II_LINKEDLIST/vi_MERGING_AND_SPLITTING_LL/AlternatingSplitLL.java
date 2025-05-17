@@ -1,8 +1,8 @@
 package StandardProblemDSA.II_LINKEDLIST.vi_MERGING_AND_SPLITTING_LL;
 
-import StandardProblemDSA.II_LINKEDLIST.Node;
-
 import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
+import StandardProblemDSA.II_LINKEDLIST.Node;
 
 public class AlternatingSplitLL {
   // Function to split a linked list into two alternate lists
@@ -40,7 +40,6 @@ public class AlternatingSplitLL {
     return lastNode;
   }
 
-
   // Driver code
   public static void main(String[] args) {
 
@@ -53,7 +52,7 @@ public class AlternatingSplitLL {
     }
 
     System.out.print("Original Linked List: ");
-   printList(head);
+    printList(head);
 
     Node[] aRef = new Node[1];
     Node[] bRef = new Node[1];

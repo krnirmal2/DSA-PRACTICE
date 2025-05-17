@@ -1,5 +1,7 @@
 package StandardProblemDSA.II_LINKEDLIST.vii_PALINDROME_AND_REVERSAL_PATTERNS;
 
+import StandardProblemDSA.II_LINKEDLIST.ListNode;
+
 public class PalindromeLL {
 
   public static int isPalindrome(ListNode head) {
@@ -62,16 +64,5 @@ public class PalindromeLL {
     six.next = seven;
 
     System.out.println("Is Palindrome? " + isPalindrome(one)); // Output: 1
-  }
-
-  // Definition of singly linked list node
-  static class ListNode {
-    public int val;
-    public ListNode next;
-
-    ListNode(int x) {
-      val = x;
-      next = null;
-    }
   }
 }

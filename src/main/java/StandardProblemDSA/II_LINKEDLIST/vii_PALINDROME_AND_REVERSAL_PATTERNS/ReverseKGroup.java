@@ -1,5 +1,7 @@
 package StandardProblemDSA.II_LINKEDLIST.vii_PALINDROME_AND_REVERSAL_PATTERNS;
 
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
 import StandardProblemDSA.II_LINKEDLIST.Node;
 
 class Main {
@@ -127,16 +129,6 @@ class Main {
     return head;
   }
 
-  // Function to print the linked list
-  static void printLinkedList(Node head) {
-    Node temp = head;
-    while (temp != null) {
-      System.out.print(temp.data + " ");
-      temp = temp.next;
-    }
-    System.out.println();
-  }
-
   public static void main(String[] args) {
     // Create a linked list with
     // values 5, 4, 3, 7, 9 and 2
@@ -149,13 +141,13 @@ class Main {
 
     // Print the original linked list
     System.out.print("Original Linked List: ");
-    printLinkedList(head);
+    printList(head);
 
     // Reverse the linked list
     head = kReverse(head, 4);
 
     // Print the reversed linked list
     System.out.print("Reversed Linked List: ");
-    printLinkedList(head);
+    printList(head);
   }
 }

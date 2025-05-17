@@ -1,19 +1,19 @@
-package StandardProblemDSA.I_ARRAY.XI_MERGE_INTERVAL_PATTERN;
+package StandardProblemDSA.XI_GREEDYALGO.XI_MERGE_INTERVAL_PATTERN;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Interval {
-  int start;
-  int end;
+public class MergeInterval {
+  public int start;
+  public int end;
 
-  Interval() {
+  MergeInterval() {
     start = 0;
     end = 0;
   }
 
-  Interval(int s, int e) {
+  public MergeInterval(int s, int e) {
     start = s;
     end = e;
   }
@@ -33,17 +33,17 @@ public class Interval {
    First, sort the intervals by their start times. Then, iterate through the list and merge intervals that overlap.
 
   */
-  public List<Interval> mergeIntervals(List<Interval> intervals) {
+  public List<MergeInterval> mergeIntervals(List<MergeInterval> intervals) {
     if (intervals.size() <= 1) {
       return intervals;
     }
     // Sort intervals by start time
     Collections.sort(intervals, (a, b) -> a.start - b.start);
 
-    List<Interval> merged = new ArrayList<>();
-    Interval current = intervals.get(0);
+    List<MergeInterval> merged = new ArrayList<>();
+    MergeInterval current = intervals.get(0);
     for (int i = 1; i < intervals.size(); i++) {
-      Interval next = intervals.get(i);
+      MergeInterval next = intervals.get(i);
       if (current.end >= next.start) {
         // Merge overlapping intervals
         current.end = Math.max(current.end, next.end);

@@ -1,36 +1,13 @@
 package StandardProblemDSA.II_STRING.II_SEARCH_AND_REPLACE;
 
+import StandardProblemDSA.II_STRING.StringUtility;
+
 public class FirstAndLastOccuranceOfpattern {
   public static void main(String[] args) {
     String txt = "aabaacaadaabaaba";
     String pat = "aaba";
 
     kmpSearch(pat, txt);
-  }
-
-  private static int[] computePatternLps(String pat) {
-    int m = pat.length();
-    int[] lps = new int[m];
-
-    int j = 0, // length of the previous longest prefix suffix
-        i = 1; // start comparing from index 1 )since LPS of index 0 is alwasy 0
-
-    // build the lps
-    while (i < m) {
-      if (pat.charAt(i) == pat.charAt(j)) {
-        j++;
-        lps[i] = j; // Store the length of the longest prefix which is also a suffix
-        i++;
-      } else {
-        if (j != 0) {
-          j = lps[j - 1]; // Move `j` back to the previous LPS value
-        } else {
-          lps[i] = 0; // No prefix suffix match, so assign 0
-          i++;
-        }
-      }
-    }
-    return lps;
   }
 
   private static void kmpSearch(String pat, String txt) {
@@ -41,7 +18,7 @@ public class FirstAndLastOccuranceOfpattern {
     // Step1;
     // create array for precompute LPS array
     // compute LPC of the pattern not the string
-    int[] lps = computePatternLps(pat);
+    int[] lps = StringUtility.computePatternLps(pat);
 
     // Step 2:
     int i = 0; // Pointer for text

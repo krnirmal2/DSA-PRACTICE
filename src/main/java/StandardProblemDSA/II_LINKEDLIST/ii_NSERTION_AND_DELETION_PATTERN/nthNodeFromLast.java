@@ -1,14 +1,18 @@
 package StandardProblemDSA.II_LINKEDLIST.ii_NSERTION_AND_DELETION_PATTERN;
 
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
+import StandardProblemDSA.II_LINKEDLIST.Node;
+
 public class nthNodeFromLast {
   // 1st way to  traverse and delete the nth node
   // steps 1. travers the k-n+1 node from beginnig
   // delete take two pointer next and previous
-  public static NodeL findNthNodFromLast(NodeL head, int length, int n) {
+  public static Node findNthNodFromLast(Node head, int length, int n) {
     if (length == 0) return null;
 
-    NodeL previous = null;
-    NodeL next = head;
+    Node previous = null;
+    Node next = head;
 
     // iterate with head and previous head
     for (int currNode = 1; currNode < length - n + 1; currNode++) {
@@ -28,14 +32,14 @@ public class nthNodeFromLast {
   public static void main(String[] args) {
 
     // create node
-    NodeL head = new NodeL(1);
-    head.next = new NodeL(2);
-    head.next.next = new NodeL(3);
-    head.next.next.next = new NodeL(4);
-    head.next.next.next.next = new NodeL(5);
-    head.next.next = new NodeL(3);
-    head.next.next.next = new NodeL(4);
-    head.next.next.next.next = new NodeL(5);
+    Node head = new Node(1);
+    head.next = new Node(2);
+    head.next.next = new Node(3);
+    head.next.next.next = new Node(4);
+    head.next.next.next.next = new Node(5);
+    head.next.next = new Node(3);
+    head.next.next.next = new Node(4);
+    head.next.next.next.next = new Node(5);
 
     int length = length(head);
     printList(head);
@@ -43,16 +47,7 @@ public class nthNodeFromLast {
     printList(head);
   }
 
-  static void printList(NodeL head) {
-    NodeL ptr = head;
-    while (ptr != null) {
-      System.out.print(ptr.data + " ");
-      ptr = ptr.next;
-    }
-    System.out.println();
-  }
-
-  private static int length(NodeL head) {
+  private static int length(Node head) {
     if (head == null) {
       return 0;
     }
@@ -62,15 +57,5 @@ public class nthNodeFromLast {
       count++;
     }
     return count;
-  }
-
-  public static class NodeL {
-    int data;
-    NodeL next;
-
-    private NodeL(int data) {
-      this.data = data;
-      this.next = null;
-    }
   }
 }

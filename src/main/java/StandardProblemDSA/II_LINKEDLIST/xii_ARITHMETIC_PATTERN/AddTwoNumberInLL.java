@@ -1,5 +1,7 @@
 package StandardProblemDSA.II_LINKEDLIST.xii_ARITHMETIC_PATTERN;
 
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
 import StandardProblemDSA.II_LINKEDLIST.Node;
 
 public class AddTwoNumberInLL {
@@ -29,15 +31,6 @@ public class AddTwoNumberInLL {
     return dummy.next; // Return result (excluding dummy)
   }
 
-  static void printList(Node head) {
-    Node curr = head;
-    while (curr != null) {
-      System.out.print(curr.data + " ");
-      curr = curr.next;
-    }
-    System.out.println();
-  }
-
   public static void main(String[] args) {
 
     // Creating first linked list: 1 -> 2 -> 3
@@ -55,5 +48,4 @@ public class AddTwoNumberInLL {
     Node sum = addTwoLists(num1, num2);
     printList(sum);
   }
-
 }
