@@ -1,5 +1,7 @@
 package StandardProblemDSA.X_GRAPH.I_BASIC_TRAVERSAL.DFS_TRAVERSAL;
 
+import StandardProblemDSA.X_GRAPH.GraphUtility;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,9 +23,6 @@ public class DFSonDirectedGraph {
     }
   }
 
-  public static void addDirectedEdge(List<List<Integer>> adjList, int src, int dest) {
-    adjList.get(src).add(dest);
-  }
 
   public static void main(String[] args) {
     // create five node directed grapsh
@@ -42,7 +41,7 @@ public class DFSonDirectedGraph {
     for (int[] e : edges) {
       // create the method to add each a
 
-      addDirectedEdge(graph, e[0], e[1]);
+      GraphUtility.addDirectedEdge(graph, e[0], e[1]);
     }
 
     dfsOnDirectedGraph(graph, vertex);

@@ -1,5 +1,6 @@
 package StandardProblemDSA.II_LINKEDLIST.xi_DOUBLY_LL;
 
+import StandardProblemDSA.II_LINKEDLIST.DoubllyNodeWithKey;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,42 +11,42 @@ import java.util.Map;
 get(key):
 Check if the key exists in the HashMap.
 If it exists:
-Retrieve the corresponding node.
-Remove the node from its current position in the doubly linked list.
+Retrieve the corresponding DoubllyNodeWithKey.
+Remove the DoubllyNodeWithKey from its current position in the doubly linked list.
 Add it to the front of the list (marking it as MRU).
 If it doesn’t exist, return -1.
 
 put(key, value):
 If the key already exists:
-Update the value of the corresponding node.
-Move the node to the front of the doubly linked list.
+Update the value of the corresponding DoubllyNodeWithKey.
+Move the DoubllyNodeWithKey to the front of the doubly linked list.
 If the key doesn’t exist:
 If the cache is full:
-Remove the node at the tail of the list (LRU).
+Remove the DoubllyNodeWithKey at the tail of the list (LRU).
 Delete the key from the HashMap.
-Create a new node and add it to the front of the list.
-Insert the key and node into the HashMap.
+Create a new DoubllyNodeWithKey and add it to the front of the list.
+Insert the key and DoubllyNodeWithKey into the HashMap.
 *
 *
 Key Concepts:
 HashMap ensures O(1) time complexity for lookup.
-Doubly Linked List allows efficient removal and reordering of nodes.
-Eviction always removes the node at the tail of the list, which is the least recently used.
+Doubly Linked List allows efficient removal and reordering of DoubllyNodeWithKeys.
+Eviction always removes the DoubllyNodeWithKey at the tail of the list, which is the least recently used.
 * */
 
 class LRUCache {
 
   private final int capacity;
-  private final Map<Integer, Node> cache;
-  private final Node head, tail;
+  private final Map<Integer, DoubllyNodeWithKey> cache;
+  private final DoubllyNodeWithKey head, tail;
 
   public LRUCache(int capacity) {
     this.capacity = capacity;
     this.cache = new HashMap<>();
 
-    // Initialize dummy head and tail nodes for the doubly linked list
-    this.head = new Node(0, 0);
-    this.tail = new Node(0, 0);
+    // Initialize dummy head and tail DoubllyNodeWithKeys for the doubly linked list
+    this.head = new DoubllyNodeWithKey(0, 0);
+    this.tail = new DoubllyNodeWithKey(0, 0);
     head.next = tail;
     tail.prev = head;
   }
@@ -81,53 +82,53 @@ class LRUCache {
       return -1; // Key not found
     }
 
-    // Move the accessed node to the front
-    Node node = cache.get(key);
-    removeNode(node);
-    addNodeToFront(node);
+    // Move the accessed DoubllyNodeWithKey to the front
+    DoubllyNodeWithKey DoubllyNodeWithKey = cache.get(key);
+    removeDoubllyNodeWithKey(DoubllyNodeWithKey);
+    addDoubllyNodeWithKeyToFront(DoubllyNodeWithKey);
 
-    return node.value;
+    return DoubllyNodeWithKey.value;
   }
 
   // Put a key-value pair into the cache
   public void put(int key, int value) {
     if (cache.containsKey(key)) {
-      // Update the existing node
-      Node node = cache.get(key);
-      node.value = value;
-      removeNode(node);
-      addNodeToFront(node);
+      // Update the existing DoubllyNodeWithKey
+      DoubllyNodeWithKey DoubllyNodeWithKey = cache.get(key);
+      DoubllyNodeWithKey.value = value;
+      removeDoubllyNodeWithKey(DoubllyNodeWithKey);
+      addDoubllyNodeWithKeyToFront(DoubllyNodeWithKey);
     } else {
-      // Create a new node
+      // Create a new DoubllyNodeWithKey
       if (cache.size() >= capacity) {
-        // Remove the least recently used node
-        Node lru = tail.prev;
-        removeNode(lru);
+        // Remove the least recently used DoubllyNodeWithKey
+        DoubllyNodeWithKey lru = tail.prev;
+        removeDoubllyNodeWithKey(lru);
         cache.remove(lru.key);
       }
-      Node newNode = new Node(key, value);
-      addNodeToFront(newNode);
-      cache.put(key, newNode);
+      DoubllyNodeWithKey newDoubllyNodeWithKey = new DoubllyNodeWithKey(key, value);
+      addDoubllyNodeWithKeyToFront(newDoubllyNodeWithKey);
+      cache.put(key, newDoubllyNodeWithKey);
     }
   }
 
-  // Remove a node from the doubly linked list
-  private void removeNode(Node node) {
-    node.prev.next = node.next;
-    node.next.prev = node.prev;
+  // Remove a DoubllyNodeWithKey from the doubly linked list
+  private void removeDoubllyNodeWithKey(DoubllyNodeWithKey DoubllyNodeWithKey) {
+    DoubllyNodeWithKey.prev.next = DoubllyNodeWithKey.next;
+    DoubllyNodeWithKey.next.prev = DoubllyNodeWithKey.prev;
   }
 
-  // Add a node to the front (most recently used) of the doubly linked list
-  private void addNodeToFront(Node node) {
-    node.next = head.next;
-    node.prev = head;
-    head.next.prev = node;
-    head.next = node;
+  // Add a DoubllyNodeWithKey to the front (most recently used) of the doubly linked list
+  private void addDoubllyNodeWithKeyToFront(DoubllyNodeWithKey DoubllyNodeWithKey) {
+    DoubllyNodeWithKey.next = head.next;
+    DoubllyNodeWithKey.prev = head;
+    head.next.prev = DoubllyNodeWithKey;
+    head.next = DoubllyNodeWithKey;
   }
 
   // Debug: Print the current state of the cache
   public void printCache() {
-    Node temp = head.next;
+    DoubllyNodeWithKey temp = head.next;
     while (temp != tail) {
       System.out.print("(" + temp.key + ", " + temp.value + ") ");
       temp = temp.next;

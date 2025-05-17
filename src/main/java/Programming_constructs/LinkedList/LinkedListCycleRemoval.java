@@ -1,16 +1,8 @@
 package Programming_constructs.LinkedList;
 
-import static Utility_linkedList.printList;
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
 
-class Node {
-  int data;
-  Node next;
-
-  Node(int data) {
-    this.data = data;
-    this.next = null;
-  }
-}
+import StandardProblemDSA.II_LINKEDLIST.Node;
 
 public class LinkedListCycleRemoval {
 

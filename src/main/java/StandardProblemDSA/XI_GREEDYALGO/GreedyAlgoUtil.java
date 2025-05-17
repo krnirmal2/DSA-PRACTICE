@@ -1,8 +1,8 @@
 package StandardProblemDSA.XI_GREEDYALGO;
 
 import StandardProblemDSA.XI_GREEDYALGO.XI_MERGE_INTERVAL_PATTERN.MergeInterval;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -18,7 +18,7 @@ public class GreedyAlgoUtil {
   }
 
   public static void sortByStartTimeList(List<MergeInterval> intervals) {
-    Collections.sort(intervals, (a, b) -> a.start - b.start);
+    intervals.sort((a, b) -> a.start - b.start);
   }
 
   /**
@@ -95,5 +95,45 @@ public class GreedyAlgoUtil {
       maxRooms = Math.max(maxRooms, endTimes.size());
     }
     return maxRooms;
+  }
+
+  public static List<MergeInterval> getMergeIntervals(List<MergeInterval> allIntervals) {
+    List<MergeInterval> merged = new ArrayList<>();
+    MergeInterval current = allIntervals.get(0);
+    for (int i = 1; i < allIntervals.size(); i++) {
+      MergeInterval next = allIntervals.get(i);
+      if (current.end >= next.start) {
+        current.end = Math.max(current.end, next.end);
+      } else {
+        merged.add(current);
+        current = next;
+      }
+    }
+    merged.add(current);
+    return merged;
+  }
+
+  public static List<MergeInterval> getFreeTimeAfterMerged(List<MergeInterval> merged) {
+    List<MergeInterval> freeTimes = new ArrayList<>();
+    for (int i = 1; i < merged.size(); i++) {
+      freeTimes.add(new MergeInterval(merged.get(i - 1).end, merged.get(i).start));
+    }
+    return freeTimes;
+  }
+
+  public static boolean isFreeTimeAvailable(MergeInterval[] intervals) {
+    for (int i = 1; i < intervals.length; i++) {
+      if (intervals[i].start < intervals[i - 1].end) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  public static void insertElementInPQAfterSort(
+      int[] start, int[] finish, PriorityQueue<StartEndPair> pq) {
+    for (int i = 0; i < start.length; i++) {
+      pq.add(new StartEndPair(start[i], finish[i]));
+    }
   }
 }

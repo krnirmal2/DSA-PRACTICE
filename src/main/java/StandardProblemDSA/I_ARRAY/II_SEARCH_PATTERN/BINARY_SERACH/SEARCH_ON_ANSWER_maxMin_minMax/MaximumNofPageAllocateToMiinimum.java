@@ -3,7 +3,9 @@ package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.SEARCH_ON_ANS
 import java.util.*;
 
 public class MaximumNofPageAllocateToMiinimum {
-  /*  Problem Statement: Given an array ‘arr of integer numbers, ‘ar[i]’ represents the number of pages in the ‘i-th’ book. There are a ‘m’ number of students, and the task is to allocate all the books to the students.
+  /*  Problem Statement:
+   Given an array ‘arr of integer numbers, ‘ar[i]’ represents the number of pages in the ‘i-th’ book.
+   There are a ‘m’ number of students, and the task is to allocate all the books to the students.
   Allocate books in such a way that:
 
   Each student gets at least one book.

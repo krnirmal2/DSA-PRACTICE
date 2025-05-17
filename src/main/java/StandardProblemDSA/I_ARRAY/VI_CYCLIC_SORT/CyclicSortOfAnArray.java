@@ -2,6 +2,8 @@ package StandardProblemDSA.I_ARRAY.VI_CYCLIC_SORT;
 
 import java.util.Arrays;
 
+import static StandardProblemDSA.Utility.swap;
+
 public class CyclicSortOfAnArray {
   public static void cyclicSort(int[] nums) {
     int i = 0;
@@ -9,14 +11,13 @@ public class CyclicSortOfAnArray {
       int correctIndex = nums[i] - 1; // Correct index for nums[i]
       if (nums[i] != nums[correctIndex]) {
         // Swap nums[i] with the number at its correct position
-        int temp = nums[i];
-        nums[i] = nums[correctIndex];
-        nums[correctIndex] = temp;
+        swap(nums, i, correctIndex);
       } else {
         i++; // Move to the next element
       }
     }
   }
+
 
   public static void main(String[] args) {
     int[] nums = {3, 5, 2, 1, 4};

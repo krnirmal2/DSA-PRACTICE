@@ -42,10 +42,6 @@ public class COMPARATOR_UTILITY {
       this.y = y;
     }
 
-    @Override
-    public String toString() {
-      return "(" + x + ", " + y + ")";
-    }
   }
 
   // Sort by x, then y

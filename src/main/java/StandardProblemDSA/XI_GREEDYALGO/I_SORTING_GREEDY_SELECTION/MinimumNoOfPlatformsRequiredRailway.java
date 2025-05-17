@@ -8,4 +8,5 @@ public class MinimumNoOfPlatformsRequiredRailway {
   dep[] = {9:20, 12:00, 11:30, 11:50, 19:00, 20:00}
   Output:3
   Explanation: There are at-most three trains at a time. The train at 11:00 arrived but the trains which had arrived at 9:45 and 9:55 have still not departed. So, we need at least three platforms here.*/
+
 }

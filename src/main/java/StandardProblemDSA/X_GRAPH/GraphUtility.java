@@ -105,6 +105,9 @@ public class GraphUtility {
       }
     }
   }
+  public static void addDirectedEdge(List<List<Integer>> adjList, int src, int dest) {
+    adjList.get(src).add(dest);
+  }
 
   /* Problems Using DFS (with small modifications):
 
@@ -475,11 +478,46 @@ public class GraphUtility {
     }
     return revGraph;
   }
-  /*  Problems Using Advanced Algorithms:
 
-  Bridges in Graph
+  /*    public void addEdge(int i, int j) {
+          matrix[i][j] = 1;
+          matrix[j][i] = 1;
+      }
 
-  Articulation Point
+      public boolean hasEdge(int i, int j) {
+          return matrix[i][j] == 1;
+      }
 
-  Kosaraju's Algorithm*/
+      public int getNumNodes() {
+          return numNodes;
+      }
+      public static void printMatrix() {
+          for (int i = 0; i < numNodes; i++) {
+              for (int j = 0; j < numNodes; j++) {
+                  System.out.print(matrix[i][j] + " ");
+              }
+              System.out.println();
+          }
+      }*/
+  // A utility function to add an edge in an
+  // undirected graph
+  public static void addEdge(ArrayList<ArrayList<Integer>> adj, int u, int v) {
+    adj.get(u).add(v);
+    adj.get(v).add(u);
+    // for a directed graph with an edge pointing from u to v,
+    // adj.get(u).add(v);
+  }
+  // A utility function to print the adjacency list
+  // representation of graph
+  static void printGraph(ArrayList<ArrayList<Integer>> adj) {
+    for (int i = 0; i < adj.size(); i++) {
+      System.out.println("\nAdjacency list of vertex" + i);
+      System.out.print("head");
+      for (int j = 0; j < adj.get(i).size(); j++) {
+        System.out.print(" -> " + adj.get(i).get(j));
+      }
+      System.out.println();
+    }
+  }
+
 }
