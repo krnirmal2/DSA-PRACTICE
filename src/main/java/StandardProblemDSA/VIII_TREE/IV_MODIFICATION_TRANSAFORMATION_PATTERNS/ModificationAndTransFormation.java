@@ -1,8 +1,11 @@
 package StandardProblemDSA.VIII_TREE.IV_MODIFICATION_TRANSAFORMATION_PATTERNS;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
+import StandardProblemDSA.VIII_TREE.TreeUtility;
 
-class TreeOperations {
+import static StandardProblemDSA.VIII_TREE.BST.TrimOrPruningBST.trimBST;
+
+public class ModificationAndTransFormation {
   // ---------------------------------------------------
   // 1. Flatten Tree to Linked List
   // ---------------------------------------------------
@@ -79,47 +82,6 @@ class TreeOperations {
     return root;
   }
 
-  // ---------------------------------------------------
-  // 3. Rotate Tree (Right Rotation and Left Rotation)
-  // ---------------------------------------------------
-  /*
-    Problem Statement:
-       Perform tree rotations at a given node. These rotations are basic operations
-       in self-balancing BSTs.
-
-    Brute Force Approach:
-       - Reconstruct tree via traversal; however, rotations are localized adjustments.
-
-    Optimal Approach:
-       - For a right rotation: Make left child the new root and reattach.
-       - For a left rotation: Make right child the new root and reattach.
-       - Time Complexity: O(1) per rotation.
-
-    Example:
-       Right Rotation at node 10:
-           10                 5
-          /  \      -->      / \
-         5    15           3   10
-        / \                    /  \
-       3   7                  7   15
-  */
-  // Right rotation (rotate around given root)
-  public static TreeNode rotateRight(TreeNode root) {
-    if (root == null || root.left == null) return root;
-    TreeNode newRoot = root.left;
-    root.left = newRoot.right;
-    newRoot.right = root;
-    return newRoot;
-  }
-
-  // Left rotation (rotate around given root)
-  public TreeNode rotateLeft(TreeNode root) {
-    if (root == null || root.right == null) return root;
-    TreeNode newRoot = root.right;
-    root.right = newRoot.left;
-    newRoot.left = root;
-    return newRoot;
-  }
 
   // ---------------------------------------------------
   // 4. Convert Binary Tree to Doubly Linked List
@@ -167,55 +129,12 @@ class TreeOperations {
     return head;
   }
 
-  // ---------------------------------------------------
-  // 5. Tree Trimming/Pruning (BST Trim by Range)
-  // ---------------------------------------------------
-  /*
-    Problem Statement:
-       Given a BST and a range [L, R], trim the tree so that all its elements lie in [L, R].
-       The resulting tree should still be a valid BST.
-
-    Brute Force Approach:
-       - Traverse the tree and remove nodes not in range, then rebuild BST.
-
-    Optimal Approach:
-       - Recursively trim the tree:
-         - If a node's value is less than L, then trim its right subtree.
-         - If a node's value is greater than R, then trim its left subtree.
-         - Otherwise, recursively trim both subtrees.
-       - Time Complexity: O(n)
-
-    Example:
-       Input BST:
-                 3
-                / \
-               0   4
-                \
-                 2
-                /
-               1
-       Range: [1, 3]
-       Output:
-                 3
-                /
-               2
-              /
-             1
-  */
-  public static TreeNode trimBST(TreeNode root, int L, int R) {
-    if (root == null) return null;
-    if (root.val < L) return trimBST(root.right, L, R);
-    if (root.val > R) return trimBST(root.left, L, R);
-    root.left = trimBST(root.left, L, R);
-    root.right = trimBST(root.right, L, R);
-    return root;
-  }
 
   // ---------------------------------------------------
   // Main method for demonstration of functionalities.
   // ---------------------------------------------------
   public static void main(String[] args) {
-    TreeOperations ops = new TreeOperations();
+    ModificationAndTransFormation ops = new ModificationAndTransFormation();
 
     // Build sample binary tree for demonstration:
     //         10
@@ -251,14 +170,14 @@ class TreeOperations {
     // 2. Mirror/Invert Binary Tree
     System.out.println("Mirror/Invert Binary Tree (preorder):");
     TreeNode inverted = invertTree(root);
-    printPreorder(inverted);
+    TreeUtility.printPreorder(inverted);
     System.out.println("\n");
 
     // 3. Rotate Tree: Perform a right rotation at root (if applicable)
     System.out.println("Right Rotation at Root:");
     // For right rotation, root must have a left child.
-    TreeNode rotatedRight = rotateRight(inverted);
-    printPreorder(rotatedRight);
+    TreeNode rotatedRight = TreeUtility.rotateRight(inverted);
+    TreeUtility.printPreorder(rotatedRight);
     System.out.println("\n");
 
     // 4. Convert Binary Tree to Doubly Linked List
@@ -296,17 +215,10 @@ class TreeOperations {
     root.left.right = new TreeNode(7);
     root.right.right = new TreeNode(30);
     TreeNode trimmed = trimBST(root, 5, 20);
-    printPreorder(trimmed);
+    TreeUtility.printPreorder(trimmed);
     System.out.println();
   }
 
-  // Helper method to print a tree in pre-order.
-  public static void printPreorder(TreeNode root) {
-    if (root == null) return;
-    System.out.print(root.val + " ");
-    printPreorder(root.left);
-    printPreorder(root.right);
-  }
+
 }
 
-public class ModificationAndTransFormation {}

@@ -7,9 +7,9 @@ public class RotateArrayKStep {
   public static void rotate(int[] nums, int k) {
     int n = nums.length;
     k = k % n; // Handle cases where k > n
-    Utility.reverse(nums, 0, n - 1); // Step 1: Reverse whole array
-    Utility.reverse(nums, 0, k - 1); // Step 2: Reverse first K elements
-    Utility.reverse(nums, k, n - 1); // Step 3: Reverse rest of the array
+    Utility.reverseArray(nums, 0, n - 1); // Step 1: Reverse whole array
+    Utility.reverseArray(nums, 0, k - 1); // Step 2: Reverse first K elements
+    Utility.reverseArray(nums, k, n - 1); // Step 3: Reverse rest of the array
   }
 
   public static void main(String[] args) {

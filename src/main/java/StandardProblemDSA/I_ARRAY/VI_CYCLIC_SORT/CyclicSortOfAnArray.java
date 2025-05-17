@@ -1,27 +1,15 @@
 package StandardProblemDSA.I_ARRAY.VI_CYCLIC_SORT;
 
+import StandardProblemDSA.Utility;
+
 import java.util.Arrays;
 
-import static StandardProblemDSA.Utility.swap;
-
 public class CyclicSortOfAnArray {
-  public static void cyclicSort(int[] nums) {
-    int i = 0;
-    while (i < nums.length) {
-      int correctIndex = nums[i] - 1; // Correct index for nums[i]
-      if (nums[i] != nums[correctIndex]) {
-        // Swap nums[i] with the number at its correct position
-        swap(nums, i, correctIndex);
-      } else {
-        i++; // Move to the next element
-      }
-    }
-  }
 
 
   public static void main(String[] args) {
     int[] nums = {3, 5, 2, 1, 4};
-    cyclicSort(nums);
+    Utility.cyclicSort(nums);
     System.out.println(Arrays.toString(nums)); // Output: [1, 2, 3, 4, 5]
   }
 }

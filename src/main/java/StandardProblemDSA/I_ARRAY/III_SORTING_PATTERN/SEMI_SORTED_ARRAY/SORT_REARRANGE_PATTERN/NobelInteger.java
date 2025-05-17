@@ -1,10 +1,12 @@
 package StandardProblemDSA.I_ARRAY.III_SORTING_PATTERN.SEMI_SORTED_ARRAY.SORT_REARRANGE_PATTERN;
 
+import StandardProblemDSA.Utility;
+
 import java.util.Arrays;
 
 public class NobelInteger {
   public static int solve(int[] A) {
-    Arrays.sort(A);
+    Utility.sortArrayWithArrySort(A);
     int count = 0, i = 0, temp = 0, result = -1;
     int n = A.length;
 

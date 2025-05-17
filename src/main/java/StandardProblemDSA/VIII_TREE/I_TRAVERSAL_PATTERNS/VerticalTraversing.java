@@ -1,26 +1,12 @@
 package StandardProblemDSA.VIII_TREE.I_TRAVERSAL_PATTERNS;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
+import StandardProblemDSA.VIII_TREE.TreeUtility;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class VerticalTraversing {
-
-  // A utility function to find min and max
-  // distances with respect to root.
-  static void findMinMax(TreeNode node, int[] minMax, int hd) {
-
-    // Base case
-    if (node == null) return;
-
-    // Update min and max
-    if (hd < minMax[0]) minMax[0] = hd;
-    else if (hd > minMax[1]) minMax[1] = hd;
-
-    // Recur for left and right subtrees
-    findMinMax(node.left, minMax, hd - 1);
-    findMinMax(node.right, minMax, hd + 1);
-  }
 
   // A utility function to collect all
   // TreeNode on a given vertical line_no.
@@ -43,7 +29,7 @@ public class VerticalTraversing {
 
     // Find min and max distances with respect to root
     int[] minMax = new int[] {0, 0};
-    findMinMax(root, minMax, 0);
+    TreeUtility.findHorizontalDistance(root, minMax, 0);
 
     // Iterate through all possible vertical
     // lines from leftmost to rightmost

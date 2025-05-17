@@ -1,80 +1,9 @@
 package StandardProblemDSA.VIII_TREE.VII_OPTIMISATIN_PATTERNS;
 
+import StandardProblemDSA.VIII_TREE.TreeNode;
+import StandardProblemDSA.VIII_TREE.TreeUtility;
+
 public class TreeMetricsOperations {
-
-  // ---------------------------------------------------
-  // Definition for a binary tree node.
-  // ---------------------------------------------------
-  class TreeNode {
-    int val;
-    TreeNode left, right;
-
-    TreeNode(int x) {
-      val = x;
-      left = right = null;
-    }
-  }
-
-  // ---------------------------------------------------
-  // 1. Maximum Depth/Height of Binary Tree
-  // ---------------------------------------------------
-  /*
-    Problem Statement:
-       Compute the maximum depth (height) of a binary tree, defined as the number of nodes
-       along the longest path from the root down to the farthest leaf node.
-
-    Brute Force Idea:
-       - Traverse all paths from root to leaves and take the maximum.
-
-    Optimal Approach:
-       - Use recursion: height(root) = max(height(root.left), height(root.right)) + 1.
-
-    Time Complexity: O(n)
-
-    Example:
-       For tree:
-               1
-              / \
-             2   3
-            /
-           4
-       Maximum Depth: 3 (path: 1→2→4)
-  */
-  public int maxDepth(TreeNode root) {
-    if (root == null) return 0;
-    return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
-  }
-
-  // ---------------------------------------------------
-  // 2. Minimum Depth/Height of Binary Tree
-  // ---------------------------------------------------
-  /*
-    Problem Statement:
-       Compute the minimum depth of a binary tree, defined as the number of nodes along the
-       shortest path from the root node down to the nearest leaf node.
-
-    Optimal Approach:
-       - Use recursion. Special care is needed when one subtree is null.
-         If a node has no left child, use the minimum depth from the right, and vice versa.
-
-    Time Complexity: O(n)
-
-    Example:
-       For tree:
-               1
-              /
-             2
-              \
-               3
-       Minimum Depth: 3 (path: 1→2→3, since 3 is a leaf)
-  */
-  public int minDepth(TreeNode root) {
-    if (root == null) return 0;
-    // If one subtree is missing, we use the depth of the other subtree.
-    if (root.left == null) return minDepth(root.right) + 1;
-    if (root.right == null) return minDepth(root.left) + 1;
-    return Math.min(minDepth(root.left), minDepth(root.right)) + 1;
-  }
 
   // ---------------------------------------------------
   // 3. Diameter of Binary Tree
@@ -99,15 +28,15 @@ public class TreeMetricsOperations {
            4   5
        Diameter: 3 (path: 4 → 2 → 1 → 3 or 4→2→5 if defined in edges; here, 3 edges)
   */
-  private int diameter = 0;
+  private static int diameter = 0;
 
-  public int diameterOfBinaryTree(TreeNode root) {
+  public static int diameterOfBinaryTree(TreeNode root) {
     heightForDiameter(root);
     return diameter;
   }
 
   // Helper method returns height while updating diameter.
-  private int heightForDiameter(TreeNode node) {
+  private static int heightForDiameter(TreeNode node) {
     if (node == null) return 0;
     int leftHeight = heightForDiameter(node.left);
     int rightHeight = heightForDiameter(node.right);
@@ -140,15 +69,15 @@ public class TreeMetricsOperations {
        Maximum Path Sum: 42 (path: 15 → 20 → 7 or 15 + 20 + 7, depending on interpretation)
        (Typically the correct path is 15 + 20 + 7 = 42.)
   */
-  private int maxPathSumGlobal = Integer.MIN_VALUE;
+  private static int maxPathSumGlobal = Integer.MIN_VALUE;
 
-  public int maxPathSum(TreeNode root) {
+  public static int maxPathSum(TreeNode root) {
     maxGain(root);
     return maxPathSumGlobal;
   }
 
   // Helper: maximum gain from node.
-  private int maxGain(TreeNode node) {
+  private static int maxGain(TreeNode node) {
     if (node == null) return 0;
     int leftGain = Math.max(maxGain(node.left), 0);
     int rightGain = Math.max(maxGain(node.right), 0);
@@ -187,9 +116,9 @@ public class TreeMetricsOperations {
              5
        Longest Zigzag Path: 3 (e.g., 1→2→4→5 with alternating directions)
   */
-  private int longestZigzag = 0;
+  private static int longestZigzag = 0;
 
-  public int longestZigzagPath(TreeNode root) {
+  public static int longestZigzagPath(TreeNode root) {
     zigzag(root, true, 0);
     zigzag(root, false, 0);
     return longestZigzag;
@@ -197,7 +126,7 @@ public class TreeMetricsOperations {
 
   // Helper: direction = true means previous move was to left, so now go right; false means vice
   // versa.
-  private void zigzag(TreeNode node, boolean isLeft, int length) {
+  private static void zigzag(TreeNode node, boolean isLeft, int length) {
     if (node == null) return;
     longestZigzag = Math.max(longestZigzag, length);
     if (isLeft) {
@@ -239,13 +168,13 @@ public class TreeMetricsOperations {
              1   8
        Size: 3.
   */
-  class BSTInfo {
-    boolean isBST;
-    int size;
+  public static class BSTInfo {
+    public boolean isBST;
+    public int size;
     int min;
     int max;
 
-    BSTInfo(boolean isBST, int size, int min, int max) {
+    public BSTInfo(boolean isBST, int size, int min, int max) {
       this.isBST = isBST;
       this.size = size;
       this.min = min;
@@ -253,15 +182,15 @@ public class TreeMetricsOperations {
     }
   }
 
-  private int largestBSTSize = 0;
+  private static int largestBSTSize = 0;
 
-  public int largestBSTSubtree(TreeNode root) {
+  public static int largestBSTSubtree(TreeNode root) {
     largestBSTSize = 0;
     postorderBST(root);
     return largestBSTSize;
   }
 
-  private BSTInfo postorderBST(TreeNode node) {
+  private static BSTInfo postorderBST(TreeNode node) {
     if (node == null) return new BSTInfo(true, 0, Integer.MAX_VALUE, Integer.MIN_VALUE);
 
     BSTInfo leftInfo = postorderBST(node.left);
@@ -293,22 +222,22 @@ public class TreeMetricsOperations {
     //      4   5   6
     //           \
     //            7
-    TreeNode root = ops.new TreeNode(1);
-    root.left = ops.new TreeNode(2);
-    root.right = ops.new TreeNode(3);
-    root.left.left = ops.new TreeNode(4);
-    root.left.right = ops.new TreeNode(5);
-    root.right.right = ops.new TreeNode(6);
-    root.left.right.right = ops.new TreeNode(7);
+    TreeNode root = new TreeNode(1);
+    root.left =new TreeNode(2);
+    root.right = new TreeNode(3);
+    root.left.left = new TreeNode(4);
+    root.left.right = new TreeNode(5);
+    root.right.right = new TreeNode(6);
+    root.left.right.right =new TreeNode(7);
 
-    System.out.println("Maximum Depth: " + ops.maxDepth(root)); // Expected: 4
-    System.out.println("Minimum Depth: " + ops.minDepth(root)); // Expected: 3
+    System.out.println("Maximum Depth: " + TreeUtility.maxDepth(root)); // Expected: 4
+    System.out.println("Minimum Depth: " + TreeUtility.minDepth(root)); // Expected: 3
     System.out.println(
-        "Diameter of Tree: " + ops.diameterOfBinaryTree(root)); // Expected: 4 (edge count)
-    System.out.println("Maximum Path Sum: " + ops.maxPathSum(root)); // Depends on node values
+        "Diameter of Tree: " + diameterOfBinaryTree(root)); // Expected: 4 (edge count)
+    System.out.println("Maximum Path Sum: " + maxPathSum(root)); // Depends on node values
     System.out.println(
         "Longest Zigzag Path: "
-            + ops.longestZigzagPath(root)); // Expected: length depends on zigzag
+            + longestZigzagPath(root)); // Expected: length depends on zigzag
 
     // Build tree for Largest BST Subtree:
     //         10
@@ -316,14 +245,14 @@ public class TreeMetricsOperations {
     //       5    15
     //      / \     \
     //     1   8     7   <-- Not BST because 7 < 15
-    TreeNode bstTest = ops.new TreeNode(10);
-    bstTest.left = ops.new TreeNode(5);
-    bstTest.right = ops.new TreeNode(15);
-    bstTest.left.left = ops.new TreeNode(1);
-    bstTest.left.right = ops.new TreeNode(8);
-    bstTest.right.right = ops.new TreeNode(7);
+    TreeNode bstTest = new TreeNode(10);
+    bstTest.left = new TreeNode(5);
+    bstTest.right = new TreeNode(15);
+    bstTest.left.left = new TreeNode(1);
+    bstTest.left.right = new TreeNode(8);
+    bstTest.right.right = new TreeNode(7);
 
     System.out.println(
-        "Largest BST Subtree Size: " + ops.largestBSTSubtree(bstTest)); // Expected: 3
+        "Largest BST Subtree Size: " + largestBSTSubtree(bstTest)); // Expected: 3
   }
 }

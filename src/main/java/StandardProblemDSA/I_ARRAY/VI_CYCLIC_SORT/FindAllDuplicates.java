@@ -1,27 +1,17 @@
 package StandardProblemDSA.I_ARRAY.VI_CYCLIC_SORT;
 
+import StandardProblemDSA.Utility;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class FindAllDuplicates {
   public static List<Integer> findDuplicates(int[] nums) {
     List<Integer> duplicates = new ArrayList<>();
-    int i = 0;
-
-    while (i < nums.length) {
-      int correctIndex = nums[i] - 1;
-      if (nums[i] != nums[correctIndex]) {
-        // Swap nums[i] with nums[correctIndex]
-        int temp = nums[i];
-        nums[i] = nums[correctIndex];
-        nums[correctIndex] = temp;
-      } else {
-        i++;
-      }
-    }
-
+    //cyclic sort
+    Utility.cyclicSort(nums);
     // Identify duplicate numbers
-    for (i = 0; i < nums.length; i++) {
+    for (int i = 0; i < nums.length; i++) {
       if (nums[i] != i + 1) {
         duplicates.add(nums[i]);
       }

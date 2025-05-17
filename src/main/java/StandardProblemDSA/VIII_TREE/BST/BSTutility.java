@@ -2,6 +2,7 @@ package StandardProblemDSA.VIII_TREE.BST;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
 
+
 public class BSTutility {
 
   public static void inorderRecursive(TreeNode root) {
@@ -106,4 +107,23 @@ public class BSTutility {
     if (Math.abs(leftHeight - rightHeight) > 1) return -1;
     return Math.max(leftHeight, rightHeight) + 1;
   }
+
+ /* public static TreeMetricsOperations.BSTInfo postorderBST(TreeNode node) {
+    if (node == null) return new TreeMetricsOperations.BSTInfo(true, 0, Integer.MAX_VALUE, Integer.MIN_VALUE);
+
+    TreeMetricsOperations.BSTInfo leftInfo = postorderBST(node.left);
+    TreeMetricsOperations.BSTInfo rightInfo = postorderBST(node.right);
+
+    if (leftInfo.isBST && rightInfo.isBST && node.val > leftInfo.max && node.val < rightInfo.min) {
+      int size = leftInfo.size + rightInfo.size + 1;
+      largestBSTSize = Math.max(largestBSTSize, size);
+      int min = (node.left != null) ? leftInfo.min : node.val;
+      int max = (node.right != null) ? rightInfo.max : node.val;
+      return new TreeMetricsOperations.BSTInfo(true, size, min, max);
+    } else {
+      // Not a BST; size not needed here.
+      return new TreeMetricsOperations.BSTInfo(false, 0, 0, 0);
+    }
+  }*/
+
 }

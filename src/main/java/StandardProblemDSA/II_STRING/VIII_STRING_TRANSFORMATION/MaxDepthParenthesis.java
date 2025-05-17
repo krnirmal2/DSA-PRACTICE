@@ -1,0 +1,51 @@
+package StandardProblemDSA.II_STRING.VIII_STRING_TRANSFORMATION;
+
+/**
+ * Problem: Maximum Nesting Depth of Parentheses
+ *
+ * Given a valid parentheses string s, return the nesting depth of s.
+ * The nesting depth is the maximum number of nested parentheses.
+ *
+ * Examples:
+ *   Input:  s = "(1+(2*3)+((8)/4))+1"
+ *   Output: 3
+ *   Explanation: Digit 8 is inside of 3 nested parentheses in the string.
+ *
+ *   Input:  s = "(1)+((2))+(((3)))"
+ *   Output: 3
+ *   Explanation: Digit 3 is inside of 3 nested parentheses in the string.
+ *
+ *   Input:  s = "()(())((()()))"
+ *   Output: 3
+ *
+ * Constraints:
+ *   1 <= s.length <= 100
+ *   s consists of digits 0-9 and characters '+', '-', '*', '/', '(', and ')'.
+ *   It is guaranteed that s is a valid parentheses string (VPS).
+ */
+
+public class MaxDepthParenthesis {
+    
+    /**
+     * Approach:
+     * 1. Initialize two counters: 'res' for the maximum depth, and 'cur' for the current depth.
+     * 2. Iterate through each character in the string:
+     *    - If the character is '(', increment 'cur' and update 'res' to the maximum of 'res' and 'cur'.
+     *    - If the character is ')', decrement 'cur'.
+     * 3. After the loop, 'res' contains the maximum nesting depth.
+     *
+     * Time Complexity: O(n), where n is the length of the string.
+     * Space Complexity: O(1)
+     */
+    public int maxDepth(String s) {
+         int res = 0, cur = 0;
+         for (int i = 0; i < s.length(); ++i) {
+             if (s.charAt(i) == '(')
+                 res = Math.max(res, ++cur);
+             if (s.charAt(i) == ')')
+                 cur--;
+         }
+         return res;
+     }
+
+}

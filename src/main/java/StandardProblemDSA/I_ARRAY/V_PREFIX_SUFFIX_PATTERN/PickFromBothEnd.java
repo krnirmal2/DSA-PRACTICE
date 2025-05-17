@@ -1,15 +1,13 @@
 package StandardProblemDSA.I_ARRAY.V_PREFIX_SUFFIX_PATTERN;
 
+import StandardProblemDSA.Utility;
+
 public class PickFromBothEnd {
   public static int solve(int[] A, int B) {
     int n = A.length;
     int[] suff = new int[n + 1];
     suff[n] = 0;
-    suff[n - 1] = A[n - 1];
-    // put suffix sum from back
-    for (int i = n - 2; i >= 0; i--) {
-      suff[i] = A[i] + suff[i + 1];
-    }
+    Utility.suffixSum(A,suff);
     int pref_sum = 0;
     int ans = suff[n - B];
     for (int i = 0; i < B; i++) {

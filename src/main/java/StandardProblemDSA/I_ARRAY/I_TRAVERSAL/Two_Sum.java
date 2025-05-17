@@ -1,5 +1,7 @@
 package StandardProblemDSA.I_ARRAY.I_TRAVERSAL;
 
+import StandardProblemDSA.Utility;
+
 import java.util.HashMap;
 
 public class Two_Sum {
@@ -10,8 +12,8 @@ public class Two_Sum {
     HashMap<Integer, Integer> mp = new HashMap<>();
     // take a result array of size 2 for start and end indexes
     int[] result = new int[2];
-    int minIndex = Integer.MAX_VALUE;
-    for (int i = 0; i < numbers.length; i++) {
+    int minIndex = Utility.getMiniMumValue();
+    for (int i = 0; i < Utility.getArrayLength(numbers); i++) {
       // check if the target - current element present in map or not
       // if yes then put the start index =
       if (mp.containsKey(target - numbers[i])) {
@@ -29,13 +31,12 @@ public class Two_Sum {
     return result;
   }
 
-  public static void main(String[] args) {
-    int[] a = {
-      4, 7, -4, 2, 2, 2, 3, -5, -3, 9, -4, 9, -7, 7, -1, 9, 9, 4, 1, -4, -2, 3, -3, -5, 4, -7, 7, 9,
-      -4, 4, -8
-    };
 
+  public static void main(String[] args) {
+    int[] a = Utility.arrayWithPosiNegativeValue();
     int[] k = twoSum(a, -3);
     for (int i = 0; i < 2; i++) System.out.println(k[i]);
   }
+
+
 }

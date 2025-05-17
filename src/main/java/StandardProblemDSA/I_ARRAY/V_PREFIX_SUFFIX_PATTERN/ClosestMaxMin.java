@@ -1,34 +1,20 @@
 package StandardProblemDSA.I_ARRAY.V_PREFIX_SUFFIX_PATTERN;
 
+import StandardProblemDSA.Utility;
+
 public class ClosestMaxMin {
   static int solve(int[] A) {
     int n = A.length;
     if (n == 0) return 0; // Edge case: empty array
 
     // Step 1: Find min and max values
-    int min = A[0], max = A[0];
-    for (int num : A) {
-      if (num > max) max = num;
-      if (num < min) min = num;
-    }
-
+    int min = Utility.findMin(A), max = Utility.findMax(A);
     if (min == max) return 1; // If all elements are the same, the answer is 1
-
+    int ans = n;
     // Step 2: Store the last seen positions of min and max
     int[] prefixMin = new int[n];
     int[] prefixMax = new int[n];
-
-    int lastMinIndex = -1, lastMaxIndex = -1;
-    int ans = n;
-
-    for (int i = 0; i < n; i++) {
-      if (A[i] == min) lastMinIndex = i;
-      if (A[i] == max) lastMaxIndex = i;
-
-      prefixMin[i] = lastMinIndex;
-      prefixMax[i] = lastMaxIndex;
-    }
-
+     Utility.prefixMinMaxWithMinusOneIntialisationINDEX(A,min,max,prefixMin,prefixMax);
     // Step 3: Find the smallest subarray containing both min and max
     for (int i = 0; i < n; i++) {
       if (A[i] == min && prefixMax[i] != -1) {

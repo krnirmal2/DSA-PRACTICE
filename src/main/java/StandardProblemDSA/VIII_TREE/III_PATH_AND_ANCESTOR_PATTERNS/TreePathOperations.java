@@ -1,21 +1,11 @@
 package StandardProblemDSA.VIII_TREE.III_PATH_AND_ANCESTOR_PATTERNS;
 
+import StandardProblemDSA.VIII_TREE.TreeNode;
+import StandardProblemDSA.VIII_TREE.TreeUtility;
+
 import java.util.*;
 
 public class TreePathOperations {
-
-  // ---------------------------------------------------
-  // Definition for a binary tree node.
-  // ---------------------------------------------------
-  class TreeNode {
-    int val;
-    TreeNode left, right;
-
-    TreeNode(int x) {
-      val = x;
-      left = right = null;
-    }
-  }
 
   // ---------------------------------------------------
   // 1. Root-to-Leaf Paths
@@ -42,23 +32,11 @@ public class TreePathOperations {
                  5
        Root-to-leaf paths: [1,2,5] and [1,3]
   */
-  public List<List<Integer>> rootToLeafPaths(TreeNode root) {
+  public static List<List<Integer>> rootToLeafPaths(TreeNode root) {
     List<List<Integer>> paths = new ArrayList<>();
     List<Integer> current = new ArrayList<>();
-    rootToLeafHelper(root, current, paths);
+    TreeUtility.rootToLeafHelper(root, current, paths);
     return paths;
-  }
-
-  private void rootToLeafHelper(TreeNode node, List<Integer> current, List<List<Integer>> paths) {
-    if (node == null) return;
-    current.add(node.val);
-    if (node.left == null && node.right == null) { // leaf
-      paths.add(new ArrayList<>(current));
-    } else {
-      rootToLeafHelper(node.left, current, paths);
-      rootToLeafHelper(node.right, current, paths);
-    }
-    current.remove(current.size() - 1); // backtrack
   }
 
   // ---------------------------------------------------
@@ -90,7 +68,7 @@ public class TreePathOperations {
        (Example values may vary.)
   */
   // (a) Maximum sum root-to-leaf path (returns the sum and the path)
-  public class MaxPathResult {
+  public static class MaxPathResult {
     int sum;
     List<Integer> path;
 
@@ -100,7 +78,7 @@ public class TreePathOperations {
     }
   }
 
-  public MaxPathResult maxSumPath(TreeNode root) {
+  public static MaxPathResult maxSumPath(TreeNode root) {
     if (root == null) return new MaxPathResult(0, new ArrayList<>());
     if (root.left == null && root.right == null) {
       List<Integer> path = new ArrayList<>();
@@ -117,7 +95,7 @@ public class TreePathOperations {
   }
 
   // (b) Check if there is a root-to-leaf path with a given sum.
-  public boolean hasPathSum(TreeNode root, int targetSum) {
+  public static boolean hasPathSum(TreeNode root, int targetSum) {
     if (root == null) return false;
     // If leaf, check if path sum equals targetSum.
     if (root.left == null && root.right == null) {
@@ -153,12 +131,8 @@ public class TreePathOperations {
              6  2 0   8
        LCA(6,2) = 5.
   */
-  public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-    if (root == null || root == p || root == q) return root;
-    TreeNode left = lowestCommonAncestor(root.left, p, q);
-    TreeNode right = lowestCommonAncestor(root.right, p, q);
-    if (left != null && right != null) return root;
-    return (left != null) ? left : right;
+  public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    return TreeUtility.lowestCommonAncestor(root,p,q);
   }
 
   // ---------------------------------------------------
@@ -177,22 +151,14 @@ public class TreePathOperations {
     Example:
        For tree as above, distance between 6 and 0 = distance(6,3) + distance(0,3) = 2 + 2 = 4.
   */
-  // Helper: find distance from root to a given node value.
-  private int findLevel(TreeNode root, int val, int level) {
-    if (root == null) return -1;
-    if (root.val == val) return level;
-    int left = findLevel(root.left, val, level + 1);
-    if (left != -1) return left;
-    return findLevel(root.right, val, level + 1);
-  }
 
-  public int distanceBetweenNodes(TreeNode root, int val1, int val2) {
+  public static int distanceBetweenNodes(TreeNode root, int val1, int val2) {
     TreeNode lca = lowestCommonAncestor(root, new TreeNode(val1), new TreeNode(val2));
     // Note: The above LCA function expects exact node references.
     // In practice, if values are unique, you might need to first locate nodes by value.
     // For demonstration, we assume nodes with these values exist and are unique.
-    int d1 = findLevel(lca, val1, 0);
-    int d2 = findLevel(lca, val2, 0);
+    int d1 = TreeUtility.findLevel(lca, val1, 0);
+    int d2 = TreeUtility.findLevel(lca, val2, 0);
     return d1 + d2;
   }
 
@@ -218,21 +184,10 @@ public class TreePathOperations {
              6   2
        Ancestors of 6: [5, 3]
   */
-  public List<Integer> ancestors(TreeNode root, int target) {
+  public static List<Integer> ancestors(TreeNode root, int target) {
     List<Integer> result = new ArrayList<>();
-    findAncestors(root, target, result);
+    TreeUtility.findAncestors(root, target, result);
     return result;
-  }
-
-  private boolean findAncestors(TreeNode root, int target, List<Integer> ancestors) {
-    if (root == null) return false;
-    if (root.val == target) return true;
-    if (findAncestors(root.left, target, ancestors)
-        || findAncestors(root.right, target, ancestors)) {
-      ancestors.add(root.val);
-      return true;
-    }
-    return false;
   }
 
   // ---------------------------------------------------
@@ -262,35 +217,13 @@ public class TreePathOperations {
        Pattern: [1,2]
        Matching path: [1,2,4]
   */
-  public List<List<Integer>> pathsMatchingPattern(TreeNode root, List<Integer> pattern) {
+  public static List<List<Integer>> pathsMatchingPattern(TreeNode root, List<Integer> pattern) {
     List<List<Integer>> matchingPaths = new ArrayList<>();
     List<Integer> current = new ArrayList<>();
-    findPathsMatching(root, pattern, 0, current, matchingPaths);
+    TreeUtility.findPathsMatching(root, pattern, 0, current, matchingPaths);
     return matchingPaths;
   }
 
-  private void findPathsMatching(
-      TreeNode node,
-      List<Integer> pattern,
-      int patternIndex,
-      List<Integer> current,
-      List<List<Integer>> matchingPaths) {
-    if (node == null) return;
-    current.add(node.val);
-    // Check pattern match so far.
-    if (patternIndex < pattern.size() && node.val == pattern.get(patternIndex)) {
-      patternIndex++;
-    }
-    // If leaf node, check if the pattern was matched as a prefix.
-    if (node.left == null && node.right == null) {
-      if (patternIndex == pattern.size()) {
-        matchingPaths.add(new ArrayList<>(current));
-      }
-    }
-    findPathsMatching(node.left, pattern, patternIndex, current, matchingPaths);
-    findPathsMatching(node.right, pattern, patternIndex, current, matchingPaths);
-    current.remove(current.size() - 1); // backtrack
-  }
 
   // ---------------------------------------------------
   // Main method for demonstration of functionalities.
@@ -306,16 +239,16 @@ public class TreePathOperations {
     //      6   2   8
     //         /
     //        7
-    TreeNode root = ops.new TreeNode(3);
-    root.left = ops.new TreeNode(5);
-    root.right = ops.new TreeNode(1);
-    root.left.left = ops.new TreeNode(6);
-    root.left.right = ops.new TreeNode(2);
-    root.left.right.left = ops.new TreeNode(7);
-    root.right.right = ops.new TreeNode(8);
+    TreeNode root = new TreeNode(3);
+    root.left = new TreeNode(5);
+    root.right = new TreeNode(1);
+    root.left.left = new TreeNode(6);
+    root.left.right = new TreeNode(2);
+    root.left.right.left = new TreeNode(7);
+    root.right.right = new TreeNode(8);
 
     // 1. Root-to-Leaf Paths
-    List<List<Integer>> allPaths = ops.rootToLeafPaths(root);
+    List<List<Integer>> allPaths = rootToLeafPaths(root);
     System.out.println("Root-to-Leaf Paths:");
     for (List<Integer> path : allPaths) {
       System.out.println(path);
@@ -323,17 +256,17 @@ public class TreePathOperations {
     // Expected paths: [3,5,6], [3,5,2,7], [3,1,8]
 
     // 2. Path with Maximum Sum
-    MaxPathResult maxPath = ops.maxSumPath(root);
+    MaxPathResult maxPath = maxSumPath(root);
     System.out.println("Maximum Sum Path: " + maxPath.path + " with sum = " + maxPath.sum);
 
     // Check for specific sum, e.g., 15.
-    boolean hasSum15 = ops.hasPathSum(root, 15);
+    boolean hasSum15 = hasPathSum(root, 15);
     System.out.println("Is there a root-to-leaf path with sum 15? " + hasSum15);
 
     // 3. Lowest Common Ancestor
     // For demonstration, assume we want LCA of nodes with values 6 and 7.
     // (In practice, you would locate the actual nodes; here we assume unique values.)
-    TreeNode lca = ops.lowestCommonAncestor(root, ops.new TreeNode(6), ops.new TreeNode(7));
+    TreeNode lca = lowestCommonAncestor(root, new TreeNode(6), new TreeNode(7));
     System.out.println(
         "Lowest Common Ancestor of 6 and 7 (by value): " + (lca != null ? lca.val : "None"));
     // Expected LCA is 5.
@@ -341,18 +274,18 @@ public class TreePathOperations {
     // 4. Distance Between Two Nodes
     // Using our helper (note: this simplistic method assumes unique values and uses value
     // matching).
-    int distance = ops.distanceBetweenNodes(root, 6, 8);
+    int distance = distanceBetweenNodes(root, 6, 8);
     System.out.println("Distance between nodes with values 6 and 8: " + distance);
     // Expected: distance = 4 (6->5->3->1->8)
 
     // 5. Ancestors of a Node
-    List<Integer> ancestorsOf7 = ops.ancestors(root, 7);
+    List<Integer> ancestorsOf7 = ancestors(root, 7);
     System.out.println("Ancestors of node 7: " + ancestorsOf7);
     // Expected: [2,5,3] (depending on order, typically bottom-up).
 
     // 6. Paths Matching a Specific Pattern
     List<Integer> pattern = Arrays.asList(3, 5);
-    List<List<Integer>> matchingPaths = ops.pathsMatchingPattern(root, pattern);
+    List<List<Integer>> matchingPaths = pathsMatchingPattern(root, pattern);
     System.out.println("Paths matching the pattern " + pattern + ":");
     for (List<Integer> path : matchingPaths) {
       System.out.println(path);

@@ -79,6 +79,15 @@ public class CharacterMaster {
     String test = "A man, a plan, a canal: Panama";
     boolean isPalin = isPalindrome(test);
     System.out.println("Is palindrome: " + isPalin);
+
+    // 12. Character frequency using 26-length array
+    String freqTest = "Programming is fun!";
+    int[] freq = getCharFrequency(freqTest);
+    System.out.print("Character frequencies (a-z): ");
+    for (int f : freq) {
+      System.out.print(f + " ");
+    }
+    System.out.println();
   }
 
   // Function to check if a character is a vowel
@@ -124,5 +133,18 @@ public class CharacterMaster {
       right--;
     }
     return true;
+  }
+
+  // Function to get frequency of each lowercase English letter (a-z) in a string
+  public static int[] getCharFrequency(String str) {
+    int[] freq = new int[26];
+    for (char ch : str.toCharArray()) {
+      if (ch >= 'a' && ch <= 'z') {
+        freq[ch - 'a']++;
+      } else if (ch >= 'A' && ch <= 'Z') {
+        freq[ch - 'A']++;
+      }
+    }
+    return freq;
   }
 }

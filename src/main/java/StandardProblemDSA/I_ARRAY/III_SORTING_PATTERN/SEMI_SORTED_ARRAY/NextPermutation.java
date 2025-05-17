@@ -1,9 +1,12 @@
 package StandardProblemDSA.I_ARRAY.III_SORTING_PATTERN.SEMI_SORTED_ARRAY;
 
+import StandardProblemDSA.Utility;
+
 import static java.util.Collections.swap;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class NextPermutation {
@@ -28,7 +31,7 @@ public class NextPermutation {
     // if we don't find any break index than we are sure that this array already sorted with
     // decrement order
     if (breakInd == -1) {
-      reverse(A, 0, n - 1);
+      Utility.reverseList(A, 0, n - 1);
       return A;
     }
     // step 2 : we have to find the element from the back of the array which is just greate than
@@ -36,24 +39,17 @@ public class NextPermutation {
     for (int ind = n - 1; ind >= 0; ind--) {
       if (A.get(breakInd) < A.get(ind)) {
         //                 if we got just swap breakInd and currIndex
-        swap(A, breakInd, ind);
+        Collections.swap(A, breakInd, ind);
         break;
       }
     }
     // step 3. now we have to check the right subarray element should be just greateer than current
     // element
     // so we will reverse that array
-    reverse(A, breakInd + 1, n - 1);
+    Utility.reverseList(A, breakInd + 1, n - 1);
     return A;
   }
 
-  private static void reverse(List<Integer> A, int start, int end) {
-    while (start < end) {
-      swap(A, start, end);
-      start++;
-      end--;
-    }
-  }
 
   public static void main(String[] args) {
     List<Integer> A = Arrays.asList(2, 1, 5, 4, 3, 0, 0);

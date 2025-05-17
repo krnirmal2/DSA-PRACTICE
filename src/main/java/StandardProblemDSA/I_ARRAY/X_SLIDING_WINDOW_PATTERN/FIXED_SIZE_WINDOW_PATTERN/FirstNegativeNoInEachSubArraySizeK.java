@@ -32,30 +32,32 @@ public class FirstNegativeNoInEachSubArraySizeK {
 
     int i = 0, j = 0;
     List<Integer> result = new ArrayList<>();
-    Queue<Integer> negatives = new LinkedList<>();
+    Queue<Integer> negativesQueue = new LinkedList<>();
 
     while (j < Arr.length) {
       // 1. If current element is negative, add it to the queue
       if (Arr[j] < 0) {
-        negatives.add(Arr[j]);
+        negativesQueue.add(Arr[j]);
       }
 
-      // 2. Check if window size is less than K
+      // 2. CASE 1 : EXPAND WINDOW
+      // Check if window size is less than K
       if (j - i + 1 < K) {
         j++; // Expand window
       }
-      // 3. When window size becomes exactly K
+      // 3. CASE 2: WINDOW SIZE EQUALS TO K
+      // When window size becomes exactly K
       else if (j - i + 1 == K) {
         // a. If there are negatives, record the first one
-        if (!negatives.isEmpty()) {
-          result.add(negatives.peek());
+        if (!negativesQueue.isEmpty()) {
+          result.add(negativesQueue.peek());
         } else {
           result.add(0); // No negative in this window
         }
-
+        //CASE 3: SHRINK THE WINDOW OR SLIDE THE WINDOW
         // b. Before sliding the window, remove the outgoing element from queue if needed
-        if (!negatives.isEmpty() && negatives.peek() == Arr[i]) {
-          negatives.poll();
+        if (!negativesQueue.isEmpty() && negativesQueue.peek() == Arr[i]) {
+          negativesQueue.poll();
         }
 
         // c. Slide the window

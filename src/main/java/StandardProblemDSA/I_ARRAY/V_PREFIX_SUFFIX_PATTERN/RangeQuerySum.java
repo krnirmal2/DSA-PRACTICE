@@ -1,5 +1,7 @@
 package StandardProblemDSA.I_ARRAY.V_PREFIX_SUFFIX_PATTERN;
 
+import StandardProblemDSA.Utility;
+
 public class RangeQuerySum {
   public static void main(String[] args) {
     int[] A = {7, 3, 1, 5, 5, 5, 1, 2, 4, 5};
@@ -16,10 +18,7 @@ public class RangeQuerySum {
     int sum = a[0];
     int[] prefixSum = new int[size];
     // find the prefix sum of the given aray a
-    for (int i = 1; i < size; i++) {
-      sum = sum + a[i];
-      prefixSum[i] = sum;
-    }
+    Utility.prefixSum(a,prefixSum);
     for (int j = 0, k = 1; j < b[0].length; j++) {
       int leftIndex, rightIndex;
       leftIndex = b[j][0];
