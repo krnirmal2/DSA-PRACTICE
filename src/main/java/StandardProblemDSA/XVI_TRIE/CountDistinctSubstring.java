@@ -44,22 +44,6 @@ Hints:
 2. Can you think about using the fact that every substring of ‘S’ is a prefix of some suffix string of ‘S’?
 3. Try to insert every suffix of the string in Trie.*/
 
-class Tri {
-  Tri links[] = new Tri[26];
-
-  boolean containsKey(char ch) {
-    return links[ch - 'a'] != null;
-  }
-
-  void put(char ch, Tri node) {
-    links[ch - 'a'] = node;
-  }
-
-  Tri get(char ch) {
-    return links[ch - 'a'];
-  }
-}
-
 public class CountDistinctSubstring {
   // so   1. iterate over each character one by one
   // 2.if the current character is not exist then put in the trie like insert
@@ -68,12 +52,12 @@ public class CountDistinctSubstring {
   // 4. return count
 
   public int countDistincetSubstring(String word) {
-    Tri rootNode = new Tri();
+    TrieNode rootNode = new TrieNode();
     int count = 0;
     for (int ch = 0; ch < word.length(); ch++) {
       char currCh = word.charAt(ch);
       if (!rootNode.containsKey(currCh)) {
-        rootNode.put(currCh, new Tri());
+        rootNode.put(currCh, new TrieNode());
         count++;
       }
       rootNode = rootNode.get(currCh);

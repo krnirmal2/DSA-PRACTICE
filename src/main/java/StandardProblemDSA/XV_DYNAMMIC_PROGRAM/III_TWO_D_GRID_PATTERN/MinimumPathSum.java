@@ -1,5 +1,7 @@
 package StandardProblemDSA.XV_DYNAMMIC_PROGRAM.III_TWO_D_GRID_PATTERN;
 
+import StandardProblemDSA.Utility;
+
 public class MinimumPathSum {
   public int minimupathSum(int[][] grid, int intialX, int initialY, int rowSize, int colSize) {
     // base case
@@ -26,16 +28,17 @@ public class MinimumPathSum {
     // we have take the current some with the next right or bottom sum which
     // ever minimum
 
-    if (x == row - 1 && y == col - 1) {
+    if (Utility.isReachedLastCornerCell(x, y, row, col)) {
       return grid[x][y];
     }
     // we have to check the boundary
-    if (x >= row || y >= col) {
+    if (Utility.isBoundaryTouch(x, y, row, col)) {
       return 0;
     }
     int i = grid[x][y] + Math.min(util(grid, x, y + 1, row, col), util(grid, x + 1, y, row, col));
     return i;
   }
+
   /*MEMOSAITON
 
   *   public int minPathSum(int[][] grid) {

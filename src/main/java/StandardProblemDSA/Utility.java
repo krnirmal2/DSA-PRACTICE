@@ -390,4 +390,40 @@ public class Utility {
         return 0; // For non-operator characters
     }
   }
+
+  public static int[] linearArrayMemo(int n) {
+    int[] memo = new int[n + 1];
+    Arrays.fill(memo, -1); // Fill the memo array with -1
+    return memo;
+  }
+
+  public static int[][] twoDimensionalMemo(int m, int n) {
+    int[][] dp = new int[m][n]; // Memoization table
+    for (int[] row : dp) {
+      Arrays.fill(row, -1); // Initialize dp table with -1
+    }
+    return dp;
+  }
+
+  public static int getColumnLength(int[][] grid) {
+    return grid[0].length;
+  }
+
+  public static int getRowLength(int[][] grid) {
+    return grid.length;
+  }
+
+  public static boolean isReachedLastCornerCell(int i, int j, int m, int n) {
+    // if i and j are reached to corner  bottom right corner
+    return i == m - 1 && j == n - 1;
+  }
+
+  public static boolean isReachedLastIndex(int[] nums, int i) {
+    // if index greter thant the n-1 or reached last index
+    return i >= nums.length - 1;
+  }
+
+  public static boolean isBoundaryTouch(int x, int y, int row, int col) {
+    return x >= row || y >= col;
+  }
 }
