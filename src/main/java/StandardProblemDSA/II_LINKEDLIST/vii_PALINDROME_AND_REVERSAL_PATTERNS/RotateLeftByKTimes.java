@@ -2,7 +2,8 @@ package StandardProblemDSA.II_LINKEDLIST.vii_PALINDROME_AND_REVERSAL_PATTERNS;
 
 import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
 
-import StandardProblemDSA.II_LINKEDLIST.ListNode;
+import StandardProblemDSA.II_LINKEDLIST.Node;
+import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
 
 public class RotateLeftByKTimes {
   // ---------------------------------------------------
@@ -32,16 +33,12 @@ public class RotateLeftByKTimes {
          Input: 1 -> 2 -> 3 -> 4 -> 5, k = 2
          Output: 4 -> 5 -> 1 -> 2 -> 3
   */
-  public static ListNode rotateLeft(ListNode head, int k) {
+  public static Node rotateLeft(Node head, int k) {
     if (head == null || k == 0) return head;
 
     // Compute length and get tail.
-    ListNode current = head;
-    int length = 1;
-    while (current.next != null) {
-      current = current.next;
-      length++;
-    }
+    Node current = head;
+    int length = Utility_linkedList.length(head);
     // Connect tail to head to form a circle.
     current.next = head;
 
@@ -50,13 +47,13 @@ public class RotateLeftByKTimes {
     int stepsToNewHead = k; // for left rotation
 
     // Find the new tail: (stepsToNewHead - 1) steps from head.
-    ListNode newTail = head;
+    Node newTail = head;
     for (int i = 1; i < stepsToNewHead; i++) {
       newTail = newTail.next;
     }
 
     // New head is next of newTail.
-    ListNode newHead = newTail.next;
+    Node newHead = newTail.next;
     // Break the circle.
     newTail.next = null;
     return newHead;
@@ -65,24 +62,24 @@ public class RotateLeftByKTimes {
   public static void main(String[] args) {
 
     // Build a sample linked list: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9
-    ListNode head = new ListNode(1);
-    ListNode current = head;
+    Node head = new Node(1);
+    Node current = head;
     for (int i = 2; i <= 9; i++) {
-      current.next = new ListNode(i);
+      current.next = new Node(i);
       current = current.next;
     }
 
     // 3. Rotate Linked List Left by k = 2
     // Rebuild list.
-    head = new ListNode(1);
+    head = new Node(1);
     current = head;
     for (int i = 2; i <= 5; i++) {
-      current.next = new ListNode(i);
+      current.next = new Node(i);
       current = current.next;
     }
     System.out.println("Original List:");
     printList(head);
-    ListNode rotatedLeft = rotateLeft(head, 2);
+    Node rotatedLeft = rotateLeft(head, 2);
     System.out.println("After Left Rotation by 2:");
     printList(rotatedLeft);
     // Expected Output (Left Rotate): 3 -> 4 -> 5 -> 1 -> 2

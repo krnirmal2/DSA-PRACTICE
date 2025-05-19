@@ -18,6 +18,21 @@ public class Utility_linkedList {
     return prev;
   }
 
+  // Reverse a Linked List (Iterative)
+  public static Node reverseNodes(Node head) {
+    Node prev = null;
+    Node curr = head;
+
+    while (curr != null) {
+      Node nextNode = curr.next;
+      curr.next = prev;
+      prev = curr;
+      curr = nextNode;
+    }
+
+    return prev;
+  }
+
   // Reverse a Linked List (Recursive)
   public static ListNode reverseListRecursive(ListNode head) {
     if (head == null || head.next == null) return head;
@@ -114,13 +129,18 @@ public class Utility_linkedList {
     ListNode secondHalf = reverseList(middle);
     ListNode firstHalf = head;
 
+    if (checkTwoHalfPalindrome(secondHalf, firstHalf)) return false;
+
+    return true;
+  }
+
+  public static boolean checkTwoHalfPalindrome(ListNode secondHalf, ListNode firstHalf) {
     while (secondHalf != null) {
-      if (firstHalf.val != secondHalf.val) return false;
+      if (firstHalf.val != secondHalf.val) return true;
       firstHalf = firstHalf.next;
       secondHalf = secondHalf.next;
     }
-
-    return true;
+    return false;
   }
 
   // Find Intersection of Two Linked Lists
@@ -376,5 +396,26 @@ public class Utility_linkedList {
       head = newNode;
     }
     return head;
+  }
+
+  // Function to get the Kth node from
+  // a given position in the linked list
+  public static Node getKthNode(Node temp, int k) {
+    // Decrement K as we already
+    // start from the 1st node
+    k -= 1;
+
+    // Decrement K until it reaches
+    // the desired position
+    while (temp != null && k > 0) {
+      // Decrement k as temp progresses
+      k--;
+
+      // Move to the next node
+      temp = temp.next;
+    }
+
+    // Return the Kth node
+    return temp;
   }
 }

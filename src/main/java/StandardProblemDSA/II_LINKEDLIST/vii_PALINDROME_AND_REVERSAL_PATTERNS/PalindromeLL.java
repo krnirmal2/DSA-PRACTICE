@@ -1,37 +1,23 @@
 package StandardProblemDSA.II_LINKEDLIST.vii_PALINDROME_AND_REVERSAL_PATTERNS;
 
 import StandardProblemDSA.II_LINKEDLIST.ListNode;
+import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
 
 public class PalindromeLL {
-
+  // Creating test case: 1 → 2 → 3 → 4 → 3 → 2 → 1
   public static int isPalindrome(ListNode head) {
     if (head == null || head.next == null) return 1; // empty or single-node list is palindrome
-
-    // Step 1: Find the middle using slow and fast pointers
-    ListNode slow = head;
-    ListNode fast = head;
-
-    while (fast.next != null && fast.next.next != null) {
-      slow = slow.next;
-      fast = fast.next.next;
-    }
+    // step 1 : find middle of the list
+    ListNode middle = Utility_linkedList.findMiddle(head);
 
     // Step 2: Split the list and reverse the second half
-    ListNode secondHalfStart = slow.next;
-    slow.next = null; // break the list into two halves
+    ListNode secondHalfStart = middle.next;
+    middle.next = null; // break the list into two halves
 
-    ListNode prev = null;
-    ListNode current = secondHalfStart;
-    while (current != null) {
-      ListNode nextTemp = current.next;
-      current.next = prev;
-      prev = current;
-      current = nextTemp;
-    }
+    // Step 3: reverese the second half using secondHalfStart as head node
+    ListNode reversedSecondHalf = Utility_linkedList.reverseList(secondHalfStart);
 
-    ListNode reversedSecondHalf = prev;
-
-    // Step 3: Compare both halves node-by-node
+    // Step 4: Compare both halves node-by-node
     ListNode firstHalfPointer = head;
     ListNode secondHalfPointer = reversedSecondHalf;
 

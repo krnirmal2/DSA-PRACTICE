@@ -4,6 +4,7 @@ import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
 import static java.lang.reflect.Array.getLength;
 
 import StandardProblemDSA.II_LINKEDLIST.ListNode;
+import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
 
 /*Reverse Both Lists:
 Since the numbers are stored in reverse order (least significant digit at the head), we first reverse both linked lists to make subtraction easier.
@@ -38,18 +39,6 @@ Return the Result:
 Exclude the dummy node and return the final list.*/
 public class SubtractTwoList {
 
-  // Function to reverse a linked list
-  private static ListNode reverse(ListNode head) {
-    ListNode prev = null, curr = head;
-    while (curr != null) {
-      ListNode nextNode = curr.next;
-      curr.next = prev;
-      prev = curr;
-      curr = nextNode;
-    }
-    return prev;
-  }
-
   // Function to compare two lists and return true if list1 >= list2
   private static boolean isGreaterOrEqual(ListNode l1, ListNode l2) {
     int len1 = getLength(l1), len2 = getLength(l2);
@@ -65,8 +54,8 @@ public class SubtractTwoList {
 
   public static ListNode subtractLists(ListNode l1, ListNode l2) {
     // Reverse both lists
-    l1 = reverse(l1);
-    l2 = reverse(l2);
+    l1 = Utility_linkedList.reverseList(l1);
+    l2 = Utility_linkedList.reverseList(l2);
 
     // Ensure l1 is the larger number
     if (!isGreaterOrEqual(l1, l2)) {
@@ -98,7 +87,7 @@ public class SubtractTwoList {
     }
 
     // Reverse the result to get correct order
-    ListNode result = reverse(dummy.next);
+    ListNode result = Utility_linkedList.reverseList(dummy.next);
 
     // Remove leading zeros
     while (result != null && result.val == 0) {

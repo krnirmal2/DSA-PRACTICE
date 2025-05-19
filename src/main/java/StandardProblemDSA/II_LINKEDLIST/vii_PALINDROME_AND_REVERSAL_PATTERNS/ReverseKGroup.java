@@ -3,66 +3,9 @@ package StandardProblemDSA.II_LINKEDLIST.vii_PALINDROME_AND_REVERSAL_PATTERNS;
 import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
 
 import StandardProblemDSA.II_LINKEDLIST.Node;
+import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
 
 class Main {
-
-  // Function to reverse a linked list
-  // using the 3-pointer approach
-  static Node reverseLinkedList(Node head) {
-    // Initialize'temp' at
-    // head of linked list
-    Node temp = head;
-
-    // Initialize pointer 'prev' to NULL,
-    // representing the previous node
-    Node prev = null;
-
-    // Traverse the list, continue till
-    // 'temp' reaches the end (NULL)
-    while (temp != null) {
-      // Store the next node in
-      // 'front' to preserve the reference
-      Node front = temp.next;
-
-      // Reverse the direction of the
-      // current node's 'next' pointer
-      // to point to 'prev'
-      temp.next = prev;
-
-      // Move 'prev' to the current
-      // node for the next iteration
-      prev = temp;
-
-      // Move 'temp' to the 'front' node
-      // advancing the traversal
-      temp = front;
-    }
-
-    // Return the new head of
-    // the reversed linked list
-    return prev;
-  }
-
-  // Function to get the Kth node from
-  // a given position in the linked list
-  static Node getKthNode(Node temp, int k) {
-    // Decrement K as we already
-    // start from the 1st node
-    k -= 1;
-
-    // Decrement K until it reaches
-    // the desired position
-    while (temp != null && k > 0) {
-      // Decrement k as temp progresses
-      k--;
-
-      // Move to the next node
-      temp = temp.next;
-    }
-
-    // Return the Kth node
-    return temp;
-  }
 
   // Function to reverse nodes in groups of K
   static Node kReverse(Node head, int k) {
@@ -78,7 +21,7 @@ class Main {
     while (temp != null) {
 
       // Get the Kth node of the current group
-      Node kThNode = getKthNode(temp, k);
+      Node kThNode = Utility_linkedList.getKthNode(temp, k);
 
       // If the Kth node is NULL
       // (not a complete group)
@@ -104,7 +47,7 @@ class Main {
 
       // Reverse the nodes from
       // temp to the Kth node
-      reverseLinkedList(temp);
+      Utility_linkedList.reverseNodes(temp);
 
       // Adjust the head if the reversal
       // starts from the head
