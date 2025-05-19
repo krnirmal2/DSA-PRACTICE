@@ -1,6 +1,9 @@
 package StandardProblemDSA.II_LINKEDLIST.iv_SORTING_AND_REARRANGING_PATTERN;
 
-import StandardProblemDSA.II_LINKEDLIST.ListNode;
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
+import StandardProblemDSA.II_LINKEDLIST.Node;
+import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
 
 public class PartitionLinkedList {
 
@@ -26,41 +29,47 @@ public class PartitionLinkedList {
        Input: 1 -> 4 -> 3 -> 2 -> 5 -> 2, x = 3
        Output: 1 -> 2 -> 2 -> 4 -> 3 -> 5
   */
-  public ListNode partitionAroundValue(ListNode head, int x) {
-    ListNode beforeDummy = new ListNode(0);
-    ListNode afterDummy = new ListNode(0);
-    ListNode before = beforeDummy, after = afterDummy;
+  public static Node partitionAroundValue(Node head, int x) {
+    // 1.create two dummy node with value zero
+    Node beforeDummy = Utility_linkedList.createNewNode(0);
+    Node afterDummy = Utility_linkedList.createNewNode(0);
+    // 2. assign this dummy node another two nodes
+    Node before = beforeDummy, after = afterDummy;
 
+    // 3. now iterate over the head node
     while (head != null) {
-      if (head.val < x) {
+      // case 1: node whose value less than x, we will assing it to before node
+      if (head.data < x) {
         before.next = head;
         before = before.next;
       } else {
+        // case 2: node whose value is greater than x, we will assign it to after node
         after.next = head;
         after = after.next;
       }
+      // after each iteration head will goes to its next
       head = head.next;
     }
+    // 4. condition to make a single list
     after.next = null;
     before.next = afterDummy.next;
     return beforeDummy.next;
   }
 
   public static void main(String[] args) {
-    /*
 
     // Example for Partition Around a Value:
     // Build list: 1 -> 4 -> 3 -> 2 -> 5 -> 2, with x = 3
-    ListNode partitionHead = ops.new ListNode(1);
-    partitionHead.next = ops.new ListNode(4);
-    partitionHead.next.next = ops.new ListNode(3);
-    partitionHead.next.next.next = ops.new ListNode(2);
-    partitionHead.next.next.next.next = ops.new ListNode(5);
-    partitionHead.next.next.next.next.next = ops.new ListNode(2);
+    Node partitionHead = new Node(1);
+    partitionHead.next = new Node(4);
+    partitionHead.next.next = new Node(3);
+    partitionHead.next.next.next = new Node(2);
+    partitionHead.next.next.next.next = new Node(5);
+    partitionHead.next.next.next.next.next = new Node(2);
     System.out.println("Original List for Partitioning:");
-    ops.printList(partitionHead);
-    ListNode partitionedList = ops.partitionAroundValue(partitionHead, 3);
+    printList(partitionHead);
+    Node partitionedList = partitionAroundValue(partitionHead, 3);
     System.out.println("List after Partitioning around value 3:");
-    ops.printList(partitionedList);*/
+    printList(partitionedList);
   }
 }

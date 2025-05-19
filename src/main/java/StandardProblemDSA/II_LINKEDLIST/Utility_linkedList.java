@@ -217,7 +217,7 @@ public class Utility_linkedList {
     System.out.println();
   }
 
-  public static int length(ListNode head) {
+  public static int length(Node head) {
     if (head == null) {
       return 0;
     }
@@ -264,11 +264,11 @@ public class Utility_linkedList {
   }
 
   // Utility function to print the list parts
-  public static void printParts(ListNode[] parts) {
-    for (ListNode part : parts) {
-      ListNode temp = part;
+  public static void printParts(Node[] parts) {
+    for (Node part : parts) {
+      Node temp = part;
       while (temp != null) {
-        System.out.print(temp.val + " -> ");
+        System.out.print(temp.data + " -> ");
         temp = temp.next;
       }
       System.out.println("null");
@@ -327,5 +327,54 @@ public class Utility_linkedList {
 
     // Check for Cycle
     System.out.println("Has Cycle? " + Utility_linkedList.hasCycle(head));
+  }
+
+  public static Node createNewNode(int data) {
+    return new Node(data);
+  }
+
+  public static void setNewNodeAsHead(LinkedList list, Node new_node) {
+    list.head = new_node;
+  }
+
+  public static Node traversedTillLastNode(LinkedList list) {
+    // Else traverse till the last node
+    // and insert the new_node there
+    Node temp = list.head;
+    while (temp.next != null) {
+      temp = temp.next;
+    }
+    return temp;
+  }
+
+  public static void mergeListWithTwoDummyNode(Node posDummy, Node negDummy) {
+    Node pos = posDummy.next,
+        neg =
+            negDummy.next; // actaul starting of both postive and negative as we take dummy earlier
+
+    Node tail = new Node(0); // dummy for merge
+
+    while (pos != null && neg != null) {
+      // if positive
+      tail.next = pos;
+      tail = tail.next;
+      pos = pos.next;
+      // if negative
+      tail.next = neg;
+      tail = tail.next;
+      neg = neg.next;
+    }
+    // still remaining eleent
+    if (pos != null) tail.next = pos;
+    if (neg != null) tail.next = neg;
+  }
+
+  public static Node createLinkedListOfSizeK(Node head, int size) {
+    for (int i = size; i >= 1; i--) {
+      Node newNode = new Node(i);
+      newNode.next = head;
+      head = newNode;
+    }
+    return head;
   }
 }

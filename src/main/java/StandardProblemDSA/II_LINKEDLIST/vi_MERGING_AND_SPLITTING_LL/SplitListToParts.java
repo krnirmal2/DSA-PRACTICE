@@ -2,12 +2,12 @@ package StandardProblemDSA.II_LINKEDLIST.vi_MERGING_AND_SPLITTING_LL;
 
 import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printParts;
 
-import StandardProblemDSA.II_LINKEDLIST.ListNode;
+import StandardProblemDSA.II_LINKEDLIST.Node;
 import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
 
 public class SplitListToParts {
 
-  public static ListNode[] splitListToParts(ListNode head, int k) {
+  public static Node[] splitListToParts(Node head, int k) {
     // 1. Calculate the length of the linked list
     int n = Utility_linkedList.length(head);
 
@@ -16,8 +16,8 @@ public class SplitListToParts {
     int extraNodeSize = n % k;
 
     // 3. Initialize the result array
-    ListNode[] result = new ListNode[k];
-    ListNode current = head;
+    Node[] result = new Node[k];
+    Node current = head;
 
     // 4. Split the linked list into k parts
     for (int i = 0; i < k; i++) {
@@ -34,7 +34,7 @@ public class SplitListToParts {
 
       // Break the link and move to the next partition
       if (current != null) {
-        ListNode nextPart = current.next; // Store the next part pointer
+        Node nextPart = current.next; // Store the next part pointer
         current.next = null; // Break the link
         current = nextPart; // Move to the next partition
       }
@@ -45,14 +45,14 @@ public class SplitListToParts {
 
   public static void main(String[] args) {
     // Example: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10
-    ListNode head = new ListNode(1);
-    ListNode current = head;
+    Node head = new Node(1);
+    Node current = head;
     for (int i = 2; i <= 10; i++) {
-      current.next = new ListNode(i);
+      current.next = new Node(i);
       current = current.next;
     }
 
-    ListNode[] parts = splitListToParts(head, 3);
+    Node[] parts = splitListToParts(head, 3);
     printParts(parts);
   }
 }

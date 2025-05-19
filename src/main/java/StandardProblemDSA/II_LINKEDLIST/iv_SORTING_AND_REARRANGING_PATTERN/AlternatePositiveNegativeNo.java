@@ -1,6 +1,9 @@
 package StandardProblemDSA.II_LINKEDLIST.iv_SORTING_AND_REARRANGING_PATTERN;
 
-import StandardProblemDSA.II_LINKEDLIST.ListNode;
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
+import StandardProblemDSA.II_LINKEDLIST.Node;
+import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
 
 public class AlternatePositiveNegativeNo {
   // ---------------------------------------------------
@@ -26,60 +29,50 @@ public class AlternatePositiveNegativeNo {
        Output: 1 -> -2 -> 3 -> -4 -> 5 -> -6
        (If already alternating, the order remains. If not, adjust accordingly.)
   */
-  public ListNode rearrangePosNeg(ListNode head) {
+  public static Node rearrangePosNeg(Node head) {
     if (head == null) return null;
-    ListNode posDummy = new ListNode(0), negDummy = new ListNode(0);
-    ListNode posTail = posDummy, negTail = negDummy;
-    ListNode curr = head;
-    while (curr != null) {
-      if (curr.val >= 0) {
-        posTail.next = curr;
+    // 1.create two dummy node with value zero
+    Node posDummy = Utility_linkedList.createNewNode(0),
+        negDummy = Utility_linkedList.createNewNode(0);
+    // 2. assign this dummy node another two nodes
+    Node posTail = posDummy, negTail = negDummy;
+    // 3. now iterate over the head node and create the two list
+    while (head != null) {
+      if (head.data >= 0) {
+        posTail.next = head;
         posTail = posTail.next;
       } else {
-        negTail.next = curr;
+        negTail.next = head;
         negTail = negTail.next;
       }
-      curr = curr.next;
+      head = head.next;
     }
-    // End the lists.
+    // End the lists. with null if element traverse is end
     posTail.next = null;
     negTail.next = null;
 
     // Merge alternately: choose the list that comes first in original order.
-    ListNode newHead = posDummy.next != null ? posDummy.next : negDummy.next;
-    ListNode pos = posDummy.next, neg = negDummy.next;
-    ListNode tail = new ListNode(0); // dummy for merge
-
-    while (pos != null && neg != null) {
-      tail.next = pos;
-      tail = tail.next;
-      pos = pos.next;
-
-      tail.next = neg;
-      tail = tail.next;
-      neg = neg.next;
-    }
-    if (pos != null) tail.next = pos;
-    if (neg != null) tail.next = neg;
-
+    // now we will take just next of dummy nodes is present or not as they start from 0
+    Node newHead = posDummy.next != null ? posDummy.next : negDummy.next;
+    // 4. condition to make a single list
+    Utility_linkedList.mergeListWithTwoDummyNode(posDummy, negDummy);
     return newHead;
   }
 
   public static void main(String[] args) {
-    /*
 
     // Example for Rearranging Alternately (Positive and Negative):
     // Build list: 1 -> -2 -> 3 -> -4 -> 5 -> -6
-    ListNode posNegHead = ops.new ListNode(1);
-    posNegHead.next = ops.new ListNode(-2);
-    posNegHead.next.next = ops.new ListNode(3);
-    posNegHead.next.next.next = ops.new ListNode(-4);
-    posNegHead.next.next.next.next = ops.new ListNode(5);
-    posNegHead.next.next.next.next.next = ops.new ListNode(-6);
+    Node posNegHead = new Node(1); // head is already the first element of the list
+    posNegHead.next = new Node(-2);
+    posNegHead.next.next = new Node(3);
+    posNegHead.next.next.next = new Node(-4);
+    posNegHead.next.next.next.next = new Node(5);
+    posNegHead.next.next.next.next.next = new Node(-6);
     System.out.println("Original List for Positive/Negative Rearrangement:");
-    ops.printList(posNegHead);
-    ListNode rearrangedList = ops.rearrangePosNeg(posNegHead);
+    printList(posNegHead);
+    Node rearrangedList = rearrangePosNeg(posNegHead);
     System.out.println("List after alternating Positive and Negative Nodes:");
-    ops.printList(rearrangedList);*/
+    printList(rearrangedList);
   }
 }

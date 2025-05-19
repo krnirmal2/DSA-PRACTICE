@@ -26,22 +26,26 @@ public class SegregateEvenOddNode {
        Output: 8 -> 2 -> 4 -> 6 -> 17 -> 15 -> 9
   */
   public ListNode segregateEvenOdd(ListNode head) {
+    // if head is empyt or null return head
     if (head == null) return null;
+    // step1: create dummy nodes
     ListNode evenDummy = new ListNode(0);
     ListNode oddDummy = new ListNode(0);
+    // step2; assign those two nodes with other nodes
     ListNode evenTail = evenDummy, oddTail = oddDummy;
-    ListNode curr = head;
-    while (curr != null) {
-      if (curr.val % 2 == 0) {
-        evenTail.next = curr;
+    // step 3. iterate over the element using head and applied the
+    // condition of it
+    while (head != null) {
+      if (head.val % 2 == 0) {
+        evenTail.next = head;
         evenTail = evenTail.next;
       } else {
-        oddTail.next = curr;
+        oddTail.next = head;
         oddTail = oddTail.next;
       }
-      curr = curr.next;
+      head = head.next;
     }
-    // Combine even and odd lists.
+    // step 4. make a single list
     oddTail.next = null;
     evenTail.next = oddDummy.next;
     return evenDummy.next;

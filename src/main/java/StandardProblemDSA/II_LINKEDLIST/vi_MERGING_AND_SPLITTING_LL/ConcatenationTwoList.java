@@ -6,7 +6,7 @@ import StandardProblemDSA.II_LINKEDLIST.Node;
 
 public class ConcatenationTwoList {
   static Node concat(Node head1, Node head2) {
-
+    // if one list is empty return the head of other
     if (head1 == null) return head2;
 
     // Find the last node of the first list

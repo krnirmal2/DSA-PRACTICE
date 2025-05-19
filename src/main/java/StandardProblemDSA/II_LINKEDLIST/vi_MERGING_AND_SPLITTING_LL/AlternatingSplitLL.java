@@ -3,41 +3,42 @@ package StandardProblemDSA.II_LINKEDLIST.vi_MERGING_AND_SPLITTING_LL;
 import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
 
 import StandardProblemDSA.II_LINKEDLIST.Node;
+import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
 
 public class AlternatingSplitLL {
   // Function to split a linked list into two alternate lists
-  static void AlternatingSplit(Node source, Node[] aRef, Node[] bRef) {
-    if (source == null) return; // Edge case: Empty list
+  // Splits linked list into two alternate node lists: even-indexed → listA, odd-indexed → listB
+  public static void splitAlternatingNodes(Node head, Node[] listARef, Node[] listBRef) {
+    if (head == null) return;
 
-    Node a = null, b = null; // Pointers to keep track of last nodes
-    Node current = source;
-    int count = 0; // To track even/odd positions
+    Node lastA = null, lastB = null;
+    Node current = head;
+    int index = 0;
 
     while (current != null) {
-      if (count % 2 == 0) { // Even index -> Goes to list 'a'
-        a = setNode(aRef, a, current);
-      } else { // Odd index -> Goes to list 'b'
-        b = setNode(bRef, b, current);
+      if (index % 2 == 0) {
+        lastA = appendNode(listARef, lastA, current);
+      } else {
+        lastB = appendNode(listBRef, lastB, current);
       }
-
-      current = current.next; // Move to the next node
-      count++;
+      current = current.next;
+      index++;
     }
 
-    // Properly terminate both lists
-    if (a != null) a.next = null;
-    if (b != null) b.next = null;
+    // Terminate both lists
+    if (lastA != null) lastA.next = null;
+    if (lastB != null) lastB.next = null;
   }
 
-  private static Node setNode(Node[] bRef, Node lastNode, Node current) {
-    if (lastNode == null) {
-      bRef[0] = current;
-      lastNode = current;
+  // Appends the current node to the new list, returns updated tail
+  private static Node appendNode(Node[] headRef, Node tail, Node current) {
+    if (tail == null) {
+      headRef[0] = current;
+      return current;
     } else {
-      lastNode.next = current;
-      lastNode = lastNode.next;
+      tail.next = current;
+      return tail.next;
     }
-    return lastNode;
   }
 
   // Driver code
@@ -45,11 +46,7 @@ public class AlternatingSplitLL {
 
     // Creating a linked list: 1 -> 2 -> 3 -> 4 -> 5 -> 6
     Node head = null;
-    for (int i = 6; i >= 1; i--) {
-      Node newNode = new Node(i);
-      newNode.next = head;
-      head = newNode;
-    }
+    head = Utility_linkedList.createLinkedListOfSizeK(head, 6);
 
     System.out.print("Original Linked List: ");
     printList(head);
@@ -58,7 +55,7 @@ public class AlternatingSplitLL {
     Node[] bRef = new Node[1];
 
     // Splitting the linked list into two
-    AlternatingSplit(head, aRef, bRef);
+    splitAlternatingNodes(head, aRef, bRef);
 
     System.out.print("\nResultant Linked List 'a': ");
     printList(aRef[0]);

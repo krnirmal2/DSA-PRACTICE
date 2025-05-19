@@ -1,9 +1,9 @@
 package StandardProblemDSA.II_LINKEDLIST.iv_SORTING_AND_REARRANGING_PATTERN;
 
 import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.getTail;
-import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.partition;
 
 import StandardProblemDSA.II_LINKEDLIST.ListNode;
+import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
 
 public class QuickSortInLInkedList {
 
@@ -33,11 +33,12 @@ public class QuickSortInLInkedList {
 
   // Utility: Recursively quick sort from head to tail.
   private ListNode quickSortRec(ListNode head, ListNode tail) {
+    // steps; if list is empty or only single node return head;
     if (head == null || head == tail) {
       return head;
     }
-
-    ListNode[] partitioned = partition(head, tail);
+    // step 1: make the partition accross last element as pivot element
+    ListNode[] partitioned = Utility_linkedList.partition(head, tail);
     ListNode newHead = partitioned[0];
     ListNode pivot = partitioned[1];
     ListNode newTail = partitioned[2];

@@ -3,22 +3,21 @@ package StandardProblemDSA.II_LINKEDLIST.vi_MERGING_AND_SPLITTING_LL;
 import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
 
 import StandardProblemDSA.II_LINKEDLIST.Node;
+import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
 
 public class AlternatingSplitLLWithDeepCopy {
   public static Node[] splitAlternate(Node head) {
-    // Dummy heads to simplify edge case handling
-    Node dummyHead1 = new Node(-1);
-    Node dummyHead2 = new Node(-1);
-
+    // step 1: create two dummy node with -1
+    Node dummyHead1 = Utility_linkedList.createNewNode(-1);
+    Node dummyHead2 = Utility_linkedList.createNewNode(-1);
+    // step 2; create two extra node and assign them
     Node tail1 = dummyHead1;
     Node tail2 = dummyHead2;
-
-    Node current = head;
+    // Step 3 : iterate over the list and processed for the question
     boolean turn = true;
-
-    while (current != null) {
+    while (head != null) {
       // Create a new node (deep copy)
-      Node newNode = new Node(current.data);
+      Node newNode = new Node(head.data);
 
       if (turn) {
         tail1.next = newNode;
@@ -28,11 +27,12 @@ public class AlternatingSplitLLWithDeepCopy {
         tail2 = tail2.next;
       }
 
-      current = current.next;
+      head = head.next;
       turn = !turn;
     }
 
-    // Return actual heads (skip dummy nodes)
+    // step 4: here  Return actual heads (skip dummy nodes) and not merge two list as we need
+    // separate list
     return new Node[] {dummyHead1.next, dummyHead2.next};
   }
 
