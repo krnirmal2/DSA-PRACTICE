@@ -60,6 +60,4 @@ public class ThreeColorSorting {
       System.out.print(A[i]);
     }
   }
-
-
 }

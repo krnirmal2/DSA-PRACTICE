@@ -37,13 +37,17 @@ public class ThreeSum {
 
   public static List<List<Integer>> threeSum(int[] nums) {
     List<List<Integer>> res = new ArrayList<>();
+    //    Step1 . need to use sorting the array
     Arrays.sort(nums); // Sort array for two-pointer logic
     for (int i = 0; i < nums.length - 2; i++) {
       // avoid duplicate for the first number
       if (i > 0 && nums[i] == nums[i - 1]) continue;
 
-      // main logic
+      // main logic nums[i]+nums[i+1]
       int target = -nums[i];
+      // the start will be the current no and start index will from the next
+      // and right pointer will be the length of the nums array and then apply
+      // two pointer sum which return us both pointer value
       List<List<Integer>> pairs = ArrayUtility.twoSum(nums, i + 1, target);
 
       // add indexes to result

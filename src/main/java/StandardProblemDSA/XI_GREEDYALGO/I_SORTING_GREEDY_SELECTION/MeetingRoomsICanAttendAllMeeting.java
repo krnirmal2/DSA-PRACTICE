@@ -1,7 +1,7 @@
 package StandardProblemDSA.XI_GREEDYALGO.I_SORTING_GREEDY_SELECTION;
 
+import StandardProblemDSA.XI_GREEDYALGO.GreedyAlgoUtil;
 import StandardProblemDSA.XI_GREEDYALGO.XI_MERGE_INTERVAL_PATTERN.MergeInterval;
-import java.util.Arrays;
 
 public class MeetingRoomsICanAttendAllMeeting {
   /*   3. Meeting Rooms I (Checking Overlap)
@@ -24,14 +24,10 @@ public class MeetingRoomsICanAttendAllMeeting {
               Simplified Code (Java/Pseudo-code):
   */
   public boolean canAttendMeetings(MergeInterval[] intervals) {
-    Arrays.sort(intervals, (a, b) -> a.start - b.start);
-    for (int i = 1; i < intervals.length; i++) {
-      if (intervals[i].start < intervals[i - 1].end) {
-        return false; // Overlap found.
-      }
-    }
-    return true;
+    GreedyAlgoUtil.sortByStartTimeArray(intervals);
+    return GreedyAlgoUtil.isFreeTimeAvailable(intervals);
   }
+
   /*    Complexity:
 
   Time: O(n log n) (due to sorting)

@@ -32,13 +32,13 @@ public class InsertInterval {
     List<MergeInterval> result = new ArrayList<>();
     int i = 0, n = intervals.size();
 
-    // Add all intervals ending before newInterval starts.
+    // Step1 :Add all intervals ending before newInterval starts.
     while (i < n && intervals.get(i).end < newInterval.start) {
       result.add(intervals.get(i));
       i++;
     }
 
-    // Merge overlapping intervals with newInterval.
+    // Step 2:  Merge overlapping intervals with newInterval.
     while (i < n && intervals.get(i).start <= newInterval.end) {
       newInterval.start = Math.min(newInterval.start, intervals.get(i).start);
       newInterval.end = Math.max(newInterval.end, intervals.get(i).end);
@@ -46,7 +46,7 @@ public class InsertInterval {
     }
     result.add(newInterval);
 
-    // Add remaining intervals.
+    // Step 3: Add remaining intervals.
     while (i < n) {
       result.add(intervals.get(i));
       i++;

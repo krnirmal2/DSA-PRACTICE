@@ -1,9 +1,9 @@
 package StandardProblemDSA.VIII_TREE.IV_MODIFICATION_TRANSAFORMATION_PATTERNS;
 
+import static StandardProblemDSA.VIII_TREE.BST.TrimOrPruningBST.trimBST;
+
 import StandardProblemDSA.VIII_TREE.TreeNode;
 import StandardProblemDSA.VIII_TREE.TreeUtility;
-
-import static StandardProblemDSA.VIII_TREE.BST.TrimOrPruningBST.trimBST;
 
 public class ModificationAndTransFormation {
   // ---------------------------------------------------
@@ -82,7 +82,6 @@ public class ModificationAndTransFormation {
     return root;
   }
 
-
   // ---------------------------------------------------
   // 4. Convert Binary Tree to Doubly Linked List
   // ---------------------------------------------------
@@ -128,7 +127,6 @@ public class ModificationAndTransFormation {
     convertToDoublyLinkedList(root.right);
     return head;
   }
-
 
   // ---------------------------------------------------
   // Main method for demonstration of functionalities.
@@ -218,7 +216,4 @@ public class ModificationAndTransFormation {
     TreeUtility.printPreorder(trimmed);
     System.out.println();
   }
-
-
 }
-

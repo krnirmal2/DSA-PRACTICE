@@ -36,13 +36,10 @@ Pop all elements until an open bracket ( is found.
                                                  🔹 Java Code Implementation
                                                  import java.util.Stack;*/
 
+import StandardProblemDSA.Utility;
 import java.util.Stack;
 
-import StandardProblemDSA.Utility;
-
 public class InfixToPostfix {
-
-
 
   // ✅ Converts infix expression to postfix
   public static String infixToPostfix(String expression) {

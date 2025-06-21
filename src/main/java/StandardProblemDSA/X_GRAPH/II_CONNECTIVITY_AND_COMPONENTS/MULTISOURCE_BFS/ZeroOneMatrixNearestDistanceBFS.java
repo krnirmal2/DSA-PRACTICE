@@ -1,5 +1,6 @@
 package StandardProblemDSA.X_GRAPH.II_CONNECTIVITY_AND_COMPONENTS.MULTISOURCE_BFS;
 
+import StandardProblemDSA.X_GRAPH.GraphUtility;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -91,7 +92,7 @@ public class ZeroOneMatrixNearestDistanceBFS {
     }
 
     // Step 2: Define directions for moving in 4 possible directions (Up, Down, Left, Right)
-    int[][] directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+    int[][] directions = GraphUtility.getFourDirection();
 
     // Step 3: Process the queue using BFS
     while (!queue.isEmpty()) {
@@ -104,7 +105,7 @@ public class ZeroOneMatrixNearestDistanceBFS {
         int newY = y + dir[1];
 
         // Step 4: Check boundaries and process only unvisited cells (-1)
-        if (newX >= 0 && newY >= 0 && newX < rows && newY < cols && mat[newX][newY] == -1) {
+        if (GraphUtility.checkFourBoundaryOfMatrix(mat, newX, newY, rows, cols)) {
           mat[newX][newY] = mat[x][y] + 1; // Update distance
           queue.offer(new int[] {newX, newY}); // Add new cell to queue
         }

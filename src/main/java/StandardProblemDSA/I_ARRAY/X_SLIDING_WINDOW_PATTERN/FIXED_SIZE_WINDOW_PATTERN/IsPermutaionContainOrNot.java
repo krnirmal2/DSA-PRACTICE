@@ -17,14 +17,14 @@ public class IsPermutaionContainOrNot {
 
     int i = 0;
     for (int j = 0; j < text.length(); j++) {
-      //CASE 1: EXPAND WINDOW
+      // CASE 1: EXPAND WINDOW
       // Add current char to window
       winFreq[text.charAt(j) - 'a']++;
-      //CASE 2: EQUAL WINDOW SIZE TO K
+      // CASE 2: EQUAL WINDOW SIZE TO K
       // Window size larger than pattern -> shrink from left
       if (j - i + 1 > pattern.length()) {
         winFreq[text.charAt(i) - 'a']--;
-        //CASE 3: SHRINK WINDOW
+        // CASE 3: SHRINK WINDOW
         i++; // shrinking the window if the characcter is greater in the window
       }
 
@@ -36,8 +36,6 @@ public class IsPermutaionContainOrNot {
 
     return false;
   }
-
-
 
   public static void main(String[] args) {
     System.out.println(checkInclusion("ab", "eiobaooo"));

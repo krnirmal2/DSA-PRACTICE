@@ -1,5 +1,7 @@
 package StandardProblemDSA.X_GRAPH.II_CONNECTIVITY_AND_COMPONENTS;
 
+import StandardProblemDSA.X_GRAPH.GraphUtility;
+
 /*There are n cities. Some of them are connected, while some are not. If city a is connected directly with city b, and city b is connected directly with city c, then city a is connected indirectly with city c.
 
 A province is a group of directly or indirectly connected cities and no other cities outside of the group.
@@ -30,17 +32,6 @@ isConnected[i][j] is 1 or 0.
 isConnected[i][i] == 1
 isConnected[i][j] == isConnected[j][i]*/
 public class NumberofProvinces {
-  public void dfs(int node, int[][] isConnected, boolean[] visit) {
-    visit[node] = true; // /  mark the node as visited
-    for (int i = 0; i < isConnected.length; i++) { // iterate over the each neighbor of the node
-      if (isConnected[node][i] == 1
-          && !visit[
-              i]) { // only the column value is change as its neightbou will be in the same node
-        // with same row value that it
-        dfs(i, isConnected, visit);
-      }
-    }
-  }
 
   public int findCircleNum(int[][] isConnected) {
     int n = isConnected.length; // 1.find the no. of vertex or city
@@ -50,7 +41,7 @@ public class NumberofProvinces {
     for (int i = 0; i < n; i++) { // iterate over each vertex
       if (!visit[i]) { // if not visiterd then increament the count of no of component
         numberOfComponents++;
-        dfs(i, isConnected, visit); // call dfs of the each node
+        GraphUtility.dfsWithMatrix(i, isConnected, visit); // call dfs of the each node
       }
     }
 

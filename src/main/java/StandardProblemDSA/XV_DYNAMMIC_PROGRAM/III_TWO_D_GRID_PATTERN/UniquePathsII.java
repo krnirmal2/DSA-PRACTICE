@@ -1,5 +1,7 @@
 package StandardProblemDSA.XV_DYNAMMIC_PROGRAM.III_TWO_D_GRID_PATTERN;
 
+import StandardProblemDSA.Utility;
+
 public class UniquePathsII {
   private int noOfUniquePathsWithObstacles(int[][] grid, int x, int y) {
     // as we discovered we can either go
@@ -8,17 +10,17 @@ public class UniquePathsII {
     // give the distinct path at the end of the
     // use the
     if (grid.length == 0) return 0;
-    int n = grid.length;
-    int m = grid[0].length;
+    int n = Utility.getRowLength(grid);
+    int m = Utility.getColumnLength(grid);
     return util(grid, x, y, n, m);
   }
 
   private int util(int[][] grid, int row, int col, int n, int m) {
     // base case with obstacles we need to return 0 when there is some path
-    if (row == n - 1 && col == m - 1 && grid[row][col] == 1) {
+    if (Utility.isReachedLastCornerCell(row, col, n, m) && grid[row][col] == 1) {
       return 1;
     }
-    if (row >= n || col >= m) {
+    if (Utility.isBoundaryTouch(row, col, n, m)) {
       return 0;
     }
 

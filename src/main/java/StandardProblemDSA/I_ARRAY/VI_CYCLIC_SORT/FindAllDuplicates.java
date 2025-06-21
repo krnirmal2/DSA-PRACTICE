@@ -1,14 +1,13 @@
 package StandardProblemDSA.I_ARRAY.VI_CYCLIC_SORT;
 
 import StandardProblemDSA.Utility;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class FindAllDuplicates {
   public static List<Integer> findDuplicates(int[] nums) {
     List<Integer> duplicates = new ArrayList<>();
-    //cyclic sort
+    // cyclic sort
     Utility.cyclicSort(nums);
     // Identify duplicate numbers
     for (int i = 0; i < nums.length; i++) {

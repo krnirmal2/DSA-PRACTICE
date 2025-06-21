@@ -1,0 +1,1448 @@
+Subject: [PATCH] add greedyUtility
+---
+Index: src/main/java/StandardProblemDSA/X_GRAPH/I_BASIC_TRAVERSAL/GraphUtil.java
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/X_GRAPH/I_BASIC_TRAVERSAL/GraphUtil.java b/src/main/java/StandardProblemDSA/X_GRAPH/I_BASIC_TRAVERSAL/GraphUtil.java
+deleted file mode 100644
+--- a/src/main/java/StandardProblemDSA/X_GRAPH/I_BASIC_TRAVERSAL/GraphUtil.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ /dev/null	(revision 797da04ad15551fb737e7de230afd4793693d89a)
+@@ -1,177 +0,0 @@
+-package StandardProblemDSA.X_GRAPH.I_BASIC_TRAVERSAL;
+-
+-import java.util.ArrayList;
+-
+-public class GraphUtil {
+-  //    private static int numNodes;
+-  //    private static int[][] matrix;
+-  //
+-  //    public GraphUtil(int numNodes) {
+-  //        this.numNodes = numNodes;
+-  //        matrix = new int[numNodes][numNodes];
+-  //    }
+-  //
+-  //    public void addEdge(int i, int j) {
+-  //        matrix[i][j] = 1;
+-  //        matrix[j][i] = 1;
+-  //    }
+-  //
+-  //    public boolean hasEdge(int i, int j) {
+-  //        return matrix[i][j] == 1;
+-  //    }
+-  //
+-  //    public int getNumNodes() {
+-  //        return numNodes;
+-  //    }
+-  //    public static void printMatrix() {
+-  //        for (int i = 0; i < numNodes; i++) {
+-  //            for (int j = 0; j < numNodes; j++) {
+-  //                System.out.print(matrix[i][j] + " ");
+-  //            }
+-  //            System.out.println();
+-  //        }
+-  //    }
+-  //    public static void main(String[] args) {
+-  //        new GraphUtil(5);
+-  //        printMatrix();
+-  //
+-  //
+-  //    }
+-
+-  /*
+-  Find length of the largest region in Boolean Matrix
+-  Count number of trees in a forest
+-  A Peterson Graph Problem
+-  Clone an Undirected Graph
+-  Graph Coloring (Introduction and Applications)
+-  Traveling Salesman Problem (TSP) Implementation
+-  Vertex Cover Problem | Set 1 (Introduction and Approximate Algorithm)
+-  K Centers Problem | Set 1 (Greedy Approximate Algorithm)
+-  Erdos Renyl Model (for generating Random Graphs)
+-  Chinese Postman or Route Inspection | Set 1 (introduction)
+-  Hierholzer’s Algorithm for directed graph
+-  Check whether a given graph is Bipartite or not
+-  Snake and Ladder Problem
+-  Boggle (Find all possible words in a board of characters)
+-  Hopcroft Karp Algorithm for Maximum Matching-Introduction
+-  Minimum Time to rot all oranges
+-  Construct a graph from given degrees of all vertices
+-  Determine whether a universal sink exists in a directed graph
+-  Number of sink nodes in a graph
+-  Two Clique Problem (Check if Graph can be divided in two Cliques)
+-
+-  */
+-
+-  //        public static void main(String[] args)
+-  //        {
+-  //            Scanner sc = new Scanner(System.in);
+-  //
+-  //            // n is the number of vertices
+-  //            // m is the number of edges
+-  //            int n = sc.nextInt();
+-  //            int m = sc.nextInt();
+-  //            int[][] adjMat = new int[n + 1][n + 1];
+-  //            for (int i = 0; i < m; i++) {
+-  //                int u = sc.nextInt();
+-  //                int v = sc.nextInt();
+-  //                adjMat[u][v] = 1;
+-  //                adjMat[v][u] = 1;
+-  //                // for a directed graph with an edge pointing
+-  //                // from u to v,we just assign adjMat[u][v] as 1
+-  //            }
+-  //        }
+-
+-  // A utility function to add an edge in an
+-  // undirected graph
+-  static void addEdge(ArrayList<ArrayList<Integer>> adj, int u, int v) {
+-    adj.get(u).add(v);
+-    adj.get(v).add(u);
+-    // for a directed graph with an edge pointing from u to v,
+-    // adj.get(u).add(v);
+-  }
+-
+-  // A utility function to print the adjacency list
+-  // representation of graph
+-  static void printGraph(ArrayList<ArrayList<Integer>> adj) {
+-    for (int i = 0; i < adj.size(); i++) {
+-      System.out.println("\nAdjacency list of vertex" + i);
+-      System.out.print("head");
+-      for (int j = 0; j < adj.get(i).size(); j++) {
+-        System.out.print(" -> " + adj.get(i).get(j));
+-      }
+-      System.out.println();
+-    }
+-  }
+-
+-  // Driver Code
+-  public static void main(String[] args) {
+-    // Creating a graph with 5 vertices
+-    int V = 5;
+-    ArrayList<ArrayList<Integer>> adj = new ArrayList<>(V);
+-
+-    for (int i = 0; i < V; i++) adj.add(new ArrayList<>());
+-
+-    // Adding edges one by one
+-    addEdge(adj, 0, 1);
+-    addEdge(adj, 0, 4);
+-    addEdge(adj, 1, 2);
+-    addEdge(adj, 1, 3);
+-    addEdge(adj, 1, 4);
+-    addEdge(adj, 2, 3);
+-    addEdge(adj, 3, 4);
+-
+-    printGraph(adj);
+-  }
+-}
+-
+-// class Edge implements Comparable<Edge> {
+-//    int u, v, weight;
+-//
+-//    public Edge(int u, int v, int weight) {
+-//        this.u = u;
+-//        this.v = v;
+-//        this.weight = weight;
+-//    }
+-//
+-//    public int compareTo(Edge other) {
+-//        return Integer.compare(this.weight, other.weight);
+-//    }
+-// }
+-
+-// static class Pair {
+-//    int vertex;
+-//    int weight;
+-//
+-//    Pair(int v, int w) {
+-//        vertex = v;
+-//        weight = w;
+-//    }
+-// }
+-
+-//    public static void addEdge(ArrayList<ArrayList<Prim.Pair>> adjList, int u, int v, int w) {
+-//        adjList.get(u).add(new Prim.Pair(v, w));
+-//        adjList.get(v).add(new Prim.Pair(u, w));
+-//    }
+-// ArrayList<ArrayList<Prim.Pair>> adjList = new ArrayList<>();
+-
+-//    // Adding edges to the adjacency list
+-//    addEdge(adjList, 0, 1, 2);
+-//    addEdge(adjList, 0, 3, 6);
+-//    addEdge(adjList, 1, 2, 3);
+-//    addEdge(adjList, 1, 3, 8);
+-//    addEdge(adjList, 1, 4, 5);
+-//    addEdge(adjList, 2, 4, 7);
+-//    addEdge(adjList, 3, 4, 9);
+-
+-// static class Pair implements Comparable<Pair> {
+-//    int vertex;
+-//    int weight;
+-//
+-//    Pair(int v, int w) {
+-//        vertex = v;
+-//        weight = w;
+-//    }
+-//    public int compareTo(Graph.Prim.Pair other) {
+-//        return Integer.compare(weight, other.weight);
+-//    }
+-// }
+Index: src/main/java/Programming_constructs/LinkedList/LinkedListCycleRemoval.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/Programming_constructs/LinkedList/LinkedListCycleRemoval.java b/src/main/java/Programming_constructs/LinkedList/LinkedListCycleRemoval.java
+--- a/src/main/java/Programming_constructs/LinkedList/LinkedListCycleRemoval.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/Programming_constructs/LinkedList/LinkedListCycleRemoval.java	(date 1746874998788)
+@@ -1,16 +1,8 @@
+ package Programming_constructs.LinkedList;
+ 
+-import static Utility_linkedList.printList;
++import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+ 
+-class Node {
+-  int data;
+-  Node next;
+-
+-  Node(int data) {
+-    this.data = data;
+-    this.next = null;
+-  }
+-}
++import StandardProblemDSA.II_LINKEDLIST.Node;
+ 
+ public class LinkedListCycleRemoval {
+ 
+Index: src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/Assign_Cookies.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/Assign_Cookies.java b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/Assign_Cookies.java
+--- a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/Assign_Cookies.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/Assign_Cookies.java	(date 1746875479841)
+@@ -1,3 +1,43 @@
+ package StandardProblemDSA.XI_GREEDYALGO.I_SORTING_GREEDY_SELECTION;
+ 
+-public class Assign_Cookies {}
++import java.util.Arrays;
++
++public class Assign_Cookies {
++  /*Problem Statement: Given two arrays representing children’s green factor and cookie sizes, the goal is to maximise the number of content children.
++  Each child i has a greed factor of g[i], which is the minimum size of a cookie that will make the child content. Each cookie j has a size of s[j]. If s[j] >= g[j], we can assign cookie j to child i, making the child content. Each child can only receive one cookie.
++  Examples
++                  Example 1:
++                  Input:g = [1, 2, 3], s = [1, 1]
++                  Output: 1
++                  Explanation:  We have 3 children and 2 cookies. The greed factors of the 3 children are 1, 2, 3. The sizes of the 2 cookies are both 1. We can only make the child with greed factor 1 content. Hence, the output is 1.
++                  Example 2:
++                  Input:g = [1, 5, 3, 3, 4], s = [4, 2, 1, 2, 1, 3]
++                  Output: 0
++                  Explanation: You have 5 children and 6 cookies. The greed factors of the 5 children are 1, 5, 3, 3, and 4. The sizes of the 6 cookies are 4, 2, 1, 2, 1, and 3.
++
++  The child with greed factor 1 can be satisfied with the cookie of size 1.
++  One child with greed factor 3 can be satisfied with the cookie of size 3.
++  One child with greed factor 4 can be satisfied with the cookie of size 4.*/
++  public static int findContentChildren(int[] greed, int[] cookieSize) {
++    int result = 0;
++    if (cookieSize.length == 0) return result;
++
++    // else we sort
++    //
++    Arrays.sort(greed);
++    Arrays.sort(cookieSize);
++    // now iterate over each item and
++    int i = 0, j = 0;
++    while (i < cookieSize.length && j < greed.length) {
++      if (cookieSize[i] >= greed[j]) {
++        result++;
++        i++;
++        j++;
++      } else {
++        i++;
++      }
++    }
++
++    return result;
++  }
++}
+Index: src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/Non_overlapping_Intervals.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/Non_overlapping_Intervals.java b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/Non_overlapping_Intervals.java
+--- a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/Non_overlapping_Intervals.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/Non_overlapping_Intervals.java	(date 1746875251670)
+@@ -1,3 +1,5 @@
+ package StandardProblemDSA.XI_GREEDYALGO.I_SORTING_GREEDY_SELECTION;
+ 
+-public class Non_overlapping_Intervals {}
++public class Non_overlapping_Intervals {
++
++}
+Index: src/main/java/StandardProblemDSA/XI_GREEDYALGO/II_ONE_PASS_LOCAL_OPTIMISATION/JumpGame.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/II_ONE_PASS_LOCAL_OPTIMISATION/JumpGame.java b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/II_ONE_PASS_LOCAL_OPTIMISATION/JumpGame.java
+--- a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/II_ONE_PASS_LOCAL_OPTIMISATION/JumpGame.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/II_ONE_PASS_LOCAL_OPTIMISATION/JumpGame.java	(date 1746876092801)
+@@ -1,3 +1,5 @@
+ package StandardProblemDSA.XI_GREEDYALGO.II_ONE_PASS_LOCAL_OPTIMISATION;
+ 
+-public class JumpGame {}
++public class JumpGame {
++//    https://leetcode.com/problems/jump-game/description/
++}
+Index: src/main/java/StandardProblemDSA/X_GRAPH/GraphUtility.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/X_GRAPH/GraphUtility.java b/src/main/java/StandardProblemDSA/X_GRAPH/GraphUtility.java
+--- a/src/main/java/StandardProblemDSA/X_GRAPH/GraphUtility.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/X_GRAPH/GraphUtility.java	(date 1746945306672)
+@@ -105,6 +105,9 @@
+       }
+     }
+   }
++  public static void addDirectedEdge(List<List<Integer>> adjList, int src, int dest) {
++    adjList.get(src).add(dest);
++  }
+ 
+   /* Problems Using DFS (with small modifications):
+ 
+@@ -475,11 +478,46 @@
+     }
+     return revGraph;
+   }
+-  /*  Problems Using Advanced Algorithms:
+ 
+-  Bridges in Graph
++  /*    public void addEdge(int i, int j) {
++          matrix[i][j] = 1;
++          matrix[j][i] = 1;
++      }
+ 
+-  Articulation Point
++      public boolean hasEdge(int i, int j) {
++          return matrix[i][j] == 1;
++      }
+ 
+-  Kosaraju's Algorithm*/
++      public int getNumNodes() {
++          return numNodes;
++      }
++      public static void printMatrix() {
++          for (int i = 0; i < numNodes; i++) {
++              for (int j = 0; j < numNodes; j++) {
++                  System.out.print(matrix[i][j] + " ");
++              }
++              System.out.println();
++          }
++      }*/
++  // A utility function to add an edge in an
++  // undirected graph
++  public static void addEdge(ArrayList<ArrayList<Integer>> adj, int u, int v) {
++    adj.get(u).add(v);
++    adj.get(v).add(u);
++    // for a directed graph with an edge pointing from u to v,
++    // adj.get(u).add(v);
++  }
++  // A utility function to print the adjacency list
++  // representation of graph
++  static void printGraph(ArrayList<ArrayList<Integer>> adj) {
++    for (int i = 0; i < adj.size(); i++) {
++      System.out.println("\nAdjacency list of vertex" + i);
++      System.out.print("head");
++      for (int j = 0; j < adj.get(i).size(); j++) {
++        System.out.print(" -> " + adj.get(i).get(j));
++      }
++      System.out.println();
++    }
++  }
++
+ }
+Index: src/main/java/StandardProblemDSA/I_ARRAY/VI_CYCLIC_SORT/CyclicSortOfAnArray.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/I_ARRAY/VI_CYCLIC_SORT/CyclicSortOfAnArray.java b/src/main/java/StandardProblemDSA/I_ARRAY/VI_CYCLIC_SORT/CyclicSortOfAnArray.java
+--- a/src/main/java/StandardProblemDSA/I_ARRAY/VI_CYCLIC_SORT/CyclicSortOfAnArray.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/I_ARRAY/VI_CYCLIC_SORT/CyclicSortOfAnArray.java	(date 1746879527531)
+@@ -2,6 +2,8 @@
+ 
+ import java.util.Arrays;
+ 
++import static StandardProblemDSA.Utility.swap;
++
+ public class CyclicSortOfAnArray {
+   public static void cyclicSort(int[] nums) {
+     int i = 0;
+@@ -9,15 +11,14 @@
+       int correctIndex = nums[i] - 1; // Correct index for nums[i]
+       if (nums[i] != nums[correctIndex]) {
+         // Swap nums[i] with the number at its correct position
+-        int temp = nums[i];
+-        nums[i] = nums[correctIndex];
+-        nums[correctIndex] = temp;
++        swap(nums, i, correctIndex);
+       } else {
+         i++; // Move to the next element
+       }
+     }
+   }
+ 
++
+   public static void main(String[] args) {
+     int[] nums = {3, 5, 2, 1, 4};
+     cyclicSort(nums);
+Index: src/main/java/StandardProblemDSA/XI_GREEDYALGO/III_TWO_POINTER_PAIRING/ContainerWithMostWater.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/III_TWO_POINTER_PAIRING/ContainerWithMostWater.java b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/III_TWO_POINTER_PAIRING/ContainerWithMostWater.java
+--- a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/III_TWO_POINTER_PAIRING/ContainerWithMostWater.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/III_TWO_POINTER_PAIRING/ContainerWithMostWater.java	(date 1746876018304)
+@@ -1,3 +1,26 @@
+ package StandardProblemDSA.XI_GREEDYALGO.III_TWO_POINTER_PAIRING;
+ 
+-public class ContainerWithMostWater {}
++public class ContainerWithMostWater {
++    /*You are given an integer array height of length n. There are n vertical lines drawn such that the
++     two endpoints of the ith line are (i, 0) and (i, height[i]).
++Find two lines that together with the x-axis form a container, such that the container contains the most water.
++Return the maximum amount of water a container can store.
++Notice that you may not slant the container.
++
++Example 1:
++Input: height = [1,8,6,2,5,4,8,3,7]
++Output: 49
++Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7].
++In this case, the max area of water (blue section) the container can contain is 49.
++Example 2:
++
++Input: height = [1,1]
++Output: 1
++
++
++Constraints:
++
++n == height.length
++2 <= n <= 105
++0 <= height[i] <= 104*/
++}
+Index: src/main/java/StandardProblemDSA/X_GRAPH/I_BASIC_TRAVERSAL/DFS_TRAVERSAL/DFSonDirectedGraph.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/X_GRAPH/I_BASIC_TRAVERSAL/DFS_TRAVERSAL/DFSonDirectedGraph.java b/src/main/java/StandardProblemDSA/X_GRAPH/I_BASIC_TRAVERSAL/DFS_TRAVERSAL/DFSonDirectedGraph.java
+--- a/src/main/java/StandardProblemDSA/X_GRAPH/I_BASIC_TRAVERSAL/DFS_TRAVERSAL/DFSonDirectedGraph.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/X_GRAPH/I_BASIC_TRAVERSAL/DFS_TRAVERSAL/DFSonDirectedGraph.java	(date 1746945306553)
+@@ -1,5 +1,7 @@
+ package StandardProblemDSA.X_GRAPH.I_BASIC_TRAVERSAL.DFS_TRAVERSAL;
+ 
++import StandardProblemDSA.X_GRAPH.GraphUtility;
++
+ import java.util.ArrayList;
+ import java.util.List;
+ 
+@@ -21,9 +23,6 @@
+     }
+   }
+ 
+-  public static void addDirectedEdge(List<List<Integer>> adjList, int src, int dest) {
+-    adjList.get(src).add(dest);
+-  }
+ 
+   public static void main(String[] args) {
+     // create five node directed grapsh
+@@ -42,7 +41,7 @@
+     for (int[] e : edges) {
+       // create the method to add each a
+ 
+-      addDirectedEdge(graph, e[0], e[1]);
++      GraphUtility.addDirectedEdge(graph, e[0], e[1]);
+     }
+ 
+     dfsOnDirectedGraph(graph, vertex);
+Index: src/main/java/StandardProblemDSA/XI_GREEDYALGO/III_TWO_POINTER_PAIRING/BoatsToSavePeople.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/III_TWO_POINTER_PAIRING/BoatsToSavePeople.java b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/III_TWO_POINTER_PAIRING/BoatsToSavePeople.java
+--- a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/III_TWO_POINTER_PAIRING/BoatsToSavePeople.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/III_TWO_POINTER_PAIRING/BoatsToSavePeople.java	(date 1746876233656)
+@@ -1,3 +1,42 @@
+ package StandardProblemDSA.XI_GREEDYALGO.III_TWO_POINTER_PAIRING;
+ 
+-public class BoatsToSavePeople {}
++public class BoatsToSavePeople {
++/*You are given an array people where people[i] is the weight of the ith person,
++ and an infinite number of boats where each boat can carry a maximum weight of limit.
++  Each boat carries at most two people at the same time, provided the sum of the weight of those people
++  is at most limit.
++Return the minimum number of boats to carry every given person.
++Example 1:
++
++Input: people = [1,2], limit = 3
++Output: 1
++Explanation: 1 boat (1, 2)
++Example 2:
++
++Input: people = [3,2,2,1], limit = 3
++Output: 3
++Explanation: 3 boats (1, 2), (2) and (3)
++Example 3:
++
++Input: people = [3,5,3,4], limit = 5
++Output: 4
++Explanation: 4 boats (3), (3), (4), (5)
++
++
++Constraints:
++
++1 <= people.length <= 5 * 104
++1 <= people[i] <= limit <= 3 * 104*/
++
++    /*Core idea: After sorting, use a low and high pointer to pair or evaluate extremes in one pass.
++	• Spot it when: You need to pair light/heavy, small/large, first/last to meet a constraint.
++	• Exemplars:
++		○ 881. Boats to Save People (Medium)
++		○ 11. Container With Most Water (Medium)
++	• What you’ll learn:
++		○ How moving one pointer makes the “best next move”
++		○ Why pairing extremes often yields optimal resource use
++Decision tip: “Sorted array + pair first and last = Two‑Pointer Greedy.”*/
++
++
++}
+Index: src/main/java/StandardProblemDSA/XI_GREEDYALGO/IV_INTERVAL_COVERING_AND_BURSTING/MinimumNoArrowBurstBallon.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/IV_INTERVAL_COVERING_AND_BURSTING/MinimumNoArrowBurstBallon.java b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/IV_INTERVAL_COVERING_AND_BURSTING/MinimumNoArrowBurstBallon.java
+--- a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/IV_INTERVAL_COVERING_AND_BURSTING/MinimumNoArrowBurstBallon.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/IV_INTERVAL_COVERING_AND_BURSTING/MinimumNoArrowBurstBallon.java	(date 1746876287567)
+@@ -1,3 +1,39 @@
+ package StandardProblemDSA.XI_GREEDYALGO.IV_INTERVAL_COVERING_AND_BURSTING;
+ 
+-public class MinimumNoArrowBurstBallon {}
++public class MinimumNoArrowBurstBallon {
++    /*There are some spherical balloons taped onto a flat wall that represents the XY-plane.
++    The balloons are represented as a 2D integer array points where points[i] = [xstart, xend]
++    denotes a balloon whose horizontal diameter stretches between xstart and xend.
++     You do not know the exact y-coordinates of the balloons.
++Arrows can be shot up directly vertically (in the positive y-direction) from different points along
++the x-axis. A balloon with xstart and xend is burst by an arrow shot at x if xstart <= x <= xend.
++There is no limit to the number of arrows that can be shot. A shot arrow keeps traveling up infinitely,
++ bursting any balloons in its path.
++Given the array points, return the minimum number of arrows that must be shot to burst all balloons.
++Example 1:
++
++Input: points = [[10,16],[2,8],[1,6],[7,12]]
++Output: 2
++Explanation: The balloons can be burst by 2 arrows:
++- Shoot an arrow at x = 6, bursting the balloons [2,8] and [1,6].
++- Shoot an arrow at x = 11, bursting the balloons [10,16] and [7,12].
++Example 2:
++
++Input: points = [[1,2],[3,4],[5,6],[7,8]]
++Output: 4
++Explanation: One arrow needs to be shot for each balloon for a total of 4 arrows.
++Example 3:
++
++Input: points = [[1,2],[2,3],[3,4],[4,5]]
++Output: 2
++Explanation: The balloons can be burst by 2 arrows:
++- Shoot an arrow at x = 2, bursting the balloons [1,2] and [2,3].
++- Shoot an arrow at x = 4, bursting the balloons [3,4] and [4,5].
++
++
++Constraints:
++
++1 <= points.length <= 105
++points[i].length == 2
++-231 <= xstart < xend <= 231 - 1*/
++}
+Index: src/main/java/StandardProblemDSA/XI_GREEDYALGO/V_HEAP_PRIORITY_QUEUE/ActivitySelectionProblem.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/V_HEAP_PRIORITY_QUEUE/ActivitySelectionProblem.java b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/V_HEAP_PRIORITY_QUEUE/ActivitySelectionProblem.java
+--- a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/V_HEAP_PRIORITY_QUEUE/ActivitySelectionProblem.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/V_HEAP_PRIORITY_QUEUE/ActivitySelectionProblem.java	(date 1746874999642)
+@@ -1,5 +1,7 @@
+ package StandardProblemDSA.XI_GREEDYALGO.V_HEAP_PRIORITY_QUEUE;
+ 
++import StandardProblemDSA.XI_GREEDYALGO.GreedyAlgoUtil;
++import StandardProblemDSA.XI_GREEDYALGO.StartEndPair;
+ import java.util.ArrayList;
+ import java.util.PriorityQueue;
+ 
+@@ -26,9 +28,7 @@
+     // lamda function shorthand of compartor for sorting based on end date in ascending order
+     PriorityQueue<StartEndPair> pq = new PriorityQueue<>((a, b) -> a.end - b.end); // lamda funciton
+     // now put them in the priority queue
+-    for (int i = 0; i < start.length; i++) {
+-      pq.add(new StartEndPair(start[i], finish[i]));
+-    }
++    GreedyAlgoUtil.insertElementInPQAfterSort(start, finish, pq);
+ 
+     // now we have to select the first element which is always a pick
+     ArrayList<StartEndPair> activities = new ArrayList<>();
+@@ -48,14 +48,18 @@
+     }
+   }
+ 
+-  // we need to create a pair of start and finished time from both the array
+-  static class StartEndPair {
+-    int start;
+-    int end;
++  /*You are given two arrays:
++  start[i] → start time of the i-th activity
++  finish[i] → finish time of the i-th activity
++  Your task is to select the maximum number of activities that don’t overlap, i.e., for each selected activity, its start time must be after or equal to the finish time of the previously selected one.
++  You may assume:
++  One person can only perform one activity at a time.
++  You must select as many non-overlapping activities as possible.
++  ✨ Constraints
++  1 ≤ start.length, finish.length ≤ 10⁵
++  0 ≤ start[i] < finish[i] ≤ 10⁹
+ 
+-    StartEndPair(int start, int end) {
+-      this.start = start;
+-      this.end = end;
+-    }
+-  }
++  🔍 Example
++  start  = [1, 3, 0, 5, 8, 5]
++  finish = [2, 4, 6, 7, 9, 9]*/
+ }
+Index: src/main/java/StandardProblemDSA/VIIII_HEAP/VI_TASK_PRIORITIZATION/III_TOP_K_AND_BOTTOM_K_PATTERN/KthlargestElementInStream.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/VIIII_HEAP/VI_TASK_PRIORITIZATION/III_TOP_K_AND_BOTTOM_K_PATTERN/KthlargestElementInStream.java b/src/main/java/StandardProblemDSA/VIIII_HEAP/VI_TASK_PRIORITIZATION/III_TOP_K_AND_BOTTOM_K_PATTERN/KthlargestElementInStream.java
+--- a/src/main/java/StandardProblemDSA/VIIII_HEAP/VI_TASK_PRIORITIZATION/III_TOP_K_AND_BOTTOM_K_PATTERN/KthlargestElementInStream.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/VIIII_HEAP/VI_TASK_PRIORITIZATION/III_TOP_K_AND_BOTTOM_K_PATTERN/KthlargestElementInStream.java	(date 1746882340220)
+@@ -25,6 +25,7 @@
+        and on inserting 3, kth largest becomes 4.
+   */
+   public class KthLargestStream {
++    // need  global intastiated
+     private PriorityQueue<Integer> minHeap;
+     private int k;
+ 
+Index: src/main/java/StandardProblemDSA/II_LINKEDLIST/ii_NSERTION_AND_DELETION_PATTERN/LinkedListOperations.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/II_LINKEDLIST/ii_NSERTION_AND_DELETION_PATTERN/LinkedListOperations.java b/src/main/java/StandardProblemDSA/II_LINKEDLIST/ii_NSERTION_AND_DELETION_PATTERN/LinkedListOperations.java
+--- a/src/main/java/StandardProblemDSA/II_LINKEDLIST/ii_NSERTION_AND_DELETION_PATTERN/LinkedListOperations.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/II_LINKEDLIST/ii_NSERTION_AND_DELETION_PATTERN/LinkedListOperations.java	(date 1746874999016)
+@@ -1,7 +1,5 @@
+ package StandardProblemDSA.II_LINKEDLIST.ii_NSERTION_AND_DELETION_PATTERN;
+ 
+-import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+-
+ import StandardProblemDSA.II_LINKEDLIST.ListNode;
+ 
+ public class LinkedListOperations {
+@@ -103,13 +101,13 @@
+     listOps.insertAtPosition(4, 2); // Insert 4 at position 2
+ 
+     System.out.println("Linked List after insertions:");
+-    printList(); // Expected: 3 -> 5 -> 4 -> 7 (if head inserted first, then end, then at pos
++    // Expected: 3 -> 5 -> 4 -> 7 (if head inserted first, then end, then at pos
+     // 2)
+ 
+     // Delete node with a given value.
+     listOps.deleteNodeByValue(4);
+     System.out.println("Linked List after deleting value 4:");
+-    printList(); // Expected: 3 -> 5 -> 7
++    // Expected: 3 -> 5 -> 7
+ 
+     // Demonstrate deletion without head pointer:
+     // Let's delete the node with value 5. First, get a reference to it.
+@@ -122,7 +120,7 @@
+       listOps.deleteNodeWithoutHead(current);
+       System.out.println(
+           "Linked List after deleting node without head pointer (deleting value 5):");
+-      printList(); // Expected: 3 -> 7
++      // Expected: 3 -> 7
+     }
+   }
+ }
+Index: src/main/java/StandardProblemDSA/I_ARRAY/III_SORTING_PATTERN/SEMI_SORTED_ARRAY/SORT_REARRANGE_PATTERN/WiggleSort.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/I_ARRAY/III_SORTING_PATTERN/SEMI_SORTED_ARRAY/SORT_REARRANGE_PATTERN/WiggleSort.java b/src/main/java/StandardProblemDSA/I_ARRAY/III_SORTING_PATTERN/SEMI_SORTED_ARRAY/SORT_REARRANGE_PATTERN/WiggleSort.java
+--- a/src/main/java/StandardProblemDSA/I_ARRAY/III_SORTING_PATTERN/SEMI_SORTED_ARRAY/SORT_REARRANGE_PATTERN/WiggleSort.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/I_ARRAY/III_SORTING_PATTERN/SEMI_SORTED_ARRAY/SORT_REARRANGE_PATTERN/WiggleSort.java	(date 1746879527563)
+@@ -22,11 +22,15 @@
+     for (int i = 0; i < nums.length - 1; i++) {
+       if ((i % 2 == 0 && nums[i] > nums[i + 1]) || (i % 2 == 1 && nums[i] < nums[i + 1])) {
+         // Swap nums[i] and nums[i+1]
+-        int temp = nums[i];
+-        nums[i] = nums[i + 1];
+-        nums[i + 1] = temp;
+-      }
+-    }
++        swap(nums, i);
++      }
++    }
++  }
++
++  private static void swap(int[] nums, int i) {
++    int temp = nums[i];
++    nums[i] = nums[i + 1];
++    nums[i + 1] = temp;
+   }
+ 
+   public static void main(String[] args) {
+Index: src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/NMeetingInOneRoom.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/NMeetingInOneRoom.java b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/NMeetingInOneRoom.java
+--- a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/NMeetingInOneRoom.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/NMeetingInOneRoom.java	(date 1746875251630)
+@@ -7,4 +7,5 @@
+   Input:  N = 6,  start[] = {1,3,0,5,8,5}, end[] =  {2,4,5,7,9,9}
+   Output: 1 2 4 5
+   Explanation: See the figure for a better understanding. */
++
+ }
+Index: src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/JobSequenceProblem.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/JobSequenceProblem.java b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/JobSequenceProblem.java
+--- a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/JobSequenceProblem.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/JobSequenceProblem.java	(date 1746874999421)
+@@ -1,15 +1,81 @@
+ package StandardProblemDSA.XI_GREEDYALGO.I_SORTING_GREEDY_SELECTION;
+ 
++import StandardProblemDSA.XI_GREEDYALGO.TripletClass;
++import java.util.PriorityQueue;
++
+ public class JobSequenceProblem {
+-  /*roblem Statement: You are given a set of N jobs where each job comes with a deadline and profit. The profit can only be earned upon completing the job within its deadline. Find the number of jobs done and the maximum profit that can be obtained. Each job takes a single unit of time and only one job can be performed at a time.
++  /*roblem Statement: You are given a set of N jobs where each job comes with a deadline and profit.
++   The profit can only be earned upon completing the job within its deadline.
++   Find the number of jobs done and the maximum profit that can be obtained.
++   Each job takes a single unit of time and only one job can be performed at a time.
+   Example 1:
+   Input: N = 4, Jobs = {(1,4,20),(2,1,10),(3,1,40),(4,1,30)}
+   Output: 2 60
+-  Explanation: The 3rd job with a deadline 1 is performed during the first unit of time .The 1st job is performed during the second unit of time as its deadline is 4.
++  Explanation: The 3rd job with a deadline 1 is performed during the first unit of time .
++  The 1st job is performed during the second unit of time as its deadline is 4.
+   Profit = 40 + 20 = 60
+   Example 2:
+   Input: N = 5, Jobs = {(1,2,100),(2,1,19),(3,2,27),(4,1,25),(5,1,15)}
+   Output: 2 127
+   Explanation: The  first and third job both having a deadline 2 give the highest profit.
+   Profit = 100 + 27 = 127*/
++  public static int[] jobScheduling(TripletClass[] jobs) {
++
++    // Step 2: Find max deadline to determine time slots
++    PriorityQueue<TripletClass> pq =
++        new PriorityQueue<>((a, b) -> Integer.compare(b.third, a.third));
++    // put them in pq
++    for (int i = 0; i < jobs.length; i++) {
++      pq.offer(new TripletClass(jobs[i].first, jobs[i].second, jobs[i].third));
++    }
++    // now we have to compare the element
++    int count = 0;
++    int profit = 0;
++    int maxDeadline = 0;
++    for (TripletClass job : jobs) {
++      maxDeadline = Math.max(maxDeadline, job.second);
++    }
++    boolean[] slots = new boolean[maxDeadline + 1]; // index 1 to maxDeadline
++
++    while (!pq.isEmpty()) {
++      TripletClass job = pq.poll(); // Get most profitable job
++      // if a slot means the deadline is take by any job then no other job can take that slot that
++      // is why we put
++      // true , after check and we put earliest slot last
++      for (int i = job.second; i > 0; i--) { // Try to find a free slot before deadline
++        if (!slots[i]) {
++          slots[i] = true; // Mark slot as used
++          count++;
++          profit += job.third;
++          break; // Move on to next job
++        }
++      }
++    }
++    return new int[] {count, profit};
++  }
++
++  public static void main(String[] args) {
++    // Example 1:
++    TripletClass[] jobs1 = {
++      new TripletClass(1, 4, 20),
++      new TripletClass(2, 1, 10),
++      new TripletClass(3, 1, 40),
++      new TripletClass(4, 1, 30)
++    };
++
++    int[] result1 = jobScheduling(jobs1);
++    System.out.println("Max Jobs: " + result1[0] + ", Max Profit: " + result1[1]); // Output: 2 60
++
++    // Example 2:
++    TripletClass[] jobs2 = {
++      new TripletClass(1, 2, 100),
++      new TripletClass(2, 1, 19),
++      new TripletClass(3, 2, 27),
++      new TripletClass(4, 1, 25),
++      new TripletClass(5, 1, 15)
++    };
++
++    int[] result2 = jobScheduling(jobs2);
++    System.out.println("Max Jobs: " + result2[0] + ", Max Profit: " + result2[1]); // Output: 2 127
++  }
+ }
+Index: src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/MinimumNoOfPlatformsRequiredRailway.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/MinimumNoOfPlatformsRequiredRailway.java b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/MinimumNoOfPlatformsRequiredRailway.java
+--- a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/MinimumNoOfPlatformsRequiredRailway.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/MinimumNoOfPlatformsRequiredRailway.java	(date 1746874999454)
+@@ -8,4 +8,5 @@
+   dep[] = {9:20, 12:00, 11:30, 11:50, 19:00, 20:00}
+   Output:3
+   Explanation: There are at-most three trains at a time. The train at 11:00 arrived but the trains which had arrived at 9:45 and 9:55 have still not departed. So, we need at least three platforms here.*/
++
+ }
+Index: src/main/java/StandardProblemDSA/II_LINKEDLIST/xi_DOUBLY_LL/LRUCache.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/II_LINKEDLIST/xi_DOUBLY_LL/LRUCache.java b/src/main/java/StandardProblemDSA/II_LINKEDLIST/xi_DOUBLY_LL/LRUCache.java
+--- a/src/main/java/StandardProblemDSA/II_LINKEDLIST/xi_DOUBLY_LL/LRUCache.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/II_LINKEDLIST/xi_DOUBLY_LL/LRUCache.java	(date 1746874999117)
+@@ -1,5 +1,6 @@
+ package StandardProblemDSA.II_LINKEDLIST.xi_DOUBLY_LL;
+ 
++import StandardProblemDSA.II_LINKEDLIST.DoubllyNodeWithKey;
+ import java.util.HashMap;
+ import java.util.Map;
+ 
+@@ -10,42 +11,42 @@
+ get(key):
+ Check if the key exists in the HashMap.
+ If it exists:
+-Retrieve the corresponding node.
+-Remove the node from its current position in the doubly linked list.
++Retrieve the corresponding DoubllyNodeWithKey.
++Remove the DoubllyNodeWithKey from its current position in the doubly linked list.
+ Add it to the front of the list (marking it as MRU).
+ If it doesn’t exist, return -1.
+ 
+ put(key, value):
+ If the key already exists:
+-Update the value of the corresponding node.
+-Move the node to the front of the doubly linked list.
++Update the value of the corresponding DoubllyNodeWithKey.
++Move the DoubllyNodeWithKey to the front of the doubly linked list.
+ If the key doesn’t exist:
+ If the cache is full:
+-Remove the node at the tail of the list (LRU).
++Remove the DoubllyNodeWithKey at the tail of the list (LRU).
+ Delete the key from the HashMap.
+-Create a new node and add it to the front of the list.
+-Insert the key and node into the HashMap.
++Create a new DoubllyNodeWithKey and add it to the front of the list.
++Insert the key and DoubllyNodeWithKey into the HashMap.
+ *
+ *
+ Key Concepts:
+ HashMap ensures O(1) time complexity for lookup.
+-Doubly Linked List allows efficient removal and reordering of nodes.
+-Eviction always removes the node at the tail of the list, which is the least recently used.
++Doubly Linked List allows efficient removal and reordering of DoubllyNodeWithKeys.
++Eviction always removes the DoubllyNodeWithKey at the tail of the list, which is the least recently used.
+ * */
+ 
+ class LRUCache {
+ 
+   private final int capacity;
+-  private final Map<Integer, Node> cache;
+-  private final Node head, tail;
++  private final Map<Integer, DoubllyNodeWithKey> cache;
++  private final DoubllyNodeWithKey head, tail;
+ 
+   public LRUCache(int capacity) {
+     this.capacity = capacity;
+     this.cache = new HashMap<>();
+ 
+-    // Initialize dummy head and tail nodes for the doubly linked list
+-    this.head = new Node(0, 0);
+-    this.tail = new Node(0, 0);
++    // Initialize dummy head and tail DoubllyNodeWithKeys for the doubly linked list
++    this.head = new DoubllyNodeWithKey(0, 0);
++    this.tail = new DoubllyNodeWithKey(0, 0);
+     head.next = tail;
+     tail.prev = head;
+   }
+@@ -81,53 +82,53 @@
+       return -1; // Key not found
+     }
+ 
+-    // Move the accessed node to the front
+-    Node node = cache.get(key);
+-    removeNode(node);
+-    addNodeToFront(node);
++    // Move the accessed DoubllyNodeWithKey to the front
++    DoubllyNodeWithKey DoubllyNodeWithKey = cache.get(key);
++    removeDoubllyNodeWithKey(DoubllyNodeWithKey);
++    addDoubllyNodeWithKeyToFront(DoubllyNodeWithKey);
+ 
+-    return node.value;
++    return DoubllyNodeWithKey.value;
+   }
+ 
+   // Put a key-value pair into the cache
+   public void put(int key, int value) {
+     if (cache.containsKey(key)) {
+-      // Update the existing node
+-      Node node = cache.get(key);
+-      node.value = value;
+-      removeNode(node);
+-      addNodeToFront(node);
++      // Update the existing DoubllyNodeWithKey
++      DoubllyNodeWithKey DoubllyNodeWithKey = cache.get(key);
++      DoubllyNodeWithKey.value = value;
++      removeDoubllyNodeWithKey(DoubllyNodeWithKey);
++      addDoubllyNodeWithKeyToFront(DoubllyNodeWithKey);
+     } else {
+-      // Create a new node
++      // Create a new DoubllyNodeWithKey
+       if (cache.size() >= capacity) {
+-        // Remove the least recently used node
+-        Node lru = tail.prev;
+-        removeNode(lru);
++        // Remove the least recently used DoubllyNodeWithKey
++        DoubllyNodeWithKey lru = tail.prev;
++        removeDoubllyNodeWithKey(lru);
+         cache.remove(lru.key);
+       }
+-      Node newNode = new Node(key, value);
+-      addNodeToFront(newNode);
+-      cache.put(key, newNode);
++      DoubllyNodeWithKey newDoubllyNodeWithKey = new DoubllyNodeWithKey(key, value);
++      addDoubllyNodeWithKeyToFront(newDoubllyNodeWithKey);
++      cache.put(key, newDoubllyNodeWithKey);
+     }
+   }
+ 
+-  // Remove a node from the doubly linked list
+-  private void removeNode(Node node) {
+-    node.prev.next = node.next;
+-    node.next.prev = node.prev;
++  // Remove a DoubllyNodeWithKey from the doubly linked list
++  private void removeDoubllyNodeWithKey(DoubllyNodeWithKey DoubllyNodeWithKey) {
++    DoubllyNodeWithKey.prev.next = DoubllyNodeWithKey.next;
++    DoubllyNodeWithKey.next.prev = DoubllyNodeWithKey.prev;
+   }
+ 
+-  // Add a node to the front (most recently used) of the doubly linked list
+-  private void addNodeToFront(Node node) {
+-    node.next = head.next;
+-    node.prev = head;
+-    head.next.prev = node;
+-    head.next = node;
++  // Add a DoubllyNodeWithKey to the front (most recently used) of the doubly linked list
++  private void addDoubllyNodeWithKeyToFront(DoubllyNodeWithKey DoubllyNodeWithKey) {
++    DoubllyNodeWithKey.next = head.next;
++    DoubllyNodeWithKey.prev = head;
++    head.next.prev = DoubllyNodeWithKey;
++    head.next = DoubllyNodeWithKey;
+   }
+ 
+   // Debug: Print the current state of the cache
+   public void printCache() {
+-    Node temp = head.next;
++    DoubllyNodeWithKey temp = head.next;
+     while (temp != tail) {
+       System.out.print("(" + temp.key + ", " + temp.value + ") ");
+       temp = temp.next;
+Index: src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/II_LINEAR_SEQUENC_WITH_CONSTANTTRNSATION/JumpGame.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/II_LINEAR_SEQUENC_WITH_CONSTANTTRNSATION/JumpGame.java b/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/II_LINEAR_SEQUENC_WITH_CONSTANTTRNSATION/JumpGame.java
+--- a/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/II_LINEAR_SEQUENC_WITH_CONSTANTTRNSATION/JumpGame.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/II_LINEAR_SEQUENC_WITH_CONSTANTTRNSATION/JumpGame.java	(date 1746863423524)
+@@ -1,7 +1,8 @@
+ package StandardProblemDSA.XV_DYNAMMIC_PROGRAM.II_LINEAR_SEQUENC_WITH_CONSTANTTRNSATION;
+ 
+ /*55. Jump Game
+-You are given an integer array nums. You are initially positioned at the array's first index, and each element in the array represents your maximum jump length at that position.
++You are given an integer array nums. You are initially positioned at the array's first index,
++and each element in the array represents your maximum jump length at that position.
+ Return true if you can reach the last index, or false otherwise.
+ 
+ Example 1:
+Index: src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/MISLANEOUS/SquareRootBinarySearch.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/MISLANEOUS/SquareRootBinarySearch.java b/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/SquareRootBinarySearch.java
+rename from src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/MISLANEOUS/SquareRootBinarySearch.java
+rename to src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/SquareRootBinarySearch.java
+--- a/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/MISLANEOUS/SquareRootBinarySearch.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/SquareRootBinarySearch.java	(date 1746877429865)
+@@ -1,4 +1,4 @@
+-package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.MISLANEOUS;
++package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.SEARCH_ON_ANSWER_maxMin_minMax;
+ 
+ public class SquareRootBinarySearch {
+ 
+Index: src/main/java/StandardProblemDSA/XI_GREEDYALGO/XI_MERGE_INTERVAL_PATTERN/InsertInterval.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/XI_MERGE_INTERVAL_PATTERN/InsertInterval.java b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/XI_MERGE_INTERVAL_PATTERN/InsertInterval.java
+--- a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/XI_MERGE_INTERVAL_PATTERN/InsertInterval.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/XI_MERGE_INTERVAL_PATTERN/InsertInterval.java	(date 1746874999690)
+@@ -32,13 +32,13 @@
+     List<MergeInterval> result = new ArrayList<>();
+     int i = 0, n = intervals.size();
+ 
+-    // Add all intervals ending before newInterval starts.
++    // Step1 :Add all intervals ending before newInterval starts.
+     while (i < n && intervals.get(i).end < newInterval.start) {
+       result.add(intervals.get(i));
+       i++;
+     }
+ 
+-    // Merge overlapping intervals with newInterval.
++    // Step 2:  Merge overlapping intervals with newInterval.
+     while (i < n && intervals.get(i).start <= newInterval.end) {
+       newInterval.start = Math.min(newInterval.start, intervals.get(i).start);
+       newInterval.end = Math.max(newInterval.end, intervals.get(i).end);
+@@ -46,7 +46,7 @@
+     }
+     result.add(newInterval);
+ 
+-    // Add remaining intervals.
++    // Step 3: Add remaining intervals.
+     while (i < n) {
+       result.add(intervals.get(i));
+       i++;
+Index: src/main/java/StandardProblemDSA/XI_GREEDYALGO/XI_MERGE_INTERVAL_PATTERN/MergeInterval.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/XI_MERGE_INTERVAL_PATTERN/MergeInterval.java b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/XI_MERGE_INTERVAL_PATTERN/MergeInterval.java
+--- a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/XI_MERGE_INTERVAL_PATTERN/MergeInterval.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/XI_MERGE_INTERVAL_PATTERN/MergeInterval.java	(date 1746874999721)
+@@ -1,6 +1,6 @@
+ package StandardProblemDSA.XI_GREEDYALGO.XI_MERGE_INTERVAL_PATTERN;
+ 
+-import java.util.ArrayList;
++import StandardProblemDSA.XI_GREEDYALGO.GreedyAlgoUtil;
+ import java.util.Collections;
+ import java.util.List;
+ 
+@@ -37,12 +37,17 @@
+     if (intervals.size() <= 1) {
+       return intervals;
+     }
+-    // Sort intervals by start time
++    // Step1:  Sort intervals by start time so that easily get compare
+     Collections.sort(intervals, (a, b) -> a.start - b.start);
+-
+-    List<MergeInterval> merged = new ArrayList<>();
++    // use extra space for return the merge Intervale
++    /*   List<MergeInterval> merged = new ArrayList<>();
++    // start from the first element of list of interval
+     MergeInterval current = intervals.get(0);
+-    for (int i = 1; i < intervals.size(); i++) {
++    //Step2; iterate over the intervals and compare end time with start time
++    // if end time of current is greater then we merged
++    // else add that interval directly and goto next interval , which
++    //just next to it
++    for (int i = 1; i < intervals.size(); i++) { // start from 2nd node
+       MergeInterval next = intervals.get(i);
+       if (current.end >= next.start) {
+         // Merge overlapping intervals
+@@ -52,8 +57,8 @@
+         current = next;
+       }
+     }
+-    merged.add(current);
+-    return merged;
++    merged.add(current);*/
++    return GreedyAlgoUtil.getFreeTimeAfterMerged(intervals);
+   }
+   /* Complexity:
+ 
+Index: src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/MeetingRoomsICanAttendAllMeeting.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/MeetingRoomsICanAttendAllMeeting.java b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/MeetingRoomsICanAttendAllMeeting.java
+--- a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/MeetingRoomsICanAttendAllMeeting.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/MeetingRoomsICanAttendAllMeeting.java	(date 1746874999443)
+@@ -1,7 +1,7 @@
+ package StandardProblemDSA.XI_GREEDYALGO.I_SORTING_GREEDY_SELECTION;
+ 
++import StandardProblemDSA.XI_GREEDYALGO.GreedyAlgoUtil;
+ import StandardProblemDSA.XI_GREEDYALGO.XI_MERGE_INTERVAL_PATTERN.MergeInterval;
+-import java.util.Arrays;
+ 
+ public class MeetingRoomsICanAttendAllMeeting {
+   /*   3. Meeting Rooms I (Checking Overlap)
+@@ -24,14 +24,10 @@
+               Simplified Code (Java/Pseudo-code):
+   */
+   public boolean canAttendMeetings(MergeInterval[] intervals) {
+-    Arrays.sort(intervals, (a, b) -> a.start - b.start);
+-    for (int i = 1; i < intervals.length; i++) {
+-      if (intervals[i].start < intervals[i - 1].end) {
+-        return false; // Overlap found.
+-      }
+-    }
+-    return true;
++    GreedyAlgoUtil.sortByStartTimeArray(intervals);
++    return GreedyAlgoUtil.isFreeTimeAvailable(intervals);
+   }
++
+   /*    Complexity:
+ 
+   Time: O(n log n) (due to sorting)
+Index: src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/MeetingRoomIIMinimumMeetingRoomsRequired.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/MeetingRoomIIMinimumMeetingRoomsRequired.java b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/V_HEAP_PRIORITY_QUEUE/MeetingRoomIIMinimumMeetingRoomsRequired.java
+rename from src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/MeetingRoomIIMinimumMeetingRoomsRequired.java
+rename to src/main/java/StandardProblemDSA/XI_GREEDYALGO/V_HEAP_PRIORITY_QUEUE/MeetingRoomIIMinimumMeetingRoomsRequired.java
+--- a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/MeetingRoomIIMinimumMeetingRoomsRequired.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/V_HEAP_PRIORITY_QUEUE/MeetingRoomIIMinimumMeetingRoomsRequired.java	(date 1746854100306)
+@@ -1,4 +1,4 @@
+-package StandardProblemDSA.XI_GREEDYALGO.I_SORTING_GREEDY_SELECTION;
++package StandardProblemDSA.XI_GREEDYALGO.V_HEAP_PRIORITY_QUEUE;
+ 
+ import StandardProblemDSA.XI_GREEDYALGO.GreedyAlgoUtil;
+ import StandardProblemDSA.XI_GREEDYALGO.XI_MERGE_INTERVAL_PATTERN.MergeInterval;
+Index: src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/EmployeeFreeTime.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/EmployeeFreeTime.java b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/EmployeeFreeTime.java
+--- a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/EmployeeFreeTime.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/EmployeeFreeTime.java	(date 1746854100431)
+@@ -27,34 +27,20 @@
+   */
+   public List<MergeInterval> employeeFreeTime(List<List<MergeInterval>> schedule) {
+     List<MergeInterval> allIntervals = new ArrayList<>();
+-    // Combine all intervals from each employee.
++    // Step1 : Combine all intervals from each employee.
+     for (List<MergeInterval> employee : schedule) {
+       allIntervals.addAll(employee);
+     }
+-    // Sort intervals by start time.
++    // Step2 : Sort intervals by start time.
+     GreedyAlgoUtil.sortByStartTimeList(allIntervals);
+ 
+-    // Merge overlapping intervals.
+-    List<MergeInterval> merged = new ArrayList<>();
+-    MergeInterval current = allIntervals.get(0);
+-    for (int i = 1; i < allIntervals.size(); i++) {
+-      MergeInterval next = allIntervals.get(i);
+-      if (current.end >= next.start) {
+-        current.end = Math.max(current.end, next.end);
+-      } else {
+-        merged.add(current);
+-        current = next;
+-      }
+-    }
+-    merged.add(current);
++    // step 3:  Merge overlapping intervals.
++    List<MergeInterval> merged = GreedyAlgoUtil.getMergeIntervals(allIntervals);
+ 
+-    // Find gaps between merged intervals (these are free times).
+-    List<MergeInterval> freeTimes = new ArrayList<>();
+-    for (int i = 1; i < merged.size(); i++) {
+-      freeTimes.add(new MergeInterval(merged.get(i - 1).end, merged.get(i).start));
+-    }
+-    return freeTimes;
++    // Step 4: Find gaps between merged intervals (these are free times).
++    return GreedyAlgoUtil.getFreeTimeAfterMerged(merged);
+   }
++
+   /* Complexity:
+ 
+       Time: O(n log n) due to sorting
+Index: src/main/java/StandardProblemDSA/XI_GREEDYALGO/GreedyAlgoUtil.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/GreedyAlgoUtil.java b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/GreedyAlgoUtil.java
+--- a/src/main/java/StandardProblemDSA/XI_GREEDYALGO/GreedyAlgoUtil.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/XI_GREEDYALGO/GreedyAlgoUtil.java	(date 1746874999310)
+@@ -1,8 +1,8 @@
+ package StandardProblemDSA.XI_GREEDYALGO;
+ 
+ import StandardProblemDSA.XI_GREEDYALGO.XI_MERGE_INTERVAL_PATTERN.MergeInterval;
++import java.util.ArrayList;
+ import java.util.Arrays;
+-import java.util.Collections;
+ import java.util.List;
+ import java.util.PriorityQueue;
+ 
+@@ -18,7 +18,7 @@
+   }
+ 
+   public static void sortByStartTimeList(List<MergeInterval> intervals) {
+-    Collections.sort(intervals, (a, b) -> a.start - b.start);
++    intervals.sort((a, b) -> a.start - b.start);
+   }
+ 
+   /**
+@@ -96,4 +96,44 @@
+     }
+     return maxRooms;
+   }
++
++  public static List<MergeInterval> getMergeIntervals(List<MergeInterval> allIntervals) {
++    List<MergeInterval> merged = new ArrayList<>();
++    MergeInterval current = allIntervals.get(0);
++    for (int i = 1; i < allIntervals.size(); i++) {
++      MergeInterval next = allIntervals.get(i);
++      if (current.end >= next.start) {
++        current.end = Math.max(current.end, next.end);
++      } else {
++        merged.add(current);
++        current = next;
++      }
++    }
++    merged.add(current);
++    return merged;
++  }
++
++  public static List<MergeInterval> getFreeTimeAfterMerged(List<MergeInterval> merged) {
++    List<MergeInterval> freeTimes = new ArrayList<>();
++    for (int i = 1; i < merged.size(); i++) {
++      freeTimes.add(new MergeInterval(merged.get(i - 1).end, merged.get(i).start));
++    }
++    return freeTimes;
++  }
++
++  public static boolean isFreeTimeAvailable(MergeInterval[] intervals) {
++    for (int i = 1; i < intervals.length; i++) {
++      if (intervals[i].start < intervals[i - 1].end) {
++        return false;
++      }
++    }
++    return true;
++  }
++
++  public static void insertElementInPQAfterSort(
++      int[] start, int[] finish, PriorityQueue<StartEndPair> pq) {
++    for (int i = 0; i < start.length; i++) {
++      pq.add(new StartEndPair(start[i], finish[i]));
++    }
++  }
+ }
+Index: src/main/java/COMPARATOR_UTILITY.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/COMPARATOR_UTILITY.java b/src/main/java/COMPARATOR_UTILITY.java
+--- a/src/main/java/COMPARATOR_UTILITY.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/COMPARATOR_UTILITY.java	(date 1746878729364)
+@@ -42,10 +42,6 @@
+       this.y = y;
+     }
+ 
+-    @Override
+-    public String toString() {
+-      return "(" + x + ", " + y + ")";
+-    }
+   }
+ 
+   // Sort by x, then y
+Index: src/main/java/StandardProblemDSA/II_LINKEDLIST/DoubllyNodeWithKey.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/II_LINKEDLIST/DoubllyNodeWithKey.java b/src/main/java/StandardProblemDSA/II_LINKEDLIST/DoubllyNodeWithKey.java
+--- a/src/main/java/StandardProblemDSA/II_LINKEDLIST/DoubllyNodeWithKey.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/II_LINKEDLIST/DoubllyNodeWithKey.java	(date 1746874542803)
+@@ -1,10 +1,10 @@
+ package StandardProblemDSA.II_LINKEDLIST;
+ 
+ public class DoubllyNodeWithKey {
+-  int key;
+-  int value;
+-  DoubllyNodeWithKey prev;
+-  DoubllyNodeWithKey next;
++  public int key;
++  public int value;
++  public DoubllyNodeWithKey prev;
++  public DoubllyNodeWithKey next;
+ 
+   public DoubllyNodeWithKey(int key, int value) {
+     this.key = key;
+Index: src/main/java/StandardProblemDSA/IV_STACK/IV_MONOTONIC_NEXT_PREVIOUS_ELEMENT_PATTERN/AstroidsCollides.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/IV_STACK/IV_MONOTONIC_NEXT_PREVIOUS_ELEMENT_PATTERN/AstroidsCollides.java b/src/main/java/StandardProblemDSA/IV_STACK/IV_MONOTONIC_NEXT_PREVIOUS_ELEMENT_PATTERN/AstroidsCollides.java
+--- a/src/main/java/StandardProblemDSA/IV_STACK/IV_MONOTONIC_NEXT_PREVIOUS_ELEMENT_PATTERN/AstroidsCollides.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/IV_STACK/IV_MONOTONIC_NEXT_PREVIOUS_ELEMENT_PATTERN/AstroidsCollides.java	(date 1746882340141)
+@@ -4,13 +4,7 @@
+ 
+ public class AstroidsCollides {
+   /*735. Asteroid Collision
+-  Attempted
+-  Medium
+-  Topics
+-  Companies
+-  Hint
+   We are given an array asteroids of integers representing asteroids in a row. The indices of the asteriod in the array represent their relative position in space.
+-
+   For each asteroid, the absolute value represents its size, and the sign represents its direction (positive meaning right, negative meaning left). Each asteroid moves at the same speed.
+ 
+   Find out the state of the asteroids after all collisions. If two asteroids meet, the smaller one will explode. If both are the same size, both will explode. Two asteroids moving in the same direction will never meet.
+Index: src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/BITONIC_ARRAY/FirstAndLastOccurrenceBitonic.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/BITONIC_ARRAY/FirstAndLastOccurrenceBitonic.java b/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/BITONIC_ARRAY/FirstAndLastOccurrenceBitonic.java
+--- a/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/BITONIC_ARRAY/FirstAndLastOccurrenceBitonic.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/BITONIC_ARRAY/FirstAndLastOccurrenceBitonic.java	(date 1746877429815)
+@@ -1,9 +1,12 @@
+ package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.BITONIC_ARRAY;
+ 
++import StandardProblemDSA.Utility;
++import jdk.jshell.execution.Util;
++
+ public class FirstAndLastOccurrenceBitonic {
+ 
+   private static int searchBitonic(int[] bitonicArr, int target) {
+-    int peakIndex = peakElement(bitonicArr);
++    int peakIndex = Utility.peakElement(bitonicArr);
+ 
+     // Find first occurrence in the left increasing part
+     int firstOccurrence = findFirstOccurrence(0, peakIndex, bitonicArr, target);
+@@ -52,18 +55,6 @@
+     return result;
+   }
+ 
+-  private static int peakElement(int[] bitonicArr) {
+-    int low = 0, high = bitonicArr.length - 1;
+-    while (low < high) {
+-      int mid = low + (high - low) / 2;
+-      if (bitonicArr[mid] > bitonicArr[mid + 1]) {
+-        high = mid;
+-      } else {
+-        low = mid + 1;
+-      }
+-    }
+-    return low;
+-  }
+ 
+   public static void main(String[] args) {
+     int[] bitonicArr = {1, 3, 8, 12, 14, 11, 5, 5, 2};
+Index: src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/ThreeSum.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/ThreeSum.java b/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/ThreeSum.java
+--- a/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/ThreeSum.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/ThreeSum.java	(date 1746877429854)
+@@ -37,13 +37,17 @@
+ 
+   public static List<List<Integer>> threeSum(int[] nums) {
+     List<List<Integer>> res = new ArrayList<>();
++//    Step1 . need to use sorting the array
+     Arrays.sort(nums); // Sort array for two-pointer logic
+     for (int i = 0; i < nums.length - 2; i++) {
+       // avoid duplicate for the first number
+       if (i > 0 && nums[i] == nums[i - 1]) continue;
+ 
+-      // main logic
++      // main logic nums[i]+nums[i+1]
+       int target = -nums[i];
++      // the start will be the current no and start index will from the next
++      // and right pointer will be the length of the nums array and then apply
++      // two pointer sum which return us both pointer value
+       List<List<Integer>> pairs = ArrayUtility.twoSum(nums, i + 1, target);
+ 
+       // add indexes to result
+Index: src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/MaximumNofPageAllocateToMiinimum.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/MaximumNofPageAllocateToMiinimum.java b/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/MaximumNofPageAllocateToMiinimum.java
+--- a/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/MaximumNofPageAllocateToMiinimum.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/MaximumNofPageAllocateToMiinimum.java	(date 1746878729410)
+@@ -3,7 +3,9 @@
+ import java.util.*;
+ 
+ public class MaximumNofPageAllocateToMiinimum {
+-  /*  Problem Statement: Given an array ‘arr of integer numbers, ‘ar[i]’ represents the number of pages in the ‘i-th’ book. There are a ‘m’ number of students, and the task is to allocate all the books to the students.
++  /*  Problem Statement:
++   Given an array ‘arr of integer numbers, ‘ar[i]’ represents the number of pages in the ‘i-th’ book.
++   There are a ‘m’ number of students, and the task is to allocate all the books to the students.
+   Allocate books in such a way that:
+ 
+   Each student gets at least one book.
+Index: src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/PainterPartitionProblem.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/PainterPartitionProblem.java b/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/PainterPartitionProblem.java
+--- a/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/PainterPartitionProblem.java	(revision 797da04ad15551fb737e7de230afd4793693d89a)
++++ b/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/PainterPartitionProblem.java	(date 1746879527626)
+@@ -3,7 +3,11 @@
+ import java.util.*;
+ 
+ public class PainterPartitionProblem {
+-  /*oblem Statement: Given an array/list of length ‘N’, where the array/list represents the boards and each element of the given array/list represents the length of each board. Some ‘K’ numbers of painters are available to paint these boards. Consider that each unit of a board takes 1 unit of time to paint. You are supposed to return the area of the minimum time to get this job done of painting all the ‘N’ boards under the constraint that any painter will only paint the continuous sections of boards.
++  /*oblem Statement: Given an array/list of length ‘N’, where the array/list represents the boards and each
++   element of the given array/list represents the length of each board.
++   Some ‘K’ numbers of painters are available to paint these boards. Consider that each unit of a board takes 1 unit
++   of time to paint. You are supposed to return the area of the minimum time to get this job done of painting all the
++    ‘N’ boards under the constraint that any painter will only paint the continuous sections of boards.
+ 
+   Pre-requisite: BS-18. Allocate Books or Book Allocation | Hard Binary Search
+ 

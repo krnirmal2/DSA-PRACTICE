@@ -18,6 +18,21 @@ public class Utility_linkedList {
     return prev;
   }
 
+  // Reverse a Linked List (Iterative)
+  public static Node reverseNodes(Node head) {
+    Node prev = null;
+    Node curr = head;
+
+    while (curr != null) {
+      Node nextNode = curr.next;
+      curr.next = prev;
+      prev = curr;
+      curr = nextNode;
+    }
+
+    return prev;
+  }
+
   // Reverse a Linked List (Recursive)
   public static ListNode reverseListRecursive(ListNode head) {
     if (head == null || head.next == null) return head;
@@ -114,13 +129,18 @@ public class Utility_linkedList {
     ListNode secondHalf = reverseList(middle);
     ListNode firstHalf = head;
 
+    if (checkTwoHalfPalindrome(secondHalf, firstHalf)) return false;
+
+    return true;
+  }
+
+  public static boolean checkTwoHalfPalindrome(ListNode secondHalf, ListNode firstHalf) {
     while (secondHalf != null) {
-      if (firstHalf.val != secondHalf.val) return false;
+      if (firstHalf.val != secondHalf.val) return true;
       firstHalf = firstHalf.next;
       secondHalf = secondHalf.next;
     }
-
-    return true;
+    return false;
   }
 
   // Find Intersection of Two Linked Lists
@@ -217,7 +237,7 @@ public class Utility_linkedList {
     System.out.println();
   }
 
-  public static int length(ListNode head) {
+  public static int length(Node head) {
     if (head == null) {
       return 0;
     }
@@ -264,11 +284,11 @@ public class Utility_linkedList {
   }
 
   // Utility function to print the list parts
-  public static void printParts(ListNode[] parts) {
-    for (ListNode part : parts) {
-      ListNode temp = part;
+  public static void printParts(Node[] parts) {
+    for (Node part : parts) {
+      Node temp = part;
       while (temp != null) {
-        System.out.print(temp.val + " -> ");
+        System.out.print(temp.data + " -> ");
         temp = temp.next;
       }
       System.out.println("null");
@@ -327,5 +347,75 @@ public class Utility_linkedList {
 
     // Check for Cycle
     System.out.println("Has Cycle? " + Utility_linkedList.hasCycle(head));
+  }
+
+  public static Node createNewNode(int data) {
+    return new Node(data);
+  }
+
+  public static void setNewNodeAsHead(LinkedList list, Node new_node) {
+    list.head = new_node;
+  }
+
+  public static Node traversedTillLastNode(LinkedList list) {
+    // Else traverse till the last node
+    // and insert the new_node there
+    Node temp = list.head;
+    while (temp.next != null) {
+      temp = temp.next;
+    }
+    return temp;
+  }
+
+  public static void mergeListWithTwoDummyNode(Node posDummy, Node negDummy) {
+    Node pos = posDummy.next,
+        neg =
+            negDummy.next; // actaul starting of both postive and negative as we take dummy earlier
+
+    Node tail = new Node(0); // dummy for merge
+
+    while (pos != null && neg != null) {
+      // if positive
+      tail.next = pos;
+      tail = tail.next;
+      pos = pos.next;
+      // if negative
+      tail.next = neg;
+      tail = tail.next;
+      neg = neg.next;
+    }
+    // still remaining eleent
+    if (pos != null) tail.next = pos;
+    if (neg != null) tail.next = neg;
+  }
+
+  public static Node createLinkedListOfSizeK(Node head, int size) {
+    for (int i = size; i >= 1; i--) {
+      Node newNode = new Node(i);
+      newNode.next = head;
+      head = newNode;
+    }
+    return head;
+  }
+
+  // Function to get the Kth node from
+  // a given position in the linked list
+  public static Node getKthNode(Node temp, int k) {
+    // Decrement K as we already
+    // start from the 1st node
+    k -= 1;
+
+    // Decrement K until it reaches
+    // the desired position
+    while (temp != null && k > 0) {
+      // Decrement k as temp progresses
+      k--;
+
+      // Move to the next node
+      temp = temp.next;
+    }
+
+    // Return the Kth node
+    return temp;
   }
 }

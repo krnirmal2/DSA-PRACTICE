@@ -29,12 +29,6 @@ Examples
 				Explanation: Insert Operations: “apple”, “apps” and “apxl” are inserted. */
 public class LongestStringAllPrefixes {
   public static String completeString(String prefix, List<String> a) {
-    Trie tri = new Trie();
-    //            1. we first insert all the element to trie
-
-    for (var it : a) {
-      tri.insert(it);
-    }
     // iterate over each string
     // if it is exist then we check the earlier length and the
     // current length of the string , if current length string is

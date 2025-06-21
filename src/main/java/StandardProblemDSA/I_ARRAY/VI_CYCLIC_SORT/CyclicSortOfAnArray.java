@@ -1,11 +1,9 @@
 package StandardProblemDSA.I_ARRAY.VI_CYCLIC_SORT;
 
 import StandardProblemDSA.Utility;
-
 import java.util.Arrays;
 
 public class CyclicSortOfAnArray {
-
 
   public static void main(String[] args) {
     int[] nums = {3, 5, 2, 1, 4};

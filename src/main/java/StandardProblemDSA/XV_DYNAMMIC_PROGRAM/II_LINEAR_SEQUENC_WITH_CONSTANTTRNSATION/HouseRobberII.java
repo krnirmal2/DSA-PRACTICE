@@ -19,26 +19,24 @@ public class HouseRobberII {
   Input: nums = [1,2,3]
   Output: 3
   */
-  class Solution {
-    public int rob(int[] nums) {
-      // as there circle so robberwill rob in two part
-      // start from even index and rob all even index
-      // or start from the odd index and rob all the odd index and collect
-      // we will find the max amount them
-      int n = nums.length;
-      if (n == 1) return nums[0];
+  public int rob(int[] nums) {
+    // as there circle so robberwill rob in two part
+    // start from even index and rob all even index
+    // or start from the odd index and rob all the odd index and collect
+    // we will find the max amount them
+    int n = nums.length;
+    if (n == 1) return nums[0];
 
-      int odd = util(1, n - 1, nums, n);
-      int even = util(0, n - 2, nums, n);
-      // return the max amoun odd and even start
-      return Math.max(odd, even);
-    }
+    int odd = util(1, n - 1, nums, n);
+    int even = util(0, n - 2, nums, n);
+    // return the max amoun odd and even start
+    return Math.max(odd, even);
+  }
 
-    public int util(int start, int end, int[] nums, int n) {
-      if (start > end) return 0;
-      int robThis = nums[start] + util(start + 2, end, nums, n);
-      int skipThis = util(start + 1, end, nums, n);
-      return Math.max(robThis, skipThis);
-    }
+  public int util(int start, int end, int[] nums, int n) {
+    if (start > end) return 0;
+    int robThis = nums[start] + util(start + 2, end, nums, n);
+    int skipThis = util(start + 1, end, nums, n);
+    return Math.max(robThis, skipThis);
   }
 }

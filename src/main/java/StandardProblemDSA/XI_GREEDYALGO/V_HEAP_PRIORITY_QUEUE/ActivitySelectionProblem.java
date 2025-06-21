@@ -1,5 +1,7 @@
 package StandardProblemDSA.XI_GREEDYALGO.V_HEAP_PRIORITY_QUEUE;
 
+import StandardProblemDSA.XI_GREEDYALGO.GreedyAlgoUtil;
+import StandardProblemDSA.XI_GREEDYALGO.StartEndPair;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 
@@ -26,9 +28,7 @@ public class ActivitySelectionProblem {
     // lamda function shorthand of compartor for sorting based on end date in ascending order
     PriorityQueue<StartEndPair> pq = new PriorityQueue<>((a, b) -> a.end - b.end); // lamda funciton
     // now put them in the priority queue
-    for (int i = 0; i < start.length; i++) {
-      pq.add(new StartEndPair(start[i], finish[i]));
-    }
+    GreedyAlgoUtil.insertElementInPQAfterSort(start, finish, pq);
 
     // now we have to select the first element which is always a pick
     ArrayList<StartEndPair> activities = new ArrayList<>();
@@ -48,14 +48,18 @@ public class ActivitySelectionProblem {
     }
   }
 
-  // we need to create a pair of start and finished time from both the array
-  static class StartEndPair {
-    int start;
-    int end;
+  /*You are given two arrays:
+  start[i] → start time of the i-th activity
+  finish[i] → finish time of the i-th activity
+  Your task is to select the maximum number of activities that don’t overlap, i.e., for each selected activity, its start time must be after or equal to the finish time of the previously selected one.
+  You may assume:
+  One person can only perform one activity at a time.
+  You must select as many non-overlapping activities as possible.
+  ✨ Constraints
+  1 ≤ start.length, finish.length ≤ 10⁵
+  0 ≤ start[i] < finish[i] ≤ 10⁹
 
-    StartEndPair(int start, int end) {
-      this.start = start;
-      this.end = end;
-    }
-  }
+  🔍 Example
+  start  = [1, 3, 0, 5, 8, 5]
+  finish = [2, 4, 6, 7, 9, 9]*/
 }

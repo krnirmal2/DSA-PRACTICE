@@ -1,7 +1,6 @@
 package StandardProblemDSA.I_ARRAY.I_TRAVERSAL;
 
 import StandardProblemDSA.Utility;
-
 import java.util.HashMap;
 
 public class Two_Sum {
@@ -32,12 +31,9 @@ public class Two_Sum {
     return result;
   }
 
-
   public static void main(String[] args) {
     int[] a = Utility.arrayWithPosiNegativeValue();
     int[] k = twoSum(a, -3);
     for (int i = 0; i < 2; i++) System.out.println(k[i]);
   }
-
-
 }

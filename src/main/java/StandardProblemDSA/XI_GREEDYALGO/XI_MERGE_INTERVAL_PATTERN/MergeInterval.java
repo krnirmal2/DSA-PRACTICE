@@ -1,6 +1,6 @@
 package StandardProblemDSA.XI_GREEDYALGO.XI_MERGE_INTERVAL_PATTERN;
 
-import java.util.ArrayList;
+import StandardProblemDSA.XI_GREEDYALGO.GreedyAlgoUtil;
 import java.util.Collections;
 import java.util.List;
 
@@ -37,12 +37,17 @@ public class MergeInterval {
     if (intervals.size() <= 1) {
       return intervals;
     }
-    // Sort intervals by start time
+    // Step1:  Sort intervals by start time so that easily get compare
     Collections.sort(intervals, (a, b) -> a.start - b.start);
-
-    List<MergeInterval> merged = new ArrayList<>();
+    // use extra space for return the merge Intervale
+    /*   List<MergeInterval> merged = new ArrayList<>();
+    // start from the first element of list of interval
     MergeInterval current = intervals.get(0);
-    for (int i = 1; i < intervals.size(); i++) {
+    //Step2; iterate over the intervals and compare end time with start time
+    // if end time of current is greater then we merged
+    // else add that interval directly and goto next interval , which
+    //just next to it
+    for (int i = 1; i < intervals.size(); i++) { // start from 2nd node
       MergeInterval next = intervals.get(i);
       if (current.end >= next.start) {
         // Merge overlapping intervals
@@ -52,8 +57,8 @@ public class MergeInterval {
         current = next;
       }
     }
-    merged.add(current);
-    return merged;
+    merged.add(current);*/
+    return GreedyAlgoUtil.getFreeTimeAfterMerged(intervals);
   }
   /* Complexity:
 

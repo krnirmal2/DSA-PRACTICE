@@ -1,17 +1,16 @@
 package StandardProblemDSA.XV_DYNAMMIC_PROGRAM.II_LINEAR_SEQUENC_WITH_CONSTANTTRNSATION;
 
-import java.util.Arrays;
+import StandardProblemDSA.Utility;
 
 public class JumpGameII {
   public int jump(int[] nums) {
     int n = nums.length;
-    int[] dp = new int[n];
-    Arrays.fill(dp, -1);
+    int[] dp = Utility.linearArrayMemo(n);
     return jumpUtil(nums, 0, dp);
   }
 
   public int jumpUtil(int[] nums, int i, int[] dp) {
-    if (i >= nums.length - 1) return 0;
+    if (Utility.isReachedLastIndex(nums, i)) return 0;
 
     if (dp[i] != -1) return dp[i];
 

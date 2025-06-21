@@ -1,13 +1,11 @@
 package StandardProblemDSA.VIII_TREE.V_VALIDATION_AND_PROPERTY_CHECKING_PATTERN;
 
 import static StandardProblemDSA.VIII_TREE.BST.BSTutility.height;
-import static StandardProblemDSA.VIII_TREE.BST.BSTutility.validateBST;
 import static StandardProblemDSA.VIII_TREE.TreeUtility.isIdentical;
 
 import StandardProblemDSA.VIII_TREE.BST.BSTutility;
 import StandardProblemDSA.VIII_TREE.TreeNode;
 import StandardProblemDSA.VIII_TREE.TreeUtility;
-
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -44,7 +42,6 @@ public class TreeCheckOperations {
     if (root == null) return true;
     return TreeUtility.isMirror(root.left, root.right);
   }
-
 
   // ---------------------------------------------------
   // 3. Validate Binary Search Tree (BST)

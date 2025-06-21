@@ -1,10 +1,10 @@
 package StandardProblemDSA.II_LINKEDLIST;
 
 public class DoubllyNodeWithKey {
-  int key;
-  int value;
-  DoubllyNodeWithKey prev;
-  DoubllyNodeWithKey next;
+  public int key;
+  public int value;
+  public DoubllyNodeWithKey prev;
+  public DoubllyNodeWithKey next;
 
   public DoubllyNodeWithKey(int key, int value) {
     this.key = key;

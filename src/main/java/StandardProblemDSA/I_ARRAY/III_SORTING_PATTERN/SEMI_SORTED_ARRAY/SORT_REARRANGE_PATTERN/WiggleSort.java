@@ -17,7 +17,7 @@ public class WiggleSort {
       if ((i % 2 == 0 && nums[i] > nums[i + 1]) || //if even index and it is greater than its next element just swap
           (i % 2 == 1 && nums[i] < nums[i + 1])) {// if odd index and it is smaller than its next element swap it
         // Swap nums[i] and nums[i+1]
-        Utility.swap(nums, i,i+1);
+        Utility.swap(nums, i, i + 1);
       }
     }
   }

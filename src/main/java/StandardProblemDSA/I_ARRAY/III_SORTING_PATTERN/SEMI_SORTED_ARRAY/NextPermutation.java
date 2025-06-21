@@ -1,9 +1,6 @@
 package StandardProblemDSA.I_ARRAY.III_SORTING_PATTERN.SEMI_SORTED_ARRAY;
 
 import StandardProblemDSA.Utility;
-
-import static java.util.Collections.swap;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -49,7 +46,6 @@ public class NextPermutation {
     Utility.reverseList(A, breakInd + 1, n - 1);
     return A;
   }
-
 
   public static void main(String[] args) {
     List<Integer> A = Arrays.asList(2, 1, 5, 4, 3, 0, 0);

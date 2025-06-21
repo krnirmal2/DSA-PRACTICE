@@ -2,7 +2,6 @@ package StandardProblemDSA.VIII_TREE.XI_BOUNDARY_VALIDATION_PATTERN;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
 import StandardProblemDSA.VIII_TREE.TreeUtility;
-
 import java.util.ArrayList;
 
 public class BoundaryTraversal {
@@ -21,7 +20,7 @@ public class BoundaryTraversal {
   static void collectLeaves(TreeNode root, ArrayList<Integer> res) {
     if (root == null) return;
 
-    if ( TreeUtility.isLeaf(root)) {
+    if (TreeUtility.isLeaf(root)) {
       res.add(root.val);
       return;
     }
@@ -33,7 +32,7 @@ public class BoundaryTraversal {
   // Function to collect right boundary nodes
   // (bottom-up order)
   static void collectBoundaryRight(TreeNode root, ArrayList<Integer> res) {
-    if (root == null ||  TreeUtility.isLeaf(root)) return;
+    if (root == null || TreeUtility.isLeaf(root)) return;
 
     if (root.right != null) collectBoundaryRight(root.right, res);
     else if (root.left != null) collectBoundaryRight(root.left, res);
@@ -48,7 +47,7 @@ public class BoundaryTraversal {
     if (root == null) return res;
 
     // Add root val if it's not a leaf
-    if (! TreeUtility.isLeaf(root)) res.add(root.val);
+    if (!TreeUtility.isLeaf(root)) res.add(root.val);
 
     // Collect left boundary
     collectBoundaryLeft(root.left, res);

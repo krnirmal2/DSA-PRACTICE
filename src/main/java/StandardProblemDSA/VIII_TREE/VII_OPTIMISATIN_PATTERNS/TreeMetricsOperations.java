@@ -223,12 +223,12 @@ public class TreeMetricsOperations {
     //           \
     //            7
     TreeNode root = new TreeNode(1);
-    root.left =new TreeNode(2);
+    root.left = new TreeNode(2);
     root.right = new TreeNode(3);
     root.left.left = new TreeNode(4);
     root.left.right = new TreeNode(5);
     root.right.right = new TreeNode(6);
-    root.left.right.right =new TreeNode(7);
+    root.left.right.right = new TreeNode(7);
 
     System.out.println("Maximum Depth: " + TreeUtility.maxDepth(root)); // Expected: 4
     System.out.println("Minimum Depth: " + TreeUtility.minDepth(root)); // Expected: 3
@@ -236,8 +236,7 @@ public class TreeMetricsOperations {
         "Diameter of Tree: " + diameterOfBinaryTree(root)); // Expected: 4 (edge count)
     System.out.println("Maximum Path Sum: " + maxPathSum(root)); // Depends on node values
     System.out.println(
-        "Longest Zigzag Path: "
-            + longestZigzagPath(root)); // Expected: length depends on zigzag
+        "Longest Zigzag Path: " + longestZigzagPath(root)); // Expected: length depends on zigzag
 
     // Build tree for Largest BST Subtree:
     //         10
@@ -252,7 +251,6 @@ public class TreeMetricsOperations {
     bstTest.left.right = new TreeNode(8);
     bstTest.right.right = new TreeNode(7);
 
-    System.out.println(
-        "Largest BST Subtree Size: " + largestBSTSubtree(bstTest)); // Expected: 3
+    System.out.println("Largest BST Subtree Size: " + largestBSTSubtree(bstTest)); // Expected: 3
   }
 }

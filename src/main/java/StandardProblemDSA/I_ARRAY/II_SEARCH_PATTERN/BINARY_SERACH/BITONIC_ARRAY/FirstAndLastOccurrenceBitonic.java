@@ -54,7 +54,6 @@ public class FirstAndLastOccurrenceBitonic {
     return result;
   }
 
-
   public static void main(String[] args) {
     int[] bitonicArr = {1, 3, 8, 12, 14, 11, 5, 5, 2};
     int target = 5;

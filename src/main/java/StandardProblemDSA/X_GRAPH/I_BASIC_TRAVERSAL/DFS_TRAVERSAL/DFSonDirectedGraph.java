@@ -1,5 +1,6 @@
 package StandardProblemDSA.X_GRAPH.I_BASIC_TRAVERSAL.DFS_TRAVERSAL;
 
+import StandardProblemDSA.X_GRAPH.GraphUtility;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,23 +8,6 @@ import java.util.List;
  * @author nirma
  */
 public class DFSonDirectedGraph {
-
-  // now add dfs on the
-  public static void dfs(List<List<Integer>> graph, boolean[] visited, int s) {
-    // if first time the node is commming then visited that node
-
-    visited[s] = true;
-    // now recursively visit all the edges connected that are not visited yet
-    for (int i : graph.get(s)) {
-      if (!visited[i]) {
-        dfs(graph, visited, i);
-      }
-    }
-  }
-
-  public static void addDirectedEdge(List<List<Integer>> adjList, int src, int dest) {
-    adjList.get(src).add(dest);
-  }
 
   public static void main(String[] args) {
     // create five node directed grapsh
@@ -41,10 +25,8 @@ public class DFSonDirectedGraph {
     // now add them adjacency list
     for (int[] e : edges) {
       // create the method to add each a
-
-      addDirectedEdge(graph, e[0], e[1]);
+      GraphUtility.addDirectedEdge(graph, e[0], e[1]);
     }
-
     dfsOnDirectedGraph(graph, vertex);
   }
 
@@ -54,7 +36,7 @@ public class DFSonDirectedGraph {
     // loop through each vertex not on each adjacencey list
     for (int i = 0; i < vertex; i++) {
       if (!visted[i]) {
-        dfs(graph, visted, i);
+        GraphUtility.dfs(i, graph, visted);
       }
     }
   }

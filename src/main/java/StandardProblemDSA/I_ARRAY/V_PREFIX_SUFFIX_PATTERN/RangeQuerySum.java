@@ -18,7 +18,7 @@ public class RangeQuerySum {
     int sum = a[0];
     int[] prefixSum = new int[size];
     // find the prefix sum of the given aray a
-    Utility.prefixSum(a,prefixSum);
+    Utility.prefixSum(a, prefixSum);
     for (int j = 0, k = 1; j < b[0].length; j++) {
       int leftIndex, rightIndex;
       leftIndex = b[j][0];

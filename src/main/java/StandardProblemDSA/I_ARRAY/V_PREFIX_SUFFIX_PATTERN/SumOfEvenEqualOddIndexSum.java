@@ -89,8 +89,6 @@ public class SumOfEvenEqualOddIndexSum {
     return count;
   }
 
-
-
   public static void main(String[] args) {
     int[] A = {2, 1, 6, 4, 5, 3};
     System.out.println(countWays(A)); // Output: 1

@@ -33,7 +33,7 @@ public class ReverseAlternateKNode {
   public static ListNode reverseAlternateKNodes(ListNode head, int k) {
     if (head == null) return null;
 
-    // Reverse first k nodes.
+    // Step 1: Reverse first k nodes
     ListNode current = head;
     ListNode prev = null;
     ListNode next = null;
@@ -45,14 +45,14 @@ public class ReverseAlternateKNode {
       current = next;
       count++;
     }
-
+    // Step 2: Link last of reversed group to the current node
     // Now head becomes the last node in the reversed group.
     // Link it to the next k nodes which remain unchanged.
     if (head != null) {
       head.next = current;
     }
 
-    // Skip next k nodes.
+    // Step 3: Skip next k nodes (no reversal)
     count = 0;
     ListNode temp = current;
     while (current != null && count < k - 1) { // move k-1 nodes
@@ -60,7 +60,7 @@ public class ReverseAlternateKNode {
       count++;
     }
 
-    // Recurse for remaining list.
+    // Step 4: Recurse for remaining list
     if (current != null) {
       current.next = reverseAlternateKNodes(current.next, k);
     }

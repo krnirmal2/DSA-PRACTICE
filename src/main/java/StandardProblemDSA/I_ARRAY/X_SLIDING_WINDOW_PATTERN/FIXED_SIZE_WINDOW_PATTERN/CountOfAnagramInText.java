@@ -1,7 +1,6 @@
 package StandardProblemDSA.I_ARRAY.X_SLIDING_WINDOW_PATTERN.FIXED_SIZE_WINDOW_PATTERN;
 
 import StandardProblemDSA.Utility;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,7 +33,7 @@ public class CountOfAnagramInText {
       char ch = text.charAt(j);
       windowMap.put(ch, windowMap.getOrDefault(ch, 0) + 1);
 
-      //CASE 2: When window size reaches size k then we will check
+      // CASE 2: When window size reaches size k then we will check
       if (j - i + 1 == k) {
         // Check if both maps are equal (i.e., anagram found)
         if (windowMap.equals(patternMap)) {

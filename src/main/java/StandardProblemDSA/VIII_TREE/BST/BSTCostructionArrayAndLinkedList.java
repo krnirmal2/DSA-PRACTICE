@@ -2,7 +2,6 @@ package StandardProblemDSA.VIII_TREE.BST;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
 import StandardProblemDSA.VIII_TREE.TreeUtility;
-
 import java.util.*;
 
 public class BSTCostructionArrayAndLinkedList {
@@ -52,7 +51,6 @@ public class BSTCostructionArrayAndLinkedList {
     TreeUtility.preorderHelper(root, result);
     return result;
   }
-
 
   // ---------------------------------------------------
   // 3. Construct BST from Sorted Array

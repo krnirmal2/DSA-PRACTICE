@@ -1,5 +1,7 @@
 package StandardProblemDSA.X_GRAPH.II_CONNECTIVITY_AND_COMPONENTS;
 
+import StandardProblemDSA.X_GRAPH.GraphUtility;
+
 public class MaxIsland {
 
   // Main function to test the solution
@@ -49,14 +51,8 @@ public class MaxIsland {
     for (int d = 0; d < 4; d++) {
       int nr = r + dr[d];
       int nc = c + dc[d];
-
       // Check bounds and if the neighbor is land and not visited
-      if (nr >= 0
-          && nr < grid.length
-          && nc >= 0
-          && nc < grid[0].length
-          && grid[nr][nc] == 1
-          && !visited[nr][nc]) {
+      if (GraphUtility.checkFourBoundaryOfMatrixWithOne(grid, nr, nc) && !visited[nr][nc]) {
         area += dfs(grid, visited, nr, nc); // Recur for the neighbor and accumulate area
       }
     }

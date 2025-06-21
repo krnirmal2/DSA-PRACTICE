@@ -4,199 +4,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4157ccfc-95eb-4920-9227-0d51dda529e6" name="Changes" comment="arrays">
-      <change afterPath="$PROJECT_DIR$/src/main/java/EvaluateReversePolishNotation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/ii_NSERTION_AND_DELETION_PATTERN/LinkedListInsertionAndDeletion.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/ii_NSERTION_AND_DELETION_PATTERN/LinkedListOperations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/iii_RECURSIVE_PATTERN/RecursiveLinkedListOperations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/iv_SORTING_AND_REARRANGING_PATTERN/LinkedListSortingOperations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/v_FAST_AND_SLOW_POINTER_POINTER/CountCycleLength.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/vii_PALINDROME_AND_REVERSAL_PATTERNS/LinkedListManipulationOperations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/viii_DUMMY_NODE_AND_SENTINAL_PATTERN/TwoHalfOfCircle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/xiii_CIRCULAR_LINKLIST/CircularLinkedListOperations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/xiv_CONVERSION_PATTERNS/ConversionOperations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/II_EXPERSSION_BASED/ADVANCED/CountValidParenthesis.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/II_EXPERSSION_BASED/ADVANCED/GenerateAllparenthesis.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/II_EXPERSSION_BASED/ADVANCED/RemoveInvalidParentheses.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/II_EXPERSSION_BASED/ADVANCED/ScoreParenthesis.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/II_EXPERSSION_BASED/BASIC/ValidParenthesesII.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/II_EXPERSSION_BASED/INTERMEDIATE/EvaluateReversePolisNotation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/InterviewQuestion.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/CapacityToPackageWithinDdaysWithMulipleWeight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/KthMissingPositiveNumb.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/MaximumNofPageAllocateToMiinimum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/MedianInSortedTwoArrayWithBinarySearch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/MinimisedLargerSumInKPartitionOfArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/MinimumDaysToMakeMBouquets.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/NthRootOfNumberUsingBinary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/PainterPartitionProblem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/SquareRootOfNoInLogN.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/1. Traversal and Manipulation Patterns.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/MaxAndMinOfAnArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/SearchElement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/XII_TWO_D_PATTERN/i_MATRIX_TRAVERSAL_PATTERN/DiagonalTraversal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/XII_TWO_D_PATTERN/i_MATRIX_TRAVERSAL_PATTERN/DiagonalTraversal.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/XII_TWO_D_PATTERN/iii_BINARY_SEARCH/SearachElement.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/XII_TWO_D_PATTERN/iii_BINARY_SEARCH/SearchSortedMatrix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/FIXED_SIZE_WINDOW_PATTERN/LeastAverageSubarrayOfSizeB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/FIXED_SIZE_WINDOW_PATTERN/MaximumProductSubArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/FIXED_SIZE_WINDOW_PATTERN/MaximumValueInSubarrayOfSizeK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/SlidingWindowWithQueue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/VARIABLE_SIZE_WINDOW_PATTERN/FruitsIntoBusket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/VARIABLE_SIZE_WINDOW_PATTERN/PartitionKSubArrayWithEqualSum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIIII_HEAP/VIII_MERGEING_MULTIPLE_SORTED_LIST/MergeKSortedArrayUsingHeap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIIII_HEAP/VII_CONVERSION_PATTERN/MinToMaxheap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIIII_HEAP/VI_TASK_PRIORITIZATION/III_TOP_K_AND_BOTTOM_K_PATTERN/KSelectionOperations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIIII_HEAP/VI_TASK_PRIORITIZATION/III_TOP_K_AND_BOTTOM_K_PATTERN/KthlargestElementInStream.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIIII_HEAP/VI_TASK_PRIORITIZATION/III_TOP_K_AND_BOTTOM_K_PATTERN/TopKFrequentElement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIIII_HEAP/VI_TASK_PRIORITIZATION/II_PRIORITY_QUEUE/PriorityQueueLinkedList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIIII_HEAP/VI_TASK_PRIORITIZATION/II_PRIORITY_QUEUE/PriortityQueueUsingHeap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIIII_HEAP/VI_TASK_PRIORITIZATION/IV_MEDIAN_TRACKING/MedianInSortedArrays.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIIII_HEAP/VI_TASK_PRIORITIZATION/IV_MEDIAN_TRACKING/TwoHeapsMedianSolutions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIII_TREE/BST/CompleteBinaraTreeNodeCount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIII_TREE/BST/ITERATOR/BstIteratorUsingStack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIII_TREE/BST/ITERATOR/TwoSumBstWithTargetUsingBst.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIII_TREE/BST/Kth_SMALLEST_LARGEST/KthLargestInBstReverseInOrder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIII_TREE/BST/Kth_SMALLEST_LARGEST/KthSmallest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIII_TREE/BST/LargestBstInBINARY_TREE.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIII_TREE/BST/PARENT_MAP/NodeATDistanceKinUpAndDown.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIII_TREE/BST/SERIALISE_DESERAILISE/SerialiseAndDeserialise.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIII_TREE/BST/TreeNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIII_TREE/III_PATH_AND_ANCESTOR_PATTERNS/TreePathOperations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIII_TREE/II_CONSTRUCTION_PATTERNS/ConstructionOfTree.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIII_TREE/IV_MODIFICATION_TRANSAFORMATION_PATTERNS/ModificationAndTransFormation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIII_TREE/I_TRAVERSAL_PATTERNS/BoundaryTraversal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIII_TREE/I_TRAVERSAL_PATTERNS/DiagonalTraversal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIII_TREE/I_TRAVERSAL_PATTERNS/LeftRighTopBottom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIII_TREE/VII_OPTIMISATIN_PATTERNS/TreeMetricsOperations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIII_TREE/VI_COUNTING_AND_SUMMATION_PATTERNS/TreeCountingOperations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIII_TREE/V_VALIDATION_AND_PROPERTY_CHECKING_PATTERN/TreeCheckOperations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VI_RECURSION/BASIC_RECURSION/FactorialOfN.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VI_RECURSION/BASIC_RECURSION/Print1ToN.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VI_RECURSION/BASIC_RECURSION/PrintHelloNTimes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VI_RECURSION/BASIC_RECURSION/PrintNTo1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VI_RECURSION/BASIC_RECURSION/PrintNameNTimes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VI_RECURSION/BASIC_RECURSION/SumOfFirstNNumbers.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/V_QUEUE/VIIII_TASK_SCHEDULING_PATTTERN/QueueSchedulingOperations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XVI_TRIE/CountDistinctSubstring.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XVI_TRIE/LongestStringAllPrefixes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XVI_TRIE/Trie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XVI_TRIE/TrieWithCountDelete.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/III_TWO_D_GRID_PATTERN/MinimamMaximamFallingPathSum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/III_TWO_D_GRID_PATTERN/MinimumPathSum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/III_TWO_D_GRID_PATTERN/MinimumTriagularGridI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/III_TWO_D_GRID_PATTERN/NinjasTrainging.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/III_TWO_D_GRID_PATTERN/ThreeDpNinjaAnd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/III_TWO_D_GRID_PATTERN/UniquePaths.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/III_TWO_D_GRID_PATTERN/UniquePathsII.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/II_LINEAR_SEQUENC_WITH_CONSTANTTRNSATION/BACKWARD_DP_PATTERN/DungeonGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/II_LINEAR_SEQUENC_WITH_CONSTANTTRNSATION/FrogJump.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/II_LINEAR_SEQUENC_WITH_CONSTANTTRNSATION/FrogWithKDistance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/II_LINEAR_SEQUENC_WITH_CONSTANTTRNSATION/HouseRobber.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/II_LINEAR_SEQUENC_WITH_CONSTANTTRNSATION/HouseRobberII.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/II_LINEAR_SEQUENC_WITH_CONSTANTTRNSATION/JumpGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/II_LINEAR_SEQUENC_WITH_CONSTANTTRNSATION/JumpGameII.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/II_LINEAR_SEQUENC_WITH_CONSTANTTRNSATION/MaximaumSumOfNonAdjacentElements.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/IV_KNAPSACK/BOUNDED_KNAPSACK/CoinChageWithLimitedCoins.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/IV_KNAPSACK/UNBOUND_KNAPSACK/CoinChange.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/IV_KNAPSACK/UNBOUND_KNAPSACK/CoinChangeII.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/IV_KNAPSACK/UNBOUND_KNAPSACK/MinimumCosttoCutaStick.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/IV_KNAPSACK/ZERO_ONE_KNAPSACK/KNAPSACK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/IV_KNAPSACK/ZERO_ONE_KNAPSACK/MinimumSubsetSumDifference.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/IV_KNAPSACK/ZERO_ONE_KNAPSACK/PartitionEqualSubsetSum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/IV_KNAPSACK/ZERO_ONE_KNAPSACK/SubsetSum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/IV_KNAPSACK/ZERO_ONE_KNAPSACK/TargetSum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/I_BASIC_DP/ClimbingStairs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/I_BASIC_DP/FibonacciNumber.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/I_BASIC_DP/MinCostClimbingStairs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/VI_MATRIX_CHAIN_MULTIPLICATION_DP/BurstBallon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/VI_MATRIX_CHAIN_MULTIPLICATION_DP/EvaluateBooleanExpression.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/VI_MATRIX_CHAIN_MULTIPLICATION_DP/MatrixChainMultiplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/VI_MATRIX_CHAIN_MULTIPLICATION_DP/MinimumNoOfCutPalindromicPartition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/V_STRING_PATTERN/EditDistance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/V_STRING_PATTERN/LONGEST_LARGEST_SUBSTRING_PATTERN/LongestCommonSubsequence.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/V_STRING_PATTERN/LONGEST_LARGEST_SUBSTRING_PATTERN/LongestPalindromicSubsequence.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/V_STRING_PATTERN/LONGEST_LARGEST_SUBSTRING_PATTERN/LongestPalindromicSubstring.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/V_STRING_PATTERN/NoOfDistinctSubSequence.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/V_STRING_PATTERN/WildCardPattern.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/WordBreak.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/XII_LIS_PATTERN/LongestIncreasingSubsequence.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/XII_LIS_PATTERN/LongestIncreasingSubsequence_I.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/XII_LIS_PATTERN/PrintLIS.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/XI_STOCK_PATTERN/BuyAndSellStockAnyNoOfTimeDP36.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/X_GRAPH/IV_SHORETEST_PATH_MOVE_TIME_PATTEN/MULTIPLE_SOURCE_MULTIPLE_DESTINATION/FloydWarshalAlgo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/X_GRAPH/IV_SHORETEST_PATH_MOVE_TIME_PATTEN/SINGLE_SOURCE_MULTIPLE_DESTINATION/BELLMAN_FORD_ALGO_NEGATIVE_DIRECTED/BellmanFordAlgo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/X_GRAPH/IV_SHORETEST_PATH_MOVE_TIME_PATTEN/SINGLE_SOURCE_MULTIPLE_DESTINATION/DIJKSTRA/ShortestDistanceFromSrcToDisMultiplepath.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/X_GRAPH/ii_SHORTEST_PATH_ALGORTHIMS/PathWithMinimumEffort.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/X_GRAPH/ii_SHORTEST_PATH_ALGORTHIMS/ShortestDistanceInBinaryMazeWithFromSourceToDest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="4157ccfc-95eb-4920-9227-0d51dda529e6" name="Changes" comment="add greedyUtility">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/i_TRAVERSAL_BASIC_OPERATION/LinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/i_TRAVERSAL_BASIC_OPERATION/LinkedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/vi_MERGING_AND_SPLITTING_LL/AlternatingSplitLL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/vi_MERGING_AND_SPLITTING_LL/AlternatingSplitLL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/vi_MERGING_AND_SPLITTING_LL/SplitListToParts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/vi_MERGING_AND_SPLITTING_LL/SplitListToParts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/vii_PALINDROME_AND_REVERSAL_PATTERNS/PalindromeLL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/vii_PALINDROME_AND_REVERSAL_PATTERNS/PalindromeLL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/vii_PALINDROME_AND_REVERSAL_PATTERNS/ReverseKGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/vii_PALINDROME_AND_REVERSAL_PATTERNS/ReverseKGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/xii_ARITHMETIC_PATTERN/AddTwoNumberInLL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/xii_ARITHMETIC_PATTERN/AddTwoNumberInLL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/II_EXPERSSION_BASED/ADVANCED/RedundantBrackets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/II_EXPERSSION_BASED/ADVANCED/RedundantBrackets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/II_EXPERSSION_BASED/INTERMEDIATE/LongestValidParenthesesSubstring.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/II_EXPERSSION_BASED/INTERMEDIATE/LongestValidParenthesesSubstring.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/II_EXPERSSION_BASED/INTERMEDIATE/MinimumRemoveValidParaenthesis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/II_EXPERSSION_BASED/INTERMEDIATE/MinimumRemoveValidParaenthesis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/IV_MONOTONIC_NEXT_PREVIOUS_ELEMENT_PATTERN/LEFT_TO_RIGHT/PerviousSmallerElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/IV_MONOTONIC_NEXT_PREVIOUS_ELEMENT_PATTERN/LEFT_TO_RIGHT/PerviousSmallerElement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/ArrayOfEvenOdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/ArrayOfEvenOdd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/ArrayRotatedByKTimes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_MANIPULATION_PATTERNS/ArrayRotatedByKTimes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/CountTheNoOfElementGreaterThanItSelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/CountTheNoOfElementGreaterThanItSelf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/GoodPair_givenSumFindPairFromArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/GoodPair_givenSumFindPairFromArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/III_SORTING_PATTERN/SEMI_SORTED_ARRAY/SORT_REARRANGE_PATTERN/InplaceDuplicateRemove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/III_SORTING_PATTERN/SEMI_SORTED_ARRAY/SORT_REARRANGE_PATTERN/InplaceDuplicateRemove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/III_SORTING_PATTERN/SEMI_SORTED_ARRAY/SORT_REARRANGE_PATTERN/InversionCount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/III_SORTING_PATTERN/SEMI_SORTED_ARRAY/SORT_REARRANGE_PATTERN/InversionCount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/III_SORTING_PATTERN/SEMI_SORTED_ARRAY/SORT_REARRANGE_PATTERN/largestNoFromAllArrayElementCanBeFormed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/III_SORTING_PATTERN/SEMI_SORTED_ARRAY/SORT_REARRANGE_PATTERN/largestNoFromAllArrayElementCanBeFormed.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/MISLANEOUS/FirstAndLastOccuranceOfAnElementInSortedArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/MISLANEOUS/FirstAndLastOccuranceOfAnElementInSortedArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL_AND_MANIPULATION_PATTERNS/RotateArrayKStep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/RotateArrayKStep.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/IsPairOfSumPresent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/IsPairOfSumPresent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/LongestConsecutiveNo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/LongestConsecutiveNo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/MaxAndMinOfAnArray.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/PickFromBothEnd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/V_PREFIX_SUFFIX_PATTERN/PickFromBothEnd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/PrintSumOfAllSubarray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/PrintSumOfAllSubarray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/SearchElement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/SumOfAllSubarray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/SumOfAllSubarray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/Two_Sum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/Two_Sum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/CountOfAnagramInText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/FIXED_SIZE_WINDOW_PATTERN/CountOfAnagramInText.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/FirstNegativeNoInEachSubArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/FIXED_SIZE_WINDOW_PATTERN/FirstNegativeNoInEachSubArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/IsPermutaionContainOrNot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/FIXED_SIZE_WINDOW_PATTERN/IsPermutaionContainOrNot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/commonElementofTwoArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/commonElementofTwoArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIIII_HEAP/VI_TASK_PRIORITIZATION/II_PRIORITY_QUEUE/PQUsingArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIIII_HEAP/VI_TASK_PRIORITIZATION/II_PRIORITY_QUEUE/PQUsingArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIIII_HEAP/VI_TASK_PRIORITIZATION/I_BASIC_HEAP_OPERATION/BuildHeapFromArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIIII_HEAP/VI_TASK_PRIORITIZATION/I_BASIC_HEAP_OPERATION/BuildHeapFromArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIII_TREE/TreeBasicOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIII_TREE/TreeBasicOperation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VII_BACKTRACKING/Combination.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VII_BACKTRACKING/Combination.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VII_BACKTRACKING/KnightsTour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VII_BACKTRACKING/KnightsTour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VII_BACKTRACKING/Permutation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VII_BACKTRACKING/Permutation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VI_RECURSION/KthSymbol.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VI_RECURSION/TowerOfHanoi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/X_GRAPH/V_TOPOLOGICAL_SORTING/KahnsAlgorithmUsingBFSandIndegree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/X_GRAPH/V_TOPOLOGICAL_SORTING/KahnsAlgorithmUsingBFSandIndegree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/X_GRAPH/V_TOPOLOGICAL_SORTING/TopologicalUsingDFS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/X_GRAPH/V_TOPOLOGICAL_SORTING/TopologicalUsingDFS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays2D14/Add2Matrix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays2D14/AntiDiagonal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays2D14/MatrixMultiply.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays2D14/Subtract2Matrix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays_carray_forward/AGPairCount.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays_carray_forward/ClosestMaxMin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays_carray_forward/LeastAverageSubarrayOfSizeB.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays_prefix_sum/EquilibriumIndex.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays_prefix_sum/RangeQuerySum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays_subarray3/SumOfAllSubarray.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Introduction_to_array/ArrayRotatedByKTimes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Introduction_to_array/CountTheNoOfElementGreaterThanItSelf.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Introduction_to_array/GoodPair_givenSumFindPairFromArray.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Introduction_to_array/IsPairOfSumPresent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Introduction_to_array/MaxAndMinOfAnArray.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Introduction_to_array/SearchElement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Week2/Day4/ArmstrongNumber.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Week2/Day4/CountFactorOfNumber.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Week2/Day4/RootOfPerfectNum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Week2/Day4/tableOfNumber.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Week3/TC2_class.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/COMPARATOR_UTILITY.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/COMPARATOR_UTILITY.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Programming_constructs/LinkedList/LinkedListCycleRemoval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/LinkedList/LinkedListCycleRemoval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/DoubllyNodeWithKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/DoubllyNodeWithKey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/ii_NSERTION_AND_DELETION_PATTERN/LinkedListOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/ii_NSERTION_AND_DELETION_PATTERN/LinkedListOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/xi_DOUBLY_LL/LRUCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/xi_DOUBLY_LL/LRUCache.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/IV_MONOTONIC_NEXT_PREVIOUS_ELEMENT_PATTERN/AstroidsCollides.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/IV_MONOTONIC_NEXT_PREVIOUS_ELEMENT_PATTERN/AstroidsCollides.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/III_SORTING_PATTERN/SEMI_SORTED_ARRAY/SORT_REARRANGE_PATTERN/WiggleSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/III_SORTING_PATTERN/SEMI_SORTED_ARRAY/SORT_REARRANGE_PATTERN/WiggleSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/BITONIC_ARRAY/FirstAndLastOccurrenceBitonic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/BITONIC_ARRAY/FirstAndLastOccurrenceBitonic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/MISLANEOUS/SquareRootBinarySearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/SquareRootBinarySearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/MaximumNofPageAllocateToMiinimum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/MaximumNofPageAllocateToMiinimum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/PainterPartitionProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/PainterPartitionProblem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/ThreeSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/ThreeSum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/VI_CYCLIC_SORT/CyclicSortOfAnArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/VI_CYCLIC_SORT/CyclicSortOfAnArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIIII_HEAP/VI_TASK_PRIORITIZATION/III_TOP_K_AND_BOTTOM_K_PATTERN/KthlargestElementInStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIIII_HEAP/VI_TASK_PRIORITIZATION/III_TOP_K_AND_BOTTOM_K_PATTERN/KthlargestElementInStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/GreedyAlgoUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/GreedyAlgoUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/III_TWO_POINTER_PAIRING/BoatsToSavePeople.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/III_TWO_POINTER_PAIRING/BoatsToSavePeople.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/III_TWO_POINTER_PAIRING/ContainerWithMostWater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/III_TWO_POINTER_PAIRING/ContainerWithMostWater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/II_ONE_PASS_LOCAL_OPTIMISATION/JumpGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/II_ONE_PASS_LOCAL_OPTIMISATION/JumpGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/IV_INTERVAL_COVERING_AND_BURSTING/MinimumNoArrowBurstBallon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/IV_INTERVAL_COVERING_AND_BURSTING/MinimumNoArrowBurstBallon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/Assign_Cookies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/Assign_Cookies.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/EmployeeFreeTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/EmployeeFreeTime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/JobSequenceProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/JobSequenceProblem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/MeetingRoomIIMinimumMeetingRoomsRequired.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/V_HEAP_PRIORITY_QUEUE/MeetingRoomIIMinimumMeetingRoomsRequired.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/MeetingRoomsICanAttendAllMeeting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/MeetingRoomsICanAttendAllMeeting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/MinimumNoOfPlatformsRequiredRailway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/MinimumNoOfPlatformsRequiredRailway.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/NMeetingInOneRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/NMeetingInOneRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/Non_overlapping_Intervals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/Non_overlapping_Intervals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/V_HEAP_PRIORITY_QUEUE/ActivitySelectionProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/V_HEAP_PRIORITY_QUEUE/ActivitySelectionProblem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/XI_MERGE_INTERVAL_PATTERN/InsertInterval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/XI_MERGE_INTERVAL_PATTERN/InsertInterval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/XI_MERGE_INTERVAL_PATTERN/MergeInterval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/XI_MERGE_INTERVAL_PATTERN/MergeInterval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/II_LINEAR_SEQUENC_WITH_CONSTANTTRNSATION/JumpGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/II_LINEAR_SEQUENC_WITH_CONSTANTTRNSATION/JumpGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/X_GRAPH/GraphUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/X_GRAPH/GraphUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/X_GRAPH/I_BASIC_TRAVERSAL/BFS_TRAVERSAL/BfsTraversal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/X_GRAPH/I_BASIC_TRAVERSAL/BFS_TRAVERSAL/BfsTraversal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/X_GRAPH/I_BASIC_TRAVERSAL/DFS_TRAVERSAL/DFSonDirectedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/X_GRAPH/I_BASIC_TRAVERSAL/DFS_TRAVERSAL/DFSonDirectedGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/X_GRAPH/I_BASIC_TRAVERSAL/GraphUtil.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,12 +63,27 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;krnirmal2&quot;
+  }
+}</component>
   <component name="GithubProjectSettings">
     <option name="branchProtectionPatterns">
       <list>
         <option value="main" />
       </list>
     </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://krnirmal2@github.com/krnirmal2/CodingPractice.git&quot;,
+    &quot;accountId&quot;: &quot;24aad58f-9c67-4b64-9073-23dce5966526&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -239,41 +98,61 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.AlternatingSplitLL.executor": "Run",
-    "Application.FactorialOfN.executor": "Debug",
-    "Application.LongestCommonSubsequence.executor": "Debug",
-    "Application.MedianInSortedArrays.executor": "Debug",
-    "Application.NestedIterator.executor": "Run",
-    "Application.NextPermutation.executor": "Run",
-    "Application.PQUsingArray.executor": "Run",
-    "Application.Permutation.executor": "Debug",
-    "Application.Print1ToN.executor": "Debug",
-    "Application.PrintAllSubsequence.executor": "Debug",
-    "Application.PrintNTo1.executor": "Debug",
-    "Application.QueueUsingLinkedList.executor": "Run",
-    "Application.RedundantBrackets.executor": "Debug",
-    "Application.ReverseKGroup.executor": "Debug",
-    "Application.ReverseQueueUsingTwoStacks.executor": "Run",
-    "Application.ShortestSubsequence.executor": "Debug",
-    "Application.SquareRootBinarySearch.executor": "Debug",
-    "Application.ThreadSafeQueue.executor": "Debug",
-    "Application.Trie.executor": "Debug",
-    "Application.UniquePaths.executor": "Run",
-    "Application.UniquePathsII.executor": "Run",
-    "Application.commonElementofTwoArray.executor": "Run",
-    "Maven.Scalar [clean,validate,compile,test...].executor": "Run",
-    "Maven.Scalar [com.diffplug.spotless:spotless-maven-plugin:2.43.0:apply].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_directory_selection": "H:/JAVA WORKSPACE FOR WORK/Archive Repo/Scalar/src/main/java",
-    "last_opened_file_path": "H:/JAVA WORKSPACE FOR WORK/Archive Repo/Scalar/src/main/java/StandardProblemDSA/I_ARRAY/XII_TWO_D_PATTERN",
-    "settings.editor.selected.configurable": "reference.settings.project.statistic.project.settings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.AlternatingSplitLL.executor&quot;: &quot;Run&quot;,
+    &quot;Application.CountTheNoOfElementGreaterThanItSelf.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.FactorialOfN.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.IsPermutaionContainOrNot.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.JobSequenceProblem.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.KadansAlgorithmMaxSumWindowLengthh.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.LeastAverageSubarrayOfSizeB.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.LinkedList.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.LongestCommonSubsequence.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.MaximumSubarrayEasy.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.MaximumValueInEachSubarrayOfSizeK.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.MedianInSortedArrays.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.NestedIterator.executor&quot;: &quot;Run&quot;,
+    &quot;Application.NextPermutation.executor&quot;: &quot;Run&quot;,
+    &quot;Application.NextSmallerElement.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.PQUsingArray.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Permutation.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.PerviousSmallerElement.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.Print1ToN.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.PrintAllSubsequence.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.PrintNTo1.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.QueueUsingLinkedList.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RecursiveReverseLL.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RedundantBrackets.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.ReverseKGroup.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.ReverseQueueUsingTwoStacks.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ShortestSubsequence.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.SquareRootBinarySearch.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.ThreadSafeQueue.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.Trie.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.Two_Sum.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.UniquePaths.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UniquePathsII.executor&quot;: &quot;Run&quot;,
+    &quot;Application.commonElementofTwoArray.executor&quot;: &quot;Run&quot;,
+    &quot;Application.largestWindowForSumK.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Scalar [clean,validate,compile,test...].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Scalar [com.diffplug.spotless:spotless-maven-plugin:2.43.0:apply].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;ScalarPracticeDel&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;H:/JAVA WORKSPACE FOR WORK/Archive Repo/Scalar/src/main/java&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/SCALAR PRACTICE/src/main/java/StandardProblemDSA/XI_GREEDYALGO&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\SCALAR PRACTICE\src\main\java\StandardProblemDSA\XI_GREEDYALGO" />
       <recent name="H:\JAVA WORKSPACE FOR WORK\Archive Repo\Scalar\src\main\java\StandardProblemDSA\I_ARRAY\XII_TWO_D_PATTERN" />
       <recent name="H:\JAVA WORKSPACE FOR WORK\Archive Repo\Scalar\src\main\java\StandardProblemDSA\I_ARRAY" />
     </key>
@@ -284,22 +163,28 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="H:\JAVA WORKSPACE FOR WORK\Archive Repo\Scalar\src\main\java\StandardProblemDSA\I_ARRAY\I_TRAVERSAL" />
     </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="StandardProblemDSA.II_LINKEDLIST.iv_SORTING_AND_REARRANGING_PATTERN" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
+      <recent name="StandardProblemDSA.XI_GREEDYALGO" />
+      <recent name="StandardProblemDSA.XI_GREEDYALGO.XI_MERGE_INTERVAL_PATTERN" />
+      <recent name="StandardProblemDSA.VIII_TREE.I_TRAVERSAL_PATTERNS" />
       <recent name="StandardProblemDSA" />
-      <recent name="StandardProblemDSA.VIII_TREE.BST" />
+      <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="StandardProblemDSA.II_LINKEDLIST.iv_SORTING_AND_REARRANGING_PATTERN" />
       <recent name="StandardProblemDSA.IV_STACK.II_EXPERSSION_BASED.ADVANCED" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.PrintAllSubsequence">
-    <configuration name="LongestCommonSubsequence" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="StandardProblemDSA.XV_DYNAMMIC_PROGRAM.V_STRING_PATTERN.LONGEST_LARGEST_SUBSTRING_PATTERN.LongestCommonSubsequence" />
+  <component name="RunManager" selected="Application.JobSequenceProblem">
+    <configuration name="CountTheNoOfElementGreaterThanItSelf" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="StandardProblemDSA.I_ARRAY.I_TRAVERSAL.CountTheNoOfElementGreaterThanItSelf" />
       <module name="Scalar" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="StandardProblemDSA.XV_DYNAMMIC_PROGRAM.V_STRING_PATTERN.LONGEST_LARGEST_SUBSTRING_PATTERN.*" />
+          <option name="PATTERN" value="StandardProblemDSA.I_ARRAY.I_TRAVERSAL.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -307,12 +192,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Permutation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="StandardProblemDSA.VII_BACKTRACKING.Permutation" />
+    <configuration name="JobSequenceProblem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="StandardProblemDSA.XI_GREEDYALGO.I_SORTING_GREEDY_SELECTION.JobSequenceProblem" />
       <module name="Scalar" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="StandardProblemDSA.VII_BACKTRACKING.*" />
+          <option name="PATTERN" value="StandardProblemDSA.XI_GREEDYALGO.I_SORTING_GREEDY_SELECTION.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -320,12 +205,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PrintAllSubsequence" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="StandardProblemDSA.VI_RECURSION.BACKTRACING_PATTERN.PrintAllSubsequence" />
+    <configuration name="LinkedList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="StandardProblemDSA.II_LINKEDLIST.i_TRAVERSAL_BASIC_OPERATION.LinkedList" />
       <module name="Scalar" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="StandardProblemDSA.VI_RECURSION.BACKTRACING_PATTERN.*" />
+          <option name="PATTERN" value="StandardProblemDSA.II_LINKEDLIST.i_TRAVERSAL_BASIC_OPERATION.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -333,12 +218,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PrintNTo1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="StandardProblemDSA.VI_RECURSION.BASIC_RECURSION.PrintNTo1" />
+    <configuration name="RecursiveReverseLL" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="StandardProblemDSA.II_LINKEDLIST.iii_RECURSIVE_PATTERN.RecursiveReverseLL" />
       <module name="Scalar" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="StandardProblemDSA.VI_RECURSION.BASIC_RECURSION.*" />
+          <option name="PATTERN" value="StandardProblemDSA.II_LINKEDLIST.iii_RECURSIVE_PATTERN.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -346,12 +231,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="shortestCommonSupersequence" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="StandardProblemDSA.XV_DYNAMMIC_PROGRAM.V_STRING_PATTERN.SHORTEST_SUBSTRING_PATTERN.shortestCommonSupersequence" />
+    <configuration name="Two_Sum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="StandardProblemDSA.I_ARRAY.I_TRAVERSAL.Two_Sum" />
       <module name="Scalar" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="StandardProblemDSA.XV_DYNAMMIC_PROGRAM.V_STRING_PATTERN.SHORTEST_SUBSTRING_PATTERN.*" />
+          <option name="PATTERN" value="StandardProblemDSA.I_ARRAY.I_TRAVERSAL.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -359,13 +244,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.JobSequenceProblem" />
+      <item itemvalue="Application.CountTheNoOfElementGreaterThanItSelf" />
+      <item itemvalue="Application.LinkedList" />
+      <item itemvalue="Application.RecursiveReverseLL" />
+      <item itemvalue="Application.Two_Sum" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.PrintAllSubsequence" />
-        <item itemvalue="Application.Permutation" />
-        <item itemvalue="Application.shortestCommonSupersequence" />
-        <item itemvalue="Application.LongestCommonSubsequence" />
-        <item itemvalue="Application.PrintNTo1" />
+        <item itemvalue="Application.JobSequenceProblem" />
+        <item itemvalue="Application.RecursiveReverseLL" />
+        <item itemvalue="Application.LinkedList" />
+        <item itemvalue="Application.Two_Sum" />
+        <item itemvalue="Application.CountTheNoOfElementGreaterThanItSelf" />
       </list>
     </recent_temporary>
   </component>
@@ -377,6 +269,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1742928416550</updated>
+      <workItem from="1746783236965" duration="35000" />
     </task>
     <task id="LOCAL-00001" summary="categories the question and implement the remaining stack problem and revisied full stack">
       <option name="closed" value="true" />
@@ -410,8 +303,67 @@
       <option name="project" value="LOCAL" />
       <updated>1743789442722</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="updating the approach">
+      <option name="closed" value="true" />
+      <created>1745646968881</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1745646968881</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Revision done on Fixed sliding window">
+      <option name="closed" value="true" />
+      <created>1745862535854</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1745862535854</updated>
+    </task>
+    <task id="LOCAL-00007" summary="use utility methods">
+      <option name="closed" value="true" />
+      <created>1746031965213</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1746031965213</updated>
+    </task>
+    <task id="LOCAL-00008" summary="reformat the structure">
+      <option name="closed" value="true" />
+      <created>1746232019024</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1746232019024</updated>
+    </task>
+    <task id="LOCAL-00009" summary="reformat the structure of LinkedList">
+      <option name="closed" value="true" />
+      <created>1746766359681</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1746766359681</updated>
+    </task>
+    <task id="LOCAL-00010" summary="reformat the structure of String">
+      <option name="closed" value="true" />
+      <created>1746769694353</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1746769694353</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="categories the question and implement the remaining stack problem and revisied full stack" />
@@ -420,7 +372,16 @@
     <MESSAGE value="Array ,linked list and Heap implementation" />
     <MESSAGE value="dp and tree  graph and linked list question are add of take you forward solved" />
     <MESSAGE value="arrays" />
-    <option name="LAST_COMMIT_MESSAGE" value="arrays" />
+    <MESSAGE value="graph qustion" />
+    <MESSAGE value="updating the approach" />
+    <MESSAGE value="Revision done on Fixed sliding window" />
+    <MESSAGE value="use utility methods" />
+    <MESSAGE value="reformat the structure" />
+    <MESSAGE value="reformat the structure of LinkedList" />
+    <MESSAGE value="reformat the structure of String" />
+    <MESSAGE value="done question on String and merge interval" />
+    <MESSAGE value="add greedyUtility" />
+    <option name="LAST_COMMIT_MESSAGE" value="add greedyUtility" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -433,6 +394,24 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/Two_Sum.java</url>
+          <line>31</line>
+          <properties class="StandardProblemDSA.I_ARRAY.I_TRAVERSAL.Two_Sum" method="main">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="560" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/X_GRAPH/GraphUtility.java</url>
+          <line>481</line>
+          <properties class="StandardProblemDSA.X_GRAPH.GraphUtility" method="addEdge">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="573" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/V_QUEUE/III_QUEUE_WITH_TWO_STACKS/ReverseQueueUsingTwoStacks.java</url>
@@ -521,7 +500,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/XVI_TRIE/Trie.java</url>
-          <line>87</line>
+          <line>95</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -621,23 +600,169 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/VII_BACKTRACKING/Combination.java</url>
-          <line>33</line>
+          <line>34</line>
           <option name="timeStamp" value="57" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/VII_BACKTRACKING/Combination.java</url>
-          <line>35</line>
+          <line>36</line>
           <option name="timeStamp" value="58" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/VII_BACKTRACKING/Combination.java</url>
-          <line>38</line>
+          <line>39</line>
           <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/IV_MONOTONIC_NEXT_PREVIOUS_ELEMENT_PATTERN/LEFT_TO_RIGHT/PerviousSmallerElement.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="530" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/IV_MONOTONIC_NEXT_PREVIOUS_ELEMENT_PATTERN/LEFT_TO_RIGHT/PerviousSmallerElement.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="531" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/IV_MONOTONIC_NEXT_PREVIOUS_ELEMENT_PATTERN/RIGHT_TO_LEFT/NextSmallerElement.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="532" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/IV_MONOTONIC_NEXT_PREVIOUS_ELEMENT_PATTERN/RIGHT_TO_LEFT/NextSmallerElement.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="533" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/IV_MONOTONIC_NEXT_PREVIOUS_ELEMENT_PATTERN/RIGHT_TO_LEFT/NextSmallerElement.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="534" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/VARIABLE_SIZE_WINDOW_PATTERN/MaximumSubarrayEasy.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="538" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/VARIABLE_SIZE_WINDOW_PATTERN/MaximumSubarrayEasy.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="539" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/VARIABLE_SIZE_WINDOW_PATTERN/MaximumSubarrayEasy.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="540" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/FIXED_SIZE_WINDOW_PATTERN/MaximumValueInEachSubarrayOfSizeK.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="545" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/FIXED_SIZE_WINDOW_PATTERN/MaximumValueInEachSubarrayOfSizeK.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="546" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/FIXED_SIZE_WINDOW_PATTERN/MaximumValueInEachSubarrayOfSizeK.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="547" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/FIXED_SIZE_WINDOW_PATTERN/MaximumValueInEachSubarrayOfSizeK.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="548" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/FIXED_SIZE_WINDOW_PATTERN/MaximumValueInEachSubarrayOfSizeK.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="549" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/FIXED_SIZE_WINDOW_PATTERN/IsPermutaionContainOrNot.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="552" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/FIXED_SIZE_WINDOW_PATTERN/IsPermutaionContainOrNot.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="553" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/FIXED_SIZE_WINDOW_PATTERN/IsPermutaionContainOrNot.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="554" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/FIXED_SIZE_WINDOW_PATTERN/MaximumProductSubArrayWithSizeK.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="555" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/VARIABLE_SIZE_WINDOW_PATTERN/KadansAlgorithmMaxSumWindowLengthh.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="557" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/VARIABLE_SIZE_WINDOW_PATTERN/KadansAlgorithmMaxSumWindowLengthh.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="558" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/CountTheNoOfElementGreaterThanItSelf.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="559" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/Two_Sum.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="562" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/Two_Sum.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="563" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/i_TRAVERSAL_BASIC_OPERATION/LinkedList.java</url>
+          <line>183</line>
+          <option name="timeStamp" value="566" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/i_TRAVERSAL_BASIC_OPERATION/LinkedList.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="567" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/iii_RECURSIVE_PATTERN/RecursiveReverseLL.java</url>
+          <line>8</line>
+          <option name="timeStamp" value="568" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/iii_RECURSIVE_PATTERN/RecursiveReverseLL.java</url>
+          <line>6</line>
+          <option name="timeStamp" value="569" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/MinimumNoOfPlatformsRequiredRailway.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="570" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/JobSequenceProblem.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="571" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_MANIPULATION_PATTERNS/ArrayRotatedByKTimes.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="572" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
+        <PinnedItemInfo parentTag="Programming_constructs.Tree.TreeNode" memberName="left" />
         <PinnedItemInfo parentTag="StandardProblemDSA.XVI_TRIE.TrieNode" memberName="links" />
       </pinned-members>
     </pin-to-top-manager>

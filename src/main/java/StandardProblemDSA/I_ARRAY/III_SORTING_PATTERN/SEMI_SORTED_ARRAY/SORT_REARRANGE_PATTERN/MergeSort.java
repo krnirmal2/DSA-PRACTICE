@@ -1,7 +1,6 @@
 package StandardProblemDSA.I_ARRAY.III_SORTING_PATTERN.SEMI_SORTED_ARRAY.SORT_REARRANGE_PATTERN;
 
 import StandardProblemDSA.Utility;
-
 import java.util.Arrays;
 
 public class MergeSort {
@@ -74,5 +73,4 @@ public class MergeSort {
     mergeSort(arr, 0, arr.length - 1);
     System.out.println("Sorted Array: " + Arrays.toString(arr));
   }
-
 }

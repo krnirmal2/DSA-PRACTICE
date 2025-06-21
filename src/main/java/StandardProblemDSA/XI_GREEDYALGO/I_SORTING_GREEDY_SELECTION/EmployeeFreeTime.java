@@ -27,34 +27,20 @@ public class EmployeeFreeTime {
   */
   public List<MergeInterval> employeeFreeTime(List<List<MergeInterval>> schedule) {
     List<MergeInterval> allIntervals = new ArrayList<>();
-    // Combine all intervals from each employee.
+    // Step1 : Combine all intervals from each employee.
     for (List<MergeInterval> employee : schedule) {
       allIntervals.addAll(employee);
     }
-    // Sort intervals by start time.
+    // Step2 : Sort intervals by start time.
     GreedyAlgoUtil.sortByStartTimeList(allIntervals);
 
-    // Merge overlapping intervals.
-    List<MergeInterval> merged = new ArrayList<>();
-    MergeInterval current = allIntervals.get(0);
-    for (int i = 1; i < allIntervals.size(); i++) {
-      MergeInterval next = allIntervals.get(i);
-      if (current.end >= next.start) {
-        current.end = Math.max(current.end, next.end);
-      } else {
-        merged.add(current);
-        current = next;
-      }
-    }
-    merged.add(current);
+    // step 3:  Merge overlapping intervals.
+    List<MergeInterval> merged = GreedyAlgoUtil.getMergeIntervals(allIntervals);
 
-    // Find gaps between merged intervals (these are free times).
-    List<MergeInterval> freeTimes = new ArrayList<>();
-    for (int i = 1; i < merged.size(); i++) {
-      freeTimes.add(new MergeInterval(merged.get(i - 1).end, merged.get(i).start));
-    }
-    return freeTimes;
+    // Step 4: Find gaps between merged intervals (these are free times).
+    return GreedyAlgoUtil.getFreeTimeAfterMerged(merged);
   }
+
   /* Complexity:
 
       Time: O(n log n) due to sorting

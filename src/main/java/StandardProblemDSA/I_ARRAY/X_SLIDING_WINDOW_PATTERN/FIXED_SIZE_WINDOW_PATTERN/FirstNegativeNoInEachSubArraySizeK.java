@@ -54,7 +54,7 @@ public class FirstNegativeNoInEachSubArraySizeK {
         } else {
           result.add(0); // No negative in this window
         }
-        //CASE 3: SHRINK THE WINDOW OR SLIDE THE WINDOW
+        // CASE 3: SHRINK THE WINDOW OR SLIDE THE WINDOW
         // b. Before sliding the window, remove the outgoing element from queue if needed
         if (!negativesQueue.isEmpty() && negativesQueue.peek() == Arr[i]) {
           negativesQueue.poll();
