@@ -33,7 +33,6 @@ public class Utility {
       if (element == A[i]) {
         return true;
       }
-      ;
     }
     return false;
   }

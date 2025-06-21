@@ -5,17 +5,21 @@ import java.util.Scanner;
 
 public class ArrayRotatedByKTimes {
 
-  public static int[] solve(int[] A, int B) {
+  public static int[] solve(int[] A, int k) {
     // first k element reverse
     // last n-k element and reverse
     // the full array  reverse
     int n = A.length;
-    for (int i = n - B, j = n - 1; i < j; i++, j--) {
+
+    // first k element means 0 to n-k-1
+    for (int i = 0, j = n - k - 1; i < j; i++, j--) {
       Utility.swap(A, i, j);
     }
-    for (int i = 0, j = n - B - 1; i < j; i++, j--) {
+    // last n-k element means n-k-1 to n-1
+    for (int i = n - k, j = n - 1; i < j; i++, j--) {
       Utility.swap(A, i, j);
     }
+    // full array means from 0 to n-1
     for (int i = 0, j = n - 1; i < j; i++, j--) {
       Utility.swap(A, i, j);
     }
@@ -42,32 +46,3 @@ public class ArrayRotatedByKTimes {
     }
   }
 }
-
-// public class Main {
-//    public static void reverse(int[] A, int start, int end) {
-//        int i, j;
-//        for (i = start, j = end; i < j; i++, j--) {
-//            int temp = A[i];
-//            A[i] = A[j];
-//            A[j] = temp;
-//        }
-//    }
-//    public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        int n = sc.nextInt();
-//        int[] A = new int[n];
-//        for (int i = 0; i < n; i++) {
-//            A[i] = sc.nextInt();
-//        }
-//        int B = sc.nextInt() % n;
-//        reverse(A, 0, n - 1);
-//        reverse(A, 0, B - 1);
-//        reverse(A, B, n - 1);
-//
-//        for (int i = 0; i < n; i++) {
-//            System.out.print(A[i] + " ");
-//        }
-//        System.out.println("");
-//
-//    }
-// }

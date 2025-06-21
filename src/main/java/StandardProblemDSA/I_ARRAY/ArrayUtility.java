@@ -1,8 +1,6 @@
 package StandardProblemDSA.I_ARRAY;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class ArrayUtility {
 
@@ -17,7 +15,119 @@ public class ArrayUtility {
     }
     System.out.println();
   }
+  public static void print2DArray(int[][] arr) {
+    for (int i = 0; i < arr.length; i++) {
+      for (int j = 0; j < arr[i].length; j++) {
+        System.out.println("arr[" + i + "][" + j + "] = " + arr[i][j]);
+      }
+    }
+  }
+  public static void print3DArray(int[][][] arr) {
+    for (int i = 0; i < arr.length; i++) {
+      for (int j = 0; j < arr[i].length; j++) {
+        for (int k = 0; k < arr[i][j].length; k++) {
+          System.out.println("arr[" + i + "][" + j + "][" + k + "] = " + arr[i][j][k]);
+        }
+      }
+    }
+  }
+  public static void create2Darray(int [][] arr){
+     int count =1;
+    for (int i = 0; i < arr.length; i++) {
+      for (int j = 0; j < arr[i].length; j++) {
+     arr[i][j] = count++;
+      }
+    }
+  }
+  public static void analyzeTestCases(Scanner scanner) {
+    int totalTestCases = scanner.nextInt();
+    int[][] arrayMain = new int[totalTestCases][];
 
+    for (int i = 0; i < totalTestCases; i++) {
+      int eachTestCaseValues = scanner.nextInt();
+      arrayMain[i] = new int[eachTestCaseValues];
+      for (int j = 0; j < eachTestCaseValues; j++) {
+        arrayMain[i][j] = scanner.nextInt();
+      }
+    }
+
+    for (int i = 0; i < arrayMain.length; i++) {
+      int evenCount = 0, oddCount = 0;
+
+      System.out.println("TestCase " + i + " with " + arrayMain[i].length + " values:");
+      for (int value : arrayMain[i]) {
+        System.out.print(value + " ");
+        if (value % 2 == 0)
+          evenCount++;
+        else
+          oddCount++;
+      }
+      System.out.println();
+      System.out.println("Total Even numbers: " + evenCount + ", Total Odd numbers: " + oddCount);
+    }
+    }
+
+  // 1. Put Frequency or First Occurrence in HashMap
+  public static Map<Integer, Integer> putFrequencyOrIndex(int[] a) {
+    Map<Integer, Integer> mp = new HashMap<>();
+    for (int i = 0; i < a.length; i++) {
+      if (mp.containsKey(a[i])) {
+        mp.put(a[i], mp.get(a[i]) + 1);
+      } else {
+        mp.put(a[i], i); // store index of first occurrence
+      }
+    }
+    return mp;
+  }
+  // 3. Traverse a HashMap and print key-value pairs
+  public static void traverseMap(Map<Integer, Integer> map) {
+    for (int key : map.keySet()) {
+      System.out.println("Key = " + key + ", Value = " + map.get(key));
+    }
+  }
+
+  // 4. Copy original array A into a padded array starting from (1,1)
+  public static int[][] copyToPaddedArray(int[][] A) {
+    int[][] paddingArray = new int[A.length + 1][A[0].length + 1];
+    for (int i = 1; i < paddingArray.length; i++) {
+      for (int j = 1; j < paddingArray[0].length; j++) {
+        paddingArray[i][j] = A[i - 1][j - 1];
+      }
+    }
+    return paddingArray;
+  }
+  // 5. Padding an array with zeros (first row and first column)
+  public static void initializePadding2D(int[][] paddingArray) {
+    for (int i = 0; i < paddingArray.length; i++) {
+      paddingArray[i][0] = 0;
+    }
+    for (int j = 0; j < paddingArray[0].length; j++) {
+      paddingArray[0][j] = 0;
+    }
+  }
+  // 6. Generate Prefix Sum Matrix
+  public static int[][] generatePrefix2DSum(int[][] A) {
+    int rows = A.length;
+    int cols = A[0].length;
+    int[][] prefix = new int[rows][cols];
+
+    prefix[0][0] = A[0][0];
+    for (int j = 1; j < cols; j++) {
+      prefix[0][j] = prefix[0][j - 1] + A[0][j];
+    }
+
+    for (int i = 1; i < rows; i++) {
+      prefix[i][0] = prefix[i - 1][0] + A[i][0];
+    }
+
+    for (int i = 1; i < rows; i++) {
+      for (int j = 1; j < cols; j++) {
+        prefix[i][j] = prefix[i - 1][j] + prefix[i][j - 1] + A[i][j] - prefix[i - 1][j - 1];
+      }
+    }
+
+    return prefix;
+  }
   /**
    * Reverses the given array in place.
    *

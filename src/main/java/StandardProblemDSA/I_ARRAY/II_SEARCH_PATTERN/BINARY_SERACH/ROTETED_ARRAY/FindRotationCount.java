@@ -2,7 +2,10 @@ package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.ROTETED_ARRAY
 
 public class FindRotationCount {
   public static int findMin(int[] a) {
-
+  /*  Find the Rotation Count in a Rotated Sorted Array (No Duplicates)
+    You're given a sorted array that has been rotated at some pivot.
+    The goal is to find the index of the minimum element, which also equals the number of times the
+    array has been rotated.*/
     // we can find theis using order of n but use binary serch
     int high = a.length - 1;
     int low = 0;
@@ -15,7 +18,7 @@ public class FindRotationCount {
     // and we will came to add the end where low and mid and high will be point same pinoint
     // and low pointer will give the lowest element
     while (low < high) {
-      // The current subarray is already sorted,
+      // Case 1: Array is already sorted
       // the minimum is at the low index
       if (a[low] < a[high]) {
         return low;
@@ -26,10 +29,11 @@ public class FindRotationCount {
       mid = low + (high - low) / 2;
       // if mid element is greateer than next means mid+1 is the smallest so we just return that
       // element
-      // index
+      // Case 2: Check if mid+1 is the smallest
       if (mid < high && a[mid] > a[mid + 1]) {
         return mid + 1;
       }
+      // Case 3: Check if mid is the smallest
       // IF mid element is smaller tthan previous element than mid is the smallest
       if (mid > low && a[mid] < a[mid - 1]) {
         return mid;
@@ -38,6 +42,7 @@ public class FindRotationCount {
       // The right half is not sorted.search in right half So
       // the minimum element must be in the
       // right hal
+      // Case 4: Decide to move left or right
       if (a[mid] > a[high]) {
         low = mid + 1;
       } // The right half is sorted. Note that in
@@ -51,7 +56,11 @@ public class FindRotationCount {
     // return at the low
     return low;
   }
-
+  /*| Metric           | Value    |
+  | ---------------- | -------- |
+  | Time Complexity  | O(log n) |
+  | Space Complexity | O(1)     |
+  */
   public static void main(String[] args) {
     int[] arr = {5, 6, 1, 2, 3, 4};
     System.out.println(findMin(arr));

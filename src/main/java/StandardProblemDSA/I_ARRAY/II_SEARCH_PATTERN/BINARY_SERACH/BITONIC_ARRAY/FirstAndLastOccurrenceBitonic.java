@@ -1,9 +1,11 @@
 package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.BITONIC_ARRAY;
 
+import StandardProblemDSA.Utility;
+
 public class FirstAndLastOccurrenceBitonic {
 
   private static int searchBitonic(int[] bitonicArr, int target) {
-    int peakIndex = peakElement(bitonicArr);
+    int peakIndex = Utility. peakElement(bitonicArr);
 
     // Find first occurrence in the left increasing part
     int firstOccurrence = findFirstOccurrence(0, peakIndex, bitonicArr, target);
@@ -52,18 +54,6 @@ public class FirstAndLastOccurrenceBitonic {
     return result;
   }
 
-  private static int peakElement(int[] bitonicArr) {
-    int low = 0, high = bitonicArr.length - 1;
-    while (low < high) {
-      int mid = low + (high - low) / 2;
-      if (bitonicArr[mid] > bitonicArr[mid + 1]) {
-        high = mid;
-      } else {
-        low = mid + 1;
-      }
-    }
-    return low;
-  }
 
   public static void main(String[] args) {
     int[] bitonicArr = {1, 3, 8, 12, 14, 11, 5, 5, 2};

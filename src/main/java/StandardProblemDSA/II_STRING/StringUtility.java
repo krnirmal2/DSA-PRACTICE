@@ -11,7 +11,7 @@ public class StringUtility {
     int prefixSuffixLength = 0; // Length of the previous longest prefix suffix
     int currentIndex = 1; // Start comparing from index 1 (LPS of index 0 is always 0)
 
-    // build the lps till pattern length end
+// build the lps till pattern length end
     while (currentIndex < patternLength) {
       // if pattern at privious and current is equal then store the longest prefix which is also
       // suffix

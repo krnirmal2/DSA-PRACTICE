@@ -26,6 +26,7 @@ public class InversionCount {
               Combine: While merging, count how many times an element from the right half
                moves before elements from the left half.*/
   public static int mergeSortAndCount(int[] arr, int left, int right) {
+    //Head and tail both recursion is present  Recursion as statment call after recursion is being done
     int count = 0;
     if (left < right) {
       int mid = (left + right) / 2;

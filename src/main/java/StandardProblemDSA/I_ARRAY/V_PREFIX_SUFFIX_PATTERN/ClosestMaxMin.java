@@ -12,16 +12,16 @@ public class ClosestMaxMin {
     if (min == max) return 1; // If all elements are the same, the answer is 1
     int ans = n;
     // Step 2: Store the last seen positions of min and max
-    int[] prefixMin = new int[n];
-    int[] prefixMax = new int[n];
-     Utility.prefixMinMaxWithMinusOneIntialisationINDEX(A,min,max,prefixMin,prefixMax);
+    int[] prefixMinIndex = new int[n];//[ 0, 0,   0,  3,  3, 3, 6, 6, 6 ]
+    int[] prefixMaxIndex = new int[n];//[-1, -1, -1, -1, -1, 5, 5, 5, 5 ]
+     Utility.prefixMinMaxWithMinusOneIntialisationINDEX(A,min,max,prefixMinIndex,prefixMaxIndex);
     // Step 3: Find the smallest subarray containing both min and max
     for (int i = 0; i < n; i++) {
-      if (A[i] == min && prefixMax[i] != -1) {
-        ans = Math.min(ans, i - prefixMax[i] + 1);
+      if (A[i] == min && prefixMaxIndex[i] != -1) {//If current is min, how far was last max → compute window
+        ans = Math.min(ans, i - prefixMaxIndex[i] + 1);
       }
-      if (A[i] == max && prefixMin[i] != -1) {
-        ans = Math.min(ans, i - prefixMin[i] + 1);
+      if (A[i] == max && prefixMinIndex[i] != -1) {//If current is max, how far was last min → compute window
+        ans = Math.min(ans, i - prefixMinIndex[i] + 1);
       }
     }
 

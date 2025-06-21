@@ -1,4 +1,4 @@
-package StandardProblemDSA.II_STRING;
+package StandardProblemDSA.II_STRING.III_STRING_MANIPULATION_PATTERN;
 
 public class reverseString {
 

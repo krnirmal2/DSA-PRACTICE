@@ -1,6 +1,14 @@
 package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.ROTETED_ARRAY;
 
 public class FindInRotatedArrayWithoutDuplication {
+  /*Search in a Rotated Sorted Array (No Duplicates)
+
+You are given a sorted array that has been rotated at some unknown pivot.
+ Your task is to search for a target element in this array and return its index.
+ If it doesn’t exist, return -1.*/
+//  All elements are distinct.
+//  Array was originally sorted in ascending order, then rotated.
+//  Time complexity must be better than O(n) (i.e., O(log n) using binary search).
   public static int search(int[] a, int target) {
 
     int high = a.length;
@@ -13,9 +21,9 @@ public class FindInRotatedArrayWithoutDuplication {
       if (a[mid] == target) {
         return mid;
       }
-      // else if don't find
+      //Check which part is sorted and serach on that part
       if (a[low] < a[mid]) {
-        // serach in the left sorted array
+        //  left sorted array serach in this paret
         if (a[low] < target && target < a[mid]) {
           high = mid - 1; // reduce search space ; // Target is in the left half
         } else {
@@ -23,7 +31,7 @@ public class FindInRotatedArrayWithoutDuplication {
           low = mid + 1; // Target is in the right half
         }
       } else {
-        // search in the right srted array
+        //  right srted array search in the
         if (a[mid] < target && target < a[high]) {
           low = mid + 1; // Target is in the right half
         } else { // if the element not in the above range than we will shift the search to next

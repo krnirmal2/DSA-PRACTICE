@@ -1,9 +1,10 @@
 package StandardProblemDSA.I_ARRAY.III_SORTING_PATTERN.SEMI_SORTED_ARRAY.SORT_REARRANGE_PATTERN;
 
+import StandardProblemDSA.I_ARRAY.ArrayUtility;
 import StandardProblemDSA.Utility;
 
 public class ThreeColorSorting {
-  public static int[] sortColors(int[] A) {// todo , remain two pointer
+ /* public static int[] sortColors(int[] A) {
     int count = 0;
     int index = 0;
     int[] result = new int[A.length];
@@ -27,9 +28,33 @@ public class ThreeColorSorting {
     }
     return result;
   }
+*/  // todo , remain two pointer
+ public static int[] sortColors(int[] A) {
+   int low = 0, mid = 0, high = A.length - 1;
+
+   // steps 1. while mid doesn't reached to high
+     // we will check
+     // if element at mid is equal to zero , swap low with mid and increase both
+     // if element at mid is equal to one , just increase mid
+     // if element at mid is 2 , swap mid with high and just decrease high
+   while (mid <= high) {
+     if (A[mid] == 0) {
+       ArrayUtility.swap(A, low, mid);
+       low++;
+       mid++;
+     } else if (A[mid] == 1) {
+       mid++;
+     } else { // A[mid] == 2
+       ArrayUtility.swap(A, mid, high);
+       high--;
+     }
+   }
+   return A;
+ }
 
   public static void main(String[] args) {
     int[] A = Utility.onlyThreeValueArray();
+    A= new int[]{0, 1, 1, 0, 0, 2, 1, 0};
     A = sortColors(A);
     for (int i = 0; i < A.length; i++) {
       System.out.print(A[i]);

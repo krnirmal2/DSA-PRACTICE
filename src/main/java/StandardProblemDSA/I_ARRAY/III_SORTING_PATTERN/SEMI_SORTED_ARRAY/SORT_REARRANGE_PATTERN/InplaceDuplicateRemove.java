@@ -53,6 +53,8 @@ public class InplaceDuplicateRemove {
             seen.add(num);
             nums[index++] = num; // overwrite in place
           }
+          // else it is skipping the duplicate element on next unique
+          // element as it is overwrite
         }
         return index;
       }

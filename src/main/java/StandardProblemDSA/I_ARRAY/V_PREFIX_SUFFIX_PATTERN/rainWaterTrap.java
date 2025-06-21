@@ -14,8 +14,10 @@ public class rainWaterTrap {
     //            ArrayList<Integer> right_max = new
     // ArrayList<Integer>(Collections.nCopies(A.size(),0));
 
-    int[] left_max = new int[A.size()];
-    int[] right_max = new int[A.size()];
+
+
+    int[] left_max = new int[A.size()];// [ 4, 4, 5, 7, 7, 7, 7, 7, 8, 8, 8 ]
+    int[] right_max = new int[A.size()];//[ 8, 8, 8, 8, 8, 8, 8, 8, 8, 3, 3 ]
     Utility.prefixMaxValues(A, left_max);
     Utility.suffixMaxValues(A, right_max, n);
 

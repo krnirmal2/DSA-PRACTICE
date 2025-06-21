@@ -13,10 +13,10 @@ public class Rectangle {
 
       for (j = 1; j <= m; j++) {
 
-        System.out.println("*");
+        System.out.print("*");
       }
 
-      System.out.print("n");
+      System.out.println();
     }
   }
 
@@ -34,7 +34,7 @@ public class Rectangle {
 
     columns = sc.nextInt();
 
-    System.out.print("n");
+    System.out.println();
 
     solid_rectangle(rows, columns);
   }

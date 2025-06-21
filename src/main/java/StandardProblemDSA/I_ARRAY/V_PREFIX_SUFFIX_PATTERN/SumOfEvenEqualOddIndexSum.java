@@ -5,23 +5,15 @@ import StandardProblemDSA.Utility;
 public class SumOfEvenEqualOddIndexSum {
 
   /*Given an array A[], count the number of ways we can remove one element such that the sum of odd-indexed elements becomes equal to the sum of even-indexed elements in the remaining array.
-
       Approach Using Prefix & Suffix Sums
       We can solve this problem efficiently in O(N) using the prefix sum technique.
-
       Steps:
       Compute prefix sums for even and odd indices:
-
       prefixEven[i] → sum of even-indexed elements up to index i
-
       prefixOdd[i] → sum of odd-indexed elements up to index i
-
       Use suffix logic to check the condition after removing A[i]:
-
       When removing A[i], the remaining even and odd indexed sums will be adjusted.
-
       After removal, we need:
-
       newEvenSum
   =
       newOddSum

@@ -8,10 +8,13 @@ public class AGPairCount {
     int count = 0, result = 0;
     int[] psg = new int[sizeS];
     int modulo = Utility.getModulo();
+    // prefix for character G if find then increament the prefix else kept as it is
+    //psg=[ 0, 0, 0, 1, 1, 2 ] for "ABCGAG"
     for (int i = 1; i < sizeS; i++) {
-      if (A.charAt(i) == 'G') psg[i] = psg[i - 1] + 1;
+      if (A.charAt(i) == 'G') {psg[i] = psg[i - 1] + 1;}
       else psg[i] = psg[i - 1];
     }
+    // suffix for character A if find then increament from the back and add the result
     for (int j = 0; j < sizeS; j++) {
       if (A.charAt(j) == 'A') {
         count = psg[sizeS - 1] - psg[j];
