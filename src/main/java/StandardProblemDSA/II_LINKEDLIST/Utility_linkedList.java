@@ -3,6 +3,20 @@ package StandardProblemDSA.II_LINKEDLIST;
 import StandardProblemDSA.II_LINKEDLIST.i_TRAVERSAL_BASIC_OPERATION.LinkedList;
 
 public class Utility_linkedList {
+  public static ListNode buildListNode(int[] arr) {
+    if (arr.length == 0) return null;
+
+    ListNode head = new ListNode(arr[0]);
+    ListNode current = head;
+
+    for (int i = 1; i < arr.length; i++) {
+      current.next = new ListNode(arr[i]);
+      current = current.next;
+    }
+
+    return head;
+  }
+
   // Reverse a Linked List (Iterative)
   public static ListNode reverseList(ListNode head) {
     ListNode prev = null;
@@ -249,6 +263,17 @@ public class Utility_linkedList {
     return count;
   }
 
+  public static int lengthOfListNode(ListNode head) {
+    if (head == null) {
+      return 0;
+    }
+    int count = 0;
+    while (head != null) {
+      count++;
+      head = head.next;
+    }
+    return count;
+  }
   // Recursive Method
   public static ListNode reverseRecursive(ListNode head) {
     // Base case: If list is empty or has only one node
@@ -418,4 +443,24 @@ public class Utility_linkedList {
     // Return the Kth node
     return temp;
   }
+
+  public static ListNode splitLLWithHeadNode(ListNode head) {
+    ListNode fast = head;
+    ListNode slow = head;
+
+    // Move fast pointer two steps and slow pointer
+    // one step until fast reaches the end
+    while (fast != null && fast.next != null) {
+      fast = fast.next.next;
+      if (fast != null) {
+        slow = slow.next;
+      }
+    }
+
+    // Split the list into two halves
+    ListNode temp = slow.next;
+    slow.next = null;
+    return temp;
+  }
+
 }

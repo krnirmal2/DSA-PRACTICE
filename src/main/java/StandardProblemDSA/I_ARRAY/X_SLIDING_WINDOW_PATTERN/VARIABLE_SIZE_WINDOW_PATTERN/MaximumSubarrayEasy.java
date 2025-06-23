@@ -19,16 +19,18 @@ public class MaximumSubarrayEasy {
   public static int maxSubarray(int B, ArrayList<Integer> C) {
     int i = 0, j = 0, sum = 0, max = 0;
     while (j < C.size()) {
+      //Step 1:Expanding the window till we not
       if (sum + C.get(j) <= B) {
         // safe to include C[j]
         sum += C.get(j);
         max = Math.max(max, sum);
         j++;
       } else if (i < j) {
-        // shrink from left until it fits
+        //Step 2: shrink from left until it fits
         sum -= C.get(i);
         i++;
       } else {
+        //Step 3: if condition satisfy
         // i == j and C[j] alone > B: skip this element
         i++;
         j++;

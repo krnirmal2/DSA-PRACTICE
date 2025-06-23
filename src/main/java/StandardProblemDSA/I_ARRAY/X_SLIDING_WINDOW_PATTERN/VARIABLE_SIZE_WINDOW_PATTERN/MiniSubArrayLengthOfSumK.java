@@ -11,7 +11,7 @@ public class MiniSubArrayLengthOfSumK {
     int sum = 0;
     int left = 0;
     int right = 0;
-
+    int first =0, second =0;
     while (left < arr.length) {
       if (sum >= target) {
         // store the current minimal length
@@ -35,7 +35,7 @@ public class MiniSubArrayLengthOfSumK {
 
   public static void main(String[] args) {
     int[] arr = {2, 3, 1, 2, 4, 3};
-    int target = 1;
+    int target = 6;
     System.out.println(minSubArrayLen(arr, target));
   }
 }
