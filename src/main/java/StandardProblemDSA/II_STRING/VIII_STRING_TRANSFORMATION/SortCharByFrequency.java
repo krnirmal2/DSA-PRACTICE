@@ -53,6 +53,8 @@ public class SortCharByFrequency {
     }
     StringBuilder result = new StringBuilder();
     for (Map.Entry<Character, Integer> ele : maxHeap) {
+      // create the string by what no.  of character was present as key  and sort
+      // raaeaedere
       for (int i = 0; i < ele.getValue(); i++) {
         result.append(ele.getKey());
       }

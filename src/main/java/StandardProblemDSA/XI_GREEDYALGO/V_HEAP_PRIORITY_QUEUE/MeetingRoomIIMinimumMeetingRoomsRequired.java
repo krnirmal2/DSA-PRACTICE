@@ -12,7 +12,6 @@ public class MeetingRoomIIMinimumMeetingRoomsRequired {
       Brute Force Approach
       Idea:
       Check every possible overlap by comparing each interval with all others.
-
               Drawbacks:
       O(n²) time complexity.
 

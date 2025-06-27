@@ -71,6 +71,52 @@ Awesome! Here's a **curated list of Sliding Window problems**, organized from **
 - Then move on to **5 to 9** to solidify variable window logic.
 - Finally tackle **10 to 15** to prepare for **real FAANG-level** challenges.
 
----
-
-Would you like me to create a **progress tracker or checklist**, or start walking you through **each problem with step-by-step solutions**?
+    
+    
+    Variable Sliding Window
+    ├── 1. Longest / Maximum Length Problems
+    │   ├── Longest Substring Without Repeating Characters
+    │   ├── Longest Substring With At Most K Distinct Characters
+    │   ├── Replace K characters to get longest same-char substring
+    │   ├── Fruits Into Baskets (at most 2 distinct)
+    │   └── 🔁 Template:
+    │       for (right in range):
+    │           update window
+    │           while (window invalid):
+    │               shrink from left
+    │           update max length
+    │
+    ├── 2. Count Subarrays with Constraints
+    │   ├── Subarrays with Exactly K distinct elements
+    │   ├── Subarrays with Exactly K odd numbers
+    │   ├── Substrings with at least one a, b, c
+    │   ├── 🔁 Trick: count(atMostK) - count(atMostK-1)
+    │   └── 🔁 Template:
+    │       int countAtMostK(int K)
+    │
+    ├── 3. Min/Max Length with Sum Constraints
+    │   ├── Min length subarray with sum ≥ K
+    │   ├── Max subarray sum ≤ K
+    │   └── 🔁 Template:
+    │       expand right to include nums[right]
+    │       while (sum > K): shrink from left
+    │       update minLength if valid
+    │
+    ├── 4. Binary Array Specials
+    │   ├── Max consecutive 1s after flipping at most 1 zero
+    │   ├── Maximize 0s by flipping one subarray (Kadane's trick)
+    │   └── 🔁 Binary count and sum flipping
+    │
+    ├── 5. Edge Selection / Dual-End
+    │   ├── cardPoints: pick k cards from ends
+    │   └── 🔁 Trick:
+    │       maxSum = total - minSum(subarray of size n-k)
+    │
+    ├── 6. Minimum Window Problems
+    │   ├── Minimum Window Substring (all of t in s)
+    │   └── 🔁 Two hash maps: needCount vs. windowCount
+    │       while (valid): shrink from left
+    │
+    ├── 7. Partitioning
+    │   ├── Partition array into k subarrays with equal sum
+    │   └── Often solved with backtracking, not window

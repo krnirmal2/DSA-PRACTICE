@@ -1,16 +1,16 @@
 package StandardProblemDSA.II_LINKEDLIST.i_TRAVERSAL_BASIC_OPERATION;
 
-import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
-
 import StandardProblemDSA.II_LINKEDLIST.Node;
 import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
+
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
 
 // Java program to implement
 // a Singly Linked List
 public class LinkedList {
 
   public Node head; // head of list with out value and with out next;
-
+  // **************INSERTION**************
   // Method to insert a new node
   public static LinkedList insert(LinkedList list, int data) {
     // Create a new node with given data
@@ -22,6 +22,7 @@ public class LinkedList {
     if (list.head == null) {
       Utility_linkedList.setNewNodeAsHead(list, new_node);
     } else {
+      // Add the node at last if not the first element
       Node temp = Utility_linkedList.traversedTillLastNode(list);
       // Insert the new_node at last node
       temp.next = new_node;
@@ -30,11 +31,33 @@ public class LinkedList {
     // Return the list by head
     return list;
   }
+  // **************INSERTION AFTER A KEY**************
 
-  // **************INSERTION**************
+  public static LinkedList insertAfterAkey(LinkedList list, int data,int previousData) {
+    // Create a new node with given data
+    Node new_node = Utility_linkedList.createNewNode(data);
+    new_node.next = null;
+    Node temp = list.head;
 
-  // **************TRAVERSAL**************
+    // If the Linked List is empty,
+    // then make the new node as head
+    if (list.head == null) {
+      Utility_linkedList.setNewNodeAsHead(list, new_node);
+    } else {
+      while(temp !=null && temp.data !=previousData) {
+        // Insert the new_node at last node
+        temp = temp.next;
+      }
+       new_node.next = temp.next;
+       temp.next = new_node;
+    }
 
+    // Return the list by head
+    return list;
+  }
+
+
+  // **************DELETION A KEY**************
   // Method to delete a node in the LinkedList by KEY
   public static LinkedList deleteByKey(LinkedList list, int key) {
     // Store head node
@@ -164,7 +187,6 @@ public class LinkedList {
     return list;
   }
 
-  // **************DELETION AT A POSITION**************
 
   // method to create a Singly linked list with n nodes
   public static void main(String[] args) {

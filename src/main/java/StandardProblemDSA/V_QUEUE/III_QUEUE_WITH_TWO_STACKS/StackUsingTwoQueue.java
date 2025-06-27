@@ -1,6 +1,7 @@
 package StandardProblemDSA.V_QUEUE.III_QUEUE_WITH_TWO_STACKS;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class StackUsingTwoQueue {}
 
@@ -15,7 +16,8 @@ Swap the names of q1 and q2
 Return the item stored in step 2.
 /* Java Program to implement a stacke */
 class Stack {
-  Queue<Integer> q1 = new LinkedList<>(), q2 = new LinkedList<>();
+  Queue<Integer> q1 = new LinkedList<>(),
+          q2 = new LinkedList<>();
 
   void remove() {
     if (q1.isEmpty()) return;

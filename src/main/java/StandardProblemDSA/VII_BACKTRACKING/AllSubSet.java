@@ -1,6 +1,8 @@
 package StandardProblemDSA.VII_BACKTRACKING;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class AllSubSet {
   /* 🧠 Concept Recap:
@@ -55,6 +57,9 @@ public class AllSubSet {
     }
 
     for (int i = start; i < nums.length; i++) {
+      // Skip duplicates
+      //https://leetcode.com/problems/subsets-ii/
+//      if (i > start && nums[i] == nums[i - 1]) continue;
       temp.add(nums[i]); // Choose the current element
       backtrack(result, temp, nums, r, i + 1); // Explore further
       temp.remove(temp.size() - 1); // Backtrack

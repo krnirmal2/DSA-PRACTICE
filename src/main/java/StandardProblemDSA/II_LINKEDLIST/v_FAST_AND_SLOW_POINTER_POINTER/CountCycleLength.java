@@ -17,6 +17,10 @@ public class CountCycleLength {
 
         if (slow == fast) {
           // Step 2: Calculate length of the cycle
+          // slow at the meeting point
+          // for calculating length , we can fix the meeting point
+          // and another pointer will traverse till again reach this meeting
+          // point gives us the length
           return countCycleLength(slow);
         }
       }
@@ -24,8 +28,10 @@ public class CountCycleLength {
     }
 
     private static int countCycleLength(ListNode meetingPoint) {
+
       int count = 1;
-      ListNode current = meetingPoint.next;
+      ListNode current = meetingPoint.next;// this will traverse and again reach and
+      // we will get count
       while (current != meetingPoint) {
         count++;
         current = current.next;

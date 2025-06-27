@@ -1,10 +1,10 @@
-package StandardProblemDSA.I_ARRAY.X_SLIDING_WINDOW_PATTERN.VARIABLE_SIZE_WINDOW_PATTERN;
+package StandardProblemDSA.I_ARRAY.X_SLIDING_WINDOW_PATTERN.VARIABLE_SIZE_WINDOW_PATTERN.CountSubarrayExactlyKConstraint;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class largestWindowForSumK {
+public class largestWindowForSumKWithIndex {
 
   public static ArrayList<Integer> solve(ArrayList<Integer> a, int k) {
     int size = a.size();
@@ -17,14 +17,16 @@ public class largestWindowForSumK {
 
     while (end < size) {
       sum += a.get(end);
-
+      //Expand window by right
       if (sum < k) {
         end++;
       } else if (sum == k) {
+        // if matched find the end and max window size
         maxWindow = Math.max(maxWindow, end - start + 1);
         end++;
 
       } else if (sum > k) {
+        // Shrinking window if sum>k
         while (sum > 0) {
           sum -= a.get(start);
           start++;

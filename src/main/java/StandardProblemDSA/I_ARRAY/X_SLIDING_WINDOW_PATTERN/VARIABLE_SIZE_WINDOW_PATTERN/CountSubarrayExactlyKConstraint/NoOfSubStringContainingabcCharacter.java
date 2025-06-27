@@ -1,7 +1,4 @@
-package StandardProblemDSA.I_ARRAY.X_SLIDING_WINDOW_PATTERN.VARIABLE_SIZE_WINDOW_PATTERN;
-
-import java.util.HashMap;
-import java.util.Map;
+package StandardProblemDSA.I_ARRAY.X_SLIDING_WINDOW_PATTERN.VARIABLE_SIZE_WINDOW_PATTERN.CountSubarrayExactlyKConstraint;
 
 public class NoOfSubStringContainingabcCharacter {
   /*Given a string s consisting only of characters a, b and c.
@@ -74,7 +71,7 @@ counts them all in constant time, which makes the solution O(n).*/
 
               // Shrink window from left
               char leftChar = s.charAt(left);
-              map[leftChar-'a']--;
+              map[leftChar-'a']--;//reduce frequency
               left++;
           }
 

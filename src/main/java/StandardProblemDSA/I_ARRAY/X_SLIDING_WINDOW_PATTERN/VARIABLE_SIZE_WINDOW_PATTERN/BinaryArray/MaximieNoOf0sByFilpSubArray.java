@@ -1,9 +1,10 @@
-package StandardProblemDSA.I_ARRAY.X_SLIDING_WINDOW_PATTERN.VARIABLE_SIZE_WINDOW_PATTERN;
+package StandardProblemDSA.I_ARRAY.X_SLIDING_WINDOW_PATTERN.VARIABLE_SIZE_WINDOW_PATTERN.BinaryArray;
 
 public class MaximieNoOf0sByFilpSubArray {
   /*
   Maximize number of 0s by flipping a subarray
-  Given a binary array, find the maximum number of zeros in an array with one flip of a subarray allowed. A flip operation switches all 0s to 1s and 1s to 0s.
+  Given a binary array, find the maximum number of zeros in an array with one flip of a subarray allowed.
+  A flip operation switches all 0s to 1s and 1s to 0s.
           Examples:
 
   Input :  arr[] = {0, 1, 0, 0, 1, 1, 0}

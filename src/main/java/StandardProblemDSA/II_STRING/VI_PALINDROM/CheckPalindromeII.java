@@ -6,40 +6,28 @@ public class CheckPalindromeII {
 
     Key Points About Palindromic Strings
     For a string to be rearranged into a palindrome:
-
     For even-length strings: All characters must have even counts
-
     For odd-length strings: Exactly one character can have an odd count (the middle character)
-
     Current Implementation Analysis
     The class contains three different approaches (two commented out) to solve this problem:
 
-            1. First Approach (Commented Out)
+   1. First Approach (Commented Out)
     Uses a HashMap to count character frequencies
-
     Checks if all characters are the same (mp.size() == 1)
-
     Incomplete implementation (missing the odd-length case check)
 
   2. Second Approach (solve method)
     Uses an integer array of size 26 (for English lowercase letters)
-
     Counts frequency of each character
-
     Allows at most one character with an odd count
-
     Returns 1 if palindrome possible, 0 otherwise
 
   3. Third Approach (Commented Out)
     Similar to the second approach but more concise
-
     Directly counts odd frequencies and rejects if more than one
-
     Improved Solution
     Here's a cleaner version combining the best aspects:
 
-    java
-            Copy
     public class CheckPalindromeII {*/
   public static int solve(String A) {
     int[] freq = new int[26]; // For lowercase English letters

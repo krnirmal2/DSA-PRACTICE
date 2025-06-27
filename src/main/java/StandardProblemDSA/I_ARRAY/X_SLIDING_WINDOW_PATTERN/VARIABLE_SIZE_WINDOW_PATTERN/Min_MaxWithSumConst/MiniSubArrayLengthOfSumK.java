@@ -1,4 +1,4 @@
-package StandardProblemDSA.I_ARRAY.X_SLIDING_WINDOW_PATTERN.VARIABLE_SIZE_WINDOW_PATTERN;
+package StandardProblemDSA.I_ARRAY.X_SLIDING_WINDOW_PATTERN.VARIABLE_SIZE_WINDOW_PATTERN.Min_MaxWithSumConst;
 
 public class MiniSubArrayLengthOfSumK {
   /* Given an array of positive integers and a positive integer,

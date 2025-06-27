@@ -1,8 +1,8 @@
 package StandardProblemDSA.II_LINKEDLIST.v_FAST_AND_SLOW_POINTER_POINTER;
 
-import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
-
 import StandardProblemDSA.II_LINKEDLIST.Node;
+
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
 
 public class LinkedListCycleRemoval {
 
@@ -31,20 +31,26 @@ public class LinkedListCycleRemoval {
 
     // Step 2: Find the start of the loop
     slow = head;
-    while (slow != fast) {
+    while (slow != fast) {// here fast is acting as meeting point to find the start point of the loop
       slow = slow.next;
       fast = fast.next;
     }
 
-    // Now `slow` is pointing to the start of the loop
+   /* Now `slow` is pointing to the start of the loop
+    1 → 2 → 3 → 4 → 5
+              ↑     ↓
+              ←←←←←←
+    1 → 2 → 3 → 4 → 5 → null
 
-    // Step 3: Remove the loop
+          */
+
+    // Step 3: Find Last Node in Cycle & Break the Loop
     Node loopNode = slow;
     while (fast.next != loopNode) {
-      fast = fast.next;
+      fast = fast.next;// it will reach the last node of the loop
     }
 
-    // Break the loop
+    // Break the loop just remove the link or set the next link of fast pointer
     fast.next = null;
   }
 
@@ -68,6 +74,7 @@ public class LinkedListCycleRemoval {
     if (loopNode != null) {
       temp.next = loopNode;
     }
+    //💡 Efficient (O(n) time, O(1) space).
   }
 
   public static void main(String[] args) {

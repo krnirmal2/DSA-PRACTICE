@@ -1,15 +1,17 @@
 package StandardProblemDSA.II_LINKEDLIST.ii_NSERTION_AND_DELETION_PATTERN;
 
-import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
-
 import StandardProblemDSA.II_LINKEDLIST.Node;
+
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
 
 public class DeleteWithoutHeadPointer {
   /*Approach
   Key Idea:
-  Since we don't have access to the head of the list, we cannot traverse the list to find the previous node. Instead, we "overwrite" the current node's data with the next node's data and then delete the next node.
+  Since we don't have access to the head of the list, we cannot traverse the list to find the previous node.
+  Instead, we "overwrite" the current node's data with the next node's data and then delete the next node.
   Constraints:
-  The node to be deleted cannot be the last node in the list because there is no way to update the previous node's reference to null.
+  The node to be deleted cannot be the last node in the list because there is no way to update
+   the previous node's reference to null.
   Steps:
   Copy the data of the next node into the current node.
   Update the current node's next pointer to skip the next node.
