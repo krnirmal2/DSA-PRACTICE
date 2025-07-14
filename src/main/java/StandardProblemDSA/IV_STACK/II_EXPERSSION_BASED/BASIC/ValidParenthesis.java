@@ -4,6 +4,25 @@ import java.util.Stack;
 
 public class ValidParenthesis {
   public static void main(String[] args) {
+    String[] testCases = {
+      "()", // ✅ true
+      "()[]{}", // ✅ true
+      "(]", // ❌ false
+      "([)]", // ❌ false
+      "{[]}", // ✅ true
+      "", // ✅ true (empty is valid)
+      "((()))", // ✅ true
+      "({[()]})", // ✅ true
+      "((())", // ❌ false
+      "((({{{[[[", // ❌ false
+      ")))", // ❌ false
+      "[({})](())", // ✅ true
+      "[({)}]", // ❌ false
+    };
+
+    for (String test : testCases) {
+      System.out.println("Input: " + test + " → " + isValid(test));
+    }
     int i = 0;
   }
 
@@ -16,7 +35,7 @@ public class ValidParenthesis {
   At the end, if the stack is empty, return true; otherwise, return false.
   ⏳ Time Complexity:
   O(n) → We traverse the string once, and stack operations are O(1).*/
-  public boolean isValid(String s) {
+  public static boolean isValid(String s) {
     Stack<Character> stack = new Stack<>();
     for (char c : s.toCharArray()) {
       if (c == '(' || c == '{' || c == '[') {

@@ -3,7 +3,7 @@ package StandardProblemDSA.VIII_TREE.I_TRAVERSAL_PATTERNS;
 import StandardProblemDSA.VIII_TREE.TreeNode;
 import java.util.Stack;
 
-class PostorderTraversal {
+class PostorderWithoutRecursion {
 
   /*(Left → Right → Root)
   🔹 Steps:
@@ -11,7 +11,7 @@ class PostorderTraversal {
   stack1 (process nodes like Preorder)
   stack2 (reverse order for Postorder)
   Pop from stack2 to print result.*/
-  public static void postorderTraversal(TreeNode root) {
+  public static void postOrderWithoutRecursion(TreeNode root) {
     if (root == null) return;
 
     Stack<TreeNode> stack1 = new Stack<>();
@@ -39,6 +39,6 @@ class PostorderTraversal {
     root.left.right = new TreeNode(5);
     root.right.right = new TreeNode(6);
 
-    postorderTraversal(root);
+    postOrderWithoutRecursion(root);
   }
 }

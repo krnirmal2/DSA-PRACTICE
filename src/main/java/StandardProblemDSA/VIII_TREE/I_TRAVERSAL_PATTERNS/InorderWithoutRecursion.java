@@ -42,7 +42,7 @@ public class InorderWithoutRecursion {
 } /*
   🔹 Dry Run
     Stack	Current Node	Output
-  [1]	2	-
+          [1]	2	-
           [1, 2]	4	-
           [1, 2, 4]	null	4
           [1, 2]	null	2

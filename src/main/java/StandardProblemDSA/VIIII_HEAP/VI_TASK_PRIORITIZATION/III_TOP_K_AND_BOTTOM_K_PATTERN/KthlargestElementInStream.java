@@ -1,5 +1,6 @@
 package StandardProblemDSA.VIIII_HEAP.VI_TASK_PRIORITIZATION.III_TOP_K_AND_BOTTOM_K_PATTERN;
 
+import StandardProblemDSA.VIIII_HEAP.HeapUtility;
 import java.util.PriorityQueue;
 
 public class KthlargestElementInStream {
@@ -32,19 +33,7 @@ public class KthlargestElementInStream {
     public KthLargestStream(int k, int[] initial) {
       this.k = k;
       minHeap = new PriorityQueue<>(k);
-      for (int num : initial) {
-        add(num);
-      }
-    }
-
-    public int add(int num) {
-      if (minHeap.size() < k) {
-        minHeap.offer(num);
-      } else if (num > minHeap.peek()) {
-        minHeap.poll();
-        minHeap.offer(num);
-      }
-      return minHeap.peek();
+      HeapUtility.kElemenentInHeap(initial, k, minHeap);
     }
 
     // Return kth largest element

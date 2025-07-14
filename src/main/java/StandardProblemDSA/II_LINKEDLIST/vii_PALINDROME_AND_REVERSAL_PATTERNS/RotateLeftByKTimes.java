@@ -2,9 +2,7 @@ package StandardProblemDSA.II_LINKEDLIST.vii_PALINDROME_AND_REVERSAL_PATTERNS;
 
 import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
 
-import StandardProblemDSA.II_LINKEDLIST.ListNode;
 import StandardProblemDSA.II_LINKEDLIST.Node;
-import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
 
 public class RotateLeftByKTimes {
   // ---------------------------------------------------
@@ -35,28 +33,36 @@ public class RotateLeftByKTimes {
          Output: 4 -> 5 -> 1 -> 2 -> 3
   */
   public static Node rotateLeft(Node head, int k) {
-    if (head == null || k == 0) return head;
+    if (head == null || head.next == null || k == 0) return head;
 
-    // Compute length and get tail.
+    // Step 1: Compute length and reach tail
     Node current = head;
-    int length = Utility_linkedList.length(head);
-    // Connect tail to head to form a circle.
+    int length = 1;
+    while (current.next != null) {
+      current = current.next;
+      length++;
+    }
+
+    // Step 2: Connect tail to head to form a circular list
     current.next = head;
 
-    // Effective rotations.
+    // Step 3: Normalize k
     k = k % length;
-    int stepsToNewHead = k; // for left rotation
+    if (k == 0) {
+      current.next = null; // Break the loop
+      return head;
+    }
 
-    // Find the new tail: (stepsToNewHead - 1) steps from head.
+    // Step 4: Move to new tail
     Node newTail = head;
-    for (int i = 1; i < stepsToNewHead; i++) {
+    for (int i = 1; i < k; i++) {
       newTail = newTail.next;
     }
 
-    // New head is next of newTail.
+    // Step 5: New head is next of new tail
     Node newHead = newTail.next;
-    // Break the circle.
-    newTail.next = null;
+    newTail.next = null; // Break the loop
+
     return newHead;
   }
 

@@ -1,34 +1,10 @@
 package StandardProblemDSA.VIIII_HEAP.VI_TASK_PRIORITIZATION.I_BASIC_HEAP_OPERATION;
 
+import static StandardProblemDSA.VIIII_HEAP.HeapUtility.printHeap;
+
+import StandardProblemDSA.VIIII_HEAP.HeapUtility;
+
 public class HeapSort {
-
-  // Heapify function to maintain the Max Heap property
-  static void heapify(int[] arr, int n, int i) {
-    int largest = i; // Initialize the largest as root
-    int left = 2 * i + 1; // Left child
-    int right = 2 * i + 2; // Right child
-
-    // Check if the left child exists and is greater than the root
-    if (left < n && arr[left] > arr[largest]) {
-      largest = left;
-    }
-
-    // Check if the right child exists and is greater than the largest so far
-    if (right < n && arr[right] > arr[largest]) {
-      largest = right;
-    }
-
-    // If the largest is not the root
-    if (largest != i) {
-      // Swap root and the largest
-      int temp = arr[i];
-      arr[i] = arr[largest];
-      arr[largest] = temp;
-
-      // Recursively heapify the affected subtree
-      heapify(arr, n, largest);
-    }
-  }
 
   // Main function to sort an array using Heap Sort
   static void heapSort(int[] arr) {
@@ -36,7 +12,7 @@ public class HeapSort {
 
     // Step 1: Build a Max Heap
     for (int i = n / 2 - 1; i >= 0; i--) {
-      heapify(arr, n, i);
+      HeapUtility.heapifyTopToBottom(arr, n, i);
     }
 
     // Step 2: Extract elements from the heap
@@ -47,16 +23,8 @@ public class HeapSort {
       arr[i] = temp;
 
       // Heapify the reduced heap
-      heapify(arr, i, 0);
+      HeapUtility.heapifyTopToBottom(arr, i, 0);
     }
-  }
-
-  // Utility function to print an array
-  static void printArray(int[] arr) {
-    for (int num : arr) {
-      System.out.print(num + " ");
-    }
-    System.out.println();
   }
 
   // Main function to test the Heap Sort algorithm
@@ -64,11 +32,11 @@ public class HeapSort {
     int[] arr = {12, 11, 13, 5, 6, 7};
 
     System.out.println("Original array:");
-    printArray(arr);
+    printHeap(arr, arr.length);
 
     heapSort(arr);
 
     System.out.println("Sorted array:");
-    printArray(arr);
+    printHeap(arr, arr.length);
   }
 }

@@ -6,8 +6,7 @@ import java.util.List;
 public class TreeUtility {
   // A utility function to find min and max
   // distances with respect to root.
-  public static void findHorizontalDistance(
-      StandardProblemDSA.VIII_TREE.TreeNode node, int[] minMax, int hd) {
+  public static void findHorizontalDistance(TreeNode node, int[] minMax, int hd) {
 
     // Base case
     if (node == null) return;
@@ -54,10 +53,6 @@ public class TreeUtility {
       }
   */
   // Method to find the height of the tree
-  public static int height() {
-    return height(root);
-  }
-
   public static int height(TreeNode node) {
     // if node is null then return 0
     // Else go for left and right and find the maximum amount
@@ -74,16 +69,16 @@ public class TreeUtility {
 
   // Method to find the height of a specific node
   public static int nodeHeight(int val) {
+    return nodeHeight(root, val, 1);
+  }
+
+  public static int nodeHeight(TreeNode node, int val, int height) {
     // find the specific noden
     // set the height =1 and then use utility to
     // if node value is matched then return height
     // first go for left with height+1; if level set the
     // second if not getting any thing from left go for  right and return
     // the value level
-    return nodeHeight(root, val, 1);
-  }
-
-  public static int nodeHeight(TreeNode node, int val, int height) {
     if (node == null) return 0;
     if (node.val == val) return height;
 
@@ -102,21 +97,21 @@ public class TreeUtility {
 
   // Method to search for a node in the tree
 
-  public static boolean search(TreeNode node, int val) {
+  public static boolean searchNodeWithValue(TreeNode node, int val) {
     if (node == null) return false;
     if (node.val == val) return true;
-    return search(node.left, val) || search(node.right, val);
+    return searchNodeWithValue(node.left, val) || searchNodeWithValue(node.right, val);
   }
 
   // Method to find the parent of a node
 
-  public static TreeNode findParent(TreeNode node, int val) {
+  public static TreeNode findParentOfValue(TreeNode node, int val) {
     if (node == null
         || (node.left != null && node.left.val == val)
         || (node.right != null && node.right.val == val)) return node;
 
-    TreeNode parent = findParent(node.left, val);
-    if (parent == null) parent = findParent(node.right, val);
+    TreeNode parent = findParentOfValue(node.left, val);
+    if (parent == null) parent = findParentOfValue(node.right, val);
 
     return parent;
   }
@@ -132,7 +127,8 @@ public class TreeUtility {
     // then find the left and right diameter of the tree
     int leftDiameter = diameter(node.left);
     int rightDiameter = diameter(node.right);
-    // return the maximum of the ( height of tree , maximum of left and rightDiameter)
+    // return the maximum of the ( sum of edges of left and right subtree with (root as taken 1) ,
+    // maximum of left and rightDiameter)
     return Math.max(leftHeight + rightHeight + 1, Math.max(leftDiameter, rightDiameter));
   }
 
@@ -157,7 +153,7 @@ public class TreeUtility {
   // Method to find siblings of a node
   public static List<Integer> findSiblings(int val) {
     List<Integer> siblings = new ArrayList<>();
-    TreeNode parent = findParent(root, val);
+    TreeNode parent = findParentOfValue(root, val);
     if (parent != null) {
       if (parent.left != null && parent.left.val != val) siblings.add(parent.left.val);
       if (parent.right != null && parent.right.val != val) siblings.add(parent.right.val);
@@ -209,31 +205,28 @@ public class TreeUtility {
     }
   }
 
-  public static void preorderHelper(
-      StandardProblemDSA.VIII_TREE.TreeNode node, List<Integer> result) {
+  public static void preorderHelper(TreeNode node, List<Integer> result) {
     if (node == null) return;
     result.add(node.val); // Visit root
     preorderHelper(node.left, result); // Traverse left subtree
     preorderHelper(node.right, result); // Traverse right subtree
   }
 
-  public static void rootToLeafHelper(
-      StandardProblemDSA.VIII_TREE.TreeNode node,
-      List<Integer> current,
-      List<List<Integer>> paths) {
+  public static void rootToLeafPathNodeUtil(
+      TreeNode node, List<Integer> current, List<List<Integer>> paths) {
     if (node == null) return;
     current.add(node.val);
     if (node.left == null && node.right == null) { // leaf
       paths.add(new ArrayList<>(current));
     } else {
-      rootToLeafHelper(node.left, current, paths);
-      rootToLeafHelper(node.right, current, paths);
+      rootToLeafPathNodeUtil(node.left, current, paths);
+      rootToLeafPathNodeUtil(node.right, current, paths);
     }
     current.remove(current.size() - 1); // backtrack
   }
 
   // (b) Check if there is a root-to-leaf path with a given sum.
-  public static boolean hasPathSum(StandardProblemDSA.VIII_TREE.TreeNode root, int targetSum) {
+  public static boolean hasPathSum(TreeNode root, int targetSum) {
     if (root == null) return false;
     // If leaf, check if path sum equals targetSum.
     if (root.left == null && root.right == null) {
@@ -253,7 +246,7 @@ public class TreeUtility {
   }
 
   // Helper: find distance from root to a given node value.
-  public static int findLevel(StandardProblemDSA.VIII_TREE.TreeNode root, int val, int level) {
+  public static int findLevel(TreeNode root, int val, int level) {
     if (root == null) return -1;
     if (root.val == val) return level;
     int left = findLevel(root.left, val, level + 1);
@@ -261,8 +254,7 @@ public class TreeUtility {
     return findLevel(root.right, val, level + 1);
   }
 
-  public static boolean findAncestors(
-      StandardProblemDSA.VIII_TREE.TreeNode root, int target, List<Integer> ancestors) {
+  public static boolean findAncestors(TreeNode root, int target, List<Integer> ancestors) {
     if (root == null) return false;
     if (root.val == target) return true;
     if (findAncestors(root.left, target, ancestors)
@@ -274,7 +266,7 @@ public class TreeUtility {
   }
 
   public static void findPathsMatching(
-      StandardProblemDSA.VIII_TREE.TreeNode node,
+      TreeNode node,
       List<Integer> pattern,
       int patternIndex,
       List<Integer> current,

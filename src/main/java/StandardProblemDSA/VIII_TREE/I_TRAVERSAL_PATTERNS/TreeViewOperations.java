@@ -127,6 +127,9 @@ class TreeViewOperations {
       TreeNode node = curr.node;
       int hd = curr.hd;
       // If this is the first node encountered at this horizontal distance, add it.
+      // As we see from Top so only one elemet of hd is visible so
+      // if more than multiple same hd present we will only take the first  of each leel
+      // from the queue
       if (!topViewMap.containsKey(hd)) {
         topViewMap.put(hd, node.val);
       }
@@ -180,6 +183,7 @@ class TreeViewOperations {
       TreeNode node = curr.node;
       int hd = curr.hd;
       // For bottom view, update the mapping (later nodes will overwrite earlier ones).
+      // each node of the last level will override the horizontal distance
       bottomViewMap.put(hd, node.val);
 
       if (node.left != null) {

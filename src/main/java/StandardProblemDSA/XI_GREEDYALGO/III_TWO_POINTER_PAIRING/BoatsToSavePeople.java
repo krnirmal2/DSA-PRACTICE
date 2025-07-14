@@ -1,5 +1,7 @@
 package StandardProblemDSA.XI_GREEDYALGO.III_TWO_POINTER_PAIRING;
 
+import java.util.Arrays;
+
 public class BoatsToSavePeople {
   /*You are given an array people where people[i] is the weight of the ith person,
    and an infinite number of boats where each boat can carry a maximum weight of limit.
@@ -37,5 +39,37 @@ public class BoatsToSavePeople {
   		○ How moving one pointer makes the “best next move”
   		○ Why pairing extremes often yields optimal resource use
   Decision tip: “Sorted array + pair first and last = Two‑Pointer Greedy.”*/
+  public int numRescueBoats(int[] people, int limit) {
+    Arrays.sort(people); // Sort people by weight
 
+    int left = 0;
+    int right = people.length - 1;
+    int boats = 0;
+    /*Greedy Strategy:
+
+          Always try to pair the lightest (left) and heaviest (right) person.
+
+                  If they fit in one boat (sum <= limit) → move both pointers.
+
+                  If not → the heavier person goes alone → move right only.
+
+                  Each iteration = one boat
+     Sorted: [1, 2, 2, 3]
+    - Try 1 + 3 → too much → 3 alone
+    - Try 1 + 2 → fits → one boat
+    - 2 alone → one more
+    */
+
+    while (left <= right) {
+      // Try to pair the lightest and heaviest person
+      if (people[left] + people[right] <= limit) {
+        left++;
+      }
+      // Always remove the heaviest (right)
+      right--;
+      boats++;
+    }
+
+    return boats;
+  }
 }

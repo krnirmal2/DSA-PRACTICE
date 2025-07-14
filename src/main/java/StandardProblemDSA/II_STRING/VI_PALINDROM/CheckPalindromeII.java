@@ -2,7 +2,8 @@ package StandardProblemDSA.II_STRING.VI_PALINDROM;
 
 public class CheckPalindromeII {
   /*nalysis of CheckPalindromeII Class
-    This Java class contains methods to check if a string can be rearranged into a palindrome. Let me analyze the code and provide a clear explanation.
+    This Java class contains methods to check if a string can be rearranged into a palindrome.
+    Let me analyze the code and provide a clear explanation.
 
     Key Points About Palindromic Strings
     For a string to be rearranged into a palindrome:

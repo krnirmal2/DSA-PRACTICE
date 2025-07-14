@@ -25,18 +25,22 @@ public class MeetingRoomsICanAttendAllMeeting {
   */
   public boolean canAttendMeetings(MergeInterval[] intervals) {
     GreedyAlgoUtil.sortByStartTimeArray(intervals);
-    return GreedyAlgoUtil.isFreeTimeAvailable(intervals);
+    for (int i = 1; i < intervals.length; i++) {
+      if (intervals[i].start
+          > intervals[i - 1]
+              .end) { // if a single meeting is overlap then it will not attend all the
+        // meeting hence return false other wise all the meeting have gap time
+        return false;
+      }
+    }
+    return true;
   }
 
   /*    Complexity:
 
   Time: O(n log n) (due to sorting)
-
   Space: O(1)
-
   Example:
-
   Input: [[0,30], [35,50]]
-
   Output: true*/
 }

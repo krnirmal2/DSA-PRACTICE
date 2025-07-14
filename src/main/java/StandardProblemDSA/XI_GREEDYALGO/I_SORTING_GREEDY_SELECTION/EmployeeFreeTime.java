@@ -42,18 +42,10 @@ public class EmployeeFreeTime {
   }
 
   /* Complexity:
-
       Time: O(n log n) due to sorting
-
       Space: O(n)
-
       Example:
-
       Input:
-
-      lua
-              Copy
-      Edit
   [
           [[1,2], [5,6]],
           [[1,3]],

@@ -1,4 +1,4 @@
-package StandardProblemDSA.IV_STACK.II_EXPERSSION_BASED.BASIC;
+package StandardProblemDSA.IV_STACK.II_EXPERSSION_BASED.ADVANCED;
 
 /*
 🔹 Problem Statement
@@ -46,6 +46,15 @@ public class ValidParenthesesII {
 
     return low == 0;
   }
+
+  /*   "(*))"
+    low = 0, high = 0
+  i=0: '(' → low = 1, high = 1
+  i=1: '*' → low = 0, high = 2
+  i=2: ')' → low = -1 → clamp to 0, high = 1
+  i=3: ')' → low = -1 → clamp to 0, high = 0
+
+          → low == 0 at end → ✅ valid*/
 
   public static void main(String[] args) {
     System.out.println(checkValidString("()")); // true

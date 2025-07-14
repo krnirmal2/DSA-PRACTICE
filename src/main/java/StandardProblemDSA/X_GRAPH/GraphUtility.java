@@ -77,14 +77,20 @@ public class GraphUtility {
   }
 
   public static void BFS(int s) {
+    // Step 1 : graph need to check it visited node present or not
     boolean[] visited = new boolean[GraphWithLL.V];
     Queue<Integer> queue = new LinkedList<Integer>();
 
+    // Intialise that first node is visited and inserted into the queue
     visited[s] = true;
     queue.add(s);
 
+    // Step 3: iterate over the queue till we not traversed all the node
     while (!queue.isEmpty()) {
+      // step 4: pick on element from queue front and check its neightbour
       int u = queue.poll();
+      // Step 5: iterate over the neighbour of the picked node from the queue to check if it is
+      // visited or not , if not then marked it visited and add to queue for future use
       for (int v : GraphWithLL.adj[u]) {
         if (!visited[v]) {
           visited[v] = true;

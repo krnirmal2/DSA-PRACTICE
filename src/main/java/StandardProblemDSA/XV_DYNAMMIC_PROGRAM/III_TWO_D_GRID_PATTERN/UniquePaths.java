@@ -44,3 +44,40 @@ public class UniquePaths {
     System.out.println(obj.noOfUniquePaths(grid, x, y));
   }
 }
+/*
+as it taking memo which square of n as 2D space
+
+space = squere n;
+time co = as it iterate over each cel so no. of cell square of n
+
+
+
+
+
+
+public int uniquepath(int m, int n){
+  // check the base case
+  int[][] dp = new int [m][n];
+  for(int[] row :dp){
+    Arrays.fill(row, -1);
+
+  }
+  ///  pass the intitail path of the robot
+
+}
+private int countPaths(int i,int j, int row, int col, int[][] memo){
+  if(i==m -1 && j==n-1) meansreached to the last column
+  {
+    return 1;
+  }
+  // also check out of boud
+  if(i>=m && j>>=n){
+    return 0;
+  }
+  fi(dp[i][j] !=-1)return dp[i][j] ;
+
+  // recursiv e
+  dp[i][j] = countPaths(i, j+1,m,n,dp) + countPaths(i+1,j, m,n, dp);
+  return dp[i][j] ; // last value of the dp[i][j]
+}
+*/

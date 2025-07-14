@@ -4,9 +4,13 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class GraphWithLL {
+  // Step1 : no. of vertex need to set e
   public static int V = 0;
+  // Step2 : Linked list of integer array has to initialise
   public static LinkedList<Integer>[] adj = new LinkedList[0];
 
+  // Step 3: constructor will take the no. of vertex and set the vertex
+  // and using for loop create the adjcency list of the Grpah
   public GraphWithLL(int v) {
     V = v;
     adj = new LinkedList[v];

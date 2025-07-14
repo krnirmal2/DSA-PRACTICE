@@ -22,29 +22,32 @@ public class MergeKSorttedListUsingMinHeap {
     // if lists is empty or null return null
     if (lists == null || lists.length == 0) return null;
 
-    // Min-Heap (PriorityQueue) to store nodes in ascending order
+    // Step1:  Min-Heap (PriorityQueue) to store nodes in ascending order
     PriorityQueue<ListNode> minHeap = new PriorityQueue<>((a, b) -> a.val - b.val);
 
-    // Insert all non-null list heads into the minHeap
+    // Step 2: Insert all non-null list heads into the minHeap
     for (ListNode list : lists) {
       if (list != null) {
         minHeap.offer(list);
       }
     }
 
-    // Dummy node to build the final sorted list
+    // step 3: Dummy node to build the final sorted list
     ListNode dummy = new ListNode(-1);
     ListNode current = dummy;
 
     // Process the heap
     while (!minHeap.isEmpty()) {
-      // Extract the smallest node
+      // Step %: Extract the smallest node
       ListNode minNode = minHeap.poll();
+      // step 5 : chain the list using current till minheap doesn't got empty
       current.next = minNode;
       current = current.next;
 
       // If the extracted node has a next node, push it to the heap
       if (minNode.next != null) {
+        // push the node to minheap next to minheap again which create again that no. of list
+        // and compare there first node out of each list of nodes and sort acc.
         minHeap.offer(minNode.next);
       }
     }

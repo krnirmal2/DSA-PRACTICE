@@ -13,14 +13,6 @@ import StandardProblemDSA.VIII_TREE.TreeNode;
 /*1. Boundary Traversal
 Boundary Traversal of a Tree includes
 
-left boundary (nodes on left excluding leaf nodes)
-leaves (consist of only the leaf nodes)
-right boundary (nodes on right excluding leaf nodes)
-Algorithm for Boundary Traversal:
-
-BoundaryTraversal(tree)
-
-
  ● If root is not null:
         ○ Print root’s val
          ○ PrintLeftBoundary(root->left) // Print the left boundary nodes
@@ -34,6 +26,7 @@ public class BoundaryTraversal {
 
     // Print root val
     System.out.print(root.val + " ");
+    // INORDER TRAVERSAL OF THE TREE
 
     // Print left boundary excluding leaf nodes
     printLeftBoundary(root.left);
@@ -43,6 +36,7 @@ public class BoundaryTraversal {
     printLeaves(root.right);
 
     // Print right boundary excluding leaf nodes (in bottom-up order)
+    // at bottom we use l R R means inorder traversal
     printRightBoundary(root.right);
   }
 

@@ -16,7 +16,9 @@ public class FindAllOccurPattern {
     int i = 0, j = 0;
 
     // Step ; match the pattern and text and add all the indexes
-    // during matchPatWithText same
+    // during matchPatWithText
+    // so we need to manipulate the match function each time for this kind of
+    // question
     while (i < n) {
       if (text.charAt(i) == pattern.charAt(j)) {
         i++;

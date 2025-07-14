@@ -4,16 +4,11 @@ import java.util.HashSet;
 import java.util.Stack;
 
 /*1249. Minimum Remove to Make Valid Parentheses
-Medium
-Topics
-Companies
-Hint
 Given a string s of '(' , ')' and lowercase English characters.
-
-Your task is to remove the minimum number of parentheses ( '(' or ')', in any positions ) so that the resulting parentheses string is valid and return any valid string.
+Your task is to remove the minimum number of parentheses ( '(' or ')', in any positions )
+ so that the resulting parentheses string is valid and return any valid string.
 
 Formally, a parentheses string is valid if and only if:
-
 It is the empty string, contains only lowercase characters, or
 It can be written as AB (A concatenated with B), where A and B are valid strings, or
 It can be written as (A), where A is a valid string.
@@ -83,6 +78,17 @@ public class MinimumRemoveValidParaenthesis {
     }
 
     return result.toString();
+    /* "ab(c)d"
+    | Index | Char | Stack | To Remove |
+    | ----- | ---- | ----- | --------- |
+    | 0     | 'a'  |       |           |
+    | 1     | ')'  |       | {1}       |
+    | 2     | 'b'  |       |           |
+    | 3     | '('  | \[3]  |           |
+    | 4     | 'c'  | \[3]  |           |
+    | 5     | ')'  | \[]   |           |
+    | 6     | 'd'  |       |           |
+    */
   }
 
   public static void main(String[] args) {

@@ -56,6 +56,17 @@ public class MedianInSortedArrays {
     }
   }
 
+  /*      | Step | Inserted Number | Action Taken             | `maxHeap` (left side) | `minHeap` (right side) | Balancing Performed? |
+            | ---- | --------------- | ------------------------ | --------------------- | ---------------------- | -------------------- |
+            | 1    | 1               | Add to `maxHeap` (empty) | [1]                  | []                    | ❌                    |
+            | 2    | 2               | Add to `minHeap`         | [1]                  | [2]                   | ❌                    |
+            | 3    | 3               | Add to `minHeap`         | [1]                  | [2, 3]                | ✅ Move 2 → `maxHeap` |
+            |      |                 | After balance            | [2, 1]               | [3]                   |                      |
+            | 4    | 4               | Add to `minHeap`         | [2, 1]               | [3, 4]                | ❌                    |
+            | 5    | 5               | Add to `minHeap`         | [2, 1]               | [3, 4, 5]             | ✅ Move 3 → `maxHeap` |
+            |      |                 | After balance            | [3, 1, 2]            | [4, 5]                |                      |
+            | 6    | 6               | Add to `minHeap`         | [3, 1, 2]            | [4, 5, 6]             | ✅ Move 4 → `maxHeap` |
+  */
   public static void main(String[] args) {
     MedianInSortedArrays finder = new MedianInSortedArrays();
     int[] nums1 = {1, 2, 3};

@@ -56,16 +56,10 @@ public class InsertInterval {
   /* Complexity:
 
   Time: O(n)
-
   Space: O(n) for result list
-
   Example:
-
   Input:
-
   Intervals: [[1,3], [6,9]]
-
   New Interval: [2,5]
-
   Output: [[1,5], [6,9]]*/
 }

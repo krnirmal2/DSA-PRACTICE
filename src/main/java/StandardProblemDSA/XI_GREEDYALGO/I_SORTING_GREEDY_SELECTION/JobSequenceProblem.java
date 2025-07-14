@@ -21,10 +21,15 @@ public class JobSequenceProblem {
   Profit = 100 + 27 = 127*/
   public static int[] jobScheduling(TripletClass[] jobs) {
 
-    // Step 2: Find max deadline to determine time slots
+    // Step 2: sort the element based on third parameter which profit
+    // because each task will take 1 unit time even if its dead line given more than 1 one
+    // means we can use any slot with in that maximum deadline to finished that task
+    // so we have to focus on the profit as much we can do
+    // and once a job take we are not gone a remove this means likely to greedy
+    // and we also sort it with profit value
     PriorityQueue<TripletClass> pq =
         new PriorityQueue<>((a, b) -> Integer.compare(b.third, a.third));
-    // put them in pq
+    // put them in
     for (int i = 0; i < jobs.length; i++) {
       pq.offer(new TripletClass(jobs[i].first, jobs[i].second, jobs[i].third));
     }
@@ -35,6 +40,8 @@ public class JobSequenceProblem {
     for (TripletClass job : jobs) {
       maxDeadline = Math.max(maxDeadline, job.second);
     }
+    // use for if free 1 unit of slots avaialble then we can put that job on that slots with max
+    // profit
     boolean[] slots = new boolean[maxDeadline + 1]; // index 1 to maxDeadline
 
     while (!pq.isEmpty()) {

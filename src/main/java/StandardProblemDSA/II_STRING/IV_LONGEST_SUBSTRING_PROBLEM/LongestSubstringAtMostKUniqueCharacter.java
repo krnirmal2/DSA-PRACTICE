@@ -2,9 +2,10 @@ package StandardProblemDSA.II_STRING.IV_LONGEST_SUBSTRING_PROBLEM;
 
 import java.util.HashMap;
 
-public class LongestSubstringAtMostKUnique {
-  public static int longestSubstringAtMostK(String s, int k) {
-    if (s.length() == 0 || k == 0) return 0; // Edge case: Empty string or k = 0
+public class LongestSubstringAtMostKUniqueCharacter {
+  // similar of same like subarray with atmmost k unique element or integer
+  public static int LongestSubstringAtMostKUniqueCharacter(String s, int k) {
+    if (s.isEmpty() || k == 0) return 0; // Edge case: Empty string or k = 0
 
     HashMap<Character, Integer> charMap = new HashMap<>();
     int left = 0, right = 0;
@@ -34,6 +35,6 @@ public class LongestSubstringAtMostKUnique {
   public static void main(String[] args) {
     System.out.println(
         "Longest Substring Length (At Most K): "
-            + longestSubstringAtMostK("aabacbebebe", 3)); // Output: 9
+            + LongestSubstringAtMostKUniqueCharacter("aabacbebebe", 3)); // Output: 9
   }
 }

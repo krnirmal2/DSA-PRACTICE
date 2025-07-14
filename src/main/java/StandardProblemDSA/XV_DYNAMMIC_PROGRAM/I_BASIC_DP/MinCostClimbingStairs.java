@@ -36,7 +36,8 @@ class MinCostClimbingStaris {
     for (int i = 2; i < n; i++) {
       int curr = cost[i] + Math.min(prev1, prev2);
       // update the prev1 and prev2 or we can directly write i-1 and i-2
-      prev2 = prev1;
+      // just sliding the window of two element for
+      prev2 = prev1; // previous2 will become prev1 element
       prev1 = curr;
     }
 

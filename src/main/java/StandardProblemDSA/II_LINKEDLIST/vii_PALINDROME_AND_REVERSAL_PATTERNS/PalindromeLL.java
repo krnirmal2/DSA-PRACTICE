@@ -16,8 +16,9 @@ public class PalindromeLL {
 
     // Step 3: reverese the second half using secondHalfStart as head node
     ListNode reversedSecondHalf = Utility_linkedList.reverseList(secondHalfStart);
+    // reversedSecondHalf is the head node after reverse now
 
-    // Step 4: Compare both halves node-by-node
+    // Step 4: Compare both halves list become two list and compare node-by-node
     ListNode firstHalfPointer = head;
     ListNode secondHalfPointer = reversedSecondHalf;
 

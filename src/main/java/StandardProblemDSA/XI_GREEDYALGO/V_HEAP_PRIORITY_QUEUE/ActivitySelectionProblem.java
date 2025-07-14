@@ -51,7 +51,8 @@ public class ActivitySelectionProblem {
   /*You are given two arrays:
   start[i] → start time of the i-th activity
   finish[i] → finish time of the i-th activity
-  Your task is to select the maximum number of activities that don’t overlap, i.e., for each selected activity, its start time must be after or equal to the finish time of the previously selected one.
+  Your task is to select the maximum number of activities that don’t overlap,
+  i.e., for each selected activity, its start time must be after or equal to the finish time of the previously selected one.
   You may assume:
   One person can only perform one activity at a time.
   You must select as many non-overlapping activities as possible.

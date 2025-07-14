@@ -27,34 +27,6 @@ public class KSelectionOperations {
        Output for largest: [5, 11, 12] (order not necessarily sorted)
   */
 
-  // K Largest Elements using Min Heap
-  public List<Integer> findKLargestElements(int[] arr, int k) {
-    PriorityQueue<Integer> minHeap = new PriorityQueue<>(k); // natural order: smallest at top
-    for (int num : arr) {
-      if (minHeap.size() < k) {
-        minHeap.offer(num);
-      } else if (num > minHeap.peek()) {
-        minHeap.poll();
-        minHeap.offer(num);
-      }
-    }
-    return new ArrayList<>(minHeap);
-  }
-
-  // K Smallest Elements using Max Heap
-  public List<Integer> findKSmallestElements(int[] arr, int k) {
-    PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a); // largest at top
-    for (int num : arr) {
-      if (maxHeap.size() < k) {
-        maxHeap.offer(num);
-      } else if (num < maxHeap.peek()) {
-        maxHeap.poll();
-        maxHeap.offer(num);
-      }
-    }
-    return new ArrayList<>(maxHeap);
-  }
-
   class TreeNode {
     int val;
     TreeNode left, right;

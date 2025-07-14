@@ -5,26 +5,54 @@ import java.util.*;
 public class MaxStability {
 
   /*
-   * 📝 Problem Description:
-   * Each server has availability[i] and reliability[i].
-   * The stability of a subset is:
-   *     stability = min(availability in subset) * sum(reliability in subset)
-   * Return the maximum stability possible among all non-empty subsets, modulo 1e9+7.
-   *
-   * 📦 Function:
-   * Input: int[] reliability, int[] availability
-   * Output: int (maximum stability value)
-   *
-   * 🔍 Question Type:
-   * - Greedy
-   * - Subset optimization
-   *
-   * 🧠 Approach:
-   * Sort servers by decreasing availability.
-   * Maintain running sum of reliability and compute:
-   *     current_stability = availability * sum(reliability_so_far)
-   * Track the maximum.
-   */
+     * 📝 Problem Description:
+
+  AWS provides a range of servers to meet the deployment needs of its clients. A client wants to choose a set of servers to deploy their application.
+  Each server is associated with an availability factor and a reliability factor.
+  The client defines the **stability** of a set of servers as the **minimum availability**
+  * amongst the servers multiplied by the **sum of reliabilities** of all the servers.
+  Given two arrays of integers: `availability[]` and `reliability[]`, where `availability[i]` and `reliability[i]`
+  *  represent the availability and reliability factors of the *i-th* server, find the **maximum possible stability** of any **subset of servers**.
+  Since the answer can be large, **report the answer modulo (10⁹ + 7).**
+
+  ### Example:
+  Consider the set of servers where:
+  reliability = [1, 2, 2]
+  availability = [1, 1, 3]
+  The possible subsets of servers are:
+
+  | Indices    | Stability Calculation                | Result |
+  | ---------- | ------------------------------------ | ------ |
+  |[0]       | 1* 1                               | 1      |
+  |[1]       | 1* 2                               | 2      |
+  |[2]       | 3* 2                               | 6      |
+  |[0, 1]    | min(1, 1)* (1 + 2) = 1* 3        | 3      |
+  |[0, 2]    | min(1, 3)* (1 + 2) = 1* 3        | 3      |
+  |[1, 2]    | min(1, 3)* (2 + 2) = 1* 4        | 4      |
+  |[0, 1, 2] | min(1, 1, 3)* (1 + 2 + 2) = 1* 5 | 5      |
+
+  Hence, the maximum possible stability is: **6**
+
+
+     * Each server has availability[i] and reliability[i].
+     * The stability of a subset is:
+     *     stability = min(availability in subset) * sum(reliability in subset)
+     * Return the maximum stability possible among all non-empty subsets, modulo 1e9+7.
+     *
+     * 📦 Function:
+     * Input: int[] reliability, int[] availability
+     * Output: int (maximum stability value)
+     *
+     * 🔍 Question Type:
+     * - Greedy
+     * - Subset optimization
+     *
+     * 🧠 Approach:
+     * Sort servers by decreasing availability.
+     * Maintain running sum of reliability and compute:
+     *     current_stability = availability * sum(reliability_so_far)
+     * Track the maximum.
+     */
 
   static final int MOD = 1_000_000_007;
 

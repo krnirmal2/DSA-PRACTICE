@@ -274,6 +274,7 @@ public class Utility_linkedList {
     }
     return count;
   }
+
   // Recursive Method
   public static ListNode reverseRecursive(ListNode head) {
     // Base case: If list is empty or has only one node
@@ -397,22 +398,55 @@ public class Utility_linkedList {
         neg =
             negDummy.next; // actaul starting of both postive and negative as we take dummy earlier
 
-    Node tail = new Node(0); // dummy for merge
+    Node temp = new Node(0); // dummy for merge
 
-    while (pos != null && neg != null) {
-      // if positive
-      tail.next = pos;
-      tail = tail.next;
-      pos = pos.next;
-      // if negative
-      tail.next = neg;
-      tail = tail.next;
+    while (pos != null
+        && neg
+            != null) { // both the list should be non null other wise no meaning of creating postive
+      // and negative
+      // if positive , means positive dummy will give positive value as we already separated node
+      temp.next = pos; // set the positive no. in the next of current temp
+      temp = temp.next; // and then just go to next of the this list to add other
+      pos = pos.next; // just go to next positive no.
+      // if negative same above approach , nothing extra just only nega
+      temp.next = neg;
+      temp = temp.next;
       neg = neg.next;
     }
     // still remaining eleent
-    if (pos != null) tail.next = pos;
-    if (neg != null) tail.next = neg;
+    if (pos != null) temp.next = pos;
+    if (neg != null) temp.next = neg;
   }
+
+  /*
+    public static Node mergeListWithTwoDummyNode(Node posDummy, Node negDummy) {
+      Node pos = posDummy.next;
+      Node neg = negDummy.next;
+
+      Node dummy = new Node(0); // Dummy head for merged list
+      Node tail = dummy;
+
+      boolean turnPositive = true; // start alternately with positive
+
+      while (pos != null && neg != null) {
+        if (turnPositive) {
+          tail.next = pos;
+          pos = pos.next;
+        } else {
+          tail.next = neg;
+          neg = neg.next;
+        }
+        tail = tail.next;
+        turnPositive = !turnPositive;
+      }
+
+      // Attach remaining nodes
+      if (pos != null) tail.next = pos;
+      if (neg != null) tail.next = neg;
+
+      return dummy.next;
+    }
+  */
 
   public static Node createLinkedListOfSizeK(Node head, int size) {
     for (int i = size; i >= 1; i--) {
@@ -462,5 +496,4 @@ public class Utility_linkedList {
     slow.next = null;
     return temp;
   }
-
 }

@@ -44,7 +44,7 @@ public class StringToNumberWithBase {
 
   public static void main(String[] args) {
     System.out.println(convertToDecimal("1010", 2)); // 10
-    System.out.println(convertToDecimal("1A", 16)); // 26
+    System.out.println(convertToDecimal("1a", 16)); // 26 (0-9 and A,b,c.d.e.f
     System.out.println(convertToDecimal("ZZ", 36)); // 1295
   }
 }

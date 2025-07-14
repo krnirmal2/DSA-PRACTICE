@@ -20,14 +20,15 @@ public class AlternatingSplitLLWithDeepCopy {
       Node newNode = new Node(head.data);
 
       if (turn) {
-        tail1.next = newNode;
-        tail1 = tail1.next;
+        tail1.next = newNode; // assign the new node next of the last tail
+        tail1 = tail1.next; // update the previous tell
       } else {
         tail2.next = newNode;
         tail2 = tail2.next;
       }
-
+      // continue the head to iterate
       head = head.next;
+      // make the turn opposite to its last state
       turn = !turn;
     }
 

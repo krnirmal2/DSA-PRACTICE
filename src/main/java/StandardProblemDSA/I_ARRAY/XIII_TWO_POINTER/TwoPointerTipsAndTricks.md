@@ -120,5 +120,5 @@ Let me know if you want:
 - 💻 Code templates
 - 📉 Visual pointer movement diagrams
 - 📋 Dry runs
-
+![img.png](img.png)
 And I can walk you through examples step-by-step. Ready to dive deeper into any level?

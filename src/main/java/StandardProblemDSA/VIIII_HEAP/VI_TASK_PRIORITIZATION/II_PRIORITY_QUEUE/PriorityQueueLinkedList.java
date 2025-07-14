@@ -8,11 +8,6 @@ class Task {
     this.name = name;
     this.priority = priority;
   }
-
-  @Override
-  public String toString() {
-    return name + " (Priority: " + priority + ")";
-  }
 }
 
 class Node {

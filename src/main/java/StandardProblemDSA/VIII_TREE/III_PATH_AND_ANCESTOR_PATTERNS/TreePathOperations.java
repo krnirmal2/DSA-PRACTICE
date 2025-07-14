@@ -34,7 +34,7 @@ public class TreePathOperations {
   public static List<List<Integer>> rootToLeafPaths(TreeNode root) {
     List<List<Integer>> paths = new ArrayList<>();
     List<Integer> current = new ArrayList<>();
-    TreeUtility.rootToLeafHelper(root, current, paths);
+    TreeUtility.rootToLeafPathNodeUtil(root, current, paths);
     return paths;
   }
 

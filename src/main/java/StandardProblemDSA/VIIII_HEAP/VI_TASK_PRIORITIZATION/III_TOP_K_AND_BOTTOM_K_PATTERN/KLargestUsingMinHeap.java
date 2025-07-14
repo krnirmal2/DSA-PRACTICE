@@ -18,7 +18,6 @@ public class KLargestUsingMinHeap {
 
     // Traverse the rest of the array
     for (int i = k; i < arr.length; i++) {
-
       // If current element is larger than
       // the smallest in heap
       if (arr[i] > minHeap.peek()) {

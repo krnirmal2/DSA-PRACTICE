@@ -39,7 +39,7 @@ public class MaximumProductSubArrayWithSizeK {
 
     for (int i = k; i < n; i++) {
       // CASE 1; If the element exiting the window is zero, recompute product.
-      if (arr[i - k] == 0) {
+      if (arr[i - k] == 0) { // go to the index
         product = 1.0;
         for (int j = i - k + 1; j <= i; j++) {
           product *= arr[j];

@@ -18,7 +18,7 @@ public class COMPARATOR_UTILITY {
 
   // Sort by index in List<List<Integer>> (ascending)
   public static void sortListOfListsByIndex(List<List<Integer>> list, int index) {
-    Collections.sort(list, (a, b) -> Integer.compare(a.get(index), b.get(index)));
+    list.sort((a, b) -> Integer.compare(a.get(index), b.get(index)));
   }
 
   // Sort by index (descending)

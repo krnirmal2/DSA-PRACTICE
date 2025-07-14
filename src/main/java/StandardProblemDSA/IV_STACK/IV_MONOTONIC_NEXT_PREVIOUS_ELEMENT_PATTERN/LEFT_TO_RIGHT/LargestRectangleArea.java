@@ -25,6 +25,8 @@ public class LargestRectangleArea {
     int maxArea = 0; // Variable to track maximum rectangular area
     int n = heights.length; // Number of bars in the histogram
 
+    // here we will dealing with index only to calculate the width between current and last smallest
+    // peek index
     // Iterate through each bar and one extra iteration (i == n) for final calculations
     for (int i = 0; i <= n; i++) {
       // Treat an extra height of 0 at the end to ensure all bars are processed
@@ -50,22 +52,24 @@ public class LargestRectangleArea {
     System.out.println("Largest Rectangle Area: " + largestRectangleArea(heights));
   }
   /*🔹 Dry Run Example
-  Input:
-          heights = {2, 1, 5, 6, 2, 3}
-  Stack Operations:
-  Index (i)	Height (h)	Stack (top → bottom)	Action	Computed Area
-          0	2	[0]	Push 0	-
-          1	1	[]	Pop 0, Compute 2 × 1	2
-          1	1	[1]	Push 1	-
-          2	5	[1, 2]	Push 2	-
-          3	6	[1, 2, 3]	Push 3	-
-          4	2	[1, 2]	Pop 3, Compute 6 × 1	6
-          4	2	[1]	Pop 2, Compute 5 × 2	10
-          4	2	[1, 4]	Push 4	-
-          5	3	[1, 4, 5]	Push 5	-
-          6	0	[1, 4]	Pop 5, Compute 3 × 1	3
-          6	0	[1]	Pop 4, Compute 2 × 4	8
-          6	0	[]	Pop 1, Compute 1 × 6	6
-  Final Output:
-  Largest Rectangle Area: 10*/
+    Input:
+            heights = {2, 1, 5, 6, 2, 3}
+    Stack Operations:
+  | **Index (i)** | **Height (h)** | **Stack (top → bottom)** | **Action**           | **Computed Area** |
+  | ------------- | -------------- | ------------------------ | -------------------- | ----------------- |
+  | 0             | 2              | \[0]                     | Push 0               | -                 |
+  | 1             | 1              | \[]                      | Pop 0, Compute 2 × 1 | 2                 |
+  | 1             | 1              | \[1]                     | Push 1               | -                 |
+  | 2             | 5              | \[1, 2]                  | Push 2               | -                 |
+  | 3             | 6              | \[1, 2, 3]               | Push 3               | -                 |
+  | 4             | 2              | \[1, 2]                  | Pop 3, Compute 6 × 1 | 6                 |
+  | 4             | 2              | \[1]                     | Pop 2, Compute 5 × 2 | 10                |
+  | 4             | 2              | \[1, 4]                  | Push 4               | -                 |
+  | 5             | 3              | \[1, 4, 5]               | Push 5               | -                 |
+  | 6             | 0              | \[1, 4]                  | Pop 5, Compute 3 × 1 | 3                 |
+  | 6             | 0              | \[1]                     | Pop 4, Compute 2 × 4 | 8                 |
+  | 6             | 0              | \[]                      | Pop 1, Compute 1 × 6 | 6                 |
+
+    Final Output:
+    Largest Rectangle Area: 10*/
 }

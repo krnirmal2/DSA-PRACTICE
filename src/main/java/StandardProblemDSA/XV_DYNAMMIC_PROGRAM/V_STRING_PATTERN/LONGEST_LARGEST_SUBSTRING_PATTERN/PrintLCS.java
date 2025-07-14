@@ -25,12 +25,15 @@ public class PrintLCS {
 
     while (i > 0 && j > 0) {
       if (s1.charAt(i - 1) == s2.charAt(j - 1)) {
+        // we only take the matched character
         lcs.append(s1.charAt(i - 1));
         i--;
         j--;
-      } else if (dp[i - 1][j] > dp[i][j - 1]) {
+      } else if (dp[i - 1][j] > dp[i][j - 1]) { // check up (i-1) and left(j-1)
+        // go to up
         i--;
       } else {
+        // go to left side
         j--;
       }
     }

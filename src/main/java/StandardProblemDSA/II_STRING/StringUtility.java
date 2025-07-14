@@ -5,55 +5,88 @@ public class StringUtility {
   public static int[] computePatternLps(String pattern) {
     // store the pattern length
     int patternLength = pattern.length();
-    // create the lps integer array for pattern legth
+    // Step 1 ;create the lps integer array of  pattern length
     int[] lpsArray = new int[patternLength];
 
     int prefixSuffixLength = 0; // Length of the previous longest prefix suffix
     int currentIndex = 1; // Start comparing from index 1 (LPS of index 0 is always 0)
 
-// build the lps till pattern length end
+    //  iterate the currentIndex each time till the length of the pattern
     while (currentIndex < patternLength) {
       // if pattern at privious and current is equal then store the longest prefix which is also
       // suffix
+      // CASE 1: IF CHARACTER AT PREFIX SUFFIXLENGHT IS MATCHED WITH CURRENT INDEX
       if (pattern.charAt(currentIndex) == pattern.charAt(prefixSuffixLength)) {
+        // if matched we save the value by increament the count till how much we have matched
         prefixSuffixLength++;
         lpsArray[currentIndex] =
             prefixSuffixLength; // Store the length of the longest prefix which is also a suffix
         currentIndex++;
       } else {
-        if (prefixSuffixLength != 0) {
+        // CASE 2 : IF CHARACTER AT PREFIX SUFFIX LENGTH IS NOT MATCHED THEN RESET PREFIXSUFFIX
+        // LENGTH TO BACK TO LAST LPS VALUSE
+        if (prefixSuffixLength != 0) { // reset to the first point of the pattern
           prefixSuffixLength =
               lpsArray[prefixSuffixLength - 1]; // Move `j` back to the previous LPS value
         } else {
+          //          CASE 3 : IF YET THERE IS NO CALCULATION DONE FOR THAT CHARACTER JUST SET THAT
+          // CURRENT INDEX TO ZERO
+          // if there is no prefixsuffixlength
           lpsArray[currentIndex] = 0; // No prefix suffix match, assign 0
           currentIndex++;
         }
       }
     }
     return lpsArray;
+    /*pattern = "ababcabab"
+        At each position i, we are checking if pattern[i] == pattern[j]
+        If yes:
+             → We extend the current matching prefix/suffix and assign lps[i] = ++j
+        If no:
+            → We backtrack j to lps[j - 1] and recheck
+            → This avoids unnecessary comparisons
+    | `i` (currentIndex) | `pattern[i]` | `j` (prefixSuffixLength) | `pattern[j]` | Match? | Action           | `lps[i]` | lps\[] so far                        |
+    | ------------------ | ------------ | ------------------------ | ------------ | ------ | ---------------  | -------- | ------------------------------------ |
+    | 0                  | -            | -                        | -            | -      | init             | 0        | \[0, \_, \_, \_, \_, \_, \_, \_, \_] |
+    | 1                  | b            | 0                        | a            | ❌      | set 0           | 0        | \[0, 0, \_, \_, \_, \_, \_, \_, \_]  |
+    | 2                  | a            | 0                        | a            | ✅      | j++             | 1        | \[0, 0, 1, \_, \_, \_, \_, \_, \_]   |
+    | 3                  | b            | 1                        | b            | ✅      | j++             | 2        | \[0, 0, 1, 2, \_, \_, \_, \_, \_]    |
+    | 4                  | c            | 2                        | a            | ❌      | j = lps\[1] = 0 | 0        | \[0, 0, 1, 2, 0, \_, \_, \_, \_]     |
+    | 5                  | a            | 0                        | a            | ✅      | j++             | 1        | \[0, 0, 1, 2, 0, 1, \_, \_, \_]      |
+    | 6                  | b            | 1                        | b            | ✅      | j++             | 2        | \[0, 0, 1, 2, 0, 1, 2, \_, \_]       |
+    | 7                  | a            | 2                        | a            | ✅      | j++             | 3        | \[0, 0, 1, 2, 0, 1, 2, 3, \_]        |
+    | 8                  | b            | 3                        | b            | ✅      | j++             | 4        | \[0, 0, 1, 2, 0, 1, 2, 3, 4]         |
+    */
   }
 
   public static void matchPatWithText(
-      String pat, String txt, int i, int n, int j, int m, int[] lps) {
-    while (i < n) {
+      String pat,
+      String txt,
+      int textpointeri,
+      int textLength,
+      int patternPointerJ,
+      int patternLength,
+      int[] lps) {
+    while (textpointeri < textLength) {
       // step 3;
       // case : 1 : if match move both pointer i and j
-      if (txt.charAt(i) == pat.charAt(j)) {
-        i++;
-        j++;
+      if (txt.charAt(textpointeri) == pat.charAt(patternPointerJ)) {
+        textpointeri++;
+        patternPointerJ++;
       }
       // case : 2 : if match whole we just return the i-j for first index
-      if (j == m) // if j is equal to its lenght
+      if (patternPointerJ == patternLength) // if j is equal to its length of the pattern
       {
-        System.out.println("pattern found at index " + (i - j));
+        System.out.println("pattern found at index " + (textpointeri - patternPointerJ));
         // move next for any further match
-        j = lps[j - 1];
-      } else if (i < n && txt.charAt(i) != pat.charAt(j)) {
+        patternPointerJ = lps[patternPointerJ - 1];
+      } else if (textpointeri < textLength
+          && txt.charAt(textpointeri) != pat.charAt(patternPointerJ)) {
         //                case 3. if not matched
-        if (j != 0) {
-          j = lps[j - 1]; // Use LPS to skip unnecessary comparisons
+        if (patternPointerJ != 0) {
+          patternPointerJ = lps[patternPointerJ - 1]; // Use LPS to skip unnecessary comparisons
         } else {
-          i++; // No LPS, move to the next character in text
+          textpointeri++; // No LPS, move to the next character in text
         }
       }
     }

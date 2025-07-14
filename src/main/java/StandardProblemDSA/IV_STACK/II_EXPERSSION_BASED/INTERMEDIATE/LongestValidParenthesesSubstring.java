@@ -11,13 +11,12 @@ A variable maxLength keeps track of the maximum length of valid parentheses enco
 public class LongestValidParenthesesSubstring {
   // Function to find the length of the
   // longest valid parentheses substring
-  /* 🔍 Approach 1: Stack
-  We use a stack to store indices, not characters!
-  Intuition:
-  Push index of '('
-  When we find ')', pop last '(' index → calculate valid substring length
-  Edge case:
-  Start with stack = [-1] to handle initial valid sequences*/
+  /* 🔍 Approach
+     💡 Idea:
+  Push indices of '(' onto the stack
+  If ')' is encountered:
+      If stack is not empty → Pop and compute valid length
+      If stack is empty → Push current index as a base for the next valid start*/
   static int maxLength(String s) {
     Stack<Integer> stack = new Stack<>();
 
@@ -35,9 +34,9 @@ public class LongestValidParenthesesSubstring {
         stack.push(i);
       } else {
 
-        // If we encounter a closing parenthesis,
+        // If ')' is encountered:,
         // pop the stack
-        stack.pop();
+        stack.pop(); // match with a '('
 
         // If stack is empty, push the current index
         // as a base for the next validbst suring
@@ -53,6 +52,16 @@ public class LongestValidParenthesesSubstring {
     }
 
     return maxLen;
+    /*
+    | Index | Char | Stack              | Action / Result            |
+    | ----- | ---- | ------------------ | -------------------------- |
+    | 0     | `)`  | [-1] → [] → [0] | No match, push 0           |
+    | 1     | `(`  | [0, 1]            | Push '(' index             |
+    | 2     | `)`  | [0]               | Match found, max = 2 =max(0,2-0)      |
+    | 3     | `(`  | [0, 3]            | Push '(' index             |
+    | 4     | `)`  | [0]               | Match found, max = 4 ✅ =max(2,4-0)    |
+    | 5     | `)`  | [] → [5]         | No match, reset base index |
+    */
   }
 
   /* static int maxLength(String s) {

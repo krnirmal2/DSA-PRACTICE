@@ -3,7 +3,7 @@ package StandardProblemDSA.VII_BACKTRACKING;
 import java.util.HashSet;
 import java.util.Set;
 
-public class PermutationDuplicatesElem {
+public class PermutationWithoutDuplicatesElem {
 
   public static void permute(char[] chars, int start, Set<String> result) {
     // Base case: if we've reached the last character, add the permutation to the set
@@ -34,6 +34,12 @@ public class PermutationDuplicatesElem {
       // Backtrack to restore the original state
       swap(chars, start, i);
     }
+    /* Time Complexity:
+    Without duplicates: O(n × n!)
+      n! permutations
+      O(n) time to build and store each one as a string
+    With duplicate-skipping (like here):
+        Worst-case still O(n × n!), but actual output is fewer, so it’s faster.*/
   }
 
   private static void swap(char[] chars, int i, int j) {
