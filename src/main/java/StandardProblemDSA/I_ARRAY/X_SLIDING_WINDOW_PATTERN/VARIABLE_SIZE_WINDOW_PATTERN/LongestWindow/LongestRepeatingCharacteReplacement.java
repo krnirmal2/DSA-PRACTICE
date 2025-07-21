@@ -38,8 +38,8 @@ public class LongestRepeatingCharacteReplacement {
 
       // now we have to only take care if the frequency of that character is
       // exceed the k
-      //In a window, to make all letters the same, I only need to change the non-majority letters.
-      if ((j - i + 1) - maxFrequecy > k) {//window size - maxFreq = number of letters to change
+      // In a window, to make all letters the same, I only need to change the non-majority letters.
+      if ((j - i + 1) - maxFrequecy > k) { // window size - maxFreq = number of letters to change
         map.put(s.charAt(i), map.get(s.charAt(i)) - 1);
         i++;
       }
@@ -47,26 +47,27 @@ public class LongestRepeatingCharacteReplacement {
     }
     return longSubStringWithRepeatingCh;
   }
-/*
-          | Step | left | right | Window  | Freq Map | maxFreq | Window Size | Changes Needed `(size - maxFreq)` | Valid? | Max Length |
-          | ---- | ---- | ----- | ------- | -------- | ------- | ----------- | --------------------------------- | ------ | ---------- |
-          | 1    | 0    | 0     | "A"     | A:1      | 1       | 1           | 0                                 | ✅      | 1          |
-          | 2    | 0    | 1     | "AA"    | A:2      | 2       | 2           | 0                                 | ✅      | 2          |
-          | 3    | 0    | 2     | "AAB"   | A:2, B:1 | 2       | 3           | 1                                 | ✅      | 3          |
-          | 4    | 0    | 3     | "AABA"  | A:3, B:1 | 3       | 4           | 1                                 | ✅      | 4          |
-          | 5    | 0    | 4     | "AABAB" | A:3, B:2 | 3       | 5           | 2                                 | ❌      | 4          |
-          |      | 1    | 4     | "ABAB"  | A:2, B:2 | 2       | 4           | 2                                 | ❌      | 4          |
-          |      | 2    | 4     | "BAB"   | A:1, B:2 | 2       | 3           | 1                                 | ✅      | 4          |
-          | 6    | 2    | 5     | "BABB"  | A:1, B:3 | 3       | 4           | 1                                 | ✅      | 4          |
-          | 7    | 2    | 6     | "BABBA" | A:2, B:3 | 3       | 5           | 2                                 | ❌      | 4          |
-          |      | 3    | 6     | "ABBA"  | A:2, B:2 | 2       | 4           | 2                                 | ❌      | 4          |
-          |      | 4    | 6     | "BBA"   | A:1, B:2 | 2       | 3           | 1                                 | ✅      | 4          |
-*/
+
+  /*
+            | Step | left | right | Window  | Freq Map | maxFreq | Window Size | Changes Needed `(size - maxFreq)` | Valid? | Max Length |
+            | ---- | ---- | ----- | ------- | -------- | ------- | ----------- | --------------------------------- | ------ | ---------- |
+            | 1    | 0    | 0     | "A"     | A:1      | 1       | 1           | 0                                 | ✅      | 1          |
+            | 2    | 0    | 1     | "AA"    | A:2      | 2       | 2           | 0                                 | ✅      | 2          |
+            | 3    | 0    | 2     | "AAB"   | A:2, B:1 | 2       | 3           | 1                                 | ✅      | 3          |
+            | 4    | 0    | 3     | "AABA"  | A:3, B:1 | 3       | 4           | 1                                 | ✅      | 4          |
+            | 5    | 0    | 4     | "AABAB" | A:3, B:2 | 3       | 5           | 2                                 | ❌      | 4          |
+            |      | 1    | 4     | "ABAB"  | A:2, B:2 | 2       | 4           | 2                                 | ❌      | 4          |
+            |      | 2    | 4     | "BAB"   | A:1, B:2 | 2       | 3           | 1                                 | ✅      | 4          |
+            | 6    | 2    | 5     | "BABB"  | A:1, B:3 | 3       | 4           | 1                                 | ✅      | 4          |
+            | 7    | 2    | 6     | "BABBA" | A:2, B:3 | 3       | 5           | 2                                 | ❌      | 4          |
+            |      | 3    | 6     | "ABBA"  | A:2, B:2 | 2       | 4           | 2                                 | ❌      | 4          |
+            |      | 4    | 6     | "BBA"   | A:1, B:2 | 2       | 3           | 1                                 | ✅      | 4          |
+  */
 
   public static void main(String[] args) {
 
-//    System.out.println(characterReplacement("ABAB", 2)); // Output: 4
-            System.out.println(characterReplacement("AABABBA", 1)); // Output: 4
+    //    System.out.println(characterReplacement("ABAB", 2)); // Output: 4
+    System.out.println(characterReplacement("AABABBA", 1)); // Output: 4
     //        System.out.println(sol.characterReplacement("AAABBC", 2)); // Output: 5
   }
 }

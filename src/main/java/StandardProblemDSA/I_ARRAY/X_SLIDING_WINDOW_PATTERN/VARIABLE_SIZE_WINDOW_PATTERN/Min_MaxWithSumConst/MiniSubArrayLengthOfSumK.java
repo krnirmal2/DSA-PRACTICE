@@ -11,7 +11,7 @@ public class MiniSubArrayLengthOfSumK {
     int sum = 0;
     int left = 0;
     int right = 0;
-    int first =0, second =0;
+    int first = 0, second = 0;
     while (left < arr.length) {
       if (sum >= target) {
         // store the current minimal length

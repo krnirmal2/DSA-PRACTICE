@@ -15,7 +15,8 @@ public class PrintSumOfAllSubarray {
     }
   }
 
-  public static void subarraySumPrefix(int[] A) {//Avoid recalculating sum again and again. Precompute prefix sums.
+  public static void subarraySumPrefix(
+      int[] A) { // Avoid recalculating sum again and again. Precompute prefix sums.
     int n = A.length;
     int[] prefix = new int[n + 1]; // prefix[0] = 0
 

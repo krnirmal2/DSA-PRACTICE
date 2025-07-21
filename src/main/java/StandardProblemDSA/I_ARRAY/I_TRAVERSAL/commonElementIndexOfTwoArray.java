@@ -6,9 +6,9 @@ import java.util.HashSet;
 
 public class commonElementIndexOfTwoArray {
   /*Given two integer arrays A and B, return an array that represents their intersection,
-   where each element in the result should appear as many times as it shows in both arrays
-    (i.e., the minimum frequency of the element in both arrays).
-You may return the result in any order.*/
+     where each element in the result should appear as many times as it shows in both arrays
+      (i.e., the minimum frequency of the element in both arrays).
+  You may return the result in any order.*/
   public static int[] solve(int[] A, int[] B) {
     int sizeOfResultArrray = Math.min(A.length, B.length);
     int[] result = Utility.createNewArrayOfSizeN(sizeOfResultArrray);
@@ -26,15 +26,16 @@ You may return the result in any order.*/
 
     // iterate over each element of the A
     for (int i = 0; i < A.length; i++) {
-      //Check if it's already been handled (you use a visited map, but it's not fully necessary since frequency maps are enough).
+      // Check if it's already been handled (you use a visited map, but it's not fully necessary
+      // since frequency maps are enough).
       int current = A[i];
       if (visited.contains(current)) continue; // skip already added elements
 
       visited.add(current);
       if (mapB.containsKey(current)) {
-        //If the element exists in both maps:
-        //Get its min frequency in both arrays.
-        //Add it that many times to result[].
+        // If the element exists in both maps:
+        // Get its min frequency in both arrays.
+        // Add it that many times to result[].
         int minFreq = Math.min(mapA.get(current), mapB.get(current));
         for (int c = 0; c < minFreq && index < sizeOfResultArrray; c++) {
           result[index++] = current;
@@ -43,7 +44,6 @@ You may return the result in any order.*/
     }
     return result;
   }
-
 
   public static void main(String[] args) {
     int[] A = {1, 2, 2, 1};

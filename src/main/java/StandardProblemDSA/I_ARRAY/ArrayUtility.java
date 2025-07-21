@@ -15,6 +15,7 @@ public class ArrayUtility {
     }
     System.out.println();
   }
+
   public static void print2DArray(int[][] arr) {
     for (int i = 0; i < arr.length; i++) {
       for (int j = 0; j < arr[i].length; j++) {
@@ -22,6 +23,7 @@ public class ArrayUtility {
       }
     }
   }
+
   public static void print3DArray(int[][][] arr) {
     for (int i = 0; i < arr.length; i++) {
       for (int j = 0; j < arr[i].length; j++) {
@@ -31,14 +33,16 @@ public class ArrayUtility {
       }
     }
   }
-  public static void create2Darray(int [][] arr){
-     int count =1;
+
+  public static void create2Darray(int[][] arr) {
+    int count = 1;
     for (int i = 0; i < arr.length; i++) {
       for (int j = 0; j < arr[i].length; j++) {
-     arr[i][j] = count++;
+        arr[i][j] = count++;
       }
     }
   }
+
   public static void analyzeTestCases(Scanner scanner) {
     int totalTestCases = scanner.nextInt();
     int[][] arrayMain = new int[totalTestCases][];
@@ -57,15 +61,13 @@ public class ArrayUtility {
       System.out.println("TestCase " + i + " with " + arrayMain[i].length + " values:");
       for (int value : arrayMain[i]) {
         System.out.print(value + " ");
-        if (value % 2 == 0)
-          evenCount++;
-        else
-          oddCount++;
+        if (value % 2 == 0) evenCount++;
+        else oddCount++;
       }
       System.out.println();
       System.out.println("Total Even numbers: " + evenCount + ", Total Odd numbers: " + oddCount);
     }
-    }
+  }
 
   // 1. Put Frequency or First Occurrence in HashMap
   public static Map<Integer, Integer> putFrequencyOrIndex(int[] a) {
@@ -79,6 +81,7 @@ public class ArrayUtility {
     }
     return mp;
   }
+
   // 3. Traverse a HashMap and print key-value pairs
   public static void traverseMap(Map<Integer, Integer> map) {
     for (int key : map.keySet()) {
@@ -96,6 +99,7 @@ public class ArrayUtility {
     }
     return paddingArray;
   }
+
   // 5. Padding an array with zeros (first row and first column)
   public static void initializePadding2D(int[][] paddingArray) {
     for (int i = 0; i < paddingArray.length; i++) {
@@ -105,6 +109,7 @@ public class ArrayUtility {
       paddingArray[0][j] = 0;
     }
   }
+
   // 6. Generate Prefix Sum Matrix
   public static int[][] generatePrefix2DSum(int[][] A) {
     int rows = A.length;
@@ -128,6 +133,7 @@ public class ArrayUtility {
 
     return prefix;
   }
+
   /**
    * Reverses the given array in place.
    *

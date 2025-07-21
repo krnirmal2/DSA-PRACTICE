@@ -5,7 +5,7 @@ import StandardProblemDSA.Utility;
 public class FirstAndLastOccurrenceBitonic {
 
   private static int searchBitonic(int[] bitonicArr, int target) {
-    int peakIndex = Utility. peakElement(bitonicArr);
+    int peakIndex = Utility.peakElement(bitonicArr);
 
     // Find first occurrence in the left increasing part
     int firstOccurrence = findFirstOccurrence(0, peakIndex, bitonicArr, target);

@@ -78,12 +78,13 @@ public class CustomStackIncrementImp {
   }
 
   public void increment(int noOfElem, int val) {
-    //edge case to take lower value either of top or no. of element
+    // edge case to take lower value either of top or no. of element
     int limit = Math.min(noOfElem, top + 1); // Determine how many element to increment
     if (limit > 0) {
       incrementArr[limit - 1] += val; // Add the increment value to the increment  array lazily
     }
   }
+
   // now for pop operation we have to do some lazzy update on rquirement as per the question
   /*
       2. pop()
@@ -125,5 +126,4 @@ public class CustomStackIncrementImp {
     top--;
     return result; // return the poped value
   }
-
 }

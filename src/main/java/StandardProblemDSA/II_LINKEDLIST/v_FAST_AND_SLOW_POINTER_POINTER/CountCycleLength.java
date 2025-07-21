@@ -30,7 +30,7 @@ public class CountCycleLength {
     private static int countCycleLength(ListNode meetingPoint) {
 
       int count = 1;
-      ListNode current = meetingPoint.next;// this will traverse and again reach and
+      ListNode current = meetingPoint.next; // this will traverse and again reach and
       // we will get count
       while (current != meetingPoint) {
         count++;

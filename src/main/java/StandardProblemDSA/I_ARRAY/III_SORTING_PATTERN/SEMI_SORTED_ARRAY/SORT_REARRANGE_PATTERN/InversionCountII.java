@@ -1,8 +1,6 @@
 package StandardProblemDSA.I_ARRAY.III_SORTING_PATTERN.SEMI_SORTED_ARRAY.SORT_REARRANGE_PATTERN;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class InversionCountII {
   /*Given an integer array nums, return the number of reverse pairs in the array.
@@ -30,20 +28,23 @@ public class InversionCountII {
 
       // 🔁 Count reverse pairs BEFORE merge
       /*Why it must be done before merge?
-          Because at this point:
-          Both the left half and right half are already sorted individually, due to recursive merge sort.
-          You can then use two pointers to efficiently find all pairs (i, j) where:
-          i ∈ left half
-          j ∈ right half
-          and arr[i] > 2 * arr[j]
-          This two-pointer logic only works if both halves are sorted — which they are before you call merge.*/
+      Because at this point:
+      Both the left half and right half are already sorted individually, due to recursive merge sort.
+      You can then use two pointers to efficiently find all pairs (i, j) where:
+      i ∈ left half
+      j ∈ right half
+      and arr[i] > 2 * arr[j]
+      This two-pointer logic only works if both halves are sorted — which they are before you call merge.*/
       int j = mid + 1;
       for (int i = left; i <= mid; i++) {
-        while (j <= right && (long) arr[i] > 2L * arr[j]){/*Why this matters:If arr[i] = 2_000_000_000 and arr[j] = 1_200_000_000,
-                                                            then 2 * arr[j] = 2_400_000_000 → this overflows and becomes negative in Java int.*/
+        while (j <= right && (long) arr[i] > 2L * arr[j]) {
+          /*Why this matters:If arr[i] = 2_000_000_000 and arr[j] = 1_200_000_000,
+          then 2 * arr[j] = 2_400_000_000 → this overflows and becomes negative in Java int.*/
           j++;
         }
-        count += (j - (mid + 1));//For the current i, all j in the range [mid+1, j-1] are valid reverse pairs.And you do this for every i in the left half.
+        count +=
+            (j - (mid + 1)); // For the current i, all j in the range [mid+1, j-1] are valid reverse
+        // pairs.And you do this for every i in the left half.
       }
 
       // Merge the two sorted halves
@@ -70,6 +71,7 @@ public class InversionCountII {
 
     return swaps;
   }
+
   public static void main(String[] args) {
     int[] arr = {1, 3, 2, 3, 1};
     int count = reversePairs(arr);

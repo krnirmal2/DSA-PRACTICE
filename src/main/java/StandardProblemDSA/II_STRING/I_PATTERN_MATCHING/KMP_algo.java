@@ -5,8 +5,8 @@ import StandardProblemDSA.II_STRING.StringUtility;
 public class KMP_algo {
 
   public static void main(String[] args) {
-//    String txt = "aabaacaadaabaaba";
-//    String pat = "aaba";
+    //    String txt = "aabaacaadaabaaba";
+    //    String pat = "aaba";
     String txt = "abcdabcabcdf";
     String pat = "abcdf";
 

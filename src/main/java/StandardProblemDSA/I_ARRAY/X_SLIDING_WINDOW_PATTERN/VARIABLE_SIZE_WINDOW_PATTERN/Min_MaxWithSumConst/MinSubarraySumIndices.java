@@ -30,39 +30,39 @@ public class MinSubarraySumIndices {
    */
   public static int[] solve(int[] A, int B) {
     /* this is modification of MiniSubArrayLengthOfSumK , by adding first and second and change Math.min with manual
-    condition check
-    int minLength = Integer.MAX_VALUE;
-int sum = 0;
-int left = 0, right = 0;
-int first = -1, second = -1;
+        condition check
+        int minLength = Integer.MAX_VALUE;
+    int sum = 0;
+    int left = 0, right = 0;
+    int first = -1, second = -1;
 
-while (right < arr.length || (sum >= target && left < arr.length)) {//Loop condition (while (left < arr.length)) is insufficient.
-//This may exit prematurely if right < arr.length and you're still building up the sum.
-  if (sum >= target) {
-    if (right - left < minLength) {
-      minLength = right - left;
-      first = left;
-      second = right - 1;
+    while (right < arr.length || (sum >= target && left < arr.length)) {//Loop condition (while (left < arr.length)) is insufficient.
+    //This may exit prematurely if right < arr.length and you're still building up the sum.
+      if (sum >= target) {
+        if (right - left < minLength) {
+          minLength = right - left;
+          first = left;
+          second = right - 1;
+        }
+        sum -= arr[left];
+        left++;
+      } else {
+        if (right < arr.length) {
+          sum += arr[right];
+          right++;
+        } else {
+          break;
+        }
+      }
     }
-    sum -= arr[left];
-    left++;
-  } else {
-    if (right < arr.length) {
-      sum += arr[right];
-      right++;
+
+    if (first != -1 && second != -1) {
+      System.out.println("First Index: " + first + ", Last Index: " + second);
+      System.out.println("Length: " + minLength);
     } else {
-      break;
+      System.out.println("No valid window found.");
     }
-  }
-}
-
-if (first != -1 && second != -1) {
-  System.out.println("First Index: " + first + ", Last Index: " + second);
-  System.out.println("Length: " + minLength);
-} else {
-  System.out.println("No valid window found.");
-}
-*/
+    */
     /*Question:
 
     You are given an array of positive integers A and a target integer B.
@@ -87,7 +87,7 @@ if (first != -1 && second != -1) {
     Therefore, the overall time complexity of the solve function is linear, O(N), where N is the length of the input array A.*/
     // Iterate through the array using the end of the sliding window
     for (int windowEnd = 0; windowEnd < n; windowEnd++) {
-      //Step1. Expanding phase
+      // Step1. Expanding phase
       currentSum += A[windowEnd]; // Expand the window by adding the current element
 
       // Step 2 : Shrink the window from the left if the current sum exceeds the target
@@ -96,7 +96,7 @@ if (first != -1 && second != -1) {
         windowStart++;
       }
 
-      //step 3:  If the current window sum equals the target
+      // step 3:  If the current window sum equals the target
       if (currentSum == B) {
         int currentLen = windowEnd - windowStart + 1; // Calculate the length of the current window
         // If the current length is smaller than the minimum length found so far

@@ -2,7 +2,7 @@ package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.ROTETED_ARRAY
 
 public class FindRotationCount {
   public static int findMin(int[] a) {
-  /*  Find the Rotation Count in a Rotated Sorted Array (No Duplicates)
+    /*  Find the Rotation Count in a Rotated Sorted Array (No Duplicates)
     You're given a sorted array that has been rotated at some pivot.
     The goal is to find the index of the minimum element, which also equals the number of times the
     array has been rotated.*/
@@ -56,6 +56,7 @@ public class FindRotationCount {
     // return at the low
     return low;
   }
+
   /*| Metric           | Value    |
   | ---------------- | -------- |
   | Time Complexity  | O(log n) |

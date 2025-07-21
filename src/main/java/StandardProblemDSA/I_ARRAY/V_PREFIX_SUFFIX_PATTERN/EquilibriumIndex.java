@@ -56,7 +56,7 @@ There is no such index.
 import StandardProblemDSA.Utility;
 
 public class EquilibriumIndex {
-//sum of elements before i == sum of elements after i
+  // sum of elements before i == sum of elements after i
   static int solve(int[] A) {
     int n = A.length;
     if (n == 0) return -1; // Edge case: Empty array
@@ -80,8 +80,7 @@ public class EquilibriumIndex {
     return -1; // No equilibrium index found
   }
 
-
-// runs in O(n) time with O(n) space due to prefix/suffix array
+  // runs in O(n) time with O(n) space due to prefix/suffix array
   public static void main(String[] args) {
     int[] A = {-7, 1, 5, 2, -4, 3, 0};
     System.out.println(solve(A)); // Expected output: 3

@@ -3,11 +3,11 @@ package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.ROTETED_ARRAY
 public class MinMumElementInRotedSortedArray {
 
   public static int findMin(int[] a) {
-/*The smallest element is the only one where the previous element is greater than it.
-In a binary search approach:
-If the right half is sorted → minimum is on the left
-If the left half is unsorted → minimum lies in the unsorted part
-When the array is already sorted, the smallest is simply arr[0]*/
+    /*The smallest element is the only one where the previous element is greater than it.
+    In a binary search approach:
+    If the right half is sorted → minimum is on the left
+    If the left half is unsorted → minimum lies in the unsorted part
+    When the array is already sorted, the smallest is simply arr[0]*/
     // we can find theis using order of n but use binary serch
     int high = a.length - 1;
     int low = 0;
