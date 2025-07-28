@@ -35,6 +35,25 @@ public class CopyRandomList {
 
   0 <= n <= 1000
   -104 <= Node.val <= 104
-  Node.random is null or is pointing to some node in the linked list.*/
+  Node.random is null or is pointing to some node in the linked list.
+    Pattern:
+            - Linked List
+    - Deep Copy / Clone
+    - Hash Map or In-place Interleaving
 
+    Similar LeetCode Problems:
+            - 138. Copy List with Random Pointer
+    - 133. Clone Graph (graph cloning with pointers)
+    - 160. Intersection of Two Linked Lists (pointer manipulation)
+
+    Follow-up Questions:
+            - How to do it without extra space (O(1) space)?
+            - Can you do it in one pass?
+            - How to handle cycles in random pointers?
+            - How to verify the deep copy correctness?
+
+    Time Complexity: O(n), n = number of nodes
+    Space Complexity: O(n) for hash map or O(1) with interleaving method
+
+    */
 }

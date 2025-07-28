@@ -1,35 +1,45 @@
 package StandardProblemDSA.II_LINKEDLIST.iii_RECURSIVE_PATTERN;
 
-import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
-
 import StandardProblemDSA.II_LINKEDLIST.ListNode;
 import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
 
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
 public class RecursiveMergeTwoSortedList {
-  // ---------------------------------------------------
-  // 1. Merge Sort for Linked List
-  // ---------------------------------------------------
-  /*
-    Problem Statement:
-       Given the head of a linked list, sort the list using merge sort.
+  /* Problem: Merge Sort for Linked List
+     -----------------------------------
+     Problem Statement:
+     Given the head of a singly linked list, sort it in ascending order using merge sort.
 
-    Brute Force Approach:
-       - Convert the linked list into an array.
-       - Sort the array (e.g., using Arrays.sort).
-       - Convert the array back to a linked list.
-       - Time: O(n log n) but uses extra space O(n).
+     Approach:
+     1. **Base Case**: If the list is empty or has only one node, it's already sorted.
+     2. **Find Middle**: Use slow/fast pointers to find the middle node.
+     3. **Split List**: Break the list into two halves at the middle.
+     4. **Recursive Sort**: Recursively sort both halves.
+     5. **Merge**: Use the standard merge of two sorted linked lists.
 
-    Optimal Approach:
-       - Use a recursive merge sort that splits the list in half (using slow/fast pointers),
-         recursively sorts each half, then merges them.
-       - Time Complexity: O(n log n)
-       - Space Complexity: O(log n) due to recursion stack.
+     Why Merge Sort?
+     - Merge sort is stable and works efficiently on linked lists since we don't need random access.
+     - Unlike quicksort, it does not require additional space for rearranging nodes.
 
-    Example:
-       Input: 4 -> 2 -> 1 -> 3
-       Output: 1 -> 2 -> 3 -> 4
+     Time Complexity: O(n log n), where n is the number of nodes.
+     Space Complexity: O(log n), recursion stack depth.
+
+     Patterns: Divide & Conquer, Linked List Sorting.
+
+     Edge Cases:
+     - Empty list (`head == null`).
+     - Single element list.
+     - List with duplicate values.
+
+     Follow-up:
+     - Implement an **iterative bottom-up merge sort** to reduce recursion stack usage.
+
+     Related LeetCode Problem:
+     - 148. Sort List
   */
-  public ListNode mergeSort(ListNode head) {
+
+    public ListNode mergeSort(ListNode head) {
     if (head == null || head.next == null) {
       return head;
     }

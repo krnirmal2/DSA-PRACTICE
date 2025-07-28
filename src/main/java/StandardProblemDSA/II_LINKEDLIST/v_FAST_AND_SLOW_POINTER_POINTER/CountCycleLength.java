@@ -2,6 +2,50 @@ package StandardProblemDSA.II_LINKEDLIST.v_FAST_AND_SLOW_POINTER_POINTER;
 
 import StandardProblemDSA.II_LINKEDLIST.ListNode;
 
+/*
+Problem: Detect the Length of a Cycle in a Linked List
+------------------------------------------------------
+Problem Statement:
+Given the head of a singly linked list, determine if the list contains a cycle.
+If a cycle exists, return the length of the cycle. Otherwise, return 0.
+
+Approach:
+---------
+1. **Cycle Detection (Floyd’s Tortoise and Hare Algorithm)**:
+   - Use two pointers, `slow` and `fast`.
+   - Move `slow` by 1 step and `fast` by 2 steps at a time.
+   - If `slow` and `fast` meet, a cycle exists.
+
+2. **Cycle Length Calculation**:
+   - When `slow` and `fast` meet, fix one pointer at the meeting point.
+   - Move another pointer around the cycle until it comes back to the meeting point.
+   - Count the number of steps taken; this is the cycle length.
+
+3. **Time Complexity**:
+   - O(n) — Each pointer visits each node at most once.
+
+4. **Space Complexity**:
+   - O(1) — No extra data structures used.
+
+Example:
+--------
+Input: 1 → 2 → 3 → 4 → 5 ↘
+                     ↑----↙
+Output: 3
+Explanation: Cycle is 3 → 4 → 5 → 3 (length = 3).
+
+Edge Cases:
+-----------
+- Empty list (`head = null`) → returns 0.
+- List without a cycle → returns 0.
+- List where the cycle starts at the head.
+
+Follow-Up:
+----------
+- Can you detect the starting node of the cycle? (Yes, using Floyd's algorithm.)
+- LeetCode 142: **Linked List Cycle II** — detect the node where the cycle begins.
+*/
+
 public class CountCycleLength {
 
   public class DetectCycleLength {

@@ -1,8 +1,39 @@
 package StandardProblemDSA.II_LINKEDLIST.xii_ARITHMETIC_PATTERN;
 
+import StandardProblemDSA.II_LINKEDLIST.Node;
+
 import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
 
-import StandardProblemDSA.II_LINKEDLIST.Node;
+/*
+ Problem: Add two numbers represented as linked lists.
+
+ Given two non-empty linked lists representing two non-negative integers, where each node contains a single digit
+ and digits are stored in reverse order, add the two numbers and return the sum as a linked list.
+
+ Example:
+ Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+ Output: 7 -> 0 -> 8
+ Explanation: 342 + 465 = 807
+
+ Pattern:
+    - Linked List
+    - Elementary Math Addition
+    - Dummy Node for simplified list building
+
+ Similar LeetCode Problems:
+    - 2. Add Two Numbers
+    - 445. Add Two Numbers II (digits stored in forward order)
+    - 66. Plus One (array version)
+
+ Follow-up Questions:
+    - How to handle numbers stored in forward order?
+    - Can you implement without using a dummy node?
+    - How to handle lists of unequal lengths?
+    - Can this be extended to add multiple numbers?
+
+ Time Complexity: O(max(m, n)), where m and n are lengths of the two lists
+ Space Complexity: O(1) excluding output list
+*/
 
 public class AddTwoNumberInLL {
   public static Node addTwoLists(Node l1, Node l2) {

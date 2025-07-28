@@ -1,10 +1,47 @@
 package StandardProblemDSA.II_LINKEDLIST.xii_ARITHMETIC_PATTERN;
 
+import StandardProblemDSA.II_LINKEDLIST.ListNode;
+import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
+
 import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
 import static java.lang.reflect.Array.getLength;
 
-import StandardProblemDSA.II_LINKEDLIST.ListNode;
-import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
+/*
+ Problem: Subtract two numbers represented as linked lists.
+
+ Given two linked lists representing non-negative integers, where each node contains a single digit
+ and digits are stored in forward order, subtract the second number from the first and return the result
+ as a linked list. Remove any leading zeros.
+
+ Example:
+ Input: (1 -> 0 -> 0 -> 0) - (9 -> 9)
+ Output: 0 -> 0 -> 0 -> 1  (1000 - 99 = 901)
+
+ Approach:
+    - Reverse both lists to simplify subtraction.
+    - Ensure first number >= second number.
+    - Traverse lists, subtracting digits and handling borrowing.
+    - Reverse the result and trim leading zeros.
+
+ Pattern:
+    - Linked List
+    - Elementary Math Subtraction
+    - Reverse + Borrow Handling
+
+ Similar LeetCode Problems:
+    - 2. Add Two Numbers
+    - 445. Add Two Numbers II
+    - 66. Plus One (array version)
+
+ Follow-up Questions:
+    - How to handle negative results?
+    - How to implement without reversing the lists?
+    - How to extend for subtracting multiple numbers?
+    - How to manage leading zeros in all cases?
+
+ Time Complexity: O(max(m, n)), m and n = lengths of input lists
+ Space Complexity: O(1) excluding output list
+*/
 
 /*Reverse Both Lists:
 Since the numbers are stored in reverse order (least significant digit at the head), we first reverse both linked lists to make subtraction easier.

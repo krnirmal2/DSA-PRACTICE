@@ -1,8 +1,48 @@
 package StandardProblemDSA.II_LINKEDLIST.xi_DOUBLY_LL;
 
 import StandardProblemDSA.II_LINKEDLIST.DoubllyNodeWithKey;
+
 import java.util.HashMap;
 import java.util.Map;
+
+/*
+ Problem: Design an LRU Cache with O(1) get and put operations.
+
+ Use a HashMap for O(1) key lookup, and a doubly linked list to track usage order:
+  - Most recently used (MRU) nodes are near the head.
+  - Least recently used (LRU) nodes are near the tail.
+ When cache reaches capacity, evict LRU node (tail.prev).
+
+ Execution Flow:
+  get(key):
+    - Check if key exists in map.
+    - If yes, move node to front (MRU) and return its value.
+    - Else return -1.
+
+  put(key, value):
+    - If key exists, update value and move node to front.
+    - Else if full, evict LRU (tail.prev), remove from map.
+    - Insert new node at front and add to map.
+
+ Pattern:
+  - HashMap + Doubly Linked List
+  - Cache eviction policy (LRU)
+  - Data structure design
+
+ Similar LeetCode Problems:
+  - 146. LRU Cache
+  - 362. Design Hit Counter
+  - 460. LFU Cache (similar cache design)
+
+ Follow-up Questions:
+  - How to handle thread safety (concurrent access)?
+  - How to implement LFU cache?
+  - What changes for distributed caching?
+  - Can we use a singly linked list instead?
+
+ Time Complexity: O(1) for get and put
+ Space Complexity: O(capacity)
+*/
 
 /*
 * Execution Flow

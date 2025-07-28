@@ -1,22 +1,50 @@
 package StandardProblemDSA.II_LINKEDLIST.vi_MERGING_AND_SPLITTING_LL;
 
 import StandardProblemDSA.II_LINKEDLIST.ListNode;
-import java.util.*;
+
+import java.util.PriorityQueue;
 
 public class MergeKSorttedListUsingMinHeap {
-  /*🔷 Statement:
-  You are given an array of k sorted linked lists, each linked list is sorted in ascending order.
-  Write a function to merge all the linked lists into one sorted linked list and return its head.
-  input --->
-      lists = [
-        1 -> 4 -> 5,
-        1 -> 3 -> 4,
-        2 -> 6
-      ]
-  out put ==> 1 -> 1 -> 2 -> 3 -> 4 -> 4 -> 5 -> 6
+  /*
+  Problem: Merge K Sorted Linked Lists using Min-Heap
+  ---------------------------------------------------
+  You are given an array of `k` sorted linked lists. Merge all lists into one sorted linked list.
 
+  Approach:
+  ---------
+  1. **Use Min-Heap (PriorityQueue)**:
+     - Insert the head of each non-null list into a min-heap, sorted by node value.
+     - Repeatedly extract the smallest node, attach it to the merged list, and push its `next` into the heap.
 
+  2. **Dummy Node**:
+     - Use a dummy node to simplify handling the head of the merged list.
+
+  3. **Continue until heap is empty**:
+     - Every time we poll from the heap, we attach the smallest node to our merged list.
+
+  Time Complexity:
+  - Building the heap: `O(k)` (k = number of lists)
+  - Extracting & inserting each of `N` nodes: `O(N log k)`
+  - Total: **O(N log k)**
+
+  Space Complexity:
+  - Min-Heap stores up to `k` nodes: **O(k)**.
+
+  Example:
+  --------
+  Input: [
+    1 → 4 → 5,
+    1 → 3 → 4,
+    2 → 6
+  ]
+  Output: 1 → 1 → 2 → 3 → 4 → 4 → 5 → 6
+
+  Follow-ups:
+  -----------
+  - Can we do this without extra heap space? → Yes, using Divide & Conquer: merge lists in pairs.
+  - LeetCode Reference: **LeetCode 23** (Merge k Sorted Lists)
   */
+
   // using minheadp
   public ListNode mergeKLists(ListNode[] lists) {
     // if lists is empty or null return null

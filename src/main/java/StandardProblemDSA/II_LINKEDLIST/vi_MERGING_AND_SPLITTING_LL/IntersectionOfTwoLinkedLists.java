@@ -3,6 +3,48 @@ package StandardProblemDSA.II_LINKEDLIST.vi_MERGING_AND_SPLITTING_LL;
 import StandardProblemDSA.II_LINKEDLIST.ListNode;
 import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
 
+/*
+Problem: Intersection of Two Singly Linked Lists
+------------------------------------------------
+Problem Statement:
+Given the heads of two singly linked lists, return the node at which the two lists intersect.
+If they do not intersect, return null.
+Note: Intersection is determined by **reference**, not value.
+
+Approach:
+---------
+1. **Find Lengths**:
+   - Calculate lengths `lengthA` and `lengthB` of both lists.
+
+2. **Align Pointers**:
+   - Compute difference `|lengthA - lengthB|`.
+   - Advance the head of the longer list by the difference so both pointers have equal nodes to traverse.
+
+3. **Traverse Together**:
+   - Move both heads one step at a time.
+   - If `headA == headB` at any point, this is the intersection node.
+
+4. **Return Null if No Intersection**:
+   - If both lists reach the end with no match, return `null`.
+
+Time Complexity: **O(n + m)** — traverse both lists once.
+Space Complexity: **O(1)** — constant extra space.
+
+Example:
+--------
+List A: 1 → 2 → 3 ↘
+                    7 → 8
+List B:       4 → 5 ↗
+
+Output: Node with value 7 (intersection by reference)
+
+Follow-ups:
+-----------
+- Alternative approach: Use two pointers switching heads (LeetCode 160).
+- Detect if intersection forms a cycle — combine with Floyd's cycle detection.
+- LeetCode Variant: Check if two lists overlap (Cracking the Coding Interview 2.7).
+*/
+
 public class IntersectionOfTwoLinkedLists {
   public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
     int lengthA = Utility_linkedList.lengthOfListNode(headA);

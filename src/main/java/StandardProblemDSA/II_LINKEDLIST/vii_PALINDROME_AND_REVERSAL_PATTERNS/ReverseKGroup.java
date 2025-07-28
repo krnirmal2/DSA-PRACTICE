@@ -1,11 +1,52 @@
 package StandardProblemDSA.II_LINKEDLIST.vii_PALINDROME_AND_REVERSAL_PATTERNS;
 
-import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
-
 import StandardProblemDSA.II_LINKEDLIST.Node;
 import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
 
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
 class Main {
+  /*
+   Problem: Reverse nodes of a linked list in groups of size k.
+
+   Given a singly linked list, reverse the nodes of the list k at a time and return its modified list.
+   If the number of nodes is not a multiple of k then left-out nodes in the end should remain as they are.
+   You may not alter the values in the nodes, only nodes themselves may be changed.
+
+   Example:
+   Input: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8, k = 3
+
+   Step 1: Group nodes in size k = 3:
+           [1, 2, 3], [4, 5, 6], [7, 8]
+
+   Step 2: Reverse each full group:
+           [3, 2, 1], [6, 5, 4], [7, 8]
+
+   Step 3: Join groups:
+           3 -> 2 -> 1 -> 6 -> 5 -> 4 -> 7 -> 8
+
+   Output: 3 -> 2 -> 1 -> 6 -> 5 -> 4 -> 7 -> 8
+
+   Pattern:
+      - Linked List
+      - Grouped Reversal
+      - In-place reversal
+
+   Similar LeetCode Problems:
+      - 25. Reverse Nodes in k-Group
+      - 206. Reverse Linked List
+      - 92. Reverse Linked List II
+
+   Follow-up Questions:
+      - What if k is 1 or larger than list length?
+      - Can this be done recursively?
+      - How to handle doubly linked lists?
+      - How to do it with O(1) extra space?
+
+   Time Complexity: O(n), n = number of nodes
+   Space Complexity: O(1)
+  */
+
   /*
   1. Initialize Pointers
       temp → points to the start of the current group

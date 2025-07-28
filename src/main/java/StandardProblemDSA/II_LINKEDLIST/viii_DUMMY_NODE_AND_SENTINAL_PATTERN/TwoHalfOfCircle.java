@@ -1,10 +1,42 @@
 package StandardProblemDSA.II_LINKEDLIST.viii_DUMMY_NODE_AND_SENTINAL_PATTERN;
 
-import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
-
 import StandardProblemDSA.II_LINKEDLIST.ListNode;
 
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
 public class TwoHalfOfCircle {
+  /*
+   Problem: Split a circular linked list into two equal halves.
+
+   Given a circular singly linked list, split it into two circular linked lists of (almost) equal size.
+
+   Example:
+   Input: Circular list 1 -> 2 -> 3 -> 4 -> (back to 1)
+   Output:
+     First half: 1 -> 2 -> (back to 1)
+     Second half: 3 -> 4 -> (back to 3)
+
+   Pattern:
+      - Linked List
+      - Floyd’s Cycle (Slow & Fast pointers)
+      - Circular List Manipulation
+      - Two Pointer Technique
+
+   Similar LeetCode Problems:
+      - 876. Middle of the Linked List (finding middle)
+      - 141. Linked List Cycle (cycle detection)
+      - 142. Linked List Cycle II (cycle start node detection)
+
+   Follow-up Questions:
+      - How to handle odd number of nodes? (one half longer by one)
+      - Can this be done for doubly circular lists?
+      - How to merge two circular lists back into one?
+      - What if list is not circular?
+
+   Time Complexity: O(n), n = number of nodes
+   Space Complexity: O(1)
+  */
+
   public static void splitList(ListNode head) {
     if (head == null || head.next == head) {
       System.out.println("List is too small to split.");

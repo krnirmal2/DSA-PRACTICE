@@ -1,34 +1,56 @@
 package StandardProblemDSA.II_LINKEDLIST.iv_SORTING_AND_REARRANGING_PATTERN;
 
-import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
-
 import StandardProblemDSA.II_LINKEDLIST.Node;
 import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
 
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
 public class PartitionLinkedList {
-
-  // ---------------------------------------------------
-  // 5. Partition Linked List Around a Value
-  // ---------------------------------------------------
   /*
-    Problem Statement:
-       Given a linked list and a value x, partition it such that all nodes less than x
-       come before nodes greater than or equal to x. The original relative order should be preserved.
+  Problem: Partition Linked List Around a Value
+  ---------------------------------------------
+  Problem Statement:
+  Given the head of a linked list and an integer x, rearrange the list so that all nodes
+  with values less than x come before nodes with values greater than or equal to x.
+  The relative order of nodes in each partition should remain unchanged.
 
-    Brute Force Approach:
-       - Convert list to an array, partition the array, then rebuild the list.
+  Approach:
+  ---------
+  1. **Key Idea**:
+     - Use two separate linked lists: one for nodes `< x` and one for nodes `>= x`.
+     - Maintain dummy heads (`beforeDummy`, `afterDummy`) and current tails (`before`, `after`) for both lists.
+     - Traverse the original list and partition nodes into the two lists.
+     - Merge the two lists by connecting the `before` list to the `after` list.
 
-    Optimal Approach:
-       - Use two dummy nodes: one for nodes less than x, another for nodes greater or equal.
-       - Traverse the list, appending nodes to the appropriate list.
-       - Merge the two lists.
-       - Time Complexity: O(n)
-       - Space Complexity: O(1)
+  2. **Steps**:
+     - Traverse `head`, append each node to either `before` or `after` list.
+     - After traversal, terminate the `after` list (`after.next = null`).
+     - Connect `before` list to `after` list (`before.next = afterDummy.next`).
+     - Return `beforeDummy.next` as the new head.
 
-    Example:
-       Input: 1 -> 4 -> 3 -> 2 -> 5 -> 2, x = 3
-       Output: 1 -> 2 -> 2 -> 4 -> 3 -> 5
+  3. **Time Complexity**: O(n) — single traversal of the list.
+  4. **Space Complexity**: O(1) — no extra data structures used, only pointers.
+
+  Example:
+  --------
+  Input:  1 → 4 → 3 → 2 → 5 → 2, x = 3
+  Output: 1 → 2 → 2 → 4 → 3 → 5
+
+  Edge Cases:
+  -----------
+  - Empty list (head = null) → return null.
+  - All nodes < x or all nodes >= x.
+  - x not present in the list.
+
+  Follow-Up:
+  ----------
+  - Can we do this in-place without using extra dummy nodes? (Yes, but it complicates pointer management.)
+
+  LeetCode:
+  ---------
+  - [86. Partition List](https://leetcode.com/problems/partition-list/)
   */
+
   public static Node partitionAroundValue(Node head, int x) {
     // 1.create two dummy node with value zero
     Node beforeDummy = Utility_linkedList.createNewNode(0);

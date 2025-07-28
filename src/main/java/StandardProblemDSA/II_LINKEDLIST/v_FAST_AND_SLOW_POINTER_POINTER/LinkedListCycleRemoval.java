@@ -1,10 +1,58 @@
 package StandardProblemDSA.II_LINKEDLIST.v_FAST_AND_SLOW_POINTER_POINTER;
 
-import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
-
 import StandardProblemDSA.II_LINKEDLIST.Node;
 
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
 public class LinkedListCycleRemoval {
+  /*
+  Problem: Detect and Remove a Loop in a Linked List
+  --------------------------------------------------
+  Problem Statement:
+  Given the head of a singly linked list, detect if a loop exists.
+  If a loop is found, remove it and restore the list to a proper singly linked list.
+
+  Approach:
+  ---------
+  1. **Detect Cycle (Floyd’s Tortoise and Hare)**:
+     - Use two pointers `slow` and `fast`.
+     - Move `slow` by one and `fast` by two steps.
+     - If they meet, a cycle exists.
+
+  2. **Find Start of Loop**:
+     - Reset `slow` to `head`.
+     - Move both `slow` and `fast` one step at a time until they meet again.
+     - Meeting point is the start of the loop.
+
+  3. **Find Last Node in Loop & Break It**:
+     - Keep moving `fast` until `fast.next` points to the start node of the loop.
+     - Set `fast.next = null` to remove the loop.
+
+  4. **Utility Method `createLoop`**:
+     - For testing, links the last node of the list to the node at the given position.
+
+  Time Complexity:
+  - **O(n)** — Each pointer traverses the list at most twice.
+  Space Complexity:
+  - **O(1)** — No extra data structures used.
+
+  Example:
+  --------
+  Input: 1 → 2 → 3 → 4 → 5 ↘
+                       ↑----↙
+  Output: 1 → 2 → 3 → 4 → 5 → null
+
+  Edge Cases:
+  -----------
+  - Empty list (`head = null`) → No action.
+  - No cycle present → List remains unchanged.
+  - Cycle starting at head.
+
+  Follow-up:
+  ----------
+  - LeetCode 142: **Linked List Cycle II** (Find the node where the cycle begins).
+  - LeetCode 141: **Linked List Cycle** (Detect if a cycle exists).
+  */
 
   // Function to detect and remove the loop
   public static void removeLoop(Node head) {

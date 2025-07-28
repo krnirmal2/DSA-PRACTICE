@@ -1,11 +1,47 @@
 package StandardProblemDSA.II_LINKEDLIST.vi_MERGING_AND_SPLITTING_LL;
 
-import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
-
 import StandardProblemDSA.II_LINKEDLIST.Node;
 import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
 
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
 public class AlternatingSplitLL {
+  /*
+  Problem: Alternating Split of a Linked List
+  -------------------------------------------
+  Problem Statement:
+  Given the head of a singly linked list, split it into two separate lists:
+  - List A: nodes at even indices (0, 2, 4, …)
+  - List B: nodes at odd indices (1, 3, 5, …)
+
+  Approach:
+  ---------
+  1. **Traversal with Index Tracking**:
+     - Traverse the linked list while keeping an index counter.
+     - Even indices go to `listA`, odd indices go to `listB`.
+
+  2. **Use Tail Pointers for Efficient Appending**:
+     - Maintain `lastA` and `lastB` as tails for both new lists.
+     - Use a helper function `appendNode` to append nodes.
+
+  3. **Terminate Both Lists**:
+     - After traversal, set the `next` of the last node in each list to `null` to avoid accidental cross-links.
+
+
+  Time Complexity: **O(n)** — traverses the list once.
+  Space Complexity: **O(1)** — uses constant extra memory.
+
+  Example:
+  --------
+  Input: 1 → 2 → 3 → 4 → 5 → 6
+  Output:
+  - List A: 1 → 3 → 5
+  - List B: 2 → 4 → 6
+
+  Follow-up:
+  ----------
+  - LeetCode 328: **Odd Even Linked List** (group all odd-indexed nodes followed by even-indexed nodes).
+  */
   /*Positive/negative split is based on value (a node’s data) → can be done in one pass by checking value.
     Alternate splitting is based on position (even/odd index) → requires positional tracking during traversal.
   | Feature                      | Positive/Negative Split    | Alternate Index Split                 |

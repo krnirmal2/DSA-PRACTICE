@@ -1,13 +1,49 @@
 package StandardProblemDSA.II_LINKEDLIST.vii_PALINDROME_AND_REVERSAL_PATTERNS;
 
-import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
-
 import StandardProblemDSA.II_LINKEDLIST.Node;
+
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
 
 public class RotateLeftByKTimes {
   // ---------------------------------------------------
   // 3. Rotate Linked List Left/Right by K
   // ---------------------------------------------------
+  /*
+   Problem: Rotate a linked list to the left by k positions.
+
+   Given a singly linked list, rotate it left by k nodes. This means moving the first k nodes to the end of the list.
+   If k is greater than the length of the list, rotate by k % length.
+
+   Example:
+   Input: 1 -> 2 -> 3 -> 4 -> 5, k = 2
+
+   Step 1: Length = 5
+   Step 2: Form circular list by connecting tail to head
+   Step 3: Normalize k = 2 % 5 = 2
+   Step 4: Move to new tail (node 2)
+   Step 5: New head is node 3, break the loop
+
+   Output: 3 -> 4 -> 5 -> 1 -> 2
+
+   Pattern:
+      - Linked List
+      - Rotation
+      - Circular linked list manipulation
+
+   Similar LeetCode Problems:
+      - 61. Rotate List (right rotation, can be adapted)
+      - 189. Rotate Array (array version)
+      - 328. Odd Even Linked List (manipulation in linked list)
+
+   Follow-up Questions:
+      - How to handle right rotation?
+      - Can this be done without making the list circular?
+      - What if k is zero or multiple of list length?
+      - What if list is doubly linked?
+
+   Time Complexity: O(n), n = number of nodes
+   Space Complexity: O(1)
+  */
   /*
     Problem Statement:
        Given the head of a linked list and an integer k, rotate the list to the left or right by k positions.

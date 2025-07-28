@@ -3,6 +3,40 @@ package StandardProblemDSA.II_LINKEDLIST.vi_MERGING_AND_SPLITTING_LL;
 import StandardProblemDSA.II_LINKEDLIST.Node;
 
 public class mergeTwoSortedList {
+  /*
+  Problem: Merge Two Sorted Linked Lists
+  --------------------------------------
+  Given two sorted singly linked lists, merge them into one sorted linked list and return its head.
+
+  Approach:
+  ---------
+  1. **Dummy Node + Tail Pointer**:
+     - Use a dummy node to simplify edge cases.
+     - Compare current nodes of both lists.
+     - Append the smaller node to `tail.next`, advance that list pointer.
+     - Move `tail` forward.
+  2. **Attach Remaining Nodes**:
+     - After one list is exhausted, append the remainder of the other list.
+
+  Time Complexity:
+  - `O(m + n)` where `m` and `n` are lengths of the two lists.
+
+  Space Complexity:
+  - `O(1)` (in-place, no extra structures).
+
+  Example:
+  --------
+  Input:
+    list1 = 1 → 3 → 5
+    list2 = 2 → 4 → 6
+  Output:
+    1 → 2 → 3 → 4 → 5 → 6
+
+  Follow-ups:
+  ------------
+  - Can we do it recursively? → Yes, using recursion for cleaner code.
+  - LeetCode Reference: **LeetCode 21** (Merge Two Sorted Lists)
+  */
 
   public static Node mergeTwoLists(Node list1, Node list2) {
     // Approach : 1. iterate over the two linked list with two pointer

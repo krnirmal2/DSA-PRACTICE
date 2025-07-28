@@ -1,10 +1,43 @@
 package StandardProblemDSA.II_LINKEDLIST.ii_NSERTION_AND_DELETION_PATTERN;
 
-import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
-
 import StandardProblemDSA.II_LINKEDLIST.Node;
 
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
 public class nthNodeFromLast {
+  /* Problem Statement:
+     Given the head of a singly linked list, delete the nth node from the end of the list and return its head.
+
+     Example:
+     Input: 1 -> 2 -> 3 -> 4 -> 5, n = 3
+     Output: 1 -> 2 -> 4 -> 5
+     Explanation: The 3rd node from the end (node with value 3) is removed.
+
+     Approach:
+     - First calculate the length of the linked list.
+     - The node to delete is at position (length - n + 1) from the start.
+     - Traverse until this position, maintaining `previous` and `next` pointers.
+     - Update `previous.next` to skip the `next` node.
+     - Special Case: if `previous` is null, the head itself is the nth node from the end. Update head.
+
+     Edge Cases:
+     - Empty list (length = 0): return null.
+     - n equals list length: delete the head.
+     - n > length: invalid input (can be handled by returning head unchanged).
+
+     Time Complexity: O(L), where L = length of linked list.
+     Space Complexity: O(1).
+
+     Pattern: Two-pointer / Linked List deletion.
+
+     Follow-up:
+     - Can we do it in a single pass without calculating the length? (Yes, by using two pointers with a gap of n.)
+     - How to handle cases where n > length?
+
+     Related LeetCode Problems:
+     - 19. Remove Nth Node From End of List
+  */
+
   // 1st way to  traverse and delete the nth node
   // steps 1. travers the k-n+1 node from beginnig
   // delete take two pointer next and previous

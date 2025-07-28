@@ -1,34 +1,49 @@
 package StandardProblemDSA.II_LINKEDLIST.iv_SORTING_AND_REARRANGING_PATTERN;
 
-import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
-
 import StandardProblemDSA.II_LINKEDLIST.Node;
 import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
 
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
 public class AlternatePositiveNegativeNo {
-  // ---------------------------------------------------
-  // 4. Rearrange List Alternately (Positive and Negative Nodes)
-  // ---------------------------------------------------
-  /*
-    Problem Statement:
-       Rearrange the linked list so that positive and negative numbers alternate.
-       The order of appearance should be maintained as in the original list.
+  /* Problem: Rearrange List Alternately (Positive and Negative Nodes)
+     -----------------------------------------------------------------
+     Problem Statement:
+     Given a singly linked list, rearrange it so that positive and negative numbers alternate.
+     The order of appearance should be maintained as in the original list.
 
-    Brute Force Approach:
-       - Traverse the list, extract positive and negative nodes into two lists,
-         then merge them alternately.
+     Approach:
+     1. **Separate Lists**:
+        - Create two dummy nodes (`posDummy` and `negDummy`) to hold positive and negative nodes.
+        - Traverse the original list:
+          - Append positive nodes to the positive list.
+          - Append negative nodes to the negative list.
+        - Maintain tail pointers (`posTail` and `negTail`) for each list.
+     2. **Terminate Lists**:
+        - Set `posTail.next = null` and `negTail.next = null` to mark the end of each list.
+     3. **Merge Alternately**:
+        - Merge positive and negative lists alternately, preserving the order of nodes within each.
+        - The merged list's head is the first available node (`posDummy.next` or `negDummy.next`).
 
-    Optimal Approach:
-       - Using two dummy nodes, separate positive and negative nodes while traversing.
-       - Merge the two lists by alternately linking nodes.
-       - Time Complexity: O(n)
-       - Space Complexity: O(1)
+     Example:
+        Input:  1 -> -2 -> 3 -> -4 -> 5 -> -6
+        Output: 1 -> -2 -> 3 -> -4 -> 5 -> -6
 
-    Example:
-       Input: 1 -> -2 -> 3 -> -4 -> 5 -> -6
-       Output: 1 -> -2 -> 3 -> -4 -> 5 -> -6
-       (If already alternating, the order remains. If not, adjust accordingly.)
+     Time Complexity: O(n), one traversal to split and one to merge.
+     Space Complexity: O(1), rearranging pointers in place.
+
+     Edge Cases:
+     - All positive or all negative nodes (one of the lists will be empty).
+     - Empty list (`head == null`).
+
+     Follow-up:
+     - Modify the function to start with a negative node if the first node is negative.
+
+     Related LeetCode Problems:
+     - 143. Reorder List
+     - 328. Odd Even Linked List
   */
+
   public static Node rearrangePosNeg(Node head) {
     if (head == null) return null;
     // 1.create two dummy node with value zero Remain fixed — we never move them.

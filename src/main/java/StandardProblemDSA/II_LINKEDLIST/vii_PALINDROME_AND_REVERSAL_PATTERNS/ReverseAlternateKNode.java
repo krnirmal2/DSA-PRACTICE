@@ -1,35 +1,53 @@
 package StandardProblemDSA.II_LINKEDLIST.vii_PALINDROME_AND_REVERSAL_PATTERNS;
 
-import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
-
 import StandardProblemDSA.II_LINKEDLIST.ListNode;
+
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
 
 public class ReverseAlternateKNode {
 
-  // ---------------------------------------------------
-  // 1. Reverse Every Alternate K Nodes
-  // ---------------------------------------------------
   /*
-    Problem Statement:
-       Given a linked list and an integer k, reverse every alternate k nodes of the list.
-       That is, reverse the first k nodes, leave the next k nodes unchanged, then reverse the following k nodes, and so on.
+  Problem: Reverse Every Alternate K Nodes in a Linked List
+  ---------------------------------------------------------
+  Given the head of a singly linked list and integer k, reverse the first k nodes,
+  leave the next k nodes as they are, then reverse the following k nodes, and so on.
 
-    Brute Force Idea:
-       - Convert the list to an array, manipulate segments, and rebuild the list.
-       - Time Complexity: O(n) but uses extra space.
+  Approach:
+  ---------
+  1. **Reverse first k nodes**:
+     - Use three pointers: `prev`, `current`, `next`.
+     - Reverse k nodes; `prev` becomes new head of this segment.
 
-    Optimal Approach:
-       - Use recursion (or iteration) to reverse the first k nodes, then skip the next k nodes, and repeat.
-       - Time Complexity: O(n) and O(1) extra space (ignoring recursion stack).
+  2. **Link reversed part to the next segment**:
+     - Original `head` now becomes the last node of the reversed segment.
+     - Connect `head.next` to the remaining list starting at `current`.
 
-    Example:
-       Input: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9, k = 3
-       Process:
-         Reverse first 3: 3 -> 2 -> 1,
-         Skip next 3: 4 -> 5 -> 6 remain,
-         Reverse last 3: 9 -> 8 -> 7.
-       Output: 3 -> 2 -> 1 -> 4 -> 5 -> 6 -> 9 -> 8 -> 7
+  3. **Skip next k nodes**:
+     - Move `current` forward by k-1 nodes to leave this segment untouched.
+
+  4. **Recursive call**:
+     - Reverse every alternate k-group in the remaining list by calling recursively on `current.next`.
+
+  Edge Cases:
+  -----------
+  - If the list has fewer than k nodes at any reversal step, reverse all remaining nodes.
+  - If fewer than k nodes remain in the "skip" part, leave them as is.
+
+  Time Complexity:  O(n) — every node is visited once.
+  Space Complexity: O(1) auxiliary, ignoring recursion stack.
+
+  Example:
+  --------
+  Input:  1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9, k = 3
+  Output: 3 → 2 → 1 → 4 → 5 → 6 → 9 → 8 → 7
+
+  Follow-up:
+  ----------
+  - Implement an iterative version to avoid recursion stack overflow on very large lists.
+  - Can generalize to "reverse M nodes, skip N nodes" pattern.
+  - LeetCode Reference: **LeetCode 2074** (Reverse Nodes in Even Length Groups) — similar pattern.
   */
+
   public static ListNode reverseAlternateKNodes(ListNode head, int k) {
     if (head == null) return null;
 
