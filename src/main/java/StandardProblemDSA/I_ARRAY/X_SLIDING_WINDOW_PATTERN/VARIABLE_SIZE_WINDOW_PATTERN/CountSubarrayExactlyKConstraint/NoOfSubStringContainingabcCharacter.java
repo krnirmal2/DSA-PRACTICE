@@ -2,22 +2,65 @@ package StandardProblemDSA.I_ARRAY.X_SLIDING_WINDOW_PATTERN.VARIABLE_SIZE_WINDOW
 
 public class NoOfSubStringContainingabcCharacter {
   /*Given a string s consisting only of characters a, b and c.
-  Return the number of substrings containing at least one occurrence of all these characters a, b and c.
-  Example 1:
-  Input: s = "abcabc"
-  Output: 10
-  Explanation: The substrings containing at least one occurrence of the characters a, b and c are "abc", "abca", "abcab", "abcabc", "bca", "bcab", "bcabc", "cab", "cabc" and "abc" (again).
-  Example 2:
-  Input: s = "aaacb"
-  Output: 3
-  Explanation: The substrings containing at least one occurrence of the characters a, b and c are "aaacb", "aacb" and "acb".
-  Example 3:
+    Return the number of substrings containing at least one occurrence of all these characters a, b and c.
+    Example 1:
+    Input: s = "abcabc"
+    Output: 10
+    Explanation: The substrings containing at least one occurrence of the characters a, b and c are "abc", "abca", "abcab", "abcabc", "bca", "bcab", "bcabc", "cab", "cabc" and "abc" (again).
+    Example 2:
+    Input: s = "aaacb"
+    Output: 3
+    Explanation: The substrings containing at least one occurrence of the characters a, b and c are "aaacb", "aacb" and "acb".
+    Example 3:
 
-  Input: s = "abc"
-  Output: 1
+    Input: s = "abc"
+    Output: 1
 
+  ------------------------------------------------------
+  Pattern
+  ------------------------------------------------------
+  Pattern Name: Variable-Size Sliding Window (a.k.a. "At Least K Constraint" pattern)
 
-   */
+  Key Insight:
+  - Use two pointers `left` and `right`.
+  - Expand `right` until all required characters ('a', 'b', 'c') are in the current window.
+  - Once the window contains all required characters:
+      - Every substring starting at `left` and ending at or after `right` is valid.
+      - Count them all in O(1) using: answer += (s.length() - right).
+  - Shrink `left` and repeat.
+
+  ------------------------------------------------------
+  Follow-up Questions
+  ------------------------------------------------------
+  1. What if the string can contain any lowercase letters, not just 'a', 'b', 'c'?
+     - Extend the frequency array to 26 characters.
+
+  2. What if we want substrings containing at least K distinct characters (K > 3)?
+     - Generalize to "Count substrings with at least K distinct characters" using sliding window and a map.
+
+  3. What if we want substrings containing exactly all three characters (not at least)?
+     - Use inclusion-exclusion:
+         Count(>=3 distinct) - Count(>=4 distinct) if the alphabet is larger,
+         or adjust window checks.
+
+  4. Can we do it for a stream of characters (real-time input)?
+     - Maintain a frequency array dynamically; increment answer as the stream progresses.
+
+  5. How to find the substrings themselves, not just the count?
+     - Store indices or build substrings, but complexity increases to O(n²).
+
+  ------------------------------------------------------
+  Similar LeetCode Questions
+  ------------------------------------------------------
+  - LeetCode 1358 – Number of Substrings Containing All Three Characters (exact same problem)
+  - LeetCode 992  – Subarrays with K Different Integers (generalized version; exactly K distinct elements)
+  - LeetCode 340  – Longest Substring with At Most K Distinct Characters (variation of distinct-char sliding window)
+  - LeetCode 1248 – Count Number of Nice Subarrays (counting subarrays meeting a constraint; prefix/suffix trick)
+  - LeetCode 3    – Longest Substring Without Repeating Characters (uses similar sliding window mechanics)
+
+      Time Complexity: O(n) because each character is visited at most twice (right and left pointer).
+
+     */
   public int numberOfSubstrings(String s) {
     /*🧠 Why (s.length() - right)?
     ✅ Insight:

@@ -1,7 +1,45 @@
 package StandardProblemDSA.I_ARRAY.III_SORTING_PATTERN.SEMI_SORTED_ARRAY.SORT_REARRANGE_PATTERN;
 
 import StandardProblemDSA.I_ARRAY.ArrayUtility;
+
 import java.util.Arrays;
+
+/*
+Question:
+Implement the Quick Sort algorithm. Given an array of integers, sort it in ascending order
+using the divide-and-conquer approach.
+
+Approach:
+1. Choose a pivot (here the first element is chosen).
+2. Partition the array so that:
+   - All elements smaller than pivot go to its left.
+   - All elements greater than pivot go to its right.
+3. Recursively apply quickSort on left and right subarrays.
+4. Base case: if the subarray has less than 2 elements, it is already sorted.
+
+Pattern:
+- Sorting Pattern using Divide & Conquer.
+- Recursive in nature.
+- In-place sort (no additional significant memory used).
+- Not a stable sort (does not preserve order of equal elements).
+
+Time Complexity:
+- Best & Average Case: O(n log n)
+- Worst Case: O(n²) (when the pivot selection is poor, e.g., sorted/reverse-sorted array with first-element pivot)
+Space Complexity: O(log n) due to recursion stack.
+
+Follow-up Questions:
+1. How can we improve pivot selection to avoid worst-case performance? (e.g., use random or median-of-three pivot)
+2. Can we make Quick Sort stable?
+3. How does Quick Sort compare to Merge Sort in terms of performance and memory?
+4. Can Quick Sort be implemented iteratively?
+5. Why is Quick Sort often preferred in practice despite its worst-case behavior?
+
+Similar LeetCode/Interview Questions:
+- LeetCode 912. Sort an Array
+- LeetCode 215. Kth Largest Element in an Array (uses Quickselect, based on Quick Sort)
+- LeetCode 973. K Closest Points to Origin (partition-based selection)
+*/
 
 public class QuickSort {
   /*  🔹 Steps of Quick Sort

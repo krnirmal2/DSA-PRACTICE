@@ -1,21 +1,80 @@
 package StandardProblemDSA.I_ARRAY.X_SLIDING_WINDOW_PATTERN.VARIABLE_SIZE_WINDOW_PATTERN;
 
 public class CountKOddNoWindowNiceSubarray {
-  /*Given an array of integers nums and an integer k. A continuous subarray is called nice if there are k odd numbers on it.
-  Return the number of nice sub-arrays.
-  Example 1:
-  Input: nums = [1,3,2,1,1], k = 3
-  Output: 2
-  Explanation: The only sub-arrays with 3 odd numbers are [1,1,2,1] and [1,2,1,1].
-  Example 2:
+  /*
+  -----------------------------------------------------------------------------------
+  📌 Question:
+  -----------------------------------------------------------------------------------
+  "Given an integer array `nums` and an integer `k`,
+   return the number of **continuous subarrays** that contain exactly `k` odd numbers."
 
-  Input: nums = [2,4,6], k = 1
+  Example 1:
+  Input: nums = [1, 3, 2, 1, 1], k = 3
+  Output: 2
+  Explanation: The only subarrays with exactly 3 odd numbers are [3,2,1,1] and [1,2,1,1].
+
+  Example 2:
+  Input: nums = [2, 4, 6], k = 1
   Output: 0
   Explanation: There are no odd numbers in the array.
-  Example 3:
 
-  Input: nums = [2,2,2,1,2,2,1,2,2,2], k = 2
-  Output: 16*/
+  Example 3:
+  Input: nums = [2, 2, 2, 1, 2, 2, 1, 2, 2, 2], k = 2
+  Output: 16
+
+  -----------------------------------------------------------------------------------
+  🧠 Pattern: Variable Size Sliding Window + Mathematical Trick
+  -----------------------------------------------------------------------------------
+  - We want **exactly k** odd numbers in a window.
+  - **Trick**:
+    - #subarrays with exactly k =
+      (#subarrays with at most k) – (#subarrays with at most k-1)
+  - Use a helper sliding window function `countSubarraysWithAtMostKOdds()`
+    to compute subarrays having at most `k` odd numbers.
+
+  **How `countSubarraysWithAtMostKOdds` works**:
+  1️⃣ Maintain two pointers `left` and `right`, and `oddCount` for current window.
+  2️⃣ Expand `right` pointer and count odd numbers.
+  3️⃣ Shrink `left` pointer when `oddCount > k`.
+  4️⃣ For each `right`, add `(right - left + 1)` to `count`:
+     - because all subarrays ending at `right` and starting anywhere between `left` and `right` are valid.
+
+  **Why (right - left + 1)?**
+  - Suppose window = [left..right] is valid.
+  - Subarrays ending at `right` are:
+    [right], [right-1..right], ..., [left..right] → count = window size.
+
+  -----------------------------------------------------------------------------------
+  ⏱ Complexity:
+  -----------------------------------------------------------------------------------
+  Time: O(N)
+  - Each element is visited at most twice (once by right, once by left)
+  Space: O(1)
+  - Constant extra variables used
+
+  -----------------------------------------------------------------------------------
+  🔁 Follow-up Questions:
+  -----------------------------------------------------------------------------------
+  1️⃣ What if we need subarrays with exactly `k` even numbers?
+     → Same logic, just count evens instead of odds.
+
+  2️⃣ What if we need subarrays where the number of odds ≤ k (at most k)?
+     → Directly return `countSubarraysWithAtMostKOdds(nums, k)`.
+
+  3️⃣ Can we find the subarrays themselves, not just the count?
+     → Yes, but would require storing and iterating through all valid windows (O(N²)).
+
+  4️⃣ How to handle when elements are very large or negative?
+     → Odd/even check uses `num % 2`, works for negatives too.
+
+  -----------------------------------------------------------------------------------
+  🔗 Similar LeetCode Questions:
+  -----------------------------------------------------------------------------------
+  - Leetcode 1248 – Count Number of Nice Subarrays (Exact same problem)
+  - Leetcode 930 – Binary Subarrays With Sum (same trick: exactly k = at most k – at most (k-1))
+  - Leetcode 992 – Subarrays with K Different Integers (same pattern, but counting distinct elements)
+  */
+
   public static int countSubarraysWithAtMostKOdds(int[] nums, int k) {
     int count = 0;
     int left = 0;

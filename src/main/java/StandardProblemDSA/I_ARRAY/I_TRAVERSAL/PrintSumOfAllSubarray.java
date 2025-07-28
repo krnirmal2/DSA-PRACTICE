@@ -1,5 +1,6 @@
 package StandardProblemDSA.I_ARRAY.I_TRAVERSAL;
 
+// SUM OF A ARRAY SUBARRAYS
 public class PrintSumOfAllSubarray {
   public static void subarraySum(int[] A) {
     for (int i = 0; i < A.length; i++) {

@@ -2,6 +2,50 @@ package StandardProblemDSA.I_ARRAY.III_SORTING_PATTERN.SEMI_SORTED_ARRAY.SORT_RE
 
 import java.util.Arrays;
 
+/*
+Question:
+Given an integer array `arr[]`, count the number of inversions.
+An inversion is a pair (i, j) such that i < j and arr[i] > arr[j].
+It indicates how far the array is from being sorted.
+
+Example:
+Input: arr = [1, 20, 6, 4, 5]
+Output: 5
+Explanation: Inversion pairs are (20,6), (20,4), (20,5), (6,4), (6,5).
+
+Approach:
+- Use Merge Sort to count inversions in O(n log n).
+- Divide the array into halves recursively.
+- Count inversions in the left half and right half separately.
+- Count inversions while merging both halves.
+- Key idea:
+    - When arr[i] > arr[j] during merge, all remaining elements from arr[i] to arr[mid]
+      will also form inversions with arr[j].
+
+Pattern:
+- Sorting Pattern (Merge Sort Based).
+- Divide & Conquer.
+- Often used to measure "how unsorted" an array is.
+
+Time Complexity:
+- O(n log n) (Merge Sort complexity)
+Space Complexity:
+- O(n) (temporary arrays used in merging)
+
+Follow-up Questions:
+1. Can we do it in O(n²) using a brute-force approach? (Compare all pairs)
+2. Can we solve this using Binary Indexed Tree (Fenwick Tree) or Segment Tree?
+3. What is the maximum inversion count for an array of size n?
+4. Can we extend this to count "k-inversions" (difference between indices also matters)?
+5. Can we modify the merge sort to return the sorted array and inversion count simultaneously?
+
+Similar LeetCode Questions:
+- LeetCode 493. Reverse Pairs
+- LeetCode 327. Count of Range Sum (variation)
+- LeetCode 775. Global and Local Inversions
+- LeetCode 912. Sort an Array (uses merge sort internally)
+*/
+
 public class InversionCount {
   /* 🔹 What is Inversion Count?
       An inversion in an array arr[] is a pair (i, j) such that:

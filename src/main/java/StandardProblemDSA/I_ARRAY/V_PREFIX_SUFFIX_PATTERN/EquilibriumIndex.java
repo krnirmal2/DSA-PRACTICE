@@ -1,56 +1,52 @@
 package StandardProblemDSA.I_ARRAY.V_PREFIX_SUFFIX_PATTERN;
 
-/* Problem Description
-You are given an array A of integers of size N.
+/*
+Question:
+Find the equilibrium index of an integer array A where the sum of elements before index i
+equals the sum of elements after index i. Return the smallest such index if multiple exist,
+or -1 if none.
 
-Your task is to find the equilibrium index of the given array
+Example:
+Input: A = [-7, 1, 5, 2, -4, 3, 0]
+Output: 3
+Explanation:
+- Sum of elements before index 3 = (-7 + 1 + 5) = -1
+- Sum of elements after index 3 = (-4 + 3 + 0) = -1
+- Both are equal, so index 3 is an equilibrium index.
 
-The equilibrium index of an array is an index such that the sum of elements at lower indexes is equal to the sum of elements at higher indexes.
+Input: A = [1, 2, 3]
+Output: -1
+Explanation: No index satisfies the condition.
 
-NOTE:
+Approach:
+1. Compute prefix and suffix sums for the array.
+2. For each index i:
+   - leftSum = sum of elements before i (prefix[i-1]).
+   - rightSum = sum of elements after i (suffix[i+1]).
+3. If leftSum == rightSum, return i (the first equilibrium index).
+4. If no such index is found, return -1.
 
-Array indexing starts from 0.
-If there is no equilibrium index then return -1.
-If there are more than one equilibrium indexes then return the minimum index.
+Pattern:
+- Prefix Sum Pattern.
+- Uses cumulative sums to quickly calculate left and right sums for each index.
 
+Time Complexity:
+- O(n), single pass to build prefix and suffix sums + one pass to check indices.
+Space Complexity:
+- O(n), additional arrays for prefix and suffix sums.
+- Can be optimized to O(1) by using total sum and running left sum.
 
+Follow-up Questions:
+1. Can you solve it in O(1) space without prefix and suffix arrays?
+2. How to handle multiple equilibrium indices (return all of them)?
+3. How would the solution change for a circular array?
+4. Can we adapt this for large datasets with streaming data?
+5. What if we need to find equilibrium indices in a matrix (row-wise and column-wise)?
 
-Problem Constraints
-1 <= N <= 105
--105 <= A[i] <= 105
-
-
-Input Format
-First arugment is an array A .
-
-
-Output Format
-Return the equilibrium index of the given array. If no such index is found then return -1.
-
-
-Example Input
-Input 1:
-A=[-7, 1, 5, 2, -4, 3, 0]
-Input 2:
-
-A=[1,2,3]
-
-
-Example Output
-Output 1:
-3
-Output 2:
-
--1
-
-
-Example Explanation
-Explanation 1:
-3 is an equilibrium index, because:
-A[0] + A[1] + A[2] = A[4] + A[5] + A[6]
-Explanation 1:
-
-There is no such index.
+Similar LeetCode/Interview Questions:
+- LeetCode 724. Find Pivot Index
+- LeetCode 1991. Find the Middle Index in Array
+- InterviewBit: Equilibrium Index of an Array
 */
 
 import StandardProblemDSA.Utility;

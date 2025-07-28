@@ -2,10 +2,50 @@ package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.ROTETED_ARRAY
 
 public class FindRotationCount {
   public static int findMin(int[] a) {
-    /*  Find the Rotation Count in a Rotated Sorted Array (No Duplicates)
-    You're given a sorted array that has been rotated at some pivot.
-    The goal is to find the index of the minimum element, which also equals the number of times the
-    array has been rotated.*/
+    /*
+     * Problem Statement:
+     * ------------------
+     * Find the Rotation Count in a Rotated Sorted Array (No Duplicates).
+     * You're given an array that was originally sorted in ascending order but has been rotated
+     * at some unknown pivot. Your task is to determine the number of times the array was rotated.
+     *
+     * Key Insight:
+     * ------------
+     * - The number of rotations is equal to the index of the smallest element in the rotated array.
+     * - Example: [5, 6, 1, 2, 3, 4] → minimum = 1 at index 2 → rotated 2 times.
+     *
+     * Approach:
+     * ---------
+     * - Use Binary Search to find the smallest element.
+     * - Compare mid with high to decide whether to go left or right:
+     *    1. If a[mid] <= a[high]: right half is sorted, so pivot is in the left half.
+     *    2. Else: pivot is in the right half.
+     * - Handle edge cases where mid itself or mid + 1 is the smallest.
+     * - Continue narrowing until low points to the smallest element.
+     *
+     * Pattern:
+     * --------
+     * - Binary Search on Rotated Sorted Array (finding pivot/minimum element).
+     *
+     * Time and Space Complexity:
+     * --------------------------
+     * - Time: O(log n) because we halve the search space at each step.
+     * - Space: O(1) since no extra data structures are used.
+     *
+     * Related LeetCode Questions:
+     * ---------------------------
+     * - 153. Find Minimum in Rotated Sorted Array
+     * - 154. Find Minimum in Rotated Sorted Array II (handles duplicates)
+     * - 33. Search in Rotated Sorted Array
+     * - 81. Search in Rotated Sorted Array II
+     *
+     * Follow-up Questions:
+     * --------------------
+     * - How would you handle duplicates? (Hint: Need to skip equal elements)
+     * - Can you also return the pivot value instead of the index?
+     * - How to find the number of rotations if the array is rotated multiple times?
+     */
+
     // we can find theis using order of n but use binary serch
     int high = a.length - 1;
     int low = 0;

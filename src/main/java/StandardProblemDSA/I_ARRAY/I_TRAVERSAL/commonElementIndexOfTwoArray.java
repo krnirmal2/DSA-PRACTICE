@@ -1,14 +1,23 @@
 package StandardProblemDSA.I_ARRAY.I_TRAVERSAL;
 
 import StandardProblemDSA.Utility;
+
 import java.util.HashMap;
 import java.util.HashSet;
 
 public class commonElementIndexOfTwoArray {
-  /*Given two integer arrays A and B, return an array that represents their intersection,
-     where each element in the result should appear as many times as it shows in both arrays
-      (i.e., the minimum frequency of the element in both arrays).
-  You may return the result in any order.*/
+  /* int[] A = {1, 2, 2, 1};
+      int[] B = {2, 3, 1, 2};
+      Given two integer arrays A and B, return an array that represents their intersection,
+       where each element in the result should appear as many times as it shows in both arrays
+        (i.e., the minimum frequency of the element in both arrays).
+    You may return the result in any order.
+  output:
+  1
+  2
+  2
+  0
+  */
   public static int[] solve(int[] A, int[] B) {
     int sizeOfResultArrray = Math.min(A.length, B.length);
     int[] result = Utility.createNewArrayOfSizeN(sizeOfResultArrray);

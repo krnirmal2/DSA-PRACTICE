@@ -3,6 +3,43 @@ package StandardProblemDSA.I_ARRAY.III_SORTING_PATTERN.SEMI_SORTED_ARRAY.SORT_RE
 import java.util.Arrays;
 
 public class InsertionSort {
+  /*
+  Question:
+  Implement the Insertion Sort algorithm. Given an array of integers, sort it in ascending order
+  using the insertion sort technique.
+
+  Approach:
+  - Iterate through the array starting from the second element (index 1).
+  - For each element, store it in a temporary variable `key`.
+  - Compare `key` with all elements before it (arr[0...i-1]).
+  - Shift all elements that are greater than `key` one position to the right.
+  - Insert `key` at its correct position.
+  - Repeat for all elements until the array is sorted.
+
+  Pattern:
+  - Sorting Pattern: Semi-sorted arrays benefit the most (efficient when the array is already
+    nearly sorted).
+  - Comparison-based sorting.
+  - Works by building the sorted portion of the array one element at a time.
+
+  Time Complexity:
+  - Best Case (Already Sorted): O(n)
+  - Average & Worst Case: O(n²)
+  - Space Complexity: O(1) (in-place sort)
+  - Stable Sort: Yes (preserves order of equal elements)
+
+  Follow-up Questions:
+  1. When should we prefer insertion sort over other algorithms?
+  2. Can we optimize it using binary search to find the insertion point?
+  3. How does it perform compared to bubble sort or selection sort on small datasets?
+  4. Can we make it recursive?
+  5. What changes if we need to sort in descending order?
+
+  Similar LeetCode Questions:
+  - LeetCode 912. Sort an Array
+  - LeetCode 147. Insertion Sort List
+  - LeetCode 242. Valid Anagram (uses sorting internally)
+  */
 
   /*In this implementation, we start by iterating through the array starting from the second
        element (i.e., index 1). For each element, we store it in a temporary variable key and then

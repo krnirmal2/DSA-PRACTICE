@@ -19,15 +19,31 @@ public class FindPeakIIin2D {
   n == mat[i].length
   1 <= m, n <= 500
   1 <= mat[i][j] <= 105
-  No two adjacent cells are equal.*/
+  No two adjacent cells are equal.
+    Pattern:
+       - Binary search on columns (or rows).
+       - At each step, find the global max in the middle column.
+       - Decide to move left or right based on neighbors.
+
+     LeetCode Reference:
+       - 1901. Find a Peak Element II
+
+     Follow-ups:
+       1. How to modify if diagonals are also considered neighbors?
+       2. How to find all peak elements?
+       3. Can we do O(m + n)?
+  */
 
   /*The algorithm is as follows:
   Pick the middle column.
   Find the global maximum in the column.
-  If the row-neighbours of this element are smaller, then we found a 2D peak. Else, we recurse at the right-half of the matrix if the right-neighbour was bigger, and left-half of the matrix if the left-neighbour was bigger.
+  If the row-neighbours of this element are smaller, then we found a 2D peak. Else, we recurse at the right-half of
+  the matrix if the right-neighbour was bigger, and left-half of the matrix if the left-neighbour was bigger.
   Here is a little intuition as to why this works.
 
-  When we find a row-neighbour that is bigger than the global maximum of a column, it means that the row-neighbour is bigger than all the elements of that column. Thus, the global maximum of the neighbour's column must be bigger than its corresponding row-neighbour in our column.
+  When we find a row-neighbour that is bigger than the global maximum of a column, it means that the row-neighbour is
+  bigger than all the elements of that column. Thus, the global maximum of the neighbour's column must be bigger than
+  its corresponding row-neighbour in our column.
 
   To put it more formally, consider column j whose global maximum lies in row i
 
@@ -37,26 +53,46 @@ public class FindPeakIIin2D {
   // thus, there exists some peak in the right half of the matrix
   Complexity Analysis
   To find the the maximum of a list of numbers, the best we can do is a linear scan.
-  We do as many linear scans as log2(m), where m is the number of columns. This is because at every iteration, we discard half of the columns by moving either right or left.
+  We do as many linear scans as log2(m), where m is the number of columns. This is because at every iteration,
+   we discard half of the columns by moving either right or left.
 
   // Thus, the overall time complexity is O(n * log(m))
   // n = number of rows, m = number of columns
   The space complexity remains constant since we do not create any additional data structures.*/
 
   public int[] findPeakGrid(int[][] matrix) {
-    int n = matrix.length, m = matrix[0].length, lo = 0, hi = m - 1, mid;
+    int n = matrix.length; // number of rows
+    int m = matrix[0].length; // number of columns
+    int lo = 0, hi = m - 1;
+
+    // Binary search on columns
     while (lo <= hi) {
-      mid = lo + (hi - lo) / 2;
-      int max_row = 0;
-      for (int i = 0; i < n; ++i) {
-        if (matrix[max_row][mid] < matrix[i][mid]) max_row = i;
+      int mid = lo + (hi - lo) / 2;
+
+      // Find the row index of the maximum element in this column
+      int maxRow = 0;
+      for (int i = 0; i < n; i++) {
+        if (matrix[i][mid] > matrix[maxRow][mid]) {
+          maxRow = i;
+        }
       }
-      if ((mid == 0 || matrix[max_row][mid] > matrix[max_row][mid - 1])
-          && (mid == m - 1 || matrix[max_row][mid] > matrix[max_row][mid + 1]))
-        return new int[] {max_row, mid};
-      else if (mid > 0 && matrix[max_row][mid - 1] > matrix[max_row][mid]) hi = mid - 1;
-      else lo = mid + 1;
+
+      // Check if this is a peak
+      boolean leftIsSmaller = (mid == 0 || matrix[maxRow][mid] > matrix[maxRow][mid - 1]);
+      boolean rightIsSmaller = (mid == m - 1 || matrix[maxRow][mid] > matrix[maxRow][mid + 1]);
+
+      if (leftIsSmaller && rightIsSmaller) {
+        return new int[]{maxRow, mid}; // found a peak
+      }
+
+      // Move towards the larger neighbor
+      if (mid > 0 && matrix[maxRow][mid - 1] > matrix[maxRow][mid]) {
+        hi = mid - 1; // move left
+      } else {
+        lo = mid + 1; // move right
+      }
     }
-    return new int[] {-1, -1};
+
+    return new int[]{-1, -1}; // should not happen with valid input
   }
 }

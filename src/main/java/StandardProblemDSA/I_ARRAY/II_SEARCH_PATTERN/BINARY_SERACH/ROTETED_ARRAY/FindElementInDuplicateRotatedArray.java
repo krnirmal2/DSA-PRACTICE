@@ -2,26 +2,43 @@ package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.ROTETED_ARRAY
 
 public class FindElementInDuplicateRotatedArray {
   /*Search in Rotated Sorted Array with Duplicates
-  You are given a sorted array a that has been rotated at some unknown pivot
-   and may contain duplicate elements. Your task is to find the index of a target element target in the array. If the target exists, return its index. Otherwise, return -1.
-  🔧 Constraints:
-  The array may contain duplicates.
+    You are given a sorted array a that has been rotated at some unknown pivot
+     and may contain duplicate elements. Your task is to find the index of a target element target in the array. If the target exists, return its index. Otherwise, return -1.
+    🔧 Constraints:
+    The array may contain duplicates.
 
-  The time complexity must be better than linear in most cases (use modified binary search).
+    The time complexity must be better than linear in most cases (use modified binary search).
 
-  Return any index of the target if it appears more than once.
+    Return any index of the target if it appears more than once.
 
-  💡 Example 1:
+    💡 Example 1:
 
-  Input:  a = [4, 5, 6, 7, 0, 1, 2], target = 0
-  Output: 4
-  💡 Example 2:
-  Input:  a = [2, 5, 6, 0, 0, 1, 2], target = 3
-  Output: -1
-  🧠 Note:
-  The array was originally sorted but then rotated.
+    Input:  a = [4, 5, 6, 7, 0, 1, 2], target = 0
+    Output: 4
+    💡 Example 2:
+    Input:  a = [2, 5, 6, 0, 0, 1, 2], target = 3
+    Output: -1
+    🧠 Note:
+    The array was originally sorted but then rotated.
 
-  Duplicate elements can cause ambiguity in determining which half is sorted, so extra care (like skipping equal elements) is needed in binary search.*/
+    Duplicate elements can cause ambiguity in determining which half is sorted, so extra care (like skipping equal elements) is needed in binary search.
+
+    Pattern Used:
+  -------------
+  - **Modified Binary Search Pattern**:
+      - Compare mid with target and adjust search space.
+      - Skip duplicate values when `a[low] == a[mid] == a[high]`.
+
+  Time Complexity:
+  ----------------
+  - O(log n) on average; O(n) in the worst case (when many duplicates).
+
+  Follow-up Questions:
+  --------------------
+  1. How would you find the **minimum element** in such a rotated array with duplicates?
+  2. Can you return all indices of `target` instead of just one?
+  3. How would you adapt this for a rotated array with no duplicates (LeetCode 33)?
+  4. Can you handle cases where the array is rotated multiple times?*/
   public static int search(int[] a, int target) {
     /*When duplicates are present, the normal binary search property
      (which side is sorted) becomes uncertain.

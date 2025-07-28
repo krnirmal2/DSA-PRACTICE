@@ -93,9 +93,8 @@ public class ArrayUtility {
   public static int[][] copyToPaddedArray(int[][] A) {
     int[][] paddingArray = new int[A.length + 1][A[0].length + 1];
     for (int i = 1; i < paddingArray.length; i++) {
-      for (int j = 1; j < paddingArray[0].length; j++) {
-        paddingArray[i][j] = A[i - 1][j - 1];
-      }
+      if (paddingArray[0].length - 1 >= 0)
+        System.arraycopy(A[i - 1], 0, paddingArray[i], 1, paddingArray[0].length - 1);
     }
     return paddingArray;
   }
