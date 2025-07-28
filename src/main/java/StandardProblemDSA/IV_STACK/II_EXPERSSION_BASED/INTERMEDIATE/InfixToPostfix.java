@@ -6,37 +6,42 @@ Your steps describe the Shunting Yard Algorithm, which is used to convert an inf
 
         🔹 Approach
 1️⃣ Create a precedence method to return an integer value based on operator precedence:
-
 Higher precedence operators get a higher positive value.
-
 Same precedence operators return the same value.
-
 2️⃣ Iterate over the characters in the given expression.
-
         3️⃣ If the character is a number, append it to the StringBuilder (output).
-
         4️⃣ If the character is an open bracket (, push it to the stack.
-
         5️⃣ If the character is a closing bracket ):
-
 Pop all elements until an open bracket ( is found.
-
-        Append popped elements to the StringBuilder.
-
+        Apped popped elements to the StringBuilder.
         6️⃣ After popping for closing brackets, if the stack is empty, push the current element.
+        7️⃣ If the stack has operators, compare precedence:
+            If the stack’s top has greater precedence than the current operator, pop and append.
+            If equal precedence exists, handle left/right associativity.
+        8️⃣ At the end, pop all remaining elements and append them to the StringBuilder.
 
-                                                 7️⃣ If the stack has operators, compare precedence:
 
-                                                 If the stack’s top has greater precedence than the current operator, pop and append.
+Pattern: Stack-based expression parsing (operator precedence & associativity handling).
 
-                                                 If equal precedence exists, handle left/right associativity.
+Time Complexity: O(n) — each token is pushed/popped at most once.
+Space Complexity: O(n) — for the operator stack and output string.
 
-                                                 8️⃣ At the end, pop all remaining elements and append them to the StringBuilder.
+LeetCode Similar Questions:
+- 150. Evaluate Reverse Polish Notation
+- 224. Basic Calculator
+- 227. Basic Calculator II
+- 772. Basic Calculator III
 
-                                                 🔹 Java Code Implementation
-                                                 import java.util.Stack;*/
+Follow-up Questions:
+- Extend to handle unary operators (e.g., -5 or +3).
+- Support multi-digit numbers and floating-point values.
+- Add support for custom operators with different precedence.
+- Modify to convert infix to prefix (Polish notation).
+- Evaluate the postfix expression after conversion.
+*/
 
 import StandardProblemDSA.Utility;
+
 import java.util.Stack;
 
 public class InfixToPostfix {

@@ -1,29 +1,46 @@
 package StandardProblemDSA.IV_STACK.II_EXPERSSION_BASED.INTERMEDIATE;
 
 import StandardProblemDSA.Utility;
+
 import java.util.Stack;
 
 public class EvaluateReversePolisNotation {
   public static class EvaluteReversePolishNotation {
     /* Given a list of tokens representing a Reverse Polish Notation (RPN) expression, evaluate the result.
 
-    Example:
-            📌 Input: ["2", "1", "+", "3", "*"]
-            📌 Output: 9
-            📌 Explanation: (2 + 1) * 3 = 9
+        Example:
+                📌 Input: ["2", "1", "+", "3", "*"]
+                📌 Output: 9
+                📌 Explanation: (2 + 1) * 3 = 9
 
-            📌 Input: ["4", "13", "5", "/", "+"]
-            📌 Output: 6
-            📌 Explanation: (4 + (13 / 5)) = 6
+                📌 Input: ["4", "13", "5", "/", "+"]
+                📌 Output: 6
+                📌 Explanation: (4 + (13 / 5)) = 6
 
-            🔹 Approach
-                Use a Stack to store operands.
-                Iterate through the tokens:
-                If the token is a number, push it to the stack.
-                If the token is an operator (+, -, *, /), pop two elements from the stack, apply the operation, and push the result back.
-                Return the final value from the stack.
-    Time Complexity: O(n)
-    */
+                🔹 Approach
+                    Use a Stack to store operands.
+                    Iterate through the tokens:
+                    If the token is a number, push it to the stack.
+                    If the token is an operator (+, -, *, /), pop two elements from the stack, apply the operation, and push the result back.
+                    Return the final value from the stack.
+        Time Complexity: O(n)
+
+        Pattern: Stack-based expression evaluation (postfix processing).
+
+    Time Complexity: O(n) for iterating through tokens; Space Complexity: O(n) for the stack.
+
+    LeetCode Similar:
+    - 150. Evaluate Reverse Polish Notation
+    - 224. Basic Calculator
+    - 227. Basic Calculator II
+    - 772. Basic Calculator III
+
+    Follow-ups:
+    - Handle malformed/invalid expressions.
+    - Support additional operators (%, ^, etc.).
+    - Extend to floating-point numbers or big integers.
+    - Convert infix expressions to postfix and evaluate.
+        */
     public static int evalRPN(String[] tokens) {
       Stack<Integer> stack = new Stack<>();
 

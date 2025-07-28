@@ -3,37 +3,39 @@ package StandardProblemDSA.IV_STACK.VI_DESIGN_AND_SIMULATION_PATTERN;
 import java.util.Stack;
 
 /*
-🔹 Simulating Function Calls Using a Stack
-In many programming languages, recursion is implemented using an internal call stack. We can simulate this manually using an explicit stack.
+Problem:
+Simulate recursive and nested function calls using an explicit stack, imitating how a programming language internally manages function calls.
 
-🔹 Problem Statement
-Simulate function calls using a stack, handling:
+Pattern:
+Manual call stack simulation using Stack — follows LIFO order (Last-In-First-Out).
 
-Recursive functions
+Approach:
+1. Use a Stack<CallFrame> to represent the call stack.
+2. Each CallFrame stores:
+      - function name
+      - arguments (parameters)
+3. Push the initial function call onto the stack.
+4. While the stack is not empty:
+      - Pop the top frame (current function).
+      - Execute it (print or perform logic).
+      - Push new calls onto the stack if the current function makes nested calls.
+5. Continue until all calls are processed.
 
-Function parameters and return values
+Time Complexity:
+O(n), where n is the total number of calls simulated. Each frame is pushed and popped exactly once.
 
-Call execution order (LIFO - Last In First Out)
+Space Complexity:
+O(n), for the stack holding active CallFrames.
 
-🔹 Approach
-1️⃣ Use a stack to store function calls.
+Similar LeetCode Questions:
+- 224. Basic Calculator (stack-based expression evaluation)
+- 394. Decode String (nested call simulation)
+- 682. Baseball Game (stack operations)
 
-Each call contains the function name, parameters, and state.
-
-2️⃣ Process function calls in a loop (instead of recursion).
-
-Push function calls onto the stack.
-
-Pop calls when they finish execution.
-
-        3️⃣ Use a data structure (Stack<Frame>) to store:
-
-Function name
-
-Arguments (parameters)
-
-Execution state
-
+Follow-up Questions:
+- How would you return values from these simulated function calls?
+- How can this be extended to support multiple recursive branches?
+- How to detect and handle stack overflow for deep recursion?
 */
 
 public class CallFrame {

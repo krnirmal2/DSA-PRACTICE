@@ -33,7 +33,24 @@ Explanation: An empty string is also valid.
 Constraints:
 
 1 <= s.length <= 105
-s[i] is either '(' , ')', or lowercase English letter.*/
+s[i] is either '(' , ')', or lowercase English letter.
+
+
+Pattern: Stack + Set for tracking unmatched parentheses.
+
+Time Complexity: O(n) — two passes through the string.
+Space Complexity: O(n) — for the stack and invalid index set.
+
+LeetCode Similar Questions:
+- 1249. Minimum Remove to Make Valid Parentheses
+- 921. Minimum Add to Make Parentheses Valid
+- 20. Valid Parentheses
+
+Follow-up Questions:
+- Can we solve it in-place with O(1) extra space?
+- Extend to handle all types of brackets ([], {}).
+- Modify to return all possible valid strings with minimal removals.
+*/
 public class MinimumRemoveValidParaenthesis {
   /*Approach: Stack + Set
    Use a stack to track indices of unmatched '('.
@@ -45,6 +62,7 @@ public class MinimumRemoveValidParaenthesis {
          Else, mark ')' index as invalid
    After loop, remaining items in stack are unmatched '(' → add them to invalid set.
    Build a new string skipping all characters whose indices are in the invalid set.
+
   */
   public static String minRemoveToMakeValid(String s) {
     Stack<Integer> stack = new Stack<>();

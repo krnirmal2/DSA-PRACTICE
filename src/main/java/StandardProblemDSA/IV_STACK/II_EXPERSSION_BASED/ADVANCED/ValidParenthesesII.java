@@ -1,14 +1,72 @@
 package StandardProblemDSA.IV_STACK.II_EXPERSSION_BASED.ADVANCED;
 
 /*
-🔹 Problem Statement
-Given a string s containing '(', ')', and '*', return true if the string is valid.
-        '(' and ')' are normal parentheses.
-'*' can be treated as:
-        '('
-        ')'
-or an empty string
-You need to check if it's possible to convert the string into a valid parentheses string by treating stars optimally.
+    Problem:
+    --------
+    Given a string s containing '(', ')', and '*', determine if it can be a valid parentheses string.
+    '(' and ')' behave normally.
+    '*' can be treated as '(' or ')' or empty string.
+
+    Examples:
+    ---------
+      Input: "()"
+      Output: true
+
+      Input: "(*))"
+      Output: true
+
+    Approach:
+    ---------
+      Use a greedy range-tracking approach with two counters:
+      - low: the minimum possible number of open '(' at current position.
+      - high: the maximum possible number of open '(' at current position.
+
+      For each char:
+        '(' → low++, high++
+        ')' → low--, high--
+        '*' → low-- (treat as ')'), high++ (treat as '(')
+
+      At any point:
+        - If high < 0 → too many ')' → invalid.
+        - Clamp low to zero because open count can't be negative.
+
+      At the end:
+        - If low == 0 → string can be balanced.
+
+    Intuition:
+    ----------
+      Track the possible open parentheses range to handle '*'.
+
+### Pattern
+- **Greedy two-pointer / range tracking**
+- Maintain a range `[low, high]` of possible open parentheses count:
+  - `'('` → `low++`, `high++`
+  - `')'` → `low--`, `high--`
+  - `'*'` → `low--`, `high++` (treat `*` as `(` or `)` or empty)
+- If at any point `high < 0` → invalid (more `)` than `(`)
+- Clamp `low` to at least `0` since open parentheses can't be negative
+- If at end `low == 0` → valid string
+
+---
+
+### Time and Space Complexity
+- **Time:** O(n), one pass over the string
+- **Space:** O(1), constant extra space
+
+---
+
+### Similar LeetCode Questions
+- [678. Valid Parenthesis String](https://leetcode.com/problems/valid-parenthesis-string/)
+- [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
+- [1249. Minimum Remove to Make Valid Parentheses](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/)
+
+---
+
+### Follow-up Questions
+1. Can you solve this with a stack instead of greedy pointers?
+2. How to handle multiple types of brackets with `*` allowed?
+3. Can you return the number of possible valid interpretations of the string?
+4. What if `*` can only be empty or `'('` (no `')'`)? How does that change the algorithm?
 */
 
 public class ValidParenthesesII {

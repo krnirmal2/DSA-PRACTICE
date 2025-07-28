@@ -8,8 +8,49 @@ You are given a string s containing parentheses and possibly other characters.
 Your task is to remove the minimum number of invalid parentheses to make the string valid, and return all possible results.
 
 You may return the answers in any order.
+Only minimal removals are allowed.
 
-Only minimal removals are allowed.*/
+
+ Approach:
+    ---------
+    • Use **BFS** (Breadth-First Search):
+        - Generate all possible strings by removing one parenthesis at a time.
+        - The first valid strings found correspond to the minimum number of deletions.
+    • Use a queue for BFS traversal and a set to avoid duplicates.
+    • Stop exploring further levels once valid strings are found.
+
+    Pattern:
+    --------
+    BFS + String Generation + Parentheses Validation.
+
+    Dry Run:
+    --------
+        Input: "()())()"
+        Level 0: "()())()" → invalid.
+        Level 1: remove one character → ["())()", "()()()", "())))()"...]
+        Valid: "()()()", "(())()".
+        Stop here (minimal deletions).
+
+    Time Complexity:
+    ----------------
+        • O(N * 2^N) worst case — generate all possible substrings.
+        • Optimized by BFS — stop at minimal deletions.
+
+    Space Complexity:
+    -----------------
+        • O(N * 2^N) for queue + set.
+
+    Follow-ups:
+    -----------
+        1. Can we optimize to use DFS with pruning?
+        2. How to handle additional types of brackets?
+        3. Can we count minimal deletions without generating all results?
+
+    Related Problems:
+    -----------------
+        • Valid Parentheses
+        • Minimum Remove to Make Valid Parentheses
+        • Generate Parentheses*/
 public class RemoveInvalidParentheses {
   /*  🔍 Approach: BFS (Breadth-First Search)
   Why BFS?

@@ -3,6 +3,55 @@ package StandardProblemDSA.IV_STACK.I_CUSTOM_STACK_DESIGN_PATTERN;
 import java.util.ArrayList;
 import java.util.Stack;
 
+/*
+    Problem:
+    --------
+    Implement a SetOfStacks data structure:
+        • It should behave like a single stack.
+        • When the current stack exceeds a threshold capacity,
+          create a new stack.
+        • Support push(), pop(), peek(), and isEmpty() operations.
+
+    Approach:
+    ---------
+    • Maintain an ArrayList<Stack<Integer>> to hold multiple stacks.
+    • threshold → maximum capacity of a single stack.
+    • push(x):
+        - If no stacks exist or the last stack is full, create a new stack.
+        - Push onto the last stack.
+    • pop():
+        - Pop from the last stack.
+        - If the last stack becomes empty, remove it.
+    • peek():
+        - Return the top element of the last stack.
+    • isEmpty():
+        - Return true if there are no stacks or all stacks are empty.
+
+    Pattern:
+    --------
+    Stack of Stacks (variation of “stack capacity partitioning”).
+
+    Time Complexity:
+    ----------------
+        • push, pop, peek → O(1)
+        • isEmpty → O(1)
+
+    Space Complexity:
+    -----------------
+        • O(n) for n elements distributed across all stacks.
+
+    Follow-ups:
+    -----------
+    1. Implement popAt(index) to pop from a specific stack.
+    2. Add automatic shifting of elements to maintain balance after popAt().
+    3. Generic version for any type T.
+
+    Related Problems:
+    -----------------
+        • Cracking the Coding Interview Q3.3 – Set of Stacks.
+        • Stack capacity management for bounded stacks.
+*/
+
 public class SetOfStacks {
   private final ArrayList<Stack<Integer>> stacks; // List to store the set of stacks
   private final int threshold; // The threshold limit for each stack

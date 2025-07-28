@@ -1,26 +1,68 @@
 package StandardProblemDSA.IV_STACK.II_EXPERSSION_BASED.ADVANCED;
 
-import java.util.*;
+import java.util.Stack;
 
 /*
-📜 Statement:
-Given a balanced parentheses string s, compute the score as per the following rules:
-        "()" has a score of 1
-        "AB" has a score of A + B, where A and B are valid parentheses strings
+    Problem:
+    --------
+    Given a balanced parentheses string s, compute its score based on:
+        - "()" has a score of 1
+        - "AB" has score = A + B where A and B are valid parentheses strings
 
-Input: "()"
-Output: 1
+    Examples:
+    ---------
+        Input: "()"
+        Output: 1
 
-Input: "(())"
-Output: 2
+        Input: "(())"
+        Output: 2
 
-Input: "()()"
-Output: 2
+        Input: "()()"
+        Output: 2
 
-Input: "(()(()))"
-Output: 6
+        Input: "(()(()))"
+        Output: 6
 
+    Approach:
+    ---------
+        • Use a stack to track scores of subexpressions.
+        • When '(' is encountered, push 0 to mark a new frame.
+        • When ')' is encountered:
+            - Pop all scores until 0 is found.
+            - If no score (val == 0), this corresponds to "()": push 1.
+            - Else nested structure: push 2 * val.
 
+    Pattern:
+    --------
+        Stack-based evaluation of nested parentheses expressions.
+
+    Dry Run:
+    --------
+        For "(()(()))":
+        Stack evolves as: push 0 '(' -> push 0 '(' -> encounter ')' -> pop 0, push 1
+        Then push 0 '(' -> push 0 '(' -> encounter ')' -> pop 0, push 1
+        Encounter ')' -> pop 1 + 1 = 2, push 2 * 2 = 4
+        Encounter ')' -> pop 1 + 4 = 5, push 2 * 5 = 10 (adjust logic accordingly)
+
+### Time and Space Complexity
+- **Time:** O(n), where n = length of the string (single pass).
+- **Space:** O(n), stack can store up to n/2 elements in worst case.
+
+---
+
+### Similar LeetCode Questions
+- [856. Score of Parentheses](https://leetcode.com/problems/score-of-parentheses/)
+- [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
+- [22. Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)
+- [32. Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses/)
+
+---
+
+### Follow-up Questions
+1. Can you solve this problem without using extra space? (Using counters or recursion)
+2. How would you extend this to support multiple types of brackets `[]`, `{}`, and `()`?
+3. Can you modify the code to return the **maximum depth** of the parentheses as well as the score?
+4. How would you handle malformed parentheses strings or input validation?
 */
 
 public class ScoreParenthesis {

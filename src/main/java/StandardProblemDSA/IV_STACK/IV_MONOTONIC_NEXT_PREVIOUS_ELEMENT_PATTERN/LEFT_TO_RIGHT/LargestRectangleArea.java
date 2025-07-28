@@ -5,20 +5,44 @@ import java.util.Stack;
 public class LargestRectangleArea {
   /*
 
-      The problem requires finding the largest rectangular area in a histogram, where the histogram is represented as an array of heights.
-              🔹 Approach:
-      We use a Monotonic Increasing Stack to efficiently find:
-      The next smaller height (right boundary).
-      The previous smaller height (left boundary).
-      By maintaining a stack of increasing heights, we can pop elements when a smaller height is encountered and calculate the maximum area possible.
-              🔹 Step-by-Step Algorithm
-      Use a stack to store indices of histogram bars.
-      Traverse the histogram:
-      If the current height is greater than or equal to the top of the stack, push it.
-      If the current height is smaller, pop the stack and calculate the largest possible rectangle using the popped height as the smallest height.
-      At the end, process remaining bars in the stack to compute areas.
-      Return the maximum area found.
-  */
+        The problem requires finding the largest rectangular area in a histogram, where the histogram is represented as an array of heights.
+                🔹 Approach:
+        We use a Monotonic Increasing Stack to efficiently find:
+        The next smaller height (right boundary).
+        The previous smaller height (left boundary).
+        By maintaining a stack of increasing heights, we can pop elements when a smaller height is encountered and calculate the maximum area possible.
+                🔹 Step-by-Step Algorithm
+        Use a stack to store indices of histogram bars.
+        Traverse the histogram:
+        If the current height is greater than or equal to the top of the stack, push it.
+        If the current height is smaller, pop the stack and calculate the largest possible rectangle using the popped height as the smallest height.
+        At the end, process remaining bars in the stack to compute areas.
+        Return the maximum area found.
+
+
+
+  Pattern:
+  Monotonic Increasing Stack.
+  - Use a stack to track indices of bars in ascending height order.
+  - For each bar, when a shorter bar is encountered, pop from the stack and calculate the area using the popped bar as the limiting height.
+  - Ensure all bars are processed by adding a dummy bar of height 0 at the end.
+
+  Time Complexity:
+  O(n) — each bar is pushed and popped from the stack at most once.
+
+  Space Complexity:
+  O(n) — stack to hold indices of bars.
+
+  LeetCode Similar Questions:
+  - 84. Largest Rectangle in Histogram
+  - 85. Maximal Rectangle (extension of this problem)
+  - 42. Trapping Rain Water (monotonic stack)
+
+  Follow-up Questions:
+  - Can you optimize to handle streaming histogram data?
+  - How to modify the solution for a circular histogram?
+  - How would you find not only the area but also the indices of the rectangle?
+    */
   // ✅ Utility Method: Largest Rectangle in Histogram → Monotonic Increasing Stack
   public static int largestRectangleArea(int[] heights) {
     Stack<Integer> stack = new Stack<>(); // Stack to store indices of histogram bars

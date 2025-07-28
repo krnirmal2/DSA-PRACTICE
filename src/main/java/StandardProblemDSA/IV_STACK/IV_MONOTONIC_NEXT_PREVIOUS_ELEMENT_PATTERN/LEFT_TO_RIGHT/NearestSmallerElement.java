@@ -5,6 +5,34 @@ import java.util.List;
 import java.util.Stack;
 
 public class NearestSmallerElement {
+  /*
+  Problem:
+  Given an array, for each element find the index of the nearest smaller element on its left.
+  If no such element exists, store -1.
+
+  Pattern:
+  Monotonic Increasing Stack.
+  - Traverse from left to right.
+  - Maintain a stack of indices where array values are in ascending order.
+  - Pop until we find a smaller element.
+  - The top of the stack (if any) is the nearest smaller on the left.
+
+  Time Complexity:
+  O(n) — each index is pushed and popped at most once.
+
+  Space Complexity:
+  O(n) — stack + output list.
+
+  LeetCode Similar Questions:
+  - 503. Next Greater Element II
+  - 739. Daily Temperatures
+  - 84. Largest Rectangle in Histogram (uses nearest smaller elements)
+
+  Follow-up Questions:
+  - How to adapt for nearest greater element?
+  - Can we do this for a circular array?
+  - Can we modify it to return the actual values instead of indices?
+  */
 
   // find the next smaller element in the left side
   public static void main(String[] args) {

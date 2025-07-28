@@ -2,6 +2,37 @@ package StandardProblemDSA.IV_STACK.IV_MONOTONIC_NEXT_PREVIOUS_ELEMENT_PATTERN.R
 
 import java.util.Stack;
 
+/*
+Problem:
+Given an array, find the Next Greater Element (NGE) for every element.
+The NGE for an element x is the first greater element to the right of x; if none exists, return -1.
+
+Pattern:
+Monotonic Decreasing Stack (traverse from right to left):
+- Maintain a stack where top always holds the next greater candidate.
+- For each element:
+  - Pop all elements smaller or equal to it (they can’t be the NGE).
+  - If stack is empty → no greater element exists → result = -1.
+  - Else → result = top of stack.
+  - Push current element onto the stack.
+
+Time Complexity:
+O(n) — each element is pushed and popped at most once.
+
+Space Complexity:
+O(n) — for the stack and the result array.
+
+LeetCode Similar Questions:
+- 496. Next Greater Element I
+- 503. Next Greater Element II (circular array variation)
+- 739. Daily Temperatures (similar logic with indices)
+
+Follow-up Questions:
+- How to handle a circular array (wrap-around)?
+- Can we do it in-place with O(1) extra space?
+- How to adapt for "Next Smaller Element" or "Previous Greater Element"?
+*/
+
 public class NextGreaterElement {
   /*    Input: arr[] = [1, 3, 2, 4]
   Output: [3, 4, 4, -1]

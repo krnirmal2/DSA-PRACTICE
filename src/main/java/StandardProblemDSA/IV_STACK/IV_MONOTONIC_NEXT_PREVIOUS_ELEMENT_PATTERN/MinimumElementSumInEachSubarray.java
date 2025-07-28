@@ -1,6 +1,6 @@
 package StandardProblemDSA.IV_STACK.IV_MONOTONIC_NEXT_PREVIOUS_ELEMENT_PATTERN;
 
-import java.util.*;
+import java.util.Stack;
 
 public class MinimumElementSumInEachSubarray {
   /*Approach:
@@ -36,6 +36,36 @@ public class MinimumElementSumInEachSubarray {
   Summing up the contributions:
 
   The total sum is the sum of A[i] * (i - prevSmaller[i]) * (nextSmaller[i] - i) for each element.*/
+
+  /*
+  Problem:
+  Given an integer array A, find the sum of the minimum element of all subarrays.
+  For each subarray, identify the smallest element and add it to the sum. Return the sum modulo 10^9 + 7.
+
+  Pattern:
+  Monotonic Stack — compute Previous Smaller Element (PSE) and Next Smaller Element (NSE):
+  - PSE: nearest index to the left where element < A[i].
+  - NSE: nearest index to the right where element < A[i].
+  - For each A[i], count of subarrays where it is the minimum = (i - PSE[i]) * (NSE[i] - i).
+  - Sum contributions: A[i] × left × right.
+
+  Time Complexity:
+  O(n) — each element pushed and popped at most once for PSE and NSE.
+
+  Space Complexity:
+  O(n) — for prevSmaller, nextSmaller, and stacks.
+
+  LeetCode Similar Questions:
+  - 907. Sum of Subarray Minimums
+  - 2104. Sum of Subarray Ranges
+  - 84. Largest Rectangle in Histogram
+
+  Follow-up Questions:
+  - Can we optimize to compute sum without storing full PSE and NSE arrays?
+  - How to handle similar problem for sum of subarray maximums?
+  - Can we handle streaming data where array is not known upfront?
+  */
+
   public int sumSubarrayMins(int[] A) {
     int n = A.length;
     long mod = 1000000007;

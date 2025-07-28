@@ -3,8 +3,31 @@ package StandardProblemDSA.IV_STACK.IIIREVERSE_AND_SORTING_PATTERN;
 import java.util.Stack;
 
 public class sortingUsingTwoStacks {
-  // This function return
-  // the sorted stack
+  /*
+  Problem:
+  Sort an array or stack using only two stacks (no extra data structures allowed).
+
+  Pattern:
+  Stack manipulation + auxiliary stack.
+  - Use an extra stack to maintain elements in sorted order.
+  - Pop from input stack and insert into the correct position in the temporary stack.
+
+  Time Complexity:
+  O(n²) — worst case, each element might be moved back and forth between stacks.
+
+  Space Complexity:
+  O(n) — for the auxiliary stack.
+
+  LeetCode Similar Questions:
+  - 155. Min Stack (stack with extra space)
+  - 147. Insertion Sort List (similar insertion logic)
+
+  Follow-up Questions:
+  - Can you implement stack sorting in O(n log n) time (e.g., using merge sort)?
+  - Can you do it without using another stack (recursion-based sort)?
+  - What if elements are streamed (online sorting)?
+  */
+
   public static Stack<Integer> sortStack(Stack<Integer> input) {
     Stack<Integer> tmpStack = new Stack<Integer>();
 

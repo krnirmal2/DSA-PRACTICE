@@ -3,7 +3,26 @@ package StandardProblemDSA.IV_STACK.IIIREVERSE_AND_SORTING_PATTERN;
 import java.util.Stack;
 
 public class ReverseUsingRecursion {
+  /*
+  Pattern:
+  Recursion + Stack manipulation.
+  - Pop all elements recursively.
+  - Insert each element at the bottom of the stack on the way back.
 
+  Time Complexity:
+  O(n²) — each insertion at bottom can take O(n), done for n elements.
+
+  Space Complexity:
+  O(n) — for recursion call stack.
+
+  LeetCode Similar Questions:
+  - 224. Basic Calculator (uses stack manipulation)
+  - Custom stack reversal interview problems
+
+  Follow-up Questions:
+  - Can you reverse a stack using only one additional stack (iterative)?
+  - Can we implement in O(n) time with O(1) extra space?
+  - How to reverse a queue using recursion?*/
   public static void stackReverse(Stack<Integer> st) {
     // we will take out each element from the stack using each function call
     if (st.isEmpty()) {

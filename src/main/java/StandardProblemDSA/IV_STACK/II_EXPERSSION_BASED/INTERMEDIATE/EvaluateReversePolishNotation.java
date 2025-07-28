@@ -5,22 +5,42 @@ import java.util.Stack;
 public class EvaluateReversePolishNotation {
   /* Given a list of tokens representing a Reverse Polish Notation (RPN) expression, evaluate the result.
 
-  Example:
-          📌 Input: ["2", "1", "+", "3", "*"]
-          📌 Output: 9
-          📌 Explanation: (2 + 1) * 3 = 9
+    Example:
+            📌 Input: ["2", "1", "+", "3", "*"]
+            📌 Output: 9
+            📌 Explanation: (2 + 1) * 3 = 9
 
-          📌 Input: ["4", "13", "5", "/", "+"]
-          📌 Output: 6
-          📌 Explanation: (4 + (13 / 5)) = 6
+            📌 Input: ["4", "13", "5", "/", "+"]
+            📌 Output: 6
+            📌 Explanation: (4 + (13 / 5)) = 6
 
-          💡 Approach:
-              Use a stack to store operands.
-              Push numbers onto the stack.
-              Pop two numbers when an operator appears, apply the operation, and push the result back.
-                      The final result will be in the stack.
-  Time Complexity: O(n)
-  */
+
+  ### Explanation & Approach
+  - Use a stack to store operands.
+  - For each token:
+    - If token is a number, push it onto the stack.
+    - If token is an operator, pop two operands from the stack, apply the operator, and push the result back.
+  - The final value left on the stack after processing all tokens is the result.
+
+  ---
+
+  ### Time Complexity
+  - O(n) where n = number of tokens (single pass).
+
+  ---
+
+  ### Similar LeetCode Questions
+  - 150. Evaluate Reverse Polish Notation
+  - 224. Basic Calculator
+  - 227. Basic Calculator II
+
+  ---
+
+  ### Follow-up Questions
+  1. How to handle invalid tokens or malformed RPN expressions?
+  2. How to extend for floating-point operations?
+  3. How to implement evaluation without using built-in stack?
+    */
   public static int evalRPN(String[] tokens) {
     Stack<Integer> stack = new Stack<>();
 

@@ -9,14 +9,26 @@ If the stack becomes empty after popping, it means we’ve encountered an unmatc
 If the stack is not empty, we calculate the length of the valid substring by subtracting the index at the top of the stack from the current index.
 A variable maxLength keeps track of the maximum length of valid parentheses encountered during the traversal.*/
 public class LongestValidParenthesesSubstring {
-  // Function to find the length of the
-  // longest valid parentheses substring
-  /* 🔍 Approach
-     💡 Idea:
-  Push indices of '(' onto the stack
-  If ')' is encountered:
-      If stack is not empty → Pop and compute valid length
-      If stack is empty → Push current index as a base for the next valid start*/
+  /*
+  Problem: Find the length of the longest valid (well-formed) parentheses substring in a given string.
+  Pattern: Stack-based parentheses matching (track indices of unmatched parentheses).
+
+  Time Complexity: O(n) — single pass through the string.
+  Space Complexity: O(n) — stack stores indices of '(' and base markers.
+
+  LeetCode Similar Questions:
+  - 32. Longest Valid Parentheses
+  - 20. Valid Parentheses
+  - 301. Remove Invalid Parentheses
+  - 678. Valid Parenthesis String
+
+  Follow-up Questions:
+  - Solve using two-pass counters (left-to-right & right-to-left) without extra space.
+  - Return all longest valid substrings, not just the length.
+  - Handle strings with other types of brackets ({}, []).
+  - Optimize for streaming input (real-time evaluation).
+  */
+
   static int maxLength(String s) {
     Stack<Integer> stack = new Stack<>();
 

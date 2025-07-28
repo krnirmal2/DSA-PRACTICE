@@ -26,15 +26,37 @@ public class ValidParenthesis {
     int i = 0;
   }
 
-  /*💡 Approach:
-  Use a Stack to store opening brackets ('(', '{', '[').
-  If we encounter a closing bracket, check:
-  If the stack is empty → invalid string.
-  If the top of the stack matches the current closing bracket → pop it.
-  Else, return false (mismatch).
-  At the end, if the stack is empty, return true; otherwise, return false.
-  ⏳ Time Complexity:
-  O(n) → We traverse the string once, and stack operations are O(1).*/
+  /*### Problem
+  Check if a string containing brackets `()`, `{}`, `[]` is **valid**, i.e., all opening brackets are properly closed in the correct order.
+  ### Approach
+  - Use a stack to track opening brackets:
+    - Push `'('`, `'{'`, `'['` onto the stack.
+    - When encountering a closing bracket `')'`, `'}'`, `']'`:
+      - If stack is empty → invalid (no matching opening).
+      - Pop the top and check if it matches the corresponding opening bracket.
+      - If not matching → invalid.
+  - At the end, if stack is empty → valid; else invalid.
+
+  ### Time and Space Complexity
+  - Time: **O(n)** — single pass through the string.
+  - Space: **O(n)** — worst case all characters are opening brackets and get pushed.
+
+  ---
+
+  ### Similar LeetCode Questions
+  - [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
+  - [921. Minimum Add to Make Parentheses Valid](https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/)
+  - [1541. Minimum Insertions to Balance a Parentheses String](https://leetcode.com/problems/minimum-insertions-to-balance-a-parentheses-string/)
+
+  ---
+
+  ### Follow-up Questions
+  1. How would you extend this to support strings with wildcard characters like `*`?
+  2. Can you return the position of the first invalid bracket?
+  3. How to validate a string with additional types of brackets or paired delimiters?
+
+  */
+
   public static boolean isValid(String s) {
     Stack<Character> stack = new Stack<>();
     for (char c : s.toCharArray()) {

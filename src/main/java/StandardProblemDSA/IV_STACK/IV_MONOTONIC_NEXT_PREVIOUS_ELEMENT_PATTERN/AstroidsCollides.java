@@ -4,24 +4,54 @@ import java.util.Stack;
 
 public class AstroidsCollides {
   /*735. Asteroid Collision
-  We are given an array asteroids of integers representing asteroids in a row. The indices of the asteriod in the array represent their relative position in space.
-  For each asteroid, the absolute value represents its size, and the sign represents its direction (positive meaning right, negative meaning left). Each asteroid moves at the same speed.
+    We are given an array asteroids of integers representing asteroids in a row. The indices of the asteriod in the array represent their relative position in space.
+    For each asteroid, the absolute value represents its size, and the sign represents its direction (positive meaning right, negative meaning left). Each asteroid moves at the same speed.
 
-  Find out the state of the asteroids after all collisions. If two asteroids meet, the smaller one will explode. If both are the same size, both will explode. Two asteroids moving in the same direction will never meet.
+    Find out the state of the asteroids after all collisions. If two asteroids meet, the smaller one will explode. If both are the same size, both will explode. Two asteroids moving in the same direction will never meet.
 
 
 
-  Example 1:
+    Example 1:
 
-  Input: asteroids = [5,10,-5]
-  Output: [5,10]
-  Explanation: The 10 and -5 collide resulting in 10. The 5 and 10 never collide.
-  Example 2:
+    Input: asteroids = [5,10,-5]
+    Output: [5,10]
+    Explanation: The 10 and -5 collide resulting in 10. The 5 and 10 never collide.
+    Example 2:
 
-  Input: asteroids = [8,-8]
-  Output: []
-  Explanation: The 8 and -8 collide exploding each other.
-  Example 3:*/
+    Input: asteroids = [8,-8]
+    Output: []
+    Explanation: The 8 and -8 collide exploding each other.
+    Example 3:
+
+
+
+  Pattern:
+  Monotonic Stack (simulation):
+  - Iterate through each asteroid:
+      - If moving right or no collision risk, push to stack.
+      - If moving left and top of stack moves right → collision:
+          - Pop smaller asteroids until stack empty or no collision.
+          - Handle equal size (both explode).
+          - Only push current asteroid if it survives.
+  - Return remaining stack contents.
+
+  Time Complexity:
+  O(n) — each asteroid is pushed and popped at most once.
+
+  Space Complexity:
+  O(n) — for the stack and result array.
+
+  LeetCode Similar Questions:
+  - 735. Asteroid Collision
+  - 402. Remove K Digits (monotonic stack idea)
+  - 84. Largest Rectangle in Histogram (stack-based simulation)
+
+  Follow-up Questions:
+  - Can you solve it in-place with O(1) extra space?
+  - How would the solution change if asteroids had different speeds?
+  - Can we handle 2D asteroid collisions with the same approach?
+    */
+
   /*🔥 Main Idea:
   Push asteroid onto the stack if:
 
@@ -45,7 +75,10 @@ public class AstroidsCollides {
 
   Only push current asteroid if it survives (not exploded).
 
-  Finally, return the stack as the result (asteroids that are still alive).*/
+  Finally, return the stack as the result (asteroids that are still alive).
+
+
+  */
 
   public int[] asteroidCollision(int[] asteroids) {
     Stack<Integer> st = new Stack<>();

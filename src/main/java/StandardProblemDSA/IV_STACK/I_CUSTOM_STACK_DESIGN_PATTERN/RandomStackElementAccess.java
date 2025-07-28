@@ -1,22 +1,51 @@
 package StandardProblemDSA.IV_STACK.I_CUSTOM_STACK_DESIGN_PATTERN;
 
 /*
-* Problem Explanation
-Push(x): Add an element x to the top of the stack.
-Pop(): Remove and return the topmost element from the stack.
-Random Access (get(i)): Retrieve the i-th element in the stack (0-based indexing, where 0 is the bottom of the stack).
+    Problem:
+    --------
+    Design a stack that supports:
+        • push(x) – O(1)
+        • pop() – O(1)
+        • randomAccessAtIndex(i) – O(1) random access to any element.
 
-* Challenges:
-A standard stack does not support random access efficiently.
-We need to design the stack to perform all operations in O(1) or O(n) time*/
+    Approach:
+    ---------
+    • Use an ArrayList<Integer> as the underlying data structure.
+    • push(x):
+        - Append to the end of ArrayList → O(1).
+    • pop():
+        - Remove the last element of ArrayList → O(1).
+    • randomAccessAtIndex(i):
+        - Validate index boundaries.
+        - Use ArrayList.get(i) → O(1).
+
+    Pattern:
+    --------
+    Stack implemented with dynamic arrays to support random access.
+
+    Time Complexity:
+    ----------------
+        • push, pop, randomAccessAtIndex → O(1).
+
+    Space Complexity:
+    -----------------
+        • O(n) for n elements.
+
+    Follow-ups:
+    -----------
+    1. Add peek() to get the top element in O(1).
+    2. Implement generic type support (Stack<T>).
+    3. Handle concurrency using synchronized methods.
+
+    Related Problems:
+    -----------------
+        • Custom Stack implementation with random access.
+        • LeetCode 707 - Design Linked List (conceptually similar but with linked structure).
+*/
 
 import java.util.ArrayList;
 
-/**
- * @author nirmal
- */
-/*
-* Solution Design
+/* Solution Design
 To support Push, Pop, and Random Access:
 
 Use a dynamic array (like ArrayList in Java) to store stack elements.

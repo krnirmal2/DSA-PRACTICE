@@ -1,5 +1,53 @@
 package StandardProblemDSA.IV_STACK.I_CUSTOM_STACK_DESIGN_PATTERN;
 
+/*
+    Problem:
+    --------
+    Implement a stack using an array with standard operations:
+        • push(x) → Add element to the top.
+        • pop() → Remove top element.
+        • getSize() → Get the current number of elements.
+        • isEmpty() / isFull() → Check stack state.
+        • printStack() → Display all elements.
+
+    Approach:
+    ---------
+    • Use an integer array `arr[]` to store elements.
+    • Maintain `top` index pointing to the top element:
+        - top = -1 initially (empty stack).
+    • push():
+        - Increment top and assign element if stack is not full.
+    • pop():
+        - Return arr[top] and decrement top if stack is not empty.
+    • isEmpty() → top == -1.
+    • isFull() → top == capacity - 1.
+
+    Pattern:
+    --------
+    Classic Array-based Stack Implementation.
+
+    Time Complexity:
+    ----------------
+        • push, pop, getSize, isEmpty, isFull → O(1)
+        • printStack → O(n)
+
+    Space Complexity:
+    -----------------
+        • O(n) where n = capacity of stack.
+
+    Follow-ups:
+    -----------
+        1. Implement dynamic resizing to handle overflow.
+        2. Add peek() to view the top element without removing it.
+        3. Use Generics to support all data types.
+
+    Related Problems:
+    -----------------
+        • Implement Queue using Array.
+        • Implement Circular Queue.
+        • Design Stack with getMin() / getMax() in O(1).
+*/
+
 public class StackUsingArray {
   // Stack implementation Using Array
 

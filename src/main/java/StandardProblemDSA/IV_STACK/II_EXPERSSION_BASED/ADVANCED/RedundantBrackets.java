@@ -3,22 +3,59 @@ package StandardProblemDSA.IV_STACK.II_EXPERSSION_BASED.ADVANCED;
 import java.util.Stack;
 
 /*
-* Given a string of balanced expressions, find if it contains a redundant parenthesis or not. A set of parenthesis is redundant if the same sub-expression is surrounded by unnecessary or multiple brackets. Print ‘Yes‘ if redundant, else ‘No‘.
+* Given a string of balanced expressions, find if it contains a redundant parenthesis or not.
+* A set of parenthesis is redundant if the same sub-expression is surrounded by unnecessary or multiple brackets. Print ‘Yes‘ if redundant, else ‘No‘.
 
 Note: Expression may contain ‘+‘, ‘*‘, ‘–‘ and ‘/‘ operators. Given expression is valid and there are no white spaces present.
 
 Examples:
-
-
 Input: str = “((a+b))”
 Output: YES
 Explanation: ((a+b)) can reduced to (a+b), this Redundant
-
 
 Input: str = “(a+(b)/c)”
 Output: YES
 Explanation: (a+(b)/c) can reduced to (a+b/c) because b is surrounded by () which is redundant.
 
+*
+  Approach:
+    ---------
+    • Use a stack to track characters.
+    • For each character:
+        - Push all characters except ')'.
+        - When ')' is found, pop until '('.
+        - Check if any operator (+, -, *, /) existed between them.
+        - If no operator is found, parentheses are redundant → return true.
+    • If all parentheses contain operators → return false.
+
+    Dry Run:
+    --------
+        Input: "((a+b))"
+        Stack: '(', '(', 'a', '+', 'b'
+        Encounter ')': pop b, +, a → operator found → valid.
+        Encounter ')': immediate '(' popped → no operator → redundant.
+
+    Pattern:
+    --------
+    Stack / Parentheses Validation.
+
+    Time Complexity:
+    ----------------
+        • O(n) — traverse string once.
+    Space Complexity:
+        • O(n) — stack size.
+
+    Follow-ups:
+    -----------
+        1. Can we do it without using extra space?
+        2. Can we modify to remove redundant parentheses?
+        3. How to handle multi-character operands?
+
+    Related Problems:
+    -----------------
+        • Minimum Remove to Make Valid Parentheses
+        • Valid Parentheses
+        • Remove Outer Parentheses
 */
 public class RedundantBrackets {
   /*

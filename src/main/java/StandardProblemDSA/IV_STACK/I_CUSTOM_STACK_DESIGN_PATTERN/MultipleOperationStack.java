@@ -3,14 +3,56 @@ package StandardProblemDSA.IV_STACK.I_CUSTOM_STACK_DESIGN_PATTERN;
 import java.util.Stack;
 
 /*
-* Designing special stacks with multiple functionalities involves creating a stack with added capabilities beyond basic
- push and pop operations. Some common additional functionalities include
-Get Minimum in O(1): A stack that can return the minimum element in constant time.
-Get Maximum in O(1): A stack that can return the maximum element in constant time.
-Middle Element Access: Retrieve or delete the middle element of the stack in O(1).
-Increment Operation: Increment specific elements lazily (similar to a previous task).
-Custom Functionalities: Like duplicating the top element, reversing the stack, etc.
-* */
+    Problem:
+    --------
+    Design a stack with extended functionalities:
+        • push(x) and pop() - standard stack operations.
+        • getMin() - returns the minimum element in O(1).
+        • getMax() - returns the maximum element in O(1).
+        • Handles updates for min and max stacks during push/pop.
+
+    Approach:
+    ---------
+    • Maintain three stacks:
+        - `stack`: holds actual elements.
+        - `minStack`: tracks the minimum value at each level.
+        - `maxStack`: tracks the maximum value at each level.
+
+    • push(x):
+        - Push x onto the main stack.
+        - Push min(x, top of minStack) onto minStack.
+        - Push max(x, top of maxStack) onto maxStack.
+
+    • pop():
+        - Pop from all three stacks to keep them in sync.
+
+    • getMin() / getMax():
+        - Return top of minStack or maxStack.
+
+    Pattern:
+    --------
+    Stack with auxiliary data structures for O(1) min/max retrieval.
+
+    Time Complexity:
+    ----------------
+        • push, pop, getMin, getMax → O(1).
+
+    Space Complexity:
+    -----------------
+        • O(n) for n elements (due to maintaining three stacks).
+
+    Follow-ups:
+    -----------
+    1. Implement middle-element retrieval in O(1) (requires DLL + pointers).
+    2. Support increment operations (lazy propagation).
+    3. Support stack size optimization by storing differences instead of full duplicates.
+
+    Related Problems:
+    -----------------
+        • LeetCode 155 - Min Stack
+        • Design a stack that supports getMin() and getMax() in O(1).
+*/
+
 public class MultipleOperationStack {
 
   // min/max get element ==> we need to track the min and max stack array

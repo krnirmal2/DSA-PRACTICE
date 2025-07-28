@@ -2,31 +2,45 @@ package StandardProblemDSA.IV_STACK.VI_DESIGN_AND_SIMULATION_PATTERN;
 
 import java.util.Stack;
 
-/*🔹 Approach
-1️⃣ Use Two Stacks:
+/*
+Problem:
+Design a browser history system that supports visiting URLs, going back, and moving forward in history.
+Operations:
+- visit(url): Go to a new URL.
+- back(steps): Move back by 'steps' pages.
+- forward(steps): Move forward by 'steps' pages.
 
-backStack → Stores previous pages (for back navigation).
+Pattern:
+Two-Stack pattern — one for back navigation, one for forward navigation.
 
-forwardStack → Stores forward pages (for forward navigation).
+Approach:
+- Use backStack to track pages we can go back to.
+- Use forwardStack to track pages we can go forward to.
+- On visit(): push current page to backStack, clear forwardStack.
+- On back(n): pop from backStack to forwardStack, update current page.
+- On forward(n): pop from forwardStack to backStack, update current page.
 
-2️⃣ Operations:
+Time Complexity:
+- O(steps) for back and forward (pop/push per step).
+- O(1) for visit() and getCurrentPage().
 
-visit(url):
+Space Complexity:
+- O(n) for storing history in stacks.
 
-Push the current page into backStack (if it exists).
+LeetCode Similar Questions:
+- 1472. Design Browser History
+- 155. Min Stack
+- 232. Implement Queue using Stacks
 
-Clear the forwardStack (since we can't move forward anymore).
+Follow-up Questions:
+- How would you implement this with O(1) back/forward operations using a doubly linked list?
+- Can you make it memory-efficient by limiting the maximum history size?
+- How would you implement a "go to specific page in history" feature?
+*/
 
-back(n):
-
-Move n steps back by popping from backStack and pushing to forwardStack.
-
-forward(n):
-
-Move n steps forward by popping from forwardStack and pushing to backStack.*/
 public class BrowserHistory {
-  private Stack<String> backStack;
-  private Stack<String> forwardStack;
+  private final Stack<String> backStack;
+  private final Stack<String> forwardStack;
   private String currentPage;
 
   // ✅ Constructor

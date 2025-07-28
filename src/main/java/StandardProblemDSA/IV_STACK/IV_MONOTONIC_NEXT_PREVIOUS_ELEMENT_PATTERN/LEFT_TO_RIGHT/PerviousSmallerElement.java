@@ -3,6 +3,34 @@ package StandardProblemDSA.IV_STACK.IV_MONOTONIC_NEXT_PREVIOUS_ELEMENT_PATTERN.L
 import java.util.Stack;
 
 public class PerviousSmallerElement {
+  /*
+  Problem:
+  For each element in the array, find the nearest smaller element to its left.
+  If none exists, return -1.
+
+  Pattern:
+  Monotonic Increasing Stack (stores values, not indices).
+  - Traverse left to right.
+  - Maintain a stack where elements are in increasing order from bottom to top.
+  - Pop until we find a smaller element.
+  - The top of the stack (if any) is the nearest smaller element.
+
+  Time Complexity:
+  O(n) — each element is pushed and popped at most once.
+
+  Space Complexity:
+  O(n) — stack + result array.
+
+  LeetCode Similar Questions:
+  - 503. Next Greater Element II (variation)
+  - 739. Daily Temperatures (next greater variant)
+  - 84. Largest Rectangle in Histogram (uses nearest smaller)
+
+  Follow-up Questions:
+  - How to return indices instead of values?
+  - How to handle circular arrays?
+  - Can we adapt it for next smaller element on the right?
+  */
 
   public static void main(String[] args) {
     int[] arr = {1, 3, 2, 4};
