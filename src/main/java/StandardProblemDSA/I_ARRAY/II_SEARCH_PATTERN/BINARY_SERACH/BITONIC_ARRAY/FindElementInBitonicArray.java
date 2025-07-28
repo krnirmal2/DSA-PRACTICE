@@ -1,24 +1,28 @@
 package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.BITONIC_ARRAY;
 
+import StandardProblemDSA.Utility;
+
 import static StandardProblemDSA.Utility.findElementLeftAscendigArray;
 import static StandardProblemDSA.Utility.findElementRightDescendtingArray;
 
-import StandardProblemDSA.Utility;
-
 public class FindElementInBitonicArray {
-  /*
-      Algorithm
-  Find the Peak (Bitonic Point) using Binary Search.
+    /*Given a bitonic sequence of n distinct elements, and an integer x, the task is to write a program to find given
+       element x in the bitonic sequence in O(log n) time.
+    Input :  arr[] = {-3, 9, 18, 20, 17, 5, 1}, key = 20
+    Output : Found at index 3
 
-  The peak is where arr[mid] > arr[mid - 1] and arr[mid] > arr[mid + 1].
-  If arr[mid] < arr[mid + 1], the peak is in the right half.
-  If arr[mid] > arr[mid + 1], the peak is in the left half.
-  Binary Search in the Increasing Half (Left of Peak).
+          Algorithm
+      Find the Peak (Bitonic Point) using Binary Search.
+      The peak is where arr[mid] > arr[mid - 1] and arr[mid] > arr[mid + 1].
+      If arr[mid] < arr[mid + 1], the peak is in the right half.
+      If arr[mid] > arr[mid + 1], the peak is in the left half.
+      Binary Search in the Increasing Half (Left of Peak).
 
-  If the element is found, return its index.
-  Binary Search in the Decreasing Half (Right of Peak).
+      If the element is found, return its index.
+      Binary Search in the Decreasing Half (Right of Peak).
 
-  If the element is found, return its index.*/
+      If the element is found, return its index.
+      */
   private static int searchBitonic(int[] bitonicArr, int target) {
     // step1 : find the peack element and return its index
     //    int[] bitonicArr = {1, 3, 8, 12, 14, 11, 5, 2};

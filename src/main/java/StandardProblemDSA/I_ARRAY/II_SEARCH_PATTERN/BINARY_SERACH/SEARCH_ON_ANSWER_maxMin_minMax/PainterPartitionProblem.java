@@ -1,6 +1,8 @@
 package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.SEARCH_ON_ANSWER_maxMin_minMax;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class PainterPartitionProblem {
   /*oblem Statement: Given an array/list of length ‘N’, where the array/list represents the boards and each
@@ -108,4 +110,19 @@ public class PainterPartitionProblem {
       System.out.println("The answer is: " + ans);
     }
   }
+  /*
+  * **Time:** `O(N * log(sum - max))`, where `N` = number of boards.
+  * **Space:** `O(1)`.
+  ### Dry Run (Example: boards = \[10, 20, 30, 40], k = 2)
+
+  * `low = 40`, `high = 100`
+  * `mid = 70` → painters needed = 2 (OK) → high = 69
+  * `mid = 54` → painters needed = 3 (> 2) → low = 55
+  * `mid = 62` → painters needed = 2 (OK) → high = 61
+  * `mid = 58` → painters needed = 3 (> 2) → low = 59
+  * `mid = 60` → painters needed = 2 (OK) → high = 59
+  * `mid = 59` → painters needed = 3 (> 2) → low = 60
+    **Result:** `low = 60`.
+
+  */
 }

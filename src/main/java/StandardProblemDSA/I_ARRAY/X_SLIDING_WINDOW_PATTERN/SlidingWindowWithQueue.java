@@ -1,10 +1,9 @@
 package StandardProblemDSA.I_ARRAY.X_SLIDING_WINDOW_PATTERN;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
-public class SlidingWindowWithQueue {}
-
-class SlidingWindowOperations {
+public class SlidingWindowWithQueue {
 
   // ---------------------------------------------------
   // 1. Find Maximum Sum Subarray of Fixed Size

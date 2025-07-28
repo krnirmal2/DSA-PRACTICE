@@ -5,24 +5,43 @@ public class MaximumProductSubArrayWithSizeK {
   // 4. Maximum Product Subarray in Sliding Window
   // ---------------------------------------------------
   /*
-    Problem Statement:
-       Given an array and a fixed window size k, find the subarray (of length k)
-       with the maximum product.
+      Problem Statement:
+         Given an array and a fixed window size k, find the subarray (of length k)
+         with the maximum product.
 
-    Brute Force Approach:
-       - For each window, compute the product of k elements and track the maximum.
-       - Time Complexity: O(n*k)
+      Brute Force Approach:
+         - For each window, compute the product of k elements and track the maximum.
+         - Time Complexity: O(n*k)
 
-    Optimal Approach:
-       - If the array contains no zeros, we can compute the product of the first window,
-         then for subsequent windows divide by the element leaving the window and multiply by the new element.
-       - If zeros are present, we may need to recompute the product for that window.
-       - Average Time Complexity: O(n) (worst-case: O(n*k) when zeros force recomputation)
+      Optimal Approach:
+         - If the array contains no zeros, we can compute the product of the first window,
+           then for subsequent windows divide by the element leaving the window and multiply by the new element.
+         - If zeros are present, we may need to recompute the product for that window.
+         - Average Time Complexity: O(n) (worst-case: O(n*k) when zeros force recomputation)
 
-    Example:
-       Input: arr = [1, 5, 2, 3, 7, 1], k = 3
-       Output: Maximum product = 42 (subarray [2,3,7])
-  */
+      Example:
+         Input: arr = [1, 5, 2, 3, 7, 1], k = 3
+         Output: Maximum product = 42 (subarray [2,3,7])
+
+  Pattern:
+  - Sliding Window (fixed size) with product tracking and zero handling.
+
+  Time Complexity:
+  - O(n) on average.
+  - Worst case: O(n*k) if zeros force recomputation often.
+
+  Space Complexity:
+  - O(1), no extra data structures used.
+
+  Follow-up Questions:
+  1. How would you handle negative numbers where the maximum product might result from even/odd negatives?
+  2. Can you find maximum product for subarrays of variable sizes?
+  3. How would you handle very large products to prevent overflow?
+
+  Similar LeetCode/Interview Questions:
+  - LeetCode 713. Subarray Product Less Than K (variation)
+  - GFG: Maximum product subarray of size k
+    */
   public static double maxProductSubarray(int[] arr, int k) {
     if (arr == null || arr.length < k) {
       return -1; // or throw exception

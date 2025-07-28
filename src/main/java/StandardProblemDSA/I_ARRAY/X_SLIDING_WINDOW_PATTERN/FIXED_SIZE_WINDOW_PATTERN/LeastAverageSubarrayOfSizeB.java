@@ -1,6 +1,43 @@
 package StandardProblemDSA.I_ARRAY.X_SLIDING_WINDOW_PATTERN.FIXED_SIZE_WINDOW_PATTERN;
 
 public class LeastAverageSubarrayOfSizeB {
+  /*
+  Question:
+  Find the starting index of the subarray of size B with the minimum average in array A.
+
+  Example:
+  Input: A = [3, 7, 5, 20, -10, 0, 12], B = 2
+  Output: 4
+  Explanation:
+  - Subarray [20, -10] has the minimum average.
+
+  Approach:
+  1. Use a sliding window of size B.
+  2. Maintain a running sum of the current window.
+  3. When window size < B → keep expanding by adding elements.
+  4. When window size == B → check if current sum < least sum.
+     - Update `leastAverage` and `resultIndex` if found.
+     - Slide the window by subtracting A[i] and moving both pointers.
+  5. Continue until end of array.
+
+  Pattern:
+  - Sliding Window (fixed size) to find the subarray with minimum average.
+
+  Time Complexity:
+  - O(n), where n = length of A.
+
+  Space Complexity:
+  - O(1), as only variables are used.
+
+  Follow-up Questions:
+  1. How would you modify this to find subarray with minimum average of any size (not fixed)?
+  2. What if multiple subarrays have the same minimum average?
+  3. Can we use prefix sums to reduce computation?
+
+  Similar LeetCode/Interview Questions:
+  - GFG: Subarray with minimum average
+  - LeetCode 643. Maximum Average Subarray I (variation)
+  */
 
   public static int findMinAvgSubarray(int[] A, int B) {
     // Initialize pointers for the sliding window

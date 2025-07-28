@@ -1,37 +1,55 @@
-package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.SEARCH_ON_ANSWER_maxMin_minMax;
+/*
+Problem Statement:
+------------------
+You are given two sorted arrays `a` and `b` of sizes n1 and n2.
+Find the median of the two sorted arrays.
+The overall run-time complexity should be O(log(min(n1, n2))).
 
-public class MedianInSortedTwoArrayWithBinarySearch {
-  public static double median(int[] a, int[] b) {
-    int n1 = a.length, n2 = b.length;
-    // if n1 is bigger swap the arrays:
-    if (n1 > n2) return median(b, a);
+Definitions:
+- Median:
+  - If the total number of elements (n1 + n2) is odd, the median is the middle element.
+  - If even, it is the average of the two middle elements.
 
-    int n = n1 + n2; // total length
-    int left = (n1 + n2 + 1) / 2; // length of left half
-    // apply binary search:
-    int low = 0, high = n1;
-    while (low <= high) {
-      int mid1 = (low + high) / 2;
-      int mid2 = left - mid1;
-      // calculate l1, l2, r1 and r2;
-      int l1 = (mid1 > 0) ? a[mid1 - 1] : Integer.MIN_VALUE;
-      int l2 = (mid2 > 0) ? b[mid2 - 1] : Integer.MIN_VALUE;
-      int r1 = (mid1 < n1) ? a[mid1] : Integer.MAX_VALUE;
-      int r2 = (mid2 < n2) ? b[mid2] : Integer.MAX_VALUE;
+Example 1:
+Input: a = [1, 4, 7, 10, 12], b = [2, 3, 6, 15]
+Output: 6.0
+Explanation: Combined sorted array = [1, 2, 3, 4, 6, 7, 10, 12, 15], median = 6.
 
-      if (l1 <= r2 && l2 <= r1) {
-        if (n % 2 == 1) {
-          return Math.max(l1, l2);
-        } else return ((double) (Math.max(l1, l2) + Math.min(r1, r2))) / 2.0;
-      } else if (l1 > r2) high = mid1 - 1;
-      else low = mid1 + 1;
-    }
-    return 0; // dummy statement
-  }
+Example 2:
+Input: a = [1, 3], b = [2]
+Output: 2.0
+Explanation: Combined sorted array = [1, 2, 3], median = 2.
 
-  public static void main(String[] args) {
-    int[] a = {1, 4, 7, 10, 12};
-    int[] b = {2, 3, 6, 15};
-    System.out.println("The median of two sorted arrays is " + median(a, b));
-  }
-}
+Approach:
+---------
+- Use **Binary Search** on the smaller array.
+- Partition both arrays such that:
+    - Left half of `a` + Left half of `b` = (n1 + n2 + 1) / 2
+    - Ensure all elements in the left half ≤ all elements in the right half.
+- Key idea:
+    - Compare `l1` (max of left of `a`) and `r2` (min of right of `b`)
+      and `l2` (max of left of `b`) and `r1` (min of right of `a`).
+    - If partitions are valid: return median.
+    - Else adjust binary search boundaries.
+
+Pattern:
+--------
+- **Binary Search on Partition Index**
+- Classic problem: Divide arrays into left and right halves.
+
+Complexity:
+-----------
+- Time: O(log(min(n1, n2))) - binary search on smaller array
+- Space: O(1)
+
+Related LeetCode Problems:
+--------------------------
+- 4. Median of Two Sorted Arrays (Hard)
+
+Follow-ups:
+-----------
+1. What if arrays are unsorted? → Need to sort first (O(n log n)).
+2. What if arrays are streams (infinite)? → Use two heaps.
+3. Can we find the kth element instead of the median? → Yes, generalize partition logic.
+
+*/

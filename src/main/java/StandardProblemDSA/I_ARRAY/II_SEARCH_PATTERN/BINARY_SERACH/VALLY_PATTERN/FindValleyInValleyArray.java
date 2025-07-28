@@ -1,6 +1,21 @@
 package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.VALLY_PATTERN;
 
 public class FindValleyInValleyArray {
+    /* Problem Statement:
+       Given an array that first decreases and then increases (a "valley" array),
+       find the minimum element (the valley point).
+
+       Pattern: Binary Search on a unimodal (valley) array.
+       - Compare mid with neighbors to determine the direction of the slope.
+       - Move towards the side where a smaller element may exist.
+
+       LeetCode Equivalent:
+         - No direct problem, but opposite of "Peak Index in a Mountain Array" (LeetCode 852).
+
+       Follow-ups:
+         1. What if the array is strictly decreasing or strictly increasing?
+         2. How to find both valley index and value?
+    */
   public static int findValley(int[] arr) {
     // approach
     int low = 0, high = arr.length - 1; // 1. low and high pointer

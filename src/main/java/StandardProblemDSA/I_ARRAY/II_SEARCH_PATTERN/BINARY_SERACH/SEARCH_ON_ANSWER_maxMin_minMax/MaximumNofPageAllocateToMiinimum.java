@@ -1,6 +1,8 @@
 package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.SEARCH_ON_ANSWER_maxMin_minMax;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class MaximumNofPageAllocateToMiinimum {
   /*  Problem Statement:
@@ -42,27 +44,53 @@ public class MaximumNofPageAllocateToMiinimum {
   When it is impossible to allocate books:
 
 
-  When the number of books is lesser than the number of students, we cannot allocate books to all the students even if we give only a single book to each student. So, if m > n, we should return -1.*/
+  When the number of books is lesser than the number of students, we cannot allocate books to all the students even
+  if we give only a single book to each student. So, if m > n, we should return -1.*/
   /*Optimal Approach:
-  We are going to use the Binary Search algorithm to optimize the approach.
+    We are going to use the Binary Search algorithm to optimize the approach.
 
-  The primary objective of the Binary Search algorithm is to efficiently determine the appropriate half to eliminate, thereby reducing the search space by half. It does this by determining a specific condition that ensures that the target is not present in that half.
+    The primary objective of the Binary Search algorithm is to efficiently determine the appropriate half to eliminate, thereby reducing the search space by half. It does this by determining a specific condition that ensures that the target is not present in that half.
 
-  Upon closer observation, we can recognize that our answer space, represented as [max(arr[]), sum(arr[])], is actually sorted. Additionally, we can identify a pattern that allows us to divide this space into two halves: one consisting of potential answers and the other of non-viable options. So, we will apply binary search on the answer space.
+    Upon closer observation, we can recognize that our answer space, represented as [max(arr[]), sum(arr[])], is actually sorted. Additionally, we can identify a pattern that allows us to divide this space into two halves: one consisting of potential answers and the other of non-viable options. So, we will apply binary search on the answer space.
 
-  Algorithm:
-  If m > n: In this case, book allocation is not possible and so, we will return -1.
-  Place the 2 pointers i.e. low and high: Initially, we will place the pointers. The pointer low will point to max(arr[]) and the high will point to sum(arr[]).
-  Calculate the ‘mid’: Now, inside the loop, we will calculate the value of ‘mid’ using the following formula:
-  mid = (low+high) // 2 ( ‘//’ refers to integer division)
-  Eliminate the halves based on the number of students returned by countStudents():
-  We will pass the potential number of pages, represented by the variable 'mid', to the ‘countStudents()' function. This function will return the number of students to whom we can allocate the books.
-  If students > m: On satisfying this condition, we can conclude that the number ‘mid’ is smaller than our answer. So, we will eliminate the left half and consider the right half(i.e. low = mid+1).
-  Otherwise, the value mid is one of the possible answers. But we want the minimum value. So, we will eliminate the right half and consider the left half(i.e. high = mid-1).
-  Finally, outside the loop, we will return the value of low as the pointer will be pointing to the answer.
-  The steps from 3-4 will be inside a loop and the loop will continue until low crosses high.
+    --
+  Approach:
+  ---------
+  We need to minimize the "maximum pages" assigned.
+      - Minimum possible = max(arr) (no student gets fewer pages than the largest book).
+      - Maximum possible = sum(arr) (one student gets all books).
+  Use **Binary Search on Answer**:
+      1. Low = max(arr), High = sum(arr).
+      2. Check mid (potential max pages) → count how many students needed if no student exceeds `mid`.
+      3. If students > m → mid is too low (increase low).
+         Else → mid might work; try smaller (decrease high).
+      4. Return low (minimum feasible max).
 
-  Note: Please make sure to refer to the video and try out some test cases of your own to understand, how the pointer ‘low’ will be always pointing to the answer in this case. This is also the reason we have not used any extra variable here to store the answer.*/
+  Helper `countStudents`:
+      - Simulate allocation using current capacity `pages`.
+      - If adding book exceeds `pages`, allocate to next student.
+
+  Pattern:
+  --------
+  - **Binary Search on Answer (Minimize the Maximum)**.
+  - Classic for partition problems where the solution space is numeric and monotonic.
+  Complexity:
+  -----------
+  - Time: O(n * log(sum(arr) - max(arr)))
+  - Space: O(1)
+
+  Related LeetCode Problems:
+  --------------------------
+  - 410. Split Array Largest Sum (exactly this problem)
+  - 1011. Capacity To Ship Packages Within D Days
+  - 875. Koko Eating Bananas
+  - 1482. Minimum Number of Days to Make m Bouquets
+
+  Follow-ups:
+  ------------
+  1. What if books are not contiguous? (Use greedy + binary search without contiguity constraint)
+  2. What if each student has a minimum or maximum limit? (Modify countStudents function)
+  3. Can we print the actual allocation? (Need to backtrack with the final `low` value).*/
   public static int countStudents(ArrayList<Integer> arr, int pages) {
     int n = arr.size(); // size of array
     int students = 1;

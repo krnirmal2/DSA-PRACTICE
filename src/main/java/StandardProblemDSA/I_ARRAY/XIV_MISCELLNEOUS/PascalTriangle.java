@@ -5,18 +5,62 @@ import java.util.Arrays;
 import java.util.List;
 
 public class PascalTriangle {
-  /* Recursion Approach:
+  /*
+  -----------------------------------------------------------------------------------
+  📌 Question:
+  -----------------------------------------------------------------------------------
+  "Generate Pascal's Triangle up to a given number of rows."
 
-  Base case: If numRows is 1, return [[1]].
-  Recursively generate the triangle for numRows - 1.
-  Calculate the current row by summing adjacent elements from the previous row.*/
-  /*[
-          [1],
-          [1, 1],
-          [1, 2, 1],
-          [1, 3, 3, 1],
-          [1, 4, 6, 4, 1]
-          ]
+  Example:
+  numRows = 5
+  Output:
+  [
+   [1],
+   [1, 1],
+   [1, 2, 1],
+   [1, 3, 3, 1],
+   [1, 4, 6, 4, 1]
+  ]
+
+  -----------------------------------------------------------------------------------
+  🧠 Approach (Recursive Construction):
+  -----------------------------------------------------------------------------------
+  1. **Base cases**:
+        - If `numRows` = 0 → return empty list.
+        - If `numRows` = 1 → return [[1]].
+  2. **Recursive step**:
+        - Generate triangle for `numRows - 1`.
+        - Create a new row of size `numRows` initialized with 1s.
+        - Fill inner elements:
+          `newRow[i] = prevRow[i - 1] + prevRow[i]` for i = 1 to numRows - 2.
+        - Append `newRow` to the triangle.
+  3. Return the full triangle.
+
+  -----------------------------------------------------------------------------------
+  ⏱️ Complexity:
+  -----------------------------------------------------------------------------------
+  - Time: O(N²), since we generate N rows and each row requires ~N operations.
+  - Space: O(N²) for storing all rows.
+
+  -----------------------------------------------------------------------------------
+  🧩 Pattern:
+  -----------------------------------------------------------------------------------
+  - **Dynamic Programming / Pascal’s Identity**
+  - Uses previous row to build the next row.
+
+  -----------------------------------------------------------------------------------
+  🔁 Follow-up Questions:
+  -----------------------------------------------------------------------------------
+  1️⃣ Can we generate a **single row** of Pascal’s triangle in O(k)?
+  2️⃣ How to generate it **iteratively** without recursion?
+  3️⃣ Can we generate **all rows in-place** with O(numRows) space?
+
+  -----------------------------------------------------------------------------------
+  🔗 Similar Problems:
+  -----------------------------------------------------------------------------------
+  - LeetCode 118 – Pascal’s Triangle
+  - LeetCode 119 – Pascal’s Triangle II
+  - Binomial Coefficient computation
   */
 
   // we use TAIL recursion here
@@ -27,7 +71,8 @@ public class PascalTriangle {
     if (numRows == 0) return new ArrayList<>();
     if (numRows == 1) {
       List<List<Integer>> result = new ArrayList<>();
-      result.add(Arrays.asList(1));
+      result.add(List.of(1));
+      return result; // missing return
     }
 
     // recursively geerate the triangle for numrow -1

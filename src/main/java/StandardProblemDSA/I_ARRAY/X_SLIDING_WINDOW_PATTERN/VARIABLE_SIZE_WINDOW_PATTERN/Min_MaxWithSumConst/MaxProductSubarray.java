@@ -1,22 +1,80 @@
 package StandardProblemDSA.I_ARRAY.X_SLIDING_WINDOW_PATTERN.VARIABLE_SIZE_WINDOW_PATTERN.Min_MaxWithSumConst;
 
 public class MaxProductSubarray {
-  /* Given an integer array nums, find a subarray that has the largest product, and return the product.
-  The test cases are generated so that the answer will fit in a 32-bit integer.
-  Example 1:
-  Input: nums = [2,3,-2,4]
-  Output: 6
-  Explanation: [2,3] has the largest product 6.
-  Example 2:
+  /*
+  ------------------------------------------------------
+  Question (Interviewer-style)
+  ------------------------------------------------------
+  "Given an integer array `nums`, find the contiguous subarray within the array
+   that has the largest product and return the product."
 
-  Input: nums = [-2,0,-1]
-  Output: 0
-  Explanation: The result cannot be 2, because [-2,-1] is not a subarray.
+  Example 1:
+    Input: nums = [2,3,-2,4]
+    Output: 6
+    Explanation: [2,3] has the largest product = 6.
+
+  Example 2:
+    Input: nums = [-2,0,-1]
+    Output: 0
+    Explanation: The result cannot be 2 because [-2,-1] is not contiguous.
 
   Constraints:
-          1 <= nums.length <= 2 * 104
-          -10 <= nums[i] <= 10
-  The product of any subarray of nums is guaranteed to fit in a 32-bit integer.*/
+  - 1 <= nums.length <= 2 * 10^4
+  - -10 <= nums[i] <= 10
+  - Product of any subarray fits in 32-bit integer.
+
+  ------------------------------------------------------
+  Pattern
+  ------------------------------------------------------
+  Pattern Name: Dynamic Programming (Kadane’s Algorithm variation for Products)
+  - Regular Kadane’s algorithm works for sums but not directly for products because:
+    - Negative numbers can flip the product sign.
+    - Two negatives can create a larger positive product.
+    - Zero resets the product chain.
+
+  ------------------------------------------------------
+  Approach Explanation
+  ------------------------------------------------------
+  1. Maintain:
+     - `maxSoFar`: maximum product ending at the current index.
+     - `minSoFar`: minimum product ending at the current index (needed because a negative × negative can become max).
+     - `result`: global maximum product found so far.
+
+  2. Iterate through the array:
+     - If `nums[i]` is negative, swap `maxSoFar` and `minSoFar`.
+     - Update `maxSoFar = max(nums[i], maxSoFar * nums[i])`.
+     - Update `minSoFar = min(nums[i], minSoFar * nums[i])`.
+     - Update `result = max(result, maxSoFar)`.
+
+  3. Return `result`.
+
+  Key Insight:
+  - Tracking both maximum and minimum at each step allows handling negatives and zeros correctly.
+  - A zero effectively resets both max and min for the next subarray.
+
+  ------------------------------------------------------
+  Follow-up Questions
+  ------------------------------------------------------
+  1. What if we need to return the actual subarray (not just the product)?
+     - Track start/end indices when updating `maxSoFar`.
+  2. How to handle arrays with all negatives?
+     - This approach already covers that; the minimum negative product can flip to maximum.
+  3. Can this be extended to K-partition maximum product?
+     - Yes, with dynamic programming, but complexity increases.
+
+  ------------------------------------------------------
+  Similar LeetCode Problems
+  ------------------------------------------------------
+  - LeetCode 152 – Maximum Product Subarray (exact problem)
+  - LeetCode 53 – Maximum Subarray (Kadane’s algorithm for sum)
+  - LeetCode 918 – Maximum Sum Circular Subarray (variation on Kadane’s)
+
+  ------------------------------------------------------
+  Time & Space Complexity
+  ------------------------------------------------------
+  - Time: O(n) – single pass through the array.
+  - Space: O(1) – only a few variables needed.
+  */
   /*We need to find the maximum product of any contiguous subarray.
   But with multiplication, some tricky things happen:
   A negative number can flip a large product into a negative one.

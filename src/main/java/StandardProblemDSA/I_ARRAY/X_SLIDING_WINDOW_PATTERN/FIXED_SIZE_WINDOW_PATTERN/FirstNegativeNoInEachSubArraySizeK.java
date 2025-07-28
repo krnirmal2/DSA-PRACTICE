@@ -5,6 +5,60 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+/*
+Question:
+Given an array Arr[] and an integer K, find the first negative number in every contiguous subarray of size K.
+If a subarray does not contain any negative numbers, add 0 for that window.
+
+Example:
+Input: Arr = [12, -1, -7, 8, -15, 30, 16, 28], K = 3
+Output: [-1, -1, -7, -15, -15, 0]
+
+Explanation:
+For each window of size 3:
+[12, -1, -7] → -1
+[-1, -7, 8] → -1
+[-7, 8, -15] → -7
+[8, -15, 30] → -15
+[-15, 30, 16] → -15
+[30, 16, 28] → 0
+
+Approach:
+1. Use the Sliding Window technique.
+2. Maintain a queue (FIFO) that stores the negative numbers in the current window.
+3. Traverse the array using two pointers (i, j):
+   - Expand the window by moving j.
+   - If Arr[j] is negative, add it to the queue.
+   - When window size < K → keep expanding.
+   - When window size == K:
+        - The first element in the queue is the first negative number in this window.
+        - If queue is empty, no negative number → add 0.
+        - Before sliding the window, check if the outgoing element (Arr[i]) is equal to queue.peek().
+          If yes, remove it from the queue.
+        - Slide the window (increment i, j).
+4. Collect results for each window in a list.
+
+Pattern:
+- Sliding Window (fixed size) + Queue to track first negative number.
+
+Time Complexity:
+- O(n), where n is the length of Arr (each element is added and removed from the queue at most once).
+
+Space Complexity:
+- O(k) in worst case, for storing negative numbers in the queue.
+
+Follow-up Questions:
+1. Can you solve this without extra space (queue)?
+2. How would you adapt this for the first positive number in each window?
+3. How would you print the indices of the first negative number instead of the value?
+4. How would you handle this problem in a streaming scenario where data comes continuously?
+
+Similar LeetCode/Interview Questions:
+- First Negative Integer in Every Window of Size K (GFG)
+- LeetCode 239. Sliding Window Maximum (variation)
+- LeetCode 1438. Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit (variation)
+*/
+
 public class FirstNegativeNoInEachSubArraySizeK {
   /*  public static List<Integer> firstNegativeBruteForce(int[] arr, int k) {
       List<Integer> result = new ArrayList<>();

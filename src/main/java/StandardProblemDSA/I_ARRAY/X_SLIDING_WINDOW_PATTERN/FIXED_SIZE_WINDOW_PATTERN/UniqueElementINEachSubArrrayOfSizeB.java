@@ -3,6 +3,48 @@ package StandardProblemDSA.I_ARRAY.X_SLIDING_WINDOW_PATTERN.FIXED_SIZE_WINDOW_PA
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/*
+Question:
+Given an array A[] and an integer B, find the number of distinct (unique) elements in every contiguous subarray of size B.
+
+Example:
+Input:  A = [1, 2, 1, 3, 4, 2, 3], B = 4
+Output: [3, 4, 4, 3]
+Explanation:
+- Windows: [1,2,1,3] → {1,2,3} → 3
+            [2,1,3,4] → {1,2,3,4} → 4
+            [1,3,4,2] → {1,2,3,4} → 4
+            [3,4,2,3] → {2,3,4} → 3
+
+Approach:
+1. **Use a HashMap to store frequencies of elements in the current window**:
+   - Key → element, Value → frequency.
+2. Iterate through the array with a sliding window:
+   - Add the current element to the map.
+   - When the window size equals B:
+     - The size of the map = number of unique elements → add to result.
+     - Before sliding, decrease frequency of the outgoing element.
+     - If its frequency becomes 0, remove it from the map.
+     - Move the window forward.
+
+Pattern:
+- Fixed-size sliding window + frequency map.
+
+Time Complexity:
+- O(n), as each element is added and removed from the map once.
+
+Space Complexity:
+- O(k), where k = number of unique elements in a window.
+
+Follow-up Questions:
+1. How would you modify the code to count distinct elements in variable-sized windows?
+2. Can you do this with O(1) additional space (without HashMap)?
+
+Similar Problems:
+- LeetCode 992: Subarrays with K Different Integers.
+- Sliding Window Maximum Number of Distinct Elements.
+*/
+
 public class UniqueElementINEachSubArrrayOfSizeB {
   // No of unique eleemnt in each array with size k
   // subarray with size k

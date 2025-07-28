@@ -6,39 +6,48 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class MaximumValueInEachSubarrayOfSizeK {
-  /*⚡
-         🚀 Optimal Approach (Deque / Sliding Window Max)
-  1️⃣   Initialize Deque<Integer> dq to store indices (not values).
-  2️⃣   Initialize result = [].
-  3️⃣   Loop i from 0 to n - 1:
-  4️⃣emove indices out of current window → while !dq.isEmpty() and dq.peekFirst() <= i - k → dq.pollFirst().
-  5️⃣     Remove all smaller elements from back → while !dq.isEmpty() and arr[dq.peekLast()] < arr[i] → dq.pollLast().
-  6️⃣     Add current index i to deque → dq.offerLast(i).
-  7️⃣     If window has hit size k, add arr[dq.peekFirst()] to result.
-  8️⃣   Return result.
-  🕒   Time: O(n) 📦 Space: O(k) (for deque + output)
-  */
-  // ---------------------------------------------------
-  // 2. Find Largest Element in Each Sliding Window
-  // ---------------------------------------------------
   /*
-    Problem Statement:
-       Given an array and a window size k, for each window (of size k), find the largest element.
+  Question:
+  Given an array arr[] and an integer k, find the maximum element in every contiguous subarray of size k.
 
-    Brute Force Approach:
-       - For each window, iterate over k elements to find the maximum.
-       - Time Complexity: O(n*k)
+  Example:
+  Input:  arr = [1,3,-1,-3,5,3,6,7], k = 3
+  Output: [3,3,5,5,6,7]
+  Explanation:
+  - Windows: [1,3,-1] → 3, [3,-1,-3] → 3, [ -1,-3,5] → 5, ...
 
-    Optimal Approach:
-       - Use a deque to maintain the indices of useful elements.
-       - The deque always contains indices in decreasing order of values.
-       - Time Complexity: O(n)
+  Approach:
+  1. **Brute Force**:
+     - For each window, scan all k elements and find max.
+     - Time: O(n*k).
 
-    Example:
-       Input: arr = [1,3,-1,-3,5,3,6,7], k = 3
-       Output: [3,3,5,5,6,7]
+  2. **Optimal (Deque / Sliding Window Max)**:
+     - Maintain a deque of indices storing elements in decreasing order.
+     - Before adding a new element, remove all elements smaller than it (from the back).
+     - Remove indices that fall outside the current window (from the front).
+     - The front of the deque always holds the index of the largest element for the current window.
+     - Time: O(n), as each index is added and removed at most once.
+
+  Pattern:
+  - Fixed-size sliding window + deque for max retrieval.
+
+  Time Complexity:
+  - O(n).
+
+  Space Complexity:
+  - O(k) for deque, plus O(n-k+1) for result.
+
+  Follow-up Questions:
+  1. How would you modify the code to get the minimum in each window?
+  2. What happens if k > n or k = 1?
+  3. Can this be extended to dynamic window sizes?
+
+  Similar LeetCode/Interview Problems:
+  - LeetCode 239. Sliding Window Maximum.
+  - Variation: Sliding Window Minimum (just reverse comparison sign).
   */
-  public static int[] maxSlidingWindow(int[] arr, int k) {
+
+    public static int[] maxSlidingWindow(int[] arr, int k) {
     if (arr == null || k <= 0) {
       return new int[0];
     }

@@ -22,7 +22,35 @@ public class MinimumDaysToMakeMBouquets {
 
 
   If we choose the 12th day, we can make 2 such groups, one with the first 3 adjacent flowers and the other with the last 3 adjacent flowers. Hence, we need a minimum of 12 days to make 2 bouquets.*/
+  /* Pattern:
+            --------
+            - **Binary Search on Answer** (Search space = [min(arr), max(arr)]).
+            - Check feasibility for a given day with `possible()`: Can we make at least `m` bouquets?
+            - If feasible, try to minimize (search in left half).
+            - Else, search in right half.
 
+    Why Binary Search Works:
+            ------------------------
+            - Monotonic property: If we can make `m` bouquets on day X,
+    then we can also make them on all days > X.
+
+    Helper function `possible()`:
+            ------------------------------
+            - Iterate through arr, count consecutive bloomed flowers ≤ given `day`.
+            - Every `k` flowers = 1 bouquet.
+  - Reset count when an unbloomed flower is found.
+
+    Complexity:
+            -----------
+            - Time: O(N * log(max - min)) where N = arr.length.
+            - Space: O(1).
+
+    Related LeetCode Problems:
+            --------------------------
+            - 1482. Minimum Number of Days to Make m Bouquets
+  - 1011. Capacity To Ship Packages Within D Days
+  - 410. Split Array Largest Sum
+  - 875. Koko Eating Bananas*/
   /*  Optimal Approach(Using Binary Search):
   We are going to use the Binary Search algorithm to optimize the approach.
 

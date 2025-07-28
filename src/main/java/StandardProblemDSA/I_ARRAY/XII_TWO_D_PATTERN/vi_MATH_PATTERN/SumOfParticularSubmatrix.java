@@ -1,5 +1,60 @@
 package StandardProblemDSA.I_ARRAY.XII_TWO_D_PATTERN.vi_MATH_PATTERN;
 
+/*
+-----------------------------------------------------------------------------------
+📌 Question:
+-----------------------------------------------------------------------------------
+"Given a 2D matrix A and multiple queries, find the sum of elements in given
+submatrices defined by their top-left and bottom-right coordinates."
+
+Example:
+A = [[1, 2, 3, 4, 6],
+     [5, 3, 8, 1, 2],
+     [4, 6, 7, 5, 5],
+     [2, 4, 8, 9, 4]]
+
+Query 1: Top-left B = (0,0), Bottom-right D = (3,4)
+Query 2: Top-left C = (0,0), Bottom-right E = (1,1)
+
+-----------------------------------------------------------------------------------
+🧠 Approach (2D Prefix Sum):
+-----------------------------------------------------------------------------------
+1. Precompute a **prefixSumMatrix** where each cell (i,j) stores the sum of all elements
+   from (0,0) to (i,j).
+2. For each query (r1,c1) → (r2,c2):
+        sum = prefix[r2][c2]
+              - prefix[r1-1][c2]      if r1 > 0
+              - prefix[r2][c1-1]      if c1 > 0
+              + prefix[r1-1][c1-1]    if r1 > 0 && c1 > 0
+3. Handle edge cases when the submatrix touches the top or left boundary.
+
+-----------------------------------------------------------------------------------
+⏱️ Complexity:
+-----------------------------------------------------------------------------------
+- Building prefix matrix: O(N × M)
+- Each query: O(1)
+- Space: O(N × M) for the prefix sum matrix.
+
+-----------------------------------------------------------------------------------
+🧩 Pattern:
+-----------------------------------------------------------------------------------
+- **2D Prefix Sum / Cumulative Sum** – classic technique for submatrix sum queries.
+
+-----------------------------------------------------------------------------------
+🔁 Follow-up Questions:
+-----------------------------------------------------------------------------------
+1️⃣ How would you handle **multiple queries efficiently**?
+2️⃣ Can this be optimized to work with **immutable input** using the same prefix matrix?
+3️⃣ How to modify for **dynamic updates** (matrix changes after some queries)?
+
+-----------------------------------------------------------------------------------
+🔗 Similar Problems:
+-----------------------------------------------------------------------------------
+- LeetCode 304 – Range Sum Query 2D (Immutable)
+- GFG – Sum of submatrix queries
+- Competitive programming problems with **2D prefix sums**
+*/
+
 public class SumOfParticularSubmatrix {
 
   public static int[] solve(int[][] A, int[] B, int[] C, int[] D, int[] E) {

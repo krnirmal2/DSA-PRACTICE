@@ -2,6 +2,41 @@ package StandardProblemDSA.I_ARRAY.X_SLIDING_WINDOW_PATTERN.VARIABLE_SIZE_WINDOW
 
 import java.util.ArrayList;
 
+/*
+Problem Statement:
+Given an array `a` of positive integers and an integer `k`,
+find the indices of the largest subarray (longest length) whose sum equals `k`.
+
+Example:
+Input: a = [1, 2, 1, 0, 1, 1, 0], k = 4
+Output: [1, 2, 3, 4]
+Explanation:
+- Subarray [2, 1, 0, 1] has sum 4 and length 4, which is maximum.
+
+---
+
+Approach:
+1. Use the sliding window technique since the array contains non-negative numbers.
+2. Maintain `start`, `end` pointers and a running `sum`.
+3. Expand the `end` pointer until `sum` ≥ `k`.
+4. If `sum` == `k`, update the maximum window size and store indices.
+5. If `sum` > `k`, shrink the window from `start` until `sum` ≤ `k`.
+6. Continue until `end` reaches the end of the array.
+
+---
+
+Time Complexity:
+- O(n): each element is added and removed at most once.
+
+Space Complexity:
+- O(n): for storing indices of the largest window.
+
+Follow-up:
+- How to handle negative numbers?
+  (Sliding window fails; we would need prefix sums + HashMap.)
+- How to find all windows with sum exactly `k`?
+
+*/
 class IndexOfLargestWindowForSumK {
 
   public static ArrayList<Integer> solve(ArrayList<Integer> a, int k) {

@@ -1,7 +1,47 @@
 package StandardProblemDSA.I_ARRAY.XII_TWO_D_PATTERN.ii_ROTATION_PATTERN;
 
 public class spiralMatrix {
-  // Java program to print a given matrix in spiral form
+  /*
+  -----------------------------------------------------------------------------------
+  📌 SpiralTraverse (Next Problem):
+  -----------------------------------------------------------------------------------
+  "Given a 2D matrix, return all elements of the matrix in spiral order."
+
+  Example:
+  Input:
+  1 2 3
+  4 5 6
+  7 8 9
+
+  Output: [1, 2, 3, 6, 9, 8, 7, 4, 5]
+
+  Pattern:
+  - Use 4 pointers: top, bottom, left, right.
+  - Traverse in layers:
+      1. Left → Right along top row
+      2. Top → Bottom along right column
+      3. Right → Left along bottom row (if top ≤ bottom)
+      4. Bottom → Top along left column (if left ≤ right)
+  - Shrink the boundary pointers after each direction.
+
+  Time Complexity: O(M*N)
+  Space Complexity: O(1) extra space (output list not counted).
+
+  -----------------------------------------------------------------------------------
+  🔁 Follow-up Questions:
+  -----------------------------------------------------------------------------------
+  1️⃣ How to modify for clockwise vs. counter-clockwise spiral?
+  2️⃣ How to print in zigzag or wave form?
+  3️⃣ Can we do anti-diagonal traversal in reverse order?
+  4️⃣ How to handle non-square matrices or jagged arrays?
+
+  -----------------------------------------------------------------------------------
+  🔗 Similar LeetCode / Interview Questions:
+  -----------------------------------------------------------------------------------
+  - Leetcode 54 – Spiral Matrix
+  - Leetcode 59 – Spiral Matrix II (generate matrix)
+  - Leetcode 498 – Diagonal Traverse
+  - Common matrix-based interview problems*/
 
   // Function print matrix in spiral form
   static void spiralPrint(int m, int n, int[][] a) {

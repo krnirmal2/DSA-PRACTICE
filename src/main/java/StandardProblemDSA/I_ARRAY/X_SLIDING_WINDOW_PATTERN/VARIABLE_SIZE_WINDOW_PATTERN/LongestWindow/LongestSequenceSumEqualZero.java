@@ -5,26 +5,64 @@ import java.util.HashMap;
 import java.util.List;
 
 class LongestSequenceSumEqualZero {
-
-  /*✅ Question (Interviewer-style):
+  /*
+  ------------------------------------------------------
+  Question (Interviewer-style)
+  ------------------------------------------------------
   "Given an integer array, find the longest contiguous subarray whose sum is zero.
    Return the elements of that subarray."
 
-  ✅ Approach (How to explain):
-  "We'll use a prefix sum approach along with a HashMap to efficiently
-  track cumulative sums and their earliest occurrences.
-   The key idea is that if the cumulative sum up to two indices is the same,
-    the subarray between those indices has a sum of zero."
+  Example:
+  Input: [1, 2, -3, 3, -1, 2, -2]
+  Output: [1, 2, -3]  // sum = 0
 
-  Step-by-step:
-  Initialize a HashMap to store (prefixSum -> earliest index where that sum was seen).
-  Start with prefixSum = 0 mapped to index -1 (helps when subarray starts from index 0).
-  Traverse the array:
-  Update the cumulative sum.
-  If the sum has been seen before,
-  calculate the length of the subarray between the previous index and current index.
-  If this length is greater than the current longest, update the result range.
-  Finally, extract and return the subarray using the recorded range.
+  ------------------------------------------------------
+  Pattern
+  ------------------------------------------------------
+  Pattern Name: Prefix Sum + HashMap
+  - We compute prefix sums while traversing the array.
+  - If the same prefix sum appears at two different indices,
+    the subarray between those indices has a sum of zero.
+
+  Key Insight:
+  - sum(i..j) = prefixSum[j] - prefixSum[i-1]
+  - If prefixSum[j] == prefixSum[i-1], then sum(i..j) = 0.
+
+  ------------------------------------------------------
+  Optimal Approach (O(n) time)
+  ------------------------------------------------------
+  1. Use HashMap<Integer, Integer> to store (prefixSum -> earliest index where that sum was seen).
+  2. Initialize map with (0 -> -1) to handle subarrays starting from index 0.
+  3. Traverse array:
+     - Update prefixSum with current element.
+     - If prefixSum has not been seen before, store index.
+     - If prefixSum has been seen,
+       - a zero-sum subarray exists between the previous index + 1 and current index.
+       - Calculate its length and update maxLength, startIndex, and endIndex if it’s the longest so far.
+  4. After the loop, extract and return the subarray using [startIndex, endIndex].
+
+  ------------------------------------------------------
+  Follow-up Questions
+  ------------------------------------------------------
+  1. What if multiple subarrays have the same maximum length?
+     - We return the first one we encounter.
+  2. How to modify for "subarray with sum K"?
+     - Store (prefixSum - K) in map to check if required sum exists.
+  3. Can we return just the length instead of elements?
+     - Yes, track maxLength only.
+
+  ------------------------------------------------------
+  Similar LeetCode Problems
+  ------------------------------------------------------
+  - LeetCode 560 – Subarray Sum Equals K
+  - LeetCode 523 – Continuous Subarray Sum
+  - LeetCode 974 – Subarray Sums Divisible by K
+
+  ------------------------------------------------------
+  Time & Space Complexity
+  ------------------------------------------------------
+  - Time: O(n) – traverse array once.
+  - Space: O(n) – to store prefix sums in HashMap.
   */
 
   public static ArrayList<Integer> findLongestZeroSumSubarray(ArrayList<Integer> nums) {

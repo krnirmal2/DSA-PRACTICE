@@ -3,38 +3,56 @@ package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.SEARCH_ON_ANS
 public class KthMissingPositiveNumb {
 
   /*
-  Problem Statement: You are given a strictly increasing array ‘vec’ and a positive integer 'k'.
-   Find the 'kth' positive integer missing from 'vec'.
+    Problem Statement: You are given a strictly increasing array ‘vec’ and a positive integer 'k'.
+     Find the 'kth' positive integer missing from 'vec'.
 
-  Examples
+    Examples
 
-  Example 1:
-  Input Format: vec[]={4,7,9,10}, k = 1
-  Result: 1
-  Explanation: The missing numbers are 1, 2, 3, 5, 6, 8, 11, 12, ……, and so on. Since 'k' is 1, the first missing element is 1.
-  Example 2:
-  Input Format: vec[]={4,7,9,10}, k = 4
-  Result: 5
-  Explanation: The missing numbers are 1, 2, 3, 5, 6, 8, 11, 12, ……, and so on. Since 'k' is 4, the fourth missing element is 5.
+    Example 1:
+    Input Format: vec[]={4,7,9,10}, k = 1
+    Result: 1
+    Explanation: The missing numbers are 1, 2, 3, 5, 6, 8, 11, 12, ……, and so on. Since 'k' is 1, the first missing element is 1.
+    Example 2:
+    Input Format: vec[]={4,7,9,10}, k = 4
+    Result: 5
+    Explanation: The missing numbers are 1, 2, 3, 5, 6, 8, 11, 12, ……, and so on. Since 'k' is 4, the fourth missing element is 5.
 
-  Disclaimer: Don’t jump directly to the solution, try it out yourself first.
+    Brute Force Approach
+    Algorithm / Intuition
+    Naive Approach:
+    There might be many brute-force approaches to solve this problem. But we are going to use the following simple steps to solve the problem.
 
-  Brute Force Approach
-  Algorithm / Intuition
-  Naive Approach:
-  There might be many brute-force approaches to solve this problem. But we are going to use the following simple steps to solve the problem.
+    Algorithm:
+    We will use a loop to traverse the array.
+    Inside the loop,
+    If vec[i] <= k: we will simply increase the value of k by 1.
+    Otherwise, we will break out of the loop.
+    Finally, we will return the value of k.
+    Note: The main idea is to shift k by 1 step
+    if the current element is smaller or equal to k.
+    And whenever we get a number > k, we can conclude that k is the missing number.
 
-  Algorithm:
-  We will use a loop to traverse the array.
-  Inside the loop,
-  If vec[i] <= k: we will simply increase the value of k by 1.
-  Otherwise, we will break out of the loop.
-  Finally, we will return the value of k.
-  Note: The main idea is to shift k by 1 step
-  if the current element is smaller or equal to k.
-  And whenever we get a number > k, we can conclude that k is the missing number.
+           Pattern:
+  --------
+  - **Binary Search on Missing Count**
+  - Compare "expected numbers until index" vs "actual numbers" to find missing count.
 
-          Dry-run: Please refer to the video for the dry-run.*/
+  Time and Space Complexity:
+  --------------------------
+  - Brute Force: Time O(n), Space O(1)
+  - Binary Search: Time O(log n), Space O(1)
+
+  Related LeetCode Questions:
+  ---------------------------
+  - 1539. Kth Missing Positive Number
+  - 1060. Missing Element in Sorted Array
+  - 287. Find the Duplicate Number
+  - 35. Search Insert Position
+
+  Follow-ups:
+  -----------
+  - How to handle unsorted arrays? (Need O(n) scan with set)
+  - What if we have duplicates? (Need to deduplicate before counting)*/
 
   public class tUf {
     public static int missingK(int[] vec, int n, int k) {
