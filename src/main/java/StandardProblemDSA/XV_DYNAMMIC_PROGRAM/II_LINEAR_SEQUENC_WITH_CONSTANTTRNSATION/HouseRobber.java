@@ -20,7 +20,26 @@ Total amount you can rob = 2 + 9 + 1 = 12.
 
 Constraints:
 	• 1 <= nums.length <= 100
-0 <= nums[i] <= 400*/
+0 <= nums[i] <= 400
+
+Pattern:
+- Dynamic Programming (Top-down with memoization).
+- Recurrence: rob(i) = max(rob(i - 1), rob(i - 2) + nums[i]).
+
+LeetCode Similar:
+- LC 198 (House Robber I)
+- LC 213 (House Robber II – circular street)
+- LC 337 (House Robber III – binary tree)
+- LC 740 (Delete and Earn – variant)
+
+Follow-ups:
+- Optimize to O(1) space with two variables.
+- Handle negative values (if allowed).
+- Extend to k-distance restriction between robberies.
+
+Time Complexity:
+- O(n) time, O(n) space (memoization).
+*/
 public class HouseRobber {
 
   int[] memo;

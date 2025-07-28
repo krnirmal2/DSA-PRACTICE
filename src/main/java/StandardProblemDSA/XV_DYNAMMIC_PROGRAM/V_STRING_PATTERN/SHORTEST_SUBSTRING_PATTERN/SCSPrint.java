@@ -1,6 +1,51 @@
 package StandardProblemDSA.XV_DYNAMMIC_PROGRAM.V_STRING_PATTERN.SHORTEST_SUBSTRING_PATTERN;
 
 public class SCSPrint {
+  /*
+  Shortest Common Supersequence (SCS) - Print Actual String
+
+  Why?
+  - Important DP problem combining concepts of LCS and string reconstruction.
+  - Tests ability to use **LCS table** to derive a supersequence.
+  - Applications: data merge, diff tools, genome sequencing.
+
+  Pattern:
+  - **LCS-based DP + Backtracking**
+      - Build the LCS DP table first.
+      - Backtrack from dp[n][m] to construct the shortest string that has both s1 and s2 as subsequences.
+
+  Approach:
+  1. Compute `dp[i][j]` = length of LCS of `s1[0..i-1]` and `s2[0..j-1]`.
+  2. Backtrack:
+      - If characters match: add to result and move diagonally.
+      - If not: add character from the string that gave max(dp[i-1][j], dp[i][j-1]).
+  3. Append remaining characters from `s1` or `s2`.
+  4. Reverse the built string (since we backtrack).
+
+  Time Complexity:
+  - **O(n × m)** for DP + **O(n + m)** for backtracking.
+  - Space: **O(n × m)** for DP table, can be optimized.
+
+  Edge Cases:
+  - One string empty → SCS is the other string.
+  - Identical strings → SCS is the string itself.
+  - No common subsequence → SCS = s1 + s2.
+
+  Follow-ups:
+  - Print only the **length** of SCS = `n + m - LCS(s1, s2)`.
+  - Can you optimize space to **O(min(n, m))**?
+  - Can you reconstruct all SCS strings (if multiple)?
+
+  LeetCode:
+  - [LeetCode 1092](https://leetcode.com/problems/shortest-common-supersequence/)
+  - Related: 1143 (LCS), 583 (Delete Operations for Two Strings), 72 (Edit Distance).
+
+  Related Patterns:
+  - LCS Table Construction
+  - String Reconstruction via Backtracking
+  - DP for Sequence Merging
+  */
+
   public static String printSCS(String s1, String s2) {
     int n = s1.length();
     int m = s2.length();

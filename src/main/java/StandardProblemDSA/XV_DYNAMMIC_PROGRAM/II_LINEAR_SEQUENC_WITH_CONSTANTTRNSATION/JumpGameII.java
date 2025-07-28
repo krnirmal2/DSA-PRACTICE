@@ -2,6 +2,33 @@ package StandardProblemDSA.XV_DYNAMMIC_PROGRAM.II_LINEAR_SEQUENC_WITH_CONSTANTTR
 
 import StandardProblemDSA.Utility;
 
+/*45. Jump Game II
+You are given an integer array nums. Each element represents your maximum jump length at that position.
+Return the minimum number of jumps to reach the last index.
+
+Pattern:
+- Greedy: track the farthest position we can reach in the current jump.
+- Use variables:
+    - jumps → number of jumps taken
+    - currentEnd → farthest index we can reach in the current jump
+    - farthest → farthest index we can reach overall.
+
+Approach:
+1. Iterate through nums (except last index):
+    - Update farthest = max(farthest, i + nums[i]).
+    - If we reach currentEnd:
+        - Increment jumps.
+        - Update currentEnd = farthest.
+2. Return jumps.
+
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+Similar / Follow-up Problems:
+- LC 55: Jump Game I (check if reachable)
+- LC 1306: Jump Game III (BFS approach)
+- LC 1345: Jump Game IV (minimum jumps with value-based jumps)
+*/
 public class JumpGameII {
   public int jump(int[] nums) {
     int n = nums.length;

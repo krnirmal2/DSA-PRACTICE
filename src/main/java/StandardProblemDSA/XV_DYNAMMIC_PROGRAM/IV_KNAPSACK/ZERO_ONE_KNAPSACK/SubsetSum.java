@@ -2,13 +2,47 @@ package StandardProblemDSA.XV_DYNAMMIC_PROGRAM.IV_KNAPSACK.ZERO_ONE_KNAPSACK;
 
 import java.util.Arrays;
 
-/*Given an array arr[] of non-negative integers and a value sum, the task is to check if there is a subset of the given array whose sum is equal to the given sum.
+/*Given an array arr[] of non-negative integers and a value sum, the task is to check if there is a
+subset of the given array whose sum is equal to the given sum.
 
 Examples:
 
 Input: arr[] = [3, 34, 4, 12, 5, 2], sum = 9
 Output: True
-Explanation: There is a subset (4, 5) with sum 9.*/
+Explanation: There is a subset (4, 5) with sum 9.
+
+bservation:
+- Classic **decision version** of the subset sum problem.
+- Similar to 0/1 Knapsack:
+    - For each element, we have two choices: **include** it or **exclude** it.
+    - We must check if any combination reaches `sum`.
+
+Approaches:
+1. **Recursion (brute force):**
+    - Explore all subsets: include/exclude each element.
+    - Time: O(2^n), Space: O(n) recursion stack.
+
+2. **Top-down DP (Memoization):**
+    - State: dp[n][sum] → true if subset with sum `sum` can be formed using first `n` elements.
+    - Avoid recomputation by caching results.
+    - Time: O(n * sum), Space: O(n * sum).
+
+3. **Bottom-up DP (Tabulation):**
+    - Build a table where dp[i][j] = true if subset of first i elements can sum to j.
+    - Time: O(n * sum), Space: O(n * sum).
+    - Space-optimized: Use 1D array dp[sum + 1].
+
+Edge Cases:
+- sum = 0 → always true (empty subset).
+- arr[] empty and sum > 0 → false.
+- All elements greater than sum → false.
+
+Similar Problems:
+- Partition Equal Subset Sum (LC 416).
+- Minimum Subset Sum Difference.
+- Target Sum (LC 494).
+- Count of Subsets with Given Sum.
+*/
 public class SubsetSum {
   // Recursive function to check if a subset
   // with the given sum exists

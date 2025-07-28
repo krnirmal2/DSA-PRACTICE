@@ -1,6 +1,6 @@
 package StandardProblemDSA.XV_DYNAMMIC_PROGRAM.IV_KNAPSACK.UNBOUND_KNAPSACK;
 
-import java.util.*;
+import java.util.Arrays;
 
 /*322. Coin Change
 You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money.
@@ -21,7 +21,29 @@ Output: 0
 Constraints:
         • 1 <= coins.length <= 12
         • 1 <= coins[i] <= 231 - 1
-        0 <= amount <= 104*/
+        0 <= amount <= 104
+
+ Pattern:
+- **Unbounded Knapsack** DP (minimization problem).
+- State: `dp[i]` = minimum number of coins required to make amount `i`.
+- Transition:
+      dp[i] = min(dp[i - coin] + 1) for each coin where i - coin >= 0
+- Base case: dp[0] = 0.
+
+Approaches:
+1. **Recursion (brute force):** Try all coins; explore all possibilities.
+   Time Complexity: O(n^amount), Space: O(amount) due to recursion depth.
+2. **Top-down DP (Memoization):** Cache results for subproblems `(amount)` to avoid recomputation.
+3. **Bottom-up DP (Tabulation):** Iteratively build dp[0...amount].
+4. **Edge cases:**
+   - amount = 0 → return 0
+   - if coins cannot sum to amount → return -1
+
+Similar / Follow-up Problems:
+- LC 518: Coin Change II (count combinations, not min coins)
+- LC 279: Perfect Squares (minimum perfect squares summing to n)
+- LC 139: Word Break (similar DP state filling)
+- LC 377: Combination Sum IV (count ordered combinations)       */
 public class CoinChange {
   class Solution {
     public int coinChange(int[] coins, int amount) {

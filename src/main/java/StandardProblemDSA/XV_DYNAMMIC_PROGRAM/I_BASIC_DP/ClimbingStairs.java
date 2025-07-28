@@ -4,30 +4,48 @@ import StandardProblemDSA.Utility;
 
 public class ClimbingStairs {
   /*70. Climbing Stairs
-  You are climbing a staircase. It takes n steps to reach the top.
-  Each time you can either climb 1 or 2 steps. In how many distinct ways can you
-  climb to the top?
+    You are climbing a staircase. It takes n steps to reach the top.
+    Each time you can either climb 1 or 2 steps. In how many distinct ways can you
+    climb to the top?
 
-  Example 1:
-  Input: n = 2
-  Output: 2
-  Explanation: There are two ways to climb to the top.
-  1. 1 step + 1 step
-  2. 2 steps
-  Example 2:
-  Input: n = 3
-  Output: 3
-  Explanation: There are three ways to climb to the top.
-  1. 1 step + 1 step + 1 step
-  2. 1 step + 2 steps
-  3. 2 steps + 1 step
+    Example 1:
+    Input: n = 2
+    Output: 2
+    Explanation: There are two ways to climb to the top.
+    1. 1 step + 1 step
+    2. 2 steps
+    Example 2:
+    Input: n = 3
+    Output: 3
+    Explanation: There are three ways to climb to the top.
+    1. 1 step + 1 step + 1 step
+    2. 1 step + 2 steps
+    3. 2 steps + 1 step
 
-  Constraints:
-  	• 1 <= n <= 45
+    Constraints:
+    	• 1 <= n <= 45
+
+  Pattern:
+  - Dynamic Programming (DP) – Fibonacci relation:
+      - ways(n) = ways(n-1) + ways(n-2)
+      - Subproblems overlap → use memoization or bottom-up DP.
+
+  LeetCode Similar:
+  - LC 746 (Min Cost Climbing Stairs)
+  - LC 91 (Decode Ways)
+  - LC 509 (Fibonacci Number)
+  - LC 198 (House Robber)
+
+  Follow-ups:
+  - What if steps allowed = {1, 2, k}?
+  - What if some steps are broken (cannot be stepped on)?
+  - Optimize to O(1) space using two variables.
+
+  Time Complexity:
+  - O(n) time, O(n) space with memoization. Can be optimized to O(1) space.
 
 
-
-  */
+    */
   public int climbStairs(int n) {
     // Initialize the memo array dynamically based on n
     int[] memo = Utility.linearArrayMemo(n);

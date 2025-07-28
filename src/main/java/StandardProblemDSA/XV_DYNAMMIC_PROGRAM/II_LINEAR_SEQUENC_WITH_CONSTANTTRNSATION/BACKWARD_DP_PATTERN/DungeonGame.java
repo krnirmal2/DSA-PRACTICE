@@ -3,6 +3,28 @@ package StandardProblemDSA.XV_DYNAMMIC_PROGRAM.II_LINEAR_SEQUENC_WITH_CONSTANTTR
 import StandardProblemDSA.Utility;
 
 public class DungeonGame {
+  /*
+  Problem:
+  174. Dungeon Game — Given a grid dungeon[i][j] with positive (healing) and negative (damage) values,
+  find the minimum initial health required so that the knight reaches the bottom-right cell alive.
+
+  Pattern:
+  - Dynamic Programming (DP) – bottom-up or top-down with memoization.
+  - Key idea: Minimum health at each cell = max(1, min(health needed from right, down) - dungeon[i][j]).
+
+  LeetCode Similar:
+  - LC 64 (Minimum Path Sum)
+  - LC 120 (Triangle)
+  - LC 2218 (Maximum Value of K Coins from Piles)
+
+  Follow-ups:
+  - Can we do O(n) space using rolling arrays?
+  - What if diagonal moves are allowed?
+
+  Time Complexity:
+  - O(m × n) time, O(m × n) space.
+  */
+
   public int calculateMinimumHP(int[][] dungeon) {
     int m = Utility.getRowLength(dungeon);
     int n = Utility.getColumnLength(dungeon);

@@ -3,6 +3,38 @@ package StandardProblemDSA.XV_DYNAMMIC_PROGRAM.III_TWO_D_GRID_PATTERN;
 import StandardProblemDSA.Utility;
 
 public class MinimumPathSum {
+  /*
+  64. Minimum Path Sum
+  --------------------
+  Problem Statement:
+  Given an m × n grid filled with non-negative numbers, find a path from the top-left to the
+  bottom-right which minimizes the sum of all numbers along its path.
+  You can only move either down or right at any point in time.
+
+  Pattern:
+  - Grid-based dynamic programming.
+  - State: dp[x][y] = grid[x][y] + min(dp[x+1][y], dp[x][y+1]).
+  - Base case: bottom-right cell → return grid[x][y].
+
+  Approach:
+  1. Use recursion to explore both possible moves (down and right).
+  2. Choose the minimum sum path at each cell.
+  3. Optionally, apply memoization to store intermediate results and avoid recomputation.
+
+  Time Complexity:
+  - Without memoization: O(2^(m+n)) (explores all paths).
+  - With memoization: O(m × n).
+
+  Space Complexity:
+  - O(m × n) for memo table (or O(1) if done bottom-up iteratively).
+
+  Similar / Follow-up Problems:
+  - LC 120: Triangle (min path sum in triangle)
+  - LC 931: Minimum Falling Path Sum (moves can also go diagonally)
+  - LC 62: Unique Paths (count paths instead of minimizing sum)
+  - LC 63: Unique Paths II (with obstacles)
+  */
+
   public int minimupathSum(int[][] grid, int intialX, int initialY, int rowSize, int colSize) {
     // base case
     if (grid.length == 0) {

@@ -26,6 +26,17 @@ class MinCostClimbingStaris {
    * bottom-up DP. - Use two variables (prev1, prev2) to keep track of the minimum cost up to the
    * previous two steps. - Formula: cost[i] + min(prev1, prev2) - Time Complexity: O(n) - Space
    * Complexity: O(1) (since we use only two variables)
+   *
+   * <p>Pattern: - Dynamic Programming (DP) – bottom-up, optimized to O(1) space. - Similar to
+   * Fibonacci: minCost[i] = cost[i] + min(minCost[i-1], minCost[i-2]).
+   *
+   * <p>LeetCode Similar: - LC 70 (Climbing Stairs) - LC 509 (Fibonacci Number) - LC 198 (House
+   * Robber)
+   *
+   * <p>Follow-ups: - What if we have variable jump lengths? - Can we modify to return the actual
+   * path of steps taken?
+   *
+   * <p>Time Complexity: - O(n) time, O(1) space.
    */
   public int minCostClimbingStairs(int[] cost) {
     int n = cost.length;

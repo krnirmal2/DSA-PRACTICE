@@ -6,30 +6,49 @@ import java.util.List;
 
 public class MinimumTriagularGridI {
   /*Given a triangle array, return the minimum path sum from top to bottom.
-  For each step, you may move to an adjacent number of the row below. More formally, if you are on index i on the current row, you may move to either index i or index i + 1 on the next row.
-  Example 1:
+    For each step, you may move to an adjacent number of the row below. More formally, if you are on index i on the current row, you may move to either index i or index i + 1 on the next row.
+    Example 1:
 
-  Input: triangle = [[2],[3,4],[6,5,7],[4,1,8,3]]
-  Output: 11
-  Explanation: The triangle looks like:
-     2
-    3 4
-   6 5 7
-  4 1 8 3
-  The minimum path sum from top to bottom is 2 + 3 + 5 + 1 = 11 (underlined above).
-  Example 2:
+    Input: triangle = [[2],[3,4],[6,5,7],[4,1,8,3]]
+    Output: 11
+    Explanation: The triangle looks like:
+       2
+      3 4
+     6 5 7
+    4 1 8 3
+    The minimum path sum from top to bottom is 2 + 3 + 5 + 1 = 11 (underlined above).
+    Example 2:
 
-  Input: triangle = [[-10]]
-  Output: -10
-  Constraints:
+    Input: triangle = [[-10]]
+    Output: -10
+    Constraints:
 
-  1 <= triangle.length <= 200
-  triangle[0].length == 1
-  triangle[i].length == triangle[i - 1].length + 1
-  -104 <= triangle[i][j] <= 104
+    1 <= triangle.length <= 200
+    triangle[0].length == 1
+    triangle[i].length == triangle[i - 1].length + 1
+    -104 <= triangle[i][j] <= 104
 
 
-  Follow up: Could you do this using only O(n) extra space, where n is the total number of rows in the triangle?*/
+  Pattern:
+  - Triangle-based DP (variation of grid DP).
+  - State: dp[row][col] = triangle[row][col] + min(dp[row+1][col], dp[row+1][col+1]).
+  - Base case: last row → value = triangle[row][col].
+
+  Approach:
+  1. Recursively explore both possible moves (down and diagonal).
+  2. Use memoization to store already computed results.
+  3. Time complexity: O(n²), Space complexity: O(n²) for memo.
+  4. Optimization: Bottom-up DP reduces space to O(n).
+
+  Similar / Follow-up Problems:
+  - LC 64: Minimum Path Sum (grid, moves only right/down)
+  - LC 931: Minimum Falling Path Sum (matrix, moves down/diagonal)
+  - LC 62/63: Unique Paths (count paths instead of minimizing sum)
+  - LC 2218: Maximum Value of K Coins (similar DP structure)
+
+    Follow up: Could you do this using only O(n) extra space, where n is the total number of rows in the triangle?
+
+    */
   public static int minimumTotal(List<List<Integer>> triangle) {
     /*At position (row, col), you have 2 options:
     Go straight down to (row+1, col)

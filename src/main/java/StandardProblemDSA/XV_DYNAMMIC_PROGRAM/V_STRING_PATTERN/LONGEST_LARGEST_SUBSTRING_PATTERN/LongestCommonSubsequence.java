@@ -19,6 +19,26 @@ Example 3:
 Input: text1 = "abc", text2 = "def"
 Output: 0
 Explanation: There is no such common subsequence, so the result is 0.
+
+
+Approach:
+- State: `dp[i][j]` = length of LCS between `text1[0..i]` and `text2[0..j]`.
+- Recurrence:
+    - if `s1[i] == s2[j]` → `1 + dp[i-1][j-1]`
+    - else → `max(dp[i-1][j], dp[i][j-1])`
+- Base case: If either string is empty, LCS = 0.
+- Time: O(m × n), Space: O(m × n).
+
+Edge Cases:
+- No common subsequence → return 0.
+- Identical strings → LCS length = string length.
+- One of the strings empty → return 0.
+
+Similar Problems:
+- Longest Common Substring
+- Shortest Common Supersequence
+- Edit Distance (Levenshtein Distance)
+- Minimum Deletions/Insertions to make two strings identical
 */
 public class LongestCommonSubsequence {
   public static int longestCommonSubsequence(String text1, String text2) {

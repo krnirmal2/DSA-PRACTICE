@@ -2,22 +2,65 @@ package StandardProblemDSA.XV_DYNAMMIC_PROGRAM.XII_LIS_PATTERN;
 
 import java.util.Arrays;
 
-/*300. Longest Increasing Subsequence
-Given an integer array nums, return the length of the longest strictly increasing subsequence.
-Example 1:
-Input: nums = [10,9,2,5,3,7,101,18]
-Output: 4
-Explanation: The longest increasing subsequence is [2,3,7,101], therefore the length is 4.
-Example 2:
-Input: nums = [0,1,0,3,2,3]
-Output: 4
-Example 3:
-Input: nums = [7,7,7,7,7,7,7]
-Output: 1
+/*
+    300. Longest Increasing Subsequence (LIS)
 
-Constraints:
-	• 1 <= nums.length <= 2500
--104 <= nums[i] <= 104*/
+    Problem:
+    --------
+    Given an integer array nums, return the length of the longest strictly increasing subsequence (LIS).
+
+    Examples:
+    ---------
+    Input: nums = [10,9,2,5,3,7,101,18]
+    Output: 4
+    Explanation: LIS = [2,3,7,101]
+
+    Input: nums = [0,1,0,3,2,3]
+    Output: 4
+
+    Input: nums = [7,7,7,7,7,7,7]
+    Output: 1
+
+    Why Important?
+    --------------
+    • Fundamental DP problem – builds foundation for subsequence-based problems.
+    • Appears in interviews for FAANG regularly.
+    • Variations: printing LIS, number of LIS, LDS, Bitonic subsequence, etc.
+
+    Pattern:
+    --------
+    • DP recursion with two states: index and prevIndex.
+        helper(index, prev):
+            → Either skip current element.
+            → Or take current element if nums[index] > nums[prev].
+        Transition:
+            dp[index][prev+1] = max(take, skip).
+
+    • Top-down with memoization: O(n²)
+    • Bottom-up tabulation: O(n²)
+    • Optimized with Binary Search: O(n log n)
+
+    Follow-ups:
+    -----------
+    1. Print LIS elements, not just length.
+    2. Count all LIS of maximum length.
+    3. Can we optimize to O(n log n) with patience sorting?
+    4. Solve for Longest Decreasing Subsequence (LDS) or Bitonic Subsequence.
+
+    Complexities:
+    -------------
+    Recursive + Memoization:
+        Time: O(n × n) = O(n²)
+        Space: O(n²) for memo + O(n) recursion stack.
+
+    Related Problems:
+    -----------------
+    • LeetCode 300 – Longest Increasing Subsequence
+    • LeetCode 673 – Number of Longest Increasing Subsequence
+    • LeetCode 354 – Russian Doll Envelopes
+    • LeetCode 368 – Largest Divisible Subset
+*/
+
 public class LongestIncreasingSubsequence {
   public int Lis(int[] nums) {
     if (nums.length == 0) return 0;

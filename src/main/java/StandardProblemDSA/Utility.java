@@ -59,7 +59,7 @@ public class Utility {
     // index of the peak element whose left and right have less element
     int low = 0;
     int high = bitonicArr.length - 1;
-    while (low < high) {
+    while (low < high) { // {1, 3, 8, 12, 14, 11, 5, 2};
       int mid = low + (high - low) / 2;
       // here we don't compare with any target but
       // check the mid and mid+1 element
@@ -79,7 +79,7 @@ public class Utility {
     // return the Index of the target element
     // use binary search on the left part of the peak element
     int mid;
-    while (low < high) {
+    while (low < high) { // {1, 3, 8, 12, 14, 11, 5, 2};
       mid = low + (high - low) / 2;
       if (bitonicArr[mid] == target) return mid; // if found return mid index
       if (bitonicArr[mid] > target) { // means left part of the array
@@ -326,8 +326,11 @@ public class Utility {
   public static void cyclicSort(int[] nums) {
     int i = 0;
     while (i < nums.length) {
-      int correctIndex = nums[i] - 1; // Correct index for nums[i]
-      if (nums[i] != nums[correctIndex]) {
+      int correctIndex =
+              nums[i]
+                      - 1; // Correct index for nums[i] // this is for 1 based indexing , change other based
+      // indexing like 0 to n
+      if (nums[i] < nums.length && nums[i] != nums[correctIndex]) {
         // Swap nums[i] with the number at its correct position
         Utility.swap(nums, i, correctIndex);
       } else {

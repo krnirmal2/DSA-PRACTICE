@@ -3,7 +3,55 @@ package StandardProblemDSA.XV_DYNAMMIC_PROGRAM.VI_MATRIX_CHAIN_MULTIPLICATION_DP
 import java.util.Arrays;
 
 public class MatrixChainMultiplication {
+  /*
+  Matrix Chain Multiplication (MCM)
 
+  Given an array `dimensions[]` of length n, where the i-th matrix has dimensions
+  dimensions[i-1] x dimensions[i], find the minimum number of scalar multiplications
+  needed to multiply the sequence of matrices.
+
+  ---
+  Example 1:
+  Input: dimensions = [40, 20, 30, 10, 30]
+  Output: 26000
+  Explanation:
+    - Order: ((M1 x M2) x M3) x M4
+    - Minimum cost = 40×20×30 + 40×30×10 + 40×10×30 = 26000
+
+  Example 2:
+  Input: dimensions = [10, 20, 30]
+  Output: 6000
+  Explanation:
+    - Only one way: (M1 x M2)
+    - Cost = 10 × 20 × 30 = 6000
+
+  ---
+  ❓ Why:
+  - Parenthesization affects multiplication cost because matrix multiplication is associative.
+  - We need to find the order that minimizes total scalar multiplications.
+
+  ---
+  💡 Pattern:
+  - **Matrix Chain Multiplication (MCM)** / **Interval DP**.
+  - We try every partition `k` between `i` and `j`:
+      cost(i, j) = min over k [ cost(i, k) + cost(k, j) + dimensions[i] × dimensions[k] × dimensions[j] ]
+  - Memoization table `dp[i][j]` stores the minimum cost for multiplying matrices from i to j.
+
+  ---
+  ⏱ Time Complexity: O(n³)
+  📦 Space Complexity: O(n²)
+
+  ---
+  🔄 Follow-up:
+  - Print the optimal parenthesization.
+  - Convert recursion + memoization to bottom-up DP.
+  - Use Knuth’s optimization for reducing time in some cases.
+
+  ---
+  🔗 LeetCode / Related:
+  - GFG: Matrix Chain Multiplication
+  - Related: 312. Burst Balloons, Boolean Parenthesization, Optimal BST
+  */
   // Recursive function with memoization to compute the minimum number of scalar multiplications
   // needed to multiply matrices from index 'start' to 'end' in the chain.
   private static int computeMinMultiplications(

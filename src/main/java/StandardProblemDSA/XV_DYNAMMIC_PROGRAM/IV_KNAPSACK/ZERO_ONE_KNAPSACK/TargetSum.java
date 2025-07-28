@@ -32,7 +32,36 @@ Constraints:
         1 <= nums.length <= 20
         0 <= nums[i] <= 1000
         0 <= sum(nums[i]) <= 1000
-        -1000 <= target <= 1000*/
+        -1000 <= target <= 1000
+
+  Key Idea:
+- For each number, we have **two choices**: add or subtract.
+- We need to count all valid ways where sum of expressions = target.
+- Essentially, this is a variation of the **subset sum problem**.
+
+Approaches:
+1. **Recursion with memoization:**
+    - State: (index, target) → number of ways to reach target using elements from `index` onwards.
+    - Choices: `+nums[index]` or `-nums[index]`.
+    - Time: O(n * totalSum), Space: O(n * totalSum).
+
+2. **Transform to Subset Sum Count:**
+    - Let `P` = sum of numbers assigned '+', `N` = sum of numbers assigned '-'.
+    - We need `P - N = target` and `P + N = totalSum`.
+    - Solving: `P = (target + totalSum) / 2`.
+    - Now count subsets of `nums` that sum to `P`.
+    - Time: O(n * P), Space: O(P).
+
+Edge Cases:
+- If `target` is greater than `totalSum` or `(target + totalSum)` is odd → return 0.
+- If nums contains zeros, adding/subtracting zero leads to duplicate ways (handle carefully).
+
+Similar Problems:
+- Subset Sum Count
+- Partition Equal Subset Sum (LC 416)
+- Minimum Subset Sum Difference
+- Expression Add Operators (LC 282)
+*/
 public class TargetSum {
 
   public int findTargetSumWays(int[] nums, int target) {

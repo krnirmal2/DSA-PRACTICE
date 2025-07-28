@@ -1,6 +1,54 @@
 package StandardProblemDSA.XV_DYNAMMIC_PROGRAM.V_STRING_PATTERN.LONGEST_LARGEST_SUBSTRING_PATTERN;
 
 public class LongestPalindromicSubsequence {
+  /*
+  516. Longest Palindromic Subsequence
+
+  Why?
+  - Frequently asked in interviews.
+  - Tests your understanding of subsequences vs substrings.
+  - Forms the basis for problems like "Minimum Insertions to Make String Palindrome" and "Palindrome Partitioning".
+
+  Pattern:
+  - Dynamic Programming (DP) on substrings.
+  - Compare characters at both ends (`i`, `j`):
+      - If match → take both ends + solve inside (i+1, j-1).
+      - If not → try removing one end (i+1, j) or (i, j-1), take max.
+  - State: `dp[i][j]` = length of LPS in substring `s[i..j]`.
+
+  Approach:
+  - Recursive relation:
+      - `lps(i, j) = 2 + lps(i+1, j-1)` if `s[i] == s[j]`
+      - Else → `max(lps(i+1, j), lps(i, j-1))`
+  - Base cases:
+      - `i == j` → 1 (single char)
+      - `i > j` → 0 (invalid range)
+
+  Time Complexity:
+  - Plain recursion: **O(2^n)** (explores all subsequences).
+  - DP memoization/tabulation: **O(n²)**.
+  - Space Complexity: **O(n²)** (can be optimized to O(n)).
+
+  Edge Cases:
+  - Empty string → 0.
+  - String with all identical characters → length of the string.
+  - Single character string → 1.
+
+  Follow-up:
+  - Can you retrieve the actual subsequence, not just its length?
+  - Can you optimize space to O(n)?
+  - How would you modify it to find the Longest Palindromic Substring (continuous)?
+
+  LeetCode:
+  - [LeetCode 516](https://leetcode.com/problems/longest-palindromic-subsequence/)
+  - Related: 1312 (Minimum Insertion Steps to Make a String Palindrome), 5 (Longest Palindromic Substring), 1143 (LCS).
+
+  Related Patterns:
+  - LCS-based problems (LPS = LCS(s, reverse(s)))
+  - Palindrome DP
+  - Interval DP
+  */
+
   public int longestPalindromeSubseq(String s) {
     return lps(s, 0, s.length() - 1);
   }

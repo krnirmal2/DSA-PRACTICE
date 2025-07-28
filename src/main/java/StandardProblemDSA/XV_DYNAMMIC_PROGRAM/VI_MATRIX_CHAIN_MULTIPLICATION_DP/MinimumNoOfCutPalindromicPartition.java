@@ -1,6 +1,64 @@
 package StandardProblemDSA.XV_DYNAMMIC_PROGRAM.VI_MATRIX_CHAIN_MULTIPLICATION_DP;
 
 public class MinimumNoOfCutPalindromicPartition {
+  /*
+      132. Palindrome Partitioning II – Minimum Number of Cuts for Palindromic Partitioning
+
+      Problem:
+      --------
+      Given a string s, partition s such that every substring of the partition is a palindrome.
+      Return the minimum number of cuts needed to make such a partition.
+
+      Examples:
+      ---------
+      Input:  s = "aab"
+      Output: 1
+      Explanation: ["aa","b"] → 1 cut
+
+      Input:  s = "a"
+      Output: 0
+
+      Input:  s = "ab"
+      Output: 1
+
+      Why Important?
+      --------------
+      • Classic Dynamic Programming problem similar to Matrix Chain Multiplication.
+      • Tests understanding of optimal substructure and overlapping subproblems.
+      • Builds intuition for string partitioning, palindrome checking, and subproblem reuse.
+
+      Pattern:
+      --------
+      • Type: Partition DP (Matrix Chain Multiplication pattern)
+      • State: Minimum cuts for substring s[i..j].
+      • Choice: Try every possible partition index k between i and j.
+      • Recurrence:
+          if s[i..j] is palindrome → 0
+          else → min(1 + cuts(i, k) + cuts(k+1, j)) for all i ≤ k < j
+
+      Follow-ups:
+      -----------
+      1. Can we precompute palindromes to optimize repeated checks?
+      2. How to convert recursion to DP (memoization/tabulation)?
+      3. Can we reduce O(n²) palindrome checks using Manacher’s algorithm?
+      4. Is there an O(n²) DP solution (instead of O(n·2ⁿ))?
+
+      Complexities:
+      -------------
+      Recursive:
+          Time:  O(n * 2^n) – try all cuts, each checking palindrome O(n)
+          Space: O(n) – recursion stack
+      Optimized DP:
+          Time:  O(n²) with palindrome precomputation
+          Space: O(n²) (memo + palindrome table)
+
+      Related Problems:
+      -----------------
+      • LeetCode 132 – Palindrome Partitioning II
+      • LeetCode 131 – Palindrome Partitioning (generate all partitions)
+      • Matrix Chain Multiplication pattern
+  */
+
   /*In this approach, we recursively evaluate the following conditions:
   Base Case: If the current string is a palindrome, then we simply return 0, no Partitioning is required.
   Else, like the Matrix Chain Multiplication problem,

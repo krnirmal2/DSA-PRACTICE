@@ -1,6 +1,66 @@
 package StandardProblemDSA.XV_DYNAMMIC_PROGRAM.V_STRING_PATTERN;
 
 public class WildCardPattern {
+  /*
+  44. Wildcard Matching
+
+  Given an input string (s) and a pattern (p), implement wildcard pattern matching
+  with support for '?' and '*' where:
+
+      - '?' Matches any single character.
+      - '*' Matches any sequence of characters (including the empty sequence).
+
+  The matching should cover the entire input string (not partial).
+
+  Example 1:
+  Input: s = "aa", p = "a"
+  Output: false
+  Explanation: "a" does not match the entire string "aa".
+
+  Example 2:
+  Input: s = "aa", p = "*"
+  Output: true
+  Explanation: '*' matches any sequence.
+
+  Example 3:
+  Input: s = "cb", p = "?a"
+  Output: false
+  Explanation: '?' matches 'c', but 'a' != 'b'.
+
+  Constraints:
+      • 1 <= s.length, p.length <= 2000
+      • s and p consist of only lowercase English letters and characters '?' and '*'.
+
+  ---
+  ❓ Why:
+  We must check if the entire string matches a pattern where '*' can match
+  any number of characters and '?' matches exactly one. Direct recursion
+  would lead to exponential complexity due to multiple '*' expansions,
+  hence DP.
+
+  ---
+  💡 Pattern:
+  - DP[i][j] = does s[0..i-1] match p[0..j-1]?
+  - If p[j-1] == s[i-1] or p[j-1] == '?': DP[i][j] = DP[i-1][j-1]
+  - If p[j-1] == '*': DP[i][j] = DP[i][j-1] (empty match) || DP[i-1][j] (match one or more)
+  - Base: DP[0][0] = true, and handle leading '*' in pattern.
+
+  ---
+  ⏱ Time Complexity: O(m × n)
+  📦 Space Complexity: O(m × n) → can be optimized to O(n)
+
+  ---
+  🔄 Follow-up:
+  - Optimize to O(n) space using rolling arrays.
+  - Implement greedy two-pointer solution (faster but trickier).
+  - Modify to support regex-like patterns (e.g., character sets).
+
+  ---
+  🔗 LeetCode:
+  - 44. Wildcard Matching (Hard)
+  - Related: 10. Regular Expression Matching, 72. Edit Distance, 115. Distinct Subsequences
+  */
+
   /*🔹 Approach
      We will use a 2D DP table dp[i][j], where:
              • dp[i][j] = true → First i characters of text match first j characters of pattern.

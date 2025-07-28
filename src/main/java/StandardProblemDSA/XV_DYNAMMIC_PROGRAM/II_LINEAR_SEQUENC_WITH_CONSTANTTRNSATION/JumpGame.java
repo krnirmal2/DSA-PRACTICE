@@ -20,7 +20,27 @@ Constraints:
 	• 1 <= nums.length <= 104
 	• 0 <= nums[i] <= 105
 
-From <https://leetcode.com/problems/jump-game/description/> */
+From <https://leetcode.com/problems/jump-game/description/>
+
+ Pattern:
+- Greedy approach: track the furthest index reachable while iterating.
+- If at any point the current index > maxReach, we can’t proceed → return false.
+
+Approach:
+1. Initialize maxReach = 0.
+2. Iterate through nums:
+    - If i > maxReach, return false.
+    - Update maxReach = max(maxReach, i + nums[i]).
+    - If maxReach >= last index, return true.
+3. If loop completes, return true.
+
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+Similar/Follow-up LeetCode Problems:
+- LC 45: Jump Game II (minimum jumps)
+- LC 1306: Jump Game III (BFS from starting index)
+- LC 1345: Jump Game IV (minimum jumps with value-based jumps)*/
 public class JumpGame {
 
   public int jump(int[] nums) {

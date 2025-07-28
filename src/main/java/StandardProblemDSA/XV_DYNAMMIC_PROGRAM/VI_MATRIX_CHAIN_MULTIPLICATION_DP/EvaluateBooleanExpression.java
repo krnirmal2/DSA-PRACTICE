@@ -1,6 +1,53 @@
 package StandardProblemDSA.XV_DYNAMMIC_PROGRAM.VI_MATRIX_CHAIN_MULTIPLICATION_DP;
 
 public class EvaluateBooleanExpression {
+  /*
+  Boolean Parenthesization Problem
+  Given a boolean expression `s` of length `n` (with symbols 'T', 'F' and operators '&', '|', '^'),
+  find the number of ways to parenthesize the expression such that it evaluates to True.
+
+  ---
+  Example 1:
+  Input: s = "T|F&T"
+  Output: 2
+  Explanation:
+    1. (T | (F & T)) = T | F = T
+    2. ((T | F) & T) = T & T = T
+
+  Example 2:
+  Input: s = "T^T^F"
+  Output: 0
+
+  ---
+  ❓ Why:
+  - Each way of adding parentheses changes the order of evaluation and thus the result.
+  - We need to count all such valid parenthesizations that evaluate to `True`.
+
+  ---
+  💡 Pattern:
+  - This is a **Matrix Chain Multiplication / Interval DP** problem.
+  - We break the expression at every operator and evaluate left and right subexpressions for both `True` and `False`.
+  - Recurrence:
+      ways(i, j, true) =
+          Σ over k [ ways(i, k-1, LT) * ways(k+1, j, RT) ] for all operator outcomes that evaluate to `True`.
+
+  - Memoization table: `dp[i][j][2]` to store ways for `True` and `False` for substring `s[i..j]`.
+
+  ---
+  ⏱ Time Complexity: O(n³)
+  📦 Space Complexity: O(n²) for DP table (or O(n³) if storing for True/False separately).
+
+  ---
+  🔄 Follow-up:
+  - Convert recursion to bottom-up tabulation.
+  - Optimize by precomputing operator results.
+  - Can also be solved with a 3D DP array: `dp[i][j][boolean]`.
+
+  ---
+  🔗 LeetCode / Related:
+  - GFG: Boolean Parenthesization Problem
+  - Related: 312. Burst Balloons, Matrix Chain Multiplication, 241. Different Ways to Add Parentheses
+  */
   static boolean evaluate(boolean b1, boolean b2, char op) {
     if (op == '&') {
       return b1 & b2;

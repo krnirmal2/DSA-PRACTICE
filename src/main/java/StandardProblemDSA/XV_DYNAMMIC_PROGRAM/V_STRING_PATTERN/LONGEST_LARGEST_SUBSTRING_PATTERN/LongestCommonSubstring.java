@@ -1,6 +1,51 @@
 package StandardProblemDSA.XV_DYNAMMIC_PROGRAM.V_STRING_PATTERN.LONGEST_LARGEST_SUBSTRING_PATTERN;
 
 public class LongestCommonSubstring {
+  /*/*
+  115. Longest Common Substring
+
+  Why?
+  - Frequently asked DP question.
+  - Builds intuition for string matching problems and is a stepping stone for advanced DP like Edit Distance, Sequence Alignment, and Substring Search.
+  - Tests your ability to handle "continuous matching" vs. subsequences.
+
+  Pattern:
+  - Dynamic Programming (DP) – variation of Longest Common Subsequence.
+  - State defined by indices (i, j) and current continuous length (count).
+  - When chars match → extend count; when they break → reset to 0.
+  - Top-down recursion with `count` OR bottom-up DP with a 2D table.
+
+  Approach:
+  - State: `lcs(i, j, count)` = length of the longest common substring ending at `s1[i-1]` and `s2[j-1]`.
+  - Recurrence:
+      - If `s1[i-1] == s2[j-1]` → `1 + lcs(i-1, j-1, count+1)`
+      - Else → `max(lcs(i-1, j, 0), lcs(i, j-1, 0))`
+  - Base case: `i == 0 || j == 0` → return `count`.
+
+  Time Complexity:
+  - Plain recursion: **O(3^(m+n))** (very slow, as we explore three choices each time).
+  - DP with memoization/tabulation: **O(m × n)**.
+  - Space Complexity: **O(m × n)** (can be optimized to O(min(m, n))).
+
+  Edge Cases:
+  - No common substring → return 0.
+  - Entire strings are the same → return `min(len(s1), len(s2))`.
+  - Empty string(s) → return 0.
+
+  Follow-up:
+  - Can you optimize to O(1) space using only two rows?
+  - Can you also retrieve the substring itself, not just its length?
+  - What changes if we allow up to `k` mismatches?
+
+  LeetCode:
+  - [LeetCode Discuss Reference](https://leetcode.com/problems/maximum-length-of-repeated-subarray/) (Similar problem: **718. Maximum Length of Repeated Subarray**)
+  - Variants: 1143 (LCS), 583 (Delete Operations for Two Strings), 1035 (Uncrossed Lines).
+
+  Related Patterns:
+  - Longest Common Subsequence (LCS)
+  - Edit Distance family
+  - String DP problems involving matching/alignments
+  */
   /*  ⚠️ Important Note:
   In Longest Common Substring, we need to:
   Track only contiguous matches.
