@@ -1,6 +1,5 @@
 package StandardProblemDSA.XI_GREEDYALGO;
 
-import StandardProblemDSA.XI_GREEDYALGO.XI_MERGE_INTERVAL_PATTERN.MergeInterval;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -13,11 +12,11 @@ public class GreedyAlgoUtil {
    *
    * @param intervals Array of intervals to sort
    */
-  public static void sortByStartTimeArray(MergeInterval[] intervals) {
+  public static void sortByStartTimeArray(StartEndPair[] intervals) {
     Arrays.sort(intervals, (a, b) -> a.start - b.start);
   }
 
-  public static void sortByStartTimeList(List<MergeInterval> intervals) {
+  public static void sortByStartTimeList(List<StartEndPair> intervals) {
     intervals.sort((a, b) -> a.start - b.start);
   }
 
@@ -26,7 +25,7 @@ public class GreedyAlgoUtil {
    *
    * @param intervals Array of intervals to sort
    */
-  public static void sortByEndTime(MergeInterval[] intervals) {
+  public static void sortByEndTime(StartEndPair[] intervals) {
     Arrays.sort(intervals, (a, b) -> a.end - b.end);
   }
 
@@ -37,7 +36,7 @@ public class GreedyAlgoUtil {
    * @param interval2 Second interval
    * @return true if intervals overlap, false otherwise
    */
-  public static boolean isOverlapping(MergeInterval interval1, MergeInterval interval2) {
+  public static boolean isOverlapping(StartEndPair interval1, StartEndPair interval2) {
     return interval1.start <= interval2.end && interval2.start <= interval1.end;
   }
 
@@ -46,7 +45,7 @@ public class GreedyAlgoUtil {
    *
    * @return Priority queue sorted by end time
    */
-  public static PriorityQueue<MergeInterval> createEndTimeMinHeap() {
+  public static PriorityQueue<StartEndPair> createEndTimeMinHeap() {
     return new PriorityQueue<>((a, b) -> a.end - b.end);
   }
 
@@ -55,7 +54,7 @@ public class GreedyAlgoUtil {
    *
    * @return Priority queue sorted by start time
    */
-  public static PriorityQueue<MergeInterval> createStartTimeMinHeap() {
+  public static PriorityQueue<StartEndPair> createStartTimeMinHeap() {
     return new PriorityQueue<>((a, b) -> a.start - b.start);
   }
 
@@ -66,9 +65,9 @@ public class GreedyAlgoUtil {
    * @param interval2 Second interval
    * @return Merged interval if they overlap, null otherwise
    */
-  public static MergeInterval mergeIfOverlapping(MergeInterval interval1, MergeInterval interval2) {
+  public static StartEndPair mergeIfOverlapping(StartEndPair interval1, StartEndPair interval2) {
     if (isOverlapping(interval1, interval2)) {
-      return new MergeInterval(
+      return new StartEndPair(
           Math.min(interval1.start, interval2.start), Math.max(interval1.end, interval2.end));
     }
     return null;
@@ -80,48 +79,57 @@ public class GreedyAlgoUtil {
    * @param intervals Array of intervals
    * @return Maximum number of overlapping intervals
    */
-  public static int findMaxOverlappingIntervals(MergeInterval[] intervals) {
-    PriorityQueue<Integer> endTimes = new PriorityQueue<>();
+  public static int findMaxOverlappingIntervals(StartEndPair[] intervals) {
+    PriorityQueue<Integer> pq = new PriorityQueue<>();
     sortByStartTimeArray(intervals);
 
     int maxRooms = 0;
-    endTimes.add(intervals[0].end);
+    pq.add(intervals[0].end);
 
     for (int i = 1; i < intervals.length; i++) {
-      while (!endTimes.isEmpty() && intervals[i].start >= endTimes.peek()) {
-        endTimes.poll();
+      while (!pq.isEmpty() && intervals[i].start >= pq.peek()) {
+        pq.poll();
       }
-      endTimes.add(intervals[i].end);
-      maxRooms = Math.max(maxRooms, endTimes.size());
+      pq.add(intervals[i].end);
+      maxRooms = Math.max(maxRooms, pq.size());
     }
     return maxRooms;
   }
 
-  public static List<MergeInterval> getMergeIntervals(List<MergeInterval> allIntervals) {
-    List<MergeInterval> merged = new ArrayList<>();
-    MergeInterval current = allIntervals.get(0);
+  public static List<StartEndPair> getMergeIntervals(List<StartEndPair> allIntervals) {
+    // Step 1: create a List of Start and pair for store result , here merged interval
+    List<StartEndPair> mergedIntervalList = new ArrayList<>();
+    // step 2 : first pair will be the at zeroth index
+    StartEndPair previousInterval = allIntervals.get(0);
+    // Step 3 : iterate over each interval from 2nd interval
     for (int i = 1; i < allIntervals.size(); i++) {
-      MergeInterval next = allIntervals.get(i);
-      if (current.end >= next.start) {
-        current.end = Math.max(current.end, next.end);
+      StartEndPair currentInterval = allIntervals.get(i);
+      // Step 4 : check if the current interval start is less then the previous interval end
+      // then we will set the previous end to the max of currrent and previous end for mergeing
+      if (previousInterval.end >= currentInterval.start) {
+        previousInterval.end = Math.max(previousInterval.end, currentInterval.end);
       } else {
-        merged.add(current);
-        current = next;
+        // Step 5 : else we will just pick the interval and update the prvious with the current
+        // interval
+        mergedIntervalList.add(previousInterval);
+        previousInterval = currentInterval;
       }
     }
-    merged.add(current);
-    return merged;
+    // if only one then return the by adding the current interval
+    mergedIntervalList.add(previousInterval);
+    return mergedIntervalList;
   }
 
-  public static List<MergeInterval> getFreeTimeAfterMerged(List<MergeInterval> merged) {
-    List<MergeInterval> freeTimes = new ArrayList<>();
-    for (int i = 1; i < merged.size(); i++) {
-      freeTimes.add(new MergeInterval(merged.get(i - 1).end, merged.get(i).start));
+  public static List<StartEndPair> getFreeTimeAfterMerged(List<StartEndPair> mergedInteralList) {
+    List<StartEndPair> freeTimes = new ArrayList<>();
+    for (int i = 1; i < mergedInteralList.size(); i++) {
+      freeTimes.add(
+              new StartEndPair(mergedInteralList.get(i - 1).end, mergedInteralList.get(i).start));
     }
     return freeTimes;
   }
 
-  public static boolean isFreeTimeAvailable(MergeInterval[] intervals) {
+  public static boolean isFreeTimeAvailable(StartEndPair[] intervals) {
     for (int i = 1; i < intervals.length; i++) {
       if (intervals[i].start < intervals[i - 1].end) {
         return false;

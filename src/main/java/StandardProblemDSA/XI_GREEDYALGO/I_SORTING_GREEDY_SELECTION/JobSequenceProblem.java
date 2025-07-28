@@ -1,10 +1,18 @@
 package StandardProblemDSA.XI_GREEDYALGO.I_SORTING_GREEDY_SELECTION;
 
 import StandardProblemDSA.XI_GREEDYALGO.TripletClass;
+
 import java.util.PriorityQueue;
 
+/*Tip : Pattern Recognition
+You have tasks/jobs/events with time constraints (start/end/deadline).
+You need to maximize something (profit, number of jobs, events) or minimize resources (machines, arrows).
+Greedy choice works:
+    Sort by deadline, end time, or profit.
+    Assign jobs to the latest available slot.
+    Use a priority queue or slot array to track free resources.*/
 public class JobSequenceProblem {
-  /*roblem Statement: You are given a set of N jobs where each job comes with a deadline and profit.
+  /* problem Statement: You are given a set of N jobs where each job comes with a deadline and profit.
    The profit can only be earned upon completing the job within its deadline.
    Find the number of jobs done and the maximum profit that can be obtained.
    Each job takes a single unit of time and only one job can be performed at a time.
@@ -21,15 +29,16 @@ public class JobSequenceProblem {
   Profit = 100 + 27 = 127*/
   public static int[] jobScheduling(TripletClass[] jobs) {
 
-    // Step 2: sort the element based on third parameter which profit
+    // Idea : sort the element based on third parameter which profit
     // because each task will take 1 unit time even if its dead line given more than 1 one
     // means we can use any slot with in that maximum deadline to finished that task
     // so we have to focus on the profit as much we can do
     // and once a job take we are not gone a remove this means likely to greedy
     // and we also sort it with profit value
+    // Step 1: Sort jobs by profit in descending order (highest profit first) by putting them in
+    // Priortiy queue
     PriorityQueue<TripletClass> pq =
         new PriorityQueue<>((a, b) -> Integer.compare(b.third, a.third));
-    // put them in
     for (int i = 0; i < jobs.length; i++) {
       pq.offer(new TripletClass(jobs[i].first, jobs[i].second, jobs[i].third));
     }
@@ -37,13 +46,15 @@ public class JobSequenceProblem {
     int count = 0;
     int profit = 0;
     int maxDeadline = 0;
+    // Step 2: Find maximum deadline to know how many slots we need
     for (TripletClass job : jobs) {
       maxDeadline = Math.max(maxDeadline, job.second);
     }
+    // Step 3: Create slot array (index 1..maxDeadline)
     // use for if free 1 unit of slots avaialble then we can put that job on that slots with max
     // profit
     boolean[] slots = new boolean[maxDeadline + 1]; // index 1 to maxDeadline
-
+    // Step 4: Pick jobs greedily
     while (!pq.isEmpty()) {
       TripletClass job = pq.poll(); // Get most profitable job
       // if a slot means the deadline is take by any job then no other job can take that slot that

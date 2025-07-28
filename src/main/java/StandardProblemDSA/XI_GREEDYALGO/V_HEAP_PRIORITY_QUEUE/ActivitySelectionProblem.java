@@ -2,9 +2,25 @@ package StandardProblemDSA.XI_GREEDYALGO.V_HEAP_PRIORITY_QUEUE;
 
 import StandardProblemDSA.XI_GREEDYALGO.GreedyAlgoUtil;
 import StandardProblemDSA.XI_GREEDYALGO.StartEndPair;
+
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 
+/*You are given two arrays:
+start[i] → start time of the i-th activity
+finish[i] → finish time of the i-th activity
+Your task is to select the maximum number of activities that don’t overlap,
+i.e., for each selected activity, its start time must be after or equal to the finish time of the previously selected one.
+You may assume:
+One person can only perform one activity at a time.
+You must select as many non-overlapping activities as possible.
+✨ Constraints
+1 ≤ start.length, finish.length ≤ 10⁵
+0 ≤ start[i] < finish[i] ≤ 10⁹
+
+🔍 Example
+start  = [1, 3, 0, 5, 8, 5]
+finish = [2, 4, 6, 7, 9, 9]*/
 public class ActivitySelectionProblem {
   // so it is a stand Greedy algo
   // independent subproblem give optimal solution of the whole problem
@@ -32,8 +48,8 @@ public class ActivitySelectionProblem {
 
     // now we have to select the first element which is always a pick
     ArrayList<StartEndPair> activities = new ArrayList<>();
-    StartEndPair activity = pq.poll();
-    activities.add(activity);
+    StartEndPair prviousActivity = pq.poll();
+    activities.add(prviousActivity);
 
     // now loop through the priority queue and check the
     // last finished time should smaller than the new start time
@@ -41,26 +57,10 @@ public class ActivitySelectionProblem {
     while (!pq.isEmpty()) {
 
       StartEndPair nextActivity = pq.poll();
-      if (activity.end <= nextActivity.start) {
+      if (prviousActivity.end <= nextActivity.start) {
         activities.add(nextActivity);
-        activity = nextActivity;
+        prviousActivity = nextActivity;
       }
     }
   }
-
-  /*You are given two arrays:
-  start[i] → start time of the i-th activity
-  finish[i] → finish time of the i-th activity
-  Your task is to select the maximum number of activities that don’t overlap,
-  i.e., for each selected activity, its start time must be after or equal to the finish time of the previously selected one.
-  You may assume:
-  One person can only perform one activity at a time.
-  You must select as many non-overlapping activities as possible.
-  ✨ Constraints
-  1 ≤ start.length, finish.length ≤ 10⁵
-  0 ≤ start[i] < finish[i] ≤ 10⁹
-
-  🔍 Example
-  start  = [1, 3, 0, 5, 8, 5]
-  finish = [2, 4, 6, 7, 9, 9]*/
 }

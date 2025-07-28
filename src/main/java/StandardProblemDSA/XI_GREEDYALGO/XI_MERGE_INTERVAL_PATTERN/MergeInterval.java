@@ -1,43 +1,44 @@
 package StandardProblemDSA.XI_GREEDYALGO.XI_MERGE_INTERVAL_PATTERN;
 
 import StandardProblemDSA.XI_GREEDYALGO.GreedyAlgoUtil;
+import StandardProblemDSA.XI_GREEDYALGO.StartEndPair;
+
 import java.util.Collections;
 import java.util.List;
 
 public class MergeInterval {
-  public int start;
-  public int end;
-
-  MergeInterval() {
-    start = 0;
-    end = 0;
-  }
-
-  public MergeInterval(int s, int e) {
-    start = s;
-    end = e;
-  }
 
   /* 1. Merge Overlapping Intervals (Core Concept)
-   Problem Statement
-   Given a list of intervals, merge all overlapping intervals and return a list of non-overlapping intervals covering all the intervals in the input.
+     Problem Statement
+     Given a list of intervals, merge all overlapping intervals and return a list of non-overlapping intervals covering all the intervals in the input.
 
-   Brute Force Approach
-   Idea:
-   Check every pair of intervals to see if they overlap and then merge them repeatedly until no overlaps remain.
-           Drawbacks:
-   Inefficient due to repeated comparisons and merging.
+     Brute Force Approach
+     Idea:
+     Check every pair of intervals to see if they overlap and then merge them repeatedly until no overlaps remain.
+             Drawbacks:
+     Inefficient due to repeated comparisons and merging.
 
-           Optimal Approach
-   Idea:
-   First, sort the intervals by their start times. Then, iterate through the list and merge intervals that overlap.
+             Optimal Approach
+     Idea:
+     First, sort the intervals by their start times. Then, iterate through the list and merge intervals that overlap.
+  Pattern:
+  - Classic "interval merging"
+  - Sort by start time → linear scan → merge if current.start <= last.end
 
-  */
-  public List<MergeInterval> mergeIntervals(List<MergeInterval> intervals) {
+  Follow-up:
+  - How to handle unsorted input? (Need O(n log n) sort)
+  - Can you do in-place merge to save space?
+
+  Time Complexity:
+  - Sorting: O(n log n)
+  - Merge scan: O(n)
+  - Space: O(n) for result (or O(1) extra if done in-place)
+    */
+  public List<StartEndPair> mergeIntervals(List<StartEndPair> intervals) {
     if (intervals.size() <= 1) {
       return intervals;
     }
-    // Step1:  Sort intervals by start time so that easily get compare
+    // Step 1:  Sort intervals by start time so that easily get compare
     Collections.sort(intervals, (a, b) -> a.start - b.start);
     // use extra space for return the merge Intervale
     /*   List<MergeInterval> merged = new ArrayList<>();
@@ -115,3 +116,42 @@ Have you covered the following corner cases :
 
 
         */
+/*import java.util.*;
+
+class Solution {
+    public int[][] merge(int[][] intervals) {
+        if (intervals.length == 0) return new int[0][0];
+
+        // Sort intervals by start time
+        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
+
+        List<int[]> list = new ArrayList<>();
+        int[] previous = intervals[0];
+
+        for (int i = 1; i < intervals.length; i++) {
+            int[] current = intervals[i];
+            if (previous[1] >= current[0]) { // Overlap found
+                previous[1] = Math.max(previous[1], current[1]); // Merge
+            } else {
+                list.add(previous);
+                previous = current;
+            }
+        }
+
+        list.add(previous); // Add the last merged interval
+
+        return list.toArray(new int[list.size()][]);
+    }
+
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        int[][] intervals = {{1,3},{2,6},{8,10},{15,18}};
+        int[][] result = s.merge(intervals);
+
+        System.out.println("Merged intervals:");
+        for (int[] interval : result) {
+            System.out.println(Arrays.toString(interval));
+        }
+    }
+}
+*/

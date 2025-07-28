@@ -1,35 +1,48 @@
 package StandardProblemDSA.XI_GREEDYALGO.XI_MERGE_INTERVAL_PATTERN;
 
+import StandardProblemDSA.XI_GREEDYALGO.StartEndPair;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class InsertInterval {
-  /*  Problem Statement
-      Given a sorted list of non-overlapping intervals and a new interval,
-      insert the new interval into the list and merge if necessary.
+  /*   Statement
+        Given a sorted list of non-overlapping intervals and a new interval,
+        insert the new interval into the list and merge if necessary.
 
-      Brute Force Approach
-      Idea:
-      Insert the new interval into the correct position, then run a full merge on the resulting list.
+        Brute Force Approach
+        Idea:
+        Insert the new interval into the correct position, then run a full merge on the resulting list.
 
-              Drawbacks:
-      May lead to unnecessary merging of non-overlapping intervals.
+                Drawbacks:
+        May lead to unnecessary merging of non-overlapping intervals.
 
-      Optimal Approach
-      Idea:
-      Traverse the intervals:
+        Optimal Approach
+        Idea:
+        Traverse the intervals:
 
-      Add all intervals that end before the new interval starts.
+        Add all intervals that end before the new interval starts.
 
-      Merge all overlapping intervals with the new interval.
+        Merge all overlapping intervals with the new interval.
 
-      Add the remaining intervals.
+        Add the remaining intervals.
 
-      Simplified Code (Java/Pseudo-code):
-  */
-  public List<MergeInterval> insertInterval(
-      List<MergeInterval> intervals, MergeInterval newInterval) {
-    List<MergeInterval> result = new ArrayList<>();
+        Simplified Code (Java/Pseudo-code):
+
+        Pattern:
+  - Interval merging
+  - Greedy scan + merge overlapping
+
+  Follow-up:
+  - How to handle unsorted intervals? (Need sort by start time first — O(n log n))
+  - Can it be done in-place to save space?
+
+  Time Complexity:
+  - O(n) time (single pass through intervals)
+  - O(n) space for output list
+    */
+  public List<StartEndPair> insertInterval(List<StartEndPair> intervals, StartEndPair newInterval) {
+    List<StartEndPair> result = new ArrayList<>();
     int i = 0, n = intervals.size();
 
     // Step1 :Add all intervals ending before newInterval starts.

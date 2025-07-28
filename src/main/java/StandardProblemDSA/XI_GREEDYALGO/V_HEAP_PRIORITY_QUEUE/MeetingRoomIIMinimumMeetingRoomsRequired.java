@@ -1,15 +1,16 @@
 package StandardProblemDSA.XI_GREEDYALGO.V_HEAP_PRIORITY_QUEUE;
 
 import StandardProblemDSA.XI_GREEDYALGO.GreedyAlgoUtil;
-import StandardProblemDSA.XI_GREEDYALGO.XI_MERGE_INTERVAL_PATTERN.MergeInterval;
+import StandardProblemDSA.XI_GREEDYALGO.StartEndPair;
 
 public class MeetingRoomIIMinimumMeetingRoomsRequired {
   /* Meeting Rooms II (Tracking Multiple Overlaps with Min-Heap)
       Problem Statement
       Given an array of meeting time intervals, determine the minimum number of meeting rooms
       required to hold all meetings simultaneously.
-
-      Brute Force Approach
+         Input: [[0,30], [5,10], [15,20]]
+          Output: 2
+              Brute Force Approach
       Idea:
       Check every possible overlap by comparing each interval with all others.
               Drawbacks:
@@ -18,14 +19,11 @@ public class MeetingRoomIIMinimumMeetingRoomsRequired {
       Optimal Approach
       Idea:
       Use two arrays (or a min-heap) for tracking start and end times:
-
       Sort start times and end times.
-
       Use two pointers (or a min-heap) to track how many meetings overlap.
-
       Simplified Code (Java/Pseudo-code using Min-Heap):
   */
-  public int minMeetingRooms(MergeInterval[] intervals) {
+  public int minMeetingRooms(StartEndPair[] intervals) {
     /*   // Sort intervals by start time.
     Arrays.sort(intervals, (a, b) -> a.start - b.start);
 
@@ -50,13 +48,11 @@ public class MeetingRoomIIMinimumMeetingRoomsRequired {
   }
   /* Complexity:
 
-  Time: O(n log n) (sorting and heap operations)
+   Time: O(n log n) (sorting and heap operations)
 
-  Space: O(n)
+   Space: O(n)
 
-  Example:
+   Example:
 
-  Input: [[0,30], [5,10], [15,20]]
-
-  Output: 2*/
+  */
 }

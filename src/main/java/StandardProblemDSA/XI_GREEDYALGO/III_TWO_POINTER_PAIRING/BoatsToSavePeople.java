@@ -2,6 +2,10 @@ package StandardProblemDSA.XI_GREEDYALGO.III_TWO_POINTER_PAIRING;
 
 import java.util.Arrays;
 
+// Note : as target sum/weight and two array  one is no of people and other infinite boats , with
+// two people
+// demand and supply , and minimum requirement and other no choice after picking the greedy , so
+// each time pick the best combinataion
 public class BoatsToSavePeople {
   /*You are given an array people where people[i] is the weight of the ith person,
    and an infinite number of boats where each boat can carry a maximum weight of limit.
@@ -46,13 +50,9 @@ public class BoatsToSavePeople {
     int right = people.length - 1;
     int boats = 0;
     /*Greedy Strategy:
-
           Always try to pair the lightest (left) and heaviest (right) person.
-
                   If they fit in one boat (sum <= limit) → move both pointers.
-
                   If not → the heavier person goes alone → move right only.
-
                   Each iteration = one boat
      Sorted: [1, 2, 2, 3]
     - Try 1 + 3 → too much → 3 alone

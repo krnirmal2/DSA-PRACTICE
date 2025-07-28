@@ -1,7 +1,30 @@
 package StandardProblemDSA.XI_GREEDYALGO;
 
 public class SimulationTemplate {
+  /* Problem:
+  Generic template for problems that simulate a process or state change over time.
+  We track a state variable and update it based on inputs using defined rules.
+  Pattern:
+            - Simulation + Two Pointers:
+            1. Maintain state variables.
+      2. Iterate through input streams or time steps.
+      3. Update state based on conditional logic.
+            4. Collect results if needed.
 
+    LeetCode Similar:
+            - LC 1797 (Design Authentication Manager)
+            - LC 1169 (Invalid Transactions)
+            - LC 1094 (Car Pooling)
+            - Any "process simulation" with evolving state.
+
+            Follow-ups:
+            - What if the simulation must run in real-time (time-based events)?
+            - How to handle multiple parallel streams?
+            - How to optimize if state updates are expensive?
+
+    Time Complexity:
+            - O(n + m), where n and m are lengths of input1 and input2.
+            - Space: O(1) unless storing results.*/
   // Main simulation function
   public void simulateProcess(int[] input1, int[] input2) {
     int stateVariable = 0;
