@@ -2,9 +2,33 @@ package StandardProblemDSA.VIII_TREE.VI_COUNTING_AND_SUMMATION_PATTERNS;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
 import StandardProblemDSA.VIII_TREE.TreeUtility;
+
 import java.util.List;
 
 public class TreeCountingOperations {
+  /*
+   Problem: Demonstrate tree counting operations using a sample binary tree.
+
+   Operations covered:
+     1. Count total nodes.
+     2. Count leaf nodes.
+     3. Count good nodes (nodes >= all previous values on the path).
+     4. Sum of all nodes.
+     5. Sum of leaf nodes.
+     6. Nodes at distance k from root.
+
+   Pattern:
+     - Tree traversal (DFS/BFS)
+     - Counting and aggregation
+
+   Expected Output:
+     Total nodes: 7
+     Leaf nodes count: 3
+     Good nodes count: (depends on path values)
+     Sum of all nodes: 28
+     Sum of leaf nodes: 17
+     Nodes at distance 2 from root: [4, 5, 6]
+  */
 
   // ---------------------------------------------------
   // 3. Count Good Nodes

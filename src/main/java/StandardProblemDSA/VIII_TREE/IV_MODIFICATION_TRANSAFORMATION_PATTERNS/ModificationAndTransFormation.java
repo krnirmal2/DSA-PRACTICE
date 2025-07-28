@@ -1,133 +1,57 @@
 package StandardProblemDSA.VIII_TREE.IV_MODIFICATION_TRANSAFORMATION_PATTERNS;
 
-import static StandardProblemDSA.VIII_TREE.BST.TrimOrPruningBST.trimBST;
-
 import StandardProblemDSA.VIII_TREE.TreeNode;
 import StandardProblemDSA.VIII_TREE.TreeUtility;
 
+import static StandardProblemDSA.VIII_TREE.BST.TrimOrPruningBST.trimBST;
+
 public class ModificationAndTransFormation {
-  // ---------------------------------------------------
-  // 1. Flatten Tree to Linked List
-  // ---------------------------------------------------
+
   /*
-    Problem Statement:
-       Flatten a binary tree into a linked list "in-place." The resulting list should use
-       the right pointers as next pointers and left pointers should be null, following pre-order.
+   Problem: Demonstrate binary tree modification and transformation operations.
 
-    Brute Force Approach:
-       - Do a pre-order traversal, store nodes in an array, then relink.
-       - Time: O(n) but requires extra O(n) space.
+   Features implemented:
+    1. Flatten a binary tree to a linked list (using right pointers, preorder traversal)
+    2. Mirror/Invert a binary tree
+    3. Rotate a binary tree to the right at the root
+    4. Convert a binary tree to a doubly linked list (DLL) using in-order traversal
+    5. Trim/Prune a BST to keep values in a given range [low, high]
 
-    Optimal Approach:
-       - Recursively flatten left and right subtrees.
-       - Then, attach the flattened left subtree between the root and the flattened right subtree.
-       - Time Complexity: O(n)
+   Example Tree:
+          10
+         /  \
+        5    20
+       / \     \
+      3   7     30
 
-    Example:
-       Input:
-                 1
-                / \
-               2   5
-              / \   \
-             3   4   6
-       Output (right chain): 1 -> 2 -> 3 -> 4 -> 5 -> 6
+   Example Outputs:
+    - Flattened tree: 10 5 3 7 20 30
+    - Inverted tree (preorder): 10 20 30 5 7 3
+    - Right-rotated tree (preorder): 5 3 10 20 30 7
+    - Doubly Linked List: 3 5 7 10 20 30
+    - Trimmed BST in range [5,20] (preorder): 10 5 7 20
+
+   Pattern:
+      - Tree Transformations
+      - Recursion & Pointer Manipulation
+      - In-order, Pre-order traversal patterns
+
+   Similar LeetCode Problems:
+      - 114. Flatten Binary Tree to Linked List
+      - 226. Invert Binary Tree
+      - 156. Binary Tree Upside Down
+      - 426. Convert Binary Search Tree to Sorted Doubly Linked List
+      - 669. Trim a Binary Search Tree
+
+   Follow-up Questions:
+      - Can you perform flattening and inversion iteratively?
+      - How would you handle a skewed tree for DLL conversion?
+      - Can you support k-ary trees for flattening and mirroring?
+      - How to handle large BST trimming with streaming input?
+
+   Time Complexity: O(n) for each operation, n = number of nodes
+   Space Complexity: O(h), h = height of the tree (recursion stack)
   */
-  public static void flatten(TreeNode root) {
-    if (root == null) return;
-    flatten(root.left);
-    flatten(root.right);
-    TreeNode tempRight = root.right;
-    root.right = root.left;
-    root.left = null;
-    TreeNode curr = root;
-    while (curr.right != null) {
-      curr = curr.right;
-    }
-    curr.right = tempRight;
-  }
-
-  // ---------------------------------------------------
-  // 2. Mirror/Invert Binary Tree
-  // ---------------------------------------------------
-  /*
-    Problem Statement:
-       Invert (or mirror) a binary tree by swapping left and right children of every node.
-
-    Brute Force Approach:
-       - Recursively swap children for every node.
-       - Time Complexity: O(n)
-
-    Optimal Approach:
-       - Recursively swap left and right pointers.
-
-    Example:
-       Input:
-                 4
-                / \
-               2   7
-              / \ / \
-             1  3 6  9
-       Output (Mirrored):
-                 4
-                / \
-               7   2
-              / \ / \
-             9  6 3  1
-  */
-  public static TreeNode invertTree(TreeNode root) {
-    if (root == null) return null;
-    TreeNode tmp = root.left;
-    root.left = invertTree(root.right);
-    root.right = invertTree(tmp);
-    return root;
-  }
-
-  // ---------------------------------------------------
-  // 4. Convert Binary Tree to Doubly Linked List
-  // ---------------------------------------------------
-  /*
-    Problem Statement:
-       Convert a binary tree into a doubly linked list (DLL) in-place. The left pointer
-       is used as the previous pointer and the right pointer as the next pointer. The nodes
-       should appear in the DLL in in-order sequence.
-
-    Brute Force Approach:
-       - Do an in-order traversal, store nodes in an array, then re-link.
-       - Time: O(n) but uses extra O(n) space.
-
-    Optimal Approach:
-       - Recursively convert left subtree, then fix pointers at root, and then convert right subtree.
-       - Maintain a global "previous" pointer to link nodes.
-       - Time Complexity: O(n)
-
-    Example:
-       Input:
-                 10
-                /  \
-               5    20
-              / \     \
-             3   7     30
-       Output DLL (in-order): 3 <-> 5 <-> 7 <-> 10 <-> 20 <-> 30
-  */
-  static TreeNode prev = null; // Global pointer for DLL conversion
-
-  public static TreeNode convertToDoublyLinkedList(TreeNode root) {
-    if (root == null) return null;
-    // Convert left subtree
-    TreeNode head = convertToDoublyLinkedList(root.left);
-    // If left subtree is null, then current root is head.
-    if (head == null) head = root;
-    // Link current root with prev node in DLL
-    if (prev != null) {
-      prev.right = root;
-      root.left = prev;
-    }
-    prev = root;
-    // Convert right subtree
-    convertToDoublyLinkedList(root.right);
-    return head;
-  }
-
   // ---------------------------------------------------
   // Main method for demonstration of functionalities.
   // ---------------------------------------------------
@@ -149,7 +73,7 @@ public class ModificationAndTransFormation {
 
     // 1. Flatten Tree to Linked List
     System.out.println("Flatten Tree to Linked List (pre-order linked list using right pointers):");
-    flatten(root);
+    FlattenTreeToLinkedList.flatten(root);
     TreeNode curr = root;
     while (curr != null) {
       System.out.print(curr.val + " ");
@@ -167,7 +91,7 @@ public class ModificationAndTransFormation {
 
     // 2. Mirror/Invert Binary Tree
     System.out.println("Mirror/Invert Binary Tree (preorder):");
-    TreeNode inverted = invertTree(root);
+    TreeNode inverted = MirrorOrInvertedBinaryTree.invertTree(root);
     TreeUtility.printPreorder(inverted);
     System.out.println("\n");
 
@@ -188,8 +112,8 @@ public class ModificationAndTransFormation {
     root.right.right = new TreeNode(30);
     System.out.println("Convert Binary Tree to Doubly Linked List (In-Order):");
     // Reset the global pointer 'prev'
-    prev = null;
-    TreeNode dllHead = convertToDoublyLinkedList(root);
+    BinaryToDoublyLL.prev = null;
+    TreeNode dllHead = BinaryToDoublyLL.convertToDoublyLinkedList(root);
     TreeNode temp = dllHead;
     // Print DLL forward.
     while (temp != null) {

@@ -1,6 +1,7 @@
 package StandardProblemDSA.VIII_TREE.I_TRAVERSAL_PATTERNS;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
+
 import java.util.Stack;
 
 public class PreOrderWithOutRecursion {
@@ -9,6 +10,41 @@ public class PreOrderWithOutRecursion {
   Push root to stack.
   Process node (print/store).
   Push right, then left child.*/
+  /*
+   Problem: Perform preorder traversal of a binary tree iteratively.
+
+   Given the root of a binary tree, print the preorder traversal (Root → Left → Right)
+   using an explicit stack instead of recursion.
+
+   Example:
+   Input:
+          1
+         / \
+        2   3
+       / \   \
+      4   5   6
+   Output: 1 2 4 5 3 6
+
+   Pattern:
+      - Tree Traversal
+      - Preorder Traversal
+      - Iterative DFS using Stack
+
+   Similar LeetCode Problems:
+      - 144. Binary Tree Preorder Traversal
+      - 94. Binary Tree Inorder Traversal
+      - 145. Binary Tree Postorder Traversal
+
+   Follow-up Questions:
+      - How to do it recursively?
+      - Can you implement Morris traversal (O(1) space)?
+      - How to handle very deep trees without stack overflow?
+      - Can you modify to return the values instead of printing?
+
+   Time Complexity: O(n), n = number of nodes
+   Space Complexity: O(h), h = height of the tree (stack space)
+  */
+
   public static void preorderTraversal(TreeNode root) {
     if (root == null) return;
 

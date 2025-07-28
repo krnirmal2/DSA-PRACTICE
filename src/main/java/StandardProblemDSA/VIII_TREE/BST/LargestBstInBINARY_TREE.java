@@ -2,21 +2,41 @@ package StandardProblemDSA.VIII_TREE.BST;
 
 public class LargestBstInBINARY_TREE {
 
-  // BF : SOLUTION :
-  // USE A UTILITY METHOD AND CHECK IF A NODE WHICH IS PASSING IS VALIED OR NOT
-  // IF VALIDE THEN CALCULATE THE SIZE OF THAT BINARY TREE ELSE LEAVE
-  // FOR THIS
-  // VALIDATION WILL TAKE O(N) FOR A SINGLE NODE
-  // AND N NODE ARE THERE MEANS N*(N) WHICH WILL TAKE square of N
-  // space complexity : O(h) of node as stack trace
-  // Now -------------------------
-  // optimal solution
-  // we will traverse from the bottom up and check it the left and right child
-  // is satisfy the BST condition or not
-  // if yes then we will return 1+size of left tree+ size of right tree
-  // if not then we will return INT MAX AND INT MIN BASEED ON RQUIEREMENT SO THAT THEY ARE NOT CAME
-  // BACK INTO PICTURE
-  // WE USE POST ORDER TRAVERSAL AND EACH NODE CONTAIN MIN MAX AND SIZE OF THE TREE
+  /*
+  Problem:
+      Find the size of the largest BST subtree in a binary tree.
+
+  Brute Force:
+      - For each node, check if its subtree is a BST (O(n)) and count nodes if true.
+      - Repeat for all n nodes → O(n²) time, O(h) space for recursion stack.
+
+  Optimal Solution:
+      - Use bottom-up (post-order) traversal.
+      - For each node, gather:
+          * min value in subtree,
+          * max value in subtree,
+          * size of largest BST in subtree.
+      - If node satisfies BST property (left.max < node.val < right.min):
+          - It's a BST → size = 1 + left.size + right.size.
+          - Update min = min(node.val, left.min), max = max(node.val, right.max).
+      - Else:
+          - Return invalid markers (min = -∞, max = +∞) so parent won't consider it a BST.
+          - Pass up the maximum size found in left or right.
+
+  Pattern:
+      - **Post-order traversal** with subtree info aggregation.
+
+  LeetCode Similar:
+      - LeetCode 333: Largest BST Subtree.
+
+  Time Complexity:
+      - O(n) since each node visited once.
+  Space Complexity:
+      - O(h) recursion depth, h = tree height.
+
+  Follow-up:
+      - Can be extended to also return the root of largest BST subtree.
+  */
 
   // own data structure for complex thing
   class NodeValue {

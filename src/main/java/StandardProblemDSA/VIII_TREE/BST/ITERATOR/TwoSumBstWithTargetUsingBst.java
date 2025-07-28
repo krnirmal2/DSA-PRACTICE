@@ -4,6 +4,38 @@ import StandardProblemDSA.VIII_TREE.BST.BstIteratorUsingStack;
 import StandardProblemDSA.VIII_TREE.TreeNode;
 
 public class TwoSumBstWithTargetUsingBst {
+  /*
+  Problem: Find if there exist two elements in a BST such that their sum equals a given target k.
+
+  Approach:
+      - Use two iterators:
+          * In-order iterator → gets the next smallest value.
+          * Reverse in-order iterator → gets the next largest value.
+      - Works like two pointers on a sorted array: move left or right pointer based on sum.
+
+  Pattern:
+      - BST traversal
+      - Two-pointer technique using iterators
+      - Space-efficient solution (no full inorder array required)
+
+  Similar LeetCode Problems:
+      - 653. Two Sum IV – Input is a BST
+      - 173. Binary Search Tree Iterator
+
+  Time Complexity:
+      - Each node is visited at most once → O(n)
+      - Each iterator operation amortized O(1), worst O(h), h = height of the tree.
+
+  Space Complexity:
+      - Each iterator uses O(h) stack space, total O(h).
+      - O(log n) for balanced BST, O(n) for skewed BST.
+
+  Follow-up Questions:
+      - How would you do this without using any extra space (Morris traversal)?
+      - How to extend the approach if duplicates are allowed?
+      - How to handle non-BST binary trees efficiently?
+  */
+
   public boolean findTarget(TreeNode root, int k) {
     BstIteratorUsingStack leftItr = new BstIteratorUsingStack(root, false);
     BstIteratorUsingStack rightItr = new BstIteratorUsingStack(root, true);

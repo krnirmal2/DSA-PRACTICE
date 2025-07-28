@@ -1,15 +1,43 @@
 package StandardProblemDSA.VIII_TREE.I_TRAVERSAL_PATTERNS;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
+
 import java.util.Stack;
 
 public class InorderWithoutRecursion {
   /*
-    (Left → Root → Right)
-            🔹 Steps:
-    Push all left nodes to stack.
-    Process top node (print/store).
-    Move to right child and repeat.
+   Problem: Perform inorder traversal of a binary tree iteratively.
+
+   Traverse the binary tree in inorder sequence (Left → Root → Right) using an explicit stack
+   instead of recursion.
+
+   Example:
+   Input:
+          1
+           \
+            2
+           /
+          3
+   Output: 1 3 2
+
+   Pattern:
+      - Tree Traversal
+      - Inorder Traversal
+      - Iterative DFS using Stack
+
+   Similar LeetCode Problems:
+      - 94. Binary Tree Inorder Traversal
+      - 144. Binary Tree Preorder Traversal
+      - 145. Binary Tree Postorder Traversal
+
+   Follow-up Questions:
+      - How to do it recursively?
+      - Can you implement Morris traversal (O(1) space)?
+      - How to handle very deep trees without stack overflow?
+      - Can you modify to return the values instead of printing?
+
+   Time Complexity: O(n), n = number of nodes
+   Space Complexity: O(h), h = height of the tree (stack space)
   */
 
   public static void inorderTraversal(TreeNode root) {

@@ -2,10 +2,45 @@ package StandardProblemDSA.VIII_TREE.I_TRAVERSAL_PATTERNS;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
 import StandardProblemDSA.VIII_TREE.TreeUtility;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class VerticalTraversing {
+  /*
+   Problem: Print the vertical order traversal of a binary tree.
+
+   Given the root of a binary tree, print all nodes column by column from leftmost vertical line
+   to rightmost vertical line. Nodes on the same vertical line are printed from top to bottom.
+
+   Example:
+   Input:
+          1
+         / \
+        2   3
+       / \   \
+      4   5   6
+   Output: [4, 2, 1, 5, 3, 6]
+
+   Pattern:
+      - Tree Traversal
+      - Vertical Order Traversal
+      - DFS with Horizontal Distance (HD)
+
+   Similar LeetCode Problems:
+      - 987. Vertical Order Traversal of a Binary Tree
+      - 314. Binary Tree Vertical Order Traversal
+      - 103. Binary Tree Zigzag Level Order Traversal
+
+   Follow-up Questions:
+      - How to implement using BFS for correct top-to-bottom order?
+      - Can we print each vertical line separately?
+      - How to handle duplicate values or very large trees?
+      - Can we optimize to O(n) with a single traversal?
+
+   Time Complexity: O(n²), n = number of nodes (due to repeated traversals per vertical line)
+   Space Complexity: O(h), h = height of the tree (recursion stack)
+  */
 
   // A utility function to collect all
   // TreeNode on a given vertical line_no.

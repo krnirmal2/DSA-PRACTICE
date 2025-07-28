@@ -1,14 +1,12 @@
 package StandardProblemDSA.VIII_TREE.BST.PARENT_MAP;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
+
 import java.util.*;
 
 /*863. All Nodes Distance K in Binary Tree
-        Solved
-Medium
-        Topics
-Companies
-Given the root of a binary tree, the value of a target node target, and an integer k, return an array of the values of all nodes that have a distance k from the target node.
+Given the root of a binary tree, the value of a target node target, and an integer k,
+return an array of the values of all nodes that have a distance k from the target node.
 
 You can return the answer in any order.
         Example 1:
@@ -24,10 +22,43 @@ The number of nodes in the tree is in the range [1, 500].
         0 <= Node.val <= 500
 All the values Node.val are unique.
 target is the value of one of the nodes in the tree.
-        0 <= k <= 1000*/
+        0 <= k <= 1000
+
+Approach:
+    1. Build a parent map using BFS to record each node’s parent (since TreeNode has only left/right references).
+    2. Perform BFS starting from the target node.
+    3. Maintain a visited map to avoid revisiting nodes.
+    4. Traverse level by level; once the current level == k, all nodes currently in the queue are at distance k.
+    5. Collect these nodes’ values into the result list.
+
+Pattern:
+    - BFS traversal + parent pointer tracking.
+    - Similar to "burning tree" or "nodes at distance K" problems.
+
+Similar LeetCode Problems:
+    - 863. All Nodes Distance K in Binary Tree
+    - "Burning Tree" variant (interview favorite)
+
+Time Complexity:
+    - O(n): Each node is visited once while building the parent map and once during BFS.
+    - Building parent map: O(n)
+    - BFS traversal: O(n)
+
+Space Complexity:
+    - O(n):
+        - Parent map stores one entry per node.
+        - Visited map stores up to n nodes.
+        - BFS queue holds at most O(n) nodes.
+
+Follow-up Questions:
+    - Can we do this without extra parent map? → Yes, by performing DFS and passing parent references.
+    - How to optimize if there are multiple queries on the same tree? → Precompute all parent links once and reuse.
+
+
+        */
 public class NodeATDistanceKinUpAndDown {
 
-  //    Definition for a binary tree node.
+  // Definition for a binary tree node.
   // Approach
   // 1. we will create parent map using BFS each node because from parent need to go all nodes
   // 2. create a visited Map to check if the node has been visited or not

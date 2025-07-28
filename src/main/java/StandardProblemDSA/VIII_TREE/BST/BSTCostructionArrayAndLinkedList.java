@@ -1,25 +1,13 @@
 package StandardProblemDSA.VIII_TREE.BST;
 
+import StandardProblemDSA.II_LINKEDLIST.ListNode;
 import StandardProblemDSA.VIII_TREE.TreeNode;
 import StandardProblemDSA.VIII_TREE.TreeUtility;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BSTCostructionArrayAndLinkedList {
-
-  // ---------------------------------------------------
-  // Node Definitions
-  // ---------------------------------------------------
-
-  // Definition for a singly-linked list node.
-  class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-      val = x;
-      next = null;
-    }
-  }
 
   // ---------------------------------------------------
   // 1. Preorder Traversal of Binary Tree
@@ -144,13 +132,13 @@ public class BSTCostructionArrayAndLinkedList {
 
     // 2. Construct BST from Sorted Linked List
     // Build sorted linked list: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
-    ListNode listHead = ops.new ListNode(1);
-    listHead.next = ops.new ListNode(2);
-    listHead.next.next = ops.new ListNode(3);
-    listHead.next.next.next = ops.new ListNode(4);
-    listHead.next.next.next.next = ops.new ListNode(5);
-    listHead.next.next.next.next.next = ops.new ListNode(6);
-    listHead.next.next.next.next.next.next = ops.new ListNode(7);
+    ListNode listHead = new ListNode(1);
+    listHead.next = new ListNode(2);
+    listHead.next.next = new ListNode(3);
+    listHead.next.next.next = new ListNode(4);
+    listHead.next.next.next.next = new ListNode(5);
+    listHead.next.next.next.next.next = new ListNode(6);
+    listHead.next.next.next.next.next.next = new ListNode(7);
 
     TreeNode bstFromList = ops.sortedListToBST(listHead);
     System.out.println("Preorder traversal of BST constructed from sorted linked list:");

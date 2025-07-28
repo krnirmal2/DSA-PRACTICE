@@ -1,31 +1,49 @@
 package StandardProblemDSA.VIII_TREE.I_TRAVERSAL_PATTERNS;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
 public class LevelOrderTraversal {
-  // ---------------------------------------------------
-  // 2. Level Order Traversal of Binary Tree
-  // ---------------------------------------------------
   /*
-    Problem Statement:
-       Traverse a binary tree level by level (breadth-first) and return a list of values.
+   Problem: Perform level order traversal of a binary tree.
 
-    Brute Force Approach:
-       - Use recursion for each level (inefficient).
+   Given the root of a binary tree, return the level order traversal
+   (from top to bottom, left to right) of its nodes' values.
 
-    Optimal Approach:
-       - Use a queue to perform a breadth-first search (BFS).
+   Example:
+   Input:
+          1
+         / \
+        2   3
+       / \     \
+      4   5     6
+   Output: [1, 2, 3, 4, 5, 6]
 
-    Time Complexity: O(n)
+   Pattern:
+      - Tree Traversal
+      - BFS using Queue
+      - Level Order Traversal
 
-    Example:
-       For the same BST above, level order output: [4, 2, 6, 1, 3, 5, 7]
+   Similar LeetCode Problems:
+      - 102. Binary Tree Level Order Traversal
+      - 107. Binary Tree Level Order Traversal II
+      - 429. N-ary Tree Level Order Traversal
+
+   Follow-up Questions:
+      - How to print nodes level by level (list of lists)?
+      - Can you implement without using extra space (Morris traversal)?
+      - How to modify for zigzag (spiral) traversal?
+      - How to handle very large trees?
+
+   Time Complexity: O(n), n = number of nodes
+   Space Complexity: O(n), for the queue
   */
-  public List<Integer> levelOrderTraversal(TreeNode root) {
+
+    public List<Integer> levelOrderTraversal(TreeNode root) {
     List<Integer> result = new ArrayList<>();
     if (root == null) return result;
 

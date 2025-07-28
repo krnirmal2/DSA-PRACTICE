@@ -1,5 +1,44 @@
 package StandardProblemDSA.VIII_TREE;
 
+/*
+ Problem: Implement an AVL Tree with insertion and rotations.
+
+ Features:
+    - Self-balancing Binary Search Tree (BST).
+    - Balances tree after every insertion to maintain O(log n) operations.
+    - Uses height and balance factor to detect imbalance and applies rotations:
+        * Left-Left (LL) rotation
+        * Right-Right (RR) rotation
+        * Left-Right (LR) rotation
+        * Right-Left (RL) rotation
+
+ Example:
+    Input: Insert 10, 20, 30, 40, 50, 25
+    Output (Preorder): 30 20 10 25 40 50
+
+ Pattern:
+    - Balanced BST
+    - Rotations (LL, RR, LR, RL)
+    - Recursive insertion with height update
+
+ Similar LeetCode Problems:
+    - 701. Insert into a Binary Search Tree (without balancing)
+    - 1382. Balance a Binary Search Tree
+
+ Follow-up Questions:
+    - Implement delete operation for AVL Tree.
+    - Compare AVL Trees with Red-Black Trees.
+    - Extend to handle duplicates (multiset AVL Tree).
+    - Implement iterative insert.
+
+ Time Complexity:
+    - Insertion: O(log n)
+    - Search: O(log n)
+    - Rotation: O(1)
+
+ Space Complexity: O(h), h = log n (recursion stack)
+*/
+
 // Java program for insertion in AVL Tree
 class Node {
   int key, height;

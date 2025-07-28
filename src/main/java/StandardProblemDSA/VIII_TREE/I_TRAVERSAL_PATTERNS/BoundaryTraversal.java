@@ -2,20 +2,52 @@ package StandardProblemDSA.VIII_TREE.I_TRAVERSAL_PATTERNS;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
 
-/**
- * Java implementation of Boundary Traversal of a binary tree. Boundary Traversal includes: 1. Left
- * boundary (excluding leaf nodes) 2. All leaf nodes (left subtree first, then right subtree) 3.
- * Right boundary (excluding leaf nodes), printed bottom-up
- *
- * <p>Time Complexity: O(N), where N is the number of nodes (each node visited once) Space
- * Complexity: O(H), where H is the tree height (recursion stack)
- */
+/*
+ Problem: Perform boundary traversal of a binary tree.
+
+ Print the nodes on the boundary of a binary tree in anti-clockwise order:
+  - Root node
+  - Left boundary (excluding leaves)
+  - All leaf nodes (left to right)
+  - Right boundary (excluding leaves, printed bottom-up)
+
+ Example:
+ Input:
+        1
+       / \
+      2   3
+     / \   \
+    4   5   6
+       / \
+      7   8
+ Output: 1 2 4 7 8 6 3
+
+ Pattern:
+    - Tree Traversal
+    - Boundary Traversal
+    - DFS with custom order
+
+ Similar LeetCode Problems:
+    - 545. Boundary of Binary Tree
+    - 94. Binary Tree Inorder Traversal
+    - 199. Binary Tree Right Side View
+
+ Follow-up Questions:
+    - How to handle skewed trees (all left or all right)?
+    - Can you implement an iterative version?
+    - How to modify for n-ary trees?
+    - How to handle duplicates or printing without extra space?
+
+ Time Complexity: O(n), n = number of nodes
+ Space Complexity: O(h), h = height of the tree (recursion stack)
+*/
+
 /*1. Boundary Traversal
 Boundary Traversal of a Tree includes
 
  ● If root is not null:
         ○ Print root’s val
-         ○ PrintLeftBoundary(root->left) // Print the left boundary nodes
+        ○ PrintLeftBoundary(root->left) // Print the left boundary nodes
         ○ PrintLeafNodes(root->left) // Print the leaf nodes of left subtree
         ○ PrintLeafNodes(root->right) // Print the leaf nodes of right subtree
         ○ PrintRightBoundary(root->right) // Print the right boundary nodes */

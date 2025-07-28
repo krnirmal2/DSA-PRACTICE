@@ -82,7 +82,7 @@ public class FindPeakIIin2D {
       boolean rightIsSmaller = (mid == m - 1 || matrix[maxRow][mid] > matrix[maxRow][mid + 1]);
 
       if (leftIsSmaller && rightIsSmaller) {
-        return new int[]{maxRow, mid}; // found a peak
+          return new int[]{maxRow, mid}; // found a peak
       }
 
       // Move towards the larger neighbor
@@ -93,6 +93,6 @@ public class FindPeakIIin2D {
       }
     }
 
-    return new int[]{-1, -1}; // should not happen with valid input
+      return new int[]{-1, -1}; // should not happen with valid input
   }
 }

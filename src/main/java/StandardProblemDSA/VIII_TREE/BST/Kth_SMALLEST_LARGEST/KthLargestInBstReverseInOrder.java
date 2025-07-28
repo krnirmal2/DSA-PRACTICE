@@ -3,31 +3,36 @@ package StandardProblemDSA.VIII_TREE.BST.Kth_SMALLEST_LARGEST;
 import StandardProblemDSA.VIII_TREE.TreeNode;
 
 public class KthLargestInBstReverseInOrder {
-
-  // ---------------------------------------------------
-  // 4. Kth Largest Element in a Binary Search Tree (BST)
-  // ---------------------------------------------------
   /*
-    Problem Statement:
-       Given a Binary Search Tree (BST), find the kth largest element.
+  Problem: Find the kth largest element in a Binary Search Tree (BST).
 
-    Brute Force Approach:
-       - Traverse the BST in-order (ascending order), store elements in an array, and return element at (n-k).
-       - Time Complexity: O(n)
+  Approach:
+      - Use reverse in-order traversal (right → root → left).
+      - Keep a counter to track the number of nodes visited.
+      - When counter equals k, store the node value and stop traversal.
 
-    Optimal Approach:
-       - Perform a reverse in-order traversal (right-root-left) while counting nodes.
-       - Return the kth visited node.
-       - Time Complexity: O(h + k) average, where h is the tree height.
+  Pattern:
+      - BST property + in-order traversal
+      - Reverse in-order = descending order
+      - Early stopping once kth element is found.
 
-    Example:
-       BST:
-                 5
-                / \
-               3   7
-              / \   \
-             2   4   8
-       For k = 2, kth largest is 7.
+  Similar LeetCode Problems:
+      - 230. Kth Smallest Element in a BST (mirror problem)
+      - 538. Convert BST to Greater Tree
+
+  Time Complexity:
+      - Average: O(h + k), h = height of tree.
+        We may skip large portions of the tree due to early stopping.
+      - Worst case: O(n) when the tree is skewed or k = n.
+
+  Space Complexity:
+      - O(h) recursion stack, where h = tree height.
+        O(log n) in a balanced BST, O(n) in a skewed BST.
+
+  Follow-up Questions:
+      - How to handle duplicates in the BST?
+      - Can we do it iteratively using a stack instead of recursion?
+      - How to support multiple kth largest queries efficiently (augment nodes with subtree sizes)?
   */
 
   // Helper for kth largest in BST

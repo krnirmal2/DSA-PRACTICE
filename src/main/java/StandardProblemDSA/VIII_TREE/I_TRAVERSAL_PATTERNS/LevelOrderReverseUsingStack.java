@@ -1,9 +1,47 @@
 package StandardProblemDSA.VIII_TREE.I_TRAVERSAL_PATTERNS;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
-import java.util.*;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 
 public class LevelOrderReverseUsingStack {
+  /*
+   Problem: Print the reverse level order traversal of a binary tree.
+
+   Given the root of a binary tree, print all nodes in reverse level order (from bottom to top,
+   and from left to right within each level).
+
+   Example:
+   Input:
+          1
+         / \
+        2   3
+       / \   \
+      4   5   6
+   Output: 4 5 6 2 3 1
+
+   Pattern:
+      - Tree Traversal
+      - BFS with Queue + Stack
+      - Reverse Level Order Traversal
+
+   Similar LeetCode Problems:
+      - 107. Binary Tree Level Order Traversal II
+      - 102. Binary Tree Level Order Traversal
+      - 199. Binary Tree Right Side View
+
+   Follow-up Questions:
+      - How to do this without using an explicit stack?
+      - Can you print nodes level by level in reverse order?
+      - How to modify for n-ary trees?
+      - How to implement recursively?
+
+   Time Complexity: O(n), n = number of nodes
+   Space Complexity: O(n), for queue and stack
+  */
+
   public static void levelOrderReverse(TreeNode root) {
     if (root == null) return;
 
@@ -36,10 +74,7 @@ public class LevelOrderReverseUsingStack {
   }
 }
 /*🔹 Output
-        Copy
-Edit
 4 5 6 2 3 1*/
-
 /*
 4️⃣ Level Order Traversal Using Stack (Reverse BFS)
 (Bottom-Up Level Order)

@@ -1,7 +1,6 @@
 package StandardProblemDSA.I_ARRAY.XIV_MISCELLNEOUS;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class PascalTriangle {

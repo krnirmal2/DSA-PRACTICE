@@ -2,10 +2,31 @@ package StandardProblemDSA.VIII_TREE.VI_COUNTING_AND_SUMMATION_PATTERNS;
 
 import StandardProblemDSA.VIII_TREE.Pair;
 import StandardProblemDSA.VIII_TREE.TreeNode;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class AlternateLevelNodeSum {
+  /*
+   Problem: Calculate the sum of all nodes at alternate levels of a binary tree (levels 0, 2, 4, ...).
+
+   Approach:
+      - Perform BFS using a queue.
+      - Track the level number for each node.
+      - Add node values to the sum if the level is even.
+
+   Pattern:
+      - Level Order Traversal (BFS)
+      - Pairing node with its level
+
+   Similar LeetCode Problems:
+      - 637. Average of Levels in Binary Tree
+      - 102. Binary Tree Level Order Traversal
+
+   Time Complexity: O(n), n = number of nodes
+   Space Complexity: O(n), queue storage for BFS
+  */
+
   public static int sumOfAlternateLevels(TreeNode root) {
     if (root == null) return 0;
 
