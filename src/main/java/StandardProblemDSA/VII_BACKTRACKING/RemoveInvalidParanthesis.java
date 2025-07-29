@@ -5,6 +5,24 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class RemoveInvalidParanthesis {
+  /**
+   * Problem: Remove the minimum number of invalid parentheses to make the input string valid and
+   * print all possible valid results. Example: "()())()" -> ["()()()", "(())()"]
+   *
+   * <p>Pattern: Breadth-First Search (BFS) for level-wise removal of parentheses, using a visited
+   * set to avoid duplicates.
+   *
+   * <p>Follow-ups: 1. Solve using DFS + backtracking to generate valid strings. 2. Return only one
+   * valid string with minimum removals. 3. Count the minimum removals without generating all valid
+   * strings.
+   *
+   * <p>LeetCode Similar Problems: 301. Remove Invalid Parentheses, 1249. Minimum Remove to Make
+   * Valid Parentheses
+   *
+   * <p>Time Complexity: O(N × 2^N) in the worst case (generate all substrings in BFS, each
+   * validation O(N)). Space Complexity: O(N × 2^N) for the queue and visited set in the worst case.
+   */
+
   // method checks if character is parenthesis(open
   // or closed)
   static boolean isParenthesis(char c) {

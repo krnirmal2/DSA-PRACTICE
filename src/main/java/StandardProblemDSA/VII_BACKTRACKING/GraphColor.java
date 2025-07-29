@@ -3,6 +3,38 @@ package StandardProblemDSA.VII_BACKTRACKING;
 public class GraphColor {
   static final int V = 4;
 
+  /*
+  Problem:
+  Color a graph using at most m colors such that no two adjacent vertices share the same color.
+  If coloring is possible, print one such coloring.
+
+  Approach:
+  - Use backtracking:
+    - Assign a color to vertex v (from 1 to m) if it’s safe (no adjacent vertex has same color).
+    - Recurse for v + 1.
+    - Backtrack if no color leads to a solution.
+  - If all vertices are assigned, print the solution.
+
+  Pattern:
+  - Backtracking / Graph Coloring Problem.
+
+  Time Complexity:
+  O(m^V):
+  - Each vertex can be assigned m colors.
+  - Backtracking prunes invalid assignments early.
+
+  Space Complexity:
+  O(V) for color[] array + recursion stack.
+
+  Similar LeetCode:
+  - 785. Is Graph Bipartite? (special case of 2-coloring)
+  - 886. Possible Bipartition
+
+  Follow-up:
+  - Use greedy coloring for faster approximate solutions.
+  - Modify to print all possible colorings instead of just one.
+  */
+
   // A utility function to check if the current color assignment is safe for vertex v
   static boolean isSafe(int v, boolean[][] graph, int[] color, int c) {
     for (int i = 0; i < V; i++) if (graph[v][i] && c == color[i]) return false;

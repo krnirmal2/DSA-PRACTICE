@@ -3,6 +3,37 @@ package StandardProblemDSA.VI_RECURSION.BACKTRACING_PATTERN;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+Problem:
+Generate and print all subsequences (or subsets) of a given string.
+A subsequence is a sequence that can be derived by deleting zero or more characters without changing the order.
+
+Pattern:
+Backtracking / Recursion with decision tree (Include or Exclude).
+
+Approach:
+1️⃣ Use recursion to explore all combinations of characters.
+2️⃣ At each step, choose to either include or exclude the current character.
+3️⃣ Base case: when input string is empty, add the accumulated result.
+4️⃣ Store each result in a global list or return it as a function result.
+
+Time Complexity:
+O(2^n) — each character has two choices: include or exclude.
+
+Space Complexity:
+O(2^n) — number of subsequences stored in the list.
+
+Similar LeetCode Questions:
+- 78. Subsets
+- 90. Subsets II
+- 131. Palindrome Partitioning
+
+Follow-up Questions:
+- How to return only unique subsequences (with duplicate characters)?
+- Modify to print only subsequences of a specific length.
+- Can you adapt this to numeric arrays?
+*/
+
 public class PrintAllSubsequence {
   // Declare a global list
   static List<String> al = new ArrayList<>();

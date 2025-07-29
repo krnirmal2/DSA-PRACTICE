@@ -4,7 +4,23 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class PermutationWithoutDuplicatesElem {
-
+  /**
+   * Problem: Generate all unique permutations of a string that may contain duplicate characters.
+   * Example: "AAB" -> AAB, ABA, BAA
+   *
+   * <p>Pattern: Backtracking with swapping + HashSet at each recursion level to skip duplicates.
+   *
+   * <p>Follow-ups: 1. Return k-th unique permutation directly without generating all. 2. Generate
+   * permutations in lexicographical order. 3. Optimize space by avoiding Set<String> and printing
+   * directly.
+   *
+   * <p>LeetCode Similar Problems: 47. Permutations II, 46. Permutations, 784. Letter Case
+   * Permutation
+   *
+   * <p>Time Complexity: O(N × N!) → N! unique permutations (fewer with duplicates), each taking
+   * O(N) to store. Space Complexity: O(N) recursion depth + O(N) for HashSet used in each recursion
+   * frame.
+   */
   public static void permute(char[] chars, int start, Set<String> result) {
     // Base case: if we've reached the last character, add the permutation to the set
 

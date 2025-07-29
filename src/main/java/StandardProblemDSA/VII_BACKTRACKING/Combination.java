@@ -3,6 +3,33 @@ package StandardProblemDSA.VII_BACKTRACKING;
 import java.util.ArrayList;
 
 public class Combination {
+  /*
+  Problem:
+  Generate all combinations of size r (nCr) from a given array.
+
+  Approach:
+  - Use backtracking:
+    - Build combinations incrementally.
+    - Add the current element, recurse for remaining elements.
+    - When temp.size() == r, add a copy to the result.
+    - Backtrack by removing the last element to explore new branches.
+  - Skip duplicates to avoid repeated combinations.
+
+  Pattern:
+  - Backtracking / Combinations generation.
+
+  Time Complexity:
+  O(C(n, r)) — all r-length combinations are generated.
+  Space Complexity:
+  O(r) — temporary storage in recursion; result uses O(C(n, r) * r).
+
+  Similar LeetCode:
+  - 77. Combinations
+  - 39. Combination Sum (with target constraint)
+
+  Follow-up:
+  - Can be optimized using iterative or bitmask approaches for combination generation.
+  */
 
   public static void combine(ArrayList<ArrayList<Integer>> result, int[] element, int r) {
     int start = 0;

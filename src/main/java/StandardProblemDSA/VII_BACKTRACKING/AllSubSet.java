@@ -5,6 +5,31 @@ import java.util.Arrays;
 import java.util.List;
 
 public class AllSubSet {
+  /*
+  Problem:
+  Generate all subsets (the power set) of a given integer array.
+
+  Approach:
+  - Use backtracking to explore all combinations.
+  - For every possible subset size r (0 to n), recursively build subsets.
+  - At each index, choose to include or exclude the current element.
+
+  Pattern:
+  - Power Set / Subsets generation using backtracking.
+
+  Time Complexity:
+  O(2^n) — each element has two choices: include or exclude.
+  Space Complexity:
+  O(2^n * n) — to store all subsets; recursion stack uses O(n).
+
+  Similar LeetCode:
+  - 78. Subsets
+  - 90. Subsets II (handle duplicates)
+
+  Follow-up:
+  - Can be optimized using bit masking to avoid recursion.
+  */
+
   /* 🧠 Concept Recap:
       This is generating subsets of all sizes: from 0 to nums.length.
       For each size r, we use the combination logic (with backtracking).

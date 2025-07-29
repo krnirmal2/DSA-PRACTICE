@@ -1,5 +1,40 @@
 package StandardProblemDSA.VI_RECURSION.BACKTRACING_PATTERN;
 
+/*
+Problem:
+Implement `atoi` — convert a string to a 32-bit signed integer following specific constraints:
+- Ignore leading spaces.
+- Handle optional '+' or '-' sign.
+- Parse valid digits until a non-digit is encountered.
+- Clamp to [-2^31, 2^31 - 1] in case of overflow.
+
+Pattern:
+String parsing + iterative digit construction with overflow handling.
+
+Approach:
+1. Skip leading whitespace.
+2. Determine the sign (+/-).
+3. Convert each digit: `result = result * 10 + digit`.
+4. Stop at first non-digit.
+5. Clamp result if overflow occurs.
+
+Time Complexity:
+O(n) — we process each character at most once.
+
+Space Complexity:
+O(1) — only a few variables used.
+
+Similar LeetCode Questions:
+- 8. String to Integer (atoi)
+- 65. Valid Number
+- 67. Add Binary
+
+Follow-up Questions:
+- Can you implement without using built-in trim()?
+- How to extend this for hexadecimal or floating-point parsing?
+- Can you optimize to handle very large inputs without overflow checks on every step?
+*/
+
 public class AtoI {
   // convert String to integer with following constraints
   /* Constraints & Considerations

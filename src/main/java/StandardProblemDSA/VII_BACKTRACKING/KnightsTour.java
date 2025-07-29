@@ -2,28 +2,46 @@ package StandardProblemDSA.VII_BACKTRACKING;
 
 public class KnightsTour {
   /*Problem Statement:
-    Given a N*N board with the Knight placed on the first block of an empty board. Moving according to the rules of chess knight must visit each square exactly once. Print the order of each cell in which they are visited.
-            Example:
-    Input :
-    N = 8
-    Output:
-            0  59  38  33  30  17   8  63
-            37  34  31  60   9  62  29  16
-            58   1  36  39  32  27  18   7
-            35  48  41  26  61  10  15  28
-            42  57   2  49  40  23   6  19
-            47  50  45  54  25  20  11  14
-            56  43  52   3  22  13  24   5
-            51  46  55  44  53   4  21  12
+      Given a N*N board with the Knight placed on the first block of an empty board. Moving according to the rules of chess knight must visit each square exactly once. Print the order of each cell in which they are visited.
+              Example:
+      Input :
+      N = 8
+      Output:
+              0  59  38  33  30  17   8  63
+              37  34  31  60   9  62  29  16
+              58   1  36  39  32  27  18   7
+              35  48  41  26  61  10  15  28
+              42  57   2  49  40  23   6  19
+              47  50  45  54  25  20  11  14
+              56  43  52   3  22  13  24   5
+              51  46  55  44  53   4  21  12
 
-    Time Complexity :
-  There are N2 Cells and for each, we have a maximum of 8 possible moves to choose from, so the worst running time is O(8N^2).
-  Auxiliary Space: O(N2)
-  Important Note:
-  No order of the xMove, yMove is wrong, but they will affect the running time of the algorithm drastically. For example, think of the case where the 8th choice of the move is the correct one, and before that our code ran 7 different wrong paths. It’s always a good idea a have a heuristic than to try backtracking randomly. Like, in this case, we know the next step would probably be in the south or east direction, then checking the paths which lead their first is a better strategy
 
-   Warnsdorff’s algorithm for Knight’s tour problem
-            */
+
+             Approach:
+  - Use recursion and backtracking:
+    1. Place the knight on the starting square and mark it.
+    2. Try all 8 possible knight moves (moveX, moveY).
+    3. If a move is valid (inside the board and unvisited), proceed recursively.
+    4. If a move leads to a solution, return true; else backtrack (unmark cell).
+
+  Pattern:
+  - Backtracking with constraint checking.
+
+  Time Complexity:
+  - Worst-case O(8^(N^2)), because for each of N^2 moves there are up to 8 choices.
+
+  Space Complexity:
+  - O(N^2) for the board and O(N^2) recursion stack.
+
+  Similar Problems:
+  - N-Queens
+  - Rat in a Maze
+
+  Follow-up:
+  - Apply Warnsdorff’s heuristic: always choose the next move that has the fewest onward moves.
+  - Modify to print all possible tours instead of one.
+  */
   static int N = 8;
 
   // These arrays represent the possible moves of a knight

@@ -2,19 +2,33 @@ package StandardProblemDSA.VII_BACKTRACKING;
 
 public class WordSearch {
   /*79. Word Search
-  Given an m x n grid of characters board and a string word, return true if word exists in the grid.
+   Given an m x n grid of characters board and a string word, return true if word exists in the grid.
 
-  The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once.
-  Example 1:
-  Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"
-  Output: true
-  Example 2:
-  Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "SEE"
-  Output: true
-  Example 3:
-  Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCB"
-  Output: false
-  */
+   The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once.
+   Example 1:
+   Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"
+   Output: true
+   Example 2:
+   Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "SEE"
+   Output: true
+   Example 3:
+   Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCB"
+   Output: false
+
+
+    * Pattern: Backtracking with DFS search (choose → explore → unchoose) + visited matrix to avoid revisiting.
+  *
+  * Follow-ups:
+  * 1. Handle multiple words efficiently (use Trie + backtracking - Word Search II).
+  * 2. Optimize space by modifying the board in place instead of using a visited matrix.
+  * 3. Count the total number of times a word occurs in the board.
+  *
+  * LeetCode Similar Problems: 79. Word Search, 212. Word Search II, 37. Sudoku Solver
+  *
+  * Time Complexity: O(N * M * 4^L)
+  *   - N*M cells, and for each, we explore up to 4 directions for word length L.
+  * Space Complexity: O(N * M) for visited matrix + O(L) recursion stack.
+   */
   public boolean exist(char[][] board, String word) {
     int n = board.length;
     int m = board[0].length;

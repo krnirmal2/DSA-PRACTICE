@@ -1,8 +1,42 @@
 package StandardProblemDSA.VII_BACKTRACKING;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class CombinationSumII {
+  /*
+  Problem:
+  Find all unique combinations in candidates[] where the numbers sum to target.
+  Each number can be used at most once.
+
+  Approach:
+  - Sort the array to handle duplicates.
+  - Use backtracking:
+    - Iterate through candidates starting from 'start' index.
+    - Skip duplicates: if i > start && candidates[i] == candidates[i - 1], continue.
+    - Stop recursion early if candidates[i] > remain (pruning).
+    - Choose candidates[i], recurse with reduced target and next index i + 1.
+    - Backtrack by removing the last element.
+
+  Pattern:
+  - Backtracking / Combination Sum II.
+
+  Time Complexity:
+  O(2^n) in worst case — explores subsets; pruning reduces actual calls.
+  Space Complexity:
+  O(target) recursion depth + storage for results.
+
+  Similar LeetCode:
+  - 40. Combination Sum II
+  - 39. Combination Sum
+  - 216. Combination Sum III
+
+  Follow-up:
+  - For repeated element use, allow recursive call with i (instead of i + 1).
+  - Can adapt to return count instead of actual combinations.
+  */
+
   /*🧠 Approach
   Sort the array → Helps in skipping duplicates.
   Use backtracking.

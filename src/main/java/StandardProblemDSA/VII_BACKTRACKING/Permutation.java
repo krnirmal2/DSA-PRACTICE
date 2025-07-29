@@ -1,6 +1,22 @@
 package StandardProblemDSA.VII_BACKTRACKING;
 
 public class Permutation {
+  /**
+   * Problem: Print all permutations of a given string. Example: "ABC" -> ABC, ACB, BAC, BCA, CAB,
+   * CBA
+   *
+   * <p>Pattern: Backtracking with swapping (DFS) - choose → explore → unchoose.
+   *
+   * <p>Follow-ups: 1. Handle duplicate characters (use HashSet or frequency array to avoid
+   * duplicates). 2. Return permutations in lexicographical order. 3. Generate k-th permutation
+   * directly without generating all.
+   *
+   * <p>LeetCode Similar Problems: 46. Permutations, 47. Permutations II, 784. Letter Case
+   * Permutation
+   *
+   * <p>Time Complexity: O(N! * N) → N! permutations, each taking O(N) to print/copy. Space
+   * Complexity: O(N) recursion stack.
+   */
 
   // Function to print permutations of the string
   // This function takes two parameters:

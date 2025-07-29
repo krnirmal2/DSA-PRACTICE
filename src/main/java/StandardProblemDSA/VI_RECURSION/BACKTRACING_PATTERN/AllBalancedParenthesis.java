@@ -3,6 +3,38 @@ package StandardProblemDSA.VI_RECURSION.BACKTRACING_PATTERN;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+Problem:
+Generate all valid combinations of n pairs of balanced parentheses using recursion.
+
+Pattern:
+Backtracking with constraints — build strings step by step ensuring validity.
+
+Approach:
+1. Use recursion to build strings of length 2 * n.
+2. At each step:
+   - Add an opening bracket if `open < n`.
+   - Add a closing bracket if `close < open`.
+3. When both `open == n` and `close == n`, add the current string to the answer list.
+
+Time Complexity:
+O(2^(2n)) in the worst case, but only valid combinations are explored — effectively O(Cn),
+where Cn is the nth Catalan number (≈ 4^n / (n^(3/2) √π)).
+
+Space Complexity:
+O(n) for recursion stack + O(Cn * 2n) for storing results.
+
+Similar LeetCode Questions:
+- 22. Generate Parentheses
+- 301. Remove Invalid Parentheses
+- 32. Longest Valid Parentheses
+
+Follow-up Questions:
+- Can you generate combinations iteratively without recursion?
+- How would you modify this to generate balanced brackets with multiple bracket types ([], {}, ())?
+- Can you stream results without storing all combinations in memory?
+*/
+
 public class AllBalancedParenthesis {
   /*To form all the sequences of balanced bracket subsequences with n pairs, there are n opening brackets and n closing brackets. So the sequence will be of length 2*n.
 

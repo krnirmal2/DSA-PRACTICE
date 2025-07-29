@@ -2,6 +2,35 @@ package StandardProblemDSA.VII_BACKTRACKING;
 
 import java.util.*;
 
+/*
+Problem:
+Generate all unique permutations of a string in lexicographical order, handling duplicate characters.
+
+Approach:
+- Sort characters to start with lexicographical order.
+- Use backtracking to build permutations.
+- At each recursion depth, use a `Set<Character>` to avoid generating duplicates by skipping repeated characters at the same level.
+- Swap to place each character at the current position, then recurse, and finally backtrack (undo the swap).
+
+Pattern:
+- Backtracking with duplicate handling using a set.
+
+Time Complexity:
+- O(n × n!), where n is the length of the string.
+  (n! permutations, each taking O(n) time to copy).
+
+Space Complexity:
+- O(n) for recursion stack and O(n!) for storing results.
+
+Similar Problems:
+- LeetCode 47: Permutations II
+- Generate all subsets handling duplicates.
+
+Follow-up:
+- Use iterative next_permutation to generate in lexicographical order without recursion.
+- Handle very large inputs by generating k-th permutation directly.
+*/
+
 public class LexicographicalAndDuplicateInPermutationHandle {
   // Result list to store all permutations
   static List<String> result = new ArrayList<>();

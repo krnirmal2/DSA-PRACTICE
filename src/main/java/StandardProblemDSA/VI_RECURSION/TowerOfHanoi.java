@@ -1,6 +1,31 @@
 package StandardProblemDSA.VI_RECURSION;
 
 public class TowerOfHanoi {
+  /*
+  Problem:
+  Solve the Tower of Hanoi problem for `n` disks using recursion.
+
+  Approach:
+  - Base case: Move disk 1 directly from source to destination.
+  - Recursive steps:
+    1. Move top n-1 disks from source to auxiliary.
+    2. Move nth disk from source to destination.
+    3. Move n-1 disks from auxiliary to destination.
+
+  Pattern:
+  - Classic Divide & Conquer recursion.
+
+  Time Complexity:
+  O(2^n) — number of moves required.
+  Space Complexity:
+  O(n) — recursion stack depth.
+
+  Similar LeetCode:
+  - No direct problem, but standard recursion practice.
+
+  Follow-up:
+  - Count number of moves: (2^n) - 1.
+  */
 
   // Recursive function to solve Tower of Hanoi
   public static void solveHanoi(int n, char source, char auxiliary, char destination) {
