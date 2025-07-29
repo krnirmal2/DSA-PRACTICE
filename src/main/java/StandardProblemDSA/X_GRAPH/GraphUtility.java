@@ -3,31 +3,34 @@ package StandardProblemDSA.X_GRAPH;
 import java.util.*;
 
 public class GraphUtility {
-  // Build an adjacency list for an unweighted directed graph
+    // NOTE : Build an adjacency list for an unweighted directed graph
 
-  // Approach
+    // Step
   // 1. take the matrix fo the  graph
   // 2. iterate over the no of vertex and create adjaccency list of each vertex
   // 3. now for edges graph from one vertext to aother which is given in the graph
   // int[] edges = means we iterate over each
-  List<List<Integer>> buildGraph(int n, int[][] edges) {
-    /*
-        int n = 4;
-        int[][] edges = {{0, 1},{0, 2},
-                {1, 2},
-                {2, 3}
-        };
-    */
+  /*
+      int n = 4;
+      int[][] edges = {{0, 1},{0, 2},
+              {1, 2},
+              {2, 3}
+      };
+  */
+    List<List<Integer>> buildGraph(int n, int[][] edges) {
+        // Step 1 : create a blank linked list
     List<List<Integer>> graph = new ArrayList<>();
+        // Step 2 : create blank list for each vertex by adding empty arrayList to above graph list
     for (int i = 0; i < n; i++) {
       graph.add(new ArrayList<>());
     }
-    for (int[] edge :
-        edges) { // iterate over each element of 2D array which is 1d array and inside that
-      // one element present the dirction of edges 0 --> 1 and 0-->1 and 1 --> 2 and 2 --> 3
-      // For directed graph: edge[0] -> edge[1] == > edge[0] represent first element of the 1d array
-      // and
-      // edge[1] == > second elementof the 1d array element
+        // iterate over each element of 2D array which is 1d array and inside that
+        // one element present the dirction of edges 0 --> 1 and 0-->1 and 1 --> 2 and 2 --> 3
+        // For directed graph: edge[0] -> edge[1] == > edge[0] represent first element of the 1d array
+        // and
+        // edge[1] == > second elementof the 1d array element
+        // Step 3: for adding edges between
+        for (int[] edge : edges) {
       graph.get(edge[0]).add(edge[1]);
     }
     return graph;
@@ -52,7 +55,6 @@ public class GraphUtility {
   3.Flood fill, multi-source expansion*/
 
   public void bfs(int start, List<List<Integer>> graph) {
-    //        Approach
     int n = graph.size();
     boolean[] visited =
         new boolean[n]; // 1. Create a boolean array visited[] and initialize all entries as false.
@@ -208,11 +210,8 @@ public class GraphUtility {
 
   /*
       Problems Using Cycle Detection:
-
       Cycle Detection in Undirected Graph (BFS/DFS)
-
       Cycle Detection in Directed Graph (DFS)
-
       Course Schedule - I (Cycle detection with BFS/DFS)
   */
 

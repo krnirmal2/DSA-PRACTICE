@@ -36,7 +36,38 @@ endWord.length == beginWord.length
 wordList[i].length == beginWord.length
 beginWord, endWord, and wordList[i] consist of lowercase English letters.
 beginWord != endWord
-All the words in wordList are unique.*/
+All the words in wordList are unique.
+
+
+🔍 Approach: BFS (Shortest Path in an Unweighted Graph)
+- Treat each word as a node in a graph.
+- An edge exists between two words if they differ by exactly one character.
+- Use BFS to ensure the shortest path is found.
+
+✅ Steps:
+1. Convert `wordList` to a set for O(1) lookup.
+2. Start BFS with `beginWord`.
+3. For each word, change each character (a-z) and check if the new word exists in `wordList`.
+4. If `endWord` is found, return the current level (number of transformations).
+5. Mark visited words to prevent cycles.
+
+⏱️ Time Complexity:
+- O(N * L^2)
+  - N = number of words in `wordList`
+  - L = length of each word (since for each word we try changing each character to 26 letters).
+
+📦 Space Complexity: O(N)
+- For `visited` set and BFS queue.
+
+📘 Similar LeetCode Problem:
+- 127. Word Ladder
+
+🔁 Pattern:
+- BFS for shortest path in transformation graph.
+- Generate neighbors by changing one letter at a time.
+
+🔄 Follow-up:
+- Optimize by using bidirectional BFS to reduce search space.*/
 
 public class Word_I {
   public int ladderLength(String beginWord, String endWord, List<String> wordList) {
@@ -59,7 +90,7 @@ public class Word_I {
 
         for (int j = 0; j < word.length(); j++) {
           for (int k = 'a'; k <= 'z'; k++) {
-            char arr[] = word.toCharArray();
+            char[] arr = word.toCharArray();
             arr[j] = (char) k;
 
             String str = new String(arr);

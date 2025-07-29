@@ -2,14 +2,69 @@ package StandardProblemDSA.X_GRAPH.VIIII_ARTICULATION_AND_BRIDGE_IN_GRPAH;
 
 import java.util.ArrayList;
 
-/*Follow the below steps to Implement the idea:
+/*
+🧩 Problem Statement:
+---------------------
+Given an **undirected graph**, find all **articulation points** (also called cut vertices).
+An articulation point is a vertex which, when removed along with its associated edges, makes the graph disconnected or increases the number of connected components.
 
-Do DFS traversal of the given graph
-In DFS traversal, maintain a parent[] array where parent[u] stores the parent of vertex u.
-To check if u is the root of the DFS tree and it has at least two children. For every vertex, count children. If the currently visited vertex u is root (parent[u] is NULL) and has more than two children, print it.
-To handle a second case where u is not the root of the DFS tree and it has a child v such that no vertex in the subtree rooted with v has a back edge to one of the ancestors in DFS tree of u maintain an array disc[] to store the discovery time of vertices.
-For every node u, find out the earliest visited vertex (the vertex with minimum discovery time) that can be reached from the subtree rooted with u. So we maintain an additional array low[] such that:
-low[u] = min(disc[u], disc[w]) , Here w is an ancestor of u and there is a back edge from some descendant of u to w.*/
+📘 Example:
+----------
+Graph:
+0 -- 1 -- 2
+|
+3
+
+Articulation points: [1]
+- Removing vertex 1 disconnects vertex 2 from the graph.
+
+🎯 Approach (Tarjan's Algorithm):
+---------------------------------
+We use **DFS traversal** with the following concepts:
+- Maintain:
+  - `disc[u]`: Discovery time of vertex u
+  - `low[u]`: The earliest visited vertex reachable from the subtree rooted at u (including back edges)
+  - `parent[u]`: Parent of u in DFS tree
+  - `isAP[u]`: Boolean array to mark articulation points
+- For each vertex `u`:
+  1. Perform DFS, incrementing discovery time.
+  2. Count children of `u` in DFS tree.
+  3. For each adjacent vertex `v`:
+     - If `v` is not visited, recurse and update `low[u] = min(low[u], low[v])`.
+       - If `u` is **not root** and `low[v] >= disc[u]`, then `u` is an articulation point.
+     - If `v` is already visited and `v` ≠ `parent[u]`, update `low[u] = min(low[u], disc[v])`.
+  4. If `u` is **root** and has more than one child, mark `u` as an articulation point.
+
+📌 Pattern:
+-----------
+- **DFS Traversal**
+- **Tarjan’s Algorithm**
+- **Graph Connectivity**
+- **Low-link Values**
+
+🕒 Time Complexity:
+-------------------
+- **O(V + E)**: DFS visits each vertex and edge once.
+
+🧠 Space Complexity:
+--------------------
+- **O(V)** for `disc[]`, `low[]`, `visited[]`, and `isAP[]`.
+
+🔗 Related LeetCode Problems:
+-----------------------------
+- No direct LeetCode problem, but similar to:
+  - 1192. Critical Connections in a Network (Edge version of this problem)
+  - 310. Minimum Height Trees (related to graph centers)
+
+💡 Follow-up Questions:
+-----------------------
+1. Can you adapt this algorithm to find **bridges (critical edges)**?
+2. How would the algorithm change for **directed graphs**?
+3. Can we optimize memory by reusing `disc[]` and `low[]` arrays?
+4. How do articulation points help in **network reliability analysis**?
+
+*/
+
 public class ArticulationPoint {
   // A Java program to find articulation
   // points in an undirected graph

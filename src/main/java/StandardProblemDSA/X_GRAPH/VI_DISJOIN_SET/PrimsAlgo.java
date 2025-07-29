@@ -4,33 +4,66 @@ import java.util.ArrayList;
 import java.util.PriorityQueue;
 
 public class PrimsAlgo {
-  /*oblem Statement: Given a weighted, undirected, and connected graph of V vertices and E edges. The task is to find the sum of weights of the edges of the Minimum Spanning Tree.
-  (Sometimes it may be asked to find the MST as well, where in the MST the edge-informations will be stored in the form {u, v}(u = starting node, v = ending node).)
+  /*
+  Problem Statement:
+  ------------------
+  Given a weighted, undirected, and connected graph with V vertices and E edges, find the sum of
+  weights of the edges of the Minimum Spanning Tree (MST).
+  In some variations, the MST itself (list of edges {u, v}) may also be required.
 
-  Example 1:
+  Examples:
+  ---------
+  Input:
+  V = 5, edges = {{0, 1, 2}, {0, 3, 6}, {1, 2, 3}, {1, 3, 8}, {1, 4, 5}, {4, 2, 7}}
+  Output: 16
+  Explanation: MST = {(0, 1), (0, 3), (1, 2), (1, 4)}
 
-  Input Format:
-  V = 5, edges = { {0, 1, 2}, {0, 3, 6}, {1, 2, 3}, {1, 3, 8}, {1, 4, 5}, {4, 2, 7}}
+  Input:
+  V = 5, edges = {{0, 1, 2}, {0, 2, 1}, {1, 2, 1}, {2, 3, 2}, {3, 4, 1}, {4, 2, 2}}
+  Output: 5
+  Explanation: MST = {(0, 2), (1, 2), (2, 3), (3, 4)}
+
+  Approach:
+  ---------
+  - Build an adjacency list to represent the undirected graph.
+  - Use **Prim's Algorithm**:
+    1. Start with any node (here, node 0) and push it into a min-heap (priority queue) with weight 0.
+    2. Use a `vis[]` array to track visited nodes.
+    3. Extract the minimum-weight edge from the priority queue.
+    4. If the node is unvisited, add its weight to the MST sum and mark it visited.
+    5. Push all unvisited neighbors into the queue.
+    6. Repeat until all vertices are included.
+
+  Pattern:
+  --------
+  - **Minimum Spanning Tree (MST)**
+  - **Greedy Algorithm**
+  - **Graph Traversal with Priority Queue**
+  - **Prim’s Algorithm**
+
+  Time & Space Complexity:
+  ------------------------
+  - Time Complexity: O(E * log V)
+    - Each edge insertion/extraction in the priority queue takes O(log V).
+  - Space Complexity: O(V + E)
+    - For adjacency list and auxiliary structures (visited array, priority queue).
+
+  Related LeetCode / Practice Problems:
+  -------------------------------------
+  - 1584. Min Cost to Connect All Points
+  - 1135. Connecting Cities With Minimum Cost
+  - 1168. Optimize Water Distribution in a Village
+  - 1489. Find Critical and Pseudo-Critical Edges in MST
+
+  Follow-ups:
+  -----------
+  1. Can you modify Prim's algorithm to also **return the actual MST edges**, not just the total weight?
+  2. Compare **Prim's Algorithm vs Kruskal's Algorithm** – when is each preferable?
+  3. How would you handle **disconnected graphs** (returning an MST forest)?
+  4. Can you implement **Prim's algorithm using a simple array (O(V²))** for dense graphs?
 
 
-  Result: 16
-  Explanation:
-  The minimum spanning tree for the given graph is drawn below:
-  MST = {(0, 1), (0, 3), (1, 2), (1, 4)}
-
-
-  Example 2:
-
-  Input Format:
-  V = 5, edges = { {0, 1, 2}, {0, 2, 1}, {1, 2, 1}, {2, 3, 2}, {3, 4, 1}, {4, 2, 2}}
-
-
-  Result: 5
-  Explanation:
-  The minimum spanning tree is drawn below:
-
-  MST = {(0, 2), (1, 2), (2, 3), (3, 4)}*/
-
+    */
   static class Pair {
     int v;
     int wt;
@@ -42,7 +75,7 @@ public class PrimsAlgo {
   }
 
   // lets say the spanningtree give that is
-  static int spanningTree(int V, int E, int edges[][]) {
+  static int spanningTree(int V, int E, int[][] edges) {
     // store the eges and graph to the Adj list
     ArrayList<ArrayList<Pair>> adj = new ArrayList<>();
     for (int i = 0; i < V; i++) {
@@ -86,7 +119,7 @@ public class PrimsAlgo {
   }
 
   public static void main(String[] args) {
-    int graph[][] = new int[][] {{0, 1, 5}, {1, 2, 3}, {0, 2, 1}};
+    int[][] graph = new int[][] {{0, 1, 5}, {1, 2, 3}, {0, 2, 1}};
 
     // Function call
     System.out.println(spanningTree(3, 3, graph));

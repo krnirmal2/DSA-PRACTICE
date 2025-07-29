@@ -1,6 +1,7 @@
 package StandardProblemDSA.X_GRAPH.III_CYCLE_PATTERN;
 
 import StandardProblemDSA.X_GRAPH.GraphUtility;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +9,36 @@ public class CycleInDirectedGraphUingDFS {}
 
 class GfG {
 
-  // Utility function to detect cycle in a directed graph
+  /*
+  🧠 Problem:
+  Detect if a **directed graph** contains a cycle.
+
+  🔑 Approach: DFS + Recursion Stack
+  - Maintain two arrays:
+      - `visited[]` → marks nodes we’ve fully processed.
+      - `recStack[]` → tracks the nodes in the **current DFS path**.
+  - For each unvisited node:
+      - Perform DFS.
+      - Mark node as visited and add to `recStack`.
+      - If any neighbor is:
+          - Not visited → recursively DFS.
+          - Already in `recStack` → **cycle detected** (back edge).
+      - Remove node from `recStack` when DFS unwinds.
+
+  🌐 Why `recStack[]`?
+  - In directed graphs, revisiting a node in the same recursion stack means a **back edge** → cycle.
+
+  ⏱️ Time Complexity: **O(V + E)**
+  📦 Space Complexity: **O(V)** for `visited`, `recStack`, and recursion stack.
+
+  🔁 Pattern:
+  - DFS with recursion stack for cycle detection in **directed graphs**.
+
+  📌 Related Problems:
+  - Topological sort (cycle detection as a byproduct).
+  - Detecting deadlocks in OS (wait-for graphs).
+  - Course Schedule (LeetCode 207).
+  */
 
   // Function to detect cycle in a directed graph
   public static boolean isCyclic(List<List<Integer>> adj) {

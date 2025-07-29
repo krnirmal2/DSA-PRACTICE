@@ -4,6 +4,53 @@ import java.util.ArrayList;
 import java.util.PriorityQueue;
 
 class Prim {
+  /*
+  Problem Statement:
+  ------------------
+  Given a connected, undirected, weighted graph with V vertices and E edges,
+  find a Minimum Spanning Tree (MST) — a subset of edges connecting all vertices
+  with minimum total weight and no cycles.
+
+  Approach:
+  ---------
+  - Use **Prim’s Algorithm** (greedy):
+    1. Start from an arbitrary node.
+    2. Maintain a priority queue (min-heap) to pick the smallest weight edge leading
+       to a node not yet in the MST.
+    3. Maintain arrays:
+         - key[v]: Minimum weight to connect vertex v.
+         - parent[v]: Parent node in MST.
+         - mstSet[v]: Whether v is included in MST.
+    4. Repeat until all vertices are included.
+
+  Pattern:
+  --------
+  - **Greedy Algorithm + Min-Heap + Key Array**
+  - Always expand the MST by picking the minimum-weight edge.
+
+  Complexity:
+  -----------
+  - Time Complexity: O(E log V), as each edge can enter the priority queue once.
+  - Space Complexity: O(V + E) for the adjacency list, key array, and priority queue.
+
+  Related LeetCode Questions:
+  ---------------------------
+  - 1584. Min Cost to Connect All Points
+  - 1135. Connecting Cities With Minimum Cost
+  - 1168. Optimize Water Distribution in a Village
+
+  Follow-ups:
+  ------------
+  1. What if the graph is disconnected?
+     → You can find a Minimum Spanning Forest (MSF) instead of MST.
+  2. Compare **Prim’s vs Kruskal’s**:
+     → Prim’s is efficient for dense graphs; Kruskal’s for sparse graphs.
+  3. Can we implement Prim’s without a priority queue?
+     → Yes, using O(V²) adjacency matrix for small graphs.
+  4. How to handle dynamically added edges?
+     → Consider fully dynamic MST algorithms or recomputation.
+  */
+
   public static void main(String[] args) {
 
     // TODO: step1 create the graph and add between them with weight

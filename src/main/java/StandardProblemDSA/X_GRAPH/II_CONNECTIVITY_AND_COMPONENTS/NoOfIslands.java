@@ -2,15 +2,42 @@ package StandardProblemDSA.X_GRAPH.II_CONNECTIVITY_AND_COMPONENTS;
 
 public class NoOfIslands {
   /*Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands.
-  An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of
-   the grid are all surrounded by water.
-  Example 1:
-  Input: grid = [
-          ["1","1","1","1","0"],
-          ["1","1","0","1","0"],
-          ["1","1","0","0","0"],
-          ["0","0","0","0","0"]
-          ]*/
+    An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of
+     the grid are all surrounded by water.
+    Example 1:
+    Input: grid = [
+            ["1","1","1","1","0"],
+            ["1","1","0","1","0"],
+            ["1","1","0","0","0"],
+            ["0","0","0","0","0"]
+            ]
+
+    🚀 Approach: DFS Flood Fill
+  1. Traverse each cell in the grid.
+  2. When an unvisited land cell ('1') is found, increment the island count.
+  3. Perform DFS to mark all connected '1's as visited.
+  4. Repeat until the entire grid is explored.
+
+  🔁 Pattern:
+  - Connected components in a grid (DFS/BFS flood-fill).
+
+  ⏱️ Time Complexity: O(m × n)
+  - Each cell is visited at most once.
+
+  📦 Space Complexity: O(m × n)
+  - For the `visited[][]` array and recursion stack.
+
+  ⚠️ Edge Cases:
+  - Empty grid (0 islands).
+  - All water grid (0 islands).
+  - Entire grid is land (1 island).
+
+  ✅ Related Problems:
+  - 200. Number of Islands (LeetCode)
+  - 695. Max Area of Island
+  - 733. Flood Fill
+  */
+
   public static int numIslands(char[][] grid) {
     // Find the size of the grid
     int row = grid.length; // calculate the row size

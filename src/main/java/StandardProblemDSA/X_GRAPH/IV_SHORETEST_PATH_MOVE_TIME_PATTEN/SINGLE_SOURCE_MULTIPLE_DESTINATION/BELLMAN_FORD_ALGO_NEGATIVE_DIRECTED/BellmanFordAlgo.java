@@ -1,7 +1,9 @@
 package StandardProblemDSA.X_GRAPH.IV_SHORETEST_PATH_MOVE_TIME_PATTEN.SINGLE_SOURCE_MULTIPLE_DESTINATION.BELLMAN_FORD_ALGO_NEGATIVE_DIRECTED;
 
 import StandardProblemDSA.X_GRAPH.GraphUtility;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class BellmanFordAlgo {
   // NOTE: FOR BELLMAN FORD
@@ -14,21 +16,46 @@ public class BellmanFordAlgo {
 
   /*Problem Statement: Given a weighted, directed and connected graph of V vertices and E edges, Find the shortest distance of all the vertices from the source vertex S.
 
-  Note: If the Graph contains a negative cycle then return an array consisting of only -1.
+    Note: If the Graph contains a negative cycle then return an array consisting of only -1.
 
-  Example 1:
+    Example 1:
 
-  Input Format:
-  V = 6,
-  E = [[3, 2, 6], [5, 3, 1], [0, 1, 5], [1, 5, -3], [1, 2, -2], [3, 4, -2], [2, 4, 3]],
-  S = 0
+    Input Format:
+    V = 6,
+    E = [[3, 2, 6], [5, 3, 1], [0, 1, 5], [1, 5, -3], [1, 2, -2], [3, 4, -2], [2, 4, 3]],
+    S = 0
 
 
-  Result: 0 5 3 3 1 2
-  Explanation: Shortest distance of all nodes from the source node is returned.
-  Example 2:
+    Result: 0 5 3 3 1 2
+    Explanation: Shortest distance of all nodes from the source node is returned.
+    Example 2:
 
-  Input Format: V = 2, E = [[0,1,9]],  S = 0*/
+    Input Format: V = 2, E = [[0,1,9]],  S = 0
+
+
+    🔑 Approach:
+  - Initialize `dist[]` with ∞, `dist[source] = 0`.
+  - Relax all edges `V-1` times (where V = no. of vertices).
+      - For each edge (u → v with weight wt):
+          if dist[u] + wt < dist[v], update dist[v].
+  - Do a final (V-th) iteration:
+      - If any distance still improves, graph contains a **negative cycle**.
+
+  ⚠️ Important:
+  - Graph must not have negative weight cycles for valid shortest paths.
+  - Works for directed graphs, and can handle negative edges unlike Dijkstra.
+
+  ⏱️ Time Complexity: **O(V × E)**
+  📦 Space Complexity: **O(V)**.
+
+  🔁 Pattern:
+  - Edge relaxation.
+  - Used when negative weights are involved.
+
+  📌 Related Problems:
+  - Detecting arbitrage opportunities (currencies).
+  - Shortest paths in networks with negative edges.
+  - Flight fare calculation with possible discounts.*/
   static int[] bellman_ford(int V, ArrayList<ArrayList<Integer>> edges, int S) {
     int[] dist = new int[V];
     for (int i = 0; i < V; i++) dist[i] = GraphUtility.infiniteValue();
@@ -50,7 +77,7 @@ public class BellmanFordAlgo {
       int v = it.get(1);
       int wt = it.get(2);
       if (dist[u] != GraphUtility.infiniteValue() && dist[u] + wt < dist[v]) {
-        int temp[] = new int[1];
+        int[] temp = new int[1];
         temp[0] = -1;
         return temp;
       }
@@ -78,6 +105,6 @@ public class BellmanFordAlgo {
     for (int i = 0; i < V; i++) {
       System.out.print(dist[i] + " ");
     }
-    System.out.println("");
+    System.out.println();
   }
 }

@@ -1,11 +1,39 @@
 package StandardProblemDSA.X_GRAPH.IV_SHORETEST_PATH_MOVE_TIME_PATTEN.MULTIPLE_SOURCE_MULTIPLE_DESTINATION;
 
 import StandardProblemDSA.X_GRAPH.GraphUtility;
-import java.util.*;
 
 public class FloydWarshalAlgo {
   // algo  also handle negative edge
   // go via every vertex to every other
+  /*
+  🧠 Problem:
+  Find shortest paths between all pairs of vertices in a weighted graph (handles negative edges, but not negative cycles).
+
+  🔑 Approach: Dynamic Programming
+  - `matrix[i][j]` holds shortest distance from i to j.
+  - Initially:
+      - Replace `-1` with ∞ (no path).
+      - Distance from node to itself = 0.
+  - Core idea:
+      - Try to improve `dist[i][j]` by checking if path through an intermediate vertex `via` is shorter.
+      - Formula: dist[i][j] = min(dist[i][j], dist[i][via] + dist[via][j]).
+
+  ⚠️ Important:
+  - Handles negative edge weights.
+  - Does not detect negative cycles directly (need extra step: if dist[i][i] < 0 → negative cycle).
+
+  ⏱️ Time Complexity: **O(V³)**
+  📦 Space Complexity: **O(1)** (in-place).
+
+  🔁 Pattern:
+  - Dynamic programming on graphs.
+  - Tries all possible paths by relaxing edges via all vertices.
+
+  📌 Related Problems:
+  - Transitive closure of a graph.
+  - Minimum cost between all cities.
+  - Detecting arbitrage opportunities (currencies).
+  */
 
   public void shortest_distance(int[][] matrix) {
     int n = matrix.length;
@@ -58,7 +86,7 @@ public class FloydWarshalAlgo {
       for (int j = 0; j < V; j++) {
         System.out.print(matrix[i][j] + " ");
       }
-      System.out.println("");
+      System.out.println();
     }
   }
 }

@@ -1,15 +1,15 @@
 package StandardProblemDSA.X_GRAPH.II_CONNECTIVITY_AND_COMPONENTS.MULTISOURCE_BFS;
 
 import StandardProblemDSA.X_GRAPH.GraphUtility;
+
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
 /*Problem Statement:
-Given an m × n binary matrix mat, where each cell contains either 0 or 1, return a matrix of the same size where each cell (i, j) contains the shortest distance to the nearest 0.
-
+Given an m × n binary matrix mat, where each cell contains either 0 or 1, return a matrix of the same size where each cell (i, j)
+ contains the shortest distance to the nearest 0.
 The distance between two adjacent cells is always 1 (4-directionally: up, down, left, right).
-
 Example Walkthrough
 Example 1:
 Input:
@@ -26,30 +26,23 @@ Output:
 ]
 Explanation:
 The 1 at (1,1) is one step away from the nearest 0.
-
 All other 0s remain 0 because they are already 0.
 
 Example 2:
-Input:
-
-mat = [
+Input:mat = [
   [0,0,0],
   [0,1,0],
   [1,1,1]
 ]
-Output:
-[
+Output:[
   [0,0,0],
   [0,1,0],
   [1,2,1]
 ]
 Explanation:
 The 1 at (1,1) is one step away from the nearest 0.
-
 The 1 at (2,0) is one step away from (1,0), which is 0, so its value becomes 1.
-
 The 1 at (2,1) is two steps away from the nearest 0, so its value becomes 2.
-
 The 1 at (2,2) is one step away from (1,2), which is 0, so its value becomes 1.
 
 Approach to Solve the Problem
@@ -66,13 +59,32 @@ If a neighbor is a 1 (unprocessed), update its distance (current distance + 1) a
 Continue until all 1s are processed.
 2. DP (Dynamic Programming) Approach - Another Alternative
 Why DP?
-
 We can update the matrix using two passes:
-
 First pass: Traverse from top-left to bottom-right, updating distances.
+Second pass: Traverse from bottom-right to top-left, refining distances.\
 
-Second pass: Traverse from bottom-right to top-left, refining distances.
 
+\🔍 Approach: Multi-Source BFS
+1. Enqueue all cells with `0` and mark all `1`s as unprocessed (-1).
+2. BFS level by level:
+   - For each cell, update unprocessed neighbors with `current distance + 1`.
+   - Add updated neighbors to the queue.
+3. Continue until all cells are processed.
+
+⏱️ Time Complexity:
+- O(m × n): Each cell is visited once.
+
+📦 Space Complexity:
+- O(m × n): Queue holds at most all cells.
+
+📘 Similar LeetCode Problem:
+- 542. 01 Matrix
+
+🔁 Pattern:
+- Multi-Source BFS, shortest path in unweighted grid.
+
+🔄 Follow-up:
+- DP solution with two passes (top-left → bottom-right, then bottom-right → top-left).
 */
 public class ZeroOneMatrixNearestDistanceBFS {
   public int[][] updateMatrix(int[][] mat) {

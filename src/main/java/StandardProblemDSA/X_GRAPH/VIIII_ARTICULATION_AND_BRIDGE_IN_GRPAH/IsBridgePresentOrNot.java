@@ -1,8 +1,68 @@
 package StandardProblemDSA.X_GRAPH.VIIII_ARTICULATION_AND_BRIDGE_IN_GRPAH;
 
+import java.util.ArrayList;
+
 import static Graph.IsBridgePresentOrNot.Graphs.*;
 
-import java.util.ArrayList;
+/*
+🧩 Problem Statement:
+---------------------
+Given an **undirected graph**, determine if there exists at least one **bridge (cut edge)**.
+A **bridge** is an edge which, if removed, increases the number of connected components in the graph.
+
+📘 Example:
+----------
+Graph:
+0 -- 1 -- 2
+|      \
+3        4
+
+- Removing edge (1, 2) will disconnect vertex 2 from the graph.
+- Hence, the graph contains a bridge.
+
+🎯 Approach:
+------------
+**Brute Force Method**:
+1. For every edge (u, v):
+   - Temporarily remove the edge.
+   - Run a DFS or BFS to check if the graph remains connected.
+   - Reinsert the edge.
+2. If removing any edge makes the graph disconnected → that edge is a bridge.
+
+📌 Pattern:
+-----------
+- Graph Traversal (DFS/BFS)
+- Connectivity Check
+- Brute-force edge removal
+
+🕒 Time Complexity:
+-------------------
+- **O(E × (V + E))**:
+  For each edge, we run DFS (O(V + E)) to check connectivity.
+
+🧠 Space Complexity:
+--------------------
+- **O(V + E)** for adjacency list and visited array.
+
+⚡ Optimized Approach:
+----------------------
+Use **Tarjan’s Algorithm** for finding all bridges in **O(V + E)** time:
+- Maintain `disc[]` and `low[]` arrays similar to articulation points.
+- An edge (u, v) is a bridge if `low[v] > disc[u]`.
+
+🔗 Related LeetCode Problems:
+-----------------------------
+- 1192. Critical Connections in a Network (Bridge finding)
+- 310. Minimum Height Trees (graph connectivity concepts)
+
+💡 Follow-up Questions:
+-----------------------
+1. Can you list all bridges instead of just checking existence?
+2. How would the approach change for **directed graphs**?
+3. Can we avoid re-running DFS for each edge?
+4. What are real-world applications of bridge detection (e.g., network resilience)?
+
+*/
 
 public class IsBridgePresentOrNot {
   static ArrayList<ArrayList<Integer>> adjcencyList;

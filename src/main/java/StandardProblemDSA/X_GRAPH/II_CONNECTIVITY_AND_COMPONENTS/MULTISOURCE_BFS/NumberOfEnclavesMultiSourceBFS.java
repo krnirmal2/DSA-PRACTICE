@@ -1,9 +1,41 @@
 package StandardProblemDSA.X_GRAPH.II_CONNECTIVITY_AND_COMPONENTS.MULTISOURCE_BFS;
 
 import StandardProblemDSA.X_GRAPH.GraphUtility;
-import java.util.*;
+
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class NumberOfEnclavesMultiSourceBFS {
+  /*
+  🧠 Problem:
+  Count land cells (`1`s) in a grid that cannot reach the boundary.
+  - Any land connected to the boundary (directly or indirectly) is not enclosed.
+
+  🔍 Approach: Multi-Source BFS
+  1. **Eliminate all boundary-connected land**:
+     - Traverse first & last rows and columns.
+     - For each `1`, run BFS to mark all connected land as water (`0`).
+  2. **Count remaining land cells**:
+     - After BFS, any `1` is enclosed and part of the answer.
+
+  ⏱️ Time Complexity:
+  - O(m × n): Each cell is visited at most once.
+
+  📦 Space Complexity:
+  - O(m × n): Queue can hold all land cells in the worst case.
+
+  📘 Similar LeetCode Problem:
+  - 1020. Number of Enclaves
+
+  🔁 Pattern:
+  - Multi-Source BFS / DFS.
+  - Boundary marking + counting enclosed components.
+
+  🔄 Follow-up:
+  - Solve with DFS for recursive style.
+  - Optimize space by reusing `grid` without extra `visited` array.
+  */
+
   public int numEnclaves(int[][] grid) {
     int rows = grid.length, cols = grid[0].length;
     Queue<int[]> queue = new LinkedList<>();

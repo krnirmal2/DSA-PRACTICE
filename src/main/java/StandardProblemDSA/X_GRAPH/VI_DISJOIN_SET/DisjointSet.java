@@ -3,6 +3,67 @@ package StandardProblemDSA.X_GRAPH.VI_DISJOIN_SET;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+Problem Statement:
+------------------
+Implement Disjoint Set Union (DSU) / Union-Find data structure that efficiently supports:
+1. **Find**: Determine which subset a particular element belongs to.
+2. **Union**: Merge two subsets into a single subset.
+
+Key Features:
+- **Path Compression** in `find`: Flattens the structure of the tree, ensuring almost O(1) time.
+- **Union by Rank**: Attaches the smaller-depth tree under the root of the deeper tree.
+- **Union by Size**: Attaches the smaller-sized tree under the larger-sized tree.
+
+Use Cases:
+----------
+- Detecting cycles in an undirected graph.
+- Kruskal's Algorithm for Minimum Spanning Tree (MST).
+- Connected components in a graph.
+- Network connectivity problems.
+
+Approach:
+---------
+- Maintain three arrays/lists:
+  - `parent`: Tracks the parent of each node; initially, each node is its own parent.
+  - `rank`: Tracks the depth of trees for union by rank.
+  - `size`: Tracks the size of trees for union by size.
+- `findUparent(node)`:
+  - Recursively finds the ultimate parent of `node` and applies **path compression**.
+- `unionByRank(u, v)`:
+  - Merges sets containing `u` and `v` using tree height (rank) to keep the tree shallow.
+- `unionBySize(u, v)`:
+  - Merges sets using subtree sizes, attaching the smaller tree under the larger one.
+
+Pattern:
+--------
+- Disjoint Set Union (DSU)
+- Union-Find with Path Compression
+- Greedy Algorithm Support (used in Kruskal's MST)
+
+Time & Space Complexity:
+------------------------
+- Amortized Time Complexity:
+  - `find` ≈ O(α(n)), where α(n) is the Inverse Ackermann Function (practically constant).
+  - `union` ≈ O(α(n)).
+- Space Complexity: O(n) for parent, rank, and size arrays.
+
+Related LeetCode Questions:
+---------------------------
+- 684. Redundant Connection
+- 685. Redundant Connection II
+- 547. Number of Provinces
+- 1319. Number of Operations to Make Network Connected
+- 1579. Remove Max Number of Edges to Keep Graph Fully Traversable
+
+Follow-ups:
+-----------
+1. How does **path compression** improve performance over naive Union-Find?
+2. Compare **union by rank** vs. **union by size**. When to prefer one?
+3. How to modify DSU to support **rollback operations** (Undo Union)?
+4. Can DSU be extended to track **extra information** (e.g., connected component weights)?
+*/
+
 public class DisjointSet {
   // find two component, of the
   // check if the two vertex belongs to same component or not

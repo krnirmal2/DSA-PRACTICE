@@ -1,11 +1,41 @@
 package StandardProblemDSA.X_GRAPH.II_CONNECTIVITY_AND_COMPONENTS;
 
 import StandardProblemDSA.X_GRAPH.GraphUtility;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class ConnectedComponentsUsingDFS {
   // create a graph class for constract graph
+  /*
+  🧠 Problem:
+  Find the number of connected components in an undirected graph.
+
+  🚀 Approach: DFS (Depth-First Search)
+  1. Maintain a `visited[]` array to track visited nodes.
+  2. For each vertex `v`:
+     - If not visited, increment `count` (new component found).
+     - Perform DFS from `v` to visit all vertices in that component.
+  3. Return `count`.
+
+  🔁 Pattern:
+  - Standard DFS for connected components.
+  - For disconnected graphs, we need to start DFS from every unvisited vertex.
+
+  ⏱️ Time Complexity: O(V + E)
+  - V = vertices, E = edges; each vertex and edge visited once.
+
+  📦 Space Complexity: O(V)
+  - For visited array + recursion stack.
+
+  ⚠️ Edge Case:
+  - Graph with no edges (V components).
+  - Fully connected graph (1 component).
+
+  ✅ Related Problems:
+  - 323. Number of Connected Components in an Undirected Graph
+  - 200. Number of Islands (grid version of the same problem)
+  */
 
   private static int countConnectedComponents(List<List<Integer>> graph, int vertex) {
     boolean[] visited = new boolean[vertex];

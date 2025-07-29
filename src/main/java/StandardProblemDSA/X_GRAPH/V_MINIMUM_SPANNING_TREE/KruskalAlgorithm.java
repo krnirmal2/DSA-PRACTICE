@@ -2,28 +2,50 @@ package StandardProblemDSA.X_GRAPH.V_MINIMUM_SPANNING_TREE;
 
 import java.util.Arrays;
 
-// In this implementation, Kruskal is the main class that performs Kruskal's algorithm. The class
-// has an inner class Edge to represent edges in the graph. The DisjointSet class is used to keep
-// track of the disjoint sets of vertices in the graph.
-//
-//        The addEdge method is used to add edges to the graph. The kruskal method performs
-// Kruskal's algorithm and returns the minimum spanning tree as a list of edges.
-//
-//        The main method shows an example usage of the Kruskal class. It creates a graph with 4
-// vertices and 5 edges, and then runs Kruskal's algorithm on the graph. The
-// class Edge implements Comparable<Edge> {
-//    int u, v, weight;
-//
-//    public Edge(int u, int v, int weight) {
-//        this.u = u;
-//        this.v = v;
-//        this.weight = weight;
-//    }
-//
-//    public int compareTo(Edge other) {
-//        return Integer.compare(this.weight, other.weight);
-//    }
-// }
+/*
+Problem Statement:
+------------------
+Given a connected, undirected, and weighted graph with V vertices and E edges, find a **Minimum Spanning Tree (MST)**
+– a subset of edges that connects all vertices with minimum total weight and no cycles.
+
+Approach:
+---------
+- Use **Kruskal's Algorithm**:
+  1. Sort all edges by weight.
+  2. Initialize Disjoint Set Union (DSU/Union-Find) to keep track of connected components.
+  3. Iterate over sorted edges:
+      - If the current edge connects two different components, include it in the MST.
+      - Otherwise, skip it (to avoid cycles).
+  4. Repeat until we have V-1 edges in the MST.
+- The sum of the included edge weights gives the MST cost.
+
+Pattern:
+--------
+- **Greedy Algorithm + Disjoint Set Union (Union-Find)**
+- Sort edges and pick the smallest ones that don't form a cycle.
+
+Complexity:
+-----------
+- Time Complexity: O(E log E + E α(V)), where E log E is for sorting and α(V) is the inverse Ackermann function for Union-Find.
+- Space Complexity: O(V + E) for edges and DSU parent array.
+
+Related LeetCode Questions:
+---------------------------
+- 1584. Min Cost to Connect All Points
+- 1135. Connecting Cities With Minimum Cost
+- 1168. Optimize Water Distribution in a Village
+
+Follow-ups:
+------------
+1. How to handle **disconnected graphs**?
+   → MST is not possible; you can build a Minimum Spanning Forest (MSF) instead.
+2. How to optimize Union-Find?
+   → Use **path compression** and **union by rank** for near O(1) operations.
+3. Compare Kruskal vs **Prim’s algorithm**.
+   → Kruskal is efficient when the graph is edge-heavy; Prim’s is better for dense graphs.
+4. How to handle **dynamic graphs** with edge additions/removals?
+   → Use data structures like Dynamic MST or recompute MST when needed.
+*/
 
 class Edge implements Comparable<Edge> {
   int src, dest, weight;

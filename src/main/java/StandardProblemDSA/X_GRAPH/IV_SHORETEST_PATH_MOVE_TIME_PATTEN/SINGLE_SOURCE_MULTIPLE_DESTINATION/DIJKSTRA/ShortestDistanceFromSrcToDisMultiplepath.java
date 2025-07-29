@@ -1,8 +1,59 @@
 package StandardProblemDSA.X_GRAPH.IV_SHORETEST_PATH_MOVE_TIME_PATTEN.SINGLE_SOURCE_MULTIPLE_DESTINATION.DIJKSTRA;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.PriorityQueue;
 
 public class ShortestDistanceFromSrcToDisMultiplepath {
+  /*
+  Problem Statement:
+  ------------------
+  You are given an undirected weighted graph with `n` nodes and an array `roads` where
+  `roads[i] = [u, v, time]` indicates there is a road between `u` and `v` taking `time` units.
+  You start at node `0` and want to reach node `n-1`.
+  Return the number of **distinct shortest paths** from node `0` to node `n-1`.
+  Since the answer may be very large, return it modulo 10^9 + 7.
+
+  Approach:
+  ---------
+  - Build an adjacency list to represent the graph.
+  - Use **Dijkstra’s Algorithm** to find the shortest distance from node `0` to all nodes.
+  - Maintain:
+    - `dist[]`: the shortest distance to each node.
+    - `ways[]`: the number of distinct shortest paths to each node.
+  - When a better distance is found for a node, update both `dist[]` and `ways[]`.
+  - When another path with the same shortest distance is found, increment `ways[]` modulo 10^9 + 7.
+  - Finally, `ways[n - 1]` gives the number of shortest paths from `0` to `n-1`.
+
+  Pattern:
+  --------
+  - **Graph Traversal + Single-Source Shortest Path + Path Counting**
+  - Uses **Dijkstra with Path Count Augmentation**.
+
+  Complexity:
+  -----------
+  - Time Complexity: O((V + E) log V), where V = number of nodes and E = number of edges.
+  - Space Complexity: O(V + E) for the adjacency list and O(V) for `dist[]` and `ways[]`.
+
+  Related LeetCode Questions:
+  ---------------------------
+  - 1976. Number of Ways to Arrive at Destination (this problem)
+  - 743. Network Delay Time
+  - 1514. Path with Maximum Probability
+  - 1631. Path With Minimum Effort
+
+  Follow-ups:
+  ------------
+  1. How to handle **negative edge weights**?
+     → Use Bellman-Ford algorithm with path counting.
+  2. How to find **all actual shortest paths**, not just count them?
+     → Store parent lists for each node and backtrack from `n-1`.
+  3. How to handle **dynamic graphs** where edges are frequently updated?
+     → Consider dynamic shortest path algorithms or recompute selectively.
+  4. How to modify it for **k-shortest paths**?
+     → Use a modified Dijkstra/K-shortest paths algorithm.
+  */
 
   static class Pair {
     // node: The destination node for an edge.

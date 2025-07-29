@@ -4,6 +4,38 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CycleDetectWithDFSInUndirectedGraph {
+  /*
+  🧠 Problem:
+  Detect if an **undirected graph** contains a cycle using **DFS**.
+
+  🔑 Approach: DFS with Parent Tracking
+  - For each unvisited node, perform DFS.
+  - Mark node as visited.
+  - For each neighbor:
+      - If not visited → recursively DFS with current node as `parent`.
+      - If visited and `neighbor != parent` → cycle detected (return true).
+
+  ⚠️ Why parent check?
+  - In undirected graphs, an edge appears twice (u ↔ v).
+  - Without checking the parent, we would falsely detect a cycle when revisiting the node we just came from.
+
+  🌐 Multiple Components:
+  - We must start DFS for every unvisited vertex because the graph may be disconnected.
+
+  ⏱️ Time Complexity:
+  - **O(V + E)** – we visit all vertices and edges once.
+
+  📦 Space Complexity:
+  - **O(V)** for recursion stack and `visited[]`.
+
+  🔁 Pattern:
+  - DFS + parent tracking for cycle detection in undirected graphs.
+
+  📌 Related Problems:
+  - BFS-based cycle detection in undirected graphs.
+  - Cycle detection in directed graphs (using recursion stack or Kahn’s algorithm).
+  - Connected components in a graph.
+  */
 
   // DFS to detect cycle in an undirected graph
   public static boolean dfs(List<List<Integer>> graph, boolean[] visited, int s, int parent) {

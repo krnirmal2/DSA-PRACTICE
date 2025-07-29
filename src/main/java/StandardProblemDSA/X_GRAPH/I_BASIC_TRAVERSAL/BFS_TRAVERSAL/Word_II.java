@@ -2,6 +2,49 @@ package StandardProblemDSA.X_GRAPH.I_BASIC_TRAVERSAL.BFS_TRAVERSAL;
 
 import java.util.*;
 
+/*
+🧠 Problem:
+Find all shortest transformation sequences from `beginWord` to `endWord`:
+- Each step changes exactly one letter.
+- All intermediate words must exist in `wordList`.
+- Return all minimal-length transformation paths.
+
+🔍 Approach: Bidirectional BFS + Backtracking
+- **Bidirectional BFS**:
+  - Expand from `beginWord` and `endWord` simultaneously.
+  - Reduces the search space compared to normal BFS.
+  - Build a graph (`Map<String, List<String>>`) of valid next words at each level.
+- **Backtracking**:
+  - Starting from `beginWord`, explore all paths using the graph until `endWord` is reached.
+  - Only shortest paths are explored since BFS ensures minimum levels.
+
+✅ Steps:
+1. Initialize `startSet` and `endSet` with `beginWord` and `endWord`.
+2. Run bidirectional BFS to build adjacency graph of valid transformations.
+3. If `endWord` is reached, use DFS/backtracking to reconstruct all shortest sequences.
+4. Return all found paths.
+
+⏱️ Time Complexity:
+- Building graph: O(N * L^2), where
+  - N = number of words,
+  - L = length of each word.
+- Backtracking: O(total number of sequences), bounded by `10^5` as per constraints.
+
+📦 Space Complexity: O(N * L)
+- To store graph, visited sets, and recursion stack.
+
+📘 Similar LeetCode Problem:
+- 126. Word Ladder II
+
+🔁 Pattern:
+- **Bidirectional BFS** for shortest path in word transformation graph.
+- **Backtracking** to construct all minimal paths.
+
+🔄 Follow-up:
+- Optimize further by caching intermediate transformations.
+- Convert to single-direction BFS with level-based word removal if memory-constrained.
+*/
+
 public class Word_II {
   /*126. Word Ladder II
   Attempted

@@ -30,7 +30,32 @@ n == isConnected.length
 n == isConnected[i].length
 isConnected[i][j] is 1 or 0.
 isConnected[i][i] == 1
-isConnected[i][j] == isConnected[j][i]*/
+isConnected[i][j] == isConnected[j][i]
+
+🚀 Approach: DFS on Adjacency Matrix
+1. Treat each city as a node in a graph.
+2. For every unvisited city, start a DFS traversal to mark all connected cities.
+3. Each DFS initiation corresponds to discovering a new province.
+4. Return the number of DFS initiations.
+
+🔁 Pattern:
+- Connected Components in Graph using DFS.
+
+⏱️ Time Complexity: O(n²)
+- We may visit all `n²` entries in the adjacency matrix.
+
+📦 Space Complexity: O(n)
+- For the `visited[]` array and recursion stack.
+
+⚠️ Edge Cases:
+- Single city (1 province).
+- All cities isolated (n provinces).
+- Fully connected network (1 province).
+
+✅ Related Problems:
+- 547. Number of Provinces (LeetCode)
+- 200. Number of Islands
+- 323. Number of Connected Components in an Undirected Graph*/
 public class NumberofProvinces {
 
   public int findCircleNum(int[][] isConnected) {

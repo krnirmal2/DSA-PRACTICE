@@ -3,27 +3,53 @@ package StandardProblemDSA.X_GRAPH.I_BASIC_TRAVERSAL.DFS_TRAVERSAL;
 public class SurrandedRegion {
 
   /*
-  130. Surrounded Regions
-  You are given an m x n matrix board containing letters 'X' and 'O', capture regions that are surrounded:
-  Connect: A cell is connected to adjacent cells horizontally or vertically.
-  Region: To form a region connect every 'O' cell.
-          Surround: The region is surrounded with 'X' cells if you can connect the region with 'X' cells and none of the region cells are on the edge of the board.
-  To capture a surrounded region, replace all 'O's with 'X's in-place within the original board. You do not need to return anything.
-          Example 1:
-  Input: board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]
-  Output: [["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]
-  Explanation:
-  In the above diagram, the bottom region is not captured because it is on the edge of the board and cannot be surrounded.
-  Example 2:
-  Input: board = [["X"]]
-  Output: [["X"]]
+    130. Surrounded Regions
+    You are given an m x n matrix board containing letters 'X' and 'O', capture regions that are surrounded:
+    Connect: A cell is connected to adjacent cells horizontally or vertically.
+    Region: To form a region connect every 'O' cell.
+            Surround: The region is surrounded with 'X' cells if you can connect the region with 'X' cells and none of the region cells are on the edge of the board.
+    To capture a surrounded region, replace all 'O's with 'X's in-place within the original board. You do not need to return anything.
+            Example 1:
+    Input: board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]
+    Output: [["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]
+    Explanation:
+    In the above diagram, the bottom region is not captured because it is on the edge of the board and cannot be surrounded.
+    Example 2:
+    Input: board = [["X"]]
+    Output: [["X"]]
 
-  Constraints:
+    Constraints:
 
-  m == board.length
-  n == board[i].length
-  1 <= m, n <= 200
-  board[i][j] is 'X' or 'O'.*/
+    m == board.length
+    n == board[i].length
+    1 <= m, n <= 200
+    board[i][j] is 'X' or 'O'.
+
+    🔍 Approach: DFS with Marking
+  1. **Mark border-connected 'O's**:
+     - Iterate over the first/last rows and columns.
+     - For each 'O', run DFS to mark all connected 'O's as `'#'` (temporary safe marker).
+  2. **Flip remaining 'O's**:
+     - Any 'O' not marked is surrounded → flip to `'X'`.
+  3. **Restore marked cells**:
+     - Convert `'#'` back to `'O'`.
+
+  ⏱️ Time Complexity:
+  - O(m × n): Visit each cell at most once during DFS.
+
+  📦 Space Complexity:
+  - O(m × n) in the worst case for recursion stack.
+
+  📘 Similar LeetCode Problem:
+  - 130. Surrounded Regions
+
+  🔁 Pattern:
+  - DFS Flood Fill on a grid.
+  - Border marking to differentiate "safe" vs "capturable" regions.
+
+  🔄 Follow-up:
+  - Convert DFS to BFS to avoid stack overflow for large boards.
+  - Can also implement Union-Find to identify non-surrounded regions.*/
   public static void solve(char[][] board) {
     if (board == null || board.length == 0) return;
 
