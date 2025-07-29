@@ -15,7 +15,18 @@ package StandardProblemDSA.II_STRING.VIII_STRING_TRANSFORMATION;
  * <p>Input: s = "()(())((()()))" Output: 3
  *
  * <p>Constraints: 1 <= s.length <= 100 s consists of digits 0-9 and characters '+', '-', '*', '/',
- * '(', and ')'. It is guaranteed that s is a valid parentheses string (VPS).
+ * '(', and ')'. It is guaranteed that s is a valid parentheses string (VPS). Pattern: Single-pass
+ * counter — increment on '(', decrement on ')', track maximum depth.
+ *
+ * <p>Follow-ups: 1. Validate parentheses while computing depth (handle unbalanced strings). 2.
+ * Extend to support multiple bracket types: {}, [], (). 3. Return the substring corresponding to
+ * the maximum depth.
+ *
+ * <p>LeetCode Similar Problems: 1614. Maximum Nesting Depth of the Parentheses, 856. Score of
+ * Parentheses
+ *
+ * <p>Time Complexity: O(N) — single traversal of the string. Space Complexity: O(1) — only counters
+ * used.
  */
 public class MaxDepthParenthesis {
 

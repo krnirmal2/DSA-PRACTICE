@@ -1,7 +1,5 @@
 package StandardProblemDSA.II_STRING.VII_STRING_COMPRESSION_AND_DECOMPRESSION;
 
-import java.util.*;
-
 // Huffman Node class
 class HuffmanNode implements Comparable<HuffmanNode> {
   char character;

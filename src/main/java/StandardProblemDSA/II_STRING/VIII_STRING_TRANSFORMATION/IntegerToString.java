@@ -1,15 +1,21 @@
 package StandardProblemDSA.II_STRING.VIII_STRING_TRANSFORMATION;
 
 /**
- * Converts an integer to a string (mimics itoa function)
+ * Problem: Convert an integer to its string representation (mimics `itoa`). Example: -123 → "-123",
+ * 0 → "0".
  *
- * <p>Problem Definition: - Handle all integers including negative numbers - Return string
- * representation of the number
+ * <p>Pattern: Math-based conversion: - Handle negative numbers separately. - Extract digits from
+ * right to left using modulo/division. - Build the string in reverse and then reverse it at the
+ * end.
  *
- * <p>Example: Input: -123 Output: "-123"
+ * <p>Follow-ups: 1. Handle different number bases (binary, hexadecimal, etc.). 2. Implement the
+ * reverse (`atoi`) to convert a string back to an integer. 3. Optimize to avoid reversing by
+ * appending to a character array from the end.
  *
- * <p>Approach: 1. Handle negative numbers 2. Extract digits in reverse order 3. Reverse the digits
- * 4. Return final string
+ * <p>LeetCode Similar Problems: 8. String to Integer (atoi), 7. Reverse Integer
+ *
+ * <p>Time Complexity: O(log₁₀ N) — proportional to the number of digits. Space Complexity: O(1)
+ * auxiliary (ignoring output string).
  */
 public class IntegerToString {
   public static String itoa(int num) {

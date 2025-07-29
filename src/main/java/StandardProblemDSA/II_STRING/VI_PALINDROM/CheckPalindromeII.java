@@ -1,6 +1,23 @@
 package StandardProblemDSA.II_STRING.VI_PALINDROM;
 
 public class CheckPalindromeII {
+  /**
+   * Problem: Check if the characters of a string can be rearranged to form a palindrome. Example:
+   * "carrace" → true ("racecar"), "aabbccdd" → true, "abc" → false.
+   *
+   * <p>Pattern: Frequency counting — a string can form a palindrome if at most one character has an
+   * odd count.
+   *
+   * <p>Follow-ups: 1. Handle Unicode or case-insensitive checks. 2. Return one possible palindromic
+   * permutation if it exists. 3. Optimize using bit manipulation (toggle bits for each character,
+   * check if at most one bit is set).
+   *
+   * <p>LeetCode Similar Problems: 266. Palindrome Permutation, 125. Valid Palindrome
+   *
+   * <p>Time Complexity: O(N) — single pass to count characters + O(1) check for 26 letters. Space
+   * Complexity: O(1) — fixed-size frequency array.
+   */
+
   /*nalysis of CheckPalindromeII Class
     This Java class contains methods to check if a string can be rearranged into a palindrome.
     Let me analyze the code and provide a clear explanation.

@@ -1,6 +1,22 @@
 package StandardProblemDSA.II_STRING.III_STRING_MANIPULATION_PATTERN;
 
 public class reverseWholeTextString {
+  /**
+   * Problem: Reverse the order of words in a string, removing extra spaces. Example: " the sky is
+   * blue " → "blue is sky the".
+   *
+   * <p>Pattern: In-place reversal: 1. Normalize spaces (trim and collapse multiple spaces). 2.
+   * Reverse the entire character array. 3. Reverse each word individually.
+   *
+   * <p>Follow-ups: 1. Optimize space by reversing words in place without extra string creation. 2.
+   * Handle punctuation and non-ASCII whitespace. 3. Compare with built-in split-and-reverse methods
+   * for performance.
+   *
+   * <p>LeetCode Similar Problems: 151. Reverse Words in a String, 186. Reverse Words in a String II
+   *
+   * <p>Time Complexity: O(N) → Each character reversed twice at most. Space Complexity: O(1)
+   * auxiliary (in-place reversal, ignoring output string).
+   */
 
   // take the string and then put it in character arrray
   // reverse the whole string from 0 to n-1

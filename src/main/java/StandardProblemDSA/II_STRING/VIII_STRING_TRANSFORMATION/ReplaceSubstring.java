@@ -9,6 +9,14 @@ package StandardProblemDSA.II_STRING.VIII_STRING_TRANSFORMATION;
  * big"
  *
  * <p>Approach: 1. Find each occurrence of oldSub 2. Replace with newSub 3. Return modified string
+ *
+ * <p>* Pattern: String manipulation using index-based search and StringBuilder for efficient
+ * concatenation. * * Follow-ups: * 1. Implement case-insensitive replacement. * 2. Handle
+ * overlapping occurrences (e.g., replace "aa" in "aaaa"). * 3. Compare performance with built-in
+ * `String.replaceAll` and regex approaches. * * LeetCode Similar Problems: 1578. Replace All ?,
+ * 816. Ambiguous Coordinates (string manipulation heavy) * * Time Complexity: O(N * M) — scanning
+ * the string and checking for each occurrence (N = str length, M = oldSub length). * Space
+ * Complexity: O(N) — StringBuilder holds the modified string.
  */
 public class ReplaceSubstring {
   public static String replaceAll(String str, String oldSub, String newSub) {

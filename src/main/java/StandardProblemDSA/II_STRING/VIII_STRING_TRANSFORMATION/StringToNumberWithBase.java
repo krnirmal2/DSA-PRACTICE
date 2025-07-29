@@ -10,6 +10,18 @@ package StandardProblemDSA.II_STRING.VIII_STRING_TRANSFORMATION;
  *
  * <p>Approach: 1. Validate base 2. Process each character 3. Convert character to digit value 4.
  * Calculate decimal value
+ *
+ * <p>Pattern: Base conversion. - Validate base range. - Iterate characters: map [0-9A-Z] to digits.
+ * - Accumulate result using: result = result * base + digit.
+ *
+ * <p>Follow-ups: 1. Support negative numbers and fractional parts. 2. Handle very large numbers
+ * (BigInteger) to avoid overflow. 3. Implement the reverse (decimal to any base).
+ *
+ * <p>LeetCode Similar Problems: 504. Base 7, 405. Convert a Number to Hexadecimal, 1017. Convert to
+ * Base -2
+ *
+ * <p>Time Complexity: O(N) — scanning each character once. Space Complexity: O(1) — constant extra
+ * space.
  */
 public class StringToNumberWithBase {
   public static int convertToDecimal(String str, int base) {

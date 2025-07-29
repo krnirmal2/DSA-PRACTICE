@@ -3,6 +3,23 @@ package StandardProblemDSA.II_STRING.IV_LONGEST_SUBSTRING_PROBLEM;
 import java.util.HashSet;
 
 public class LongestSubStringWithoutRepeatingChar {
+  /**
+   * Problem: Find the length of the longest substring without repeating characters. Example:
+   * "geeksforgeeks" → "eksforg" (length 7).
+   *
+   * <p>Pattern: Sliding Window + HashSet to maintain unique characters in the current window.
+   *
+   * <p>Follow-ups: 1. Return the substring itself instead of its length. 2. Handle Unicode and
+   * large character sets efficiently (use an array for ASCII). 3. Compare performance with an
+   * optimized index-based HashMap approach.
+   *
+   * <p>LeetCode Similar Problems: 3. Longest Substring Without Repeating Characters, 159. Longest
+   * Substring with At Most Two Distinct Characters
+   *
+   * <p>Time Complexity: O(N) — each character processed at most twice (once added, once removed).
+   * Space Complexity: O(min(N, A)) — HashSet stores at most A distinct characters (A = alphabet
+   * size).
+   */
   public static void main(String[] args) {
     String s = "geeksforgeeks";
     // here longest substring is eksforg which is non repeating character

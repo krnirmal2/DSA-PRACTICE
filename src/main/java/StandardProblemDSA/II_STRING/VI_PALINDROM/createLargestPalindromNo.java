@@ -1,6 +1,22 @@
 package StandardProblemDSA.II_STRING.VI_PALINDROM;
 
 public class createLargestPalindromNo {
+  /**
+   * Problem: Given a string of digits, form the largest palindromic number by rearranging the
+   * digits. Example: "8666612377" → "876616678".
+   *
+   * <p>Pattern: Frequency counting + greedy construction: - Count digits 0–9. - Build left half
+   * with the highest digits first using pairs. - Place the largest available single digit (if any)
+   * in the middle. - Mirror the left half to form the right.
+   *
+   * <p>Follow-ups: 1. Handle inputs with only zeros (e.g., "0000" → "0"). 2. Optimize for very
+   * large inputs (stream processing). 3. Extend to alphanumeric palindromes with custom ordering.
+   *
+   * <p>LeetCode Similar Problems: 2384. Largest Palindromic Number, 267. Palindrome Permutation II
+   *
+   * <p>Time Complexity: O(N + 10) ≈ O(N) — count frequencies + build palindrome. Space Complexity:
+   * O(1) — fixed-size frequency array.
+   */
   /*
 
        Largest Palindromic Number from Digits
@@ -64,7 +80,7 @@ public class createLargestPalindromNo {
     }
 
     StringBuilder right = new StringBuilder(left).reverse();
-    return left.toString() + mid + right.toString();
+    return left + mid + right;
   }
 
   public static void main(String[] args) {

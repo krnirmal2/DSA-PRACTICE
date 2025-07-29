@@ -24,6 +24,19 @@ public class SortCharByFrequency {
    *
    * <p>Constraints: 1 <= s.length <= 5 * 10^5 s consists of uppercase and lowercase English letters
    * and digits.
+   *
+   * <p>Pattern: Frequency Counting + Max-Heap (PriorityQueue). - Count frequency of each character.
+   * - Use a max-heap to retrieve characters in order of highest frequency. - Build the result by
+   * appending characters frequency times.
+   *
+   * <p>Follow-ups: 1. Optimize using bucket sort (O(N)) since frequency range ≤ string length. 2.
+   * Handle tie-breaking by lexicographical order. 3. Extend to Unicode or large character sets.
+   *
+   * <p>LeetCode Similar Problems: 451. Sort Characters By Frequency, 347. Top K Frequent Elements,
+   * 692. Top K Frequent Words
+   *
+   * <p>Time Complexity: O(N + K log K) — N for counting, K log K for heap operations (K = unique
+   * chars). Space Complexity: O(N + K) — O(N) for output, O(K) for map and heap.
    */
   public String frequencySort(String s) {
     /*
@@ -59,7 +72,7 @@ public class SortCharByFrequency {
         result.append(ele.getKey());
       }
     }
-    System.out.println(result.toString());
+    System.out.println(result);
     return result.toString();
   }
 

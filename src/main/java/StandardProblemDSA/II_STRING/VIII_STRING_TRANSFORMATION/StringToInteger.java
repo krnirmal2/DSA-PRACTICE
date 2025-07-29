@@ -11,6 +11,19 @@ package StandardProblemDSA.II_STRING.VIII_STRING_TRANSFORMATION;
  *
  * <p>Approach: 1. Skip whitespace 2. Handle sign 3. Process digits with overflow check 4. Return
  * result with sign
+ *
+ * <p>Pattern: Parsing + overflow handling. - Skip leading spaces. - Determine sign. - Process
+ * consecutive digits while checking for overflow. - Stop when non-digit encountered.
+ *
+ * <p>Follow-ups: 1. Handle bases other than 10 (e.g., hexadecimal). 2. Implement support for
+ * underscores, thousand separators, etc. 3. Compare with `Integer.parseInt` and discuss exception
+ * handling.
+ *
+ * <p>LeetCode Similar Problems: 8. String to Integer (atoi), 65. Valid Number (string parsing
+ * validation)
+ *
+ * <p>Time Complexity: O(N) — scanning each character once. Space Complexity: O(1) — constant extra
+ * memory.
  */
 public class StringToInteger {
   public static int myAtoi(String s) {

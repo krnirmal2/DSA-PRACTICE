@@ -1,11 +1,28 @@
 package StandardProblemDSA.II_STRING.II_SEARCH_AND_REPLACE;
 
 import StandardProblemDSA.II_STRING.StringUtility;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class FindAllOccurPattern {
-
+    /**
+     * Problem: Find all starting indices where the pattern occurs in the given text using the KMP
+     * algorithm. Example: text = "ABABABCABABABCABABABC", pattern = "ABABC" → [2, 9, 16]
+     *
+     * <p>Pattern: Knuth-Morris-Pratt (KMP) string matching — preprocess pattern using LPS array to
+     * achieve linear search.
+     *
+     * <p>Follow-ups: 1. Modify to return only the first occurrence or count of occurrences. 2.
+     * Implement case-insensitive or wildcard search. 3. Compare with Rabin-Karp for cases with
+     * multiple patterns or hash-based searching.
+     *
+     * <p>LeetCode Similar Problems: 28. Find the Index of the First Occurrence in a String, 686.
+     * Repeated String Match, 796. Rotate String
+     *
+     * <p>Time Complexity: O(N + M) → O(M) for LPS computation + O(N) for searching all matches. Space
+     * Complexity: O(M) for storing the LPS array.
+     */
   public static List<Integer> findAllOccurrences(String text, String pattern) {
     int n = text.length();
     int m = pattern.length();

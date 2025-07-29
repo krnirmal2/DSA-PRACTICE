@@ -4,15 +4,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Transforms a string according to substitution rules
+ * Problem: Apply substring replacement rules on an input string. Example: input = "abcde", rules =
+ * {"ab" → "x", "c" → "y"} → "xyde".
  *
- * <p>Problem Definition: - Apply a series of substitution rules to transform input string - Rules
- * are provided as a map of character/string pairs
+ * <p>Pattern: Greedy substitution + longest match: - Iterate over the string left to right. - At
+ * each position, try to match the longest possible substring from the rules. - Replace if a match
+ * is found; otherwise, append the current character.
  *
- * <p>Example: Input: "abc", {'a':'x', 'bc':'yz'} Output: "xyz"
+ * <p>Follow-ups: 1. Optimize with a trie for faster matching when rule count is large. 2. Handle
+ * overlapping rules and precedence conflicts. 3. Extend to regex-based or context-sensitive
+ * replacements.
  *
- * <p>Approach: 1. Process string sequentially 2. For each position, check for matching rules 3.
- * Apply the longest matching rule 4. Build transformed string
+ * <p>LeetCode Similar Problems: 833. Find And Replace in String, 616. Add Bold Tag in String
+ *
+ * <p>Time Complexity: O(N * L) — N = input length, L = max substring length checked (here ≤ 10).
+ * Space Complexity: O(N) — for building the output.
  */
 public class StringSubstitution {
   public static String transform(String input, Map<String, String> rules) {

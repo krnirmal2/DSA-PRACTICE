@@ -2,6 +2,20 @@ package StandardProblemDSA.II_STRING;
 
 import java.util.*;
 
+/**
+ * Problem: Sort a list of dates in chronological order. Format: "dd MMM yyyy" (e.g., "03 Feb
+ * 2017").
+ *
+ * <p>Approach: - Map month abbreviations ("Jan", "Feb", etc.) to numeric values (1-12). - Convert
+ * each date to an integer in `yyyyMMdd` format for easy sorting. - Store original string and
+ * numeric key in a Pair. - Sort based on numeric key. - Extract sorted original strings.
+ *
+ * <p>Time Complexity: O(n log n) // sorting dominates Space Complexity: O(n) // for auxiliary Pair
+ * list
+ *
+ * <p>Follow-ups: - Could use Java's `LocalDate` with a `DateTimeFormatter` for robustness. -
+ * Related LeetCode: 185. Department Top Three Salaries (requires sorting by derived keys).
+ */
 class Pair {
   String original;
   int key;

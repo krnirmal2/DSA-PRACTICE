@@ -15,6 +15,18 @@ There are two types of centers:
         1. **Odd length:** center at a single character (e.g., `"aba"`)
         2. **Even length:** center between two characters (e.g., `"abba"`)
 For each center, we expand and track the **maximum length palindrome** found so far.
+
+ * Pattern: Expand Around Center — check for both odd and even length palindromes at each index.
+ *
+ * Follow-ups:
+ * 1. Implement Manacher’s algorithm for O(N) time complexity.
+ * 2. Return the count of all palindromic substrings instead of the longest one.
+ * 3. Adapt to find the longest palindromic subsequence (DP approach).
+ *
+ * LeetCode Similar Problems: 5. Longest Palindromic Substring, 647. Palindromic Substrings
+ *
+ * Time Complexity: O(N²) — expanding around each center takes O(N), and there are O(N) centers.
+ * Space Complexity: O(1) — no extra space apart from variables.
 */
 
 import StandardProblemDSA.II_STRING.StringUtility;

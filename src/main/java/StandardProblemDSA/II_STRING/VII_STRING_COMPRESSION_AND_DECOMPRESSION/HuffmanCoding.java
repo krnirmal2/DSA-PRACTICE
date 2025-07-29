@@ -5,6 +5,26 @@ import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.stream.Collectors;
 
+/**
+ * Problem: Implement Huffman Coding — a lossless compression algorithm that assigns variable-length
+ * codes to characters based on frequency. Frequent characters get shorter codes. Example:
+ * "ABRACADABRA" → Encoded: "0100101011000110101001010".
+ *
+ * <p>Pattern: Greedy + Min-Heap: 1. Build frequency table. 2. Use a priority queue (min-heap) to
+ * build a Huffman Tree. 3. Generate prefix-free codes by traversing the tree. 4. Encode and decode
+ * using these codes.
+ *
+ * <p>Follow-ups: 1. Optimize for streaming data and large files. 2. Handle edge cases (single
+ * unique character, empty input). 3. Implement adaptive Huffman coding (tree adjusts dynamically as
+ * data streams in).
+ *
+ * <p>LeetCode Similar Problems: 451. Sort Characters By Frequency, 659. Encode and Decode Strings
+ * (design), 1167. Minimum Cost to Connect Sticks (uses similar greedy heap logic)
+ *
+ * <p>Time Complexity: O(N log N) — building min-heap and tree (N = number of unique characters).
+ * Space Complexity: O(N) — store frequency map, tree nodes, and code mappings.
+ */
+
 /*Huffman coding is a lossless data compression algorithm that uses variable-length codes to represent characters, where more frequent characters have shorter codes and less frequent ones have longer codes. It is based on a greedy algorithm approach and constructs an optimal prefix code (no code is a prefix of another).
 
 Steps to Implement Huffman Coding

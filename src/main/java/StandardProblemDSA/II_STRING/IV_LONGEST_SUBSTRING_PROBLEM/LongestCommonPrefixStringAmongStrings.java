@@ -3,6 +3,21 @@ package StandardProblemDSA.II_STRING.IV_LONGEST_SUBSTRING_PROBLEM;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Problem: Find the longest common prefix among an array of strings. Example: ["flower", "flow",
+ * "flight"] → "fl".
+ *
+ * <p>Pattern: Horizontal scanning — compare characters of the first string with all other strings.
+ *
+ * <p>Follow-ups: 1. Implement using vertical scanning, divide-and-conquer, or trie for
+ * optimization. 2. Handle large datasets efficiently (e.g., early termination when prefix becomes
+ * empty). 3. Support case-insensitive or locale-aware comparison.
+ *
+ * <p>LeetCode Similar Problems: 14. Longest Common Prefix, 208. Implement Trie (Prefix Tree)
+ *
+ * <p>Time Complexity: O(S) — S is the total number of characters in all strings. Space Complexity:
+ * O(1) auxiliary (ignoring input and output strings).
+ */
 public class LongestCommonPrefixStringAmongStrings {
   /*find the longest/Maximum common prefix among this Strings "flower", "flow", "flight" , which will "fl";*/
   public static String longestCommonPrefix(List<String> A) {
@@ -46,7 +61,7 @@ public class LongestCommonPrefixStringAmongStrings {
 }
 /*
   private static boolean isCommonPrefix(List<String> A, int mid){
-    String prefix  = A.get(0).substring(mid);
+    String prefix  = A.get(0).substring(0,mid);
     for(int i=1;i<A.size();i++){
       if(!A.get(i).startsWith(prefix)) return false;
     }

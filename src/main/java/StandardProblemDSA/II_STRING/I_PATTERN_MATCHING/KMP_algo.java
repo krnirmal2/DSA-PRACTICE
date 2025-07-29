@@ -3,7 +3,23 @@ package StandardProblemDSA.II_STRING.I_PATTERN_MATCHING;
 import StandardProblemDSA.II_STRING.StringUtility;
 
 public class KMP_algo {
-
+  /**
+   * Problem: Implement KMP (Knuth-Morris-Pratt) algorithm to find all occurrences of a pattern in a
+   * text. Example: text = "abcdabcabcdf", pattern = "abcdf" → match at index 7.
+   *
+   * <p>Pattern: String matching using preprocessing of the pattern (LPS array) to achieve O(N + M)
+   * time.
+   *
+   * <p>Follow-ups: 1. Modify to find and return all match indices instead of printing. 2. Adapt for
+   * case-insensitive search or with wildcards. 3. Compare with Rabin-Karp and Z-algorithm for
+   * different use cases.
+   *
+   * <p>LeetCode Similar Problems: 28. Find the Index of the First Occurrence in a String (Implement
+   * strStr), 686. Repeated String Match, 796. Rotate String
+   *
+   * <p>Time Complexity: O(N + M) → O(M) for LPS computation + O(N) for searching. Space Complexity:
+   * O(M) for the LPS array.
+   */
   public static void main(String[] args) {
     //    String txt = "aabaacaadaabaaba";
     //    String pat = "aaba";

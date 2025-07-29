@@ -2,6 +2,23 @@ package StandardProblemDSA.II_STRING.II_SEARCH_AND_REPLACE;
 
 import StandardProblemDSA.II_STRING.StringUtility;
 
+/**
+ * Problem: Find the first and last occurrence indices of a given pattern in a text using the KMP
+ * algorithm. Example: text = "aabaacaadaabaaba", pattern = "aaba" → first = 0, last = 12.
+ *
+ * <p>Pattern: Knuth-Morris-Pratt (KMP) string matching — preprocess pattern with LPS array for
+ * efficient searching.
+ *
+ * <p>Follow-ups: 1. Modify to return all occurrences (use a list). 2. Handle case-insensitive
+ * searches or patterns with wildcards. 3. Compare KMP efficiency with Rabin-Karp and Z-algorithm
+ * for different text-pattern sizes.
+ *
+ * <p>LeetCode Similar Problems: 28. Find the Index of the First Occurrence in a String, 686.
+ * Repeated String Match, 796. Rotate String
+ *
+ * <p>Time Complexity: O(N + M) → O(M) for LPS computation + O(N) for searching. Space Complexity:
+ * O(M) for storing the LPS array.
+ */
 public class FirstAndLastOccuranceOfpattern {
   public static void main(String[] args) {
     String txt = "aabaacaadaabaaba";

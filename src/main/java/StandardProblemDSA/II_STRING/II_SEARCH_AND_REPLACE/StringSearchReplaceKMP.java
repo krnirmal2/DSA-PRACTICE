@@ -1,11 +1,28 @@
 package StandardProblemDSA.II_STRING.II_SEARCH_AND_REPLACE;
 
 import StandardProblemDSA.II_STRING.StringUtility;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class StringSearchReplaceKMP {
-
+  /**
+   * Problem: Find the first and last occurrence indices of a pattern in a text using the KMP
+   * algorithm. Example: text = "aabaacaadaabaaba", pattern = "aaba" → first = 0, last = 12.
+   *
+   * <p>Pattern: Knuth-Morris-Pratt (KMP) string matching — preprocess pattern with LPS array and
+   * scan text once.
+   *
+   * <p>Follow-ups: 1. Modify to return a list of all match indices. 2. Implement case-insensitive
+   * or wildcard-based searching. 3. Compare with Rabin-Karp and Z-algorithm for performance
+   * trade-offs.
+   *
+   * <p>LeetCode Similar Problems: 28. Find the Index of the First Occurrence in a String, 686.
+   * Repeated String Match, 796. Rotate String
+   *
+   * <p>Time Complexity: O(N + M) → O(M) to compute LPS + O(N) to search through the text. Space
+   * Complexity: O(M) for storing the LPS array.
+   */
   public static void main(String[] args) {
     String mainText = "aabaacaadaabaaba";
     String patternToFind = "aaba";
