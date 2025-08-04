@@ -26,7 +26,50 @@ Examples
 				Number of Words Starting with ‘app’: 2 and ‘ap’: 3
 				Erased ‘apxl’
 
-				Explanation: Insert Operations: “apple”, “apps” and “apxl” are inserted. */
+				Explanation: Insert Operations: “apple”, “apps” and “apxl” are inserted.
+
+	  Approach:
+    ---------
+    • TrieNode stores:
+        - links[26] to children (a-z)
+        - boolean `isEnd` to mark end of a word
+        - counters: `cntEndWith` (number of times word ends here), `cntPrefix` (prefix count).
+
+    • completeString(prefix, list):
+        - Iterate through all words.
+        - For each word, check if all its prefixes exist in the Trie (`checkIfPrefixExist`).
+        - Track the longest valid word.
+
+    • checkIfPrefixExist(word):
+        - Traverse the Trie character by character.
+        - At each step, verify the node exists and `isEnd` is true.
+        - Return true if all prefixes are valid.
+
+    Pattern:
+    --------
+    Trie with count operations + "longest complete string" check.
+
+    Time Complexity:
+    ----------------
+        • insert(), countWordsEqualTo(), countWordsStartingWith(), erase() → O(L)
+          where L = length of the word/prefix.
+        • completeString(): O(N × L) for N words of average length L.
+
+    Space Complexity:
+    -----------------
+        • O(26 × N × L) in worst case (all unique paths).
+
+    Follow-ups:
+    -----------
+    1. Fix `checkIfPrefixExist()` — must start from the actual Trie’s root, not `new TrieNode()`.
+    2. Tie-breaking: if multiple strings have the same max length, pick lexicographically smallest.
+    3. Support erase() with memory cleanup.
+
+    Related Problems:
+    -----------------
+        • LeetCode 1804 – Implement Trie II (Prefix Tree)
+        • "Longest Word in Dictionary" (LeetCode 720)
+*/
 public class LongestStringAllPrefixes {
   public static String completeString(String prefix, List<String> a) {
     // iterate over each string

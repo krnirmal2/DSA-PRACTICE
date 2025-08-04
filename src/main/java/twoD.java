@@ -28,7 +28,7 @@ public class twoD {
     matrix.add(new ArrayList<>(Arrays.asList(83, 6684, 776)));
 
     // Row 4
-    matrix.add(new ArrayList<>(Arrays.asList(8)));
+    matrix.add(new ArrayList<>(List.of(8)));
     matrix.get(4).addAll(Arrays.asList(9, 10, 11));
 
     return matrix;
@@ -57,4 +57,12 @@ public class twoD {
 
     return set2D;
   }
+    // empty array
+  /*
+  int [][] input = {
+          {,},{,},{,},
+          {,},{,},{,}
+  };
+  */
+
 }

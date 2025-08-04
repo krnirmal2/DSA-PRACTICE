@@ -1,29 +1,57 @@
 package StandardProblemDSA.XVI_TRIE;
 
-// create the node of the trie
-// class TrieNode {
-//  TrieNode[] links = new TrieNode[26];
-//  // here for counting things we need
-//  // to strore end with and prefix count
-//  int cntEndWith = 0;
-//  int cntPrefix = 0;
-//
-//  boolean containsKey(char ch) {
-//    return (links[ch - 'a'] != null); //  check the end should nnot point to null character
-//  }
-//
-//  TrieNode get(char ch) {
-//    return links[ch - 'a'];
-//  }
-//
-//  void put(char ch, TrieNode node) {
-//    links[ch - 'a'] = node;
-//  }
-//
-//
-//
-//
-// }
+/*
+    Problem:
+    --------
+    Implement a Trie (Prefix Tree) with support for:
+      • insert(word) – Adds a word into the Trie, tracking prefix and word counts.
+      • countWordsEqualTo(word) – Returns how many times a given full word was inserted.
+      • countWordStartingWith(prefix) – Returns how many words share the given prefix.
+      • erase(word) – Removes one occurrence of a word, updating counts.
+
+    Approach:
+    ---------
+    • Each TrieNode stores:
+        - links[26] for child nodes
+        - cntPrefix: how many words pass through this node
+        - cntEndWith: how many words end at this node
+    • insert():
+        - For each character, create a node if missing, move down, increment cntPrefix.
+        - After final character, increment cntEndWith.
+    • countWordsEqualTo():
+        - Traverse characters; if path breaks, return 0.
+        - Return cntEndWith at final node.
+    • countWordStartingWith():
+        - Traverse prefix; if path breaks, return 0.
+        - Return cntPrefix at final node.
+    • erase():
+        - Traverse characters; decrement cntPrefix for each node.
+        - At end, decrement cntEndWith.
+
+    Pattern:
+    --------
+    Trie Data Structure with counts and deletion.
+
+    Time Complexity:
+    ----------------
+    • insert(), countWordsEqualTo(), countWordStartingWith(), erase() → O(L)
+      where L = length of the word/prefix.
+
+    Space Complexity:
+    -----------------
+    • O(26 × N × L) in worst case for N words of average length L.
+
+    Follow-ups:
+    -----------
+    1. Handle case-insensitivity or Unicode characters by using HashMap instead of array.
+    2. Auto-delete unused nodes for memory optimization.
+    3. Extend to store frequency counts for autocomplete.
+
+    Related Problems:
+    -----------------
+    • LeetCode 208 – Implement Trie
+    • LeetCode 1804 – Implement Trie II (Prefix Tree)
+*/
 
 public class TrieWithCountDelete {
   TrieNode root;

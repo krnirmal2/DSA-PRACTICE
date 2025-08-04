@@ -42,7 +42,7 @@ Follow-up Questions:
 
 LeetCode Tag:
 -------------
-- [34. Find First and Last Position of Element in Sorted Array]
+- [34. Find First and Last Position of Element in Sorted Array] -- DONE
 - Companies: Microsoft, Amazon, Google
 */
 

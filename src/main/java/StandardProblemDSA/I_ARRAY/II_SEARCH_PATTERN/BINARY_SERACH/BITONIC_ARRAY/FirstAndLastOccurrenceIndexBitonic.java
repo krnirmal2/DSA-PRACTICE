@@ -3,7 +3,8 @@ package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.BITONIC_ARRAY
 import StandardProblemDSA.Utility;
 
 /*Problem Statement:
-You are given a bitonic array arr of length n — an array that first strictly increases to a peak, then strictly decreases (duplicates may exist).
+You are given a bitonic array arr of length n — an array that first strictly increases to a peak,
+ then strictly decreases (duplicates may exist).
 You are also given an integer target.
 Your task is to find the first and last occurrence indices of target in arr.
 If the target appears in both halves (increasing and decreasing), return the first index from the left and the last index from the right.
@@ -55,7 +56,7 @@ Explanation: 12 occurs only once at index 3.
 -----------------------------------------------------------------------------------
 🔗 Similar Problems:
 -----------------------------------------------------------------------------------
-- LeetCode 1095 – Find in Mountain Array
+- LeetCode 1095 – Find in Mountain Array -- DONE
 - Find first and last occurrence in sorted array
 - Peak Index in a Mountain Array
 */

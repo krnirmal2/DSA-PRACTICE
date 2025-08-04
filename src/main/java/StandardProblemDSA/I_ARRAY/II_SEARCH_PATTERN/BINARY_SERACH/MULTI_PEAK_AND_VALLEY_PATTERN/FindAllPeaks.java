@@ -44,7 +44,7 @@ Pattern Used:
 
 Follow-up Questions:
 --------------------
-1. Can you find a **single peak** in O(log n) using binary search? (LeetCode 162: Find Peak Element)
+1. Can you find a **single peak** in O(log n) using binary search? (LeetCode 162: Find Peak Element) --- DONE
 2. How would you handle multiple peaks in a **bitonic array**?
 3. Can you modify the function to return the **values** of peaks instead of indices?
 */
@@ -58,7 +58,7 @@ public class FindAllPeaks {
       return peaks;
     }
 
-    // Check first element
+    // Check first element is greater than the second element or not if yes then add to peak list
     if (n > 1 && arr[0] > arr[1]) {
       peaks.add(0);
     }

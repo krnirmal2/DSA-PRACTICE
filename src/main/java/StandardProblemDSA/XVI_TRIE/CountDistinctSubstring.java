@@ -1,12 +1,14 @@
 package StandardProblemDSA.XVI_TRIE;
 
 /*Problem statement
-Given a string 'S', you are supposed to return the number of distinct substrings(including empty substring) of the given string. You should implement the program using a trie.
-
+Given a string 'S', you are supposed to return the number of distinct substrings(including empty substring) of the given string.
+ You should implement the program using a trie.
 Note :
-A string ‘B’ is a substring of a string ‘A’ if ‘B’ that can be obtained by deletion of, several characters(possibly none) from the start of ‘A’ and several characters(possibly none) from the end of ‘A’.
+A string ‘B’ is a substring of a string ‘A’ if ‘B’ that can be obtained by deletion of,
+several characters(possibly none) from the start of ‘A’ and several characters(possibly none) from the end of ‘A’.
 
-Two strings ‘X’ and ‘Y’ are considered different if there is at least one index ‘i’  such that the character of ‘X’ at index ‘i’ is different from the character of ‘Y’ at index ‘i’(X[i]!=Y[i]).
+Two strings ‘X’ and ‘Y’ are considered different if there is at least one index ‘i’  such that the character of ‘X’ at
+index ‘i’ is different from the character of ‘Y’ at index ‘i’(X[i]!=Y[i]).
 Detailed explanation ( Input/output format, Notes, Images )
 Constraints :
 1 <= T <= 5

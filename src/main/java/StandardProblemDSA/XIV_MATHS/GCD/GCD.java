@@ -2,7 +2,8 @@ package StandardProblemDSA.XIV_MATHS.GCD;
 
 public class GCD {}
 /*
-Here are some of the most commonly asked Greatest Common Divisor (GCD) questions in Java, starting from basic to advanced.
+most commonly asked Greatest Common Divisor (GCD) questions in Java,
+ starting from basic to advanced.
 
         🔹 1. Find GCD of Two Numbers (Basic)
 👉 Approach: Use Euclidean Algorithm, which is based on the formula:

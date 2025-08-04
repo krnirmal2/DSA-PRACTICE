@@ -29,9 +29,9 @@ Follow-up Questions:
    - Is it necessary to preserve the relative order of unique elements?
 
 Similar LeetCode Questions:
-- LeetCode 26. Remove Duplicates from Sorted Array
-- LeetCode 80. Remove Duplicates from Sorted Array II
-- LeetCode 83. Remove Duplicates from Sorted List
+- LeetCode 26. Remove Duplicates from Sorted Array DONE any no. of element without target element --UNDERSTAND THE TWO POINTER
+- LeetCode 80. Remove Duplicates from Sorted Array II : DONE [COMPLEX THOUGHT] (J-2)
+- LeetCode 83. Remove Duplicates from Sorted List DONE , EASY BUT TAKE TIME FOR MY MANIPULATION OF POINTER
 - LeetCode 27. Remove Element
 */
 

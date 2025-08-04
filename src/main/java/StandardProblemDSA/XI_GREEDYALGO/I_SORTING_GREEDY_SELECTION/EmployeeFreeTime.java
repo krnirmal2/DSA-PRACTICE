@@ -81,8 +81,8 @@ public class EmployeeFreeTime {
     List<StartEndPair> freeTime = employeeFreeTime(schedule);
     freeTime.forEach(
             item -> {
-              System.out.println(item.start);
-              System.out.println(item.end);
+                System.out.println(item.start);
+                System.out.println(item.end);
             });
 
     //    System.out.println("Free time intervals: " + ); // Expected Output: [[3,4]

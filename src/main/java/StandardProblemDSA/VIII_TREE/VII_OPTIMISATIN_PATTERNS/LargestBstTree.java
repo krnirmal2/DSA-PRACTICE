@@ -11,22 +11,22 @@ public class LargestBstTree {
         return largestBSTSize;
     }
 
-    static ClientOfTreeMetrics.BSTInfo postorderBST(TreeNode node) {
+    static BSTInfo postorderBST(TreeNode node) {
         if (node == null)
-            return new ClientOfTreeMetrics.BSTInfo(true, 0, Integer.MAX_VALUE, Integer.MIN_VALUE);
+            return new BSTInfo(true, 0, Integer.MAX_VALUE, Integer.MIN_VALUE);
 
-        ClientOfTreeMetrics.BSTInfo leftInfo = postorderBST(node.left);
-        ClientOfTreeMetrics.BSTInfo rightInfo = postorderBST(node.right);
+        BSTInfo leftInfo = postorderBST(node.left);
+        BSTInfo rightInfo = postorderBST(node.right);
 
         if (leftInfo.isBST && rightInfo.isBST && node.val > leftInfo.max && node.val < rightInfo.min) {
             int size = leftInfo.size + rightInfo.size + 1;
             largestBSTSize = Math.max(largestBSTSize, size);
             int min = (node.left != null) ? leftInfo.min : node.val;
             int max = (node.right != null) ? rightInfo.max : node.val;
-            return new ClientOfTreeMetrics.BSTInfo(true, size, min, max);
+            return new BSTInfo(true, size, min, max);
         } else {
             // Not a BST; size not needed here.
-            return new ClientOfTreeMetrics.BSTInfo(false, 0, 0, 0);
+            return new BSTInfo(false, 0, 0, 0);
         }
     } // ---------------------------------------------------
 

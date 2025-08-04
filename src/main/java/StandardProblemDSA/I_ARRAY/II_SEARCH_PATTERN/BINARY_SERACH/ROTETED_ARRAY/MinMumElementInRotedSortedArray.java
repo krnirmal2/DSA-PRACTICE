@@ -85,7 +85,6 @@ public class MinMumElementInRotedSortedArray {
       // but keep it to mid. As the mid element
       // itself can be the smallest
       else {
-
         high = mid;
       }
 

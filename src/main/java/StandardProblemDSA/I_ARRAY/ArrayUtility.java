@@ -240,16 +240,18 @@ public class ArrayUtility {
 
   // ✅ Reusable twoSum with two pointers
   public static List<List<Integer>> twoSum(int[] nums, int start, int target) {
+    // result store
     List<List<Integer>> res = new ArrayList<>();
+    // two pointer from left and right
     int left = start, right = nums.length - 1;
-
+    // check both the pointer value and based on target either increase or decrease the left and right pointer
     while (left < right) {
       int sum = nums[left] + nums[right];
 
       if (sum == target) {
         res.add(Arrays.asList(nums[left], nums[right]));
 
-        // Skip duplicates
+        // Skip duplicates if any
         while (left < right && nums[left] == nums[left + 1]) left++;
         while (left < right && nums[right] == nums[right - 1]) right--;
 

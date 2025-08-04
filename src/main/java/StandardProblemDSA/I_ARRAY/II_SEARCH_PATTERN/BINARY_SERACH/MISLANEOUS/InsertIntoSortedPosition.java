@@ -34,7 +34,7 @@ Pattern Used:
 
 Follow-up Questions:
 --------------------
-1. Can you return the **insert position** if `B` is not found (like in LeetCode 35: Search Insert Position)?
+1. Can you return the **insert position** if `B` is not found (like in LeetCode 35: Search Insert Position)? DONE
 2. Can you implement it iteratively to reduce space complexity to O(1)?
 3. How would you handle duplicates (first or last occurrence)?
 4. Can you adapt this for a rotated sorted array?
