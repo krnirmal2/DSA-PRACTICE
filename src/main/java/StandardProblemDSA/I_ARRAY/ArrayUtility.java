@@ -244,7 +244,8 @@ public class ArrayUtility {
     List<List<Integer>> res = new ArrayList<>();
     // two pointer from left and right
     int left = start, right = nums.length - 1;
-    // check both the pointer value and based on target either increase or decrease the left and right pointer
+      // check both the pointer value and based on target either increase or decrease the left and
+      // right pointer
     while (left < right) {
       int sum = nums[left] + nums[right];
 

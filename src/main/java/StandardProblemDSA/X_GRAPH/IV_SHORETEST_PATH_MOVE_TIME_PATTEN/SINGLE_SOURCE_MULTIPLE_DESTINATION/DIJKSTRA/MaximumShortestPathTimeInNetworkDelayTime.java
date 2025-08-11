@@ -138,8 +138,8 @@ public class MaximumShortestPathTimeInNetworkDelayTime {
         Pair(int node, int cost) {
             this.node = node;
             this.cost = cost;
-        }
     }
+  }
 }
 /*Let’s dry run your code step by step with an example:
 

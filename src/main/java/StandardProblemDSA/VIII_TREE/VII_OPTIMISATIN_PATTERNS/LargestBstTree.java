@@ -12,8 +12,7 @@ public class LargestBstTree {
     }
 
     static BSTInfo postorderBST(TreeNode node) {
-        if (node == null)
-            return new BSTInfo(true, 0, Integer.MAX_VALUE, Integer.MIN_VALUE);
+        if (node == null) return new BSTInfo(true, 0, Integer.MAX_VALUE, Integer.MIN_VALUE);
 
         BSTInfo leftInfo = postorderBST(node.left);
         BSTInfo rightInfo = postorderBST(node.right);

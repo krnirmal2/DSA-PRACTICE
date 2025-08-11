@@ -35,6 +35,5 @@ public class RemoveDuplicatesFromSortedList {
         list.next.next.next = new ListNode(3);
         list.next.next = new ListNode(3);
         deleteDuplicates(list);
-
     }
 }

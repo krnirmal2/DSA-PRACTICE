@@ -42,7 +42,7 @@ public class ThreeSum {
     Arrays.sort(nums); // Sort array for two-pointer logic
     // Step 2 : iterate over the each element
     for (int i = 0; i < nums.length - 2; i++) {
-      //step 3:  avoid duplicate for the first number
+        // step 3:  avoid duplicate for the first number
       if (i > 0 && nums[i] == nums[i - 1]) continue;
 
       // main logic nums[i]+nums[i+1]
