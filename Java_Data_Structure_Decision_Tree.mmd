@@ -1,0 +1,10 @@
+```mermaid
+flowchart TD
+A[Start] --> B{Is order important?}
+B -->|Yes|C[Stack / Queue / PriorityQueue]
+B -->|No|D{Need to access elements by key?}
+D -->|Yes| E[Map (HashMap / LinkedHashMap / TreeMap)]
+D -->|No|F{Allow duplicates?}
+F -->|Yes|G[Set (HashSet / LinkedHashSet / TreeSet)]
+F -->|No|H[List (ArrayList / LinkedList / ArrayDeque)]
+

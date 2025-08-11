@@ -4,20 +4,42 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Problem: Find the longest common prefix among an array of strings. Example: ["flower", "flow",
- * "flight"] → "fl".
+ * ✅ Problem:
+ * Find the longest common prefix among an array of strings.
+ * Example: Input: ["flower", "flow", "flight"] → Output: "fl"
  *
- * <p>Pattern: Horizontal scanning — compare characters of the first string with all other strings.
+ * 🧠 Pattern:
+ * Horizontal Scanning — use the first string as a base and compare each character index with all other strings.
  *
- * <p>Follow-ups: 1. Implement using vertical scanning, divide-and-conquer, or trie for
- * optimization. 2. Handle large datasets efficiently (e.g., early termination when prefix becomes
- * empty). 3. Support case-insensitive or locale-aware comparison.
+ * 💡 Follow-up Questions:
+ * 1. Implement vertical scanning (character by character across all strings).
+ * 2. Use divide-and-conquer approach to recursively compute prefix pairs.
+ * 3. Use a Trie data structure for scalable prefix querying.
+ * 4. Optimize for large datasets by breaking early when prefix becomes empty.
+ * 5. Support case-insensitive, locale-aware, or Unicode-aware prefix comparison.
  *
- * <p>LeetCode Similar Problems: 14. Longest Common Prefix, 208. Implement Trie (Prefix Tree)
+ * 🔍 LeetCode Similar Problems:
+ * 1. 14. Longest Common Prefix — https://leetcode.com/problems/longest-common-prefix/
+ * 2. 208. Implement Trie (Prefix Tree) — https://leetcode.com/problems/implement-trie-prefix-tree/
+ * 3. 720. Longest Word in Dictionary — https://leetcode.com/problems/longest-word-in-dictionary/
  *
- * <p>Time Complexity: O(S) — S is the total number of characters in all strings. Space Complexity:
- * O(1) auxiliary (ignoring input and output strings).
+ * 📊 Time Complexity:
+ * - Worst case: O(S) where S = total number of characters across all strings.
+ * - For n strings of length up to m: O(n * m)
+ *
+ * 📦 Space Complexity:
+ * - O(1) auxiliary space (ignoring input and output).
+ *
+ * 🔄 Comparison of Approaches:
+ * | Method             | Time Complexity | Space | Use Case                      |
+ * |--------------------|------------------|--------|-------------------------------|
+ * | Horizontal Scanning| O(n * m)         | O(1)   | Simple, intuitive              |
+ * | Vertical Scanning  | O(n * m)         | O(1)   | When early mismatch is common |
+ * | Divide & Conquer   | O(n * m log n)   | O(log n)| Faster on balanced inputs     |
+ * | Trie-based         | O(S)             | O(S)   | Best when many overlapping prefixes |
+ *
  */
+
 public class LongestCommonPrefixStringAmongStrings {
   /*find the longest/Maximum common prefix among this Strings "flower", "flow", "flight" , which will "fl";*/
   public static String longestCommonPrefix(List<String> A) {
@@ -31,9 +53,7 @@ public class LongestCommonPrefixStringAmongStrings {
         if (i >= A.get(j).length()
             || A.get(j).charAt(i) != c) { // if list empty or first String character
           // does not match with other String character at same index
-          return A.get(0)
-              .substring(
-                  0, i); // take the substring of the first string from 0 to current i character
+            return A.get(0).substring(0, i); // take the substring of the first string from 0 to current i character
         }
       }
     }

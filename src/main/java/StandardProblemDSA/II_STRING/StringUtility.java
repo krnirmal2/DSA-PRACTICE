@@ -26,8 +26,7 @@ public class StringUtility {
         // CASE 2 : IF CHARACTER AT PREFIX SUFFIX LENGTH IS NOT MATCHED THEN RESET PREFIXSUFFIX
         // LENGTH TO BACK TO LAST LPS VALUSE
         if (prefixSuffixLength != 0) { // reset to the first point of the pattern
-          prefixSuffixLength =
-              lpsArray[prefixSuffixLength - 1]; // Move `j` back to the previous LPS value
+            prefixSuffixLength = lpsArray[prefixSuffixLength - 1]; // Move `j` back to the previous LPS value
         } else {
           //          CASE 3 : IF YET THERE IS NO CALCULATION DONE FOR THAT CHARACTER JUST SET THAT
           // CURRENT INDEX TO ZERO
@@ -95,14 +94,21 @@ public class StringUtility {
   public static void naiveSearchStringPattern(String pattern, String text) {
     int m = pattern.length();
     int n = text.length();
-    // a loop to slide pattern one by one
-    for (int i = 0; i < n - m; i++) {
+
+      if (m == 0) System.out.println(" no string ");
+      // Edge case: empty pattern
+      if (m > n) System.out.println("pattern is greater than the text ");
+      // a loop to slide pattern one by one
+      // step 1; iterate over the text till before the length of pattern
+      for (int i = 0; i <= n - m; i++) {
       int j;
+          // step 2 : if character at i+j doesn't matched then break and at he end check if
       for (j = 0; j < m; j++) {
         if (text.charAt(i + j) != pattern.charAt(j)) {
           break;
         }
       }
+          // step 3 ; if both pattern length and index of pattern is equal means we reacd/ found the pattern in text
       if (j == m) {
         System.out.println("pattern found at index " + i);
       }

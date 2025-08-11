@@ -44,8 +44,8 @@ public class ValidParenthesis {
   ---
 
   ### Similar LeetCode Questions
-  - [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
-  - [921. Minimum Add to Make Parentheses Valid](https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/)
+  - [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) :DONE
+  - [921. Minimum Add to Make Parentheses Valid](https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/) (DONE)
   - [1541. Minimum Insertions to Balance a Parentheses String](https://leetcode.com/problems/minimum-insertions-to-balance-a-parentheses-string/)
 
   ---

@@ -37,15 +37,18 @@ public class FindAllOccurPattern {
     // so we need to manipulate the match function each time for this kind of
     // question
     while (i < n) {
+        // case 1 : when both pattern and text length matched we will increase both pointer
       if (text.charAt(i) == pattern.charAt(j)) {
         i++;
         j++;
       }
-
+        // case 2 :if the pattern pointer reached its end means we found the pattern so add to the result (i-j) as start and i as
       if (j == m) {
         occurrences.add(i - j);
         j = lps[j - 1];
       } else if (i < n && text.charAt(i) != pattern.charAt(j)) {
+          //case 3 : if the character is not matched and prefix length is not zero , then either set it to earlier value
+          // else increamen tex pointer
         if (j != 0) {
           j = lps[j - 1];
         } else {
