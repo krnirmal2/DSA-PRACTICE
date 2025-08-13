@@ -1,4 +1,4 @@
-package StandardProblemDSA.VI_RECURSION.BASIC_RECURSION;
+package StandardProblemDSA.VI_RECURSION.BASIC_RECURSION.TAIL_RECURSION;
 
 // Problem 1: Print "Hello" N times using recursion
 public class PrintHelloNTimes {

@@ -43,7 +43,7 @@ public class LevelOrderTraversal {
    Space Complexity: O(n), for the queue
   */
 
-    public List<Integer> levelOrderTraversal(TreeNode root) {
+  public List<Integer> levelOrderTraversal(TreeNode root) {
     List<Integer> result = new ArrayList<>();
     if (root == null) return result;
 

@@ -1,5 +1,7 @@
 package StandardProblemDSA.VI_RECURSION.BACKTRACING_PATTERN;
 
+import StandardProblemDSA.I_ARRAY.ArrayUtility;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,6 +61,7 @@ public class PrintAllSubsetWithSumK {
 
     // Backtrack and exclude the current element
     curr.remove(curr.size() - 1);
+    // Not include in the subset
     findSubsets(arr, index + 1, target, curr, result);
   }
 
@@ -71,36 +74,12 @@ public class PrintAllSubsetWithSumK {
     return result;
   }
 
-  // Function to print subsets in required format
-  static void print2dArray(List<List<Integer>> arr) {
-
-    if (arr.isEmpty()) {
-
-      // No valid subsets found
-      System.out.println("-1");
-      return;
-    }
-
-    for (int row = 0; row < arr.size(); row++) {
-      System.out.print("[");
-      for (int col = 0; col < arr.get(row).size(); col++) {
-        System.out.print(arr.get(row).get(col));
-        if (col != arr.get(row).size() - 1) {
-          System.out.print(", ");
-        }
-      }
-      System.out.print("]");
-
-      if (row < arr.size() - 1) System.out.print(", ");
-    }
-  }
-
   public static void main(String[] args) {
     int[] arr = {5, 2, 3, 10, 6, 8};
     int target = 10;
 
     // Find subsets and print result
     List<List<Integer>> result = perfectSum(arr, target);
-    print2dArray(result);
+    ArrayUtility.print2dArray(result);
   }
 }

@@ -6,32 +6,48 @@ import StandardProblemDSA.VIII_TREE.TreeUtility;
 import java.util.ArrayList;
 import java.util.List;
 
+import static StandardProblemDSA.VIII_TREE.TreeUtility.tree;
+
 public class AncestorsOfNode {
-    // ---------------------------------------------------
-    // 5. Ancestors of a Node
-    // ---------------------------------------------------
+  // ---------------------------------------------------
+  // 5. Ancestors of a Node
+  // ---------------------------------------------------
   /*
-    Problem Statement:
-       Return all ancestors of a node (excluding the node itself) in a binary tree.
+      Problem Statement:
+         Return all ancestors of a node (excluding the node itself) in a binary tree.
 
-    Optimal Approach:
-       - Recursively traverse the tree.
-       - When the target is found, return true while adding nodes along the recursive path.
+      Optimal Approach:
+         - Recursively traverse the tree.
+         - When the target is found, return true while adding nodes along the recursive path.
 
-    Time Complexity: O(n)
+      Time Complexity: O(n)
 
-    Example:
-       For tree:
-                 3
+      Example:
+         For tree:
+                   3
+                  / \
+                 5   1
                 / \
-               5   1
-              / \
-             6   2
-       Ancestors of 6: [5, 3]
-  */
-    public static List<Integer> ancestors(TreeNode root, int target) {
-        List<Integer> result = new ArrayList<>();
-        TreeUtility.findAncestors(root, target, result);
-        return result;
-    }
+               6   2
+         Ancestors of 6: [5, 3]
+
+  /*      8
+         / \
+        3   10
+       / \    \
+      1   6    14
+         / \   /
+        4   7 13
+         Ancestors of 6: [ 3,8]
+     */
+  public static List<Integer> ancestors(TreeNode root, int target) {
+    List<Integer> result = new ArrayList<>();
+    TreeUtility.findAncestors(root, target, result);
+    return result;
+  }
+
+  public static void main(String[] args) {
+
+    ancestors(tree(), 6).stream().forEach(System.out::println);
+  }
 }

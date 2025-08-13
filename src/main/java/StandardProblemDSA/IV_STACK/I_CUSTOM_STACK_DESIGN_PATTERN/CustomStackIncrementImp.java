@@ -11,6 +11,7 @@ public class CustomStackIncrementImp {
   private final int[] incrementArr;
   private int top;
 
+  // create and initailaside constructor with intial capacity
   public CustomStackIncrementImp(int capacity) {
     this.incrementArr = new int[capacity];
     this.stackArray = new int[capacity];

@@ -17,9 +17,9 @@ public class LongestValidParenthesesSubstring {
   Space Complexity: O(n) — stack stores indices of '(' and base markers.
 
   LeetCode Similar Questions:
-  - 32. Longest Valid Parentheses
-  - 20. Valid Parentheses
-  - 301. Remove Invalid Parentheses
+  - 32. Longest Valid Parentheses : DONE
+  - 20. Valid Parentheses : DONE
+  - 301. Remove Invalid Parentheses:
   - 678. Valid Parenthesis String
 
   Follow-up Questions:
@@ -29,6 +29,7 @@ public class LongestValidParenthesesSubstring {
   - Optimize for streaming input (real-time evaluation).
   */
 
+    // ITERATE OVER THE EACH CHARACTER
   static int maxLength(String s) {
     Stack<Integer> stack = new Stack<>();
 
@@ -76,6 +77,44 @@ public class LongestValidParenthesesSubstring {
     */
   }
 
+    public static void main(String[] args) {
+        String s = ")()())";
+        System.out.println(maxLength(s));
+    }
+  /*
+  public static int longestValidParentheses(String s) {
+    int left = 0, right = 0, maxLen = 0;
+
+    // Pass 1: Left to Right
+    for (int i = 0; i < s.length(); i++) {
+      if (s.charAt(i) == '(') left++;
+      else right++;
+
+      if (left == right) {
+        maxLen = Math.max(maxLen, 2 * right);
+      } else if (right > left) {
+        left = right = 0;
+      }
+    }
+
+    left = right = 0; // Reset for second pass
+
+    // Pass 2: Right to Left
+    for (int i = s.length() - 1; i >= 0; i--) {
+      if (s.charAt(i) == '(') left++;
+      else right++;
+
+      if (left == right) {
+        maxLen = Math.max(maxLen, 2 * left);
+      } else if (left > right) {
+        left = right = 0;
+      }
+    }
+
+    return maxLen;
+  }
+
+  */
   /* static int maxLength(String s) {
       int maxLen = 0;
 
@@ -114,8 +153,4 @@ public class LongestValidParenthesesSubstring {
       return maxLen;
   }*/
 
-  public static void main(String[] args) {
-    String s = ")()())";
-    System.out.println(maxLength(s));
-  }
 }

@@ -1,4 +1,4 @@
-package StandardProblemDSA.VI_RECURSION.BASIC_RECURSION;
+package StandardProblemDSA.VI_RECURSION.BASIC_RECURSION.TAIL_RECURSION;
 
 /*
 Problem:

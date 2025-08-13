@@ -23,9 +23,9 @@ Space Complexity:
 O(n) — for the stack and the result array.
 
 LeetCode Similar Questions:
-- 496. Next Greater Element I
+- 496. Next Greater Element I : DONE
 - 503. Next Greater Element II (circular array variation)
-- 739. Daily Temperatures (similar logic with indices)
+- 739. Daily Temperatures (similar logic with indices) DONE
 
 Follow-up Questions:
 - How to handle a circular array (wrap-around)?

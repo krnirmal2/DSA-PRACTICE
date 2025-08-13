@@ -1,4 +1,4 @@
-package StandardProblemDSA.VI_RECURSION.BASIC_RECURSION;
+package StandardProblemDSA.VI_RECURSION.BASIC_RECURSION.TAIL_RECURSION;
 
 // Problem 3: Print numbers from 1 to N using recursion
 public class Print1ToN {

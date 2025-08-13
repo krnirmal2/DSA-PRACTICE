@@ -1,7 +1,10 @@
 package StandardProblemDSA.VI_RECURSION.medium;
 
 // Problem 8: Reverse an array using recursion
+
 import java.util.Arrays;
+
+import static StandardProblemDSA.I_ARRAY.ArrayUtility.swap;
 
 public class ReverseArray {
 
@@ -9,12 +12,6 @@ public class ReverseArray {
     if (left >= right) return;
     swap(arr, left, right);
     reverse(arr, left + 1, right - 1);
-  }
-
-  private static void swap(int[] arr, int left, int right) {
-    int temp = arr[left];
-    arr[left] = arr[right];
-    arr[right] = temp;
   }
 
   public static void main(String[] args) {

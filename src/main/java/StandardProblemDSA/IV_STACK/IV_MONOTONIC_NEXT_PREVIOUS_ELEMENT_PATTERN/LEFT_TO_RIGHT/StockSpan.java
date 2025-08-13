@@ -55,11 +55,8 @@ public class StockSpan { // ✅ Utility Method: Stock Span Problem → Monotonic
   }
 
   public static void main(String[] args) {
-
     int[] arr = {10, 4, 5, 90, 120, 80};
-
     int[] span = stockSpan(arr);
-
     for (int x : span) {
       System.out.print(x + " ");
     }

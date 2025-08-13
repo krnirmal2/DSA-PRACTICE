@@ -1,10 +1,12 @@
 package StandardProblemDSA.VIIII_HEAP.VI_TASK_PRIORITIZATION.IV_MEDIAN_TRACKING;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.PriorityQueue;
 
 public class MedianInSortedArrays {
   /* 💡 Core Idea:
-  We simulate the process of merging both arrays into a single sorted stream and at each step, we maintain the two heaps such that:
+  We simulate the process of merging both arrays into a single sorted stream and at each step,
+   we maintain the two heaps such that:
   maxHeap contains the smaller half of numbers.
   minHeap contains the larger half.
   We ensure the size of maxHeap is equal to or 1 more than minHeap.

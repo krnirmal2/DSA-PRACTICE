@@ -38,7 +38,6 @@ public class NearestSmallerElement {
   public static void main(String[] args) {
     //        ArrayList<Integer> arrayList = new ArrayList<>(List.of(4,7,9,5,8,5,2,7,6));
     ArrayList<Integer> arrayList = new ArrayList<>(List.of(1, 3, 0, 2, 5));
-
     nearestLefSideSmallerElement(arrayList)
         .forEach(
             i -> {

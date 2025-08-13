@@ -244,8 +244,8 @@ public class ArrayUtility {
     List<List<Integer>> res = new ArrayList<>();
     // two pointer from left and right
     int left = start, right = nums.length - 1;
-      // check both the pointer value and based on target either increase or decrease the left and
-      // right pointer
+    // check both the pointer value and based on target either increase or decrease the left and
+    // right pointer
     while (left < right) {
       int sum = nums[left] + nums[right];
 
@@ -266,5 +266,29 @@ public class ArrayUtility {
     }
 
     return res;
+  }
+
+  // Function to print subsets in required format
+  public static void print2dArray(List<List<Integer>> arr) {
+
+    if (arr.isEmpty()) {
+
+      // No valid subsets found
+      System.out.println("-1");
+      return;
+    }
+
+    for (int row = 0; row < arr.size(); row++) {
+      System.out.print("[");
+      for (int col = 0; col < arr.get(row).size(); col++) {
+        System.out.print(arr.get(row).get(col));
+        if (col != arr.get(row).size() - 1) {
+          System.out.print(", ");
+        }
+      }
+      System.out.print("]");
+
+      if (row < arr.size() - 1) System.out.print(", ");
+    }
   }
 }

@@ -26,9 +26,9 @@ public class InorderWithoutRecursion {
       - Iterative DFS using Stack
 
    Similar LeetCode Problems:
-      - 94. Binary Tree Inorder Traversal
-      - 144. Binary Tree Preorder Traversal
-      - 145. Binary Tree Postorder Traversal
+      - 94. Binary Tree Inorder Traversal DONE
+      - 144. Binary Tree Preorder Traversal DONE
+      - 145. Binary Tree Postorder Traversal DONE
 
    Follow-up Questions:
       - How to do it recursively?
@@ -44,12 +44,19 @@ public class InorderWithoutRecursion {
     Stack<TreeNode> stack = new Stack<>();
     TreeNode current = root;
 
+    // Main intuition
+    // we will not put the left or right child in the stack
+    // but we will put the current node itself and iterate over left and right child
+    // Also we take a node from the stack and go till its left and each time for current node we are
+    // checking right child of it
     while (current != null || !stack.isEmpty()) {
+      // we will first for the current node till all the left node and push it to stack
       while (current != null) { // Push all left nodes
         stack.push(current);
         current = current.left;
       }
-
+      // we take the element from the stack and also check right if prsent after checking the left
+      // of it
       current = stack.pop(); // Process node
       System.out.print(current.val + " ");
 

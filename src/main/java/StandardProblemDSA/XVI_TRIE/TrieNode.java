@@ -68,12 +68,12 @@ public class TrieNode {
     return (links[ch - 'a'] != null); //  check the end should nnot point to null character
   }
 
-    // get the character position in the Trinode array if present with character
+  // get the character position in the Trinode array if present with character
   TrieNode get(char ch) {
     return links[ch - 'a'];
   }
 
-    // put the character and next node by assigning in the linked array
+  // put the character and next node by assigning in the linked array
   void put(char ch, TrieNode node) {
     links[ch - 'a'] = node;
   }

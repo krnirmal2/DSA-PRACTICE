@@ -28,9 +28,9 @@ import StandardProblemDSA.VIII_TREE.TreeNode;
     - DFS with custom order
 
  Similar LeetCode Problems:
-    - 545. Boundary of Binary Tree
-    - 94. Binary Tree Inorder Traversal
-    - 199. Binary Tree Right Side View
+    - 545. Boundary of Binary Tree DONE
+    - 94. Binary Tree Inorder Traversal DONE
+    - 199. Binary Tree Right Side View DONE
 
  Follow-up Questions:
     - How to handle skewed trees (all left or all right)?
@@ -58,8 +58,8 @@ public class BoundaryTraversal {
 
     // Print root val
     System.out.print(root.val + " ");
+    // note : we have to traverse the right and left using
     // INORDER TRAVERSAL OF THE TREE
-
     // Print left boundary excluding leaf nodes
     printLeftBoundary(root.left);
 
@@ -72,9 +72,10 @@ public class BoundaryTraversal {
     printRightBoundary(root.right);
   }
 
-  // Print the left boundary in top-down manner, excluding leaves
+  // TAIL RECURSION : Print the left boundary in top-down manner, excluding leaves
   private void printLeftBoundary(TreeNode node) {
     if (node == null) return;
+    // only node which are not leaf node has some value
     if (node.left != null) {
       // to ensure top-down, print before recursion
       System.out.print(node.val + " ");
@@ -96,6 +97,7 @@ public class BoundaryTraversal {
     printLeaves(node.right);
   }
 
+  // HEAD RECURSION
   // Print the right boundary in bottom-up manner, excluding leaves
   private void printRightBoundary(TreeNode node) {
     if (node == null) return;

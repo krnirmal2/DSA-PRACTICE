@@ -53,10 +53,15 @@ public class HeapUtility {
 
   public static PriorityQueue<Integer> kElemenentInHeap(
       int[] arr, int k, PriorityQueue<Integer> minHeap) {
+    // iterate over the element in the infinite array
     for (int num : arr) {
+      // if the minheap size less than k then insert the element
       if (minHeap.size() < k) {
         minHeap.offer(num);
-      } else if (num > minHeap.peek()) {
+      } else if (num
+              > minHeap
+              .peek()) { // else check if the num is greater than priority peak then remove peek and
+        // insert the no
         minHeap.poll();
         minHeap.offer(num);
       }

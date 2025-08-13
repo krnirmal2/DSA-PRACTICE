@@ -110,6 +110,8 @@ public class TreeUtility {
         || (node.left != null && node.left.val == val)
         || (node.right != null && node.right.val == val)) return node;
 
+    // we check if the current nodes left or right present the value node
+    // then the current node will be the parent of it
     TreeNode parent = findParentOfValue(node.left, val);
     if (parent == null) parent = findParentOfValue(node.right, val);
 
@@ -257,6 +259,7 @@ public class TreeUtility {
   public static boolean findAncestors(TreeNode root, int target, List<Integer> ancestors) {
     if (root == null) return false;
     if (root.val == target) return true;
+    // we use HEAD  recursion during return we will add the values
     if (findAncestors(root.left, target, ancestors)
         || findAncestors(root.right, target, ancestors)) {
       ancestors.add(root.val);
@@ -523,5 +526,26 @@ public class TreeUtility {
     if (root.left == null) return minDepth(root.right) + 1;
     if (root.right == null) return minDepth(root.left) + 1;
     return Math.min(minDepth(root.left), minDepth(root.right)) + 1;
+  }
+
+  /*   8
+         / \
+        3   10
+       / \    \
+      1   6    14
+         / \   /
+        4   7 13
+  */
+  public static TreeNode tree() {
+    TreeNode root = new TreeNode(8);
+    root.left = new TreeNode(3);
+    root.right = new TreeNode(10);
+    root.left.left = new TreeNode(1);
+    root.left.right = new TreeNode(6);
+    root.left.right.left = new TreeNode(4);
+    root.left.right.right = new TreeNode(7);
+    root.right.right = new TreeNode(14);
+    root.right.right.left = new TreeNode(13);
+    return root;
   }
 }

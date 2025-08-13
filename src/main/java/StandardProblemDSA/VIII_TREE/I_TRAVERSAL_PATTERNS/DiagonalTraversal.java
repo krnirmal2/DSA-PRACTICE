@@ -10,7 +10,6 @@ import java.util.TreeMap;
 public class DiagonalTraversal {
   /*
    Problem: Perform diagonal traversal of a binary tree.
-
    Traverse the binary tree diagonally, grouping all nodes having the same diagonal distance
    (distance from the top-right to bottom-left). Nodes are printed diagonal by diagonal.
 
@@ -58,12 +57,23 @@ public class DiagonalTraversal {
 
     // Print result
     for (Map.Entry<Integer, List<Integer>> entry : diagonalMap.entrySet()) {
+      // print each level values which was grouped in each diagonal level
       for (int val : entry.getValue()) {
         System.out.print(val + " ");
       }
       System.out.println(); // Optional: Print each diagonal in a new line
     }
   }
+
+  /* So basically we are increase the level for the left element only but right element we are kipping as it is
+              (8,0)
+               / \
+           (3,1)  ( 10,0)
+           / \        \
+       (1,2) (6,1)    (14,0)
+             / \         /
+         4,2) ( 7,1)  (13,1)
+  */
 
   // Recursive helper function
   public static void diagonalTraversalUtil(

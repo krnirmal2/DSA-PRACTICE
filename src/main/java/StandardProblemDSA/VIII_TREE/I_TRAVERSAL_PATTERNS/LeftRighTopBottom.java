@@ -135,14 +135,17 @@ public class LeftRighTopBottom {
         topViewMap.put(hd, node.val);
       }
       if (node.left != null) {
-        queue.offer(new Pair(node.left, hd - 1));
+        queue.offer(new Pair(node.left, hd - 1)); // for left add -1 to current hd
       }
       if (node.right != null) {
-        queue.offer(new Pair(node.right, hd + 1));
+        queue.offer(new Pair(node.right, hd + 1)); // for right add +1 to current hd
       }
     }
 
-    for (Integer val : topViewMap.values()) {
+    for (Integer val :
+            topViewMap
+                    .values()) { // at last we have to just iterate over the values of tree map not key and
+      // add to result
       result.add(val);
     }
     return result;
@@ -185,6 +188,7 @@ public class LeftRighTopBottom {
       int hd = curr.hd;
       // For bottom view, update the mapping (later nodes will overwrite earlier ones).
       // each node of the last level will override the horizontal distance
+      // here we don't check if the node already prsent in the ap or not , override the key value
       bottomViewMap.put(hd, node.val);
 
       if (node.left != null) {

@@ -12,4 +12,23 @@ public class ConversionEachPreInPost {
   Input: expression = "*+ab-cd"
 
   Output: "((a+b)*(c-d))"*/
+  public String preToInfix(String s) {
+      int n = s.length();
+      StringBuilder result = new StringBuilder();
+      prefixToInfixConversion(s, 0, result);
+      return result.toString();
+  }
+
+    private void prefixToInfixConversion(String s, int index, StringBuilder result) {
+        // base case
+        if (index == s.length() - 1) {
+        }
+
+        // hypothesis case
+        // check two thing if the the priority of the operator is low then add continuously ,
+        // if high then removed top two operand and add them with open and closed parenthesis
+
+        // induction case
+
+    }
 }

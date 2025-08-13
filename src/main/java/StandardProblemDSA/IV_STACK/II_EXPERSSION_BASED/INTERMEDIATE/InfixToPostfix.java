@@ -12,8 +12,8 @@ Same precedence operators return the same value.
         3️⃣ If the character is a number, append it to the StringBuilder (output).
         4️⃣ If the character is an open bracket (, push it to the stack.
         5️⃣ If the character is a closing bracket ):
-Pop all elements until an open bracket ( is found.
-        Apped popped elements to the StringBuilder.
+            Pop all elements until an open bracket ( is found.
+                    Append popped elements to the StringBuilder.
         6️⃣ After popping for closing brackets, if the stack is empty, push the current element.
         7️⃣ If the stack has operators, compare precedence:
             If the stack’s top has greater precedence than the current operator, pop and append.
@@ -65,14 +65,14 @@ public class InfixToPostfix {
         while (!stack.isEmpty() && stack.peek() != '(') {
           output.append(stack.pop());
         }
-        stack.pop(); // Remove '(' from stack
+        stack.pop(); // Remove '(' from stack for the last one
       }
-      // 4️⃣ If it's an operator, handle precedence
+      // 4️⃣ If it's an operator, handle precedence and push it to the stack if not greater
       else {
         while (!stack.isEmpty() && Utility.precedence(stack.peek()) >= Utility.precedence(ch)) {
           output.append(stack.pop());
         }
-        stack.push(ch);
+        stack.push(ch); // remove the last operator
       }
     }
 
