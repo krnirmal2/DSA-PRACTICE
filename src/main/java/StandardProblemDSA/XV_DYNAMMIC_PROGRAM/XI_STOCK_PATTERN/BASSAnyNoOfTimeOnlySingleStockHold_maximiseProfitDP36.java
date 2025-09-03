@@ -1,13 +1,11 @@
 package StandardProblemDSA.XV_DYNAMMIC_PROGRAM.XI_STOCK_PATTERN;
 
 import java.util.Arrays;
-import java.util.Vector;
 
-public class BuyAndSellStockAnyNoOfTimeDP36 {
+public class BASSAnyNoOfTimeOnlySingleStockHold_maximiseProfitDP36 {
 
   /*
       122. Best Time to Buy and Sell Stock II – Any Number of Transactions
-
       Problem:
       --------
       You are given an array prices where prices[i] is the price of a stock on day i.
@@ -78,62 +76,92 @@ public class BuyAndSellStockAnyNoOfTimeDP36 {
       • LeetCode 714 – Best Time to Buy and Sell Stock with Transaction Fee
   */
 
-  // Recursive function to calculate the maximum profit
-  static long getMaximumProfitUtil(long[] Arr, int ind, int buy, int n, Vector<Vector<Long>> dp) {
-    // Base case
-    if (ind == n) return 0;
+  // NOTE : DP FOR MEMOISATION
+  // for memoisation we need a two D db of size[n][2] ;
+  // n : input array , which means index will remain inside 0 to n
+  // 2 : the buy variable has two vvalue either true and false;
+  // we initailsed the dp with -1;
+  // and we have to set the value in each of the ceill with price value and buy variable
+  // Whenever we want to find the answer to particular parameters (say f(ind, buy)), we first check whether
+  // the answer is already calculated using the dp array(i.e dp[ind][buy]!= -1 ). If yes, simply return the value
+  // from the dp array
 
-    // If the result is already computed, return it
-    if (dp.get(ind).get(buy) != -1) return dp.get(ind).get(buy);
+  // If not, then we are finding the answer for the given value for the first time, we will use the
+  // recursive relation as usual but before returning from the function, we will set dp[ind][buy]
+  // to the solution we get.
+  public int maxProfit(int[] prices) {
+    // We want to maximize profit by buying and selling stocks any number of times.
+    // This time, we add MEMOIZATION to optimize the recursion.
+    // Idea: Use a 2D DP array where:
+    //   dp[i][canBuy] = maximum profit starting from day i,
+    //                   given canBuy (0 = we can buy, 1 = we must sell).
 
-    long profit = 0;
+    int canBuy = 0;   // initially we are allowed to buy
+    int initialIndex = 0;
 
-    if (buy == 0) { // We can buy the stock
-      profit =
-          Math.max(
-                  getMaximumProfitUtil(Arr, ind + 1, 0, n, dp),
-              -Arr[ind] + getMaximumProfitUtil(Arr, ind + 1, 1, n, dp));
+    // Create DP array (n x 2), initialized with -1 (uncomputed states).
+    int[][] dp = new int[prices.length][2];
+    for (int[] row : dp) {
+      Arrays.fill(row, -1);
     }
 
-    if (buy == 1) { // We can sell the stock
-      profit =
-          Math.max(
-                  getMaximumProfitUtil(Arr, ind + 1, 1, n, dp),
-              Arr[ind] + getMaximumProfitUtil(Arr, ind + 1, 0, n, dp));
+    // Start recursion with memoization
+    return utility(initialIndex, canBuy, prices.length, prices, dp);
+  }
+
+  private int utility(int i, int canBuy, int lengthOfArray, int[] prices, int[][] dp) {
+    // Base case: if we reach beyond the last day, profit is 0
+    if (i == lengthOfArray) {
+      return 0;
     }
 
-    // Store the result in the dp table and return it
-    dp.get(ind).set(buy, profit);
+    // If already computed, just return cached value
+    if (dp[i][canBuy] != -1) {
+      return dp[i][canBuy];
+    }
+
+    int profit;
+
+    // Case 1: Allowed to BUY
+    if (canBuy == 0) {
+      // Option 1: Buy stock today → profit decreases by prices[i],
+      // then move to next day where we must sell (canBuy = 1).
+      int buy = -prices[i] + utility(i + 1, 1, lengthOfArray, prices, dp);
+
+      // Option 2: Skip buying today → profit stays the same,
+      // move to next day still allowed to buy (canBuy = 0).
+      int notBuy = utility(i + 1, 0, lengthOfArray, prices, dp);
+
+      // Take max of both choices
+      profit = Math.max(buy, notBuy);
+    }
+    // Case 2: Must SELL (because we have already bought before)
+    else {
+      // Option 1: Sell stock today → profit increases by prices[i],
+      // then move to next day with ability to buy again (canBuy = 0).
+      int sell = prices[i] + utility(i + 1, 0, lengthOfArray, prices, dp);
+
+      // Option 2: Skip selling today → profit stays same,
+      // move to next day still waiting to sell (canBuy = 1).
+      int notSell = utility(i + 1, 1, lengthOfArray, prices, dp);
+
+      // Take max of both choices
+      profit = Math.max(sell, notSell);
+    }
+
+    // Save result into memo table before returning
+    dp[i][canBuy] = profit;
     return profit;
   }
+ /* Time Complexity: O(N*2)
+  Reason: There are N*2 states therefore at max ‘N*2’ new problems will be solved and we are running a for loop for ‘N’ times to calculate the total sum
+  Space Complexity: O(N*2) + O(N)
+  Reason: We are using a recursion stack space(O(N)) and a 2D array ( O(N*2)).*/
 
-  // Function to calculate the maximum profit
-  static long getMaximumProfit(long[] Arr, int n) {
-    // Create a 2D vector for memoization (dp)
-    Vector<Vector<Long>> dp = new Vector<>(n);
-    for (int i = 0; i < n; i++) {
-      Vector<Long> row = new Vector<>(2);
-      row.addAll(Arrays.asList(-1L, -1L));
-      dp.add(row);
-    }
 
-    // Base case: If n is 0, return 0 profit
-    if (n == 0) return 0;
+}
 
-    // Calculate the maximum profit using the recursive function
-    long ans = getMaximumProfitUtil(Arr, 0, 0, n, dp);
-    return ans;
-  }
-
-  public static void main(String[] args) {
-    int n = 6;
-    long[] Arr = {7, 1, 5, 3, 6, 4};
-
-    // Calculate and print the maximum profit
-    System.out.println("The maximum profit that can be generated is " + getMaximumProfit(Arr, n));
-  }
-
-  class StockProfit {
+/*class StockProfit {
     // Function to calculate the maximum profit
     static long getMaximumProfit(long[] Arr, int n) {
       // Create arrays 'ahead' and 'cur' to store the maximum profit ahead and current profit
@@ -171,5 +199,4 @@ public class BuyAndSellStockAnyNoOfTimeDP36 {
       // Calculate and print the maximum profit
       System.out.println("The maximum profit that can be generated is " + getMaximumProfit(Arr, n));
     }
-  }
-}
+  }*/
