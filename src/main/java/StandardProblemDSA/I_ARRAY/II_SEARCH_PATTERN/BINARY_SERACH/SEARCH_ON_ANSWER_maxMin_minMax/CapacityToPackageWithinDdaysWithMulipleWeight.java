@@ -5,14 +5,13 @@ package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.SEARCH_ON_ANS
  * ------------------
  * 1011. Capacity To Ship Packages Within D Days
  *
- * A conveyor belt has packages that must be shipped within `d` days.
- * The i-th package has a weight `weights[i]`. Each day, you can ship
+ * A conveyor belt has packages that must be shipped within `d` days.-------- [LIMITATION]
+ * The i-th package has a weight `weights[i]`. Each day, you can ship------------[ OREDER MAINTAIN ] BUT INPUT IS NOT SORTED
  * packages in the order given, but the total weight cannot exceed the
- * ship's capacity. Find the minimum capacity of the ship required to
+ * ship's capacity. Find the minimum capacity of the ship required to ---------[NEED MIN/MAX VALUE] WITH LIMITATION
  * ship all the packages within `d` days.
  *
  Example 1:
-
 Input: weights = [1,2,3,4,5,6,7,8,9,10], days = 5
 Output: 15
 Explanation: A ship capacity of 15 is the minimum to ship all the packages in 5 days like this:
@@ -21,11 +20,11 @@ Explanation: A ship capacity of 15 is the minimum to ship all the packages in 5 
 3rd day: 8
 4th day: 9
 5th day: 10
-
 Note that the cargo must be shipped in the order given, so using a ship of capacity 14 and splitting the packages
 * into parts like (2, 3, 4, 5), (1, 6, 7), (8), (9), (10) is not allowed.
-Example 2:
 
+
+Example 2:
 Input: weights = [3,2,2,4,1,4], days = 3
 Output: 6
 Explanation: A ship capacity of 6 is the minimum to ship all the packages in 3 days like this:
@@ -68,10 +67,10 @@ Explanation:
  *
  * Related LeetCode Questions:
  * ---------------------------
- * - 1011. Capacity To Ship Packages Within D Days
- * - 875. Koko Eating Bananas
+ * - 1011. Capacity To Ship Packages Within D Days DONE
+ * - 875. Koko Eating Bananas DONE
  * - 410. Split Array Largest Sum
- * - 1482. Minimum Number of Days to Make m Bouquets
+ * - 1482. Minimum Number of Days to Make m Bouquets DONE
  *
  * Follow-ups:
  * -----------
@@ -86,7 +85,7 @@ public class CapacityToPackageWithinDdaysWithMulipleWeight {
     for (int i = 0; i < n; i++) {
       if (load + weights[i] > cap) {
         days += 1; // move to next day
-        load = weights[i]; // load the weight.
+        load = weights[i]; // Initialised load the weight.
       } else {
         // load the weight on the same day.
         load += weights[i];

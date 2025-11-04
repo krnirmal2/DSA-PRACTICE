@@ -1,7 +1,6 @@
 package StandardProblemDSA.VIII_TREE.I_TRAVERSAL_PATTERNS;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
-
 import java.util.Stack;
 
 public class PreOrderWithOutRecursion {
@@ -34,7 +33,23 @@ public class PreOrderWithOutRecursion {
       - 144. Binary Tree Preorder Traversal
       - 94. Binary Tree Inorder Traversal
       - 145. Binary Tree Postorder Traversal
-
+          Validate Binary Search Tree
+          Medium
+          Binary Tree Preorder Traversal
+          Easy
+          Binary Tree Postorder Traversal
+          Easy
+          Binary Search Tree Iterator
+          Medium
+          Kth Smallest Element in a BST
+          Medium
+          Closest Binary Search Tree Value II
+          Hard
+          Inorder Successor in BST
+          Medium
+          Convert Binary Search Tree to Sorted Doubly Linked List
+          Medium
+          Minimum Distance Between BST Nodes
    Follow-up Questions:
       - How to do it recursively?
       - Can you implement Morris traversal (O(1) space)?
@@ -47,11 +62,15 @@ public class PreOrderWithOutRecursion {
 
   public static void preorderTraversal(TreeNode root) {
     if (root == null) return;
-
+    // Step 1 : use stack and put the root it in to that
     Stack<TreeNode> stack = new Stack<>();
     stack.push(root);
-
+    // Step 2 : now till the stack is not empty iterate and print value first and then push right
+    // and left
     while (!stack.isEmpty()) {
+      // take the node first and then check its right and left child till the leaf node we are not
+      // encounter
+      // and push its left and right to the
       TreeNode node = stack.pop(); // Process node
       System.out.print(node.val + " ");
 

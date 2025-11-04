@@ -56,7 +56,7 @@ public class Utility {
   }
 
   public static int peakElement(int[] bitonicArr) {
-    // index of the peak element whose left and right have less element
+    // index of the peak element whose left and right have less valued elements
     int low = 0;
     int high = bitonicArr.length - 1;
     while (low < high) { // {1, 3, 8, 12, 14, 11, 5, 2};
@@ -192,13 +192,20 @@ public class Utility {
 
   public static void countFrequencyEachElement(int[] A, HashMap<Integer, Integer> mapA) {
     // insert the element and count the frequency of each element in A and B
-    for (int i = 0; i < A.length; i++) {
+    /* for (int i = 0; i < A.length; i++) {
       if (mapA.containsKey(A[i])) {
         mapA.put(A[i], mapA.get(A[i]) + 1);
       } else {
         mapA.put(A[i], 1);
       }
+    }*/
+    for (int i = 0; i < A.length; i++) {
+      mapA.put(A[i], mapA.getOrDefault(A[i], 0) + 1);
     }
+
+    /*for (int num : A) {
+        mapA.put(num, mapA.getOrDefault(num, 0) + 1);
+    }*/
   }
 
   public static long getTotalSubArraySumOfArray(int[] A) {
@@ -327,8 +334,8 @@ public class Utility {
     int i = 0;
     while (i < nums.length) {
       int correctIndex =
-              nums[i]
-                      - 1; // Correct index for nums[i] // this is for 1 based indexing , change other based
+          nums[i]
+              - 1; // Correct index for nums[i] // this is for 1 based indexing , change other based
       // indexing like 0 to n
       if (nums[i] < nums.length && nums[i] != nums[correctIndex]) {
         // Swap nums[i] with the number at its correct position

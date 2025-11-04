@@ -2,7 +2,6 @@ package StandardProblemDSA.X_GRAPH.ii_SHORTEST_PATH_ALGORTHIMS;
 
 import StandardProblemDSA.X_GRAPH.GraphUtility;
 import StandardProblemDSA.X_GRAPH.Tuple;
-
 import java.util.PriorityQueue;
 
 public class PathWithMinimumEffort {

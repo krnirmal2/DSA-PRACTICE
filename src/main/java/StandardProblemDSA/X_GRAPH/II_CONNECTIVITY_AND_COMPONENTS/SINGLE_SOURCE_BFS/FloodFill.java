@@ -1,49 +1,50 @@
 package StandardProblemDSA.X_GRAPH.II_CONNECTIVITY_AND_COMPONENTS.SINGLE_SOURCE_BFS;
 
 public class FloodFill {
-    /*You are given an image represented by an m x n grid of integers image, where image[i][j] represents the pixel value of the image.
-       You are also given three integers sr, sc, and color. Your task is to perform a flood fill on the image starting from the pixel image[sr][sc].
-      To perform a flood fill:
-      Begin with the starting pixel and change its color to color.
-      Perform the same process for each pixel that is directly adjacent (pixels that share a side with the original pixel,
-      either horizontally or vertically) and shares the same color as the starting pixel.
-      Keep repeating this process by checking neighboring pixels of the updated pixels and modifying their color
-      if it matches the original color of the starting pixel.
-      The process stops when there are no more adjacent pixels of the original color to update.
-      Return the modified image after performing the flood fill.
-    🚀 Approach: DFS (Depth-First Search)
-    1. Get the initial color from image[sr][sc].
-    2. Call DFS:
-       - Change the current cell to newColor.
-       - For each of the 4 directions, if the neighbor is within bounds, has the initial color, and hasn’t been recolored, recursively call DFS.
+  /*You are given an image represented by an m x n grid of integers image, where image[i][j] represents the pixel value of the image.
+     You are also given three integers sr, sc, and color. Your task is to perform a flood fill on the image starting from the pixel image[sr][sc].
+    To perform a flood fill:
+    Begin with the starting pixel and change its color to color.
+    Perform the same process for each pixel that is directly adjacent (pixels that share a side with the original pixel,
+    either horizontally or vertically) and shares the same color as the starting pixel.
+    Keep repeating this process by checking neighboring pixels of the updated pixels and modifying their color
+    if it matches the original color of the starting pixel.
+    The process stops when there are no more adjacent pixels of the original color to update.
+    Return the modified image after performing the flood fill.
+  🚀 Approach: DFS (Depth-First Search)
+  1. Get the initial color from image[sr][sc].
+  2. Call DFS:
+     - Change the current cell to newColor.
+     - For each of the 4 directions, if the neighbor is within bounds, has the initial color, and hasn’t been recolored, recursively call DFS.
 
-    ⏱️ Time Complexity: O(m × n)
-    - In the worst case, all cells are visited once.
+  ⏱️ Time Complexity: O(m × n)
+  - In the worst case, all cells are visited once.
 
-    📦 Space Complexity: O(m × n)
-    - Due to recursion stack in DFS (can be optimized using BFS).
+  📦 Space Complexity: O(m × n)
+  - Due to recursion stack in DFS (can be optimized using BFS).
 
-    🔁 Pattern:
-    - DFS on a grid.
-    - Same as island problems with a color change twist.
+  🔁 Pattern:
+  - DFS on a grid.
+  - Same as island problems with a color change twist.
 
-    ⚠️ Edge Case:
-    - If `newColor == iniColor`, no change occurs, avoid infinite recursion by checking this upfront.
+  ⚠️ Edge Case:
+  - If `newColor == iniColor`, no change occurs, avoid infinite recursion by checking this upfront.
 
-    ✅ LeetCode Problem:
-    - 733. Flood Fill
-       */
+  ✅ LeetCode Problem:
+  - 733. Flood Fill
+     */
   private void dfs(
-          int row,
-          int col,
-          int[][] ans,
-          int[][] image,
-          int newColor,
-          int[] delRow,
-          int[] delCol,
-          int iniColor) {
+      int row,
+      int col,
+      int[][] ans,
+      int[][] image,
+      int newColor,
+      int[] delRow,
+      int[] delCol,
+      int iniColor) {
     // color with new color
     ans[row][col] = newColor;
+
     int n = image.length;
     int m = image[0].length;
     // there are exactly 4 neighbours

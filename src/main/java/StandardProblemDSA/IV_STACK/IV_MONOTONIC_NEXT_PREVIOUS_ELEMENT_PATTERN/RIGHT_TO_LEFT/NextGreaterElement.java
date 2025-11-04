@@ -35,7 +35,7 @@ Follow-up Questions:
 
 public class NextGreaterElement {
   /*    Input: arr[] = [1, 3, 2, 4]
-  Output: [3, 4, 4, -1]
+               Output: [3, 4, 4, -1]
   Explanation: The next larger element to 1 is 3, 3 is 4, 2 is 4 and for 4,
   since it doesn’t exist, it is -1.*/
   public static void main(String[] args) {

@@ -41,33 +41,37 @@ Follow-up Questions:
 */
 
 import StandardProblemDSA.Utility;
-
 import java.util.Stack;
 
 public class InfixToPostfix {
 
   // ✅ Converts infix expression to postfix
   public static String infixToPostfix(String expression) {
+    // Step 1 : create stack of character and stringbuilder for hold and result resp
     Stack<Character> stack = new Stack<>();
     StringBuilder output = new StringBuilder();
-
+    // Step 2 : iterate over the infix exprresion
     for (char ch : expression.toCharArray()) {
-      // 1️⃣ If it's an operand (number/letter), append to output
+      // 1️⃣Step 2.1 If it's an operand (number/letter), append to output Stringbuilder
       if (Character.isLetterOrDigit(ch)) {
         output.append(ch);
       }
-      // 2️⃣ If it's an opening bracket, push to stack
+      // 2️⃣  Step 2.2 If it's an opening bracket, push to stack like general way
       else if (ch == '(') {
         stack.push(ch);
       }
-      // 3️⃣ If it's a closing bracket, pop until '(' is found
+      // 3️⃣ Step 2.3 If it's a closing bracket, pop until '(' is found to so that next valid infix
+      // will start
+      // till then append all the string to it by poping stack
       else if (ch == ')') {
         while (!stack.isEmpty() && stack.peek() != '(') {
           output.append(stack.pop());
         }
         stack.pop(); // Remove '(' from stack for the last one
       }
-      // 4️⃣ If it's an operator, handle precedence and push it to the stack if not greater
+      // 4️⃣ Step 2.4 If it's an operator, remove all the operator which is greater than current
+      // operator in the string
+      // and then put the character in the stack
       else {
         while (!stack.isEmpty() && Utility.precedence(stack.peek()) >= Utility.precedence(ch)) {
           output.append(stack.pop());
@@ -76,7 +80,7 @@ public class InfixToPostfix {
       }
     }
 
-    // 5️⃣ Pop all remaining operators in the stack
+    // 5️⃣ Step 2.5 Pop all remaining operators in the stack
     while (!stack.isEmpty()) {
       output.append(stack.pop());
     }

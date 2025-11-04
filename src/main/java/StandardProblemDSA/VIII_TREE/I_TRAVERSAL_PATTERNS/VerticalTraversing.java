@@ -2,7 +2,6 @@ package StandardProblemDSA.VIII_TREE.I_TRAVERSAL_PATTERNS;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
 import StandardProblemDSA.VIII_TREE.TreeUtility;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,6 +72,16 @@ public class VerticalTraversing {
 
     return result;
   }
+
+  /*
+                1(0)
+             /        \
+         2(-1)        3(+1)
+        /   \        /     \
+     4(-2) 5(0)   6(0)     7(+2)
+                       \       \
+                       8(+1)   9(+3)
+  */
 
   public static void main(String[] args) {
 

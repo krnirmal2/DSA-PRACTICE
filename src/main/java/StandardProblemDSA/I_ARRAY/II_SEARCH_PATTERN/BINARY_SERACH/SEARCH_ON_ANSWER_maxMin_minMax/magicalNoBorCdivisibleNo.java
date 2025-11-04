@@ -1,4 +1,4 @@
-package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH;
+package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.SEARCH_ON_ANSWER_maxMin_minMax;
 
 /*I see why this code is problematic — it’s trying to brute force up to **n = 1,000,000,000**, which is not feasible for `A = 807,414,236`.
         ### Problem
@@ -15,35 +15,35 @@ This is a known problem:
         ### Optimized Implementation*/
 
 public class magicalNoBorCdivisibleNo {
-    static final int MOD = 1_000_000_007;
+  static final int MOD = 1_000_000_007;
 
-    // Helper to compute GCD
-    private static long gcd(long a, long b) {
-        return b == 0 ? a : gcd(b, a % b);
-    }
+  // Helper to compute GCD
+  private static long gcd(long a, long b) {
+    return b == 0 ? a : gcd(b, a % b);
+  }
 
-    // Helper to compute LCM
-    private static long lcm(long a, long b) {
-        return (a * b) / gcd(a, b);
-    }
+  // Helper to compute LCM
+  private static long lcm(long a, long b) {
+    return (a * b) / gcd(a, b);
+  }
 
   public static int solve(int A, int B, int C) {
-      long l = Math.min(B, C);
-      long r = (long) A * l; // maximum possible value
-      long LCM = lcm(B, C);
+    long l = Math.min(B, C);
+    long r = (long) A * l; // maximum possible value
+    long LCM = lcm(B, C);
 
-      while (l < r) {
-          long mid = l + (r - l) / 2;
-          long count = mid / B + mid / C - mid / LCM;
+    while (l < r) {
+      long mid = l + (r - l) / 2;
+      long count = mid / B + mid / C - mid / LCM;
 
-          if (count < A) l = mid + 1;
-          else r = mid;
+      if (count < A) l = mid + 1;
+      else r = mid;
     }
-      return (int) (l % MOD);
+    return (int) (l % MOD);
   }
 
   public static void main(String[] args) {
-      System.out.println(solve(807414236, 3788, 38141)); // Efficient!
+    System.out.println(solve(807414236, 3788, 38141)); // Efficient!
   }
 }
 /*

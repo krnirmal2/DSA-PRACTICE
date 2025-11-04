@@ -38,8 +38,8 @@ import java.util.List;
 
     Related Problems:
     -----------------
-        • Valid Parentheses (LeetCode 20)
-        • Count Valid Parentheses
+        • Valid Parentheses (LeetCode 20) done
+        • Count Valid Parentheses done
         • Unique BST Generation
 */
 

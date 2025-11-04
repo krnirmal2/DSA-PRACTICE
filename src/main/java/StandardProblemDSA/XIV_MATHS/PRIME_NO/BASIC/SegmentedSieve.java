@@ -3,7 +3,7 @@ package StandardProblemDSA.XIV_MATHS.PRIME_NO.BASIC;
 import java.util.Arrays;
 
 public class SegmentedSieve { // 7. Find all primes in a range [L, R] using segmented sieve
-    /**/
+  /**/
   public static void segmentedSieve(int L, int R) {
     boolean[] isPrime = new boolean[R - L + 1];
     Arrays.fill(isPrime, true);

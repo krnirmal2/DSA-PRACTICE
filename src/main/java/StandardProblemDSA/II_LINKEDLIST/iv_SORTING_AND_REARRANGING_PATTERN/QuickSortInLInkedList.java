@@ -1,9 +1,9 @@
 package StandardProblemDSA.II_LINKEDLIST.iv_SORTING_AND_REARRANGING_PATTERN;
 
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.getTail;
+
 import StandardProblemDSA.II_LINKEDLIST.ListNode;
 import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
-
-import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.getTail;
 
 public class QuickSortInLInkedList {
 

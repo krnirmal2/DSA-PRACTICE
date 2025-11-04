@@ -8,13 +8,13 @@ public class MaximumSubarrayEasy {
   ------------------------------------------------------
   Question (Interviewer-style)
   ------------------------------------------------------
-  "Given an array C of positive integers and an integer B,
+  "Given an array A of positive integers and an integer B,
    find the maximum possible sum of a contiguous subarray
    such that the sum is less than or equal to B."
 
   Example:
   Input:
-    C = [2, 1, 3, 4, 5], B = 12
+    A = [2, 1, 3, 4, 5], B = 12
   Output:
     12
   Explanation:
@@ -60,7 +60,7 @@ public class MaximumSubarrayEasy {
   ------------------------------------------------------
   Similar LeetCode Problems
   ------------------------------------------------------
-  - LeetCode 209 – Minimum Size Subarray Sum (reverse logic, ≥ target)
+  - LeetCode 209 – Minimum Size Subarray Sum (reverse logic, ≥ target) DONE
   - LeetCode 325 – Maximum Size Subarray Sum Equals k (prefix sum)
   - LeetCode 560 – Subarray Sum Equals K
 

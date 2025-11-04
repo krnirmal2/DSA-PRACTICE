@@ -6,7 +6,8 @@ import java.util.Queue;
 public class StackUsingTwoQueue {}
 
 /* By making pop() operation costly – Push in O(1) and Pop() in O(n)
-The new element is always enqueued to q1. In pop() operation, if q2 is empty then all the elements except the last, are moved to q2. Finally, the last element is dequeued from q1 and returned.
+The new element is always enqueued to q1. In pop() operation, if q2 is empty then all the elements except the last,
+are moved to q2. Finally, the last element is dequeued from q1 and returned.
 Follow the below steps to implement the push(s, x) operation:
 Enqueue x to q1 (assuming the size of q1 is unlimited).
 Follow the below steps to implement the pop(s) operation:

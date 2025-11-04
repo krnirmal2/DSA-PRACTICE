@@ -48,33 +48,33 @@ public class MinimumNoOfPlatformsRequiredRailway {
            continue this process untill all trainse are processed
   */
 
-    private static int minPlatform(int[] arr, int[] dep) {
-        int n = arr.length;
-        // Step  1: sort both arrival and departure
-        Arrays.sort(arr);
-        Arrays.sort(dep);
-        int result = 0;
-        //  Step 2: Intialise two pointer  arrives and departure times
-        int deptPointer = 0;
-        int platformCount = 0; // tracks the no. of platforms needed at any given time
-        for (int arrPointer = 0; arrPointer < n; arrPointer++) {
-            // if arrival time > departure times , a no new platforms count-- , means freeing platform
-            while (deptPointer < n && dep[deptPointer] < arr[arrPointer]) {
-                platformCount--; // NOTE : we decrease the count if no extra platform required
-                deptPointer++;
-            }
-            // one platform for current train
-            platformCount++;
-            result = Math.max(result, platformCount);
-        }
-        return result;
+  private static int minPlatform(int[] arr, int[] dep) {
+    int n = arr.length;
+    // Step  1: sort both arrival and departure
+    Arrays.sort(arr);
+    Arrays.sort(dep);
+    int result = 0;
+    //  Step 2: Intialise two pointer  arrives and departure times
+    int deptPointer = 0;
+    int platformCount = 0; // tracks the no. of platforms needed at any given time
+    for (int arrPointer = 0; arrPointer < n; arrPointer++) {
+      // if arrival time > departure times , a no new platforms count-- , means freeing platform
+      while (deptPointer < n && dep[deptPointer] < arr[arrPointer]) {
+        platformCount--; // NOTE : we decrease the count if no extra platform required
+        deptPointer++;
+      }
+      // one platform for current train
+      platformCount++;
+      result = Math.max(result, platformCount);
     }
+    return result;
+  }
 
-    public static void main(String[] args) {
-        int[] arr = {900, 940, 950, 1100, 1500, 1800};
-        int[] dep = {910, 1200, 1120, 1130, 1900, 2000};
-        System.out.println(minPlatform(arr, dep));
-    }
+  public static void main(String[] args) {
+    int[] arr = {900, 940, 950, 1100, 1500, 1800};
+    int[] dep = {910, 1200, 1120, 1130, 1900, 2000};
+    System.out.println(minPlatform(arr, dep));
+  }
   /*Here’s the dry run table for:
 
   n this problem, the arr[] and dep[] arrays represent arrival and departure times of trains, but not for the same index after sorting.

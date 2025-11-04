@@ -1,7 +1,8 @@
 package StandardProblemDSA.IV_STACK.II_EXPERSSION_BASED.ADVANCED;
 
 /*🔹 Problem Statement
-Given an even number n, return the number of valid parentheses expressions that can be formed using n characters (i.e., n / 2 pairs).
+Given an even number n, return the number of valid parentheses expressions that can be formed using
+n characters (i.e., n / 2 pairs).
 If n is odd → return 0 (since parentheses must come in pairs).
 Input: n = 4
 Output: 2
@@ -50,18 +51,94 @@ Explanation: ["((()))", "(()())", "(())()", "()(())", "()()()"]
         • Count non-crossing handshakes.*/
 
 public class CountValidParenthesis {
-  public int countValidParentheses(int n) {
-    if (n % 2 != 0) return 0; // must be even
-    int k = n / 2;
-    long[] dp = new long[k + 1];
-    dp[0] = 1;
+  static int helper(int left, int right, int[] ans) {
 
-    for (int i = 1; i <= k; i++) {
-      for (int j = 0; j < i; j++) {
-        dp[i] += dp[j] * dp[i - 1 - j];
-      }
+    // If no more left and right parentheses
+    // are remaining, a valid combination is found
+    if (left == 0 && right == 0) {
+      ans[0]++;
+      return ans[0];
     }
 
-    return (int) dp[k];
+    // If more right parentheses than left, return
+    // (invalid state)
+    if (left > right) {
+      return 0;
+    }
+
+    // Try adding a left parenthesis if available
+    if (left > 0) {
+      helper(left - 1, right, ans);
+    }
+
+    // Try adding a right parenthesis if available
+    if (right > 0) {
+      helper(left, right - 1, ans);
+    }
+
+    return ans[0];
   }
+
+  // Function to count valid parentheses arrangements of
+  // length n
+  static int findWays(int n) {
+
+    // If n is odd, no valid arrangements
+    // possible
+    if (n % 2 == 1) return 0;
+    int[] ans = {0};
+    return helper(n / 2, n / 2, ans);
+  }
+
+  public static void main(String[] args) {
+    int n = 6;
+    int res = findWays(n);
+    System.out.println(res);
+    /*
+    // Returns value of Binomial Coefficient C(n, k)
+    static int binomialCoeff(int n, int k) {
+      int res = 1;
+
+      // Since C(n, k) = C(n, n-k)
+      if (k > n - k)
+        k = n - k;
+
+      // Calculate value of [n*(n-1)*---*(n-k+1)] / [k*(k-1)*---*1]
+      for (int i = 0; i < k; ++i) {
+        res *= (n - i);
+        res /= (i + 1);
+      }
+
+      return res;
+    }
+
+    // A Binomial coefficient based function to
+    // find nth catalan number in O(n) time
+    static int catalan(int n) {
+
+      // Calculate value of 2nCn
+      int c = binomialCoeff(2 * n, n);
+
+      // return 2nCn/(n+1)
+      return (int) (c / (n + 1));
+    }
+
+    // Function to find possible ways to put balanced
+    // parenthesis in an expression of length n
+    static int findWays(int n) {
+
+      // If n is odd, not possible to
+      // create any valid parentheses
+      if ((n & 1) == 1)
+        return 0;
+
+      // Otherwise return n/2'th Catalan
+      // Number
+      return catalan(n / 2);
+    }
+
+    public static void main(String[] args) {
+      int n = 6;
+      System.out.println(findWays(n));
+    }*/ }
 }

@@ -1,18 +1,14 @@
 package StandardProblemDSA.VIII_TREE.BST.Kth_SMALLEST_LARGEST;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
-
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Stack;
 
 public class KthSmallest {
   /*
   Problem: Find the kth smallest element in a Binary Search Tree (BST).
 
-  Approach:
-      - Iterative in-order traversal using a stack.
-      - In-order traversal of a BST visits nodes in ascending order.
-      - Push all left nodes, pop and decrement k each time.
-      - When k == 0, the current node is the kth smallest.
 
   Pattern:
       - BST property + in-order traversal (left → root → right)
@@ -37,44 +33,26 @@ public class KthSmallest {
       - Can this be converted to find kth largest?
         → Yes, use reverse in-order traversal (right → root → left).
   */
+  /* Approach:
+        - Iterative in-order traversal using a stack.
+        - In-order traversal of a BST visits nodes in ascending order.
+        - Push all left nodes, pop and decrement k each time.
+        - When k == 0, the current node is the kth smallest.
+  */
+  public int kthSmallest(TreeNode root, int k) {
+    Stack<TreeNode> stack = new Stack<>();
+    Set<Integer> set = new HashSet<>();
 
-    public int kthSmallest(TreeNode root, int k) {
-        Stack<TreeNode> stack = new Stack<>();
-        while (true) {
-            while (root != null) {
-                stack.push(root);
-                root = root.left;
-            }
-            root = stack.pop();
-            k--;
-            if (k == 0) return root.val;
-            root = root.right;
+    while (true) {
+      while (root != null) {
+        stack.push(root);
+        root = root.left;
+      }
+      root = stack.pop();
+      // only add this to inorder to get the kthsmallest element
+      k--;
+      if (k == 0) return root.val;
+      root = root.right;
     }
   }
-  /* ✅ Solution Using a Wrapper Class or Array:
-      To fix this, use a wrapper object or array for count and result so they can be updated across recursive calls.
-
-      class Solution {
-          public int kthSmallest(TreeNode root, int k) {
-              int[] count = new int[1];  // acts like a reference
-              int[] result = new int[1];
-              recu(root, count, k, result);
-              return result[0];
-          }
-
-          public void recu(TreeNode root, int[] count, int k, int[] result) {
-              if (root == null) return;
-
-              recu(root.left, count, k, result);
-
-              count[0]++;
-              if (count[0] == k) {
-                  result[0] = root.val;
-                  return;
-              }
-
-              recu(root.right, count, k, result);
-          }
-      }
-  */
 }

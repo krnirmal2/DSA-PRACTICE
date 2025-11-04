@@ -30,7 +30,7 @@ Approach:
 Example:
 --------
 Input: 1 → 2 → 3 → 4 → 5 ↘
-                     ↑----↙
+               ↑ ---- ↙
 Output: 3
 Explanation: Cycle is 3 → 4 → 5 → 3 (length = 3).
 

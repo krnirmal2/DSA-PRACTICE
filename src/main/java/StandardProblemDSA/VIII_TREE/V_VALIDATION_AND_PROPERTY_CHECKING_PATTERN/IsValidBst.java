@@ -4,9 +4,9 @@ import StandardProblemDSA.VIII_TREE.BST.BSTutility;
 import StandardProblemDSA.VIII_TREE.TreeNode;
 
 public class IsValidBst {
-    // ---------------------------------------------------
-    // 3. Validate Binary Search Tree (BST)
-    // ---------------------------------------------------
+  // ---------------------------------------------------
+  // 3. Validate Binary Search Tree (BST)
+  // ---------------------------------------------------
   /*
     Problem Statement:
        Determine if a binary tree is a valid binary search tree (BST).
@@ -27,7 +27,7 @@ public class IsValidBst {
             3   7
        This tree is a valid BST.
   */
-    public static boolean isValidBST(TreeNode root) {
-        return BSTutility.validateBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
-    }
+  public static boolean isValidBST(TreeNode root) {
+    return BSTutility.validateBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
+  }
 }

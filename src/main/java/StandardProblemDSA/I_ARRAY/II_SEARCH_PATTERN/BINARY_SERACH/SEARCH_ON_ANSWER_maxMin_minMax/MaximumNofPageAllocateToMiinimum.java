@@ -82,9 +82,9 @@ public class MaximumNofPageAllocateToMiinimum {
   Related LeetCode Problems:
   --------------------------
   - 410. Split Array Largest Sum (exactly this problem)
-  - 1011. Capacity To Ship Packages Within D Days
-  - 875. Koko Eating Bananas
-  - 1482. Minimum Number of Days to Make m Bouquets
+  - 1011. Capacity To Ship Packages Within D Days done
+  - 875. Koko Eating Bananas done
+  - 1482. Minimum Number of Days to Make m Bouquets DONE
 
   Follow-ups:
   ------------

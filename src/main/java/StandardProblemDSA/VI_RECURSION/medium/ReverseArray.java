@@ -2,9 +2,9 @@ package StandardProblemDSA.VI_RECURSION.medium;
 
 // Problem 8: Reverse an array using recursion
 
-import java.util.Arrays;
-
 import static StandardProblemDSA.I_ARRAY.ArrayUtility.swap;
+
+import java.util.Arrays;
 
 public class ReverseArray {
 

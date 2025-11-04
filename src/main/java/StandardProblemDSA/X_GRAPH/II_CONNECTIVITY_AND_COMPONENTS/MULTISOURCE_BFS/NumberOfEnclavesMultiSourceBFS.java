@@ -1,46 +1,62 @@
 package StandardProblemDSA.X_GRAPH.II_CONNECTIVITY_AND_COMPONENTS.MULTISOURCE_BFS;
 
 import StandardProblemDSA.X_GRAPH.GraphUtility;
-
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class NumberOfEnclavesMultiSourceBFS {
   /*
-  🧠 Problem:
-  Count land cells (`1`s) in a grid that cannot reach the boundary.
-  - Any land connected to the boundary (directly or indirectly) is not enclosed.
+    🧠 Problem:
+    Count land cells (`1`s) in a grid that cannot reach the boundary.
+    - Any land connected to the boundary (directly or indirectly) is not enclosed.
+    A move consists of walking from one land cell to another adjacent (4-directionally) land cell or walking off the boundary of the grid.
+  Return the number of land cells in grid for which we cannot walk off the boundary of the grid in any number of moves.
+  Example 1:
+  Input: grid = [
+  [0,0,0,0],
+  [1,0,1,0],
+  [0,1,1,0],
+  [0,0,0,0]]
+  Output: 3
+  Explanation: There are three 1s that are enclosed by 0s, and one 1 that is not enclosed because its on the boundary.
 
-  🔍 Approach: Multi-Source BFS
-  1. **Eliminate all boundary-connected land**:
-     - Traverse first & last rows and columns.
-     - For each `1`, run BFS to mark all connected land as water (`0`).
-  2. **Count remaining land cells**:
-     - After BFS, any `1` is enclosed and part of the answer.
+  Example 2:
+  Input: grid = [[0,1,1,0],[0,0,1,0],[0,0,1,0],[0,0,0,0]]
+  Output: 0
+  Explanation: All 1s are either on the boundary or can reach the boundary.
 
-  ⏱️ Time Complexity:
-  - O(m × n): Each cell is visited at most once.
+    🔍 Approach: Multi-Source BFS
+    1. **Eliminate all boundary-connected land**:
+       - Traverse first & last rows and columns.
+       - For each `1`, run BFS to mark all connected land as water (`0`).
+    2. **Count remaining land cells**:
+       - After BFS, any `1` is enclosed and part of the answer.
 
-  📦 Space Complexity:
-  - O(m × n): Queue can hold all land cells in the worst case.
+    ⏱️ Time Complexity:
+    - O(m × n): Each cell is visited at most once.
 
-  📘 Similar LeetCode Problem:
-  - 1020. Number of Enclaves
+    📦 Space Complexity:
+    - O(m × n): Queue can hold all land cells in the worst case.
 
-  🔁 Pattern:
-  - Multi-Source BFS / DFS.
-  - Boundary marking + counting enclosed components.
+    📘 Similar LeetCode Problem:
+    - 1020. Number of Enclaves
 
-  🔄 Follow-up:
-  - Solve with DFS for recursive style.
-  - Optimize space by reusing `grid` without extra `visited` array.
-  */
+    🔁 Pattern:
+    - Multi-Source BFS / DFS.
+    - Boundary marking + counting enclosed components.
+
+    🔄 Follow-up:
+    - Solve with DFS for recursive style.
+    - Optimize space by reusing `grid` without extra `visited` array.
+    */
 
   public int numEnclaves(int[][] grid) {
     int rows = grid.length, cols = grid[0].length;
     Queue<int[]> queue = new LinkedList<>();
 
-    // Step 1: Remove all boundary-connected land using BFS
+    // Step 1: Remove all boundary-connected land using BFS , to all the four boundaries to check if
+    // there 1 present using bfs
+    // we iterate in first and last column
     for (int i = 0; i < rows; i++) {
       if (grid[i][0] == 1) {
         bfs(grid, i, 0);
@@ -49,7 +65,7 @@ public class NumberOfEnclavesMultiSourceBFS {
         bfs(grid, i, cols - 1);
       }
     }
-
+    // iterate over first and last rows
     for (int j = 0; j < cols; j++) {
       if (grid[0][j] == 1) {
         bfs(grid, 0, j);
@@ -75,11 +91,12 @@ public class NumberOfEnclavesMultiSourceBFS {
   private void bfs(int[][] grid, int row, int col) {
     Queue<int[]> queue = new LinkedList<>();
     queue.offer(new int[] {row, col});
-    grid[row][col] = 0; // Mark as visited by converting to water
+    grid[row][col] = 0; // Mark as visited by converting to water if we reached to boundar
 
     int[][] directions = GraphUtility.getFourDirection();
     while (!queue.isEmpty()) {
       int[] cell = queue.poll();
+      // check the boundary of it not each neighbor
       for (int[] dir : directions) {
         int newRow = cell[0] + dir[0];
         int newCol = cell[1] + dir[1];

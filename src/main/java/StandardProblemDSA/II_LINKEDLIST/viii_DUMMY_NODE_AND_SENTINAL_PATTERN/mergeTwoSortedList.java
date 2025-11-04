@@ -1,4 +1,4 @@
-package StandardProblemDSA.II_LINKEDLIST.vi_MERGING_AND_SPLITTING_LL;
+package StandardProblemDSA.II_LINKEDLIST.viii_DUMMY_NODE_AND_SENTINAL_PATTERN;
 
 import StandardProblemDSA.II_LINKEDLIST.Node;
 

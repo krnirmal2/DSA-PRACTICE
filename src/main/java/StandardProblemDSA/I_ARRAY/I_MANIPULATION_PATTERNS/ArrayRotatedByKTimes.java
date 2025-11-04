@@ -1,8 +1,8 @@
 package StandardProblemDSA.I_ARRAY.I_MANIPULATION_PATTERNS;
 
-import java.util.Scanner;
-
 import static StandardProblemDSA.Utility.reverseArray;
+
+import java.util.Scanner;
 
 public class ArrayRotatedByKTimes {
 

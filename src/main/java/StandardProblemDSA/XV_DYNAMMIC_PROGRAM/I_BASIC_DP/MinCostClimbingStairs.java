@@ -38,7 +38,30 @@ class MinCostClimbingStaris {
    *
    * <p>Time Complexity: - O(n) time, O(1) space.
    */
-  public int minCostClimbingStairs(int[] cost) {
+  public static int minCostClimbingStairs(int[] cost) {
+    int n = cost.length;
+    Integer[] dp = new Integer[n]; // memo array
+    // We can start from step 0 or step 1
+    return Math.min(helper(n - 1, cost, dp), helper(n - 2, cost, dp));
+  }
+
+  private static int helper(int i, int[] cost, Integer[] dp) {
+    if (i < 0) return 0; // base case: before first step
+    if (i == 0 || i == 1) return cost[i]; // base case: first two steps
+
+    if (dp[i] != null) return dp[i];
+
+    // cost of reaching step i = cost[i] + min(cost to reach (i-1), cost to reach (i-2))
+    dp[i] = cost[i] + Math.min(helper(i - 1, cost, dp), helper(i - 2, cost, dp));
+    return dp[i];
+  }
+
+  // quick test
+  public static void main(String[] args) {
+    int[] cost = {10, 15, 20};
+    System.out.println(minCostClimbingStairs(cost)); // 15
+  }
+  /* public int minCostClimbingStairs(int[] cost) {
     int n = cost.length;
     int prev1 = cost[1]; // Cost to reach step 1
     int prev2 = cost[0]; // Cost to reach step 0
@@ -54,7 +77,7 @@ class MinCostClimbingStaris {
 
     // Return the minimum cost to reach the top
     return Math.min(prev1, prev2);
-  }
+  }*/
   /*Explanation of the Code
   Brute Force Approach: Uses recursion but results in O(2^n) complexity due to redundant calculations.
 

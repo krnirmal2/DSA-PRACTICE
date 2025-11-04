@@ -3,28 +3,29 @@ package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.MISLANEOUS; /
 /*
 Problem Statement:
 ------------------
-You are given a **sorted array** `A` of size `n` and a target value `B`.
-You need to find the index of `B` in the array using **binary search**.
-- If `B` exists, return its index.
-- If it does not exist, return `-1`.
+Given a sorted array of distinct integers and a target value, return the index if the target is found.
+ If not, return the index where it would be if it were inserted in order.
+You must write an algorithm with O(log n) runtime complexity.
 
 Example 1:
-----------
-Input: A = [1, 2, 3, 5, 6, 7, 9], B = 5
-Output: 3
-Explanation: Element 5 is found at index 3.
 
+Input: nums = [1,3,5,6], target = 5
+Output: 2
 Example 2:
-----------
-Input: A = [1, 2, 3, 5, 6, 7, 9], B = 4
-Output: -1
-Explanation: Element 4 is not present in the array.
+
+Input: nums = [1,3,5,6], target = 2
+Output: 1
+Example 3:
+
+Input: nums = [1,3,5,6], target = 7
+Output: 4
 
 Constraints:
 ------------
-- 1 <= n <= 10^5
-- -10^9 <= A[i], B <= 10^9
-- Array `A` is sorted in ascending order.
+1 <= nums.length <= 104
+-104 <= nums[i] <= 104
+nums contains distinct values sorted in ascending order.
+-104 <= target <= 104
 
 Pattern Used:
 -------------
@@ -47,21 +48,23 @@ public class InsertIntoSortedPosition {
     int left = 0;
     int right = A.length - 1;
 
-    System.out.println(solve(A, left, right, 4));
+    System.out.println(searchInsert(A, 4));
   }
 
-  private static int solve(int[] A, int left, int right, int B) {
-    if (left > right) return -1; // base case: not found
+  public static int searchInsert(int[] nums, int target) {
+    int n = nums.length;
+    int low = 0;
+    int high = n - 1;
 
-    int mid = (left + right) / 2;
-    if (A[mid] == B) return mid;
-
-    if (A[mid] > B) return solve(A, left, mid - 1, B);
-    else return solve(A, mid + 1, right, B);
+    while (low <= high) {
+      int mid = low + (high - low) / 2;
+      if (target == nums[mid]) return mid;
+      if (target < nums[mid]) {
+        high = mid - 1;
+      } else {
+        low = mid + 1;
+      }
+    }
+    return low;
   }
-  /*O(log N)
-    Where N is the number of elements in array A.
-    At each step, the array is divided in half (binary division).
-    So the number of steps required to search an element in N elements is:
-  )*/
 }

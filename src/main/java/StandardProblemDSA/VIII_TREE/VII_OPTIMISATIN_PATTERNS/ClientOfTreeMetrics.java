@@ -58,54 +58,54 @@ public class ClientOfTreeMetrics {
 
   */
 
-    // ---------------------------------------------------
-    // Main method for demonstration of functionalities.
-    // ---------------------------------------------------
-    public static void main(String[] args) {
-        ClientOfTreeMetrics ops = new ClientOfTreeMetrics();
+  // ---------------------------------------------------
+  // Main method for demonstration of functionalities.
+  // ---------------------------------------------------
+  public static void main(String[] args) {
+    ClientOfTreeMetrics ops = new ClientOfTreeMetrics();
 
-        // Build sample tree for depth/diameter/zigzag/path sum demonstration:
-        //          1
-        //         / \
-        //        2   3
-        //       / \   \
-        //      4   5   6
-        //           \
-        //            7
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(3);
-        root.left.left = new TreeNode(4);
-        root.left.right = new TreeNode(5);
-        root.right.right = new TreeNode(6);
-        root.left.right.right = new TreeNode(7);
+    // Build sample tree for depth/diameter/zigzag/path sum demonstration:
+    //          1
+    //         / \
+    //        2   3
+    //       / \   \
+    //      4   5   6
+    //           \
+    //            7
+    TreeNode root = new TreeNode(1);
+    root.left = new TreeNode(2);
+    root.right = new TreeNode(3);
+    root.left.left = new TreeNode(4);
+    root.left.right = new TreeNode(5);
+    root.right.right = new TreeNode(6);
+    root.left.right.right = new TreeNode(7);
 
-        System.out.println("Maximum Depth: " + TreeUtility.maxDepth(root)); // Expected: 4
-        System.out.println("Minimum Depth: " + TreeUtility.minDepth(root)); // Expected: 3
-        System.out.println(
-                "Diameter of Tree: "
-                        + DiameterOfBinaryTree.diameterOfBinaryTree(root)); // Expected: 4 (edge count)
-        System.out.println(
-                "Maximum Path Sum: " + MaxPathSumBinaryTree.maxPathSum(root)); // Depends on node values
-        System.out.println(
-                "Longest Zigzag Path: "
-                        + LongestZigZagPathInBinaryTree.longestZigzagPath(
-                        root)); // Expected: length depends on zigzag
+    System.out.println("Maximum Depth: " + TreeUtility.maxDepth(root)); // Expected: 4
+    System.out.println("Minimum Depth: " + TreeUtility.minDepth(root)); // Expected: 3
+    System.out.println(
+        "Diameter of Tree: "
+            + DiameterOfBinaryTree.diameterOfBinaryTree(root)); // Expected: 4 (edge count)
+    System.out.println(
+        "Maximum Path Sum: " + MaxPathSumBinaryTree.maxPathSum(root)); // Depends on node values
+    System.out.println(
+        "Longest Zigzag Path: "
+            + LongestZigZagPathInBinaryTree.longestZigzagPath(
+                root)); // Expected: length depends on zigzag
 
-        // Build tree for Largest BST Subtree:
-        //         10
-        //        /  \
-        //       5    15
-        //      / \     \
-        //     1   8     7   <-- Not BST because 7 < 15
-        TreeNode bstTest = new TreeNode(10);
-        bstTest.left = new TreeNode(5);
-        bstTest.right = new TreeNode(15);
-        bstTest.left.left = new TreeNode(1);
-        bstTest.left.right = new TreeNode(8);
-        bstTest.right.right = new TreeNode(7);
+    // Build tree for Largest BST Subtree:
+    //         10
+    //        /  \
+    //       5    15
+    //      / \     \
+    //     1   8     7   <-- Not BST because 7 < 15
+    TreeNode bstTest = new TreeNode(10);
+    bstTest.left = new TreeNode(5);
+    bstTest.right = new TreeNode(15);
+    bstTest.left.left = new TreeNode(1);
+    bstTest.left.right = new TreeNode(8);
+    bstTest.right.right = new TreeNode(7);
 
-        System.out.println(
-                "Largest BST Subtree Size: " + LargestBstTree.largestBSTSubtree(bstTest)); // Expected: 3
-    }
+    System.out.println(
+        "Largest BST Subtree Size: " + LargestBstTree.largestBSTSubtree(bstTest)); // Expected: 3
+  }
 }

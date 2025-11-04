@@ -1,9 +1,6 @@
 package StandardProblemDSA.XI_GREEDYALGO;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class GreedyAlgoUtil {
 
@@ -13,11 +10,11 @@ public class GreedyAlgoUtil {
    * @param intervals Array of intervals to sort
    */
   public static void sortByStartTimeArray(StartEndPair[] intervals) {
-    Arrays.sort(intervals, (a, b) -> a.start - b.start);
+    Arrays.sort(intervals, Comparator.comparingInt(a -> a.start));
   }
 
   public static void sortByStartTimeList(List<StartEndPair> intervals) {
-    intervals.sort((a, b) -> a.start - b.start);
+    intervals.sort(Comparator.comparingInt(a -> a.start));
   }
 
   /**
@@ -124,7 +121,7 @@ public class GreedyAlgoUtil {
     List<StartEndPair> freeTimes = new ArrayList<>();
     for (int i = 1; i < mergedInteralList.size(); i++) {
       freeTimes.add(
-              new StartEndPair(mergedInteralList.get(i - 1).end, mergedInteralList.get(i).start));
+          new StartEndPair(mergedInteralList.get(i - 1).end, mergedInteralList.get(i).start));
     }
     return freeTimes;
   }

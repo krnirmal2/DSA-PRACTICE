@@ -1,7 +1,6 @@
 package StandardProblemDSA.I_ARRAY.I_TRAVERSAL;
 
 import StandardProblemDSA.Utility;
-
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -17,6 +16,9 @@ public class commonElementIndexOfTwoArray {
   2
   2
   0
+
+  1. common people , things, objects, resourse ,share etc
+  2. this will act as subtopic to solve big problem
   */
   public static int[] solve(int[] A, int[] B) {
     int sizeOfResultArrray = Math.min(A.length, B.length);

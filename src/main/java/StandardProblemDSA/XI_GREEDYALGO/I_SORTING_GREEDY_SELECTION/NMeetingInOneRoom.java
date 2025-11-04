@@ -1,7 +1,6 @@
 package StandardProblemDSA.XI_GREEDYALGO.I_SORTING_GREEDY_SELECTION;
 
 import StandardProblemDSA.XI_GREEDYALGO.TripletClass;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,8 +24,7 @@ public class NMeetingInOneRoom {
       - **Greedy Interval Scheduling** (select earliest finishing meetings).
 
   LeetCode Similar:
-      - LeetCode 435: Non-overlapping Intervals.
-      - LeetCode 452: Minimum Number of Arrows to Burst Balloons.
+      - LeetCode 435: Non-overlapping Intervals. done
 
   Time Complexity:
       - O(n log n) for sorting + O(n) selection.
@@ -42,9 +40,11 @@ public class NMeetingInOneRoom {
   Why wrong?
   We should sort by end time, not start time. This ensures:
   We always pick the meeting that finishes earliest, freeing up the room for the next.
+
   Correct Greedy Rule:
   Always pick the meeting with the earliest end time that doesn’t overlap.*/
-  /*  Step 1: Pair all meetings with (start, end, index)
+  /*
+  Step 1: Pair all meetings with (start, end, index)
   Step 2: Sort the meetings by end time
   Step 3: Pick meetings one by one, only if they don’t overlap with the previous*/
 
@@ -81,9 +81,9 @@ public class NMeetingInOneRoom {
     List<Integer> result = new ArrayList<>();
     int lastEnd = -1;
     for (TripletClass m : meetingWithIndex) {
-      if (m.first > lastEnd) {
+      if (m.first > lastEnd) { // picking a meeting only if its start > last selected meeting's end.
         result.add(m.third);
-        lastEnd = m.second;
+        lastEnd = m.second; // update the end time so that we compare above if condition
       }
     }
 

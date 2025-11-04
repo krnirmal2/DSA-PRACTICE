@@ -1,7 +1,6 @@
 package StandardProblemDSA.VIII_TREE.BST;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
-
 import java.util.Stack;
 
 public class BstIteratorUsingStack {
@@ -36,25 +35,37 @@ public class BstIteratorUsingStack {
   */
 
   // create a stack where we memic the inorder traversal of bst
-
   private final Stack<TreeNode> stack = new Stack<>();
-  private final boolean reverse; // false = inorder, true = reverse inorder
+  private final boolean reverse; // global variable : false = inorder, true = reverse inorder
 
-  public BstIteratorUsingStack(TreeNode root) {
-    this(root, false);
-  }
-
+  // constructor for create bstIterator
+  // and put all the node for forward and backward traversing
   public BstIteratorUsingStack(TreeNode root, boolean reverse) {
     this.reverse = reverse;
     pushNodes(root);
   }
 
+  // Step 1 : push all the node to the stack
+  private void pushNodes(TreeNode node) {
+    while (node != null) {
+      stack.push(node);
+      // In inorder, we go all the way left; in reverse, all the way right
+      node =
+          reverse
+              ? node.right
+              : node.left; // reverse boolean decide that we go forward or reers order inorder
+    }
+  }
+
+  // Step 2 : pop the element from the stack and if it is reverse then push its right node if
+  // present
+  // if it is forward then push the left node of the current tree node
   public int next() {
     TreeNode node = stack.pop();
     // Depending on traversal direction, push the next branch
-    if (!reverse) {
+    if (!reverse) { // reverse means put right part in the stack
       if (node.right != null) pushNodes(node.right);
-    } else {
+    } else { // forward means put left node in the stack
       if (node.left != null) pushNodes(node.left);
     }
     return node.val;
@@ -62,13 +73,5 @@ public class BstIteratorUsingStack {
 
   public boolean hasNext() {
     return !stack.isEmpty();
-  }
-
-  private void pushNodes(TreeNode node) {
-    while (node != null) {
-      stack.push(node);
-      // In inorder, we go all the way left; in reverse, all the way right
-      node = reverse ? node.right : node.left;
-    }
   }
 }

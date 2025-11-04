@@ -36,6 +36,31 @@ public class NoOfIslands {
   - 200. Number of Islands (LeetCode)
   - 695. Max Area of Island
   - 733. Flood Fill
+  Surrounded Regions
+    Medium
+    Walls and Gates
+    Medium
+    Number of Islands II
+    Hard
+    Number of Connected Components in an Undirected Graph
+    Medium
+    Battleships in a Board
+    Medium
+    Number of Distinct Islands
+    Medium
+    Max Area of Island
+    Medium
+    Count Sub Islands
+    Medium
+    Find All Groups of Farmland
+    Medium
+    Count Unreachable Pairs of Nodes in an Undirected Graph
+    Medium
+    Maximum Number of Fish in a Grid
+    Medium
+    Count Islands With Total Value Divisible by K
+    Medium
+
   */
 
   public static int numIslands(char[][] grid) {
@@ -62,7 +87,7 @@ public class NoOfIslands {
 
   public static void dfs(char[][] grid, boolean[][] visited, int r, int c) {
     int[] dr = {-1, 1, 0, 0}; // row movement
-    int[] dc = {0, 0, -1, 1}; // column movement
+    int[] dc = {0, 0, 1, -1}; // column movement
 
     // Explore all four directions
     for (int d = 0; d < 4; d++) { // check all the four direction
@@ -89,10 +114,14 @@ public class NoOfIslands {
 
     // Example grid
     char[][] grid = {
-      {'1', '1', '0', '0', '0'},
+      /*  {'1', '1', '0', '0', '0'},
       {'1', '1', '0', '0', '0'},
       {'0', '0', '1', '0', '0'},
-      {'0', '0', '0', '1', '1'}
+      {'0', '0', '0', '1', '1'}*/
+      {'1', '1', '1', '1', '0'},
+      {'1', '1', '0', '1', '0'},
+      {'1', '1', '0', '0', '0'},
+      {'0', '0', '0', '0', '0'}
     };
 
     // Call the numIslands function and print the result

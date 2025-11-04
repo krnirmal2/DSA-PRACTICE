@@ -1,8 +1,8 @@
 package StandardProblemDSA.II_LINKEDLIST.ii_NSERTION_AND_DELETION_PATTERN;
 
-import StandardProblemDSA.II_LINKEDLIST.Node;
-
 import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
+import StandardProblemDSA.II_LINKEDLIST.Node;
 
 public class nthNodeFromLast {
   /* Problem Statement:

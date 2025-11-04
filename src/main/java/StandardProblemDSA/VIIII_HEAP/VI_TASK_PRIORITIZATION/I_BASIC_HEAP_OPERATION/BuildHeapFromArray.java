@@ -12,6 +12,12 @@ public class BuildHeapFromArray {
   // Function to build a Max-Heap from the Array
   static void buildHeap(int[] arr, int N) {
     // Index of last non-leaf node
+    // 🔑 Why start from n/2 - 1?
+    // 👉 Because nodes from n/2 to n-1 are all leaf nodes.
+    // Leaves are already heaps (a single node is trivially a heap).
+    // Only non-leaf nodes can violate the heap property (because they have children).
+    // So, we only need to call heapify() on internal nodes, starting from the last non-leaf node,
+    // which is at index n/2 - 1.
     int startIdx = (N / 2) - 1;
 
     // Perform reverse level order traversal

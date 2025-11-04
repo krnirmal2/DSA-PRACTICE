@@ -1,12 +1,11 @@
 package StandardProblemDSA.VIII_TREE.III_PATH_AND_ANCESTOR_PATTERNS;
 
+import static StandardProblemDSA.VIII_TREE.TreeUtility.tree;
+
 import StandardProblemDSA.VIII_TREE.TreeNode;
 import StandardProblemDSA.VIII_TREE.TreeUtility;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import static StandardProblemDSA.VIII_TREE.TreeUtility.tree;
 
 public class AncestorsOfNode {
   // ---------------------------------------------------

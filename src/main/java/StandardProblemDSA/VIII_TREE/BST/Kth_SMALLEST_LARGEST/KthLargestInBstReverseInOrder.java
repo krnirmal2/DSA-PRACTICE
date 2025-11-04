@@ -17,7 +17,7 @@ public class KthLargestInBstReverseInOrder {
       - Early stopping once kth element is found.
 
   Similar LeetCode Problems:
-      - 230. Kth Smallest Element in a BST (mirror problem)
+      - 230. Kth Smallest Element in a BST (mirror problem) DONE
       - 538. Convert BST to Greater Tree
 
   Time Complexity:

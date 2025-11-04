@@ -36,7 +36,7 @@ public class InsertionSort {
   5. What changes if we need to sort in descending order?
 
   Similar LeetCode Questions:
-  - LeetCode 912. Sort an Array
+  - LeetCode 912. Sort an Array DONE
   - LeetCode 147. Insertion Sort List
   - LeetCode 242. Valid Anagram (uses sorting internally)
   */

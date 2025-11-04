@@ -1,7 +1,6 @@
 package StandardProblemDSA.I_ARRAY.I_TRAVERSAL;
 
 import StandardProblemDSA.Utility;
-
 import java.util.HashMap;
 
 /*
@@ -36,7 +35,7 @@ Pattern Used:
 
 LeetCode & Company Tags:
 ------------------------
-- LeetCode: "Two Sum" (#1)
+- LeetCode: "Two Sum" (#1) done
 - Companies: Frequently asked at Microsoft, Amazon, Facebook, Google.
 - Category: Array, Hashing, Two Pointers (variation).
 

@@ -1,7 +1,6 @@
 package StandardProblemDSA.I_ARRAY.III_SORTING_PATTERN.SEMI_SORTED_ARRAY.SORT_REARRANGE_PATTERN;
 
 import StandardProblemDSA.I_ARRAY.ArrayUtility;
-
 import java.util.Arrays;
 
 /*

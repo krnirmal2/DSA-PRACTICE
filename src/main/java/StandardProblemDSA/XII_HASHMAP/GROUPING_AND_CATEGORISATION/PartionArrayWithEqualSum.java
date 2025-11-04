@@ -1,7 +1,6 @@
 package StandardProblemDSA.XII_HASHMAP.GROUPING_AND_CATEGORISATION;
 
 import StandardProblemDSA.I_ARRAY.ArrayUtility;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -16,31 +15,31 @@ import java.util.List;
 */
 
 public class PartionArrayWithEqualSum {
-    /*Question : Given:An array of integers nums . An integer k.
-      Check if we can partition the array into k subarrays such that:
-      Each subarray has the same sum.
-      If possible, return one such partition.
-        Input:
-    nums = [2, 1, 3, 4, 2, 2, 3, 1]
-    k = 3
-    Output:
-            true (Possible partition: [2, 4], [3, 3], [1, 1,2, 2])*/
+  /*Question : Given:An array of integers nums . An integer k.
+    Check if we can partition the array into k subarrays such that:
+    Each subarray has the same sum.
+    If possible, return one such partition.
+      Input:
+  nums = [2, 1, 3, 4, 2, 2, 3, 1]
+  k = 3
+  Output:
+          true (Possible partition: [2, 4], [3, 3], [1, 1,2, 2])*/
   /* Tc : power (k,n)
   each of the have k subsets to go
   After optimise the code :  O(K∗power(2, N))*/
   public static List<List<Integer>> partitionKSubarrays(int[] nums, int k) {
-      // note : to optimise
-      // we can SORT and  then Prune Early
-      Arrays.sort(nums);
-      ArrayUtility.reverseArray(nums);
+    // note : to optimise
+    // we can SORT and  then Prune Early
+    Arrays.sort(nums);
+    ArrayUtility.reverseArray(nums);
     int totalSum = Arrays.stream(nums).sum();
     if (totalSum % k != 0) return new ArrayList<>(); // Partitioning not possible
 
     int target = totalSum / k;
     boolean[] visited = new boolean[nums.length];
     List<List<Integer>> result = new ArrayList<>();
-      // step : sort the array for place larger nubers first and fail early if currentSum>target
-      // prune early stop recursion when a subset sum exceeds target
+    // step : sort the array for place larger nubers first and fail early if currentSum>target
+    // prune early stop recursion when a subset sum exceeds target
 
     if (backtrack(nums, visited, k, 0, 0, target, new ArrayList<>(), result)) {
       return result;
@@ -75,12 +74,12 @@ public class PartionArrayWithEqualSum {
     }
 
     for (int i = startIndex; i < nums.length; i++) {
-        if (visited[i]) continue;
-        if (i > 0 && nums[i] == nums[i - 1] && !visited[i - 1])
-            continue; // note ;early pruning Skip duplicate empty subset states:
-        if (currentSum == 0)
-            break; // note : Symmetry pruning: if a subset is empty and fails, don’t try another empty
-        // subset.
+      if (visited[i]) continue;
+      if (i > 0 && nums[i] == nums[i - 1] && !visited[i - 1])
+        continue; // note ;early pruning Skip duplicate empty subset states:
+      if (currentSum == 0)
+        break; // note : Symmetry pruning: if a subset is empty and fails, don’t try another empty
+      // subset.
 
       if (!visited[i] && currentSum + nums[i] <= target) {
         // Include nums[i] in the current subarray

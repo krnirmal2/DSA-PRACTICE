@@ -51,6 +51,9 @@ public class LinkedList {
         // Insert the new_node at last node
         temp = temp.next;
       }
+
+      // modifing the link , as new node next will be what earlier temp pointing to its nexxt
+      // and now temp next will be the new node as it inserted just next to temp
       new_node.next = temp.next;
       temp.next = new_node;
     }

@@ -1,7 +1,5 @@
 package StandardProblemDSA.II_LINKEDLIST.xi_DOUBLY_LL;
 
-import StandardProblemDSA.II_LINKEDLIST.DoubllyNodeWithKey;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -49,23 +47,23 @@ import java.util.Map;
 
 
 get(key):
-Check if the key exists in the HashMap.
-If it exists:
-Retrieve the corresponding DoubllyNodeWithKey.
-Remove the DoubllyNodeWithKey from its current position in the doubly linked list.
-Add it to the front of the list (marking it as MRU).
-If it doesn’t exist, return -1.
+    Check if the key exists in the HashMap.
+    If it exists:
+    Retrieve the corresponding DoubllyNodeWithKey.
+    Remove the DoubllyNodeWithKey from its current position in the doubly linked list.
+    Add it to the front of the list (marking it as MRU).
+    If it doesn’t exist, return -1.
 
 put(key, value):
 If the key already exists:
-Update the value of the corresponding DoubllyNodeWithKey.
-Move the DoubllyNodeWithKey to the front of the doubly linked list.
+  Update the value of the corresponding DoubllyNodeWithKey.
+  Move the DoubllyNodeWithKey to the front of the doubly linked list.
 If the key doesn’t exist:
 If the cache is full:
-Remove the DoubllyNodeWithKey at the tail of the list (LRU).
-Delete the key from the HashMap.
-Create a new DoubllyNodeWithKey and add it to the front of the list.
-Insert the key and DoubllyNodeWithKey into the HashMap.
+  Remove the DoubllyNodeWithKey at the tail of the list (LRU).
+  Delete the key from the HashMap.
+  Create a new DoubllyNodeWithKey and add it to the front of the list.
+  Insert the key and DoubllyNodeWithKey into the HashMap.
 *
 *
 Key Concepts:
@@ -74,105 +72,219 @@ Doubly Linked List allows efficient removal and reordering of DoubllyNodeWithKey
 Eviction always removes the DoubllyNodeWithKey at the tail of the list, which is the least recently used.
 * */
 
-class LRUCache {
+// Node class for the doubly linked list
+class DoublyLinkedNode {
+  int key; // Key of the cache entry
+  int value; // Value of the cache entry
+  DoublyLinkedNode prev; // Pointer to previous node
+  DoublyLinkedNode next; // Pointer to next node
 
-  private final int capacity;
-  private final Map<Integer, DoubllyNodeWithKey> cache;
-  private final DoubllyNodeWithKey head, tail;
+  public DoublyLinkedNode(int key, int value) {
+    this.key = key;
+    this.value = value;
+  }
+}
 
+/*       Why This Combination Works
+        HashMap alone can’t track usage order efficiently.
+        Linked List alone would require O(n) search to find a node.
+
+        Together:
+        HashMap gives direct access to the node.
+        Doubly Linked List keeps most recently used items at the front and least recently used at the back.
+
+*/
+public class LRUCache {
+  // Step 1: Define capacity and data structures
+  private final int capacity; // Maximum number of items the cache can hold
+  private final Map<Integer, DoublyLinkedNode> cacheMap; // Key → Node mapping for O(1) access
+  private final DoublyLinkedNode headDummy; // Dummy head node (most recently used side)
+  private final DoublyLinkedNode tailDummy; // Dummy tail node (least recently used side)
+
+  // Step 2: Constructor - initialize capacity, map, and dummy nodes
   public LRUCache(int capacity) {
     this.capacity = capacity;
-    this.cache = new HashMap<>();
+    this.cacheMap = new HashMap<>();
 
-    // Initialize dummy head and tail DoubllyNodeWithKeys for the doubly linked list
-    this.head = new DoubllyNodeWithKey(0, 0);
-    this.tail = new DoubllyNodeWithKey(0, 0);
-    head.next = tail;
-    tail.prev = head;
+    // Create dummy head and tail to avoid null checks during insert/remove
+    this.headDummy = new DoublyLinkedNode(0, 0);
+    this.tailDummy = new DoublyLinkedNode(0, 0);
+
+    // Link head and tail together initially
+    headDummy.next = tailDummy;
+    tailDummy.prev = headDummy;
   }
 
+  // Step 3: Get value by key
+  public int get(int key) {
+    if (!cacheMap.containsKey(key)) {
+      return -1; // Key not found
+    }
+
+    // Move accessed node to the front (most recently used)
+    DoublyLinkedNode node = cacheMap.get(key);
+    removeNode(node);
+    addNodeToFront(node);
+
+    return node.value;
+  }
+
+  // Step 4: Put key-value into cache
+  public void put(int key, int value) {
+    if (cacheMap.containsKey(key)) {
+      // If key exists, update value and move to front
+      DoublyLinkedNode existingNode = cacheMap.get(key);
+      existingNode.value = value;
+      removeNode(existingNode);
+      addNodeToFront(existingNode);
+    } else {
+      // If key doesn't exist, create new node
+      if (cacheMap.size() >= capacity) {
+        // Remove least recently used node (before tailDummy)
+        DoublyLinkedNode lruNode = tailDummy.prev;
+        removeNode(lruNode);
+        cacheMap.remove(lruNode.key);
+      }
+      DoublyLinkedNode newNode = new DoublyLinkedNode(key, value);
+      addNodeToFront(newNode);
+      cacheMap.put(key, newNode);
+    }
+  }
+
+  // Step 5: Remove a node from the doubly linked list
+  private void removeNode(DoublyLinkedNode node) {
+    node.prev.next = node.next;
+    node.next.prev = node.prev;
+  }
+
+  // Step 6: Add a node right after the dummy head (most recently used position)
+  private void addNodeToFront(DoublyLinkedNode node) {
+    node.next = headDummy.next;
+    node.prev = headDummy;
+    headDummy.next.prev = node;
+    headDummy.next = node;
+  }
+
+  // Step 7: Debug method to print current cache state from most to least recently used
+  public void printCacheState() {
+    DoublyLinkedNode current = headDummy.next;
+    while (current != tailDummy) {
+      System.out.print("(" + current.key + ", " + current.value + ") ");
+      current = current.next;
+    }
+    System.out.println();
+  }
+
+  // Step 8: Test the LRUCache
   public static void main(String[] args) {
     LRUCache cache = new LRUCache(3);
 
     cache.put(1, 10);
     cache.put(2, 20);
     cache.put(3, 30);
-    System.out.println("Cache after adding 3 items:");
-    cache.printCache(); // (3, 30) (2, 20) (1, 10)
+    System.out.println("After adding 3 items:");
+    cache.printCacheState(); // (3, 30) (2, 20) (1, 10)
 
-    cache.get(2); // Access key 2
-    System.out.println("Cache after accessing key 2:");
-    cache.printCache(); // (2, 20) (3, 30) (1, 10)
+    cache.get(2); // Access key 2 → moves to front
+    System.out.println("After accessing key 2:");
+    cache.printCacheState(); // (2, 20) (3, 30) (1, 10)
 
-    cache.put(4, 40); // Add key 4, evicts key 1
-    System.out.println("Cache after adding key 4:");
-    cache.printCache(); // (4, 40) (2, 20) (3, 30)
+    cache.put(4, 40); // Add key 4 → evicts key 1
+    System.out.println("After adding key 4:");
+    cache.printCacheState(); // (4, 40) (2, 20) (3, 30)
 
-    cache.get(1); // Key 1 is evicted
-    System.out.println("Accessing key 1: " + cache.get(1)); // -1
+    System.out.println("Accessing key 1: " + cache.get(1)); // -1 (evicted)
 
-    cache.put(5, 50); // Add key 5, evicts key 3
-    System.out.println("Cache after adding key 5:");
-    cache.printCache(); // (5, 50) (4, 40) (2, 20)
-  }
-
-  // Get a value from the cache
-  public int get(int key) {
-    if (!cache.containsKey(key)) {
-      return -1; // Key not found
-    }
-
-    // Move the accessed DoubllyNodeWithKey to the front
-    DoubllyNodeWithKey DoubllyNodeWithKey = cache.get(key);
-    removeDoubllyNodeWithKey(DoubllyNodeWithKey);
-    addDoubllyNodeWithKeyToFront(DoubllyNodeWithKey);
-
-    return DoubllyNodeWithKey.value;
-  }
-
-  // Put a key-value pair into the cache
-  public void put(int key, int value) {
-    if (cache.containsKey(key)) {
-      // Update the existing DoubllyNodeWithKey
-      DoubllyNodeWithKey DoubllyNodeWithKey = cache.get(key);
-      DoubllyNodeWithKey.value = value;
-      removeDoubllyNodeWithKey(DoubllyNodeWithKey);
-      addDoubllyNodeWithKeyToFront(DoubllyNodeWithKey);
-    } else {
-      // Create a new DoubllyNodeWithKey
-      if (cache.size() >= capacity) {
-        // Remove the least recently used DoubllyNodeWithKey
-        DoubllyNodeWithKey lru = tail.prev;
-        removeDoubllyNodeWithKey(lru);
-        cache.remove(lru.key);
-      }
-      DoubllyNodeWithKey newDoubllyNodeWithKey = new DoubllyNodeWithKey(key, value);
-      addDoubllyNodeWithKeyToFront(newDoubllyNodeWithKey);
-      cache.put(key, newDoubllyNodeWithKey);
-    }
-  }
-
-  // Remove a DoubllyNodeWithKey from the doubly linked list
-  private void removeDoubllyNodeWithKey(DoubllyNodeWithKey DoubllyNodeWithKey) {
-    DoubllyNodeWithKey.prev.next = DoubllyNodeWithKey.next;
-    DoubllyNodeWithKey.next.prev = DoubllyNodeWithKey.prev;
-  }
-
-  // Add a DoubllyNodeWithKey to the front (most recently used) of the doubly linked list
-  private void addDoubllyNodeWithKeyToFront(DoubllyNodeWithKey DoubllyNodeWithKey) {
-    DoubllyNodeWithKey.next = head.next;
-    DoubllyNodeWithKey.prev = head;
-    head.next.prev = DoubllyNodeWithKey;
-    head.next = DoubllyNodeWithKey;
-  }
-
-  // Debug: Print the current state of the cache
-  public void printCache() {
-    DoubllyNodeWithKey temp = head.next;
-    while (temp != tail) {
-      System.out.print("(" + temp.key + ", " + temp.value + ") ");
-      temp = temp.next;
-    }
-    System.out.println();
+    cache.put(5, 50); // Add key 5 → evicts key 3
+    System.out.println("After adding key 5:");
+    cache.printCacheState(); // (5, 50) (4, 40) (2, 20)
   }
 }
+/*
+
+## **Initial State**
+Capacity = 3
+cacheMap: {}
+Linked List: headDummy ↔ tailDummy
+
+### **1. put(1, 10)**
+- Key 1 not in map, cache not full.
+- Create node `(1,10)` and insert after headDummy.
+- Add to map.
+```
+cacheMap: { 1 → (1,10) }
+Linked List: headDummy ↔ (1,10) ↔ tailDummy
+```
+
+### **2. put(2, 20)**
+- Key 2 not in map, cache not full.
+- Create `(2,20)` and insert after headDummy.
+
+cacheMap: { 1 → (1,10), 2 → (2,20) }
+Linked List: headDummy ↔ (2,20) ↔ (1,10) ↔ tailDummy
+---
+
+### **3. put(3, 30)**
+- Key 3 not in map, cache not full.
+- Create `(3,30)` and insert after headDummy.
+
+cacheMap: { 1 → (1,10), 2 → (2,20), 3 → (3,30) }
+Linked List: headDummy ↔ (3,30) ↔ (2,20) ↔ (1,10) ↔ tailDummy
+---
+
+### **4. get(2)**
+- Key 2 found in map → node `(2,20)`.
+- Remove `(2,20)` from current position.
+- Insert `(2,20)` after headDummy.
+```
+cacheMap: { 1 → (1,10), 2 → (2,20), 3 → (3,30) }
+Linked List: headDummy ↔ (2,20) ↔ (3,30) ↔ (1,10) ↔ tailDummy
+---
+
+### **5. put(4, 40)**
+- Key 4 not in map, cache is full (size = 3).
+- Remove LRU node → node before tailDummy = `(1,10)`.
+- Remove `(1,10)` from list and map.
+- Create `(4,40)` and insert after headDummy.
+
+```
+cacheMap: { 2 → (2,20), 3 → (3,30), 4 → (4,40) }
+Linked List: headDummy ↔ (4,40) ↔ (2,20) ↔ (3,30) ↔ tailDummy
+```
+
+---
+
+### **6. get(1)**
+- Key 1 not in map → return `-1`.
+- No change to list or map.
+
+```
+cacheMap: { 2 → (2,20), 3 → (3,30), 4 → (4,40) }
+Linked List: headDummy ↔ (4,40) ↔ (2,20) ↔ (3,30) ↔ tailDummy
+```
+
+---
+
+### **7. put(5, 50)**
+- Key 5 not in map, cache is full.
+- Remove LRU node `(3,30)` (before tailDummy).
+- Remove from map.
+- Create `(5,50)` and insert after headDummy.
+
+```
+cacheMap: { 2 → (2,20), 4 → (4,40), 5 → (5,50) }
+Linked List: headDummy ↔ (5,50) ↔ (4,40) ↔ (2,20) ↔ tailDummy
+```
+
+---
+
+✅ **Final Output** after all operations:
+```
+(5,50) (4,40) (2,20)
+```
+This matches the expected LRU behavior — most recently used at the front, least recently used at the back.
+
+---
+
+If you want, I can now **draw a visual diagram** showing the linked list arrows moving after each step so you can literally see the nodes being re-linked. That would make the dry run even more intuitive.
+Do you want me to prepare that visual trace?*/

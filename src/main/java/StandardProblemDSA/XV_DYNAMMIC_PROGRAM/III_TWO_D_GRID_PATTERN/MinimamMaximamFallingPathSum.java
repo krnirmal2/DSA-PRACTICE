@@ -42,7 +42,8 @@ public class MinimamMaximamFallingPathSum {
 
   /*Yes,
       * **
-      * LeetCode 931: Minimum Falling Path Sum** is a **similar type** of dynamic programming problem, but there’s a key difference:
+      * LeetCode 931: Minimum Falling Path Sum** is a **similar type** of dynamic programming problem,
+      *  but there’s a key difference:
 
   ### **Ninja’s Training**
   * `n` days, **3 fixed tasks** each day.
@@ -83,33 +84,33 @@ public class MinimamMaximamFallingPathSum {
   It’ll help you quickly see the pattern similarity for DP interviews. Should I proceed?
   */
 
-    public int minFallingPathSum(int[][] matrix) {
-        int n = matrix.length;
-        int minSum = Integer.MAX_VALUE;
+  public int minFallingPathSum(int[][] matrix) {
+    int n = matrix.length;
+    int minSum = Integer.MAX_VALUE;
 
-        // Try starting from every column in the first row
-        for (int col = 0; col < n; col++) {
-            minSum = Math.min(minSum, helper(0, col, matrix));
-        }
-        return minSum;
+    // Try starting from every column in the first row
+    for (int col = 0; col < n; col++) {
+      minSum = Math.min(minSum, helper(0, col, matrix));
     }
+    return minSum;
+  }
 
-    private int helper(int row, int col, int[][] matrix) {
-        int n = matrix.length;
+  private int helper(int row, int col, int[][] matrix) {
+    int n = matrix.length;
 
-        // Out of bounds → invalid path, return "infinity"
-        if (col < 0 || col >= n) return Integer.MAX_VALUE;
+    // Out of bounds → invalid path, return "infinity"
+    if (col < 0 || col >= n) return Integer.MAX_VALUE;
 
-        // Base case: last row
-        if (row == n - 1) return matrix[row][col];
+    // Base case: last row
+    if (row == n - 1) return matrix[row][col];
 
-        // Recurse for the three possible moves
-        int down = helper(row + 1, col, matrix);
-        int leftDiag = helper(row + 1, col - 1, matrix);
-        int rightDiag = helper(row + 1, col + 1, matrix);
+    // Recurse for the three possible moves
+    int down = helper(row + 1, col, matrix);
+    int leftDiag = helper(row + 1, col - 1, matrix);
+    int rightDiag = helper(row + 1, col + 1, matrix);
 
-        return matrix[row][col] + Math.min(down, Math.min(leftDiag, rightDiag));
-    }
+    return matrix[row][col] + Math.min(down, Math.min(leftDiag, rightDiag));
+  }
   /*Why It’s Slow
   Time complexity: O(3^n) because each cell calls 3 subproblems.
   Works for small matrices but TLE for larger n.*/

@@ -1,7 +1,6 @@
 package StandardProblemDSA.VIII_TREE.I_TRAVERSAL_PATTERNS;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -33,9 +32,9 @@ public class DiagonalTraversal {
       - DFS + Hashing (group by diagonal level)
 
    Similar LeetCode Problems:
-      - 103. Binary Tree Zigzag Level Order Traversal
-      - 314. Binary Tree Vertical Order Traversal
-      - 987. Vertical Order Traversal of a Binary Tree
+      - 103. Binary Tree Zigzag Level Order Traversal DONE
+      - 314. Binary Tree Vertical Order Traversal DONE
+      - 987. Vertical Order Traversal of a Binary Tree DONE
 
    Follow-up Questions:
       - Can this be done iteratively using a queue?
@@ -51,11 +50,14 @@ public class DiagonalTraversal {
   public static void diagonalTraversal(TreeNode root) {
     if (root == null) return;
 
-    // TreeMap to store diagonals with diagonal level as key
+    // Step 1 : Use tree map to store level of each left side node and corresponding list of nodes
+    // as tree map give the order of the level of each diagonal and we will groping them
     Map<Integer, List<Integer>> diagonalMap = new TreeMap<>();
-    diagonalTraversalUtil(root, 0, diagonalMap);
+    diagonalTraversalUtil(
+        root, 0, diagonalMap); // only add level to left nodes as we find the backward (\) diagonal
 
-    // Print result
+    // After grrouping the diagonal level and its corresponding node we will iterate over
+    // the tree map entry set and then return each list value by iterating to them
     for (Map.Entry<Integer, List<Integer>> entry : diagonalMap.entrySet()) {
       // print each level values which was grouped in each diagonal level
       for (int val : entry.getValue()) {
@@ -65,25 +67,26 @@ public class DiagonalTraversal {
     }
   }
 
-  /* So basically we are increase the level for the left element only but right element we are kipping as it is
+  /* So basically we are increase the level for the left element
+  only but right element we are kipping as it is
               (8,0)
                / \
            (3,1)  ( 10,0)
            / \        \
        (1,2) (6,1)    (14,0)
              / \         /
-         4,2) ( 7,1)  (13,1)
+         (4,2) ( 7,1)  (13,1)
   */
 
   // Recursive helper function
   public static void diagonalTraversalUtil(
       TreeNode node, int diagonalLevel, Map<Integer, List<Integer>> map) {
-    if (node == null) return;
+    if (node == null) return; // if there is node value so no diagonal will be added hence we return
 
-    // Add node to its corresponding diagonal level
+    // Add node to its corresponding diagonal level , grouping is done
     map.computeIfAbsent(diagonalLevel, k -> new ArrayList<>()).add(node.val);
 
-    // Move to left child → diagonal level increases
+    // Move to left child → diagonal level increases As we need right diagonal
     diagonalTraversalUtil(node.left, diagonalLevel + 1, map);
 
     // Move to right child → diagonal level remains the same

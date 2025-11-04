@@ -49,9 +49,9 @@ public class PalindromeLL {
       if (head.val == head.next.val) return 1;
       else return 0;
     }
-      // step 1 : find middle of the list
+    // step 1 : find middle of the list
     ListNode middle = Utility_linkedList.findMiddle(head);
-    // Step 2: Split the list and reverse the second half
+    // Step 2: Split the list and reverse the second half get the previous node
     ListNode reversedSecondHalf = Utility_linkedList.reverseList(middle);
     //    ListNode secondHalfStart = middle.next;
     middle.next = null; // break the list into two halves

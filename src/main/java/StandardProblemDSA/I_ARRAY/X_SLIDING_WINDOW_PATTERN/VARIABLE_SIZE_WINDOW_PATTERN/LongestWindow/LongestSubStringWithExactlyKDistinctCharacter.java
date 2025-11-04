@@ -62,7 +62,7 @@ Time & Space Complexity
 - Space: O(k) – For storing character frequency map.
 */
 
-public class LongestSubStringWithAtmostKDistinctCharacter {
+public class LongestSubStringWithExactlyKDistinctCharacter {
   public static int longestKSubstr(String s, int k) {
     int longestSubString = -1;
 

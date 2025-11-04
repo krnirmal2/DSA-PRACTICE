@@ -13,9 +13,8 @@ public class LowerAndUpperBound {
      - Maintain invariant [left, right) — search space shrinks until left == right.
 
    LeetCode Equivalent:
-     - Similar logic is often used in problems like:
-       - 34. Find First and Last Position of Element in Sorted Array
-       - 744. Find Smallest Letter Greater Than Target
+       - 34. Find First and Last Position of Element in Sorted Array DONE
+       - 744. Find Smallest Letter Greater Than Target DONE
 
    Follow-ups:
      - What if array is sorted in descending order?

@@ -1,9 +1,9 @@
-package StandardProblemDSA.II_LINKEDLIST.vi_MERGING_AND_SPLITTING_LL;
+package StandardProblemDSA.II_LINKEDLIST.viii_DUMMY_NODE_AND_SENTINAL_PATTERN;
+
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
 
 import StandardProblemDSA.II_LINKEDLIST.Node;
 import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
-
-import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
 
 public class AlternatingSplitLLWithDeepCopy {
   /*
@@ -51,22 +51,24 @@ public class AlternatingSplitLLWithDeepCopy {
     // step 2; create two extra node and assign them
     Node tail1 = dummyHead1;
     Node tail2 = dummyHead2;
-    // Step 3 : iterate over the list and processed for the question
+    // Step 3 : iterate over the list using head
     boolean turn = true;
     while (head != null) {
-      // Create a new node (deep copy)
-      Node newNode = new Node(head.data);
+      // Step 4: for Create a new node (deep copy) use head data and create new node from where
+      // the new list will create
+      Node newNode =
+          new Node(head.data); // for deep copy other wise we directly use head or head data
 
       if (turn) {
         tail1.next = newNode; // assign the new node next of the last tail
-        tail1 = tail1.next; // update the previous tell
+        tail1 = tail1.next; // grow for the new list
       } else {
         tail2.next = newNode;
         tail2 = tail2.next;
       }
       // continue the head to iterate
       head = head.next;
-      // make the turn opposite to its last state
+      // create a switch make on off for
       turn = !turn;
     }
 

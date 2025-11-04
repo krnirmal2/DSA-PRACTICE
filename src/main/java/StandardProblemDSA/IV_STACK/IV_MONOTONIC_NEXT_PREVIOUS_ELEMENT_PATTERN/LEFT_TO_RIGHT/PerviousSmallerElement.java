@@ -51,16 +51,16 @@ public class PerviousSmallerElement {
     int length = arr.length;
     int[] result = new int[length];
     Stack<Integer> s = new Stack<>();
-      // travers each element
+    // travers each element
     for (int i = 0; i < length; i++) {
-        // if stack is not empty and the element is at i less than stack peek then pop that element
-        // as we need increase element in the stack so remove the top
+      // if stack is not empty and the element is at i less than stack peek then pop that element
+      // as we need increase element in the stack so remove the top
       while (!s.isEmpty() && arr[i] <= s.peek()) {
         s.pop();
       }
-        // if stack is empty then put -1 to the result else the peek element
+      // if stack is empty then put -1 to the result else the peek element
       result[i] = s.isEmpty() ? -1 : s.peek();
-        // and then push the element not above satisfy
+      // and then push the element not above satisfy
       s.push(arr[i]);
     }
     return result;

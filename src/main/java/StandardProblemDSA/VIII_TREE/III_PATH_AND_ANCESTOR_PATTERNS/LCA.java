@@ -4,9 +4,9 @@ import StandardProblemDSA.VIII_TREE.TreeNode;
 import StandardProblemDSA.VIII_TREE.TreeUtility;
 
 public class LCA extends PathWitMaximumAndSpecificSum {
-    // ---------------------------------------------------
-    // 3. Lowest Common Ancestor (LCA)
-    // ---------------------------------------------------
+  // ---------------------------------------------------
+  // 3. Lowest Common Ancestor (LCA)
+  // ---------------------------------------------------
   /*
     Problem Statement:
        Given two nodes in a binary tree, find their lowest common ancestor (LCA).
@@ -29,7 +29,11 @@ public class LCA extends PathWitMaximumAndSpecificSum {
              6  2 0   8
        LCA(6,2) = 5.
   */
-    public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        return TreeUtility.lowestCommonAncestor(root, p, q);
-    }
+  public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    return TreeUtility.lowestCommonAncestor(root, p, q);
+  }
+
+  public static void main(String[] args) {
+    lowestCommonAncestor(TreeUtility.tree(), new TreeNode(6), new TreeNode(1));
+  }
 }

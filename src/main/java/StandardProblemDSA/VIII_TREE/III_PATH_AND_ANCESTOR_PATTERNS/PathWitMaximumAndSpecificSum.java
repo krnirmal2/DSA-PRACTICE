@@ -1,14 +1,13 @@
 package StandardProblemDSA.VIII_TREE.III_PATH_AND_ANCESTOR_PATTERNS;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class PathWitMaximumAndSpecificSum extends RootToLeafPathsPrint {
-    // ---------------------------------------------------
-    // 2. Path with Maximum/Specific Sum
-    // ---------------------------------------------------
+  // ---------------------------------------------------
+  // 2. Path with Maximum/Specific Sum
+  // ---------------------------------------------------
   /*
     Problem Statement:
        (a) Find the root-to-leaf path with maximum sum.
@@ -34,42 +33,42 @@ public class PathWitMaximumAndSpecificSum extends RootToLeafPathsPrint {
        Specific sum (e.g., 21): Path [10, 5, 4, 2] if tree supports such a sum.
        (Example values may vary.)
   */
-    public static MaxPathResult maxSumPath(TreeNode root) {
-        if (root == null) return new MaxPathResult(0, new ArrayList<>());
-        if (root.left == null && root.right == null) {
-            List<Integer> path = new ArrayList<>();
-            path.add(root.val);
-            return new MaxPathResult(root.val, path);
-        }
-        MaxPathResult leftResult = PathWitMaximumAndSpecificSum.maxSumPath(root.left);
-        MaxPathResult rightResult = PathWitMaximumAndSpecificSum.maxSumPath(root.right);
-        MaxPathResult best = (leftResult.sum > rightResult.sum) ? leftResult : rightResult;
-        List<Integer> path = new ArrayList<>();
-        path.add(root.val);
-        path.addAll(best.path);
-        return new MaxPathResult(root.val + best.sum, path);
+  public static MaxPathResult maxSumPath(TreeNode root) {
+    if (root == null) return new MaxPathResult(0, new ArrayList<>());
+    if (root.left == null && root.right == null) {
+      List<Integer> path = new ArrayList<>();
+      path.add(root.val);
+      return new MaxPathResult(root.val, path);
     }
+    MaxPathResult leftResult = PathWitMaximumAndSpecificSum.maxSumPath(root.left);
+    MaxPathResult rightResult = PathWitMaximumAndSpecificSum.maxSumPath(root.right);
+    MaxPathResult best = (leftResult.sum > rightResult.sum) ? leftResult : rightResult;
+    List<Integer> path = new ArrayList<>();
+    path.add(root.val);
+    path.addAll(best.path);
+    return new MaxPathResult(root.val + best.sum, path);
+  }
 
-    // (b) Check if there is a root-to-leaf path with a given sum.
-    public static boolean hasPathSum(TreeNode root, int targetSum) {
-        if (root == null) return false;
-        // If leaf, check if path sum equals targetSum.
-        if (root.left == null && root.right == null) {
-            return (root.val == targetSum);
-        }
-        // Otherwise, check in left or right subtree with reduced target.
-        return PathWitMaximumAndSpecificSum.hasPathSum(root.left, targetSum - root.val)
-                || PathWitMaximumAndSpecificSum.hasPathSum(root.right, targetSum - root.val);
+  // (b) Check if there is a root-to-leaf path with a given sum.
+  public static boolean hasPathSum(TreeNode root, int targetSum) {
+    if (root == null) return false;
+    // If leaf, check if path sum equals targetSum.
+    if (root.left == null && root.right == null) {
+      return (root.val == targetSum);
     }
+    // Otherwise, check in left or right subtree with reduced target.
+    return PathWitMaximumAndSpecificSum.hasPathSum(root.left, targetSum - root.val)
+        || PathWitMaximumAndSpecificSum.hasPathSum(root.right, targetSum - root.val);
+  }
 
-    // (a) Maximum sum root-to-leaf path (returns the sum and the path)
-    public static class MaxPathResult {
-        int sum;
-        List<Integer> path;
+  // (a) Maximum sum root-to-leaf path (returns the sum and the path)
+  public static class MaxPathResult {
+    int sum;
+    List<Integer> path;
 
-        MaxPathResult(int sum, List<Integer> path) {
-            this.sum = sum;
-            this.path = path;
-        }
+    MaxPathResult(int sum, List<Integer> path) {
+      this.sum = sum;
+      this.path = path;
     }
+  }
 }

@@ -1,32 +1,32 @@
 package StandardProblemDSA.XIV_MATHS.PRIME_NO.BASIC;
 
 public class PrimeFactorsOfANumber {
-    /*Goal
-    Given a number n, it prints all its prime factors.
-    A prime factor is a factor of n that is itself a prime number.*/
-    public static void primeFactors(int n) {
+  /*Goal
+  Given a number n, it prints all its prime factors.
+  A prime factor is a factor of n that is itself a prime number.*/
+  public static void primeFactors(int n) {
     /*First, the code removes all factors of 2 (the only even prime):
               While n is divisible by 2, print 2 and divide n by 2.
               After this, n becomes odd, so we can skip even numbers.
     */
-        while (n % 2 == 0) {
-            System.out.print(2 + " ");
-            n /= 2;
-        }
-        System.out.println("n = " + n);
-        for (int i = 3; i * i <= n; i += 2) {
-            while (n % i == 0) {
-                System.out.print(i + " ");
-                n /= i;
-            }
-        }
-        if (n > 2) System.out.print(n);
+    while (n % 2 == 0) {
+      System.out.print(2 + " ");
+      n /= 2;
     }
+    System.out.println("n = " + n);
+    for (int i = 3; i * i <= n; i += 2) {
+      while (n % i == 0) {
+        System.out.print(i + " ");
+        n /= i;
+      }
+    }
+    if (n > 2) System.out.print(n);
+  }
 
-    public static void main(String[] args) {
-        int n = 84;
-        primeFactors(n);
-    }
+  public static void main(String[] args) {
+    int n = 84;
+    primeFactors(n);
+  }
 }
 /*Dry Run: n = 84
 Initial: n = 84

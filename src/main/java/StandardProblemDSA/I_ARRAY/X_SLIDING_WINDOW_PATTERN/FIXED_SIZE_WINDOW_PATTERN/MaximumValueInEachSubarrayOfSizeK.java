@@ -47,7 +47,7 @@ public class MaximumValueInEachSubarrayOfSizeK {
   - Variation: Sliding Window Minimum (just reverse comparison sign).
   */
 
-    public static int[] maxSlidingWindow(int[] arr, int k) {
+  public static int[] maxSlidingWindow(int[] arr, int k) {
     if (arr == null || k <= 0) {
       return new int[0];
     }
@@ -91,13 +91,14 @@ public class MaximumValueInEachSubarrayOfSizeK {
     int[] result = maxSlidingWindow(arr, k);
   }
 
-  /*i	arr[i]	deque (indices)	deque (values)	action	result[]
-  0	1	[0]	[1]	Insert 0
-  1	3	[1]	[3]	Remove 0 (1 < 3), Insert 1
-  2	-1	[1, 2]	[3, -1]	Insert 2	[3]
-  3	-3	[1, 2, 3]	[3, -1, -3]	Insert 3	[3, 3]
-  4	5	[4]	[5]	Remove 3 (-3 < 5), Remove 2 (-1 < 5), Remove 1 (3 < 5), Insert 4	[3, 3, 5]
-  5	3	[4, 5]	[5, 3]	Insert 5	[3, 3, 5, 5]
-  6	6	[6]	[6]	Remove 5 (3 < 6), Remove 4 (5 < 6), Insert 6	[3, 3, 5, 5, 6]
-  7	7	[7]	[7]	Remove 6 (6 < 7), Insert 7	[3, 3, 5, 5, 6, 7]*/
+  /*
+  i	arr[i]	deque (indices)	deque (values)	action	result[]
+  0	  1	    [0]	[1]	Insert 0
+  1	  3	    [1]	[3]	Remove 0 (1 < 3), Insert 1
+  2	  -1	[1, 2]	[3, -1]	Insert 2	[3]
+  3	  -3	[1, 2, 3]	[3, -1, -3]	Insert 3	[3, 3]
+  4	  5	    [4]	[5]	Remove 3 (-3 < 5), Remove 2 (-1 < 5), Remove 1 (3 < 5), Insert 4	[3, 3, 5]
+  5	  3	    [4, 5]	[5, 3]	Insert 5	[3, 3, 5, 5]
+  6	  6	    [6]	[6]	Remove 5 (3 < 6), Remove 4 (5 < 6), Insert 6	[3, 3, 5, 5, 6]
+  7	  7	    [7]	[7]	Remove 6 (6 < 7), Insert 7	[3, 3, 5, 5, 6, 7]*/
 }

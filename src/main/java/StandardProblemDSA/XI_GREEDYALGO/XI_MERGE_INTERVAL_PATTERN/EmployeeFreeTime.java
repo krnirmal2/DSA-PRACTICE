@@ -1,8 +1,7 @@
-package StandardProblemDSA.XI_GREEDYALGO.I_SORTING_GREEDY_SELECTION;
+package StandardProblemDSA.XI_GREEDYALGO.XI_MERGE_INTERVAL_PATTERN;
 
 import StandardProblemDSA.XI_GREEDYALGO.GreedyAlgoUtil;
 import StandardProblemDSA.XI_GREEDYALGO.StartEndPair;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -80,10 +79,10 @@ public class EmployeeFreeTime {
     // Find free time
     List<StartEndPair> freeTime = employeeFreeTime(schedule);
     freeTime.forEach(
-            item -> {
-                System.out.println(item.start);
-                System.out.println(item.end);
-            });
+        item -> {
+          System.out.println(item.start);
+          System.out.println(item.end);
+        });
 
     //    System.out.println("Free time intervals: " + ); // Expected Output: [[3,4]
   }

@@ -4,7 +4,6 @@ import StandardProblemDSA.VIII_TREE.TreeNode;
 
 /*
  Problem: Perform boundary traversal of a binary tree.
-
  Print the nodes on the boundary of a binary tree in anti-clockwise order:
   - Root node
   - Left boundary (excluding leaves)
@@ -61,15 +60,22 @@ public class BoundaryTraversal {
     // note : we have to traverse the right and left using
     // INORDER TRAVERSAL OF THE TREE
     // Print left boundary excluding leaf nodes
+
+    // Step 1: left boundary
     printLeftBoundary(root.left);
+    System.out.println("left boundary node above ");
 
-    // Print all leaf nodes
-    printLeaves(root.left);
+    // Step 2: Print all leaf nodes from the left part of the tree
+    printLeaves(root.left); //
+    System.out.println("leaf node of the left subtreee boundary  above ");
+    // Step 3: Print all leaf nodes from the right part of the tree
     printLeaves(root.right);
+    System.out.println("leaf node of the right subtree boundary  above ");
 
-    // Print right boundary excluding leaf nodes (in bottom-up order)
+    // Step 4 : Print right boundary excluding leaf nodes (in bottom-up order)
     // at bottom we use l R R means inorder traversal
     printRightBoundary(root.right);
+    System.out.println("right  node of the boundary  above ");
   }
 
   // TAIL RECURSION : Print the left boundary in top-down manner, excluding leaves
@@ -89,7 +95,7 @@ public class BoundaryTraversal {
 
   // Print all leaf nodes in left-to-right order
   private void printLeaves(TreeNode node) {
-    if (node == null) return;
+    if (node == null) return; // the node which are actually null node
     printLeaves(node.left);
     if (node.left == null && node.right == null) {
       System.out.print(node.val + " ");

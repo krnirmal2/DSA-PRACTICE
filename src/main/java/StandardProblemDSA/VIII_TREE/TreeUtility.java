@@ -22,36 +22,26 @@ public class TreeUtility {
 
   public static TreeNode root;
 
-  /* public static void main(String[] args) {
-        BinaryTree tree = new BinaryTree();
-        root = new TreeNode(1);
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(3);
-        root.left.left = new TreeNode(4);
-        tree.root.left.right = new TreeNode(5);
-        tree.root.right.left = new TreeNode(6);
-        tree.root.right.right = new TreeNode(7);
+  public static void main(String[] args) {
+    root = new TreeNode(1);
+    root.left = new TreeNode(2);
+    root.right = new TreeNode(3);
+    root.left.left = new TreeNode(4);
+    root.left.right = new TreeNode(5);
+    root.right.left = new TreeNode(6);
+    root.right.right = new TreeNode(7);
 
-        System.out.println("Height of the tree: " + tree.height());
-        System.out.println("Height of node with value 5: " + tree.nodeHeight(5));
-        System.out.println("Level of node with value 5: " + tree.nodeLevel(5));
-        System.out.println("Is value 3 present in the tree? " + tree.search(3));
-        System.out.println("Parent of node with value 5: " + tree.findParent(5).val);
-        System.out.println("Diameter of the tree: " + tree.diameter());
-        System.out.println("Leaf nodes: " + tree.findLeafNodes());
-        System.out.println("Siblings of node with value 5: " + tree.findSiblings(5));
-        System.out.println("Children of node with value 2: " + tree.findChildren(2));
+    System.out.println("Height of the tree: " + height(root));
+    System.out.println("Height of node with value 5: " + nodeHeight(5));
+    System.out.println("Level of node with value 5: " + nodeLevel(5));
+    //        System.out.println("Is value 3 present in the tree? " + search(3));
+    //        System.out.println("Parent of node with value 5: " + findParent(5).val);
+    System.out.println("Diameter of the tree: " + diameter(root));
+    System.out.println("Leaf nodes: " + findLeafNodes());
+    System.out.println("Siblings of node with value 5: " + findSiblings(5));
+    System.out.println("Children of node with value 2: " + findChildren(2));
+  }
 
-        System.out.print("Inorder Traversal: ");
-        tree.inorderTraversal();
-
-        System.out.print("Preorder Traversal: ");
-        tree.preorderTraversal();
-
-        System.out.print("Postorder Traversal: ");
-        tree.postorderTraversal();
-      }
-  */
   // Method to find the height of the tree
   public static int height(TreeNode node) {
     // if node is null then return 0
@@ -166,7 +156,10 @@ public class TreeUtility {
   // Method to find children of a node
   public static List<Integer> findChildren(int val) {
     List<Integer> children = new ArrayList<>();
+    // first find the node of give value
     TreeNode node = findNode(root, val);
+    // if node found then check its left and right child and return if
+    // they aren't null
     if (node != null) {
       if (node.left != null) children.add(node.left.val);
       if (node.right != null) children.add(node.right.val);
@@ -220,6 +213,11 @@ public class TreeUtility {
     current.add(node.val);
     if (node.left == null && node.right == null) { // leaf
       paths.add(new ArrayList<>(current));
+      // Without copy: [[1,3], [1,3]]
+      /*With copy:    [[1,2,4], [1,3]]
+      we have to create the new list other wise it will*/
+      // take the same reference of the list and override the earlier and save to path list
+
     } else {
       rootToLeafPathNodeUtil(node.left, current, paths);
       rootToLeafPathNodeUtil(node.right, current, paths);
@@ -240,10 +238,16 @@ public class TreeUtility {
   }
 
   public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+    //    if the current node is either null or any of the two node return the node
     if (root == null || root == p || root == q) return root;
+    // else go left or right of the root node and again check if found
     TreeNode left = lowestCommonAncestor(root.left, p, q);
     TreeNode right = lowestCommonAncestor(root.right, p, q);
+    // if after traversal both left and right are none leaf node then return that current root node
+    // because that is the parent node of the both
     if (left != null && right != null) return root;
+    // else if one of them is a parent of one then that will be the meeting node
+    // because one of the side after above left and right search give null value
     return (left != null) ? left : right;
   }
 
@@ -260,6 +264,9 @@ public class TreeUtility {
     if (root == null) return false;
     if (root.val == target) return true;
     // we use HEAD  recursion during return we will add the values
+    // means bottom up collect the element during return phase so use wisely head and tails
+    // recursion to get
+    // desired result
     if (findAncestors(root.left, target, ancestors)
         || findAncestors(root.right, target, ancestors)) {
       ancestors.add(root.val);
@@ -371,9 +378,10 @@ public class TreeUtility {
   public static boolean isIdentical(TreeNode root1, TreeNode root2) {
     if (root1 == null && root2 == null) return true;
     if (root1 == null || root2 == null) return false;
+    // if value, left and right of node are same than it is identical
     return (root1.val == root2.val)
-        && isIdentical(root1.left, root2.left)
-        && isIdentical(root1.right, root2.right);
+        && isIdentical(root1.left, root2.left) // both left should be identical
+        && isIdentical(root1.right, root2.right); // both right should be identical
   }
 
   // ---------------------------------------------------

@@ -1,7 +1,6 @@
 package StandardProblemDSA.VIII_TREE.I_TRAVERSAL_PATTERNS;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -29,9 +28,9 @@ public class LevelOrderTraversal {
       - Level Order Traversal
 
    Similar LeetCode Problems:
-      - 102. Binary Tree Level Order Traversal
-      - 107. Binary Tree Level Order Traversal II
-      - 429. N-ary Tree Level Order Traversal
+      - 102. Binary Tree Level Order Traversal done
+      - 107. Binary Tree Level Order Traversal II done
+      - 429. N-ary Tree Level Order Traversal  DONE
 
    Follow-up Questions:
       - How to print nodes level by level (list of lists)?
@@ -52,6 +51,7 @@ public class LevelOrderTraversal {
     while (!queue.isEmpty()) {
       TreeNode curr = queue.poll();
       result.add(curr.val);
+      // left first put in the quest and then right but for reversse it should be not
       if (curr.left != null) queue.offer(curr.left);
       if (curr.right != null) queue.offer(curr.right);
     }

@@ -2,14 +2,13 @@ package StandardProblemDSA.VIII_TREE.III_PATH_AND_ANCESTOR_PATTERNS;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
 import StandardProblemDSA.VIII_TREE.TreeUtility;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class RootToLeafPathsPrint {
-    // ---------------------------------------------------
-    // 1. Root-to-Leaf Paths
-    // ---------------------------------------------------
+  // ---------------------------------------------------
+  // 1. Root-to-Leaf Paths
+  // ---------------------------------------------------
   /*
     Problem Statement:
        Print (or collect) all root-to-leaf paths in a binary tree.
@@ -32,10 +31,10 @@ public class RootToLeafPathsPrint {
                  5
        Root-to-leaf paths: [1,2,5] and [1,3]
   */
-    public static List<List<Integer>> rootToLeafPaths(TreeNode root) {
-        List<List<Integer>> paths = new ArrayList<>();
-        List<Integer> current = new ArrayList<>();
-        TreeUtility.rootToLeafPathNodeUtil(root, current, paths);
-        return paths;
-    }
+  public static List<List<Integer>> rootToLeafPaths(TreeNode root) {
+    List<List<Integer>> paths = new ArrayList<>();
+    List<Integer> current = new ArrayList<>();
+    TreeUtility.rootToLeafPathNodeUtil(root, current, paths);
+    return paths;
+  }
 }

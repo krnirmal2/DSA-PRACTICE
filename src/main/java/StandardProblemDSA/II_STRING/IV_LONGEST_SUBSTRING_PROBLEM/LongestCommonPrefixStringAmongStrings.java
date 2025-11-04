@@ -45,9 +45,9 @@ public class LongestCommonPrefixStringAmongStrings {
         if (i >= A.get(j).length()
             || A.get(j).charAt(i) != c) { // if list empty or first String character
           // does not match with other String character at same index
-            return A.get(0)
-                    .substring(
-                            0, i); // take the substring of the first string from 0 to current i character
+          return A.get(0)
+              .substring(
+                  0, i); // take the substring of the first string from 0 to current i character
         }
       }
     }

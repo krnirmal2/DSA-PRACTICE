@@ -1,8 +1,8 @@
 package StandardProblemDSA.II_LINKEDLIST.vii_PALINDROME_AND_REVERSAL_PATTERNS;
 
-import StandardProblemDSA.II_LINKEDLIST.ListNode;
-
 import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
+import StandardProblemDSA.II_LINKEDLIST.ListNode;
 
 public class ReverseBetweenIndices {
 
@@ -61,10 +61,13 @@ public class ReverseBetweenIndices {
     ListNode current = reverseStart;
     ListNode next = null;
     for (int i = m; i <= n; i++) {
-      next = current.next;
-      current.next = prev.next;
-      prev.next = current;
-      current = next;
+      next = current.next; // next node will be the current next link
+      current.next =
+          prev.next; // now current next link will be pointing to previous next link (as here
+      // preious node is n
+      // not start from null that is why it is already have some next
+      prev.next = current; // now previous next will point to current for interchange link
+      current = next; //  now next address will assign to current node
     }
 
     // Step 4: Connect the end of reversed part to the remainder of the list.

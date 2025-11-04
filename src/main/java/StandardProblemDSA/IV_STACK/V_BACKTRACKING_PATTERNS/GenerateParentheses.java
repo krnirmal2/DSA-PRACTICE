@@ -43,16 +43,16 @@ public class GenerateParentheses {
   }
 
   private static void generate(List<String> result, String current, int open, int close, int n) {
-      // IF THE WE GENERATE HALF OPEN BRACKETS MEAN HALF CLOSED WILL MAKE THE N no of open plus closed
-      // valid parenthesis
+    // IF THE WE GENERATE HALF OPEN BRACKETS MEAN HALF CLOSED WILL MAKE THE N no of open plus closed
+    // valid parenthesis
     if (current.length() == 2 * n) {
       result.add(current);
       return;
     }
-      // IF OPEN BRACKET IS LESS THAN n THEN CREATE OPEN BY ADDING EXTRA "("
+    // IF OPEN BRACKET IS LESS THAN n THEN CREATE OPEN BY ADDING EXTRA "("
     if (open < n) generate(result, current + "(", open + 1, close, n);
-      // IF CLOSED BREAKET IS LESS THAN OPEN means NEED MORE CLOSED BRACKET TO VALID/BALANCED THE
-      // PARENTHESIS
+    // IF CLOSED BREAKET IS LESS THAN OPEN means NEED MORE CLOSED BRACKET TO VALID/BALANCED THE
+    // PARENTHESIS
     if (close < open) generate(result, current + ")", open, close + 1, n);
   }
 

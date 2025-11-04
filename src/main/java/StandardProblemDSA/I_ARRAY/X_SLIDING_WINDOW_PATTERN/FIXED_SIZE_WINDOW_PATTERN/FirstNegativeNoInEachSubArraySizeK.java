@@ -66,7 +66,7 @@ public class FirstNegativeNoInEachSubArraySizeK {
           boolean found = false;
           for (int j = i; j < i + k; j++) {
               if (arr[j] < 0) {
-                  result.add(arr[j]);e
+                  result.add(arr[j]);
                   found = true;
                   break;
               }

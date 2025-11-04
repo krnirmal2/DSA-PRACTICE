@@ -185,3 +185,276 @@ If you want, I can:
 * Convert this into a single **one-page PDF** for quick revision, or
 * Produce a **small Java utility class** that implements all templates and examples (copy-paste ready). Which one would
   you like?
+  Perfect! 🔥 Here’s your **Ultimate Comparator Template** — a **one-page cheat sheet** for Strings, Integers, Objects, Arrays, 2D arrays, and PriorityQueue. This covers **all common interview scenarios**.
+
+---
+
+# 💎 Ultimate Comparator Template for Interviews
+
+## 1️⃣ Strings
+
+| Task                                    | Code                                                                                                                        |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Sort by length ascending                | `list.stream().sorted(Comparator.comparingInt(String::length)).collect(toList());`                                          |
+| Sort by length descending               | `list.stream().sorted(Comparator.comparingInt(String::length).reversed()).collect(toList());`                               |
+| Sort by length → alphabetically         | `list.stream().sorted(Comparator.comparingInt(String::length).thenComparing(String::compareTo)).collect(toList());`         |
+| Sort by length → reverse alphabetically | `list.stream().sorted(Comparator.comparingInt(String::length).thenComparing(Comparator.reverseOrder())).collect(toList());` |
+
+---
+
+## 2️⃣ Integers
+
+| Task                              | Code                                                                                                                |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Natural order                     | `list.stream().sorted().collect(toList());`                                                                         |
+| Reverse order                     | `list.stream().sorted(Comparator.reverseOrder()).collect(toList());`                                                |
+| Custom: modulo 10 → natural order | `list.stream().sorted(Comparator.comparingInt((Integer x) -> x % 10).thenComparingInt(x -> x)).collect(toList());`  |
+| Descending with tie-breakers      | `list.stream().sorted(Comparator.comparingInt(x -> x % 10).reversed().thenComparingInt(x -> x)).collect(toList());` |
+
+---
+
+## 3️⃣ Custom Objects
+
+**Example:** Employee (department, salary, name)
+
+| Task                                            | Code                                                                                                                                                                                                     |
+| ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Primary: department                             | `employees.stream().sorted(Comparator.comparing(Employee::getDepartment)).collect(toList());`                                                                                                            |
+| Department → salary descending                  | `employees.stream().sorted(Comparator.comparing(Employee::getDepartment).thenComparing(Comparator.comparingDouble(Employee::getSalary).reversed())).collect(toList());`                                  |
+| Department → salary descending → name ascending | `employees.stream().sorted(Comparator.comparing(Employee::getDepartment).thenComparing(Comparator.comparingDouble(Employee::getSalary).reversed()).thenComparing(Employee::getName)).collect(toList());` |
+
+---
+
+## 4️⃣ Arrays & 2D Arrays
+
+**int\[]\[] arr = { {5, 20}, {2, 10}, {8, 15} }**
+
+| Task                  | Code                                                                                                    |
+| --------------------- | ------------------------------------------------------------------------------------------------------- |
+| Sort by 1st column    | `Arrays.sort(arr, Comparator.comparingInt(a -> a[0]));`                                                 |
+| Sort by 2nd column    | `Arrays.sort(arr, Comparator.comparingInt(a -> a[1]));`                                                 |
+| Sort by 1st → 2nd     | `Arrays.sort(arr, (a, b) -> a[0] == b[0] ? Integer.compare(a[1], b[1]) : Integer.compare(a[0], b[0]));` |
+| Descending 2nd column | `Arrays.sort(arr, (a,b) -> Integer.compare(b[1], a[1]));`                                               |
+
+---
+
+## 5️⃣ List\<int\[]> or List\<Integer\[]>
+
+| Task                       | Code                                                                                    |
+| -------------------------- | --------------------------------------------------------------------------------------- |
+| Sort by index 0            | `list.sort(Comparator.comparingInt(a -> a[0]));`                                        |
+| Sort by index 1 descending | `list.sort((a,b) -> Integer.compare(b[1], a[1]));`                                      |
+| Multiple conditions        | `list.sort((a,b) -> a[0]==b[0]?Integer.compare(a[1],b[1]):Integer.compare(a[0],b[0]));` |
+
+---
+
+## 6️⃣ PriorityQueue with Comparator
+
+| Task                    | Code                                                                                                                            |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Min-heap by 2nd element | `PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[1]));`                                            |
+| Max-heap by 2nd element | `PriorityQueue<int[]> pq = new PriorityQueue<>((a,b) -> Integer.compare(b[1], a[1]));`                                          |
+| Custom tie-breakers     | `PriorityQueue<Employee> pq = new PriorityQueue<>(Comparator.comparing(Employee::getSalary).thenComparing(Employee::getName));` |
+
+---
+
+## 7️⃣ General Tips for Interviews
+
+1. **Always start with primary key** → then tie-breakers.
+2. **Use method references** whenever possible (`String::toUpperCase`, `Employee::getSalary`).
+3. **Reverse order** → `.reversed()` on the comparator, not by swapping variables.
+4. **2D arrays & Lists** → use `Comparator.comparingInt` or custom lambda `(a,b)->...`.
+5. **PriorityQueue** → same comparator logic as `sorted`.
+6. **Chaining multiple tie-breakers** → `.thenComparing(...)` repeatedly.
+
+---
+
+💡 **Shortcut for interviews:**
+
+> “I usually start with `Comparator.comparing` for the primary key, then chain `.thenComparing` for tie-breakers. For descending order, I just use `.reversed()`. This works for objects, arrays, 2D arrays, and priority queues.”
+
+---
+
+If you want, I can **also create a one-page “Stream + Comparator + Collectors + Tie-breakers” combined template** — **everything in one place** for interview prep.
+
+Do you want me to do that next?
+Perfect! 🔥 Here’s your **Ultimate Comparator Template** — a **one-page cheat sheet** for Strings, Integers, Objects, Arrays, 2D arrays, and PriorityQueue. This covers **all common interview scenarios**.
+
+---
+
+# 💎 Ultimate Comparator Template for Interviews
+
+## 1️⃣ Strings
+
+| Task                                    | Code                                                                                                                        |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Sort by length ascending                | `list.stream().sorted(Comparator.comparingInt(String::length)).collect(toList());`                                          |
+| Sort by length descending               | `list.stream().sorted(Comparator.comparingInt(String::length).reversed()).collect(toList());`                               |
+| Sort by length → alphabetically         | `list.stream().sorted(Comparator.comparingInt(String::length).thenComparing(String::compareTo)).collect(toList());`         |
+| Sort by length → reverse alphabetically | `list.stream().sorted(Comparator.comparingInt(String::length).thenComparing(Comparator.reverseOrder())).collect(toList());` |
+
+---
+
+## 2️⃣ Integers
+
+| Task                              | Code                                                                                                                |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Natural order                     | `list.stream().sorted().collect(toList());`                                                                         |
+| Reverse order                     | `list.stream().sorted(Comparator.reverseOrder()).collect(toList());`                                                |
+| Custom: modulo 10 → natural order | `list.stream().sorted(Comparator.comparingInt((Integer x) -> x % 10).thenComparingInt(x -> x)).collect(toList());`  |
+| Descending with tie-breakers      | `list.stream().sorted(Comparator.comparingInt(x -> x % 10).reversed().thenComparingInt(x -> x)).collect(toList());` |
+
+---
+
+## 3️⃣ Custom Objects
+
+**Example:** Employee (department, salary, name)
+
+| Task                                            | Code                                                                                                                                                                                                     |
+| ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Primary: department                             | `employees.stream().sorted(Comparator.comparing(Employee::getDepartment)).collect(toList());`                                                                                                            |
+| Department → salary descending                  | `employees.stream().sorted(Comparator.comparing(Employee::getDepartment).thenComparing(Comparator.comparingDouble(Employee::getSalary).reversed())).collect(toList());`                                  |
+| Department → salary descending → name ascending | `employees.stream().sorted(Comparator.comparing(Employee::getDepartment).thenComparing(Comparator.comparingDouble(Employee::getSalary).reversed()).thenComparing(Employee::getName)).collect(toList());` |
+
+---
+
+## 4️⃣ Arrays & 2D Arrays
+
+**int\[]\[] arr = { {5, 20}, {2, 10}, {8, 15} }**
+
+| Task                  | Code                                                                                                    |
+| --------------------- | ------------------------------------------------------------------------------------------------------- |
+| Sort by 1st column    | `Arrays.sort(arr, Comparator.comparingInt(a -> a[0]));`                                                 |
+| Sort by 2nd column    | `Arrays.sort(arr, Comparator.comparingInt(a -> a[1]));`                                                 |
+| Sort by 1st → 2nd     | `Arrays.sort(arr, (a, b) -> a[0] == b[0] ? Integer.compare(a[1], b[1]) : Integer.compare(a[0], b[0]));` |
+| Descending 2nd column | `Arrays.sort(arr, (a,b) -> Integer.compare(b[1], a[1]));`                                               |
+
+---
+
+## 5️⃣ List\<int\[]> or List\<Integer\[]>
+
+| Task                       | Code                                                                                    |
+| -------------------------- | --------------------------------------------------------------------------------------- |
+| Sort by index 0            | `list.sort(Comparator.comparingInt(a -> a[0]));`                                        |
+| Sort by index 1 descending | `list.sort((a,b) -> Integer.compare(b[1], a[1]));`                                      |
+| Multiple conditions        | `list.sort((a,b) -> a[0]==b[0]?Integer.compare(a[1],b[1]):Integer.compare(a[0],b[0]));` |
+
+---
+
+## 6️⃣ PriorityQueue with Comparator
+
+| Task                    | Code                                                                                                                            |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Min-heap by 2nd element | `PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[1]));`                                            |
+| Max-heap by 2nd element | `PriorityQueue<int[]> pq = new PriorityQueue<>((a,b) -> Integer.compare(b[1], a[1]));`                                          |
+| Custom tie-breakers     | `PriorityQueue<Employee> pq = new PriorityQueue<>(Comparator.comparing(Employee::getSalary).thenComparing(Employee::getName));` |
+
+---
+
+## 7️⃣ General Tips for Interviews
+
+1. **Always start with primary key** → then tie-breakers.
+2. **Use method references** whenever possible (`String::toUpperCase`, `Employee::getSalary`).
+3. **Reverse order** → `.reversed()` on the comparator, not by swapping variables.
+4. **2D arrays & Lists** → use `Comparator.comparingInt` or custom lambda `(a,b)->...`.
+5. **PriorityQueue** → same comparator logic as `sorted`.
+6. **Chaining multiple tie-breakers** → `.thenComparing(...)` repeatedly.
+
+---
+
+💡 **Shortcut for interviews:**
+
+> “I usually start with `Comparator.comparing` for the primary key, then chain `.thenComparing` for tie-breakers. For descending order, I just use `.reversed()`. This works for objects, arrays, 2D arrays, and priority queues.”
+
+---
+Perfect! 🔥 Here’s a **generalized, interview-ready template** for **grouping → aggregation → filtering → mapping** using Java Streams. You can reuse it for **any object, number, or string**.
+
+---
+
+# 💎 General Template: Group → Aggregate → Filter → Map
+
+```java
+// Generic Stream Template
+Map<KeyType, AggregatedType> resultMap = list.stream()
+    // 1️⃣ Optional: Filter items before grouping
+    .filter(item -> /* condition on item */ true)
+    
+    // 2️⃣ Group by key
+    .collect(Collectors.groupingBy(
+        item -> /* key extractor, e.g., item.getCategory() */,
+        
+        // 3️⃣ Aggregate values per key
+        Collectors.summingDouble(item -> /* numeric value to sum */ 0)
+        // OR Collectors.counting() for count
+        // OR Collectors.averagingDouble(item -> value)
+        // OR Collectors.mapping(..., Collectors.toList()) for lists
+    ))
+    
+    // 4️⃣ Optional: Filter aggregated results
+    .entrySet().stream()
+    .filter(entry -> /* condition on aggregated value, e.g., entry.getValue() > 200 */ true)
+    
+    // 5️⃣ Collect as final Map
+    .collect(Collectors.toMap(
+        Map.Entry::getKey,
+        Map.Entry::getValue
+    ));
+```
+
+---
+
+## 🔹 Example 1: Orders
+
+```java
+Map<String, Double> totalCompletedAmount = orders.stream()
+    .filter(o -> o.getStatus().equals("completed"))  // only completed
+    .collect(Collectors.groupingBy(
+        Order::getCustomer,
+        Collectors.summingDouble(Order::getAmount)    // sum amount per customer
+    ))
+    .entrySet().stream()
+    .filter(e -> e.getValue() > 200)                 // only totals > 200
+    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+```
+
+---
+
+## 🔹 Example 2: Students & Scores
+
+```java
+Map<String, Double> topStudents = students.stream()
+    .filter(s -> s.getScore() > 50)                // only passing scores
+    .collect(Collectors.groupingBy(
+        Student::getClassName,
+        Collectors.averagingDouble(Student::getScore) // average per class
+    ))
+    .entrySet().stream()
+    .filter(e -> e.getValue() > 75)                // classes with avg > 75
+    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+```
+
+---
+
+## 🔹 Tips for Interviews
+
+1. **Step 1:** Decide if filtering happens **before or after aggregation**.
+2. **Step 2:** Use appropriate aggregation collector:
+
+  * `summingDouble()` → sum
+  * `counting()` → count
+  * `averagingDouble()` → average
+  * `mapping(..., toList())` → collect items
+3. **Step 3:** Post-filter **entrySet** if the condition depends on the aggregated value.
+4. **Step 4:** Always return as `Map<KeyType, AggregatedType>` for clarity.
+5. **Step 5:** Combine with `sorted()` on entrySet if you want **top N results**.
+
+---
+
+If you want, I can **continue this stream-interview series** with **next-level challenge**:
+
+* **Nested grouping** + **aggregations** + **top-N selection** in one stream — extremely common in **FAANG-level interviews**.
+
+Do you want me to continue with that next?
+
+
+

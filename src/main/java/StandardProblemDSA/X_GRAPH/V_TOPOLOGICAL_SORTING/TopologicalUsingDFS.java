@@ -65,7 +65,7 @@ public class TopologicalUsingDFS {
   */
 
   private static void dfs(
-          int node, int[] vis, Stack<Integer> st, ArrayList<ArrayList<Integer>> adj) {
+      int node, int[] vis, Stack<Integer> st, ArrayList<ArrayList<Integer>> adj) {
     vis[node] = 1;
     for (int it : adj.get(node)) {
       if (vis[it] == 0) dfs(it, vis, st, adj);

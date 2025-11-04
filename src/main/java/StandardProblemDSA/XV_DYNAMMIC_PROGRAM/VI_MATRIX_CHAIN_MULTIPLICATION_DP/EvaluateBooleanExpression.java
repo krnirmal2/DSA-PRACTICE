@@ -48,66 +48,93 @@ public class EvaluateBooleanExpression {
   - GFG: Boolean Parenthesization Problem
   - Related: 312. Burst Balloons, Matrix Chain Multiplication, 241. Different Ways to Add Parentheses
   */
-  static boolean evaluate(boolean b1, boolean b2, char op) {
-    if (op == '&') {
-      return b1 & b2;
-    } else if (op == '|') {
-      return b1 | b2;
+  /*Approach:
+  The recursive algorithm steps are as follows:
+  Convert the problem to a recursive function marked by the pointers i and j and the isTrue variable discussed above.
+  Use a loop to check all possible partitions of the expression and calculate the total number of ways.
+  Return the total number of ways calculated.
+  Base case 1: If i > j, we will return 0.
+  Base case 2: If i and j become equal, we will observe two different cases:
+  Case 1 (If we want the number of ways of true(i.e. isTrue = 1)):
+  If the single operand left is T(true), it will return 1 way and if it is F(false), it will return 0 ways.
+  Case 2 (If we want the number of ways of false(i.e. isTrue = 0)):
+  If the single operand left is T(true), it will return 0 ways and if it is F(false), it will return 1 way.*/
+
+  static final int MOD = 1000000007; // modulor for large no.
+
+  static long evaluateExpressionWays(String exp, int i, int j, int isTrue, Long[][][] dp) {
+    // Base case 1: When the start index is greater than the end index, no ways to evaluate.
+    if (i > j) {
+      return 0;
     }
-    return b1 ^ b2;
-  }
-
-  // Function which returns the number of ways
-  // s[i:j] evaluates to req.
-  static int countRecur(int i, int j, boolean req, String s) {
-
-    // Base case:
+    // Base case 2: When the start and end indices are the same.
     if (i == j) {
-      return (req == (s.charAt(i) == 'T')) ? 1 : 0;
-    }
-
-    int ans = 0;
-    for (int k = i + 1; k < j; k += 1) {
-
-      // Count Ways in which left substring
-      // evaluates to true and false.
-      int leftTrue = countRecur(i, k - 1, true, s);
-      int leftFalse = countRecur(i, k - 1, false, s);
-
-      // Count Ways in which right substring
-      // evaluates to true and false.
-      int rightTrue = countRecur(k + 1, j, true, s);
-      int rightFalse = countRecur(k + 1, j, false, s);
-
-      // Check if the combinations results
-      // to req.
-      if (evaluate(true, true, s.charAt(k)) == req) {
-        ans += leftTrue * rightTrue;
-      }
-      if (evaluate(true, false, s.charAt(k)) == req) {
-        ans += leftTrue * rightFalse;
-      }
-      if (evaluate(false, true, s.charAt(k)) == req) {
-        ans += leftFalse * rightTrue;
-      }
-      if (evaluate(false, false, s.charAt(k)) == req) {
-        ans += leftFalse * rightFalse;
+      if (isTrue == 1) {
+        return exp.charAt(i) == 'T' ? 1 : 0;
+      } else {
+        return exp.charAt(i) == 'F' ? 1 : 0;
       }
     }
 
-    return ans;
+    if (dp[i][j][isTrue] != null) {
+      return dp[i][j][isTrue];
+    }
+
+    long ways = 0;
+    for (int ind = i + 1;
+        ind <= j - 1;
+        ind += 2) { // no of partition means no. operator in the current expression
+      long lT = evaluateExpressionWays(exp, i, ind - 1, 1, dp);
+      long lF = evaluateExpressionWays(exp, i, ind - 1, 0, dp);
+      // right half true and false evaluation
+      long rT = evaluateExpressionWays(exp, ind + 1, j, 1, dp);
+      long rF = evaluateExpressionWays(exp, ind + 1, j, 0, dp);
+
+      char operator = exp.charAt(ind);
+      // NO of ways we will get true and false in truth table of the operator
+      if (operator
+          == '&') { // for and operator only both left and right half true will give true and other
+        // false
+        if (isTrue == 1) {
+          ways = (ways + (lT * rT) % MOD) % MOD;
+        } else {
+          ways = (ways + (lF * rT) % MOD + (lT * rF) % MOD + (lF * rF) % MOD) % MOD;
+        }
+      } else if (operator
+          == '|') { // for OR operator only false and false of subproblem give false else true
+        if (isTrue == 1) {
+          ways = (ways + (lF * rT) % MOD + (lT * rF) % MOD + (lT * rT) % MOD) % MOD;
+        } else {
+          ways = (ways + (lF * rF) % MOD) % MOD;
+        }
+      } else {
+        if (isTrue == 1) { // for XOR operator left true and right false True and vice versa
+          ways = (ways + (lF * rT) % MOD + (lT * rF) % MOD) % MOD;
+        } else {
+          ways = (ways + (lF * rF) % MOD + (lT * rT) % MOD) % MOD;
+        }
+      }
+    }
+
+    dp[i][j][isTrue] = ways;
+    return ways;
   }
 
-  static int countWays(String s) {
-
-    int n = s.length();
-    return countRecur(0, n - 1, true, s);
+  static int evaluateExpWays(String exp) {
+    int n = exp.length();
+    Long[][][] dp =
+        new Long[n][n]
+            [2]; // dp[i][j][k] stores the number of ways to evaluate the subexpression from index i
+    // to j with the result k (0 or 1).
+    return (int) evaluateExpressionWays(exp, 0, n - 1, 1, dp);
   }
 
   public static void main(String[] args) {
-    String s = "T|T&F^T";
-    System.out.println(countWays(s));
+    String exp = "F|T^F";
+    int ways = evaluateExpWays(exp);
+    System.out.println("The total number of ways: " + ways);
   }
+}
 
   /* class GfG {
   [Expected Approach 1]- Using Top-Down DP – O(n^3) Time and O(n^2) Space
@@ -200,5 +227,3 @@ public class EvaluateBooleanExpression {
               System.out.println(countWays(s));
           }
       }*/
-
-}

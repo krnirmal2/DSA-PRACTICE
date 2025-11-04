@@ -3,9 +3,9 @@ package StandardProblemDSA.VIII_TREE.IV_MODIFICATION_TRANSAFORMATION_PATTERNS;
 import StandardProblemDSA.VIII_TREE.TreeNode;
 
 public class MirrorOrInvertedBinaryTree {
-    // ---------------------------------------------------
-    // 2. Mirror/Invert Binary Tree
-    // ---------------------------------------------------
+  // ---------------------------------------------------
+  // 2. Mirror/Invert Binary Tree
+  // ---------------------------------------------------
   /*
     Problem Statement:
        Invert (or mirror) a binary tree by swapping left and right children of every node.
@@ -31,11 +31,11 @@ public class MirrorOrInvertedBinaryTree {
               / \ / \
              9  6 3  1
   */
-    public static TreeNode invertTree(TreeNode root) {
-        if (root == null) return null;
-        TreeNode tmp = root.left;
-        root.left = invertTree(root.right);
-        root.right = invertTree(tmp);
-        return root;
-    }
+  public static TreeNode invertTree(TreeNode root) {
+    if (root == null) return null;
+    TreeNode tmp = root.left;
+    root.left = invertTree(root.right);
+    root.right = invertTree(tmp);
+    return root;
+  }
 }

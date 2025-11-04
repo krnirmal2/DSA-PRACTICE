@@ -1,7 +1,6 @@
 package StandardProblemDSA.VIII_TREE.I_TRAVERSAL_PATTERNS;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
-
 import java.util.Stack;
 
 class PostorderWithoutRecursion {
@@ -33,9 +32,9 @@ class PostorderWithoutRecursion {
       - Iterative DFS using two stacks
 
    Similar LeetCode Problems:
-      - 145. Binary Tree Postorder Traversal
-      - 144. Binary Tree Preorder Traversal
-      - 94. Binary Tree Inorder Traversal
+      - 145. Binary Tree Postorder Traversal done
+      - 144. Binary Tree Preorder Traversal done
+      - 94. Binary Tree Inorder Traversal done
 
    Follow-up Questions:
       - Can this be done using only one stack?
@@ -49,19 +48,20 @@ class PostorderWithoutRecursion {
 
   public static void postOrderWithoutRecursion(TreeNode root) {
     if (root == null) return;
-
+    // Step 1 : use two stack for post order itration way
     Stack<TreeNode> stack1 = new Stack<>();
     Stack<TreeNode> stack2 = new Stack<>();
     stack1.push(root);
-
+    // Step 2 . first put the root in the stack 1 and then iterate over it till it not get empty
     while (!stack1.isEmpty()) {
       TreeNode node = stack1.pop();
+      // Step 3 : similar to reverse level order push the node in the stack 2
       stack2.push(node);
-
+      // Step 4:  but the node will push into stack1 as left first and right if not null
       if (node.left != null) stack1.push(node.left);
       if (node.right != null) stack1.push(node.right);
     }
-
+    // Step 5: At last we have to pop out the element from stack 2 and return
     while (!stack2.isEmpty()) {
       System.out.print(stack2.pop().val + " ");
     }

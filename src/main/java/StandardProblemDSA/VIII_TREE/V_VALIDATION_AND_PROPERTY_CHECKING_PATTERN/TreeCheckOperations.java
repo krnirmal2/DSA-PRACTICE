@@ -1,8 +1,8 @@
 package StandardProblemDSA.VIII_TREE.V_VALIDATION_AND_PROPERTY_CHECKING_PATTERN;
 
-import StandardProblemDSA.VIII_TREE.TreeNode;
-
 import static StandardProblemDSA.VIII_TREE.TreeUtility.isIdentical;
+
+import StandardProblemDSA.VIII_TREE.TreeNode;
 
 public class TreeCheckOperations {
   /*

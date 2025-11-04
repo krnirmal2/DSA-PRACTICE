@@ -4,9 +4,9 @@ import StandardProblemDSA.VIII_TREE.TreeNode;
 import StandardProblemDSA.VIII_TREE.TreeUtility;
 
 public class IsSymmetricTree {
-    // ---------------------------------------------------
-    // 2. Check if Tree is Symmetric
-    // ---------------------------------------------------
+  // ---------------------------------------------------
+  // 2. Check if Tree is Symmetric
+  // ---------------------------------------------------
   /*
     Problem Statement:
        Determine if a binary tree is symmetric (a mirror of itself).
@@ -31,8 +31,8 @@ public class IsSymmetricTree {
        This tree is not symmetric because the left and right subtrees differ.
        A symmetric example would have both subtrees matching.
   */
-    public static boolean isSymmetric(TreeNode root) {
-        if (root == null) return true;
-        return TreeUtility.isMirror(root.left, root.right);
-    }
+  public static boolean isSymmetric(TreeNode root) {
+    if (root == null) return true;
+    return TreeUtility.isMirror(root.left, root.right);
+  }
 }

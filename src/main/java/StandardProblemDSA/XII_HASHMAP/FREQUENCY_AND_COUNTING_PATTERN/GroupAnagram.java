@@ -4,13 +4,13 @@ import java.util.*;
 
 public class GroupAnagram {
   public static List<List<String>> groupAnagrams(String[] strs) {
-      // Step 1: initail configuration take a map where will put the string and its corresponding
-      // matched anagram
+    // Step 1: initail configuration take a map where will put the string and its corresponding
+    // matched anagram
     Map<String, List<String>> map = new HashMap<>();
-      // Step 2: iterate over the list of strings
+    // Step 2: iterate over the list of strings
     for (String str : strs) {
-        // Step 3: convert each string to character array and sort that array
-        // and put that string into map with new string and add to the list
+      // Step 3: convert each string to character array and sort that array
+      // and put that string into map with new string and add to the list
       char[] charArray = str.toCharArray();
       Arrays.sort(charArray);
       String sortedKey = new String(charArray);
@@ -18,7 +18,7 @@ public class GroupAnagram {
 
       map.get(sortedKey).add(str);
     }
-      // step 4: return the map.values();
+    // step 4: return the map.values();
     return new ArrayList<>(map.values());
   }
 

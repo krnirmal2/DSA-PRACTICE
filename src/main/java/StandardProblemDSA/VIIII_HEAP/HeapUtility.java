@@ -59,7 +59,7 @@ public class HeapUtility {
       if (minHeap.size() < k) {
         minHeap.offer(num);
       } else if (num
-              > minHeap
+          > minHeap
               .peek()) { // else check if the num is greater than priority peak then remove peek and
         // insert the no
         minHeap.poll();

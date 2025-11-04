@@ -44,10 +44,10 @@ public class KthMissingPositiveNumb {
 
   Related LeetCode Questions:
   ---------------------------
-  - 1539. Kth Missing Positive Number
+  - 1539. Kth Missing Positive Number DONE
   - 1060. Missing Element in Sorted Array
-  - 287. Find the Duplicate Number
-  - 35. Search Insert Position
+  - 287. Find the Duplicate Number DONE
+  - 35. Search Insert Position DONE
 
   Follow-ups:
   -----------

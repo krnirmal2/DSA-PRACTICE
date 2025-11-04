@@ -2,14 +2,13 @@ package StandardProblemDSA.VIII_TREE.III_PATH_AND_ANCESTOR_PATTERNS;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
 import StandardProblemDSA.VIII_TREE.TreeUtility;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class PathsMatchToSpecificPatternInTree extends AncestorsOfNode {
-    // ---------------------------------------------------
-    // 6. Paths Matching a Specific Pattern
-    // ---------------------------------------------------
+  // ---------------------------------------------------
+  // 6. Paths Matching a Specific Pattern
+  // ---------------------------------------------------
   /*
     Problem Statement:
        Given a binary tree and a pattern (as a list of integers), find all root-to-leaf paths
@@ -34,10 +33,10 @@ public class PathsMatchToSpecificPatternInTree extends AncestorsOfNode {
        Pattern: [1,2]
        Matching path: [1,2,4]
   */
-    public static List<List<Integer>> pathsMatchingPattern(TreeNode root, List<Integer> pattern) {
-        List<List<Integer>> matchingPaths = new ArrayList<>();
-        List<Integer> current = new ArrayList<>();
-        TreeUtility.findPathsMatching(root, pattern, 0, current, matchingPaths);
-        return matchingPaths;
-    }
+  public static List<List<Integer>> pathsMatchingPattern(TreeNode root, List<Integer> pattern) {
+    List<List<Integer>> matchingPaths = new ArrayList<>();
+    List<Integer> current = new ArrayList<>();
+    TreeUtility.findPathsMatching(root, pattern, 0, current, matchingPaths);
+    return matchingPaths;
+  }
 }

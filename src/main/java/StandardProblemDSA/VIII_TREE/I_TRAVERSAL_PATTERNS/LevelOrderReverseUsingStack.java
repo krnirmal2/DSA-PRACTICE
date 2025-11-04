@@ -1,7 +1,6 @@
 package StandardProblemDSA.VIII_TREE.I_TRAVERSAL_PATTERNS;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
-
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -28,9 +27,9 @@ public class LevelOrderReverseUsingStack {
       - Reverse Level Order Traversal
 
    Similar LeetCode Problems:
-      - 107. Binary Tree Level Order Traversal II
-      - 102. Binary Tree Level Order Traversal
-      - 199. Binary Tree Right Side View
+      - 107. Binary Tree Level Order Traversal II DONE
+      - 102. Binary Tree Level Order Traversal DONE
+      - 199. Binary Tree Right Side View DONE
 
    Follow-up Questions:
       - How to do this without using an explicit stack?
@@ -51,12 +50,13 @@ public class LevelOrderReverseUsingStack {
 
     while (!queue.isEmpty()) {
       TreeNode node = queue.poll();
+      // Extra things that need use stack to push the nodes
       stack.push(node); // Push to stack
-
+      // right  first put in the quest and then left but
       if (node.right != null) queue.add(node.right);
       if (node.left != null) queue.add(node.left);
     }
-
+    // After
     while (!stack.isEmpty()) {
       System.out.print(stack.pop().val + " ");
     }

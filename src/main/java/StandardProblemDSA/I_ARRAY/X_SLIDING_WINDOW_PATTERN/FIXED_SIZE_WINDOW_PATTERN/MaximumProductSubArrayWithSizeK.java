@@ -22,7 +22,15 @@ public class MaximumProductSubArrayWithSizeK {
       Example:
          Input: arr = [1, 5, 2, 3, 7, 1], k = 3
          Output: Maximum product = 42 (subarray [2,3,7])
+      Example 1:
+      Input: nums = [2,3,-2,4]
+      Output: 6
+      Explanation: [2,3] has the largest product 6.
 
+      Example 2:
+      Input: nums = [-2,0,-1]
+      Output: 0
+      Explanation: The result cannot be 2, because [-2,-1] is not a subarray.
   Pattern:
   - Sliding Window (fixed size) with product tracking and zero handling.
 
@@ -54,23 +62,52 @@ public class MaximumProductSubArrayWithSizeK {
     for (int i = 0; i < k; i++) {
       product *= arr[i];
     }
-    maxProduct = Math.max(maxProduct, product);
+    maxProduct = product;
 
     for (int i = k; i < n; i++) {
       // CASE 1; If the element exiting the window is zero, recompute product.
-      if (arr[i - k] == 0) { // go to the index
+      int outgoing = arr[i - k];
+      int incoming = arr[i];
+      if (outgoing == 0) { // go to the index
         product = 1.0;
+        // j will start from k steps back from i and reach to current i as we recompute the value
         for (int j = i - k + 1; j <= i; j++) {
           product *= arr[j];
         }
       } else { // CASE 2; without zero element
         // Update product using division and multiplication.
-        product = product / arr[i - k] * arr[i];
+        product = product / outgoing * incoming;
       }
       maxProduct = Math.max(maxProduct, product);
     }
     return maxProduct;
   }
+
+  public static void main(String[] args) {
+    int[] arr = {1, 5, 2, 3, 7, 0, 4, 6};
+    int k = 3;
+    System.out.println(maxProductSubarray(arr, k)); // Output: 84.0
+  }
+  /*
+  ### Example Input
+  arr = [1, 5, 2, 3, 7, 0, 4, 6]
+  k = 3
+
+  | Step | Window (indices) | Outgoing Element | Incoming Element | Action Taken | Product After Step | Max Product |
+  |------|------------------|------------------|------------------|--------------|--------------------|-------------|
+  | Init | [0..2] → [1, 5, 2] | — | — | Initial product = 1×5×2 | 10 | 10 |
+  | 1    | [1..3] → [5, 2, 3] | 1 | 3 | No zero → `(10 / 1) × 3` | 30 | 30 |
+  | 2    | [2..4] → [2, 3, 7] | 5 | 7 | No zero → `(30 / 5) × 7` | 42 | 42 |
+  | 3    | [3..5] → [3, 7, 0] | 2 | 0 | No zero → `(42 / 2) × 0` | 0 | 42 |
+  | 4    | [4..6] → [7, 0, 4] | 3 | 4 | Outgoing ≠ 0 but prev product is 0 → `(0 / 3) × 4` | 0 | 42 |
+  | 5    | [5..7] → [0, 4, 6] | 7 | 6 | Outgoing = 0 → Recompute: `4 × 6` | 24 | 42 |
+
+  ### Key Observations
+  - **Step 2** gives the highest product: `2 × 3 × 7 = 42`.
+  - When a **zero** enters the window (Step 3), the product becomes `0`.
+  - When a **zero** leaves the window (Step 5), we **recompute** the product from scratch for the new window.
+
+  */
   /*Great question! Here's a breakdown of the **approach we're following for the sliding window** in this `maxProductSubarray` code:
   ### ✅ **Approach: Sliding Window with Zero Handling**
   #### 📌 Goal:

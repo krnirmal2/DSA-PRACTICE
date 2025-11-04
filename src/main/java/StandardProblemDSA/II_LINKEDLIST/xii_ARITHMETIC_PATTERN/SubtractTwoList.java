@@ -1,10 +1,10 @@
 package StandardProblemDSA.II_LINKEDLIST.xii_ARITHMETIC_PATTERN;
 
-import StandardProblemDSA.II_LINKEDLIST.ListNode;
-import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
-
 import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
 import static java.lang.reflect.Array.getLength;
+
+import StandardProblemDSA.II_LINKEDLIST.ListNode;
+import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
 
 /*
  Problem: Subtract two numbers represented as linked lists.

@@ -1,12 +1,13 @@
 package StandardProblemDSA.XV_DYNAMMIC_PROGRAM.V_STRING_PATTERN.LONGEST_LARGEST_SUBSTRING_PATTERN;
 
 public class LongestCommonSubstring {
-  /*/*
+  /*
   115. Longest Common Substring
 
   Why?
   - Frequently asked DP question.
-  - Builds intuition for string matching problems and is a stepping stone for advanced DP like Edit Distance, Sequence Alignment, and Substring Search.
+  - Builds intuition for string matching problems and is a stepping stone for advanced DP like Edit Distance,
+    Sequence Alignment, and Substring Search.
   - Tests your ability to handle "continuous matching" vs. subsequences.
 
   Pattern:
@@ -56,7 +57,7 @@ public class LongestCommonSubstring {
 
   private static int lcs(String s1, String s2, int i, int j, int count) {
     if (i == 0 || j == 0) return count;
-
+    // this will track the current max length in continuous mannar
     int count1 = count;
 
     if (s1.charAt(i - 1) == s2.charAt(j - 1)) {

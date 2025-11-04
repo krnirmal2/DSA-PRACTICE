@@ -3,14 +3,13 @@ package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.ROTETED_ARRAY
 public class FindElementInDuplicateRotatedArray {
   /*Search in Rotated Sorted Array with Duplicates
     You are given a sorted array a that has been rotated at some unknown pivot
-     and may contain duplicate elements. Your task is to find the index of a target element target in the array. If the target exists, return its index. Otherwise, return -1.
+     and may contain duplicate elements. Your task is to find the index of a target element target in the array.
+     If the target exists, return its index. Otherwise, return -1.
+
     🔧 Constraints:
     The array may contain duplicates.
-
     The time complexity must be better than linear in most cases (use modified binary search).
-
     Return any index of the target if it appears more than once.
-
     💡 Example 1:
 
     Input:  a = [4, 5, 6, 7, 0, 1, 2], target = 0
@@ -20,8 +19,8 @@ public class FindElementInDuplicateRotatedArray {
     Output: -1
     🧠 Note:
     The array was originally sorted but then rotated.
-
-    Duplicate elements can cause ambiguity in determining which half is sorted, so extra care (like skipping equal elements) is needed in binary search.
+    Duplicate elements can cause ambiguity in determining which half is sorted,
+     so extra care (like skipping equal elements) is needed in binary search.
 
     Pattern Used:
   -------------
@@ -49,7 +48,7 @@ public class FindElementInDuplicateRotatedArray {
     while (low < high) {
       // serach in left and right sorted array
       mid = low + (high - low) / 2;
-      // if the element is found in the mid return  the mid
+      // CASE 1: if the element is found in the mid return  the mid
       if (a[mid] == target) {
         return mid;
       }
@@ -60,9 +59,10 @@ public class FindElementInDuplicateRotatedArray {
         high++;
         continue;
       }
-      // else if don't find
+      // CASE 2 : else if don't find
+      //// serach in the left sorted array
       if (a[low] < a[mid]) {
-        // serach in the left sorted array
+
         if (a[low] < target && target < a[mid]) {
           high = mid - 1; // reduce search space ; // Target is in the left half
         } else {

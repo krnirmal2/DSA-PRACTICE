@@ -68,7 +68,6 @@ public class SubsetSum {
     if (arr[n - 1] > sum) {
       memo[n][sum] = isSubsetSumRec(arr, n - 1, sum, memo) ? 1 : 0;
     } else {
-
       // Include or exclude the last element directly
       memo[n][sum] =
           (isSubsetSumRec(arr, n - 1, sum, memo)

@@ -1,7 +1,7 @@
-package StandardProblemDSA.XI_GREEDYALGO.I_SORTING_GREEDY_SELECTION;
+package StandardProblemDSA.XI_GREEDYALGO.V_HEAP_PRIORITY_QUEUE;
 
 import StandardProblemDSA.XI_GREEDYALGO.TripletClass;
-
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /*Tip : Pattern Recognition
@@ -38,7 +38,8 @@ public class JobSequenceProblem {
     // Step 1: Sort jobs by profit in descending order (highest profit first) by putting them in
     // Priortiy queue
     PriorityQueue<TripletClass> pq =
-        new PriorityQueue<>((a, b) -> Integer.compare(b.third, a.third));
+        new PriorityQueue<>(
+            Comparator.comparingInt(a -> a.third)); // (a, b) -> Integer.compare(b.third, a.third)
     for (int i = 0; i < jobs.length; i++) {
       pq.offer(new TripletClass(jobs[i].first, jobs[i].second, jobs[i].third));
     }

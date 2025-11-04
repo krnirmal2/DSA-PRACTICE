@@ -28,11 +28,11 @@ and does not properly toggle the states of all subsequent bulbs.
 public class Bulbs {
   public int bulbs(int[] A) {
     int count = 0;
-      int toggle = 0; // track the number of toggles (0 = no toggle, 1 = toggled)
-      for (int bulb : A) {
-          if ((bulb ^ toggle) == 0) { // bulb is OFF in the current state
+    int toggle = 0; // track the number of toggles (0 = no toggle, 1 = toggled)
+    for (int bulb : A) {
+      if ((bulb ^ toggle) == 0) { // bulb is OFF in the current state
         count++;
-              toggle ^= 1; // flip toggle state
+        toggle ^= 1; // flip toggle state
       }
     }
     return count;

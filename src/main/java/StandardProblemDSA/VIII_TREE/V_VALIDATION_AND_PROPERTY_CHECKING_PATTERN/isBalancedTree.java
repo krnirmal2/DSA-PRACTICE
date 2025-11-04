@@ -4,9 +4,9 @@ import StandardProblemDSA.VIII_TREE.BST.BSTutility;
 import StandardProblemDSA.VIII_TREE.TreeNode;
 
 public class isBalancedTree {
-    // ---------------------------------------------------
-    // 5. Check if Tree is Balanced
-    // ---------------------------------------------------
+  // ---------------------------------------------------
+  // 5. Check if Tree is Balanced
+  // ---------------------------------------------------
   /*
     Problem Statement:
        A binary tree is balanced if the heights of its two subtrees differ by no more than one at every node.
@@ -28,7 +28,9 @@ public class isBalancedTree {
           4
        This tree is balanced if the height difference is ≤ 1 at every node.
   */
-    public static boolean isBalanced(TreeNode root) {
-        return BSTutility.height(root) != -1;
-    }
+  public static boolean isBalanced(TreeNode root) {
+    return BSTutility.height(root) != -1;
+  }
+
+  public static void main(String[] args) {}
 }

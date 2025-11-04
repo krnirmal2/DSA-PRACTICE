@@ -89,7 +89,7 @@ public class CountKOddNoWindowNiceSubarray {
         left++;
       }
 
-      // Add number of subarrays ending at right
+      // Tip : trick to  count , and Add number of subarrays ending at right
       count += (right - left + 1);
     }
 

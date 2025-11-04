@@ -2,8 +2,8 @@ package StandardProblemDSA.XI_GREEDYALGO.V_HEAP_PRIORITY_QUEUE;
 
 import StandardProblemDSA.XI_GREEDYALGO.GreedyAlgoUtil;
 import StandardProblemDSA.XI_GREEDYALGO.StartEndPair;
-
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /*You are given two arrays:
@@ -21,6 +21,7 @@ You must select as many non-overlapping activities as possible.
 🔍 Example
 start  = [1, 3, 0, 5, 8, 5]
 finish = [2, 4, 6, 7, 9, 9]*/
+
 public class ActivitySelectionProblem {
   // so it is a stand Greedy algo
   // independent subproblem give optimal solution of the whole problem
@@ -42,7 +43,8 @@ public class ActivitySelectionProblem {
     // so we need to sort the finished array time
     // and put them into priority queue for picking up based on the minimum finished time
     // lamda function shorthand of compartor for sorting based on end date in ascending order
-    PriorityQueue<StartEndPair> pq = new PriorityQueue<>((a, b) -> a.end - b.end); // lamda funciton
+    PriorityQueue<StartEndPair> pq =
+        new PriorityQueue<>(Comparator.comparingInt(a -> a.end)); // lamda funciton
     // now put them in the priority queue
     GreedyAlgoUtil.insertElementInPQAfterSort(start, finish, pq);
 

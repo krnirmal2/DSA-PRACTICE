@@ -98,12 +98,20 @@ public class BSTutility {
   }
 
   public static int height(TreeNode node) {
-    if (node == null) return 0;
+    if (node == null) return 0; // An empty subtree has height 0
+    // Recursive height calculation for left subtree
     int leftHeight = height(node.left);
-    if (leftHeight == -1) return -1;
+    if (leftHeight == -1)
+      return -1; // If it returns -1, it means the left subtree is already unbalanced, so bubble up
+    // -1 immediately.
+    // Recursive height calculation for right subtree
     int rightHeight = height(node.right);
     if (rightHeight == -1) return -1;
-    if (Math.abs(leftHeight - rightHeight) > 1) return -1;
+    // Balance check at the current node
+    if (Math.abs(leftHeight - rightHeight) > 1)
+      return -1; // If the height difference between left and right subtrees is more than 1, mark
+    // this subtree as unbalanced by returning -1.
+    // If balanced, return the actual height of this subtree.
     return Math.max(leftHeight, rightHeight) + 1;
   }
 

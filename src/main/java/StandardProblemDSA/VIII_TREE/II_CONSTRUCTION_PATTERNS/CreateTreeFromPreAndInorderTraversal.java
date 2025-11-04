@@ -1,13 +1,14 @@
 package StandardProblemDSA.VIII_TREE.II_CONSTRUCTION_PATTERNS;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
+import StandardProblemDSA.VIII_TREE.TreeUtility;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CreateTreeFromPreAndInorderTraversal {
   /*
    Problem: Construct a binary tree from preorder and inorder traversal.
-
    Given two arrays `preorder` and `inorder` of a binary tree, build and return the binary tree.
-
    Example:
    Input:
       preorder = ['A', 'B', 'D', 'E', 'C', 'F']
@@ -38,48 +39,51 @@ public class CreateTreeFromPreAndInorderTraversal {
    Time Complexity: O(n²), due to searching the index in inorder array each time
    Space Complexity: O(h), h = height of the tree (recursion stack)
   */
+  static int preIndex = 0; // Tracks position in preorder array
+  static Map<Character, Integer> inorderMap = new HashMap<>();
 
   public static void main(String[] args) {
     // array of PreTreeNode
-    char[] preOrders = new char[] {'A', 'B', 'D', 'E', 'C', 'F'};
-    char[] inOrders = new char[] {'A', 'B', 'D', 'E', 'C', 'F'};
-    int lengthOfInorder = inOrders.length;
-
+    char[] preOrders = {'A', 'B', 'D', 'E', 'C', 'F'};
+    char[] inOrders = {'D', 'B', 'E', 'A', 'F', 'C'};
+    int lengthOfInorder = inOrders.length; // till all the node from the array  have to iterate
+    // Fill map with inorder positions
+    for (int i = 0; i < inOrders.length; i++) {
+      inorderMap.put(inOrders[i], i);
+    }
     int firstIndexOfInOrders = 0;
-    int lastIndexOfInOrders = 0;
+    int lastIndexOfInOrders = lengthOfInorder - 1;
     // return the root of the tree
-    CreateTreeFromPreAndInorderTraversal t = new CreateTreeFromPreAndInorderTraversal();
-    t.buildTree(inOrders, preOrders, firstIndexOfInOrders, lastIndexOfInOrders);
+    TreeUtility.printPreorder(
+        buildTree(inOrders, preOrders, firstIndexOfInOrders, lastIndexOfInOrders));
   }
 
-  private TreeNode buildTree(
+  private static TreeNode buildTree(
       char[] inOrders, char[] preOrders, int firstIndexOfInOrders, int lastIndexOfInOrders) {
 
     if (firstIndexOfInOrders > lastIndexOfInOrders) return null;
 
     // create the TreeNode for initiation
-    TreeNode TreeNode = new TreeNode(preOrders[2]);
+    TreeNode TreeNode = new TreeNode(preOrders[preIndex++]);
+    // If this node has no children
+    if (firstIndexOfInOrders == lastIndexOfInOrders) return TreeNode;
 
-    // now find the index of the element of reorder
-    int inOrderIndex =
-        SearchIndexInorder(inOrders, firstIndexOfInOrders, lastIndexOfInOrders, TreeNode.val);
+    // now find the index of the element of Inorder
+    int inOrderIndex = inorderMap.get(TreeNode.val);
+    //            searchIndexInorder(inOrders, firstIndexOfInOrders,lastIndexOfInOrders,
+    // TreeNode.val);
 
     // set two  left and right subtree
-    TreeNode.left = buildTree(inOrders, preOrders, inOrderIndex - 1, lastIndexOfInOrders);
-    TreeNode.right = buildTree(inOrders, preOrders, inOrderIndex, lastIndexOfInOrders + 1);
+    TreeNode.left = buildTree(inOrders, preOrders, firstIndexOfInOrders, inOrderIndex - 1);
+    TreeNode.right = buildTree(inOrders, preOrders, inOrderIndex + 1, lastIndexOfInOrders);
 
     return TreeNode;
   }
 
-  private int SearchIndexInorder(
-      char[] inOrders, int firstIndexOfInOrders, int lastIndexOfInOrders, int val) {
-
-    // chekc the index of the val
-    for (int i = 0; i < inOrders.length; i++) {
-      if (val == inOrders[i]) {
-        return i;
-      }
+  private static int searchIndexInorder(char[] inOrders, int start, int end, int val) {
+    for (int i = start; i <= end; i++) {
+      if (inOrders[i] == val) return i;
     }
-    return firstIndexOfInOrders;
+    return -1;
   }
 }

@@ -6,7 +6,6 @@ import StandardProblemDSA.VIII_TREE.TreeNode;
 public class TwoSumBstWithTargetUsingBst {
   /*
   Problem: Find if there exist two elements in a BST such that their sum equals a given target k.
-
   Approach:
       - Use two iterators:
           * In-order iterator → gets the next smallest value.
@@ -19,8 +18,8 @@ public class TwoSumBstWithTargetUsingBst {
       - Space-efficient solution (no full inorder array required)
 
   Similar LeetCode Problems:
-      - 653. Two Sum IV – Input is a BST
-      - 173. Binary Search Tree Iterator
+      - 653. Two Sum IV – Input is a BST done
+      - 173. Binary Search Tree Iterator done
 
   Time Complexity:
       - Each node is visited at most once → O(n)
@@ -37,14 +36,19 @@ public class TwoSumBstWithTargetUsingBst {
   */
 
   public boolean findTarget(TreeNode root, int k) {
-    BstIteratorUsingStack leftItr = new BstIteratorUsingStack(root, false);
-    BstIteratorUsingStack rightItr = new BstIteratorUsingStack(root, true);
-
-    int left = leftItr.next(), right = rightItr.next();
-    while (left < right) {
-      if (left + right == k) return true;
-      if (left + right < k) left = leftItr.next();
-      else right = rightItr.next();
+    BstIteratorUsingStack l = new BstIteratorUsingStack(root, false);
+    BstIteratorUsingStack r = new BstIteratorUsingStack(root, true);
+    int i = l.next(), j = r.next();
+    while (i < j) {
+      int sum = i + j;
+      if (sum == k) return true; // if sum present return true
+      if (sum < k) { // if sum less than k then increment left pointer if it has value
+        if (l.hasNext()) i = l.next();
+        else return false;
+      } else { // if sum is greater than k then reduce j pointer if it has till it not cross i
+        if (r.hasNext()) j = r.next();
+        else return false;
+      }
     }
     return false;
   }

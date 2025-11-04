@@ -35,10 +35,10 @@ Pattern Used:
 
 Follow-up Questions:
 --------------------
-1. Can you solve it in O(log n) without using any linear scans? (Yes, by using two binary searches)
+1. Can you solve it in O(log n) without using any linear scans? (Yes, by using two binary searches)done
 2. How would you handle this in a rotated sorted array?
 3. Can you modify the code to count the number of occurrences directly?
-4. How to find the closest element if the target does not exist?
+4. How to find the closest element if the target does not exist? done
 
 LeetCode Tag:
 -------------
@@ -71,10 +71,10 @@ public class FirstAndLastOccuranceOfAnElementInSortedArray {
     int ans = -1; // Default answer if not found
     int low = 0, high = arr.length - 1;
 
-    while (low <= high) {
+    while (low <= high) { // iterate over whole array
       int mid = low + (high - low) / 2; // Avoid overflow
 
-      // Even if find the mid , then for first occurance go
+      // CASE 1 :  Even if find the mid , then for first occurance go
       // till  low<=high
       if (arr[mid] == target) {
         ans = mid; // Found target, record position
@@ -83,13 +83,14 @@ public class FirstAndLastOccuranceOfAnElementInSortedArray {
         if (findFirst) { // to shrink high to left
           // Move to left half to find earlier occurrence
           high = mid - 1;
-        } else {
-
+        } else { // if find last go right and right
           // Move to right half to find later occurrence
           low = mid + 1;
         }
       }
 
+      // CASE2 : IF not found and the target vallue greater than mid means it is in the right part
+      // so update low
       // if target is greater than the elemnt then mid value
       // means it is in the right part
       else if (arr[mid] < target) {

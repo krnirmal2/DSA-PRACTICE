@@ -56,10 +56,7 @@ public class MinimisedLargerSumInKPartitionOfArray {
 
   Related LeetCode Problems:
   --------------------------
-  - 410. Split Array Largest Sum
-  - 1011. Capacity To Ship Packages Within D Days
-  - 875. Koko Eating Bananas
-  - Book Allocation Problem (GFG)
+
 
   Follow-ups:
   -----------

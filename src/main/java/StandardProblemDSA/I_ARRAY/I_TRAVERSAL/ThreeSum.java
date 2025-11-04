@@ -1,7 +1,6 @@
 package StandardProblemDSA.I_ARRAY.I_TRAVERSAL;
 
 import StandardProblemDSA.I_ARRAY.ArrayUtility;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -49,12 +48,13 @@ public class ThreeSum {
       int target = -nums[i];
       // the start will be the current no and start index will from the next
       // and right pointer will be the length of the nums array and then apply
-      // two pointer sum which return us both pointer value
+
+      // NOTE : TWO POINTER APPROACH  which return us both pointer value
       List<List<Integer>> pairs = ArrayUtility.twoSum(nums, i + 1, target);
 
       // add indexes to result
       for (List<Integer> pair : pairs) {
-        res.add(Arrays.asList(nums[i], pair.get(0), pair.get(i)));
+        res.add(Arrays.asList(nums[i], pair.get(0), pair.get(1)));
       }
     }
     return res;

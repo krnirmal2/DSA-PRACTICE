@@ -52,3 +52,43 @@ public class TopKFrequentElement {
     return result;
   }
 }
+/*
+
+class Solution {
+  public List<String> topKFrequent(String[] words, int k) {
+    // 1. Build frequency map
+    Map<String, Integer> freq = new HashMap<>();
+    for (String w : words) {
+      freq.put(w, freq.getOrDefault(w, 0) + 1);
+    }
+
+    // 2. Use a priority queue (min-heap) keeping size k:
+    PriorityQueue<String> pq = new PriorityQueue<>((w1, w2) -> {
+      int f1 = freq.get(w1);
+      int f2 = freq.get(w2);
+      if (f1 != f2) {
+        // smaller frequency has higher priority to be removed first
+        return f1 - f2;
+      } else {
+        // if same freq, we want lexicographically *larger* word to be removed first
+        return w2.compareTo(w1);
+      }
+    });
+
+    for (String word : freq.keySet()) {
+      pq.offer(word);
+      if (pq.size() > k) {
+        pq.poll();
+      }
+    }
+
+    // 3. Build result list in reverse order of the heap
+    List<String> result = new ArrayList<>();
+    while (!pq.isEmpty()) {
+      result.add(pq.poll());
+    }
+    Collections.reverse(result);
+    return result;
+  }
+}
+*/

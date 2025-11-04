@@ -1,9 +1,9 @@
 package StandardProblemDSA.II_LINKEDLIST.vii_PALINDROME_AND_REVERSAL_PATTERNS;
 
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
 import StandardProblemDSA.II_LINKEDLIST.Node;
 import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
-
-import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
 
 public class RotateRightLLByKTimes {
   /*

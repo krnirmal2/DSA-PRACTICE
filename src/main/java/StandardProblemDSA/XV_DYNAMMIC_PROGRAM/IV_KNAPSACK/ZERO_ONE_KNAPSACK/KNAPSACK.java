@@ -15,8 +15,9 @@ public class KNAPSACK {
   - State: dp[i][w] = max value using first i items with capacity w.
   - Transition:
         if (weight[i - 1] <= w)
-            dp[i][w] = max(value[i - 1] + dp[i - 1][w - weight[i - 1]],
-                           dp[i - 1][w])
+            dp[i][w] = max(
+                 dp[i - 1][w - weight[i - 1]] + value[i - 1] ,
+                 dp[i - 1][w])
         else
             dp[i][w] = dp[i - 1][w]
   - Base case:
@@ -38,7 +39,7 @@ public class KNAPSACK {
   - Single item exactly equals W → take it.
 
   Similar / Follow-up Problems:
-  - LC 416: Partition Equal Subset Sum.
+  - LC 416: Partition Equal Subset Sum. (DONE)
   - LC 494: Target Sum.
   - Unbounded Knapsack (LC 322: Coin Change, LC 518: Coin Change II).
   */
@@ -46,12 +47,13 @@ public class KNAPSACK {
   // so we need to think either take or not take
   // edge case will be
   private int knapSack(int index, int capacity, int[] weight, int[] value) {
-    // Edge case
+    // STEP 1: Edge case EITHER CAPCITY OF THE BAG IS ZERO OR LESS OR WEIGHT OF THE ITEMS ARE LESS
+    // OR NO ITEM TO FIT IN THE BAG
     if (capacity <= 0 || index == 0) // means no item to left
     {
       return 0;
     }
-    // induction
+    // STEP 2 : induction (weight of the item greater then go for next element)
     if (weight[index] > capacity) {
       // if element can't be fit in the bag
       // just go to the next element and chechh

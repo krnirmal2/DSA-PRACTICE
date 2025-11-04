@@ -1,10 +1,10 @@
 package StandardProblemDSA.II_LINKEDLIST.vii_PALINDROME_AND_REVERSAL_PATTERNS;
 
-import StandardProblemDSA.II_LINKEDLIST.ListNode;
-
 import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
 
-public class ReverseAlternateKNode {
+import StandardProblemDSA.II_LINKEDLIST.ListNode;
+
+public class ReverseAlternateKNodeUsingRecursion {
 
   /*
   Problem: Reverse Every Alternate K Nodes in a Linked List

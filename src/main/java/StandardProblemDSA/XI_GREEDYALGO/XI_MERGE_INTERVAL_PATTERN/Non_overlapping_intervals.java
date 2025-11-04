@@ -1,4 +1,4 @@
-package StandardProblemDSA.XI_GREEDYALGO.I_SORTING_GREEDY_SELECTION;
+package StandardProblemDSA.XI_GREEDYALGO.XI_MERGE_INTERVAL_PATTERN;
 
 import java.util.Arrays;
 

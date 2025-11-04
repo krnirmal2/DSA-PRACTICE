@@ -58,12 +58,13 @@ public class FindAllPeaks {
       return peaks;
     }
 
+    // CASE 1 : FOR FIRST ELEMENT
     // Check first element is greater than the second element or not if yes then add to peak list
     if (n > 1 && arr[0] > arr[1]) {
       peaks.add(0);
     }
 
-    // Check middle elements
+    // CASE 2: FOR  middle elements
     // if it is greater than both left and right element
     // then add those indexes
     for (int i = 1; i < n - 1; i++) {
@@ -72,7 +73,7 @@ public class FindAllPeaks {
       }
     }
 
-    // Check last element is greter then the second last
+    // CASE 3 : Check last element is greter then the second last
     // if yes add the last element index also
     if (n > 1 && arr[n - 1] > arr[n - 2]) {
       peaks.add(n - 1);

@@ -1,9 +1,9 @@
 package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.BITONIC_ARRAY;
 
-import StandardProblemDSA.Utility;
-
 import static StandardProblemDSA.Utility.findElementLeftAscendigArray;
 import static StandardProblemDSA.Utility.findElementRightDescendtingArray;
+
+import StandardProblemDSA.Utility;
 
 public class FindElementInBitonicArray {
   /*Given a bitonic sequence of n distinct elements, and an integer x, the task is to write a program to find given

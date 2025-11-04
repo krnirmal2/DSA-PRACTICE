@@ -69,6 +69,7 @@ public class DisjointSet {
   // check if the two vertex belongs to same component or not
   // find and parent using Rank or Size
   // Way 1 start implementing using Rank
+  public DisjointSet() {}
 
   // initaitl conf
   List<Integer> rank = new ArrayList<>();

@@ -68,6 +68,7 @@ public class MaxProductSubarray {
   - LeetCode 152 – Maximum Product Subarray (exact problem)
   - LeetCode 53 – Maximum Subarray (Kadane’s algorithm for sum)
   - LeetCode 918 – Maximum Sum Circular Subarray (variation on Kadane’s)
+  - LeetCode 713. – Subarray Product Less Than K
 
   ------------------------------------------------------
   Time & Space Complexity

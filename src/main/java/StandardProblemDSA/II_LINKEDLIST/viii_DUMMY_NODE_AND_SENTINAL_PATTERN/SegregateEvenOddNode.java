@@ -1,4 +1,4 @@
-package StandardProblemDSA.II_LINKEDLIST.iv_SORTING_AND_REARRANGING_PATTERN;
+package StandardProblemDSA.II_LINKEDLIST.viii_DUMMY_NODE_AND_SENTINAL_PATTERN;
 
 import StandardProblemDSA.II_LINKEDLIST.ListNode;
 

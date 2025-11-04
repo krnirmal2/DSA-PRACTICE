@@ -1,9 +1,9 @@
 package StandardProblemDSA.II_LINKEDLIST.iii_RECURSIVE_PATTERN;
 
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
 import StandardProblemDSA.II_LINKEDLIST.ListNode;
 import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
-
-import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
 
 public class RecursiveMergeTwoSortedList {
   /* Problem: Merge Sort for Linked List
@@ -39,7 +39,7 @@ public class RecursiveMergeTwoSortedList {
      - 148. Sort List
   */
 
-    public ListNode mergeSort(ListNode head) {
+  public ListNode mergeSort(ListNode head) {
     if (head == null || head.next == null) {
       return head;
     }

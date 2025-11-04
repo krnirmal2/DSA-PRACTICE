@@ -58,4 +58,63 @@ there is a path between every pair of vertices). In directed graphs, connectivit
 strongly connected components.
 Degree of Vertices: The degree of a vertex in a graph is the number of edges incident to it. In an undirected graph, the
 degree of a vertex can be calculated by summing the entries in the corresponding row (or column) of the adjacency
-matrix. In a directed graph, the in-degree and out-degree of a vertex can be similarly determined.
+matrix. In a directed graph, the in-degree and out-degree of
+a vertex can be similarly determined.
+
+---
+# when use BFS and DFS
+## 🔍 **Breadth-First Search (BFS)**
+**How it works:**
+- Explores **level by level** — visits all neighbors before going deeper.
+- Uses a **queue** (FIFO).
+
+**When to use BFS:**
+1. **Shortest Path in Unweighted Graphs**
+    - BFS guarantees the shortest number of edges from start to goal.
+    - Example: Finding the minimum number of moves in a chess knight problem.
+2. **Level Order Traversal**
+    - When you need to process nodes layer by layer (e.g., printing a tree level-wise).
+3. **Finding the Nearest Solution**
+    - If the target is likely close to the start, BFS will find it faster.
+4. **Connected Components in Small Graphs**
+    - Works well when you want to explore all reachable nodes without going too deep.
+
+---
+
+## 🌊 **Depth-First Search (DFS)**
+**How it works:**
+- Goes **as deep as possible** along a branch before backtracking.
+- Uses a **stack** (or recursion).
+
+**When to use DFS:**
+1. **Path Existence or Any Path**
+    - If you just need *a* path to the goal, not necessarily the shortest.
+2. **Exploring All Possibilities**
+    - Useful in backtracking problems (e.g., Sudoku, N-Queens, maze solving).
+3. **Topological Sorting**
+    - DFS is the backbone for ordering tasks with dependencies.
+4. **Memory Constraints in Wide Graphs**
+    - DFS can be more memory-efficient than BFS when the graph is very broad.
+
+---
+
+## ⚖️ Quick Comparison
+
+| Feature | BFS | DFS |
+|---------|-----|-----|
+| **Data Structure** | Queue | Stack / Recursion |
+| **Shortest Path (Unweighted)** | ✅ Yes | ❌ Not guaranteed |
+| **Memory Use** | Higher in wide graphs | Lower in wide graphs |
+| **Best for** | Nearest solution, level order | Deep exploration, backtracking |
+| **Completeness** | Complete (will find solution if exists) | May get stuck in deep paths if not careful |
+
+---
+
+💡 **Rule of Thumb:**
+- **Need shortest path?** → BFS
+- **Need to explore all configurations or go deep?** → DFS
+- **Graph is huge but shallow?** → BFS
+- **Graph is huge but narrow/deep?** → DFS
+
+---
+

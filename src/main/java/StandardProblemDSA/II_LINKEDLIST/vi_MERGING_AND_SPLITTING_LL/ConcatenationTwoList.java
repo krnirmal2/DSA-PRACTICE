@@ -1,8 +1,8 @@
 package StandardProblemDSA.II_LINKEDLIST.vi_MERGING_AND_SPLITTING_LL;
 
-import StandardProblemDSA.II_LINKEDLIST.Node;
-
 import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
+import StandardProblemDSA.II_LINKEDLIST.Node;
 
 /*
 Problem: Concatenate Two Singly Linked Lists

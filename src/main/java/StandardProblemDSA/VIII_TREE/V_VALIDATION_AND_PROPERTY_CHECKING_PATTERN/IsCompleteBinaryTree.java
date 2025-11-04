@@ -1,14 +1,13 @@
 package StandardProblemDSA.VIII_TREE.V_VALIDATION_AND_PROPERTY_CHECKING_PATTERN;
 
 import StandardProblemDSA.VIII_TREE.TreeNode;
-
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class IsCompleteBinaryTree {
-    // ---------------------------------------------------
-    // 6. Check if Tree is Complete or Full
-    // ---------------------------------------------------
+  // ---------------------------------------------------
+  // 6. Check if Tree is Complete or Full
+  // ---------------------------------------------------
   /*
     Problem Statement:
        - A binary tree is complete if all levels are completely filled except possibly the last,
@@ -37,21 +36,21 @@ public class IsCompleteBinaryTree {
            / \ / \
           4  5 6  7
   */
-    public static boolean isComplete(TreeNode root) {
-        if (root == null) return true;
-        Queue<TreeNode> queue = new LinkedList<TreeNode>();
-        queue.offer(root);
-        boolean end = false;
-        while (!queue.isEmpty()) {
-            TreeNode curr = queue.poll();
-            if (curr == null) {
-                end = true;
-            } else {
-                if (end) return false; // if we've seen a null, no more nodes should be non-null.
-                queue.offer(curr.left);
-                queue.offer(curr.right);
-            }
-        }
-        return true;
+  public static boolean isComplete(TreeNode root) {
+    if (root == null) return true;
+    Queue<TreeNode> queue = new LinkedList<TreeNode>();
+    queue.offer(root);
+    boolean end = false;
+    while (!queue.isEmpty()) {
+      TreeNode curr = queue.poll();
+      if (curr == null) {
+        end = true;
+      } else {
+        if (end) return false; // if we've seen a null, no more nodes should be non-null.
+        queue.offer(curr.left);
+        queue.offer(curr.right);
+      }
     }
+    return true;
+  }
 }

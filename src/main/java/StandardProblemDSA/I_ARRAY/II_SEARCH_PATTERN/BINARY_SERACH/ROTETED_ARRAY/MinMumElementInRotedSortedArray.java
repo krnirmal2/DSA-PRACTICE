@@ -1,49 +1,44 @@
 package StandardProblemDSA.I_ARRAY.II_SEARCH_PATTERN.BINARY_SERACH.ROTETED_ARRAY;
 
 /*
- * Problem Statement:
- * ------------------
- * Find the Minimum Element in a Rotated Sorted Array (No Duplicates).
- *
- * You are given an integer array `a` that was originally sorted in ascending order,
- * but has been rotated at some unknown pivot. Your task is to find and return the
- * minimum element in the array.
- *
- * Example:
- * --------
- * Input:  a = [5, 6, 1, 2, 3, 4]
- * Output: 1
- *
- * Approach:
- * ---------
- * - Use binary search instead of linear scan for O(log n) time.
- * - The smallest element is the only element for which the previous element is larger.
- * - Check mid against high:
- *     1. If a[mid] <= a[high]: right half is sorted → minimum is in the left half (including mid).
- *     2. Else: left half is sorted → minimum is in the right half.
- * - If the array is already sorted (a[low] < a[high]), return a[low].
- *
- * Pattern:
- * --------
- * - Binary Search on Rotated Sorted Array (finding minimum element).
- *
- * Time and Space Complexity:
- * --------------------------
- * - Time: O(log n), as the array is halved at each step.
- * - Space: O(1), no extra space used.
- *
- * Related LeetCode Questions:
- * ---------------------------
- * - 153. Find Minimum in Rotated Sorted Array
- * - 154. Find Minimum in Rotated Sorted Array II (handles duplicates)
- * - 33. Search in Rotated Sorted Array
- * - 81. Search in Rotated Sorted Array II
- *
- * Follow-ups:
- * -----------
- * - How to handle duplicates? (Need to skip equals to restore sorted property.)
- * - Can you also return the rotation count (index of minimum element)?
- */
+* Problem Statement:
+* ------------------
+* Find the Minimum Element in a Rotated Sorted Array (No Duplicates).
+*
+* You are given an integer array `a` that was originally sorted in ascending order,
+* but has been rotated at some unknown pivot. Your task is to find and return the
+* minimum element in the array.
+*
+* Example:
+* --------
+* Input:  a = [5, 6, 1, 2, 3, 4]
+* Output: 1
+*
+* Approach:
+* ---------
+* - Use binary search instead of linear scan for O(log n) time.
+* - The smallest element is the only element for which the previous element is larger.
+* - Check mid against high:
+*     1. If a[mid] <= a[high]: right half is sorted → minimum is in the left half (including mid).
+*     2. Else: left half is sorted → minimum is in the right half.
+* - If the array is already sorted (a[low] < a[high]), return a[low].
+*
+* Pattern:
+* --------
+* - Binary Search on Rotated Sorted Array (finding minimum element).
+*
+* Time and Space Complexity:
+* --------------------------
+* - Time: O(log n), as the array is halved at each step.
+* - Space: O(1), no extra space used.
+*
+
+*
+* Follow-ups:
+* -----------
+* - How to handle duplicates? (Need to skip equals to restore sorted property.)
+* - Can you also return the rotation count (index of minimum element)?
+*/
 
 public class MinMumElementInRotedSortedArray {
 

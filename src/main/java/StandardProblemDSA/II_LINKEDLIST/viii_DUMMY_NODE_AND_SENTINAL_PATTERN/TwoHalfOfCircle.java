@@ -1,8 +1,8 @@
 package StandardProblemDSA.II_LINKEDLIST.viii_DUMMY_NODE_AND_SENTINAL_PATTERN;
 
-import StandardProblemDSA.II_LINKEDLIST.ListNode;
-
 import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
+import StandardProblemDSA.II_LINKEDLIST.ListNode;
 
 public class TwoHalfOfCircle {
   /*
@@ -23,9 +23,9 @@ public class TwoHalfOfCircle {
       - Two Pointer Technique
 
    Similar LeetCode Problems:
-      - 876. Middle of the Linked List (finding middle)
-      - 141. Linked List Cycle (cycle detection)
-      - 142. Linked List Cycle II (cycle start node detection)
+      - 876. Middle of the Linked List (finding middle) done
+      - 141. Linked List Cycle (cycle detection) done
+      - 142. Linked List Cycle II (cycle start node detection) done
 
    Follow-up Questions:
       - How to handle odd number of nodes? (one half longer by one)
@@ -38,10 +38,12 @@ public class TwoHalfOfCircle {
   */
 
   public static void splitList(ListNode head) {
+    // Step 1 : check if their is only one one node , by check head.next = head and also empty list
     if (head == null || head.next == head) {
       System.out.println("List is too small to split.");
       return;
     }
+    // Step 2 : use two pointer floyd's cycle detection to detect cycle present using two pointer
     ListNode slow = head;
     ListNode fast = head;
 
@@ -50,13 +52,20 @@ public class TwoHalfOfCircle {
       slow = slow.next;
       fast = fast.next.next;
     }
-
-    ListNode head1 = head; // first half
-    ListNode head2 = slow.next; // second half
+    // Step 3 : assign two dummy node with one with head and another with slow's next
+    ///  means two half are now creating using this two head
+    ListNode head1 = head; // first half is head start from head to till slow
+    ListNode head2 =
+        slow.next; // second half head will start from slow next as this is where split of circle is
+    // done
 
     // Make two halves circular
+    ///  to make first half circular simply point slow's next to original head which is head1 here
+    // above
     slow.next = head1;
-
+    ///  second half will circular by make the link
+    // we have to shift the earlier circular link that was we point fast next to original head
+    // but now this loop will be till the new head2 so we have to make fast pointer next to head2
     if (fast.next == head) fast.next = head2;
     else fast.next.next = head2;
 

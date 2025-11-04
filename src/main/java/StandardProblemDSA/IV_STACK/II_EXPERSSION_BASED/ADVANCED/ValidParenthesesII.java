@@ -80,10 +80,12 @@ public class ValidParenthesesII {
               '*' → could be '(', ')', or empty:
       So low--, high++
 
-              ✅ If high ever becomes negative → more ) than ( → invalid
+  ✅ If high ever becomes negative → more ) than ( → invalid
   ✅ Clamp low = max(0, low)
   ✅ At the end, if low == 0, it's valid.*/
   public static boolean checkValidString(String s) {
+    /*  low: minimum number of open parentheses at this point
+    high: maximum number of open parentheses at this point*/
     int low = 0, high = 0;
 
     for (char ch : s.toCharArray()) {
@@ -115,13 +117,13 @@ public class ValidParenthesesII {
           → low == 0 at end → ✅ valid*/
 
   public static void main(String[] args) {
-    System.out.println(checkValidString("()")); // true
-    System.out.println(checkValidString("(*)")); // true
+    //    System.out.println(checkValidString("()")); // true
     System.out.println(checkValidString("(*))")); // true
-    System.out.println(checkValidString("(((**)")); // true
-    System.out.println(checkValidString("((*)")); // true
-    System.out.println(checkValidString("(()*")); // true
-    System.out.println(checkValidString("(*)(")); // false
-    System.out.println(checkValidString("((())")); // false
+    //    System.out.println(checkValidString("(*))")); // true
+    //    System.out.println(checkValidString("(((**)")); // true
+    //    System.out.println(checkValidString("((*)")); // true
+    //    System.out.println(checkValidString("(()*")); // true
+    //    System.out.println(checkValidString("(*)(")); // false
+    //    System.out.println(checkValidString("((())")); // false
   }
 }

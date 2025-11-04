@@ -1,8 +1,7 @@
 package StandardProblemDSA.II_LINKEDLIST.xii_ARITHMETIC_PATTERN;
 
-import StandardProblemDSA.II_LINKEDLIST.Node;
-
 import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
 
 /*
  Problem: Add two numbers represented as linked lists.
@@ -36,7 +35,7 @@ import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
 */
 
 public class AddTwoNumberInLL {
-  public static Node addTwoLists(Node l1, Node l2) {
+ /* public static Node addTwoLists(Node l1, Node l2) {
     Node dummy = new Node(0); // Dummy node to store result
     Node current = dummy;
     int carry = 0;
@@ -78,5 +77,5 @@ public class AddTwoNumberInLL {
 
     Node sum = addTwoLists(num1, num2);
     printList(sum);
-  }
+  }*/
 }

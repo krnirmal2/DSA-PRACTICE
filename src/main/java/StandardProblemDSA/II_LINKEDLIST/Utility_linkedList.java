@@ -20,13 +20,15 @@ public class Utility_linkedList {
   // Reverse a Linked List (Iterative)
   public static ListNode reverseList(ListNode head) {
     ListNode prev = null;
-    ListNode curr = head;
-
+    ListNode curr = head; // set head to head
+    // iterate till current not to null
     while (curr != null) {
-      ListNode nextNode = curr.next;
-      curr.next = prev;
-      prev = curr;
-      curr = nextNode;
+      ListNode nextNode = curr.next; // next node will be current next node
+      curr.next = prev; // current next link will now point to previous node
+      prev =
+          curr; // so now previous node will be the current node by assign current node to previous
+      curr = nextNode; // and current node will be the nextnode by assign addess of next node to
+      // current
     }
 
     return prev;

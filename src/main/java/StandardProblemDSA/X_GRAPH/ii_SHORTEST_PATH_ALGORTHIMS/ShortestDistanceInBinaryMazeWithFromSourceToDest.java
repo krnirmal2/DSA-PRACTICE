@@ -2,7 +2,6 @@ package StandardProblemDSA.X_GRAPH.ii_SHORTEST_PATH_ALGORTHIMS;
 
 import StandardProblemDSA.X_GRAPH.GraphUtility;
 import StandardProblemDSA.X_GRAPH.Tuple;
-
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -14,7 +13,8 @@ public class ShortestDistanceInBinaryMazeWithFromSourceToDest {
             Examples:
     Example 1:
     Input:
-    grid[][] = {{1, 1, 1, 1},
+    grid[][] =
+       {{1, 1, 1, 1},
         {1, 1, 0, 1},
         {1, 1, 1, 1},
         {1, 1, 0, 0},

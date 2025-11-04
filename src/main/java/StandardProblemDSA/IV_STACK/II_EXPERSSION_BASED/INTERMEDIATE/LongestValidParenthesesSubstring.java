@@ -2,12 +2,16 @@ package StandardProblemDSA.IV_STACK.II_EXPERSSION_BASED.INTERMEDIATE;
 
 import java.util.Stack;
 
-/*
+/*Approach
 * For every opening parenthesis, we push its index onto the stack.
-For every closing parenthesis, we pop the stack.
-If the stack becomes empty after popping, it means we’ve encountered an unmatched closing parenthesis, so we push the current index to serve as a base for the next potential valid substring.
-If the stack is not empty, we calculate the length of the valid substring by subtracting the index at the top of the stack from the current index.
-A variable maxLength keeps track of the maximum length of valid parentheses encountered during the traversal.*/
+For every closing parenthesis,
+  we pop the stack.
+      If the stack becomes empty after popping,
+         it means we’ve encountered an unmatched closing parenthesis,
+         so we push the current index to serve as a base for the next potential valid substring.
+      If the stack is not empty,
+          we calculate the length of the valid substring by subtracting the index at the top of the stack from the current index.
+           A variable maxLength keeps track of the maximum length of valid parentheses encountered during the traversal.*/
 public class LongestValidParenthesesSubstring {
   /*
   Problem: Find the length of the longest valid (well-formed) parentheses substring in a given string.
@@ -29,7 +33,7 @@ public class LongestValidParenthesesSubstring {
   - Optimize for streaming input (real-time evaluation).
   */
 
-    // ITERATE OVER THE EACH CHARACTER
+  // ITERATE OVER THE EACH CHARACTER
   static int maxLength(String s) {
     Stack<Integer> stack = new Stack<>();
 
@@ -54,7 +58,9 @@ public class LongestValidParenthesesSubstring {
         // If stack is empty, push the current index
         // as a base for the next validbst suring
         if (stack.isEmpty()) {
-          stack.push(i); // reset base
+          stack.push(
+              i); // reset base when no matched found there will new base created for next valid
+          // string
         } else {
 
           // Update maxLength with the current length
@@ -68,7 +74,7 @@ public class LongestValidParenthesesSubstring {
     /*
     | Index | Char | Stack              | Action / Result            |
     | ----- | ---- | ------------------ | -------------------------- |
-    | 0     | `)`  | [-1] → [] → [0] | No match, push 0           |
+    | 0     | `)`  | [-1] → [] → [0]    | No match, push 0           |
     | 1     | `(`  | [0, 1]            | Push '(' index             |
     | 2     | `)`  | [0]               | Match found, max = 2 =max(0,2-0)      |
     | 3     | `(`  | [0, 3]            | Push '(' index             |
@@ -77,10 +83,10 @@ public class LongestValidParenthesesSubstring {
     */
   }
 
-    public static void main(String[] args) {
-        String s = ")()())";
-        System.out.println(maxLength(s));
-    }
+  public static void main(String[] args) {
+    String s = ")()())";
+    System.out.println(maxLength(s));
+  }
   /*
   public static int longestValidParentheses(String s) {
     int left = 0, right = 0, maxLen = 0;

@@ -54,10 +54,11 @@ public class UniquePaths {
       return 0;
     }
 
-    // hypothesis
+    // induction hypothesis
     int right = util(grid, row, col + 1, n, m);
     int down = util(grid, row + 1, col, n, m);
-    // return
+
+    // induction steps
     return right + down + 1;
   }
 

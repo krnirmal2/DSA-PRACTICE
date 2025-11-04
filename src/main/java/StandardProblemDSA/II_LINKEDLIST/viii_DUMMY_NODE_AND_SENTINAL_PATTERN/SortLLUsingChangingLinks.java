@@ -3,7 +3,6 @@ package StandardProblemDSA.II_LINKEDLIST.viii_DUMMY_NODE_AND_SENTINAL_PATTERN;
 public class SortLLUsingChangingLinks {
   /*
    Problem: Sort a linked list by rearranging the node links (not just values).
-
    Given the head of a singly linked list, sort the list in ascending order by changing the links between nodes.
 
    Example:

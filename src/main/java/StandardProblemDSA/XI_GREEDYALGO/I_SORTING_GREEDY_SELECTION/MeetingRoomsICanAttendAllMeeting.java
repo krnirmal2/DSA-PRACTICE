@@ -26,7 +26,7 @@ public class MeetingRoomsICanAttendAllMeeting {
       - **Interval Scheduling** (Overlap Check).
 
   LeetCode Similar:
-      - LeetCode 252: Meeting Rooms.
+      - LeetCode 252: Meeting Rooms. done
 
   Time Complexity:
       - O(n log n): sorting dominates.
@@ -41,8 +41,9 @@ public class MeetingRoomsICanAttendAllMeeting {
     GreedyAlgoUtil.sortByStartTimeArray(intervals);
     // Step 2: Check for any overlap
     for (int i = 1; i < intervals.length; i++) {
+      // TIP:  check opposite of can't attened fi condition failed else return true
       if (intervals[i].start
-              < intervals[i - 1]
+          < intervals[i - 1]
               .end) { // if a single meeting is overlap then it will not attend all the
         // meeting hence return false other wise all the meeting have gap time
         return false;

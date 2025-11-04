@@ -54,29 +54,29 @@ public class MaximieNoOf0sByFilpSubArray {
   - LeetCode 1004: Max Consecutive Ones III.
   */
 
-    public class MaximizeNoOf0sByFlipSubArray {
-        public static int findMaxZeroCount(int[] arr, int n) {
-            int orig_zero_count = 0;
-            for (int value : arr) {
-                if (value == 0) orig_zero_count++;
-            }
+  public class MaximizeNoOf0sByFlipSubArray {
+    public static int findMaxZeroCount(int[] arr, int n) {
+      int orig_zero_count = 0;
+      for (int value : arr) {
+        if (value == 0) orig_zero_count++;
+      }
 
-            // Transform array: 1 -> +1, 0 -> -1
-            int max_diff = Integer.MIN_VALUE, current_sum = 0;
-            for (int value : arr) {
-                int transformed = (value == 1) ? 1 : -1;
-                current_sum = Math.max(transformed, current_sum + transformed);
-                max_diff = Math.max(max_diff, current_sum);
-            }
+      // Transform array: 1 -> +1, 0 -> -1
+      int max_diff = Integer.MIN_VALUE, current_sum = 0;
+      for (int value : arr) {
+        int transformed = (value == 1) ? 1 : -1;
+        current_sum = Math.max(transformed, current_sum + transformed);
+        max_diff = Math.max(max_diff, current_sum);
+      }
 
-            return orig_zero_count + max_diff;
-        }
-
-        public static void main(String[] args) {
-            int[] arr = {0, 1, 0, 0, 1, 1, 0};
-            System.out.println(findMaxZeroCount(arr, arr.length)); // Output: 6
-        }
+      return orig_zero_count + max_diff;
     }
+
+    public static void main(String[] args) {
+      int[] arr = {0, 1, 0, 0, 1, 1, 0};
+      System.out.println(findMaxZeroCount(arr, arr.length)); // Output: 6
+    }
+  }
 
   // Java code for Maximize number of 0s by flipping
   // a subarray

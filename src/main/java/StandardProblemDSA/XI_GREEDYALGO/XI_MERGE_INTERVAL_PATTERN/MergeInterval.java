@@ -2,8 +2,8 @@ package StandardProblemDSA.XI_GREEDYALGO.XI_MERGE_INTERVAL_PATTERN;
 
 import StandardProblemDSA.XI_GREEDYALGO.GreedyAlgoUtil;
 import StandardProblemDSA.XI_GREEDYALGO.StartEndPair;
-
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class MergeInterval {
@@ -39,7 +39,7 @@ public class MergeInterval {
       return intervals;
     }
     // Step 1:  Sort intervals by start time so that easily get compare
-    Collections.sort(intervals, (a, b) -> a.start - b.start);
+    Collections.sort(intervals, Comparator.comparingInt(a -> a.start));
     // use extra space for return the merge Intervale
     /*   List<MergeInterval> merged = new ArrayList<>();
     // start from the first element of list of interval

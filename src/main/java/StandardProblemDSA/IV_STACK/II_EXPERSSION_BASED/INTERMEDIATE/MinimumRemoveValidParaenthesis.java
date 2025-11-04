@@ -17,14 +17,14 @@ It can be written as (A), where A is a valid string.
 Example 1:
 
 Input: s = "lee(t(c)o)de)"
-Output: "lee(t(c)o)de"
+Output:    "lee(t(c)o)de"
 Explanation: "lee(t(co)de)" , "lee(t(c)ode)" would also be accepted.
-Example 2:
 
+Example 2:
 Input: s = "a)b(c)d"
 Output: "ab(c)d"
-Example 3:
 
+Example 3:
 Input: s = "))(("
 Output: ""
 Explanation: An empty string is also valid.
@@ -42,9 +42,9 @@ Time Complexity: O(n) — two passes through the string.
 Space Complexity: O(n) — for the stack and invalid index set.
 
 LeetCode Similar Questions:
-- 1249. Minimum Remove to Make Valid Parentheses
-- 921. Minimum Add to Make Parentheses Valid
-- 20. Valid Parentheses
+- 1249. Minimum Remove to Make Valid Parentheses done
+- 921. Minimum Add to Make Parentheses Valid done
+- 20. Valid Parentheses done
 
 Follow-up Questions:
 - Can we solve it in-place with O(1) extra space?
@@ -65,10 +65,13 @@ public class MinimumRemoveValidParaenthesis {
 
   */
   public static String minRemoveToMakeValid(String s) {
+    // Step 1; create a stack to hold the indices of unmatched "(" brackets
+    // and hasSet to track to track unmatched ")" and "("
     Stack<Integer> stack = new Stack<>();
     HashSet<Integer> invalidIndices = new HashSet<>();
 
-    // First pass: Identify indices of invalid parentheses
+    // step 2: First pass: Identify indices of invalid parentheses
+    // if the indices are not matched and stack is not empty means no valid matched found
     for (int i = 0; i < s.length(); i++) {
       char c = s.charAt(i);
       if (c == '(') {
@@ -82,19 +85,20 @@ public class MinimumRemoveValidParaenthesis {
       }
     }
 
-    // Add remaining unmatched '(' indices to the invalid set
+    // Step 3 : Add remaining unmatched '(' indices to the invalid set
     while (!stack.isEmpty()) {
       invalidIndices.add(stack.pop());
     }
 
-    // Second pass: Build the result string
+    // Step 4 : Second pass: Build the result string using stringBuilder ,just create
+    // string from the original string just by skipping or ignoring invalid indexes from the set
     StringBuilder result = new StringBuilder();
     for (int i = 0; i < s.length(); i++) {
       if (!invalidIndices.contains(i)) {
         result.append(s.charAt(i));
       }
     }
-
+    // Step 5 : return the string result
     return result.toString();
     /* "ab(c)d"
     | Index | Char | Stack | To Remove |

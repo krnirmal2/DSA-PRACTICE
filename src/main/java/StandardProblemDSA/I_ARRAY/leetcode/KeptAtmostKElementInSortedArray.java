@@ -26,29 +26,29 @@ public class KeptAtmostKElementInSortedArray {
   -104 <= nums[i] <= 104
   nums is sorted in non-decreasing order.*/
 
-    public int keptAtmostKElementWithSortedArray(int[] nums) {
-        int n = nums.length;
-        if (n <= 2) return n;
+  public int keptAtmostKElementWithSortedArray(int[] nums) {
+    int n = nums.length;
+    if (n <= 2) return n;
 
-        int count = 1;
-        int i = 1; // write pointer
-        int j = 1; // read pointer
+    int count = 1;
+    int i = 1; // write pointer
+    int j = 1; // read pointer
 
-        while (j < n) {
-            if (nums[j] == nums[j - 1]) { // as sorted so adjacent element are same increase the count
-                count++;
-            } else { // for every element count is always 1
-                count = 1;
-            }
+    while (j < n) {
+      if (nums[j] == nums[j - 1]) { // as sorted so adjacent element are same increase the count
+        count++;
+      } else { // for every element count is always 1
+        count = 1;
+      }
 
-            if (count <= 2) { // we replace or overwrite the duplicate element
-                nums[i] = nums[j];
-                i++;
-            }
+      if (count <= 2) { // we replace or overwrite the duplicate element
+        nums[i] = nums[j];
+        i++;
+      }
 
-            j++;
-        }
-
-        return i;
+      j++;
     }
+
+    return i;
+  }
 }

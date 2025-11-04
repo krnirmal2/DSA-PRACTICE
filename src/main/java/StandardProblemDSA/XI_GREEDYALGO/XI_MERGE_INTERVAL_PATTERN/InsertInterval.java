@@ -1,7 +1,6 @@
 package StandardProblemDSA.XI_GREEDYALGO.XI_MERGE_INTERVAL_PATTERN;
 
 import StandardProblemDSA.XI_GREEDYALGO.StartEndPair;
-
 import java.util.ArrayList;
 import java.util.List;
 

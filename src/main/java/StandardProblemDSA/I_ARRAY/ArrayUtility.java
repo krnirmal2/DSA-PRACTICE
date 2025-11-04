@@ -238,22 +238,23 @@ public class ArrayUtility {
     return min;
   }
 
-  // ✅ Reusable twoSum with two pointers
+  // ✅ Reusable twoSum with two pointers LEFT AND RIGHT APPROACH TOWARDS THE SUM ELEMENT
   public static List<List<Integer>> twoSum(int[] nums, int start, int target) {
     // result store
     List<List<Integer>> res = new ArrayList<>();
     // two pointer from left and right
-    int left
-            = start, right = nums.length - 1;
+    int left = start, right = nums.length - 1;
     // check both the pointer value and based on target either increase or decrease the left and
     // right pointer
     while (left < right) {
       int sum = nums[left] + nums[right];
 
       if (sum == target) {
+        // if we found the target then take left and right index element in to the list
         res.add(Arrays.asList(nums[left], nums[right]));
 
-        // Skip duplicates if any
+        // Skip duplicates if any by just replacing left with its next and right with its next and
+        // increment i and decrement j
         while (left < right && nums[left] == nums[left + 1]) left++;
         while (left < right && nums[right] == nums[right - 1]) right--;
 

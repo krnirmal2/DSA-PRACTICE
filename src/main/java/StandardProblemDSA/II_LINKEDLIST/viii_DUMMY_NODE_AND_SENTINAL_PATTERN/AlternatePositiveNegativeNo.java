@@ -1,9 +1,9 @@
-package StandardProblemDSA.II_LINKEDLIST.iv_SORTING_AND_REARRANGING_PATTERN;
+package StandardProblemDSA.II_LINKEDLIST.viii_DUMMY_NODE_AND_SENTINAL_PATTERN;
+
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
 
 import StandardProblemDSA.II_LINKEDLIST.Node;
 import StandardProblemDSA.II_LINKEDLIST.Utility_linkedList;
-
-import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
 
 public class AlternatePositiveNegativeNo {
   /* Problem: Rearrange List Alternately (Positive and Negative Nodes)

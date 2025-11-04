@@ -109,106 +109,106 @@ public class MinimumCostToMergeStones {
   1 <= stones[i] <= 100
   2 <= k <= 30*/
 
-    int[][][] memo;
-    int[] prefix;
-    int K;
+  int[][][] memo;
+  int[] prefix;
+  int K;
 
-    public int mergeStones(int[] stones, int k) {
-        int n = stones.length;
-        K = k;
+  public int mergeStones(int[] stones, int k) {
+    int n = stones.length;
+    K = k;
 
-        // If it's impossible to merge into one pile
-        if ((n - 1) % (k - 1) != 0) return -1;
+    // If it's impossible to merge into one pile
+    if ((n - 1) % (k - 1) != 0) return -1;
 
-        // Prefix sum for quick range sum queries
-        prefix = new int[n + 1];
-        for (int i = 0; i < n; i++) {
-            prefix[i + 1] = prefix[i] + stones[i];
-        }
-
-        // Initialize memo table
-        memo = new int[n][n][k + 1];
-        for (int[][] arr2D : memo) {
-            for (int[] arr1D : arr2D) {
-                Arrays.fill(arr1D, -1);
-            }
-        }
-
-        return dfs(stones, 0, n - 1, 1);
+    // Prefix sum for quick range sum queries
+    prefix = new int[n + 1];
+    for (int i = 0; i < n; i++) {
+      prefix[i + 1] = prefix[i] + stones[i];
     }
 
-    private int dfs(int[] stones, int i, int j, int piles) {
-        if (memo[i][j][piles] != -1) return memo[i][j][piles];
-
-        // Base case: one pile needed, one stone
-        if (i == j) {
-            return memo[i][j][piles] = (piles == 1 ? 0 : Integer.MAX_VALUE / 2);
-        }
-
-        if (piles == 1) {
-            int cost = dfs(stones, i, j, K) + getSum(i, j);
-            return memo[i][j][piles] = cost;
-        }
-
-        int ans = Integer.MAX_VALUE / 2;
-        // Try splitting into 1 pile and (piles - 1) piles
-        for (int m = i; m < j; m += (K - 1)) {
-            int left = dfs(stones, i, m, 1);
-            int right = dfs(stones, m + 1, j, piles - 1);
-            ans = Math.min(ans, left + right);
-        }
-
-        return memo[i][j][piles] = ans;
+    // Initialize memo table
+    memo = new int[n][n][k + 1];
+    for (int[][] arr2D : memo) {
+      for (int[] arr1D : arr2D) {
+        Arrays.fill(arr1D, -1);
+      }
     }
 
-    private int getSum(int i, int j) {
-        return prefix[j + 1] - prefix[i];
+    return dfs(stones, 0, n - 1, 1);
+  }
+
+  private int dfs(int[] stones, int i, int j, int piles) {
+    if (memo[i][j][piles] != -1) return memo[i][j][piles];
+
+    // Base case: one pile needed, one stone
+    if (i == j) {
+      return memo[i][j][piles] = (piles == 1 ? 0 : Integer.MAX_VALUE / 2);
     }
+
+    if (piles == 1) {
+      int cost = dfs(stones, i, j, K) + getSum(i, j);
+      return memo[i][j][piles] = cost;
+    }
+
+    int ans = Integer.MAX_VALUE / 2;
+    // Try splitting into 1 pile and (piles - 1) piles
+    for (int m = i; m < j; m += (K - 1)) {
+      int left = dfs(stones, i, m, 1);
+      int right = dfs(stones, m + 1, j, piles - 1);
+      ans = Math.min(ans, left + right);
+    }
+
+    return memo[i][j][piles] = ans;
+  }
+
+  private int getSum(int i, int j) {
+    return prefix[j + 1] - prefix[i];
+  }
 }
 
 class Solution {
-    /*Complexity
-    Time: O(n^3 / K) (due to interval splits).
-    Space: O(n^2 * K).
+  /*Complexity
+  Time: O(n^3 / K) (due to interval splits).
+  Space: O(n^2 * K).
 
-    */
-    public int mergeStones(int[] stones, int K) {
-        int n = stones.length;
-        if ((n - 1) % (K - 1) != 0) return -1; // impossible case
+  */
+  public int mergeStones(int[] stones, int K) {
+    int n = stones.length;
+    if ((n - 1) % (K - 1) != 0) return -1; // impossible case
 
-        // Prefix sums for quick interval sum calculation
-        int[] prefix = new int[n + 1];
-        for (int i = 0; i < n; i++) {
-            prefix[i + 1] = prefix[i] + stones[i];
-        }
-        // Define inside mergeStones method
-        IntBinaryOperator sum = (i, j) -> prefix[j + 1] - prefix[i];
-
-        // DP array: dp[i][j][t]
-        int[][][] dp = new int[n][n][K + 1];
-        for (int[][] arr2D : dp) {
-            for (int[] arr1D : arr2D) {
-                Arrays.fill(arr1D, Integer.MAX_VALUE / 2);
-            }
-        }
-
-        // Base case: cost to merge one pile into one pile is 0
-        for (int i = 0; i < n; i++) dp[i][i][1] = 0;
-
-        // Build for increasing interval lengths
-        for (int len = 2; len <= n; len++) {
-            for (int i = 0; i + len - 1 < n; i++) {
-                int j = i + len - 1;
-                for (int t = 2; t <= K; t++) { // t = 2..K piles
-                    for (int m = i; m < j; m += (K - 1)) { // split interval
-                        dp[i][j][t] = Math.min(dp[i][j][t], dp[i][m][1] + dp[m + 1][j][t - 1]);
-                    }
-                }
-                // Now merge K piles into 1 pile, adding interval sum
-                dp[i][j][1] = dp[i][j][K] + (prefix[j + 1] - prefix[i]);
-            }
-        }
-
-        return dp[0][n - 1][1];
+    // Prefix sums for quick interval sum calculation
+    int[] prefix = new int[n + 1];
+    for (int i = 0; i < n; i++) {
+      prefix[i + 1] = prefix[i] + stones[i];
     }
+    // Define inside mergeStones method
+    IntBinaryOperator sum = (i, j) -> prefix[j + 1] - prefix[i];
+
+    // DP array: dp[i][j][t]
+    int[][][] dp = new int[n][n][K + 1];
+    for (int[][] arr2D : dp) {
+      for (int[] arr1D : arr2D) {
+        Arrays.fill(arr1D, Integer.MAX_VALUE / 2);
+      }
+    }
+
+    // Base case: cost to merge one pile into one pile is 0
+    for (int i = 0; i < n; i++) dp[i][i][1] = 0;
+
+    // Build for increasing interval lengths
+    for (int len = 2; len <= n; len++) {
+      for (int i = 0; i + len - 1 < n; i++) {
+        int j = i + len - 1;
+        for (int t = 2; t <= K; t++) { // t = 2..K piles
+          for (int m = i; m < j; m += (K - 1)) { // split interval
+            dp[i][j][t] = Math.min(dp[i][j][t], dp[i][m][1] + dp[m + 1][j][t - 1]);
+          }
+        }
+        // Now merge K piles into 1 pile, adding interval sum
+        dp[i][j][1] = dp[i][j][K] + (prefix[j + 1] - prefix[i]);
+      }
+    }
+
+    return dp[0][n - 1][1];
+  }
 }

@@ -69,19 +69,19 @@ public class KadansAlgorithmMaxSumWindowLengthh {
     System.out.println(maxiMumSubArraySum(a));
   }
 
-    /*  public int maxSubArray(int[] nums) {
-      int maxSum = nums[0];
-      int currentSum = nums[0];
-      for (int i = 1; i < nums.length; i++) {
-        currentSum = Math.max(nums[i], currentSum + nums[i]);
-        maxSum = Math.max(maxSum, currentSum);
-      }
-      return maxSum;
-    }*/
+  /*  public int maxSubArray(int[] nums) {
+    int maxSum = nums[0];
+    int currentSum = nums[0];
+    for (int i = 1; i < nums.length; i++) {
+      currentSum = Math.max(nums[i], currentSum + nums[i]);
+      maxSum = Math.max(maxSum, currentSum);
+    }
+    return maxSum;
+  }*/
   private static int maxiMumSubArraySum(ArrayList<Integer> a) {
-      //    List<Integer> a = Arrays.stream(nums) // convert to IntStream
-      //            .boxed()      // box to Integer
-      //            .collect(Collectors.toList());
+    //    List<Integer> a = Arrays.stream(nums) // convert to IntStream
+    //            .boxed()      // box to Integer
+    //            .collect(Collectors.toList());
 
     // Edge case: empty list
     if (a.isEmpty()) {

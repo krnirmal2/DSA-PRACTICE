@@ -96,7 +96,7 @@ public class SCSPrint {
   public static void main(String[] args) {
     String s1 = "abcde";
     String s2 = "ace";
-    String scs = printSCS(s1, s2);
+    String scs = printSCS("AGGTAB", "GXTXAYB"); // "AGXGTXAYB"
     System.out.println("Shortest Common Supersequence: " + scs);
   }
   /* 🧠 Step-by-Step Plan to Print SCS

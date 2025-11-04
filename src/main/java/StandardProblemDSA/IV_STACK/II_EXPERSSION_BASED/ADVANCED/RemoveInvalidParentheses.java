@@ -48,7 +48,6 @@ Only minimal removals are allowed.
 
     Related Problems:
     -----------------
-        • Valid Parentheses
         • Minimum Remove to Make Valid Parentheses
         • Generate Parentheses*/
 public class RemoveInvalidParentheses {

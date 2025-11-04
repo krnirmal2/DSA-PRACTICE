@@ -22,11 +22,20 @@ public class CharacterMaster {
 
     // 3. Char to int and int to char
     char ch4 = '5';
-    int num = ch4 - '0'; // Char to int
+    int num = '5' - '0'; // Char to int  //  Character.getNumericValue(ch4)
     System.out.println(num); // 5
+    System.out.println(
+        "Numeric Values of ch4 : "
+            + Character.getNumericValue(ch4)); // NOTE : return Intger value the character
+    System.out.println(
+        "Character Count of ch4 : "
+            + Character.charCount(ch4)); // NOTE : return Count of the characters
+    System.out.println("Value of ch4 : " + Character.valueOf(ch4));
+    System.out.println("Value of ch1 : " + Character.valueOf(ch1));
+    System.out.println("Value of ch3  : " + Character.valueOf(ch3));
 
     int num2 = 8;
-    char ch5 = (char) (num2 + '0'); // Int to char
+    char ch5 = (char) (8 + '0'); // Int to char
     System.out.println(ch5); // '8'
 
     // 4. Manual ASCII case conversion
@@ -43,7 +52,7 @@ public class CharacterMaster {
 
     // 6. Find alphabet position
     char alphabet = 'f';
-    int pos = (alphabet - 'a') + 1; // Position in alphabet (1-based)
+    int pos = ('f' - 'a') + 1; // Position in alphabet (1-based)
     System.out.println(pos); // 6
 
     // 7. String to Character Array

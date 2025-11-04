@@ -4,9 +4,9 @@ import StandardProblemDSA.VIII_TREE.TreeNode;
 import StandardProblemDSA.VIII_TREE.TreeUtility;
 
 public class IsSubtree {
-    // ---------------------------------------------------
-    // 4. Subtree of Another Tree
-    // ---------------------------------------------------
+  // ---------------------------------------------------
+  // 4. Subtree of Another Tree
+  // ---------------------------------------------------
   /*
     Problem Statement:
        Check if one tree (T) is a subtree of another tree (S). T is a subtree of S if there exists a node in S
@@ -28,9 +28,10 @@ public class IsSubtree {
             1   2
        T is a subtree of S.
   */
-    public static boolean isSubtree(TreeNode s, TreeNode t) {
-        if (s == null) return t == null;
-        if (TreeUtility.isIdentical(s, t)) return true;
-        return isSubtree(s.left, t) || isSubtree(s.right, t);
-    }
+  public static boolean isSubtree(TreeNode s, TreeNode t) {
+    if (s == null) return t == null;
+    // we have to check the s and t are identical else we will go left or right and again check
+    if (TreeUtility.isIdentical(s, t)) return true;
+    return isSubtree(s.left, t) || isSubtree(s.right, t);
+  }
 }

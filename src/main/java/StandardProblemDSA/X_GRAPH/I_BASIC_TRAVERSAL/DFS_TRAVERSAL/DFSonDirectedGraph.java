@@ -10,7 +10,7 @@ import java.util.List;
 public class DFSonDirectedGraph {
 
   public static void main(String[] args) {
-    // create five node directed grapsh
+    // create five node directed graph
     int vertex = 5;
     // for each we will create adjacency list
     List<List<Integer>> graph = new ArrayList<>();

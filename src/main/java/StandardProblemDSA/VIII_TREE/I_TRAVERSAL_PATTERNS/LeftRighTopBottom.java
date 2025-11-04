@@ -2,7 +2,6 @@ package StandardProblemDSA.VIII_TREE.I_TRAVERSAL_PATTERNS;
 
 import StandardProblemDSA.VIII_TREE.Pair;
 import StandardProblemDSA.VIII_TREE.TreeNode;
-
 import java.util.*;
 
 public class LeftRighTopBottom {
@@ -143,8 +142,8 @@ public class LeftRighTopBottom {
     }
 
     for (Integer val :
-            topViewMap
-                    .values()) { // at last we have to just iterate over the values of tree map not key and
+        topViewMap
+            .values()) { // at last we have to just iterate over the values of tree map not key and
       // add to result
       result.add(val);
     }
@@ -188,7 +187,7 @@ public class LeftRighTopBottom {
       int hd = curr.hd;
       // For bottom view, update the mapping (later nodes will overwrite earlier ones).
       // each node of the last level will override the horizontal distance
-      // here we don't check if the node already prsent in the ap or not , override the key value
+      // here we don't check if the node already prsent in the map or not , override the key value
       bottomViewMap.put(hd, node.val);
 
       if (node.left != null) {

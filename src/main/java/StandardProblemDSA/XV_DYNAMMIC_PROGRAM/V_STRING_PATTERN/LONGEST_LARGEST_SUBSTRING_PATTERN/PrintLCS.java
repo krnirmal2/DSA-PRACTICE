@@ -20,19 +20,23 @@ public class PrintLCS {
     }
 
     // Step 2: Trace back to find the actual LCS string
-    int i = n, j = m;
+    int i = n, j = m; // start from the last Cell of the matrix
     StringBuilder lcs = new StringBuilder();
 
     while (i > 0 && j > 0) {
+      // if character matched then take any i-1 or j-1 position character and print
+      // go to DIAGONAL WISE
       if (s1.charAt(i - 1) == s2.charAt(j - 1)) {
         // we only take the matched character
         lcs.append(s1.charAt(i - 1));
         i--;
         j--;
-      } else if (dp[i - 1][j] > dp[i][j - 1]) { // check up (i-1) and left(j-1)
+      } else if (dp[i - 1][j]
+          > dp[i][j - 1]) { // IF UP ELEMENT GREATER  THAN LEFT ,GO UP BY REDUCE ROW I
+        // check up (i-1) and left(j-1) AS WE WILL GET THE MAX VALUE IN THE UP CELL
         // go to up
         i--;
-      } else {
+      } else { // IF LEFT VALUE IS GREATER THAN GO , LEFT AS HIGH VALUE WILL FIND IN LEFT
         // go to left side
         j--;
       }

@@ -3,9 +3,9 @@ package StandardProblemDSA.X_GRAPH;
 import java.util.*;
 
 public class GraphUtility {
-    // NOTE : Build an adjacency list for an unweighted directed graph
+  // NOTE : Build an adjacency list for an unweighted directed graph
 
-    // Step
+  // Step
   // 1. take the matrix fo the  graph
   // 2. iterate over the no of vertex and create adjaccency list of each vertex
   // 3. now for edges graph from one vertext to aother which is given in the graph
@@ -17,20 +17,20 @@ public class GraphUtility {
               {2, 3}
       };
   */
-    List<List<Integer>> buildGraph(int n, int[][] edges) {
-        // Step 1 : create a blank linked list
+  List<List<Integer>> buildGraph(int n, int[][] edges) {
+    // Step 1 : create a blank linked list
     List<List<Integer>> graph = new ArrayList<>();
-        // Step 2 : create blank list for each vertex by adding empty arrayList to above graph list
+    // Step 2 : create blank list for each vertex by adding empty arrayList to above graph list
     for (int i = 0; i < n; i++) {
       graph.add(new ArrayList<>());
     }
-        // iterate over each element of 2D array which is 1d array and inside that
-        // one element present the dirction of edges 0 --> 1 and 0-->1 and 1 --> 2 and 2 --> 3
-        // For directed graph: edge[0] -> edge[1] == > edge[0] represent first element of the 1d array
-        // and
-        // edge[1] == > second elementof the 1d array element
-        // Step 3: for adding edges between
-        for (int[] edge : edges) {
+    // iterate over each element of 2D array which is 1d array and inside that
+    // one element present the dirction of edges 0 --> 1 and 0-->1 and 1 --> 2 and 2 --> 3
+    // For directed graph: edge[0] -> edge[1] == > edge[0] represent first element of the 1d array
+    // and
+    // edge[1] == > second elementof the 1d array element
+    // Step 3: for adding edges between
+    for (int[] edge : edges) {
       graph.get(edge[0]).add(edge[1]);
     }
     return graph;

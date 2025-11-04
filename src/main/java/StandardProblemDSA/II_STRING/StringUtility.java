@@ -27,7 +27,7 @@ public class StringUtility {
         // LENGTH TO BACK TO LAST LPS VALUSE
         if (prefixSuffixLength != 0) { // reset to the first point of the pattern
           prefixSuffixLength =
-                  lpsArray[prefixSuffixLength - 1]; // Move `j` back to the previous LPS value
+              lpsArray[prefixSuffixLength - 1]; // Move `j` back to the previous LPS value
         } else {
           //          CASE 3 : IF YET THERE IS NO CALCULATION DONE FOR THAT CHARACTER JUST SET THAT
           // CURRENT INDEX TO ZERO
@@ -117,6 +117,21 @@ public class StringUtility {
     }
   }
 
+  static String insertChar(StringBuilder sb, char c, int pos) {
+
+    // Insert character at specified position
+    sb.insert(pos, c);
+    return sb.toString();
+  }
+
+  public static void removeCharAtPosition(StringBuilder s, int pos) {
+    s.deleteCharAt(pos);
+  }
+
+  public static void removeAllOccuranceOfChar(String s, char c) {
+    s.replace(String.valueOf(c), "");
+  }
+
   public static String reverse(String str) {
     if (str == null || str.isEmpty()) {
       return str; // Handle null or empty strings
@@ -198,5 +213,24 @@ public class StringUtility {
       right++; // expand right
     }
     return right - left - 1; // total length of palindrome
+  }
+
+  public static boolean checkPangram(String s) {
+    boolean[] vis = new boolean[26];
+    for (int i = 0; i < s.length(); i++) {
+      char c = s.charAt(i);
+      if (c >= 'A' && c <= 'Z') vis[c - 'A'] = true;
+      else if (c >= 'a' && c <= 'z') vis[c - 'a'] = true;
+    }
+    for (int i = 0; i < 26; i++) {
+      if (!vis[i]) return false;
+    }
+    return true;
+  }
+
+  public static int isSubstring(String text, String pattern) {
+    // If pat is found, returns the index of first
+    // occurrence of pat. Otherwise, returns -1
+    return text.indexOf(pattern);
   }
 }

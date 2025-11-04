@@ -20,7 +20,7 @@ public class SquareRootBinarySearch {
   - We search in the range [0, x] for the integer y such that y*y ≤ x < (y+1)*(y+1).
 
   Related LeetCode Questions:
-  - LeetCode 69: Sqrt(x)
+  - LeetCode 69: Sqrt(x) Done
 
   Follow-ups:
   1. How to compute the square root with decimal precision (e.g., up to 6 places)?
@@ -33,10 +33,10 @@ public class SquareRootBinarySearch {
       return x; // Square root of 0 or 1 is itself
     }
 
-    int low = 0, high = x, result = 0;
+    int low = 0, high = x, result = 0; // we  can't take x/2 as high it will give divide zero error
 
     while (low <= high) {
-      int mid = low + (high - low) / 2;
+      int mid = low + (high - low) / 2; // take care of divide zero
 
       // If mid*mid equals x, return mid
       if (mid <= x / mid) { // To avoid overflow, use x/mid instead of mid*mid

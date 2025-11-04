@@ -4,13 +4,8 @@ import java.util.Arrays;
 
 /*
     300. Longest Increasing Subsequence (LIS)
-
-    Problem:
-    --------
     Given an integer array nums, return the length of the longest strictly increasing subsequence (LIS).
-
     Examples:
-    ---------
     Input: nums = [10,9,2,5,3,7,101,18]
     Output: 4
     Explanation: LIS = [2,3,7,101]
@@ -28,7 +23,6 @@ import java.util.Arrays;
     • Variations: printing LIS, number of LIS, LDS, Bitonic subsequence, etc.
 
     Pattern:
-    --------
     • DP recursion with two states: index and prevIndex.
         helper(index, prev):
             → Either skip current element.
@@ -59,6 +53,22 @@ import java.util.Arrays;
     • LeetCode 673 – Number of Longest Increasing Subsequence
     • LeetCode 354 – Russian Doll Envelopes
     • LeetCode 368 – Largest Divisible Subset
+      Increasing Triplet Subsequence
+      Russian Doll Envelopes
+      Maximum Length of Pair Chain
+      Number of Longest Increasing Subsequence
+      Minimum ASCII Delete Sum for Two Strings
+      Minimum Number of Removals to Make Mountain Array
+      Find the Longest Valid Obstacle Course at Each Position
+      Minimum Operations to Make the Array K-Increasing
+      Longest Ideal Subsequence
+      Maximum Number of Books You Can Take
+      Longest Increasing Subsequence II
+      Find the Maximum Length of a Good Subsequence II
+      Find the Maximum Length of a Good Subsequence I
+      Find the Maximum Length of Valid Subsequence I
+      Find the Maximum Length of Valid Subsequence II
+      Longest Subsequence With Decreasing Adjacent Difference
 */
 
 public class LongestIncreasingSubsequence {
