@@ -1,0 +1,118 @@
+package StandardProblemDSA.I_ARRAY.V_PREFIX_SUFFIX_PATTERN;
+
+import StandardProblemDSA.Utility;
+
+/*
+Question:
+Given an integer array A, find the length of the smallest contiguous subarray that contains
+both the minimum and maximum elements of the array.
+
+Example:
+Input: A = [1, 3, 5, 2, 5, 1, 2, 1, 5]
+Output: 2
+Explanation:
+- min = 1, max = 5.
+- One of the shortest subarrays containing both is [5, 1] (length = 2).
+
+Approach:
+1. Find the minimum and maximum values in the array.
+2. If min == max, return 1 (all elements are the same).
+3. Traverse the array while keeping track of the last seen indices of min and max.
+4. Whenever you find a min or max, compute the distance to the most recent occurrence
+   of the opposite (max or min) and update the answer.
+5. Return the smallest such subarray length.
+
+Pattern:
+- Two-Pointer / Tracking Pattern.
+- Uses the property of "last seen indices" to get the shortest window efficiently.
+
+Time Complexity:
+- O(n), single pass to find min and max + single pass to compute smallest window.
+Space Complexity:
+- O(1), only tracking indices (no extra arrays needed).
+
+Follow-up Questions:
+1. How to find the subarray itself, not just its length?
+2. Can we solve it in one pass without precomputing min and max?
+3. How would the solution change if we needed to include at least k occurrences of both min and max?
+4. What if there are multiple minimums and maximums spread across the array?
+5. Can we extend this to find the smallest subarray containing all distinct elements?
+
+Similar LeetCode/Interview Questions:
+- InterviewBit: Closest Min Max
+- LeetCode 76. Minimum Window Substring (generalized smallest window problem)
+- LeetCode 209. Minimum Size Subarray Sum
+*/
+
+public class ClosestMaxMin {
+  static int solve(int[] A) {
+    int n = A.length;
+    if (n == 0) return 0; // Edge case: empty array
+
+    // Step 1: Find min and max values
+    int min = Utility.findMin(A), max = Utility.findMax(A);
+    if (min == max) return 1; // If all elements are the same, the answer is 1
+    int ans = n;
+    // Step 2: Store the last seen positions of min and max
+    int[] prefixMinIndex = new int[n]; // [ 0, 0,   0,  3,  3, 3, 6, 6, 6 ]
+    int[] prefixMaxIndex = new int[n]; // [-1, -1, -1, -1, -1, 5, 5, 5, 5 ]
+    Utility.prefixMinMaxWithMinusOneIntialisationINDEX(A, min, max, prefixMinIndex, prefixMaxIndex);
+    // Step 3: Find the smallest subarray containing both min and max
+    for (int i = 0; i < n; i++) {
+      if (A[i] == min
+          && prefixMaxIndex[i] != -1) { // If current is min, how far was last max → compute window
+        ans = Math.min(ans, i - prefixMaxIndex[i] + 1);
+      }
+      if (A[i] == max
+          && prefixMinIndex[i] != -1) { // If current is max, how far was last min → compute window
+        ans = Math.min(ans, i - prefixMinIndex[i] + 1);
+      }
+    }
+
+    return ans;
+  }
+
+  public static void main(String[] args) {
+    int[] a = {1, 3, 2, 1, 4, 5, 1, 4, 2};
+    System.out.println(
+        solve(a)); // Expected output: The length of the closest subarray containing both min and
+    // max
+  }
+  /*🔹 Input:
+      int[] A = {1, 3, 2, 1, 4, 5, 1, 4, 2};
+      Step 1: Find min and max values
+      Minimum (min) = 1 (smallest element in the array)
+
+      Maximum (max) = 5 (largest element in the array)
+
+      Step 2: Construct prefixMin[] and prefixMax[]
+      We iterate over the array and store the last seen index of min and max as we traverse.
+
+      Index (i)	A[i]	Last Min Index (lastMinIndex)	Last Max Index (lastMaxIndex)	prefixMin[i]	prefixMax[i]
+              0	1	0	-1	0	-1
+              1	3	0	-1	0	-1
+              2	2	0	-1	0	-1
+              3	1	3	-1	3	-1
+              4	4	3	-1	3	-1
+              5	5	3	5	3	5
+              6	1	6	5	6	5
+              7	4	6	5	6	5
+              8	2	6	5	6	5
+      Step 3: Find the Smallest Subarray Containing Both Min & Max
+      We traverse again and update the minimum possible subarray length.
+
+      Index (i)	A[i]	prefixMin[i]	prefixMax[i]	Current Window (if valid)	Minimum Subarray Length
+  0	1	0	-1	Invalid (No max seen)	-
+              1	3	0	-1	Invalid	-
+              2	2	0	-1	Invalid	-
+              3	1	3	-1	Invalid	-
+              4	4	3	-1	Invalid	-
+              5	5	3	5	(5 - 3 + 1) = 3	3
+              6	1	6	5	(6 - 5 + 1) = 2	2
+              7	4	6	5	(7 - 5 + 1) = 3	2
+              8	2	6	5	(8 - 5 + 1) = 4	2
+              🔹 Final Answer: 2
+              ✅ The smallest subarray containing both min (1) and max (5) has length 2, found between indices 5-6 → {5, 1}.
+
+  */
+}

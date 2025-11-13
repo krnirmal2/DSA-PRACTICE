@@ -1,0 +1,129 @@
+package StandardProblemDSA.IV_STACK.II_EXPERSSION_BASED.INTERMEDIATE;
+
+import java.util.HashSet;
+import java.util.Stack;
+
+/*1249. Minimum Remove to Make Valid Parentheses
+Given a string s of '(' , ')' and lowercase English characters.
+Your task is to remove the minimum number of parentheses ( '(' or ')', in any positions )
+ so that the resulting parentheses string is valid and return any valid string.
+
+Formally, a parentheses string is valid if and only if:
+It is the empty string, contains only lowercase characters, or
+It can be written as AB (A concatenated with B), where A and B are valid strings, or
+It can be written as (A), where A is a valid string.
+
+
+Example 1:
+
+Input: s = "lee(t(c)o)de)"
+Output:    "lee(t(c)o)de"
+Explanation: "lee(t(co)de)" , "lee(t(c)ode)" would also be accepted.
+
+Example 2:
+Input: s = "a)b(c)d"
+Output: "ab(c)d"
+
+Example 3:
+Input: s = "))(("
+Output: ""
+Explanation: An empty string is also valid.
+
+
+Constraints:
+
+1 <= s.length <= 105
+s[i] is either '(' , ')', or lowercase English letter.
+
+
+Pattern: Stack + Set for tracking unmatched parentheses.
+
+Time Complexity: O(n) — two passes through the string.
+Space Complexity: O(n) — for the stack and invalid index set.
+
+LeetCode Similar Questions:
+- 1249. Minimum Remove to Make Valid Parentheses done
+- 921. Minimum Add to Make Parentheses Valid done
+- 20. Valid Parentheses done
+
+Follow-up Questions:
+- Can we solve it in-place with O(1) extra space?
+- Extend to handle all types of brackets ([], {}).
+- Modify to return all possible valid strings with minimal removals.
+*/
+public class MinimumRemoveValidParaenthesis {
+  /*Approach: Stack + Set
+   Use a stack to track indices of unmatched '('.
+   Use a set to track indices of unmatched parentheses.
+   Loop through the string:
+     If '(', push index to stack.
+     If ')':
+         If stack not empty, pop a '('
+         Else, mark ')' index as invalid
+   After loop, remaining items in stack are unmatched '(' → add them to invalid set.
+   Build a new string skipping all characters whose indices are in the invalid set.
+
+  */
+  public static String minRemoveToMakeValid(String s) {
+    // Step 1; create a stack to hold the indices of unmatched "(" brackets
+    // and hasSet to track to track unmatched ")" and "("
+    Stack<Integer> stack = new Stack<>();
+    HashSet<Integer> invalidIndices = new HashSet<>();
+
+    // step 2: First pass: Identify indices of invalid parentheses
+    // if the indices are not matched and stack is not empty means no valid matched found
+    for (int i = 0; i < s.length(); i++) {
+      char c = s.charAt(i);
+      if (c == '(') {
+        stack.push(i); // Push index of '('
+      } else if (c == ')') {
+        if (!stack.isEmpty()) {
+          stack.pop(); // Valid pair found, pop the stack
+        } else {
+          invalidIndices.add(i); // Mark ')' as invalid
+        }
+      }
+    }
+
+    // Step 3 : Add remaining unmatched '(' indices to the invalid set
+    while (!stack.isEmpty()) {
+      invalidIndices.add(stack.pop());
+    }
+
+    // Step 4 : Second pass: Build the result string using stringBuilder ,just create
+    // string from the original string just by skipping or ignoring invalid indexes from the set
+    StringBuilder result = new StringBuilder();
+    for (int i = 0; i < s.length(); i++) {
+      if (!invalidIndices.contains(i)) {
+        result.append(s.charAt(i));
+      }
+    }
+    // Step 5 : return the string result
+    return result.toString();
+    /* "ab(c)d"
+    | Index | Char | Stack | To Remove |
+    | ----- | ---- | ----- | --------- |
+    | 0     | 'a'  |       |           |
+    | 1     | ')'  |       | {1}       |
+    | 2     | 'b'  |       |           |
+    | 3     | '('  | \[3]  |           |
+    | 4     | 'c'  | \[3]  |           |
+    | 5     | ')'  | \[]   |           |
+    | 6     | 'd'  |       |           |
+    */
+  }
+
+  public static void main(String[] args) {
+    // Example 1
+    String input1 = "lee(t(c)o)de)";
+    System.out.println(minRemoveToMakeValid(input1)); // Output: "lee(t(c)o)de"
+
+    // Example 2
+    String input2 = "a)b(c)d";
+    System.out.println(minRemoveToMakeValid(input2)); // Output: "ab(c)d"
+
+    // Example 3
+    String input3 = "))((";
+    System.out.println(minRemoveToMakeValid(input3)); // Output: ""
+  }
+}

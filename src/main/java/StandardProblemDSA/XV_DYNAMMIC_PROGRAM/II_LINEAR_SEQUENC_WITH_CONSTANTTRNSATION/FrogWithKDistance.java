@@ -1,0 +1,5 @@
+package StandardProblemDSA.XV_DYNAMMIC_PROGRAM.II_LINEAR_SEQUENC_WITH_CONSTANTTRNSATION;
+
+public class FrogWithKDistance {
+  // todo
+}

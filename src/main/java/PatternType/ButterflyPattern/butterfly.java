@@ -1,4 +1,3 @@
 package PatternType.ButterflyPattern;
 
-public class butterfly {
-}
+public class butterfly {}

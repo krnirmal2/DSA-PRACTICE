@@ -4,86 +4,64 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="77987ea3-190f-463f-93a5-64ed859b9de2" name="Changes" comment="Restructure second time">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/Stack/NearestSmallerElement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/GRAPH/CycleDetectWithDFS.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/GRAPH/FF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="4157ccfc-95eb-4920-9227-0d51dda529e6" name="Changes" comment="add greedyUtility">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays2D14/Add2Matrix.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays2D14/Add2Matrix.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays2D14/AntiDiagonal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays2D14/AntiDiagonal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays2D14/MatrixMultiply.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays2D14/MatrixMultiply.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays2D14/Subtract2Matrix.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays2D14/Subtract2Matrix.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays_carray_forward/AGPairCount.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays_carray_forward/AGPairCount.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays_carray_forward/ClosestMaxMin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays_carray_forward/ClosestMaxMin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays_carray_forward/LeastAverageSubarrayOfSizeB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays_carray_forward/LeastAverageSubarrayOfSizeB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays_prefix_sum/EquilibriumIndex.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays_prefix_sum/EquilibriumIndex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays_prefix_sum/RangeQuerySum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays_prefix_sum/RangeQuerySum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays_subarray3/SumOfAllSubarray.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Programming_constructs/Arrays_subarray3/SumOfAllSubarray.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Introduction_to_array/ArrayRotatedByKTimes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Programming_constructs/Introduction_to_array/ArrayRotatedByKTimes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Introduction_to_array/CountTheNoOfElementGreaterThanItSelf.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Programming_constructs/Introduction_to_array/CountTheNoOfElementGreaterThanItSelf.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Introduction_to_array/GoodPair_givenSumFindPairFromArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Programming_constructs/Introduction_to_array/GoodPair_givenSumFindPairFromArray.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Introduction_to_array/IsPairOfSumPresent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Programming_constructs/Introduction_to_array/IsPairOfSumPresent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Introduction_to_array/MaxAndMinOfAnArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Programming_constructs/Introduction_to_array/MaxAndMinOfAnArray.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Programming_constructs/Introduction_to_array/SearchElement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Programming_constructs/Introduction_to_array/SearchElement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Week2/Day4/ArmstrongNumber.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Week2/Day4/ArmstrongNumber.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Week2/Day4/CountFactorOfNumber.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Week2/Day4/CountFactorOfNumber.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Week2/Day4/RootOfPerfectNum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Week2/Day4/RootOfPerfectNum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Week2/Day4/tableOfNumber.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Week2/Day4/tableOfNumber.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Week3/TC2_class.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Week3/TC2_class.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/COMPARATOR_UTILITY.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/COMPARATOR_UTILITY.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Programming_constructs/LinkedList/LinkedListCycleRemoval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Programming_constructs/LinkedList/LinkedListCycleRemoval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/DoubllyNodeWithKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/DoubllyNodeWithKey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/ii_NSERTION_AND_DELETION_PATTERN/LinkedListOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/ii_NSERTION_AND_DELETION_PATTERN/LinkedListOperations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/xi_DOUBLY_LL/LRUCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/xi_DOUBLY_LL/LRUCache.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/IV_MONOTONIC_NEXT_PREVIOUS_ELEMENT_PATTERN/AstroidsCollides.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/IV_MONOTONIC_NEXT_PREVIOUS_ELEMENT_PATTERN/AstroidsCollides.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/III_SORTING_PATTERN/SEMI_SORTED_ARRAY/SORT_REARRANGE_PATTERN/WiggleSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/III_SORTING_PATTERN/SEMI_SORTED_ARRAY/SORT_REARRANGE_PATTERN/WiggleSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/BITONIC_ARRAY/FirstAndLastOccurrenceBitonic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/BITONIC_ARRAY/FirstAndLastOccurrenceBitonic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/MISLANEOUS/SquareRootBinarySearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/SquareRootBinarySearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/MaximumNofPageAllocateToMiinimum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/MaximumNofPageAllocateToMiinimum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/PainterPartitionProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/II_SEARCH_PATTERN/BINARY_SERACH/SEARCH_ON_ANSWER_maxMin_minMax/PainterPartitionProblem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/ThreeSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/ThreeSum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/VI_CYCLIC_SORT/CyclicSortOfAnArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/VI_CYCLIC_SORT/CyclicSortOfAnArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIIII_HEAP/VI_TASK_PRIORITIZATION/III_TOP_K_AND_BOTTOM_K_PATTERN/KthlargestElementInStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIIII_HEAP/VI_TASK_PRIORITIZATION/III_TOP_K_AND_BOTTOM_K_PATTERN/KthlargestElementInStream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/GreedyAlgoUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/GreedyAlgoUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/III_TWO_POINTER_PAIRING/BoatsToSavePeople.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/III_TWO_POINTER_PAIRING/BoatsToSavePeople.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/III_TWO_POINTER_PAIRING/ContainerWithMostWater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/III_TWO_POINTER_PAIRING/ContainerWithMostWater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/II_ONE_PASS_LOCAL_OPTIMISATION/JumpGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/II_ONE_PASS_LOCAL_OPTIMISATION/JumpGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/IV_INTERVAL_COVERING_AND_BURSTING/MinimumNoArrowBurstBallon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/IV_INTERVAL_COVERING_AND_BURSTING/MinimumNoArrowBurstBallon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/Assign_Cookies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/Assign_Cookies.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/EmployeeFreeTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/EmployeeFreeTime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/JobSequenceProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/JobSequenceProblem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/MeetingRoomIIMinimumMeetingRoomsRequired.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/V_HEAP_PRIORITY_QUEUE/MeetingRoomIIMinimumMeetingRoomsRequired.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/MeetingRoomsICanAttendAllMeeting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/MeetingRoomsICanAttendAllMeeting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/MinimumNoOfPlatformsRequiredRailway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/MinimumNoOfPlatformsRequiredRailway.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/NMeetingInOneRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/NMeetingInOneRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/Non_overlapping_Intervals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/Non_overlapping_Intervals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/V_HEAP_PRIORITY_QUEUE/ActivitySelectionProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/V_HEAP_PRIORITY_QUEUE/ActivitySelectionProblem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/XI_MERGE_INTERVAL_PATTERN/InsertInterval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/XI_MERGE_INTERVAL_PATTERN/InsertInterval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/XI_MERGE_INTERVAL_PATTERN/MergeInterval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/XI_MERGE_INTERVAL_PATTERN/MergeInterval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/II_LINEAR_SEQUENC_WITH_CONSTANTTRNSATION/JumpGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/II_LINEAR_SEQUENC_WITH_CONSTANTTRNSATION/JumpGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/X_GRAPH/GraphUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/X_GRAPH/GraphUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/X_GRAPH/I_BASIC_TRAVERSAL/BFS_TRAVERSAL/BfsTraversal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/X_GRAPH/I_BASIC_TRAVERSAL/BFS_TRAVERSAL/BfsTraversal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/X_GRAPH/I_BASIC_TRAVERSAL/DFS_TRAVERSAL/DFSonDirectedGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/X_GRAPH/I_BASIC_TRAVERSAL/DFS_TRAVERSAL/DFSonDirectedGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/StandardProblemDSA/X_GRAPH/I_BASIC_TRAVERSAL/GraphUtil.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+      <option value="module" />
+    </option>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="package-info" />
-        <option value="grazie_rule" />
         <option value="Class" />
       </list>
     </option>
   </component>
-  <component name="Git.Pull.Settings">
-    <option name="OPTIONS">
-      <set>
-        <option value="REBASE" />
-      </set>
-    </option>
-  </component>
-  <component name="Git.Rebase.Settings">
-    <option name="NEW_BASE" value="ScalarPractice" />
-  </component>
   <component name="Git.Settings">
-    <favorite-branches>
-      <branch-storage>
-        <map>
-          <entry type="LOCAL">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="ScalarPractice" />
-              </list>
-            </value>
-          </entry>
-          <entry type="REMOTE">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="origin/ScalarPractice" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </favorite-branches>
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="ScalarPractice" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -100,67 +78,113 @@
   </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/krnirmal2/CodingPractice.git&quot;,
+    &quot;url&quot;: &quot;https://krnirmal2@github.com/krnirmal2/CodingPractice.git&quot;,
     &quot;accountId&quot;: &quot;24aad58f-9c67-4b64-9073-23dce5966526&quot;
   }
 }</component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="jar://C:/Program Files/Java/jdk-11.0.15.1/lib/src.zip!/java.base/java/lang/NumberFormatException.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://C:/Program Files/Java/jdk-11.0.15.1/lib/src.zip!/java.base/java/lang/StrictMath.java" root0="SKIP_INSPECTION" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 0
 }</component>
-  <component name="ProjectId" id="2AwZYGi9qCMD7bGcVpmPwQvehe0" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
+  <component name="ProjectId" id="2uowoaRIH14h3B8K3XBlW6tH7t1" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;Application.ArticulationPoint.executor&quot;: &quot;Run&quot;,
-    &quot;Application.CycleDetectWithDFS.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.Dijekstra.executor&quot;: &quot;Run&quot;,
-    &quot;Application.IsBridgePresentOrNot.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.NearestSmallerElement.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.ShortestPath.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;Application.AlternatingSplitLL.executor&quot;: &quot;Run&quot;,
+    &quot;Application.CountTheNoOfElementGreaterThanItSelf.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.FactorialOfN.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.IsPermutaionContainOrNot.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.JobSequenceProblem.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.KadansAlgorithmMaxSumWindowLengthh.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.LeastAverageSubarrayOfSizeB.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.LinkedList.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.LongestCommonSubsequence.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.MaximumSubarrayEasy.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.MaximumValueInEachSubarrayOfSizeK.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.MedianInSortedArrays.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.NestedIterator.executor&quot;: &quot;Run&quot;,
+    &quot;Application.NextPermutation.executor&quot;: &quot;Run&quot;,
+    &quot;Application.NextSmallerElement.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.PQUsingArray.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Permutation.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.PerviousSmallerElement.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.Print1ToN.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.PrintAllSubsequence.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.PrintNTo1.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.QueueUsingLinkedList.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RecursiveReverseLL.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RedundantBrackets.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.ReverseKGroup.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.ReverseQueueUsingTwoStacks.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ShortestSubsequence.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.SquareRootBinarySearch.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.ThreadSafeQueue.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.Trie.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.Two_Sum.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.UniquePaths.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UniquePathsII.executor&quot;: &quot;Run&quot;,
+    &quot;Application.commonElementofTwoArray.executor&quot;: &quot;Run&quot;,
+    &quot;Application.largestWindowForSumK.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Scalar [clean,validate,compile,test...].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Scalar [com.diffplug.spotless:spotless-maven-plugin:2.43.0:apply].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;#2 on ScalarPractice&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;ScalarPracticeDel&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/SCALAR PRACTICE&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.1736795&quot;
+    &quot;last_directory_selection&quot;: &quot;H:/JAVA WORKSPACE FOR WORK/Archive Repo/Scalar/src/main/java&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/SCALAR PRACTICE/src/main/java/StandardProblemDSA/XI_GREEDYALGO&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="Programming_constructs.String" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\SCALAR PRACTICE\src\main\java\StandardProblemDSA\XI_GREEDYALGO" />
+      <recent name="H:\JAVA WORKSPACE FOR WORK\Archive Repo\Scalar\src\main\java\StandardProblemDSA\I_ARRAY\XII_TWO_D_PATTERN" />
+      <recent name="H:\JAVA WORKSPACE FOR WORK\Archive Repo\Scalar\src\main\java\StandardProblemDSA\I_ARRAY" />
+    </key>
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="EvaluateReversePolishNotation" />
+      <recent name="StandardProblemDSA.VIIII_HEAP.VI_TASK_PRIORITIZATION.III_TOP_K_AND_BOTTOM_K_PATTERN.TopKFrequentElement" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="H:\JAVA WORKSPACE FOR WORK\Archive Repo\Scalar\src\main\java" />
+      <recent name="H:\JAVA WORKSPACE FOR WORK\Archive Repo\Scalar\src\main\java\StandardProblemDSA\I_ARRAY\I_TRAVERSAL" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="StandardProblemDSA.II_LINKEDLIST.iv_SORTING_AND_REARRANGING_PATTERN" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="StandardProblemDSA.XI_GREEDYALGO" />
+      <recent name="StandardProblemDSA.XI_GREEDYALGO.XI_MERGE_INTERVAL_PATTERN" />
+      <recent name="StandardProblemDSA.VIII_TREE.I_TRAVERSAL_PATTERNS" />
+      <recent name="StandardProblemDSA" />
+      <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="StandardProblemDSA.II_LINKEDLIST.iv_SORTING_AND_REARRANGING_PATTERN" />
+      <recent name="StandardProblemDSA.IV_STACK.II_EXPERSSION_BASED.ADVANCED" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ShortestPath">
-    <configuration name="BST" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="StandardProblemDSA.Tree.BST.BST" />
+  <component name="RunManager" selected="Application.JobSequenceProblem">
+    <configuration name="CountTheNoOfElementGreaterThanItSelf" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="StandardProblemDSA.I_ARRAY.I_TRAVERSAL.CountTheNoOfElementGreaterThanItSelf" />
       <module name="Scalar" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="StandardProblemDSA.Tree.BST.*" />
+          <option name="PATTERN" value="StandardProblemDSA.I_ARRAY.I_TRAVERSAL.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -168,12 +192,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CycleDetectWithDFS" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="StandardProblemDSA.GRAPH.CycleDetectWithDFS" />
+    <configuration name="JobSequenceProblem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="StandardProblemDSA.XI_GREEDYALGO.I_SORTING_GREEDY_SELECTION.JobSequenceProblem" />
       <module name="Scalar" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="StandardProblemDSA.GRAPH.*" />
+          <option name="PATTERN" value="StandardProblemDSA.XI_GREEDYALGO.I_SORTING_GREEDY_SELECTION.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -181,12 +205,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IsBridgePresentOrNot" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Graph.IsBridgePresentOrNot" />
+    <configuration name="LinkedList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="StandardProblemDSA.II_LINKEDLIST.i_TRAVERSAL_BASIC_OPERATION.LinkedList" />
       <module name="Scalar" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Graph.*" />
+          <option name="PATTERN" value="StandardProblemDSA.II_LINKEDLIST.i_TRAVERSAL_BASIC_OPERATION.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -194,12 +218,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NearestSmallerElement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Programming_constructs.Stack.NearestSmallerElement" />
+    <configuration name="RecursiveReverseLL" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="StandardProblemDSA.II_LINKEDLIST.iii_RECURSIVE_PATTERN.RecursiveReverseLL" />
       <module name="Scalar" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Programming_constructs.Stack.*" />
+          <option name="PATTERN" value="StandardProblemDSA.II_LINKEDLIST.iii_RECURSIVE_PATTERN.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -207,12 +231,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShortestPath" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="StandardProblemDSA.GRAPH.ShortestPath" />
+    <configuration name="Two_Sum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="StandardProblemDSA.I_ARRAY.I_TRAVERSAL.Two_Sum" />
       <module name="Scalar" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="StandardProblemDSA.GRAPH.*" />
+          <option name="PATTERN" value="StandardProblemDSA.I_ARRAY.I_TRAVERSAL.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -221,96 +245,113 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.ShortestPath" />
-      <item itemvalue="Application.CycleDetectWithDFS" />
-      <item itemvalue="Application.NearestSmallerElement" />
-      <item itemvalue="Application.BST" />
-      <item itemvalue="Application.IsBridgePresentOrNot" />
+      <item itemvalue="Application.JobSequenceProblem" />
+      <item itemvalue="Application.CountTheNoOfElementGreaterThanItSelf" />
+      <item itemvalue="Application.LinkedList" />
+      <item itemvalue="Application.RecursiveReverseLL" />
+      <item itemvalue="Application.Two_Sum" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ShortestPath" />
-        <item itemvalue="Application.CycleDetectWithDFS" />
-        <item itemvalue="Application.NearestSmallerElement" />
-        <item itemvalue="Application.BST" />
-        <item itemvalue="Application.IsBridgePresentOrNot" />
+        <item itemvalue="Application.JobSequenceProblem" />
+        <item itemvalue="Application.RecursiveReverseLL" />
+        <item itemvalue="Application.LinkedList" />
+        <item itemvalue="Application.Two_Sum" />
+        <item itemvalue="Application.CountTheNoOfElementGreaterThanItSelf" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="77987ea3-190f-463f-93a5-64ed859b9de2" name="Changes" comment="" />
-      <created>1655922658071</created>
+      <changelist id="4157ccfc-95eb-4920-9227-0d51dda529e6" name="Changes" comment="" />
+      <created>1742928416550</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1655922658071</updated>
+      <updated>1742928416550</updated>
+      <workItem from="1746783236965" duration="35000" />
     </task>
-    <task id="LOCAL-00001" summary="week 3 code">
-      <created>1656354530003</created>
+    <task id="LOCAL-00001" summary="categories the question and implement the remaining stack problem and revisied full stack">
+      <option name="closed" value="true" />
+      <created>1742982118282</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1656354530004</updated>
+      <updated>1742982118282</updated>
     </task>
-    <task id="LOCAL-00002" summary="Till subarray">
-      <created>1657481260800</created>
+    <task id="LOCAL-00002" summary="Bfs traversal grahp">
+      <option name="closed" value="true" />
+      <created>1743228539532</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1657481260800</updated>
+      <updated>1743228539532</updated>
     </task>
-    <task id="LOCAL-00003" summary="till 2D Array">
-      <created>1658157411772</created>
+    <task id="LOCAL-00003" summary="striver">
+      <option name="closed" value="true" />
+      <created>1743229286029</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1658157411773</updated>
+      <updated>1743229286029</updated>
     </task>
-    <task id="LOCAL-00004" summary="before the advanced module start">
-      <created>1661876482207</created>
+    <task id="LOCAL-00004" summary="Array ,linked list and Heap implementation">
+      <option name="closed" value="true" />
+      <created>1743789442722</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1661876482207</updated>
+      <updated>1743789442722</updated>
     </task>
-    <task id="LOCAL-00005" summary="Armstrong">
-      <created>1664859066179</created>
+    <task id="LOCAL-00005" summary="updating the approach">
+      <option name="closed" value="true" />
+      <created>1745646968881</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1664859066179</updated>
+      <updated>1745646968881</updated>
     </task>
-    <task id="LOCAL-00006" summary="add  commands to demo">
-      <created>1674662215904</created>
+    <task id="LOCAL-00006" summary="Revision done on Fixed sliding window">
+      <option name="closed" value="true" />
+      <created>1745862535854</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1674662215904</updated>
+      <updated>1745862535854</updated>
     </task>
-    <task id="LOCAL-00007" summary="more questions">
-      <created>1682564964518</created>
+    <task id="LOCAL-00007" summary="use utility methods">
+      <option name="closed" value="true" />
+      <created>1746031965213</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1682564964518</updated>
+      <updated>1746031965213</updated>
     </task>
-    <task id="LOCAL-00008" summary="Bipartite and Articulation point implemeneted">
+    <task id="LOCAL-00008" summary="reformat the structure">
       <option name="closed" value="true" />
-      <created>1713026309170</created>
+      <created>1746232019024</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1713026309170</updated>
+      <updated>1746232019024</updated>
     </task>
-    <task id="LOCAL-00009" summary="Restructure second time">
-      <created>1713771592633</created>
+    <task id="LOCAL-00009" summary="reformat the structure of LinkedList">
+      <option name="closed" value="true" />
+      <created>1746766359681</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1713771592633</updated>
+      <updated>1746766359681</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="reformat the structure of String">
+      <option name="closed" value="true" />
+      <created>1746769694353</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1746769694353</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -325,1321 +366,418 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="week 3 code" />
-    <MESSAGE value="Till subarray" />
-    <MESSAGE value="till 2D Array" />
-    <MESSAGE value="before the advanced module start" />
-    <MESSAGE value="Armstrong" />
-    <MESSAGE value="add  commands to demo" />
-    <MESSAGE value="more questions" />
-    <MESSAGE value="Bipartite and Articulation point implemeneted" />
-    <MESSAGE value="Restructure" />
-    <MESSAGE value="Restructure second time" />
-    <option name="LAST_COMMIT_MESSAGE" value="Restructure second time" />
+    <MESSAGE value="categories the question and implement the remaining stack problem and revisied full stack" />
+    <MESSAGE value="Bfs traversal grahp" />
+    <MESSAGE value="striver" />
+    <MESSAGE value="Array ,linked list and Heap implementation" />
+    <MESSAGE value="dp and tree  graph and linked list question are add of take you forward solved" />
+    <MESSAGE value="arrays" />
+    <MESSAGE value="graph qustion" />
+    <MESSAGE value="updating the approach" />
+    <MESSAGE value="Revision done on Fixed sliding window" />
+    <MESSAGE value="use utility methods" />
+    <MESSAGE value="reformat the structure" />
+    <MESSAGE value="reformat the structure of LinkedList" />
+    <MESSAGE value="reformat the structure of String" />
+    <MESSAGE value="done question on String and merge interval" />
+    <MESSAGE value="add greedyUtility" />
+    <option name="LAST_COMMIT_MESSAGE" value="add greedyUtility" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/LanguageMODULE/AssignmentWeek2/Day4/IsPrimeNo.java</url>
-          <line>7</line>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/VIIII_NESTED_STRUCTURE_PATTERN/NestedIterator.java</url>
+          <line>50</line>
+          <properties class="StandardProblemDSA.IV_STACK.VIIII_NESTED_STRUCTURE_PATTERN.NestedIterator" method="main">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/Two_Sum.java</url>
+          <line>31</line>
+          <properties class="StandardProblemDSA.I_ARRAY.I_TRAVERSAL.Two_Sum" method="main">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="560" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/X_GRAPH/GraphUtility.java</url>
+          <line>481</line>
+          <properties class="StandardProblemDSA.X_GRAPH.GraphUtility" method="addEdge">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="573" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/LanguageMODULE/AssignmentWeek2/Day4/IsPrimeNo.java</url>
-          <line>13</line>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/V_QUEUE/III_QUEUE_WITH_TWO_STACKS/ReverseQueueUsingTwoStacks.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/V_QUEUE/III_QUEUE_WITH_TWO_STACKS/ReverseQueueUsingTwoStacks.java</url>
+          <line>27</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/LanguageMODULE/AssignmentWeek2/Day4/IsPrimeNo.java</url>
-          <line>11</line>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/V_QUEUE/III_QUEUE_WITH_TWO_STACKS/ReverseQueueUsingTwoStacks.java</url>
+          <line>32</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/LanguageMODULE/AssignmentWeek2/Day4/PerfectNo.java</url>
-          <line>30</line>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/V_QUEUE/III_QUEUE_WITH_TWO_STACKS/ReverseQueueUsingTwoStacks.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/V_QUEUE/X_MULTI_THREADED_QUEUE_PATTERN/ThreadSafeQueue.java</url>
+          <line>56</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/LanguageMODULE/AssignmentWeek2/Day4/PerfectNo.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/LanguageMODULE/AssignmentWeek2/Day4/PerfectNo.java</url>
-          <line>25</line>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/V_QUEUE/X_MULTI_THREADED_QUEUE_PATTERN/ThreadSafeQueue.java</url>
+          <line>65</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/LanguageMODULE/AssignmentWeek2/Day4/PerfectNo.java</url>
-          <line>18</line>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/V_QUEUE/X_MULTI_THREADED_QUEUE_PATTERN/ThreadSafeQueue.java</url>
+          <line>72</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/LanguageMODULE/AssignmentWeek2/Day4/PerfectNo.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="10" />
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/V_QUEUE/X_MULTI_THREADED_QUEUE_PATTERN/ThreadSafeQueue.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Week2/Day4/RootOfPerfectNum.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="15" />
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/V_QUEUE/X_MULTI_THREADED_QUEUE_PATTERN/ThreadSafeQueue.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/LanguageMODULE/AssignmentWeek2/Day4/PerfectNo.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/V_QUEUE/I_BASIC_QUEUE_OPERATIONS/QueueUsingArray.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIIII_HEAP/VI_TASK_PRIORITIZATION/IV_MEDIAN_TRACKING/MedianInSortedArrays.java</url>
           <line>15</line>
-          <option name="timeStamp" value="16" />
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/IsPairOfSumPresent.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="30" />
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIIII_HEAP/VI_TASK_PRIORITIZATION/IV_MEDIAN_TRACKING/MedianInSortedArrays.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/CountTheNoOfElementGreaterThanItSelf.java</url>
-          <line>7</line>
-          <option name="timeStamp" value="31" />
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIIII_HEAP/VI_TASK_PRIORITIZATION/IV_MEDIAN_TRACKING/MedianInSortedArrays.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/CountTheNoOfElementGreaterThanItSelf.java</url>
-          <line>9</line>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIIII_HEAP/VI_TASK_PRIORITIZATION/IV_MEDIAN_TRACKING/MedianInSortedArrays.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIIII_HEAP/VI_TASK_PRIORITIZATION/IV_MEDIAN_TRACKING/MedianInSortedArrays.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIIII_HEAP/VI_TASK_PRIORITIZATION/IV_MEDIAN_TRACKING/MedianInSortedArrays.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/VIIII_HEAP/VI_TASK_PRIORITIZATION/IV_MEDIAN_TRACKING/MedianInSortedArrays.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/XVI_TRIE/Trie.java</url>
+          <line>95</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/CountTheNoOfElementGreaterThanItSelf.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/CountTheNoOfElementGreaterThanItSelf.java</url>
-          <line>21</line>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/vii_PALINDROME_AND_REVERSAL_PATTERNS/ReverseKGroup.java</url>
+          <line>2</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/GoodPair_givenSumFindPairFromArray.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/GoodPair_givenSumFindPairFromArray.java</url>
-          <line>23</line>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/IV_MONOTONIC_NEXT_PREVIOUS_ELEMENT_PATTERN/LEFT_TO_RIGHT/PerviousSmallerElement.java</url>
+          <line>22</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/GoodPair_givenSumFindPairFromArray.java</url>
-          <line>13</line>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/VI_RECURSION/BASIC_RECURSION/FactorialOfN.java</url>
+          <line>7</line>
           <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/GoodPair_givenSumFindPairFromArray.java</url>
-          <line>11</line>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/VI_RECURSION/BASIC_RECURSION/Print1ToN.java</url>
+          <line>8</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/GoodPair_givenSumFindPairFromArray.java</url>
-          <line>9</line>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/VI_RECURSION/BASIC_RECURSION/PrintNTo1.java</url>
+          <line>8</line>
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_prefix_sum/EquilibriumIndex.java</url>
-          <line>104</line>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/VI_RECURSION/BASIC_RECURSION/PrintNTo1.java</url>
+          <line>13</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_prefix_sum/EquilibriumIndex.java</url>
-          <line>66</line>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/V_STRING_PATTERN/LONGEST_LARGEST_SUBSTRING_PATTERN/LongestCommonSubsequence.java</url>
+          <line>25</line>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_prefix_sum/EquilibriumIndex.java</url>
-          <line>75</line>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/V_STRING_PATTERN/LONGEST_LARGEST_SUBSTRING_PATTERN/LongestCommonSubsequence.java</url>
+          <line>34</line>
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_prefix_sum/EquilibriumIndex.java</url>
-          <line>78</line>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/V_STRING_PATTERN/LONGEST_LARGEST_SUBSTRING_PATTERN/LongestCommonSubsequence.java</url>
+          <line>37</line>
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_prefix_sum/EquilibriumIndex.java</url>
-          <line>82</line>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/V_STRING_PATTERN/LONGEST_LARGEST_SUBSTRING_PATTERN/LongestCommonSubsequence.java</url>
+          <line>33</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_prefix_sum/EquilibriumIndex.java</url>
-          <line>91</line>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/VII_BACKTRACKING/Permutation.java</url>
+          <line>19</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_prefix_sum/EquilibriumIndex.java</url>
-          <line>94</line>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/VII_BACKTRACKING/Permutation.java</url>
+          <line>25</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_prefix_sum/EquilibriumIndex.java</url>
-          <line>97</line>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/VII_BACKTRACKING/Permutation.java</url>
+          <line>22</line>
           <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_prefix_sum/EquilibriumIndex.java</url>
-          <line>86</line>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/VII_BACKTRACKING/Permutation.java</url>
+          <line>16</line>
           <option name="timeStamp" value="51" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_prefix_sum/RangeQuerySum.java</url>
-          <line>26</line>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/VII_BACKTRACKING/Permutation.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/VI_RECURSION/BACKTRACING_PATTERN/PrintAllSubsequence.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/VI_RECURSION/BACKTRACING_PATTERN/PrintAllSubsequence.java</url>
+          <line>32</line>
           <option name="timeStamp" value="54" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_prefix_sum/RangeQuerySum.java</url>
-          <line>30</line>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/VI_RECURSION/BACKTRACING_PATTERN/PrintAllSubsequence.java</url>
+          <line>5</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/VI_RECURSION/BACKTRACING_PATTERN/PrintAllSubsequence.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/VII_BACKTRACKING/Combination.java</url>
+          <line>34</line>
           <option name="timeStamp" value="57" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/SumOfAllSubarray.java</url>
-          <line>10</line>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/VII_BACKTRACKING/Combination.java</url>
+          <line>36</line>
           <option name="timeStamp" value="58" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/SumOfAllSubarray.java</url>
-          <line>11</line>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/VII_BACKTRACKING/Combination.java</url>
+          <line>39</line>
           <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/ArrayRotatedByKTimes.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="60" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/BinaryString.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="65" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/BinaryString.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="66" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/BinaryString.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="67" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/BinaryString.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="68" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/NoOfGoodDays.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/IV_MONOTONIC_NEXT_PREVIOUS_ELEMENT_PATTERN/LEFT_TO_RIGHT/PerviousSmallerElement.java</url>
           <line>29</line>
-          <option name="timeStamp" value="69" />
+          <option name="timeStamp" value="530" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/NoOfGoodDays.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="70" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/ArrayOfEvenOdd.java</url>
-          <line>88</line>
-          <option name="timeStamp" value="71" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/ArrayOfEvenOdd.java</url>
-          <line>83</line>
-          <option name="timeStamp" value="73" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/LongestConsecutiveOnesWithSwapping.java</url>
-          <line>103</line>
-          <option name="timeStamp" value="84" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/LongestConsecutiveOnesWithSwapping.java</url>
-          <line>97</line>
-          <option name="timeStamp" value="85" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/ArrayOfEvenOdd.java</url>
-          <line>75</line>
-          <option name="timeStamp" value="86" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/ArrayOfEvenOdd.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="87" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/LanguageMODULE/AssignmentWeek2/Day4/MultipleTimeArrayRotations.java</url>
-          <line>61</line>
-          <option name="timeStamp" value="90" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/LanguageMODULE/AssignmentWeek2/Day4/MultipleTimeArrayRotations.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="91" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/LanguageMODULE/AssignmentWeek2/Day4/MultipleTimeArrayRotations.java</url>
-          <line>59</line>
-          <option name="timeStamp" value="95" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/LanguageMODULE/AssignmentWeek2/Day4/MultipleTimeArrayRotations.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="96" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/LanguageMODULE/AssignmentWeek2/Day4/MultipleTimeArrayRotations.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="97" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/LanguageMODULE/AssignmentWeek2/Day4/MultipleTimeArrayRotations.java</url>
-          <line>62</line>
-          <option name="timeStamp" value="104" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays2D14/Rotate90DegreeMatrix.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/IV_MONOTONIC_NEXT_PREVIOUS_ELEMENT_PATTERN/LEFT_TO_RIGHT/PerviousSmallerElement.java</url>
           <line>31</line>
-          <option name="timeStamp" value="113" />
+          <option name="timeStamp" value="531" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays2D14/Rotate90DegreeMatrix.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="114" />
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/IV_MONOTONIC_NEXT_PREVIOUS_ELEMENT_PATTERN/RIGHT_TO_LEFT/NextSmallerElement.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="532" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/ArrayOfEvenOdd.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/IV_MONOTONIC_NEXT_PREVIOUS_ELEMENT_PATTERN/RIGHT_TO_LEFT/NextSmallerElement.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="533" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/IV_STACK/IV_MONOTONIC_NEXT_PREVIOUS_ELEMENT_PATTERN/RIGHT_TO_LEFT/NextSmallerElement.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="534" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/VARIABLE_SIZE_WINDOW_PATTERN/MaximumSubarrayEasy.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="538" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/VARIABLE_SIZE_WINDOW_PATTERN/MaximumSubarrayEasy.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="539" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/VARIABLE_SIZE_WINDOW_PATTERN/MaximumSubarrayEasy.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="540" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/FIXED_SIZE_WINDOW_PATTERN/MaximumValueInEachSubarrayOfSizeK.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="545" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/FIXED_SIZE_WINDOW_PATTERN/MaximumValueInEachSubarrayOfSizeK.java</url>
           <line>60</line>
-          <option name="timeStamp" value="118" />
+          <option name="timeStamp" value="546" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/ArrayOfEvenOdd.java</url>
-          <line>65</line>
-          <option name="timeStamp" value="119" />
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/FIXED_SIZE_WINDOW_PATTERN/MaximumValueInEachSubarrayOfSizeK.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="547" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/MathsModularArithmetic/ModString.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="123" />
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/FIXED_SIZE_WINDOW_PATTERN/MaximumValueInEachSubarrayOfSizeK.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="548" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/MathsModularArithmetic/ModString.java</url>
-          <line>10</line>
-          <option name="timeStamp" value="125" />
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/FIXED_SIZE_WINDOW_PATTERN/MaximumValueInEachSubarrayOfSizeK.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="549" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/MathsModularArithmetic/ModString.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="127" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/MathsModularArithmetic/ModString.java</url>
-          <line>12</line>
-          <option name="timeStamp" value="130" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/MathsModularArithmetic/ExcelColumnNumber.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="137" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/MathsModularArithmetic/ExcelColumnNumber.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="138" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/MathsModularArithmetic/ExcelColumnNumber.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="139" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/MathsModularArithmetic/ExcelColumnNumber.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="140" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/MathsModularArithmetic/ExcelColumnNumber.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="141" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/MathsModularArithmetic/ExcelColumnNumber.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="142" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/LongestSubstring.java</url>
-          <line>2</line>
-          <option name="timeStamp" value="145" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/NobelInteger.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="149" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/NobelInteger.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="151" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/NobelInteger.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="152" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/NobelInteger.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="153" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/NobelInteger.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="155" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/NobelInteger.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="158" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/NobelInteger.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="159" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/ThreeColorSorting.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="161" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/ThreeColorSorting.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="162" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/ThreeColorSorting.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="165" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/ThreeColorSorting.java</url>
-          <line>10</line>
-          <option name="timeStamp" value="166" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/reverseString.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="168" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/reverseString.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="169" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/reverseString.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="172" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/reverseString.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="174" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/StringPlay.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="177" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="180" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="181" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="182" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="183" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="184" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="185" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="186" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="189" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="191" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/UniqueElementINEachSubArrrayOfSizeB.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="192" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/UniqueElementINEachSubArrrayOfSizeB.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="193" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/UniqueElementINEachSubArrrayOfSizeB.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="194" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/UniqueElementINEachSubArrrayOfSizeB.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="195" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Tree/TreeNode.java</url>
-          <line>96</line>
-          <option name="timeStamp" value="197" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Tree/TreeNode.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="198" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Tree/TreeNode.java</url>
-          <line>81</line>
-          <option name="timeStamp" value="199" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/largestWindowForSumK.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="208" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/LinkedList/PreOrderWithOutRecursion.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="211" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/LinkedList/PreOrderWithOutRecursion.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="212" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/LinkedList/PreOrderWithOutRecursion.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="215" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/rainWaterTrap.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="218" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/rainWaterTrap.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="221" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/TwoDArrays/SumOfParticularSubmatrix.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="248" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/TwoDArrays/SearchSortedMatrix.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="249" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/TwoDArrays/SearchSortedMatrix.java</url>
-          <line>12</line>
-          <option name="timeStamp" value="250" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/TwoDArrays/SearchSortedMatrix.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="252" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/TwoDArrays/SearchSortedMatrix.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="253" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/Queue/ReversingElementsOfQueue.java</url>
-          <line>10</line>
-          <option name="timeStamp" value="259" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/Queue/ReversingElementsOfQueue.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="260" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Recursion/KthSymbol.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="267" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/MaximumSubarrayEasy.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/FIXED_SIZE_WINDOW_PATTERN/IsPermutaionContainOrNot.java</url>
           <line>19</line>
-          <option name="timeStamp" value="268" />
+          <option name="timeStamp" value="552" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/MaximumSubarrayEasy.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/FIXED_SIZE_WINDOW_PATTERN/IsPermutaionContainOrNot.java</url>
           <line>15</line>
-          <option name="timeStamp" value="269" />
+          <option name="timeStamp" value="553" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/MaximumSubarrayEasy.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="270" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/MaximumSubarrayEasy.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="273" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/TEST/NearestMultiple.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="276" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/TEST/NearestMultiple.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="277" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/TEST/NearestMultiple.java</url>
-          <line>10</line>
-          <option name="timeStamp" value="278" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/TEST/NearestMultiple.java</url>
-          <line>5</line>
-          <option name="timeStamp" value="279" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/TEST/minMaxAvg.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="281" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/TEST/minMaxAvg.java</url>
-          <line>9</line>
-          <option name="timeStamp" value="282" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/TEST/minMaxAvg.java</url>
-          <line>12</line>
-          <option name="timeStamp" value="283" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/TEST/minMaxAvg.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="284" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/TEST/minMaxAvg.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="285" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/InsertIntoSortedPosition.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="286" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/InsertIntoSortedPosition.java</url>
-          <line>9</line>
-          <option name="timeStamp" value="287" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/InsertIntoSortedPosition.java</url>
-          <line>7</line>
-          <option name="timeStamp" value="288" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/SqrtOfANo.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="289" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/SqrtOfANo.java</url>
-          <line>5</line>
-          <option name="timeStamp" value="291" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/SqrtOfANo.java</url>
-          <line>12</line>
-          <option name="timeStamp" value="292" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/MinWindowSizeForASum.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="293" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/MinWindowSizeForASum.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="294" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/MinWindowSizeForASum.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/FIXED_SIZE_WINDOW_PATTERN/IsPermutaionContainOrNot.java</url>
           <line>25</line>
-          <option name="timeStamp" value="295" />
+          <option name="timeStamp" value="554" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/MinWindowSizeForASum.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="296" />
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/FIXED_SIZE_WINDOW_PATTERN/MaximumProductSubArrayWithSizeK.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="555" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/MinWindowSizeForASum.java</url>
-          <line>8</line>
-          <option name="timeStamp" value="297" />
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/VARIABLE_SIZE_WINDOW_PATTERN/KadansAlgorithmMaxSumWindowLengthh.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="557" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/MinWindowSizeForASum.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="298" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/MagicalNoBorCdivisibleNo.java</url>
-          <line>7</line>
-          <option name="timeStamp" value="300" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/MagicalNoBorCdivisibleNo.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="301" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/MagicalNoBorCdivisibleNo.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="304" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/MagicalNoBorCdivisibleNo.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="305" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/StacksAndQueue/sortingUsingTwoStacks.java</url>
-          <line>58</line>
-          <option name="timeStamp" value="313" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/StacksAndQueue/sortingUsingTwoStacks.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="314" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/StacksAndQueue/sortingUsingTwoStacks.java</url>
-          <line>8</line>
-          <option name="timeStamp" value="315" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/LongestSequenceSumEqualZero.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="316" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/LongestSequenceSumEqualZero.java</url>
-          <line>79</line>
-          <option name="timeStamp" value="317" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Graph/KruskalAlgorithm.java</url>
-          <line>131</line>
-          <option name="timeStamp" value="318" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/LanguageMODULE/Four.java</url>
-          <line>7</line>
-          <option name="timeStamp" value="319" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/LanguageMODULE/MCQs.java</url>
-          <line>12</line>
-          <option name="timeStamp" value="321" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/LanguageMODULE/MCQs.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/X_SLIDING_WINDOW_PATTERN/VARIABLE_SIZE_WINDOW_PATTERN/KadansAlgorithmMaxSumWindowLengthh.java</url>
           <line>25</line>
-          <option name="timeStamp" value="322" />
+          <option name="timeStamp" value="558" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/LanguageMODULE/Test.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/CountTheNoOfElementGreaterThanItSelf.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="559" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/Two_Sum.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="562" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_TRAVERSAL/Two_Sum.java</url>
           <line>18</line>
-          <option name="timeStamp" value="323" />
+          <option name="timeStamp" value="563" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/LanguageMODULE/Test.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="324" />
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/i_TRAVERSAL_BASIC_OPERATION/LinkedList.java</url>
+          <line>183</line>
+          <option name="timeStamp" value="566" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/LanguageMODULE/Test.java</url>
-          <line>5</line>
-          <option name="timeStamp" value="325" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/LanguageMODULE/Derived.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="328" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/LanguageMODULE/Derived.java</url>
-          <line>10</line>
-          <option name="timeStamp" value="329" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/LanguageMODULE/Interface.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="330" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/Array/PickFromBothEnd.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="332" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/Array/SubArray/AlternativeSubarray.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="336" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/LanguageMODULE/AssignmentWeek2/Day4/Byte.java</url>
-          <line>4</line>
-          <option name="timeStamp" value="337" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/Tree/BST/BST.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="339" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/Tree/BST/BST.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="340" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/Tree/BST/BST.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="341" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/Tree/BST/BST.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="342" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/Tree/BST/BST.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="343" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Stack/NearestSmallerElement.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="348" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Stack/NearestSmallerElement.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="350" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Stack/NearestSmallerElement.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="351" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Stack/NearestSmallerElement.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="352" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Programming_constructs/Stack/NearestSmallerElement.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/i_TRAVERSAL_BASIC_OPERATION/LinkedList.java</url>
           <line>45</line>
-          <option name="timeStamp" value="353" />
+          <option name="timeStamp" value="567" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/SlidingWindow.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="354" />
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/iii_RECURSIVE_PATTERN/RecursiveReverseLL.java</url>
+          <line>8</line>
+          <option name="timeStamp" value="568" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/GRAPH/CycleDetectWithDFS.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="355" />
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/II_LINKEDLIST/iii_RECURSIVE_PATTERN/RecursiveReverseLL.java</url>
+          <line>6</line>
+          <option name="timeStamp" value="569" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/GRAPH/CycleDetectWithDFS.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="356" />
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/MinimumNoOfPlatformsRequiredRailway.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="570" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/GRAPH/CycleDetectWithDFS.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="357" />
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/XI_GREEDYALGO/I_SORTING_GREEDY_SELECTION/JobSequenceProblem.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="571" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/GRAPH/CycleDetectWithDFS.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/I_ARRAY/I_MANIPULATION_PATTERNS/ArrayRotatedByKTimes.java</url>
           <line>15</line>
-          <option name="timeStamp" value="358" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/GRAPH/CycleDetectWithDFS.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="359" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/GRAPH/CycleDetectWithDFS.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="360" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/GRAPH/CycleDetectWithDFS.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="362" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/GRAPH/CycleDetectWithDFS.java</url>
-          <line>59</line>
-          <option name="timeStamp" value="364" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/GRAPH/CycleDetectWithDFS.java</url>
-          <line>58</line>
-          <option name="timeStamp" value="365" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/GRAPH/CycleDetectWithDFS.java</url>
-          <line>71</line>
-          <option name="timeStamp" value="367" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/GRAPH/CycleDetectWithDFS.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="368" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/GRAPH/CycleDetectWithDFS.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="369" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/GRAPH/FF.java</url>
-          <line>95</line>
-          <option name="timeStamp" value="370" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/GRAPH/FF.java</url>
-          <line>80</line>
-          <option name="timeStamp" value="371" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/GRAPH/FF.java</url>
-          <line>70</line>
-          <option name="timeStamp" value="372" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/GRAPH/FF.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="373" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/GRAPH/FF.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="374" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/GRAPH/FF.java</url>
-          <line>83</line>
-          <option name="timeStamp" value="375" />
-        </line-breakpoint>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.StringIndexOutOfBoundsException" package="java.lang" />
-          <option name="timeStamp" value="64" />
-        </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.NullPointerException" package="java.lang" />
-          <option name="timeStamp" value="200" />
-        </breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/LanguageMODULE/Derived.java</url>
-          <line>9</line>
-          <properties class="LanguageMODULE.Derived" method="main">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="327" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/Tree/BST/BST.java</url>
-          <line>20</line>
-          <properties class="StandardProblemDSA.Tree.BST.BST">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="338" />
+          <option name="timeStamp" value="572" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Programming_constructs.Tree.TreeNode" memberName="left" />
+        <PinnedItemInfo parentTag="StandardProblemDSA.XVI_TRIE.TrieNode" memberName="links" />
       </pinned-members>
     </pin-to-top-manager>
     <watches-manager>
-      <configuration name="Application">
-        <watch expression="sum" />
-        <watch expression="(k-arr[i]" />
-        <watch expression="arr[size-1]" />
-        <watch expression="A.charAt(i) == '0'" />
-        <watch expression="result" />
-        <watch expression="A[i]" />
-        <watch expression="A.right" />
-        <watch expression="mid" />
-        <watch expression="r.size()" />
-      </configuration>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/UniqueElementINEachSubArrrayOfSizeB.java" line="41">
-        <watch expression="result" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/UniqueElementINEachSubArrrayOfSizeB.java" line="44">
-        <watch expression="startWindow" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/UniqueElementINEachSubArrrayOfSizeB.java" line="35">
-        <watch expression="endWindow" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/UniqueElementINEachSubArrrayOfSizeB.java" line="36">
-        <watch expression="uniqueKey" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/UniqueElementINEachSubArrrayOfSizeB.java" line="36">
-        <watch expression="A.get(endWindow)" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/ArrayOfEvenOdd.java" line="85">
-        <watch expression="sc.nextInt()" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java" line="40">
-        <watch expression=" mapB.get(A[i])" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java" line="40">
-        <watch expression="mapA.get(A[i])" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java" line="49">
-        <watch expression=" mapB.get(A[i])" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java" line="39">
-        <watch expression="A[i]" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java" line="39">
-        <watch expression="mapB" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/commonElementofTwoArray.java" line="22">
-        <watch expression="mapA" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/TEST/NearestMultiple.java" line="11">
-        <watch expression="temp.val" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/TEST/NearestMultiple.java" line="12">
-        <watch expression="temp.val" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/TEST/NearestMultiple.java" line="11">
-        <watch expression="B*i" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/TEST/NearestMultiple.java" line="12">
-        <watch expression="temp" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/MathsModularArithmetic/ExcelColumnNumber.java" line="31">
-        <watch expression="asciiValue[j]" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/MathsModularArithmetic/ExcelColumnNumber.java" line="32">
-        <watch expression="sum" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/MathsModularArithmetic/ExcelColumnNumber.java" line="31">
-        <watch expression="(int)A.charAt(i)" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/MathsModularArithmetic/ExcelColumnNumber.java" line="31">
-        <watch expression="A.charAt(i)" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/StringPlay.java" line="6">
-        <watch expression="A" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_prefix_sum/RangeQuerySum.java" line="18">
-        <watch expression="[b.length" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_prefix_sum/RangeQuerySum.java" line="18">
-        <watch expression="result" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/InsertIntoSortedPosition.java" line="24">
-        <watch expression="left" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/InsertIntoSortedPosition.java" line="23">
-        <watch expression="mid+1" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/InsertIntoSortedPosition.java" line="18">
-        <watch expression="A[mid]" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/Array/SubArray/AlternativeSubarray.java" line="18">
-        <watch expression="k" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/Array/SubArray/AlternativeSubarray.java" line="33">
-        <watch expression="result" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/Array/SubArray/AlternativeSubarray.java" line="16">
-        <watch expression="j" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/LongestConsecutiveOnesWithSwapping.java" line="55">
-        <watch expression="A.charAt(i)" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/LongestConsecutiveOnesWithSwapping.java" line="55">
-        <watch expression="A.charAt(i)" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/LongestConsecutiveOnesWithSwapping.java" line="55">
-        <watch expression="A.charAt(i)/48" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/LongestConsecutiveOnesWithSwapping.java" line="58">
-        <watch expression="left[i]" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/TEST/minMaxAvg.java" line="9">
-        <watch expression="size" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/TEST/minMaxAvg.java" line="13">
-        <watch expression="A" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/TEST/minMaxAvg.java" line="15">
-        <watch expression="min" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/LinkedList/PreOrderWithOutRecursion.java" line="23">
-        <watch expression="s" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/LinkedList/PreOrderWithOutRecursion.java" line="26">
-        <watch expression="preOrder" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/LinkedList/PreOrderWithOutRecursion.java" line="26">
-        <watch expression="(temp.val" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/LinkedList/PreOrderWithOutRecursion.java" line="36">
-        <watch expression="preOrder" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_prefix_sum/EquilibriumIndex.java" line="78">
-        <watch expression="arr[size-1]" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_prefix_sum/EquilibriumIndex.java" line="78">
-        <watch expression="arr[j]" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/Sum2.java" line="0">
-        <watch expression="target - numbers[i]" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/Sum2.java" line="0">
-        <watch expression="target - numbers[i]" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing2/Sum2.java" line="0">
-        <watch expression="minIndex" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/LanguageMODULE/AssignmentWeek2/Day4/MultipleTimeArrayRotations.java" line="57">
-        <watch expression="j" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/LanguageMODULE/AssignmentWeek2/Day4/MultipleTimeArrayRotations.java" line="59">
-        <watch expression="temp[j]" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/LanguageMODULE/AssignmentWeek2/Day4/MultipleTimeArrayRotations.java" line="59">
-        <watch expression="result" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/LanguageMODULE/AssignmentWeek2/Day4/MultipleTimeArrayRotations.java" line="59">
-        <watch expression="result[i][j]" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/LanguageMODULE/AssignmentWeek2/Day4/MultipleTimeArrayRotations.java" line="54">
-        <watch expression="i" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/TwoDArrays/SearchSortedMatrix.java" line="6">
-        <watch expression="A.length" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Recursion/KthSymbol.java" line="21">
-        <watch expression=" s.charAt(i)" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/SumOfAllSubarray.java" line="11">
-        <watch expression=" sum" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/SumOfAllSubarray.java" line="15">
-        <watch expression="result" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Introduction_to_array/GoodPair_givenSumFindPairFromArray.java" line="12">
-        <watch expression="B - A[i] " />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/MaximumSubarrayEasy.java" line="16">
-        <watch expression="end" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/MaximumSubarrayEasy.java" line="19">
-        <watch expression="start" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays_subarray3/MaximumSubarrayEasy.java" line="29">
-        <watch expression=" maxSubarray(5, 12,a);" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/SqrtOfANo.java" line="16">
-        <watch expression="right" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/SqrtOfANo.java" line="12">
-        <watch expression="mid" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/SqrtOfANo.java" line="16">
-        <watch expression="left" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/largestWindowForSumK.java" line="33">
-        <watch expression="end" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/largestWindowForSumK.java" line="29">
-        <watch expression="start" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/largestWindowForSumK.java" line="27">
-        <watch expression="a.get(start)" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/largestWindowForSumK.java" line="27">
-        <watch expression="sum" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/reverseString.java" line="37">
-        <watch expression="stringToCharArray" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/reverseString.java" line="40">
-        <watch expression="temp" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/reverseString.java" line="39">
-        <watch expression="temp+1" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/reverseString.java" line="39">
-        <watch expression="k-1" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/String/reverseString.java" line="38">
-        <watch expression="stringToCharArray[i]" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/rainWaterTrap.java" line="15">
-        <watch expression="A.get(A.size()-1)" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/AdvancedDSA/Arrays/one/rainWaterTrap.java" line="15">
-        <watch expression="A.size()-1" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays2D14/Rotate90DegreeMatrix.java" line="33">
-        <watch expression="A[i][k]" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Arrays2D14/Rotate90DegreeMatrix.java" line="32">
-        <watch expression="A[i][j]" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/NoOfGoodDays.java" line="24">
-        <watch expression="(1&lt;&lt;i)" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/NoOfGoodDays.java" line="24">
-        <watch expression="(A&amp;(1&lt;&lt;i)) == 1" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/NoOfGoodDays.java" line="24">
-        <watch expression="(A&amp;(1&lt;&lt;i)" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BinarySearch/MagicalNoBorCdivisibleNo.java" line="14">
-        <watch expression="r.size()" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/ThreeColorSorting.java" line="4">
-        <watch expression="count" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/ThreeColorSorting.java" line="8">
-        <watch expression="A[i]" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Tree/TreeNode.java" line="61">
-        <watch expression="s.push(A)" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Tree/TreeNode.java" line="61">
-        <watch expression="s" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Tree/TreeNode.java" line="81">
-        <watch expression="preOrder" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/LongestSequenceSumEqualZero.java" line="32">
-        <watch expression="hm" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/LongestSequenceSumEqualZero.java" line="24">
-        <watch expression="ps" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/LongestSequenceSumEqualZero.java" line="34">
-        <watch expression="firstindex" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/LongestSequenceSumEqualZero.java" line="38">
-        <watch expression="start" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/LongestSequenceSumEqualZero.java" line="30">
-        <watch expression="A" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Hasing1/LongestSequenceSumEqualZero.java" line="39">
-        <watch expression="ans" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/NobelInteger.java" line="10">
-        <watch expression="i" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/NobelInteger.java" line="11">
-        <watch expression="A[i]" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/NobelInteger.java" line="19">
-        <watch expression="n-1-i " />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/Sorting/NobelInteger.java" line="11">
-        <watch expression="A[i+1]" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/BinaryString.java" line="22">
-        <watch expression="A.charAt(a - i)" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/BinaryString.java" line="23">
-        <watch expression="B.charAt(b - i)" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/BinaryString.java" line="22">
-        <watch expression="c1" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/BinaryString.java" line="23">
-        <watch expression="b - i" />
-      </inline-watch>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/Programming_constructs/BitManupulation/BinaryString.java" line="22">
-        <watch expression="a - i" />
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/V_STRING_PATTERN/LONGEST_LARGEST_SUBSTRING_PATTERN/LongestCommonSubsequence.java" line="33">
+        <watch expression="s2.charAt(j)" />
+      </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/StandardProblemDSA/XV_DYNAMMIC_PROGRAM/V_STRING_PATTERN/LONGEST_LARGEST_SUBSTRING_PATTERN/LongestCommonSubsequence.java" line="33">
+        <watch expression="s1.charAt(i)" />
       </inline-watch>
     </watches-manager>
   </component>
-  <component name="XPathView.XPathProjectComponent">
-    <history />
-    <find-history />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
-  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Scalar$MultipleTimeArrayRotations.ic" NAME="MultipleTimeArrayRotations Coverage Results" MODIFIED="1659029126572" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Introduction_to_Arrays.Arrays_subarray3.AssignmentWeek2.Day4.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/Scalar$MaximumSubarrayEasy.ic" NAME="MaximumSubarrayEasy Coverage Results" MODIFIED="1674662278077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Programming_constructs.Arrays_subarray3.*</FILTER>
+    <SUITE FILE_PATH="coverage/Scalar$Trie.ic" NAME="Trie Coverage Results" MODIFIED="1744696404725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>StandardProblemDSA.XVI_TRIE.*</FILTER>
     </SUITE>
   </component>
 </project>

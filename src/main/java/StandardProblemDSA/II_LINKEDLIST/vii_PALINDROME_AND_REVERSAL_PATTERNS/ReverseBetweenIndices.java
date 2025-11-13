@@ -1,0 +1,103 @@
+package StandardProblemDSA.II_LINKEDLIST.vii_PALINDROME_AND_REVERSAL_PATTERNS;
+
+import static StandardProblemDSA.II_LINKEDLIST.Utility_linkedList.printList;
+
+import StandardProblemDSA.II_LINKEDLIST.ListNode;
+
+public class ReverseBetweenIndices {
+
+  // ---------------------------------------------------
+  // 2. Reverse Linked List Between Two Indices
+  // ---------------------------------------------------
+  /*
+        Problem Statement:
+           Given the head of a linked list and two integers m and n (1-indexed),
+           reverse the nodes from position m to n.
+
+        Brute Force Idea:
+           - Convert the list to an array, reverse the portion between m and n, and rebuild the list.
+
+        Optimal Approach:
+           - Traverse the list to the (m-1)th node, reverse the next (n-m+1) nodes, then reconnect the reversed sublist back.
+           - Time Complexity: O(n)
+
+        Example:
+           Input: 1 -> 2 -> 3 -> 4 -> 5, m = 2, n = 4 // 1 index based
+    | Variable                          | Value                     |
+    | --------------------------------- | ------------------------- |
+    | `dummy`                           | 0 → 1 → 2 → 3 → 4 → 5     |
+    | `prev`                            | points to dummy (value 0) |
+    | Move `prev` to position `m-1 = 1` | Now points to node `1`    |
+
+    | Iteration | `current` | `next` | Action Taken                                    | List Structure After Step |
+    | --------- | --------- | ------ | ----------------------------------------------- | ------------------------- |
+    | Init      | 2         | 3      |                                                 | `0 → 1 → 2 → 3 → 4 → 5`   |
+    | i = 2     | 2         | 3      | Insert 2 after `prev (1)` again (no change yet) | `0 → 1 → 2 → 3 → 4 → 5`   |
+    | i = 3     | 3         | 4      | Move 3 after `prev (1)`                         | `0 → 1 → 3 → 2 → 4 → 5`   |
+    | i = 4     | 4         | 5      | Move 4 after `prev (1)`                         | `0 → 1 → 4 → 3 → 2 → 5`   |
+
+           Output: 1 -> 4 -> 3 -> 2 -> 5
+           Time Complexity: O(n)
+  Space Complexity: O(1)
+
+  LeetCode Reference: **LeetCode 92** — Reverse Linked List II
+      */
+  public static ListNode reverseBetween(ListNode head, int m, int n) {
+    if (head == null || m == n) return head;
+
+    // Step 1: Create a dummy ListNode to handle edge cases (e.g., m = 1).
+    ListNode dummy = new ListNode(0);
+    dummy.next = head;
+    ListNode prev = dummy;
+
+    // Step 2; Move prev to the ListNode just before reversal start (position m-1).
+    for (int i = 1; i < m; i++) {
+      prev = prev.next;
+    }
+
+    // Step 3: Reverse sublist from m to n.
+    ListNode reverseStart = prev.next;
+    // apply same reverse method in between m, to n reange
+    ListNode current = reverseStart;
+    ListNode next = null;
+    for (int i = m; i <= n; i++) {
+      next = current.next; // next node will be the current next link
+      current.next =
+          prev.next; // now current next link will be pointing to previous next link (as here
+      // preious node is n
+      // not start from null that is why it is already have some next
+      prev.next = current; // now previous next will point to current for interchange link
+      current = next; //  now next address will assign to current node
+    }
+
+    // Step 4: Connect the end of reversed part to the remainder of the list.
+    reverseStart.next = current;
+    return dummy.next;
+  }
+
+  public static void main(String[] args) {
+    // Build a sample linked list: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9
+    ListNode head = new ListNode(1);
+    ListNode current = head;
+    for (int i = 2; i <= 5; i++) {
+      current.next = new ListNode(i);
+      current = current.next;
+    }
+    // 2. Reverse Linked List Between Two Indices (m = 2, n = 6)
+    // Rebuild list for clarity.
+    head = new ListNode(1);
+    current = head;
+    for (int i = 2; i <= 5; i++) {
+      current.next = new ListNode(i);
+      current = current.next;
+    }
+    System.out.println("Original List:");
+
+    printList(head);
+    ListNode reversedBetween = reverseBetween(head, 2, 4);
+    System.out.println("After Reversing Between Positions 2 and 6:");
+    printList(reversedBetween);
+    // Expected Output: 1 -> 6 -> 5 -> 4 -> 3 -> 2 -> 7 -> 8 -> 9
+
+  }
+}

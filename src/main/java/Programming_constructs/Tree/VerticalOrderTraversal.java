@@ -1,12 +1,12 @@
-///*
-//package Programming_constructs.Tree;
+/// *
+// package Programming_constructs.Tree;
 //
-//import java.util.ArrayList;
-//import java.util.HashMap;
-//import java.util.LinkedList;
-//import java.util.Queue;
+// import java.util.ArrayList;
+// import java.util.HashMap;
+// import java.util.LinkedList;
+// import java.util.Queue;
 //
-//class TreeNodes{
+// class TreeNodes{
 //    int val;
 //    TreeNodes left;
 //     TreeNodes right;
@@ -17,8 +17,8 @@
 //        left = right = null;
 //    }
 //
-//}
-//public class VerticalOrderTraversal {
+// }
+// public class VerticalOrderTraversal {
 //    // create a tree haveing its node
 //
 //
@@ -118,4 +118,4 @@
 //    }
 //
 //
-//*/
+// */

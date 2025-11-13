@@ -1,0 +1,3 @@
+package StandardProblemDSA.I_ARRAY.X_SLIDING_WINDOW_PATTERN.VARIABLE_SIZE_WINDOW_PATTERN;
+
+public class PartitionKSubArrayWithEqualSum {}

@@ -2,54 +2,44 @@ package LanguageMODULE;
 
 class Student {
 
-    String name;
+  String name;
 
-    int rollNo;
+  int rollNo;
 
+  // Constructor 1
 
-    // Constructor 1
+  Student(int num) {
 
-    Student(int num) {
+    rollNo = num;
 
-        rollNo = num;
+    name = "abc";
+  }
 
-        name = "abc";
+  // Constructor 2
 
-    }
+  Student(int num, String str) {
 
+    rollNo = num;
 
-    // Constructor 2
+    name = str;
+  }
 
-    Student(int num, String str) {
+  public void print() {
 
-        rollNo = num;
-
-        name = str;
-
-    }
-
-
-    public void print() {
-
-        System.out.print(name + " " + rollNo + " ");
-
-    }
-
+    System.out.print(name + " " + rollNo + " ");
+  }
 }
-
 
 public class StudentUse {
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
-        Student s1 = new Student(101);
+    Student s1 = new Student(101);
 
-        s1.print();
+    s1.print();
 
-        Student s2 = new Student(150, "xyz");
+    Student s2 = new Student(150, "xyz");
 
-        s2.print();
-
-    }
-
+    s2.print();
+  }
 }

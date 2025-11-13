@@ -1,0 +1,76 @@
+package StandardProblemDSA.I_ARRAY.III_SORTING_PATTERN.SEMI_SORTED_ARRAY.SORT_REARRANGE_PATTERN;
+
+import java.util.Arrays;
+
+public class InsertionSort {
+  /*
+  Question:
+  Implement the Insertion Sort algorithm. Given an array of integers, sort it in ascending order
+  using the insertion sort technique.
+
+  Approach:
+  - Iterate through the array starting from the second element (index 1).
+  - For each element, store it in a temporary variable `key`.
+  - Compare `key` with all elements before it (arr[0...i-1]).
+  - Shift all elements that are greater than `key` one position to the right.
+  - Insert `key` at its correct position.
+  - Repeat for all elements until the array is sorted.
+
+  Pattern:
+  - Sorting Pattern: Semi-sorted arrays benefit the most (efficient when the array is already
+    nearly sorted).
+  - Comparison-based sorting.
+  - Works by building the sorted portion of the array one element at a time.
+
+  Time Complexity:
+  - Best Case (Already Sorted): O(n)
+  - Average & Worst Case: O(n²)
+  - Space Complexity: O(1) (in-place sort)
+  - Stable Sort: Yes (preserves order of equal elements)
+
+  Follow-up Questions:
+  1. When should we prefer insertion sort over other algorithms?
+  2. Can we optimize it using binary search to find the insertion point?
+  3. How does it perform compared to bubble sort or selection sort on small datasets?
+  4. Can we make it recursive?
+  5. What changes if we need to sort in descending order?
+
+  Similar LeetCode Questions:
+  - LeetCode 912. Sort an Array DONE
+  - LeetCode 147. Insertion Sort List
+  - LeetCode 242. Valid Anagram (uses sorting internally)
+  */
+
+  /*In this implementation, we start by iterating through the array starting from the second
+       element (i.e., index 1). For each element, we store it in a temporary variable key and then
+        iterate backwards from the current element to the start of the array. During this backwards
+        iteration, we move any elements that are greater than key one position to the right to make room for key.
+  Once we've found the correct position for key, we insert it into the array. We repeat this
+  process for each element in the array until the entire array is sorted in ascending order.
+  */
+
+  public static void insertionSort(int[] arr) {
+    int n = arr.length;
+    for (int i = 1; i < n; ++i) { // start from the second element
+      int key = arr[i]; // store the current element
+      int j = i - 1; // j is start from the previous element of current elemet
+
+      // Move elements of arr[0..i-1], that are greater than key, to one position ahead
+      // of their current position
+      while (j >= 0
+          && arr[j]
+              > key) { // j will continue till if found any element less than it and not oout of
+        // boundary
+        arr[j + 1] = arr[j]; // just moving previous element one step ahead from its current element
+        j = j - 1; // decreasing the jth value
+      }
+      arr[j + 1] = key; // at last we just place the value its correct positon
+    }
+  }
+
+  public static void main(String[] args) {
+    int[] arr = {5, 2, 7, 3, 1, 6};
+    insertionSort(arr);
+    System.out.println(Arrays.toString(arr)); // Output: [1, 2, 3, 5, 6, 7]
+  }
+}
